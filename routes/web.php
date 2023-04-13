@@ -1,12 +1,15 @@
 <?php
 
+use App\Http\Controllers\admin\AddressC;
 use App\Http\Controllers\admin\AdminDashboard;
 use App\Http\Controllers\admin\AdminLogin;
+use App\Http\Controllers\admin\AuthorC;
 use App\Http\Controllers\admin\BlogC;
 use App\Http\Controllers\admin\BlogCategoryC;
 use App\Http\Controllers\admin\CourseCategoryC;
 use App\Http\Controllers\admin\CourseModeC;
 use App\Http\Controllers\admin\CourseSpecializationC;
+use App\Http\Controllers\admin\DefaultSeoC;
 use App\Http\Controllers\admin\DestinationC;
 use App\Http\Controllers\admin\DestinationContentC;
 use App\Http\Controllers\admin\DestinationGalleryC;
@@ -14,11 +17,15 @@ use App\Http\Controllers\admin\DestinationPageFaqC;
 use App\Http\Controllers\admin\DestinationTabC;
 use App\Http\Controllers\admin\ExamC;
 use App\Http\Controllers\admin\ExamContentC;
+use App\Http\Controllers\admin\ExamPageC;
+use App\Http\Controllers\admin\ExamPageContentC;
+use App\Http\Controllers\admin\ExamPageFaqC;
 use App\Http\Controllers\admin\InstituteTypeC;
 use App\Http\Controllers\admin\LevelC;
 use App\Http\Controllers\admin\NewsC;
 use App\Http\Controllers\admin\NewsCategoryC;
 use App\Http\Controllers\admin\ProgramC;
+use App\Http\Controllers\admin\SeoC;
 use App\Http\Controllers\admin\ServiceC;
 use App\Http\Controllers\admin\ServiceContentC;
 use App\Http\Controllers\admin\StudyModeC;
@@ -39,7 +46,9 @@ use App\Http\Controllers\front\ServiceFc;
 use App\Http\Controllers\front\UniversityCourseListFc;
 use App\Http\Controllers\front\UniversityFc;
 use App\Http\Controllers\student\StudentLoginFc;
+use App\Models\Address;
 use App\Models\Exam;
+use App\Models\ExamPageContent;
 use App\Models\Service;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
@@ -309,12 +318,26 @@ Route::middleware(['adminLoggedIn'])->group(function () {
       Route::get('/update/{id}', [ExamC::class, 'index']);
       Route::post('/update/{id}', [ExamC::class, 'update']);
     });
-    Route::prefix('/exam-content')->group(function () {
-      Route::get('/{exam_id}', [ExamContentC::class, 'index']);
-      Route::post('/{exam_id}/store', [ExamContentC::class, 'store']);
-      Route::get('/delete/{id}', [ExamContentC::class, 'delete']);
-      Route::get('/{exam_id}/update/{id}', [ExamContentC::class, 'index']);
-      Route::post('/{exam_id}/update/{id}', [ExamContentC::class, 'update']);
+    Route::prefix('/exam-pages')->group(function () {
+      Route::get('/{exam_id}', [ExamPageC::class, 'index']);
+      Route::post('/store', [ExamPageC::class, 'store']);
+      Route::get('/delete/{id}', [ExamPageC::class, 'delete']);
+      Route::get('/{exam_id}/update/{id}', [ExamPageC::class, 'index']);
+      Route::post('/update/{id}', [ExamPageC::class, 'update']);
+    });
+    Route::prefix('/exam-page-contents')->group(function () {
+      Route::get('/{page_id}', [ExamPageContentC::class, 'index']);
+      Route::post('/store', [ExamPageContentC::class, 'store']);
+      Route::get('/delete/{id}', [ExamPageContentC::class, 'delete']);
+      Route::get('/{page_id}/update/{id}', [ExamPageContentC::class, 'index']);
+      Route::post('/update/{id}', [ExamPageContentC::class, 'update']);
+    });
+    Route::prefix('/exam-page-faqs')->group(function () {
+      Route::get('/{page_id}', [ExamPageFaqC::class, 'index']);
+      Route::post('/store', [ExamPageFaqC::class, 'store']);
+      Route::get('/delete/{id}', [ExamPageFaqC::class, 'delete']);
+      Route::get('/{page_id}/update/{id}', [ExamPageFaqC::class, 'index']);
+      Route::post('/update/{id}', [ExamPageFaqC::class, 'update']);
     });
 
     Route::prefix('/news-category')->group(function () {
@@ -337,6 +360,35 @@ Route::middleware(['adminLoggedIn'])->group(function () {
       Route::get('/delete/{id}', [TestimonialC::class, 'delete']);
       Route::get('/update/{id}', [TestimonialC::class, 'index']);
       Route::post('/update/{id}', [TestimonialC::class, 'update']);
+    });
+    Route::prefix('/authors')->group(function () {
+      Route::get('', [AuthorC::class, 'index']);
+      Route::post('/store', [AuthorC::class, 'store']);
+      Route::get('/delete/{id}', [AuthorC::class, 'delete']);
+      Route::get('/update/{id}', [AuthorC::class, 'index']);
+      Route::post('/update/{id}', [AuthorC::class, 'update']);
+    });
+    Route::prefix('/seos')->group(function () {
+      Route::get('', [SeoC::class, 'index']);
+      Route::post('/store', [SeoC::class, 'store']);
+      Route::get('/delete/{id}', [SeoC::class, 'delete']);
+      Route::get('/update/{id}', [SeoC::class, 'index']);
+      Route::post('/update/{id}', [SeoC::class, 'update']);
+    });
+    Route::prefix('/default-seos')->group(function () {
+      Route::get('', [DefaultSeoC::class, 'index']);
+      Route::get('add', [DefaultSeoC::class, 'index']);
+      Route::post('/store', [DefaultSeoC::class, 'store']);
+      Route::get('/delete/{id}', [DefaultSeoC::class, 'delete']);
+      Route::get('/update/{id}', [DefaultSeoC::class, 'index']);
+      Route::post('/update/{id}', [DefaultSeoC::class, 'update']);
+    });
+    Route::prefix('/addresses')->group(function () {
+      Route::get('', [AddressC::class, 'index']);
+      Route::post('/store', [AddressC::class, 'store']);
+      Route::get('/delete/{id}', [AddressC::class, 'delete']);
+      Route::get('/update/{id}', [AddressC::class, 'index']);
+      Route::post('/update/{id}', [AddressC::class, 'update']);
     });
 
     Route::prefix('/users')->group(function () {

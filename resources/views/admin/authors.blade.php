@@ -47,13 +47,28 @@
                   <x-InputField type="text" label="Enter Name" name="name" id="name" :ft="$ft" :sd="$sd"></x-InputField>
                 </div>
                 <div class="col-md-4 col-sm-12 mb-3">
-                  <x-InputField type="file" label="Thumbnail" name="thumbnail" id="thumbnail" :ft="$ft" :sd="$sd"></x-InputField>
+                  <x-InputField type="text" label="Enter URL" name="slug" id="slug" :ft="$ft" :sd="$sd"></x-InputField>
                 </div>
                 <div class="col-md-4 col-sm-12 mb-3">
-                  <x-SelectField label="Country" name="country" id="country" savev="name" showv="name" :list="$countries" :ft="$ft" :sd="$sd"></x-SelectField>
+                  <x-InputField type="text" label="Enter Mobile" name="mobile" id="mobile" :ft="$ft" :sd="$sd"></x-InputField>
+                </div>
+                <div class="col-md-4 col-sm-12 mb-3">
+                  <x-InputField type="text" label="Enter Email" name="email" id="email" :ft="$ft" :sd="$sd"></x-InputField>
+                </div>
+                <div class="col-md-4 col-sm-12 mb-3">
+                  <x-InputField type="file" label="Thumbnail" name="thumbnail" id="thumbnail" :ft="$ft" :sd="$sd"></x-InputField>
                 </div>
                 <div class="col-md-12 col-sm-12 mb-3">
-                  <x-TextareaField label="Review" name="review" id="review" :ft="$ft" :sd="$sd"></x-TextareaField>
+                  <x-TextareaField label="Shortnote" name="shortnote" id="shortnote" :ft="$ft" :sd="$sd"></x-TextareaField>
+                </div>
+                <div class="col-md-12 col-sm-12 mb-3">
+                  <x-TextareaField label="highlights" name="highlights" id="highlights" :ft="$ft" :sd="$sd"></x-TextareaField>
+                </div>
+                <div class="col-md-12 col-sm-12 mb-3">
+                  <x-TextareaField label="experiance" name="experiance" id="experiance" :ft="$ft" :sd="$sd"></x-TextareaField>
+                </div>
+                <div class="col-md-12 col-sm-12 mb-3">
+                  <x-TextareaField label="education" name="education" id="education" :ft="$ft" :sd="$sd"></x-TextareaField>
                 </div>
               </div>
               @if ($ft == 'add')
@@ -78,9 +93,8 @@
                 <tr>
                   <th>S.No.</th>
                   <th>Name</th>
-                  <th>Country</th>
                   <th>Pic</th>
-                  <th>Review</th>
+                  <th>Details</th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -91,17 +105,20 @@
                 @foreach ($rows as $row)
                 <tr id="row{{ $row->id }}">
                   <td>{{ $i }}</td>
-                  <td><?php echo $row->name; ?></td>
-                  <td><?php echo $row->country; ?></td>
                   <td>
-                    @if ($row->image != null)
-                    <img src="{{ asset($row->image) }}" alt="" height="80" width="80">
+                    <span><?php echo $row->name; ?></span><br>
+                    <span><?php echo $row->email; ?></span><br>
+                    <span><?php echo $row->mobile; ?></span>
+                  </td>
+                  <td>
+                    @if ($row->profile_pic_path != null)
+                    <img src="{{ asset($row->profile_pic_path) }}" alt="" height="80" width="80">
                     @else
                     N/A
                     @endif
                   </td>
                   <td>
-                    @if ($row->review != null)
+                    @if ($row->shortnote != null)
                     <button type="button" class="btn btn-xs btn-outline-info waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#SModalScrollable{{ $row->id }}">View</button>
                     <div class="modal fade" id="SModalScrollable{{ $row->id }}" tabindex="-1" role="dialog"
                       aria-labelledby="SModalScrollableTitle{{ $row->id }}" aria-hidden="true">
@@ -111,7 +128,18 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
                           <div class="modal-body">
-                            {!! $row->review !!}
+                            <h4>Shortnote</h4>
+                            <?php echo $row->shortnote; ?>
+                            <hr>
+                            <h4>Highlights</h4>
+                            <?php echo $row->highlights; ?>
+                            <hr>
+                            <h4>Education</h4>
+                            <?php echo $row->education; ?>
+                            <hr>
+                            <h4>Experiance</h4>
+                            <?php echo $row->experiance; ?>
+                            <hr>
                           </div>
                           <div class="modal-footer">
                             <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
@@ -147,6 +175,24 @@
   </div>
 </div>
 <script>
+  $(document).ready(function() {
+    $('#name').change(function() {
+      var val = $('#name').val();
+      if (val != '') {
+        $.ajax({
+          url: "{{ url('common/slugify/') }}",
+          method: "GET",
+          data: {
+            val: val,
+          },
+          success: function(data) {
+            $('#slug').val(data);
+          }
+        });
+      }
+    });
+  });
+
   function DeleteAjax(id) {
     //alert(id);
     var cd = confirm("Are you sure ?");
@@ -168,5 +214,8 @@
     }
   }
 
+  CKEDITOR.replace("highlights");
+  CKEDITOR.replace("experiance");
+  CKEDITOR.replace("education");
 </script>
 @endsection

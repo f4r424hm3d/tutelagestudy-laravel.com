@@ -8,7 +8,7 @@
     <div class="row">
       <div class="col-12">
         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-          <h4 class="mb-sm-0 font-size-18">{{ $page_title }}</h4>
+          <h4 class="mb-sm-0 font-size-18">{{ $page_title }} <span class="text-danger">({{ $exam->exam_name }} - {{ $exampage->page_name }})</span></h4>
 
           <div class="page-title-right">
             <ol class="breadcrumb m-0">
@@ -39,21 +39,16 @@
               </span>
             </h4>
           </div>
-          <div class="card-body  {{ $ft=='edit'?'':'hide-this' }}" id="tblCDiv">
+          <div class="card-body {{ $ft=='edit'?'':'hide-this' }}" id="tblCDiv">
             <form action="{{ $url }}" class="needs-validation" method="post" enctype="multipart/form-data" novalidate>
               @csrf
+              <input type="hidden" name="page_id" value="{{ $page_id }}">
               <div class="row">
-                <div class="col-md-4 col-sm-12 mb-3">
-                  <x-InputField type="text" label="Enter Name" name="name" id="name" :ft="$ft" :sd="$sd"></x-InputField>
-                </div>
-                <div class="col-md-4 col-sm-12 mb-3">
-                  <x-InputField type="file" label="Thumbnail" name="thumbnail" id="thumbnail" :ft="$ft" :sd="$sd"></x-InputField>
-                </div>
-                <div class="col-md-4 col-sm-12 mb-3">
-                  <x-SelectField label="Country" name="country" id="country" savev="name" showv="name" :list="$countries" :ft="$ft" :sd="$sd"></x-SelectField>
+                <div class="col-md-6 col-sm-12 mb-3">
+                  <x-InputField type="text" label="Title" name="title" id="title" :ft="$ft" :sd="$sd"></x-InputField>
                 </div>
                 <div class="col-md-12 col-sm-12 mb-3">
-                  <x-TextareaField label="Review" name="review" id="review" :ft="$ft" :sd="$sd"></x-TextareaField>
+                  <x-TextareaField label="Content" name="tab_content" id="tab_content" :ft="$ft" :sd="$sd"></x-TextareaField>
                 </div>
               </div>
               @if ($ft == 'add')
@@ -77,10 +72,9 @@
               <thead>
                 <tr>
                   <th>S.No.</th>
-                  <th>Name</th>
-                  <th>Country</th>
-                  <th>Pic</th>
-                  <th>Review</th>
+                  <th>Position</th>
+                  <th>Title</th>
+                  <th>Content</th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -91,27 +85,23 @@
                 @foreach ($rows as $row)
                 <tr id="row{{ $row->id }}">
                   <td>{{ $i }}</td>
-                  <td><?php echo $row->name; ?></td>
-                  <td><?php echo $row->country; ?></td>
+                  <td><input onchange="updatePriority('<?php echo $row->id; ?>',this.value)" style="width:60px!important;" type="number" value="<?php echo $row->priority; ?>" min="0"></td>
+                  <td><?php echo $row->title; ?></td>
                   <td>
-                    @if ($row->image != null)
-                    <img src="{{ asset($row->image) }}" alt="" height="80" width="80">
-                    @else
-                    N/A
-                    @endif
-                  </td>
-                  <td>
-                    @if ($row->review != null)
-                    <button type="button" class="btn btn-xs btn-outline-info waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#SModalScrollable{{ $row->id }}">View</button>
-                    <div class="modal fade" id="SModalScrollable{{ $row->id }}" tabindex="-1" role="dialog"
-                      aria-labelledby="SModalScrollableTitle{{ $row->id }}" aria-hidden="true">
+                    @if ($row->tab_content != null)
+                    <button type="button" class="btn btn-xs btn-outline-info waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#SeoModalScrollable{{ $row->id }}">View</button>
+                    <div class="modal fade" id="SeoModalScrollable{{ $row->id }}" tabindex="-1" role="dialog"
+                      aria-labelledby="SeoModalScrollableTitle{{ $row->id }}" aria-hidden="true">
                       <div class="modal-dialog modal-dialog-scrollable">
                         <div class="modal-content">
                           <div class="modal-header">
+                            <h5 class="modal-title" id="SeoModalScrollableTitle{{ $row->id }}">
+                              SEO
+                            </h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
                           <div class="modal-body">
-                            {!! $row->review !!}
+                            {!! $row->tab_content !!}
                           </div>
                           <div class="modal-footer">
                             <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
@@ -128,7 +118,7 @@
                       class="waves-effect waves-light btn btn-xs btn-outline btn-danger">
                       <i class="fa fa-trash" aria-hidden="true"></i>
                     </a>
-                    <a href="{{ url('admin/'.$page_route.'/update/' . $row->id) }}"
+                    <a href="{{ url('admin/'.$page_route.'/'.$page_id.'/update/' . $row->id) }}"
                       class="waves-effect waves-light btn btn-xs btn-outline btn-info">
                       <i class="fa fa-edit" aria-hidden="true"></i>
                     </a>
@@ -147,6 +137,25 @@
   </div>
 </div>
 <script>
+  function updatePriority(id, val) {
+    var tbl = 'exam_page_contents';
+    var col = 'priority';
+    //alert(id + ' , ' + val + ' , ' + tbl + ' , ' + col);
+    $.ajax({
+      url: "{{ url('common/update-field/') }}",
+      method: "GET",
+      data: {
+        id: id,
+        tbl: tbl,
+        col: col,
+        val: val
+      },
+      success: function(data) {
+        //alert(data);
+      }
+    });
+  }
+
   function DeleteAjax(id) {
     //alert(id);
     var cd = confirm("Are you sure ?");
@@ -167,6 +176,6 @@
       });
     }
   }
-
+  CKEDITOR.replace('tab_content');
 </script>
 @endsection

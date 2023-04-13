@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Country;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
 
@@ -10,6 +11,7 @@ class TestimonialC extends Controller
 {
   public function index($id = null)
   {
+    $countries = Country::all();
     $rows = Testimonial::get();
     if ($id != null) {
       $sd = Testimonial::find($id);
@@ -28,7 +30,7 @@ class TestimonialC extends Controller
     }
     $page_title = "Testimonials";
     $page_route = "testimonials";
-    $data = compact('rows', 'sd', 'ft', 'url', 'title', 'page_title', 'page_route');
+    $data = compact('rows', 'sd', 'ft', 'url', 'title', 'page_title', 'page_route','countries');
     return view('admin.testimonials')->with($data);
   }
   public function store(Request $request)
@@ -37,9 +39,10 @@ class TestimonialC extends Controller
     // die;
     $request->validate(
       [
-        'headline' => 'required|unique:testimonials,headline',
-        'thumbnail' => 'required|max:5000|mimes:jpg,jpeg,png,gif',
-        'description' => 'required',
+        'name' => 'required',
+        'thumbnail' => 'nullable|max:5000|mimes:jpg,jpeg,png,gif',
+        'review' => 'required',
+        'country' => 'required',
       ]
     );
     $field = new Testimonial;
@@ -49,23 +52,16 @@ class TestimonialC extends Controller
       $file_name_slug = slugify($fileNameWithoutExtention);
       $fileExtention = $request->file('thumbnail')->getClientOriginalExtension();
       $file_name = $file_name_slug . '_' . time() . '.' . $fileExtention;
-      $move = $request->file('thumbnail')->move('uploads/testimonials/', $file_name);
+      $move = $request->file('thumbnail')->move('uploads/testimonial/', $file_name);
       if ($move) {
-        $field->imgname = $file_name;
-        $field->imgpath = 'uploads/testimonials/' . $file_name;
+        $field->image = 'uploads/testimonial/' . $file_name;
       } else {
         session()->flash('emsg', 'Some problem occured. File not uploaded.');
       }
     }
-    $field->headline = $request['headline'];
-    $field->slug = slugify($request['headline']);
-    $field->description = $request['description'];
-    $field->meta_title = $request['meta_title'];
-    $field->meta_keyword = $request['meta_keyword'];
-    $field->meta_description = $request['meta_description'];
-    $field->page_content = $request['page_content'];
-    $field->status = 1;
-    //$field->seo_rating = $request['seo_rating'];
+    $field->name = $request['name'];
+    $field->country = $request['country'];
+    $field->review = $request['review'];
     $field->save();
     session()->flash('smsg', 'New record has been added successfully.');
     return redirect('admin/testimonials');
@@ -79,9 +75,10 @@ class TestimonialC extends Controller
   {
     $request->validate(
       [
-        'headline' => 'required|unique:testimonials,headline,'.$id,
+        'name' => 'required',
         'thumbnail' => 'nullable|max:5000|mimes:jpg,jpeg,png,gif',
-        'description' => 'required',
+        'review' => 'required',
+        'country' => 'required',
       ]
     );
     $field = Testimonial::find($id);
@@ -91,22 +88,16 @@ class TestimonialC extends Controller
       $file_name_slug = slugify($fileNameWithoutExtention);
       $fileExtention = $request->file('thumbnail')->getClientOriginalExtension();
       $file_name = $file_name_slug . '_' . time() . '.' . $fileExtention;
-      $move = $request->file('thumbnail')->move('uploads/testimonials/', $file_name);
+      $move = $request->file('thumbnail')->move('uploads/testimonial/', $file_name);
       if ($move) {
-        $field->imgname = $file_name;
-        $field->imgpath = 'uploads/testimonials/' . $file_name;
+        $field->image = 'uploads/testimonial/' . $file_name;
       } else {
         session()->flash('emsg', 'Some problem occured. File not uploaded.');
       }
     }
-    $field->headline = $request['headline'];
-    $field->slug = slugify($request['headline']);
-    $field->description = $request['description'];
-    $field->meta_title = $request['meta_title'];
-    $field->meta_keyword = $request['meta_keyword'];
-    $field->meta_description = $request['meta_description'];
-    $field->page_content = $request['page_content'];
-    //$field->seo_rating = $request['seo_rating'];
+    $field->name = $request['name'];
+    $field->country = $request['country'];
+    $field->review = $request['review'];
     $field->save();
     session()->flash('smsg', 'Record has been updated successfully.');
     return redirect('admin/testimonials');

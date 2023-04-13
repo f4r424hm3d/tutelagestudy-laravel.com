@@ -275,10 +275,50 @@
                 </a>
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle arrow-none" href="{{ aurl('services') }}" id="topnav-dashboard"
+                <a class="nav-link dropdown-toggle arrow-none" href="{{ aurl('Authors') }}" id="topnav-dashboard"
                   role="button">
-                  <i data-feather="home"></i><span data-key="t-dashboards">Services</span>
+                  <i data-feather="home"></i><span data-key="t-dashboards">Authors</span>
                 </a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-more" role="button">
+                  <i data-feather="file-text"></i>
+                  <span data-key="t-extra-pages">SEOS</span><div class="arrow-down"></div>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="topnav-more">
+                  <div class="dropdown">
+                    <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('seos') }}" id="topnav-auth"
+                      role="button">
+                      <span data-key="t-authentication">SEO</span>
+                    </a>
+                    <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('default-seos') }}" id="topnav-auth"
+                      role="button">
+                      <span data-key="t-authentication">Default Seo</span>
+                    </a>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-more" role="button">
+                  <i data-feather="file-text"></i>
+                  <span data-key="t-extra-pages">More</span><div class="arrow-down"></div>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="topnav-more">
+                  <div class="dropdown">
+                    <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('addresses') }}" id="topnav-auth"
+                      role="button">
+                      <span data-key="t-authentication">Addresses</span>
+                    </a>
+                    <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('services') }}" id="topnav-auth"
+                      role="button">
+                      <span data-key="t-authentication">Services</span>
+                    </a>
+                    <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('Testimonials') }}" id="topnav-auth"
+                      role="button">
+                      <span data-key="t-authentication">Testimonials</span>
+                    </a>
+                  </div>
+                </div>
               </li>
             </ul>
           </div>

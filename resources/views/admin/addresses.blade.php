@@ -43,17 +43,20 @@
             <form action="{{ $url }}" class="needs-validation" method="post" enctype="multipart/form-data" novalidate>
               @csrf
               <div class="row">
-                <div class="col-md-4 col-sm-12 mb-3">
-                  <x-InputField type="text" label="Enter Name" name="name" id="name" :ft="$ft" :sd="$sd"></x-InputField>
+                <div class="col-md-3 col-sm-12 mb-3">
+                  <x-SelectField label="Country" name="country" id="country" savev="nicename" showv="nicename" :list="$countries" :ft="$ft" :sd="$sd"></x-SelectField>
                 </div>
-                <div class="col-md-4 col-sm-12 mb-3">
-                  <x-InputField type="file" label="Thumbnail" name="thumbnail" id="thumbnail" :ft="$ft" :sd="$sd"></x-InputField>
+                <div class="col-md-3 col-sm-12 mb-3">
+                  <x-InputField type="text" label="Enter City" name="city" id="city" :ft="$ft" :sd="$sd"></x-InputField>
                 </div>
-                <div class="col-md-4 col-sm-12 mb-3">
-                  <x-SelectField label="Country" name="country" id="country" savev="name" showv="name" :list="$countries" :ft="$ft" :sd="$sd"></x-SelectField>
+                <div class="col-md-3 col-sm-12 mb-3">
+                  <x-InputField type="text" label="Enter Contact No" name="mobile" id="mobile" :ft="$ft" :sd="$sd"></x-InputField>
+                </div>
+                <div class="col-md-3 col-sm-12 mb-3">
+                  <x-InputField type="text" label="Enter Mail addrs" name="email" id="email" :ft="$ft" :sd="$sd"></x-InputField>
                 </div>
                 <div class="col-md-12 col-sm-12 mb-3">
-                  <x-TextareaField label="Review" name="review" id="review" :ft="$ft" :sd="$sd"></x-TextareaField>
+                  <x-TextareaField label="Enter Address" name="address" id="address" :ft="$ft" :sd="$sd"></x-TextareaField>
                 </div>
               </div>
               @if ($ft == 'add')
@@ -73,14 +76,15 @@
       <div class="col-12">
         <div class="card">
           <div class="card-body">
-            <table id="datatable" class="table table-bordered dt-responsive nowrap w-100">
+            <table id="datatable" class="table table-bordered dt-responsiv nowra w-100">
               <thead>
                 <tr>
                   <th>S.No.</th>
-                  <th>Name</th>
                   <th>Country</th>
-                  <th>Pic</th>
-                  <th>Review</th>
+                  <th>City</th>
+                  <th>Address</th>
+                  <th>Contact</th>
+                  <th>Email</th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -91,38 +95,11 @@
                 @foreach ($rows as $row)
                 <tr id="row{{ $row->id }}">
                   <td>{{ $i }}</td>
-                  <td><?php echo $row->name; ?></td>
                   <td><?php echo $row->country; ?></td>
-                  <td>
-                    @if ($row->image != null)
-                    <img src="{{ asset($row->image) }}" alt="" height="80" width="80">
-                    @else
-                    N/A
-                    @endif
-                  </td>
-                  <td>
-                    @if ($row->review != null)
-                    <button type="button" class="btn btn-xs btn-outline-info waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#SModalScrollable{{ $row->id }}">View</button>
-                    <div class="modal fade" id="SModalScrollable{{ $row->id }}" tabindex="-1" role="dialog"
-                      aria-labelledby="SModalScrollableTitle{{ $row->id }}" aria-hidden="true">
-                      <div class="modal-dialog modal-dialog-scrollable">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body">
-                            {!! $row->review !!}
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    @else
-                    Null
-                    @endif
-                  </td>
+                  <td><?php echo $row->city; ?></td>
+                  <td><?php echo $row->address; ?></td>
+                  <td><?php echo $row->mobile; ?></td>
+                  <td><?php echo $row->email; ?></td>
                   <td>
                     <a href="javascript:void()" onclick="DeleteAjax('{{ $row->id }}')"
                       class="waves-effect waves-light btn btn-xs btn-outline btn-danger">
@@ -167,6 +144,5 @@
       });
     }
   }
-
 </script>
 @endsection

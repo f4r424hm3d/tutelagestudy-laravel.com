@@ -48,16 +48,7 @@
                   <x-InputField type="text" label="Exam Name" name="exam_name" id="exam_name" :ft="$ft" :sd="$sd"></x-InputField>
                 </div>
                 <div class="col-md-4 col-sm-12 mb-3">
-                  <x-InputField type="file" label="Thumbnail" name="thumbnail" id="thumbnail" :ft="$ft" :sd="$sd"></x-InputField>
-                </div>
-                <div class="col-md-12 col-sm-12 mb-3">
-                  <x-InputField type="text" label="Enter Heading" name="title" id="title" :ft="$ft" :sd="$sd"></x-InputField>
-                </div>
-                <div class="col-md-12 col-sm-12 mb-3">
-                  <x-TextareaField label="Shortnote" name="shortnote" id="shortnote" :ft="$ft" :sd="$sd"></x-TextareaField>
-                </div>
-                <div class="col-md-12 col-sm-12 mb-3">
-                  <x-TextareaField label="Description" name="description" id="description" :ft="$ft" :sd="$sd"></x-TextareaField>
+                  <x-InputField type="text" label="Seo Rating" name="seo_rating" id="seo_rating" :ft="$ft" :sd="$sd"></x-InputField>
                 </div>
               </div>
               <hr>
@@ -84,12 +75,8 @@
             <table id="datatable" class="table table-bordered dt-responsive nowrap w-100">
               <thead>
                 <tr>
-                  <th>Sr. No.</th>
-                  <th>Exam Name</th>
-                  <th>Heading</th>
-                  <th>Shortnote</th>
-                  <th>Description</th>
-                  <th>Thumbnail</th>
+                  <th>S.No.</th>
+                  <th>Landing Page Name</th>
                   <th>SEO</th>
                   <th>Action</th>
                 </tr>
@@ -102,66 +89,6 @@
                 <tr id="row{{ $row->id }}">
                   <td>{{ $i }}</td>
                   <td>{{ $row->exam_name }}</td>
-                  <td>{{ $row->title }}</td>
-                  <td>
-                    @if ($row->shortnote != null)
-                    <button type="button" class="btn btn-xs btn-outline-info waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#SModalScrollable{{ $row->id }}">View</button>
-                    <div class="modal fade" id="SModalScrollable{{ $row->id }}" tabindex="-1" role="dialog"
-                      aria-labelledby="SModalScrollableTitle{{ $row->id }}" aria-hidden="true">
-                      <div class="modal-dialog modal-dialog-scrollable">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="SModalScrollableTitle{{ $row->id }}">
-                              SEO
-                            </h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body">
-                            {!! $row->shortnote !!}
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    @else
-                    Null
-                    @endif
-                  </td>
-                  <td>
-                    @if ($row->description != null)
-                    <button type="button" class="btn btn-xs btn-outline-info waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#DesModalScrollable{{ $row->id }}">View</button>
-                    <div class="modal fade" id="DesModalScrollable{{ $row->id }}" tabindex="-1" role="dialog"
-                      aria-labelledby="DesModalScrollableTitle{{ $row->id }}" aria-hidden="true">
-                      <div class="modal-dialog modal-dialog-scrollable">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="DesModalScrollableTitle{{ $row->id }}">
-                              SEO
-                            </h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body">
-                            {!! $row->description !!}
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    @else
-                    Null
-                    @endif
-                  </td>
-                  <td>
-                    @if ($row->thumbnail_path != null)
-                    <img src="{{ asset($row->thumbnail_path) }}" alt="" height="80" width="80">
-                    @else
-                    N/A
-                    @endif
-                  </td>
                   <td>
                     @if ($row->meta_title != null)
                     <button type="button" class="btn btn-xs btn-outline-info waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#SeoModalScrollable{{ $row->id }}">View</button>
@@ -193,7 +120,7 @@
                     @endif
                   </td>
                   <td>
-                    <a href="{{ url('/admin/exam-content/'.$row->id) }}"
+                    <a target="_blank" href="{{ url('/admin/exam-pages/'.$row->id) }}"
                       class="waves-effect waves-light btn btn-xs btn-outline btn-success">
                       <i class="fa fa-eye" aria-hidden="true"></i>
                     </a>

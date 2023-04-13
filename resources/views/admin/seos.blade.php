@@ -1,3 +1,10 @@
+<?php
+  if (isset($_GET['seo_tab'])) {
+    $seo_tab = $_GET['seo_tab'];
+  } else {
+    $seo_tab = '2';
+  }
+?>
 @extends('admin.layouts.main')
 @push('title')
 <title>{{ $page_title }}</title>
@@ -43,19 +50,14 @@
             <form action="{{ $url }}" class="needs-validation" method="post" enctype="multipart/form-data" novalidate>
               @csrf
               <div class="row">
-                <div class="col-md-4 col-sm-12 mb-3">
-                  <x-InputField type="text" label="Enter Name" name="name" id="name" :ft="$ft" :sd="$sd"></x-InputField>
-                </div>
-                <div class="col-md-4 col-sm-12 mb-3">
-                  <x-InputField type="file" label="Thumbnail" name="thumbnail" id="thumbnail" :ft="$ft" :sd="$sd"></x-InputField>
-                </div>
-                <div class="col-md-4 col-sm-12 mb-3">
-                  <x-SelectField label="Country" name="country" id="country" savev="name" showv="name" :list="$countries" :ft="$ft" :sd="$sd"></x-SelectField>
-                </div>
                 <div class="col-md-12 col-sm-12 mb-3">
-                  <x-TextareaField label="Review" name="review" id="review" :ft="$ft" :sd="$sd"></x-TextareaField>
+                  <x-InputField type="text" label="Enter URL" name="url" id="url" :ft="$ft" :sd="$sd"></x-InputField>
                 </div>
               </div>
+              <hr>
+              <!--  SEO INPUT FIELD COMPONENT START -->
+              <x-SeoField :ft="$ft" :sd="$sd"></x-SeoField>
+              <!--  SEO INPUT FIELD COMPONENT END  -->
               @if ($ft == 'add')
                 <button type="reset" class="btn btn-sm btn-warning  mr-1"><i class="ti-trash"></i> Reset</button>
               @endif
@@ -72,15 +74,25 @@
     <div class="row">
       <div class="col-12">
         <div class="card">
+          <div class="card-header">
+            <h4 class="card-title">
+              {{ $page_title }} List
+              <div style="float:right;" class="mb-3">
+                <a href="{{ url('admin/seos/') }}" data-toggle="tooltip" class="btn <?php echo $seo_tab == '2' ? 'btn-success' : 'btn-outline-danger'; ?> btn-sm loaderClass">All</a>
+                <a href="{{ url('admin/seos/?seo_tab=1') }}" data-toggle="tooltip" class="btn <?php echo $seo_tab == '1' ? 'btn-success' : 'btn-outline-danger'; ?> btn-sm loaderClass">Default</a>
+              </div>
+            </h4>
+          </div>
           <div class="card-body">
-            <table id="datatable" class="table table-bordered dt-responsive nowrap w-100">
+            <table id="datatable" class="table table-bordered dt-responsiv nowra w-100">
               <thead>
                 <tr>
                   <th>S.No.</th>
-                  <th>Name</th>
-                  <th>Country</th>
-                  <th>Pic</th>
-                  <th>Review</th>
+                  <th>URL</th>
+                  <th>Title</th>
+                  <th>Keyword</th>
+                  <th>Content</th>
+                  <th>Description</th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -91,17 +103,12 @@
                 @foreach ($rows as $row)
                 <tr id="row{{ $row->id }}">
                   <td>{{ $i }}</td>
-                  <td><?php echo $row->name; ?></td>
-                  <td><?php echo $row->country; ?></td>
+                  <td><?php echo $row->url; ?></td>
+                  <td><?php echo $row->meta_title; ?></td>
+                  <td><?php echo $row->meta_keyword; ?></td>
+                  <td><?php echo $row->page_content; ?></td>
                   <td>
-                    @if ($row->image != null)
-                    <img src="{{ asset($row->image) }}" alt="" height="80" width="80">
-                    @else
-                    N/A
-                    @endif
-                  </td>
-                  <td>
-                    @if ($row->review != null)
+                    @if ($row->meta_description != null)
                     <button type="button" class="btn btn-xs btn-outline-info waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#SModalScrollable{{ $row->id }}">View</button>
                     <div class="modal fade" id="SModalScrollable{{ $row->id }}" tabindex="-1" role="dialog"
                       aria-labelledby="SModalScrollableTitle{{ $row->id }}" aria-hidden="true">
@@ -111,7 +118,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
                           <div class="modal-body">
-                            {!! $row->review !!}
+                            <?php echo $row->meta_description; ?>
                           </div>
                           <div class="modal-footer">
                             <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
@@ -147,6 +154,24 @@
   </div>
 </div>
 <script>
+  $(document).ready(function() {
+    $('#name').change(function() {
+      var val = $('#name').val();
+      if (val != '') {
+        $.ajax({
+          url: "{{ url('common/slugify/') }}",
+          method: "GET",
+          data: {
+            val: val,
+          },
+          success: function(data) {
+            $('#slug').val(data);
+          }
+        });
+      }
+    });
+  });
+
   function DeleteAjax(id) {
     //alert(id);
     var cd = confirm("Are you sure ?");
@@ -168,5 +193,8 @@
     }
   }
 
+  CKEDITOR.replace("highlights");
+  CKEDITOR.replace("experiance");
+  CKEDITOR.replace("education");
 </script>
 @endsection
