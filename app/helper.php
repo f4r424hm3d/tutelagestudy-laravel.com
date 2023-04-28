@@ -1,5 +1,10 @@
 <?php
 
+define('TO_EMAIL', 'farazahmad280@gmail.com');
+define('TO_NAME', 'Mohd Faraz');
+define('CC_EMAIL', '4hm3df4r42@gmail.com');
+define('CC_NAME', 'Tutelage Study');
+
 if (!function_exists('printArray')) {
   function printArray($data)
   {
@@ -58,5 +63,25 @@ if (!function_exists('uurl')) {
     } else {
       return url('/user/');
     }
+  }
+}
+if (!function_exists('replaceTag')) {
+	function replaceTag($string, $array)
+	{
+		foreach ($array as $key => $value) {
+			$string = $string == null ? null : str_replace('%' . $key . '%', $value, $string);
+		}
+		$string = trim(preg_replace('/\s+/', ' ', $string));
+		$string = ucwords($string);
+		return $string;
+	}
+}
+if (!function_exists('ip_details')) {
+
+  function ip_details($ip)
+  {
+    $json = file_get_contents("http://ipinfo.io/{$ip}");
+    $details = json_decode($json);
+    return $details;
   }
 }

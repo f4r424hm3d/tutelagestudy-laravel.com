@@ -1,0 +1,24 @@
+<div class="ps-block--categories-tabs ps-tab-root" data-gssticky="1" style="top: 0px; position: sticky; overflow: auto; font-weight: 600; z-index:99; box-shadow: 0px 4px 20px rgb(0 0 0 / 10%);display:none">
+  <div class="ps-block__header">
+    <div class="ps-carousel--nav ps-tab-list owl-slider" data-owl-auto="false" data-owl-speed="1000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="false" data-owl-item="8" data-owl-item-xs="3" data-owl-item-sm="4" data-owl-item-md="6" data-owl-item-lg="6" data-owl-duration="500" data-owl-mousedrag="on">
+
+      <a class="<?php echo Request::segment(3) == '' ? 'active' : ''; ?>" href="<?php echo url(Request::segment(1) . '/' . Request::segment(2)); ?>/">Overview</a>
+
+      <?php
+      foreach ($allcont as $row) {
+      ?>
+        <a class="<?php echo Request::segment(3) == $row->tab_slug ? 'active' : ''; ?>" href="<?php echo url(Request::segment(1) . '/' . Request::segment(2) . '/' . $row->tab_slug); ?>/"><?php echo $row->tab; ?></a>
+      <?php } ?>
+
+      <?php
+      if (count($gc)) {
+      ?>
+        <a class="<?php echo Request::segment(3) == 'gallery' ? 'active' : ''; ?>" href="<?php echo url(Request::segment(1) . '/' . Request::segment(2) . '/gallery'); ?>/">Gallery</a>
+      <?php } ?>
+
+      <!-- <a class="<?php echo Request::segment(2) == 'reviews' ? 'active' : ''; ?>" href="<?php echo url(Request::segment(1) . '/reviews'); ?>">Reviews </a> -->
+
+       <!--<a href="<?php echo url(Request::segment(1) . '/' . Request::segment(2) . '/#contact'); ?>">Contact</a> -->
+    </div>
+  </div>
+</div>

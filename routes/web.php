@@ -38,18 +38,25 @@ use App\Http\Controllers\admin\UniversityVideoGalleryC;
 use App\Http\Controllers\admin\UserC;
 use App\Http\Controllers\CommonController;
 use App\Http\Controllers\front\AboutFc;
+use App\Http\Controllers\front\AuthorFc;
+use App\Http\Controllers\front\BlogFc;
 use App\Http\Controllers\front\ContactFc;
 use App\Http\Controllers\front\DestinationFc;
 use App\Http\Controllers\front\ExamFc;
 use App\Http\Controllers\front\HomeFc;
+use App\Http\Controllers\Front\InquiryController;
 use App\Http\Controllers\front\ServiceFc;
 use App\Http\Controllers\front\UniversityCourseListFc;
 use App\Http\Controllers\front\UniversityFc;
+use App\Http\Controllers\front\UniversityProfileFc;
 use App\Http\Controllers\student\StudentLoginFc;
 use App\Models\Address;
+use App\Models\Destination;
 use App\Models\Exam;
 use App\Models\ExamPageContent;
+use App\Models\News;
 use App\Models\Service;
+use App\Models\University;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
@@ -126,34 +133,56 @@ Route::get('/contact', [ContactFc::class, 'index']);
 Route::post('/contact', [ContactFc::class, 'submitInquiry']);
 Route::get('/terms-of-use', [HomeFc::class, 'termsConditions']);
 Route::get('/privacy-disclaimer', [HomeFc::class, 'privacyPolicy']);
-Route::get('/sign-up', [StudentLoginFc::class, 'signUp']);
-Route::get('/cities', [DestinationFc::class, 'destinationList']);
 
 
+Route::get('/blog/', [BlogFc::class, 'index']);
+Route::get('/category/{category_slug}/', [BlogFc::class, 'blogByCategory']);
+$blogs = News::all();
+foreach ($blogs as $row) {
+  Route::get('/'.$row->slug, [BlogFc::class, 'blogdetail']);
+}
+
+Route::get('/mbbs-in-abroad', [HomeFc::class, 'mbbsAbroad']);
+
+Route::get('/destinations/', [DestinationFc::class, 'index']);
+$dest = Destination::all();
+foreach ($dest as $row) {
+  Route::get('/'.$row->slug, [DestinationFc::class, 'destinationDetail']);
+}
 
 Route::get('/remove-filter', [UniversityFc::class, 'removeFilter']);
 
 Route::get('services', [ServiceFc::class, 'index']);
-$services = Service::where(['status' => 1])->get();
-foreach ($services as $row) {
-  Route::get('/'.$row->slug, [ServiceFc::class, 'serviceDetail']);
-}
+Route::get('/services/{slug}', [ServiceFc::class, 'serviceDetail']);
 
-Route::get('exams', [ExamFc::class, 'index']);
-$exams = Exam::where(['status' => 1])->get();
+$exams = Exam::all();
 foreach ($exams as $row) {
-  Route::get('/'.$row->exam_slug, [ExamFc::class, 'examDetail']);
+  Route::get('/'.$row->exam_slug, [ExamFc::class, 'examPage']);
+  Route::get('/'.$row->exam_slug.'/{slug}', [ExamFc::class, 'examPageDetail']);
 }
 
+Route::get('medical-universities', [UniversityFc::class, 'index']);
+Route::get('university/remove-filter', [UniversityFc::class, 'removeFilter']);
+$universities = University::select('country_slug')->groupBy('country_slug')->get();
+foreach ($universities as $row) {
+  Route::get('medical-universities-in-'.$row->country_slug, [UniversityFc::class, 'universitybyCountry']);
+}
+Route::get('author/{slug}', [AuthorFc::class, 'index']);
 
-Route::prefix('/university-course-list')->group(function () {
-  Route::get('/level', [UniversityCourseListFc::class, 'applyLevelFilter']);
-  Route::get('/category', [UniversityCourseListFc::class, 'applyCategoryFilter']);
-  Route::get('/specialization', [UniversityCourseListFc::class, 'applySpecializationFilter']);
-  Route::get('/apply-filter', [UniversityCourseListFc::class, 'applyFilter']);
-  Route::get('/remove-filter', [UniversityCourseListFc::class, 'removeFilter']);
-  Route::get('/remove-all-filter', [UniversityCourseListFc::class, 'removeAllFilter']);
-});
+Route::post('inquiry/submit-university-inquiry', [InquiryController::class, 'universityIniquiry']);
+Route::get('mbbs-abroad-counselling', [InquiryController::class, 'mbbs']);
+Route::post('inquiry/submit-mbbs-inquiry', [InquiryController::class, 'submitMbbsInquiry']);
+Route::get('neet-counselling', [InquiryController::class, 'neet']);
+Route::post('inquiry/submit-neet-inquiry', [InquiryController::class, 'submitNeetInquiry']);
+Route::get('thank-you', [InquiryController::class, 'thankyou']);
+
+$universities2 = University::all();
+foreach ($universities2 as $row) {
+  Route::get($row->country_slug.'/'.$row->uname, [UniversityProfileFc::class, 'index']);
+  Route::get($row->country_slug.'/'.$row->uname.'/write-review', [UniversityProfileFc::class, 'writeReview']);
+  Route::get($row->country_slug.'/'.$row->uname.'/reviews', [UniversityProfileFc::class, 'reviews']);
+  Route::get($row->country_slug.'/'.$row->uname.'/gallery', [UniversityProfileFc::class, 'gallery']);
+}
 
 /* ADMIN ROUTES BEFORE LOGIN */
 Route::middleware(['adminLoggedOut'])->group(function () {

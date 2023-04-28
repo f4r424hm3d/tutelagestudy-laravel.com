@@ -7,5 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class DestinationPageContent extends Model
 {
-    use HasFactory;
+  use HasFactory;
+  public function getTab()
+  {
+    return $this->hasOne(DestinationPageTabs::class,'id','tab_id');
+  }
 }

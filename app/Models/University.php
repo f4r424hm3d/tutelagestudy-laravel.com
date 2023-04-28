@@ -17,4 +17,8 @@ class University extends Model
     {
       return $this->hasOne(Author::class,'id','author_id');
     }
+    public function getDestination()
+    {
+      return $this->hasOne(Destination::class,'country','country');
+    }
 }

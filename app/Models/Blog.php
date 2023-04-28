@@ -12,8 +12,8 @@ class Blog extends Model
   {
     return $this->hasOne(BlogCategory::class,'id','category_id');
   }
-  public function getUser()
+  public function getAuthor()
   {
-    return $this->hasOne(User::class,'id','user_id');
+    return $this->hasOne(Author::class,'id','author_id');
   }
 }

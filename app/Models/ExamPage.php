@@ -12,4 +12,8 @@ class ExamPage extends Model
   {
     return $this->hasOne(Author::class,'id','author_id');
   }
+  public function getExam()
+  {
+    return $this->hasOne(Exam::class,'id','exam_id');
+  }
 }
