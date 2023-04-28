@@ -51,7 +51,7 @@
               <div class="form-group">
                 <input type="text" name="name" id="name" class="form-control" placeholder="Enter Name" value="{{ old('name')??'' }}" required>
                   @error('name')
-                    {{ '<span class="text-danger">' . $message . '</span>' }}
+                    {!! '<span class="text-danger">' . $message . '</span>' !!}
                   @enderror
               </div>
             </div>
@@ -59,7 +59,7 @@
               <div class="form-group">
                 <input type="email" class="form-control" name="email" id="email" value="{{ old('email')??'' }}" placeholder="Enter Email" required>
                   @error('email')
-                    {{ '<span class="text-danger">' . $message . '</span>' }}
+                    {!! '<span class="text-danger">' . $message . '</span>' !!}
                   @enderror
               </div>
             </div>
@@ -67,7 +67,7 @@
               <div class="form-group">
                 <input type="text" class="form-control u-ltr" placeholder="Enter Mobile Number" data-error="Please enter a valid phone number" name="mobile" id="mobile" value="<?php echo old('mobile'); ?>" required>
                 @error('mobile')
-                  {{ '<span class="text-danger">' . $message . '</span>' }}
+                  {!! '<span class="text-danger">' . $message . '</span>' !!}
                 @enderror
               </div>
             </div>
@@ -75,7 +75,7 @@
               <div class="form-group">
                 <input type="text" class="form-control u-ltr" placeholder="Enter State" data-error="Please Enter State" name="state" id="state" value="<?php echo old('state'); ?>" required>
                 @error('state')
-                  {{ '<span class="text-danger">' . $message . '</span>' }}
+                  {!! '<span class="text-danger">' . $message . '</span>' !!}
                 @enderror
               </div>
             </div>
@@ -87,7 +87,7 @@
                   <option value="No" <?php echo old('neet_qualified') == 'No' ? 'selected' : ''; ?>>No</option>
                 </select>
                 @error('neet_qualified')
-                  {{ '<span class="text-danger">' . $message . '</span>' }}
+                  {!! '<span class="text-danger">' . $message . '</span>' !!}
                 @enderror
               </div>
             </div>
@@ -95,13 +95,13 @@
               <div class="form-group">
                 <select class="form-control" name="question" id="question" required>
                   <option value="">My Questions is regardiing</option>
-                  <option value="Neet Counselling" <?php echo old('neet_qualified') == 'Neet Counselling' ? 'selected' : ''; ?>>Neet Counselling</option>
-                  <option value="MBBS Abroad Query" <?php echo old('neet_qualified') == 'MBBS Abroad Query' ? 'selected' : ''; ?>>MBBS Abroad Query</option>
-                  <option value="MBBS Abroad Scholarship" <?php echo old('neet_qualified') == 'MBBS Abroad Scholarship' ? 'selected' : ''; ?>>MBBS Abroad Scholarship</option>
-                  <option value="Visa Counselling" <?php echo old('neet_qualified') == 'Visa Counselling' ? 'selected' : ''; ?>>Visa Counselling</option>
+                  <option value="Neet Counselling" <?php echo old('question') == 'Neet Counselling' ? 'selected' : ''; ?>>Neet Counselling</option>
+                  <option value="MBBS Abroad Query" <?php echo old('question') == 'MBBS Abroad Query' ? 'selected' : ''; ?>>MBBS Abroad Query</option>
+                  <option value="MBBS Abroad Scholarship" <?php echo old('question') == 'MBBS Abroad Scholarship' ? 'selected' : ''; ?>>MBBS Abroad Scholarship</option>
+                  <option value="Visa Counselling" <?php echo old('question') == 'Visa Counselling' ? 'selected' : ''; ?>>Visa Counselling</option>
                 </select>
                 @error('question')
-                  {{ '<span class="text-danger">' . $message . '</span>' }}
+                  {!! '<span class="text-danger">' . $message . '</span>' !!}
                 @enderror
               </div>
             </div>
@@ -112,8 +112,26 @@
             </div> --}}
             <div class="form-group">
               <div class="ps-checkbox pl-20">
-                <input class="form-control " type="checkbox" id="remember-me" name="remember-me" value>
-                <label for="remember-me">By submitting this form, I agree to the <a href="https://www.tutelagestudy.com/term-and-condition/" style="color: blue;" target="_blank">terms & conditions</a></label>
+                <input class="form-control " type="checkbox" name="terms" id="terms" >
+                <label for="terms">I agree to the <a href="https://www.tutelagestudy.com/term-and-condition/" style="color: blue;" target="_blank">terms & conditions</a> .*</label>
+                @error('terms')
+                  {!! '<span class="text-danger">' . $message . '</span>' !!}
+                @enderror
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="ps-checkbox pl-20">
+                <input class="form-control " type="checkbox" name="contact_me" id="contact_me" >
+                <label for="contact_me">Contact me by phone, email or SMS to assist me .*</label>
+                @error('contact_me')
+                  {!! '<span class="text-danger">' . $message . '</span>' !!}
+                @enderror
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="ps-checkbox pl-20">
+                <input class="form-control" type="checkbox" name="update" id="update" >
+                <label for="update">I would like to receive updates and offers from Tutelage Study.*</label>
               </div>
             </div>
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">

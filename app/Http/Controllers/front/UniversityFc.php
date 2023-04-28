@@ -16,7 +16,9 @@ class UniversityFc extends Controller
   {
     //error_reporting(0);
     $rows = University::where(['status' => 1]);
-
+    if($request->has('search') && $request->search != ''){
+      $rows = $rows->where('name','like','%' . $request->search.'%');
+    }
     $rows = $rows->paginate(20)->withQueryString();
     $currentCountry = 'Abroad';
 

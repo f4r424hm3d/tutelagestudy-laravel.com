@@ -49,6 +49,7 @@ use App\Http\Controllers\front\ServiceFc;
 use App\Http\Controllers\front\UniversityCourseListFc;
 use App\Http\Controllers\front\UniversityFc;
 use App\Http\Controllers\front\UniversityProfileFc;
+use App\Http\Controllers\sitemap\SitemapController;
 use App\Http\Controllers\student\StudentLoginFc;
 use App\Models\Address;
 use App\Models\Destination;
@@ -438,3 +439,12 @@ Route::prefix('common')->group(function () {
   Route::get('/search-university-and-program', [HomeFc::class, 'searchUniversity']);
   Route::get('/slugify', [CommonController::class, 'slugifyString']);
 });
+
+// SITE MAP
+// Route::get('sitemap\.xml', [SitemapController::class, 'sitemap']);
+// Route::get('sitemap-home\.xml', [SitemapController::class, 'sitemapHome']);
+// Route::get('sitemap-exams\.xml', [SitemapController::class, 'sitemapExam']);
+// Route::get('sitemap-articles\.xml', [SitemapController::class, 'sitemapArticles']);
+// Route::get('sitemap-about-us\.xml', [SitemapController::class, 'whoweare']);
+// Route::get('sitemap-course\.xml', [SitemapController::class, 'sitemapCourse']);
+// Route::get('sitemap-university\.xml', [SitemapController::class, 'university']);

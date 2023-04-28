@@ -53,7 +53,7 @@
                 <div class="form-group">
                   <input type="text" name="name" id="name" class="form-control" placeholder="Enter Name" value="{{ old('name')??'' }}" required>
                   @error('name')
-                    {{ '<span class="err-clr">' . $message . '</span>' }}
+                    {!! '<span class="text-danger">' . $message . '</span>' !!}
                   @enderror
                 </div>
               </div>
@@ -61,13 +61,13 @@
                 <div class="form-group">
                   <input type="email" class="form-control" name="email" id="email" value="{{ old('email')??'' }}" placeholder="Enter Email" required>
                   @error('email')
-                    {{ '<span class="err-clr">' . $message . '</span>' }}
+                    {!! '<span class="text-danger">' . $message . '</span>' !!}
                   @enderror
                 </div>
               </div>
               <div class="col-4 col-lg-4 col-md-4 col-sm-4 col-xs-6 pr7">
                 <div class="form-group">
-                  <select class="form-control" name="c_code" id="c_code" required>
+                  <select class="form-control" name="c_code" id="c_code" required >
                     <option value="">Select Code</option>
                     <?php
                     foreach ($phonecodes as $row) {
@@ -76,21 +76,21 @@
                     <?php } ?>
                   </select>
                   @error('c_code')
-                    {{ '<span class="err-clr">' . $message . '</span>' }}
+                    {!! '<span class="text-danger">' . $message . '</span>' !!}
                   @enderror
                 </div>
               </div>
               <div class="col-8 col-lg-8 col-md-8 col-sm-8 col-xs-6 pl7">
                 <div class="form-group">
-                  <input type="text" class="form-control u-ltr" placeholder="Enter Mobile Number" data-error="Please enter a valid phone number" name="mobile" id="mobile" value="<?php echo old('mobile'); ?>" required>
+                  <input type="text" class="form-control u-ltr" placeholder="Enter Mobile Number" data-error="Please enter a valid phone number" name="mobile" id="mobile" value="<?php echo old('mobile'); ?>" required >
                   @error('mobile')
-                    {{ '<span class="err-clr">' . $message . '</span>' }}
+                    {!! '<span class="text-danger">' . $message . '</span>' !!}
                   @enderror
                 </div>
               </div>
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr7">
                 <div class="form-group">
-                  <select class="form-control" name="nationality" id="nationality" required>
+                  <select class="form-control" name="nationality" id="nationality" required >
                     <option value="">Select Nationality</option>
                     <?php
                     foreach ($countries as $row) {
@@ -99,13 +99,13 @@
                     <?php } ?>
                   </select>
                   @error('nationality')
-                    {{ '<span class="err-clr">' . $message . '</span>' }}
+                    {!! '<span class="text-danger">' . $message . '</span>' !!}
                   @enderror
                 </div>
               </div>
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl7">
                 <div class="form-group">
-                  <select class="form-control" name="destination" id="destination" required>
+                  <select class="form-control" name="destination" id="destination" required >
                     <option value="">Preferred MBBS Country</option>
                     <?php
                     foreach ($destinations as $row) {
@@ -114,19 +114,37 @@
                     <?php } ?>
                   </select>
                   @error('destination')
-                    {{ '<span class="err-clr">' . $message . '</span>' }}
+                    {!! '<span class="text-danger">' . $message . '</span>' !!}
                   @enderror
                 </div>
               </div>
               {{-- <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="form-group">
-                  <div class="g-recaptcha" data-sitekey="6LfEJo4jAAAAAIEVgbaWIR-uic-I3h9RBYFCqOTS" required></div>
+                  <div class="g-recaptcha" data-sitekey="6LfEJo4jAAAAAIEVgbaWIR-uic-I3h9RBYFCqOTS" ></div>
                 </div>
               </div> --}}
               <div class="form-group">
                 <div class="ps-checkbox pl-20">
-                  <input class="form-control " type="checkbox" id="remember-me" name="remember-me" value>
-                  <label for="remember-me">By submitting this form, I agree to the <a href="https://www.tutelagestudy.com/term-and-condition/" style="color: blue;" target="_blank">terms & conditions</a></label>
+                  <input class="form-control " type="checkbox" name="terms" id="terms" >
+                  <label for="terms">I agree to the <a href="https://www.tutelagestudy.com/term-and-condition/" style="color: blue;" target="_blank">terms & conditions</a> .*</label>
+                  @error('terms')
+                    {!! '<span class="text-danger">' . $message . '</span>' !!}
+                  @enderror
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="ps-checkbox pl-20">
+                  <input class="form-control " type="checkbox" name="contact_me" id="contact_me" >
+                  <label for="contact_me">Contact me by phone, email or SMS to assist me .*</label>
+                  @error('contact_me')
+                    {!! '<span class="text-danger">' . $message . '</span>' !!}
+                  @enderror
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="ps-checkbox pl-20">
+                  <input class="form-control" type="checkbox" name="update" id="update" >
+                  <label for="update">I would like to receive updates and offers from Tutelage Study.*</label>
                 </div>
               </div>
               <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">

@@ -112,11 +112,13 @@ class InquiryController extends Controller
     $request->validate(
       [
         'name' => 'required|regex:/^[a-zA-Z ]*$/',
-        'email' => 'required|email',
+        'email' => 'required|email:rfc,dns',
         'c_code' => 'required|numeric',
         'mobile' => 'required|numeric',
         'nationality' => 'required',
-        'destination' => 'required'
+        'destination' => 'required',
+        'terms' => 'required',
+        'contact_me' => 'required',
       ]
     );
     $field = new Student();
@@ -205,11 +207,13 @@ class InquiryController extends Controller
     $request->validate(
       [
         'name' => 'required|regex:/^[a-zA-Z ]*$/',
-        'email' => 'required|email',
+        'email' => 'required|email:rfc,dns',
         'mobile' => 'required|numeric',
         'state' => 'required',
         'neet_qualified' => 'required',
-        'question' => 'required'
+        'question' => 'required',
+        'terms' => 'required',
+        'contact_me' => 'required',
       ]
     );
     $field = new Student();
