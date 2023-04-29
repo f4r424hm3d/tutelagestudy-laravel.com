@@ -44,7 +44,7 @@
         </div>
         <div class="col-md-7">
           <h1>Apply Now for MBBS Upcoming Intake</h1>
-          <form class="ps-form--visa" action="{{ url('inquiry/submit-mbbs-inquiry') }}" method="post">
+          <form class="ps-form--visa" action="{{ url('inquiry/submit-mbbs-inquiry') }}/" method="post">
             @csrf
             <input type="hidden" name="source_url" value="<?php echo $_GET['page']??''; ?>">
             <input type="hidden" name="page_url" value="{{ $page_url }}">

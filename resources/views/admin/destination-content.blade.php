@@ -50,7 +50,7 @@
             {{--  <x-ImportForm :pageRoute="$page_route" fileName="course-specializations"></x-ImportForm>
             <hr>  --}}
             <!-- IMPORT FORM END -->
-            <form action="{{ $url }}" class="needs-validation" method="post" enctype="multipart/form-data" novalidate>
+            <form action="{{ $url }}/" class="needs-validation" method="post" enctype="multipart/form-data" novalidate>
               @csrf
               <input type="hidden" name="page_id" value="{{ $page_id }}">
               <input type="hidden" name="tab_id" value="{{ $tab_id }}">

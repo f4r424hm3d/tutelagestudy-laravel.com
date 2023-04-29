@@ -2,6 +2,63 @@
 @push('seo_meta_tag')
 @include('front.layouts.dynamic_page_meta_tag')
 @endpush
+@push('breadcrumb_schema')
+ <!-- breadcrumb schema Code -->
+ <script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "BreadcrumbList",
+    "name": "<?php echo ucwords($meta_title); ?>",
+    "description": "<?php echo $meta_description; ?>",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "<?php echo url('/'); ?>/"
+    }, {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Destinations",
+      "item": "<?php echo url('destinations/'); ?>/"
+    }, {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "<?php echo $exam->page_name; ?>",
+      "item": "<?php echo url(Request::segment(1)); ?>/"
+    }]
+  }
+  </script> <!-- breadcrumb schema Code End -->
+
+  <!-- webpage schema Code Destinations -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "webpage",
+    "url": "<?php echo url(Request::segment(1)); ?>",
+    "name": "<?php echo $exam->page_name; ?>",
+    "description": "<?php echo $meta_description; ?>",
+    "inLanguage": "en-US",
+    "keywords": [
+      "<?php echo $meta_keyword; ?>"
+    ]
+  }
+  </script>
+
+  <!-- rating schema Code -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "CreativeWorkSeries",
+    "name": "<?php echo ucwords($meta_title); ?>",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "ratingCount": "<?php echo $exam->seo_rating; ?>"
+    }
+  }
+  </script>
+@endpush
 @section('main-section')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <div class="ps-page--single ps-page--vendor">

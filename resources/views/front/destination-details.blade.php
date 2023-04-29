@@ -7,6 +7,62 @@
 @push('seo_meta_tag')
 @include('front.layouts.dynamic_page_meta_tag')
 @endpush
+@push('breadcrumb_schema')
+<!-- breadcrumb schema Code -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "BreadcrumbList",
+    "name": "<?php echo ucwords($meta_title); ?>",
+    "description": "<?php echo $meta_description; ?>",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "<?php echo url('/'); ?>"
+    }, {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Destinations",
+      "item": "<?php echo url('destinations/'); ?>/"
+    }, {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "<?php echo $row->page_name; ?>",
+      "item": "<?php echo url(Request::segment(1)); ?>/"
+    }]
+  }
+</script>
+<!-- breadcrumb schema Code End -->
+<!-- webpage schema Code Destinations -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "webpage",
+    "url": "<?php echo url(Request::segment(1)); ?>/",
+    "name": "<?php echo $row->page_name; ?>",
+    "description": "<?php echo $meta_description; ?>",
+    "inLanguage": "en-US",
+    "keywords": [
+      "<?php echo $meta_keyword; ?>"
+    ]
+  }
+</script>
+<!-- rating schema Code -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "CreativeWorkSeries",
+    "name": "<?php echo ucwords($meta_title); ?>",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "ratingCount": "<?php echo $row->seo_rating; ?>"
+    }
+  }
+</script>
+@endpush
 @section('main-section')
 <style type="text/css">
   .header-bg1 .col-box {
@@ -341,25 +397,8 @@
               </div>
               <?php } ?>
               <div class="pt-0 pb-20 get-detail"> <span style="font-size:18px; color:#cd2122;">Get Free Counselling</span> <a class="ps-btn" onclick="window.location.href='<?php echo url('mbbs-abroad-counselling/'); ?>'" href="javascript:void()">Enquire Now</a> </div>
-              <?php if ($otherexam != false) { ?>
-              <div class="ps-product__box mb-20" id="2">
-                <aside class="widget widget_best-sale" data-mh="dealhot">
-                  <h3 class="widget-title">You might be interested in related destination</h3>
-                  <div class="widget__content">
-                    <div class="owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="0" data-owl-nav="false" data-owl-dots="false" data-owl-item="3" data-owl-item-xs="2" data-owl-item-sm="2" data-owl-item-md="3" data-owl-item-lg="3" data-owl-duration="1000" data-owl-mousedrag="on">
-                      <?php foreach ($otherexam as $oe) { ?>
-                      <div class="ps-product-group">
-                        <div class="ps-product--horizontal">
-                          <div class="ps-product__content "> <span class="ps-product__title ps-btn"> <a href="<?php echo url($oe->slug); ?>/"> <?php echo $oe->page_name; ?> </a></span> </div>
-                        </div>
-                      </div>
-                      <?php } ?>
-                    </div>
-                  </div>
-                </aside>
-              </div>
-              <?php } ?>
-              <?php if ($count_content > 1) { ?>
+
+              <?php if ($count_content>1) { ?>
               <div class="ps-product__box mb-20">
                 <aside class="widget widget_best-sale">
                   <h3 class="widget-title"> Table of Contents <span style="float:right;">
@@ -386,7 +425,7 @@
                 </div>
               </div>
               <?php } ?>
-              <?php if ($faqs != false) { ?>
+              <?php if ($faqs->count()>0) { ?>
               <div class="ps-product__box mb-20">
                 <div class="ps-section--default">
                   <div class="ps-section__header" style="margin-bottom:0px; padding-bottom:10px; border:0px">
@@ -433,8 +472,26 @@
                 }
               </script>
               <?php } ?>
+              <?php if ($otherexam->count()>0) { ?>
+              <div class="ps-product__box mb-20" id="2">
+                <aside class="widget widget_best-sale" data-mh="dealhot">
+                  <h3 class="widget-title">Check the Other MBBS Abroad Countries</h3>
+                  <div class="widget__content">
+                    <div class="owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="0" data-owl-nav="false" data-owl-dots="false" data-owl-item="3" data-owl-item-xs="2" data-owl-item-sm="2" data-owl-item-md="3" data-owl-item-lg="3" data-owl-duration="1000" data-owl-mousedrag="on">
+                      <?php foreach ($otherexam as $oe) { ?>
+                      <div class="ps-product-group">
+                        <div class="ps-product--horizontal">
+                          <div class="ps-product__content "> <span class="ps-btn"> <a href="<?php echo url($oe->slug); ?>/"> <?php echo $oe->page_name; ?> </a></span> </div>
+                        </div>
+                      </div>
+                      <?php } ?>
+                    </div>
+                  </div>
+                </aside>
+              </div>
+              <?php } ?>
               <div class="pt-0 pb-20 get-detail text-center"> <a class="ps-btn" href="<?php echo url('destinations'); ?>/" target="blank">View All Countries</a> </div>
-              <?php if ($tu != false) { ?>
+              <?php if ($tu->count()>0) { ?>
               <div class="ps-page--product" style="background-color:white;">
                 <div class="ps-container pt-10" id="topuniversities">
                   <div class="ps-section--default pb-2">
@@ -518,7 +575,7 @@
               <!-- INQUIRY FORM END -->
             </div>
             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
-              <div class="ps-section__left" style="position:sticky; top:0;">
+              <div class="ps-section__left" style="top:0;">
                 <aside class="ps-widget--account-dashboard">
                   <h3 style=" background:#cd2122; color:#fff; font-size:16px; padding:10px 20px; margin:0px">News Categories</h3>
                   <div class="ps-widget__content" style="background:#fff">
@@ -533,13 +590,27 @@
                 </aside>
               </div>
               <?php if (count($otabs)>1) { ?>
-              <div class="ps-section__left" style="position:sticky; top:60px; background:#fff">
+              <div class="ps-section__left" style="top:60px; background:#fff">
                 <aside class="ps-widget--account-dashboard">
                   <div class="ps-widget__content">
                     <div style=" font-size:18px; color:#fff; background:#045dab; padding:10px; text-align:center">Quick links</div>
                     <ul style="max-height:480px; overflow:auto">
                       <?php foreach ($otabs as $tab) { ?>
                       <li><a href="<?php echo url($row->getTab->slug); ?><?php echo $tab->getTab->slug == 'overview' ? '' : '/' . $tab->getTab->slug; ?>/"><i class="icon-arrow-right"></i> <?php echo ucwords($tab->getTab->page_name); ?> <?php echo ucwords($tab->getTab->tab); ?></a></li>
+                      <?php } ?>
+                    </ul>
+                  </div>
+                </aside>
+              </div>
+              <?php } ?>
+              <?php if (count($otherexam)>1) { ?>
+              <div class="ps-section__left" style="top:60px; background:#fff">
+                <aside class="ps-widget--account-dashboard">
+                  <div class="ps-widget__content">
+                    <div style=" font-size:18px; color:#fff; background:#045dab; padding:10px; text-align:center">Other Destination</div>
+                    <ul style="max-height:480px; overflow:auto">
+                      <?php foreach ($otherexam as $row) { ?>
+                      <li><a href="<?php echo url($row->slug); ?>/"><i class="icon-arrow-right"></i> <?php echo $row->page_name; ?></a></li>
                       <?php } ?>
                     </ul>
                   </div>
@@ -564,7 +635,7 @@
                 <div class="ps-carousel--nav owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="10000" data-owl-gap="30" data-owl-nav="true" data-owl-dots="false" data-owl-item="3" data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="3" data-owl-item-lg="3" data-owl-duration="1000" data-owl-mousedrag="on">
                   <?php foreach ($testimonials as $row) { ?>
                   <div class="ps-block--testimonial pt-3 pb-3 pl-5 pr-5">
-                    <div class="ps-block__header"><img src="<?php echo $row->image!=null?url($row->image):url('assets/user-tesimonial-photo.jpg'); ?>" alt="MBBS Abroad Testimonial"></div>
+                    <div class="ps-block__header"><img src="<?php echo $row->image!=null?asset($row->image):asset('front/user-tesimonial-photo.jpg'); ?>" alt="MBBS Abroad Testimonial"></div>
                     <div class="ps-block__content pt-5 pb-3">
                       <i class="icon-quote-close"></i>
                       <span class="sph"><?php echo $row->name; ?></span>
@@ -598,33 +669,6 @@
     </div>
   </div>
 
-  @if ($allnews->count()>0)
-  <div class="ps-page--product pt-30 pb-20" style="background:#eee;">
-    <div class="ps-container">
-      <div class="ps-section--default" style="padding:15px 20px;background: #fff; border-radius:5px">
-        <div class="ps-section__header" style="margin-bottom:10px; padding-bottom:0px; border:0px!important">
-          <h3>Latest Articles</h3>
-        </div>
-        <div class="ps-section__content" id="topuniversities">
-          <div class="ps-carousel--nav owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="10000" data-owl-gap="30" data-owl-nav="true" data-owl-dots="true" data-owl-item="4" data-owl-item-xs="1" data-owl-item-sm="2" data-owl-item-md="4" data-owl-item-lg="4" data-owl-item-xl="4" data-owl-duration="1000" data-owl-mousedrag="on" style="margin-bottom:0px!important">
-            <?php
-              foreach ($allnews as $row) {
-            ?>
-            <div class="ps-post ps-product">
-              <div class="ps-post__thumbnail"> <a class="ps-post__overlay" href="<?php echo url($row->slug); ?>/"></a> <img src="<?php echo url($row->imgpath); ?>" alt="<?php echo $row->headline; ?>" style="width:100%; height: 150px;!important"> </div>
-              <div class="ps-post__content">
-                <div class="ps-post__meta"> <a href="<?php echo url('category/' . $row->cate_slug); ?>/"><?php echo ucwords(str_replace('-', ' ', $row->cate_slug)); ?></a> </div>
-                <a class="ps-post__title" href="<?php echo url($row->slug); ?>/" title="<?php echo $row->headline; ?>" data-toggle="tooltip"> <?php echo strlen($row->headline) > 44 ? substr($row->headline, 0, 44) . '...' : $row->headline; ?> </a>
-                <p style="margin-bottom:0px; font-size:11px"> <?php echo getFormattedDate($row->created_at, 'd M, Y'); ?> by<span> admin</span> </p>
-              </div>
-            </div>
-            <?php } ?>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  @endif
 </div>
 <script>
   $(document).ready(function() {

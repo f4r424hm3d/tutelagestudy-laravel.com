@@ -36,7 +36,7 @@
             <h4 class="card-title">{{ $title }} Record</h4>
           </div>
           <div class="card-body">
-            <form action="{{ $url }}" class="needs-validation" method="post" enctype="multipart/form-data" novalidate>
+            <form action="{{ $url }}/" class="needs-validation" method="post" enctype="multipart/form-data" novalidate>
               @csrf
               <div class="row">
                 <div class="col-md-4 col-sm-12 mb-3">

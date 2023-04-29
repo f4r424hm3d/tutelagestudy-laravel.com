@@ -40,7 +40,7 @@
             </h4>
           </div>
           <div class="card-body {{ $ft=='edit'?'':'hide-this' }}" id="tblCDiv">
-            <form action="{{ $url }}" class="needs-validation" method="post" enctype="multipart/form-data" novalidate>
+            <form action="{{ $url }}/" class="needs-validation" method="post" enctype="multipart/form-data" novalidate>
               @csrf
               <div class="row">
                 <div class="col-md-3 col-sm-12 mb-3">

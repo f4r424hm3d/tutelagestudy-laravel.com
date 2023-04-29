@@ -2,6 +2,47 @@
 @push('seo_meta_tag')
 @include('front.layouts.dynamic_page_meta_tag')
 @endpush
+@push('breadcrumb_schema')
+  <!-- breadcrumb schema Code -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "BreadcrumbList",
+      "name": "<?php echo ucwords($meta_title); ?>",
+      "description": "<?php echo $meta_description; ?>",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "<?php echo url('/'); ?>/"
+      }, {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Universities",
+        "item": "<?php echo url('medical-universities/'); ?>/"
+      }, {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "<?php echo $university->name; ?>",
+        "item": "{{ $page_url }}/"
+      }]
+    }
+  </script> <!-- breadcrumb schema Code End -->
+  <!-- webpage schema Code Destinations -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "webpage",
+      "url": "{{ $page_url }}/",
+      "name": "<?php echo $university->name; ?>",
+      "description": "<?php echo $meta_description; ?>",
+      "inLanguage": "en-US",
+      "keywords": [
+        "<?php echo $meta_keyword; ?>"
+      ]
+    }
+  </script>
+@endpush
 @section('main-section')
 <style>
   .info-box {

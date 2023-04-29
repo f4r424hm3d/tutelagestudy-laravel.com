@@ -42,7 +42,7 @@
                 <x-ResultNotificationField></x-ResultNotificationField>
                 <!-- NOTIFICATION FIELD END -->
                 <div class="auth-content my-auto">
-                  <form action="{{ url('admin/login') }}" method="post">
+                  <form action="{{ url('admin/login/') }}/" method="post">
                     @csrf
                     <div class="mb-3">
                       <label class="form-label">Username</label>

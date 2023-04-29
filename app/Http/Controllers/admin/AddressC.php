@@ -17,14 +17,14 @@ class AddressC extends Controller
       $sd = Address::find($id);
       if (!is_null($sd)) {
         $ft = 'edit';
-        $url = url('admin/addresses/update/' . $id);
+        $url = url('admin/addresses/update/' . $id.'/');
         $title = 'Update';
       } else {
         return redirect('admin/addresses');
       }
     } else {
       $ft = 'add';
-      $url = url('admin/addresses/store');
+      $url = url('admin/addresses/store/');
       $title = 'Add New';
       $sd = '';
     }

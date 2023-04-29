@@ -25,7 +25,7 @@
           </div>
         <?php } ?>
         <div class="ps-section__content">
-          <form action="{{ url('inquiry/submit-university-inquiry') }}" method="post">
+          <form action="{{ url('inquiry/submit-university-inquiry') }}/" method="post">
             @csrf
             <input type="hidden" class="form-control" name="page_url" value="{{ $page_url }}">
             <div class="ps-form__content">

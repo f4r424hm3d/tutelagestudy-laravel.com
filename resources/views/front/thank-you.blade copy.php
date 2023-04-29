@@ -40,13 +40,7 @@
       <?php } ?>
       <div class="row">
         <div class="col-md-12">
-          <header class="site-header" id="header">
-            <h1 class="site-header__title" data-lead-id="site-header-title">THANK YOU!</h1>
-          </header>
-          <div class="main-content">
-            <i class="fa fa-check main-content__checkmark" id="checkmark"></i>
-            <p class="main-content__body" data-lead-id="main-content-body">Thank you for your interest in studying MBBS abroad! We have received your inquiry and one of our admissions counselors will be in touch with you shortly to provide you with the information you need to make an informed decision about your educational goals. In the meantime, please feel free to scroll down to learn more about the MBBS Abroad Countries and services we offer. We look forward to connecting with you soon!</p>
-          </div>
+          <h1>Thank You</h1>
         </div>
       </div>
     </div>

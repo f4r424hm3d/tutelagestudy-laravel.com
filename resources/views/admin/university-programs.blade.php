@@ -47,7 +47,7 @@ use App\Models\StudyMode;
             <x-ImportForm :pageRoute="$page_route.'/'.$university->id" fileName="university-program-list"></x-ImportForm>
             <hr>
             <!-- IMPORT FORM END -->
-            <form action="{{ $url }}" class="needs-validation" method="post" enctype="multipart/form-data" novalidate>
+            <form action="{{ $url }}/" class="needs-validation" method="post" enctype="multipart/form-data" novalidate>
               @csrf
               <div class="row">
                 <div class="col-md-3 col-sm-12 mb-3">

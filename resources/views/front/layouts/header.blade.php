@@ -3,6 +3,7 @@
 <head>
   <!--Meta Tag Seo-->
   @stack('seo_meta_tag')
+  @stack('breadcrumb_schema')
 
 
 </head>

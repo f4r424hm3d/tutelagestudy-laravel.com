@@ -42,7 +42,7 @@
       <?php } ?>
       <div class="neet-counselling-box">
         <h1>NEET Counselling</h1>
-        <form class="ps-form--visa" action="<?php echo url('inquiry/submit-neet-inquiry/'); ?>" method="post">
+        <form class="ps-form--visa" action="{{ url('inquiry/submit-neet-inquiry/') }}/" method="post">
           @csrf
           <input type="hidden" name="source_url" value="<?php echo $_GET['page']??''; ?>">
           <input type="hidden" name="page_url" value="{{ $page_url }}">

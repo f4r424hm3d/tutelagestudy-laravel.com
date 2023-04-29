@@ -2,6 +2,43 @@
 @push('seo_meta_tag')
 @include('front.layouts.dynamic_page_meta_tag')
 @endpush
+@push('breadcrumb_schema')
+<!-- breadcrumb schema Code -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "BreadcrumbList",
+    "name": "<?php echo ucwords($meta_title); ?>",
+    "description": "<?php echo $meta_description; ?>",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "<?php echo url('/'); ?>/"
+    }, {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Universities",
+      "item": "{{ $page_url }}/"
+    }]
+  }
+</script> <!-- breadcrumb schema Code End -->
+
+<!-- webpage schema Code Destinations -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "webpage",
+    "url": "<?php echo url(Request::segment(1)); ?>/",
+    "name": "Medical Universities",
+    "description": "<?php echo $meta_description; ?>",
+    "inLanguage": "en-US",
+    "keywords": [
+      "<?php echo $meta_keyword; ?>"
+    ]
+  }
+</script>
+@endpush
 @section('main-section')
 <style>
   .pagination li.active span {
@@ -207,7 +244,7 @@
                                 <p style="margin:0px">
                                   <!-- <a target="_blank" class="ps-btn w-100" style="background:#0047ab" href="<?php echo url($key->uname . '/write-review'); ?>"><i class=" fa fa-comments"></i> Write review</a> -->
 
-                                  <a onclick="setModelAttr('<?php echo $key->imgpath ?>','<?php echo $key->name ?>')" class="ps-btn mt-2 w-100" href="javascript:void()" data-toggle="modal" data-target="#exampleModalLong"><i class="icon-question-circle"></i> Request Info</a>
+                                  <a onclick="setModelAttr()" class="ps-btn mt-2 w-100" href="javascript:void()"><i class="icon-question-circle"></i> Request Info</a>
                                 </p>
                               </div>
                             </div>
@@ -265,7 +302,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
       </div>
       <div class="modal-body">
-        <form class="ps-form--visa" action="{{ url('inquiry/submit-university-inquiry') }}" method="post">
+        <form class="ps-form--visa" action="{{ url('inquiry/submit-university-inquiry') }}/" method="post">
           @csrf
           <input type="hidden" name="page_url" value="<?php echo $page_url; ?>">
           <div class="row">
@@ -273,7 +310,7 @@
               <div class="form-group">
                 <input type="text" name="name" id="name" class="form-control" placeholder="Enter Name" value="{{ old('name')??'' }}" required>
                 @error('name')
-                  {{ '<span class="err-clr">' . $message . '</span>' }}
+                  {!! '<span class="text-danger">' . $message . '</span>' !!}
                 @enderror
               </div>
             </div>
@@ -281,7 +318,7 @@
               <div class="form-group">
                 <input type="email" class="form-control" name="email" id="email" value="{{ old('email')??'' }}" placeholder="Enter Email" required>
                 @error('email')
-                  {{ '<span class="err-clr">' . $message . '</span>' }}
+                  {!! '<span class="text-danger">' . $message . '</span>' !!}
                 @enderror
               </div>
             </div>
@@ -296,7 +333,7 @@
                   <?php } ?>
                 </select>
                 @error('c_code')
-                  {{ '<span class="err-clr">' . $message . '</span>' }}
+                  {!! '<span class="text-danger">' . $message . '</span>' !!}
                 @enderror
               </div>
             </div>
@@ -304,7 +341,7 @@
               <div class="form-group">
                 <input type="text" class="form-control u-ltr" placeholder="Enter Mobile Number" data-error="Please enter a valid phone number" name="mobile" id="mobile" value="<?php echo old('mobile'); ?>" required>
                 @error('mobile')
-                  {{ '<span class="err-clr">' . $message . '</span>' }}
+                  {!! '<span class="text-danger">' . $message . '</span>' !!}
                 @enderror
               </div>
             </div>
@@ -319,7 +356,7 @@
                   <?php } ?>
                 </select>
                 @error('nationality')
-                  {{ '<span class="err-clr">' . $message . '</span>' }}
+                  {!! '<span class="text-danger">' . $message . '</span>' !!}
                 @enderror
               </div>
             </div>
@@ -334,7 +371,7 @@
                   <?php } ?>
                 </select>
                 @error('destination')
-                  {{ '<span class="err-clr">' . $message . '</span>' }}
+                  {!! '<span class="text-danger">' . $message . '</span>' !!}
                 @enderror
               </div>
             </div>
@@ -382,9 +419,10 @@
 
   function setModelAttr(img, name) {
     //alert(img + ' , ' + name);
-    var imgpath = "<?php echo url('/'); ?>" + img;
-    $('#UniNameSpan').text(name);
-    $('#uniImgTag').attr('src', imgpath);
+    // var imgpath = "<?php echo url('/'); ?>" + img;
+    // $('#UniNameSpan').text(name);
+    // $('#uniImgTag').attr('src', imgpath);
+    window.open("{{ url('mbbs-abroad-counselling/') }}/","_self");
   }
 </script>
 @endsection

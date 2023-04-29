@@ -44,7 +44,7 @@
             <x-ImportForm :pageRoute="$page_route" fileName="programs"></x-ImportForm>
             <hr>
             <!-- IMPORT FORM END -->
-            <form action="{{ $url }}" class="needs-validation" method="post" enctype="multipart/form-data" novalidate>
+            <form action="{{ $url }}/" class="needs-validation" method="post" enctype="multipart/form-data" novalidate>
               @csrf
               <div class="row">
 

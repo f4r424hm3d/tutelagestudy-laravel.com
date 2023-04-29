@@ -2,6 +2,34 @@
 @push('seo_meta_tag')
 @include('front.layouts.dynamic_page_meta_tag')
 @endpush
+@push('breadcrumb_schema')
+<!-- breadcrumb schema Code -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "BreadcrumbList",
+    "name": "<?php echo ucwords($meta_title); ?>",
+    "description": "<?php echo ucwords($meta_description); ?>",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "<?php echo url('/'); ?>"
+    }, {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Services",
+      "item": "<?php echo url('services'); ?>/"
+    }, {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "<?php echo $row->headline; ?>",
+      "item": "{{ $page_url }}/"
+    }]
+  }
+</script>
+<!-- breadcrumb schema Code End -->
+@endpush
 @section('main-section')
 <style>
   .ps-product__box h2 {

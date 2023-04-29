@@ -188,7 +188,7 @@
     return new Promise(function(resolve,reject) {
       $("#migrateBtn").text('Migrating...');
       setTimeout(() => {
-        $.get("{{ url('/f/migrate') }}",function(data) {
+        $.get("{{ url('/f/migrate/') }}/",function(data) {
           $("#migrateBtn").attr('class','btn btn-success');
           $("#migrateBtn").text('Migrated');
         }).fail(err => {
@@ -203,7 +203,7 @@
     return new Promise(function(resolve,reject) {
       $("#optimizeBtn").text('Optimizing...');
       setTimeout(() => {
-        $.get("{{ url('/f/optimize') }}",function(data) {
+        $.get("{{ url('/f/optimize/') }}/",function(data) {
           $("#optimizeBtn").attr('class','btn btn-success');
           $("#optimizeBtn").text('Optimized');
         }).fail(err => {

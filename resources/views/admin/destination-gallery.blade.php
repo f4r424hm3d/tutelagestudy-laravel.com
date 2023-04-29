@@ -41,7 +41,7 @@
             </h4>
           </div>
           <div class="card-body {{ $ft=='edit'?'':'hide-this' }}" id="tblCDiv">
-            <form action="{{ $url }}" class="needs-validation" method="post" enctype="multipart/form-data" novalidate>
+            <form action="{{ $url }}/" class="needs-validation" method="post" enctype="multipart/form-data" novalidate>
               @csrf
               <input type="hidden" name="destination_id" value="{{ $destination_id }}">
               <div class="row">
