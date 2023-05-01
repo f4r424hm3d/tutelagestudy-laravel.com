@@ -263,31 +263,32 @@
 </div>
 <!-- header background section ends -->
 
-<div class="ps-page--product ps-page--product-box">
+<!--div class="ps-page--product ps-page--product-box">
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12">
-        <?php if (session()->has('smsg')) { ?>
+        <-?php if (session()->has('smsg')) { ?>
         <div class="alert alert-success alert-outline-coloured alert-dismissible" role="alert">
           <div class="alert-message">
-            <strong><?php echo session()->get('smsg'); ?></strong>
+            <strong><-?php echo session()->get('smsg'); ?></strong>
           </div>
         </div>
-        <?php } ?>
-        <?php if (session()->has('emsg')) { ?>
+        <-?php } ?>
+        <-?php if (session()->has('emsg')) { ?>
         <div class="alert alert-danger alert-outline-coloured alert-dismissible" role="alert">
           <div class="alert-message">
-            <strong><?php echo session()->get('emsg'); ?></strong>
+            <strong><-?php echo session()->get('emsg'); ?></strong>
           </div>
         </div>
-        <?php } ?>
+        <-?php } ?>
       </div>
     </div>
   </div>
-</div>
+</div-->
 <!-- header background section ends -->
-<div class="ps-page--product ps-page--product-box">
-  <div class="ps-product--detail ps-product--box" style="background: #eee; margin-bottom:0px!important">
+
+<div class="ps-page--product-box">
+  <div class="ps-product--box" style="background: #eee; margin-bottom:0px!important">
     <div class="ps-section__right">
       <div class="ps-tab-root container-fluid">
         <div class="row">

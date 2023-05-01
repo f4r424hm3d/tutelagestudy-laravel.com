@@ -272,7 +272,7 @@
       </div>
     </div>
     <div class="container">
-      <div class="ps-blog--sidebar">
+      <div class="ps-blog--sidebar row">
         <div class="mb-20 col-md-9">
           <div class="ps-post--detail sidebar">
             <div class="ps-post__content card">

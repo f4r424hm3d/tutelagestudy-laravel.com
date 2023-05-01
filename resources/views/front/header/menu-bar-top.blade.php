@@ -154,7 +154,7 @@
         <i class="icon-list4" aria-hidden="true"></i><span> Blog</span>
       </a>
       <a class="navigation__item ps-toggle--sidebar" href="#search-sidebar" aria-label="Left Align">
-        <i class="icon-magnifier" aria-hidden="true"></i><span> Search</span>
+        <i class="icon-pencil-line" aria-hidden="true"></i><span> Enquire Now</span>
       </a>
     </div>
   </div>
@@ -167,7 +167,15 @@
         </div>
       </form>
     </div>
-    <div class="navigation__content"></div>
+    
+    
+    
+<div class="navigation__content">
+asfdasd
+</div>
+    
+    
+    
   </div>
   <div class="ps-panel--sidebar" id="menu-mobile">
     <div class="ps-panel__header">

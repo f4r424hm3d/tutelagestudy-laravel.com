@@ -352,7 +352,9 @@
     </div>
   </div>
 </div>
-<div class="ps-page--product ps-page--product-box">
+
+
+<!--div class="ps-page--product ps-page--product-box">
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12">
@@ -360,9 +362,11 @@
       </div>
     </div>
   </div>
-</div>
+</div-->
+
+
 <!-- header background section ends -->
-<div class="ps-page--product ps-page--product-box">
+<div class="ps-page--product-box">
   <div class="container-fluid">
     <?php if ($tabs != null && count($tabs) > 1) { ?>
     <div class="ps-block--categories-tabs ps-tab-root" data-gssticky="1" style="top: 0px; position: sticky; overflow: auto; font-weight: 600; z-index:99; box-shadow: 0px 4px 20px rgb(0 0 0 / 10%);">
@@ -377,7 +381,7 @@
     <?php } ?>
     <div class="ps-product--detail ps-product--box" style="background: #eee; margin-bottom:0px!important">
       <div class="ps-section__right">
-        <div class="ps-tab-root container-fluid">
+        <div class="ps-tab-root">
           <div class="row">
             <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12 mb-20">
               <?php if ($seg2 == null) { ?>
