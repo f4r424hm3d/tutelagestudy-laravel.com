@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\University;
 use App\Models\UniversityGallery;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 
 class UniversityGalleryC extends Controller
 {
@@ -57,7 +58,8 @@ class UniversityGalleryC extends Controller
         $fileNameWithoutExtention = pathinfo($fileOriginalName, PATHINFO_FILENAME);
         $file_name_slug = slugify($fileNameWithoutExtention);
         $file_name = $file_name_slug . '-' . time() . '.' . $file->getClientOriginalExtension();
-        $move = $file->move('uploads/university/', $file_name);
+        //$move = $file->move('uploads/university/', $file_name);
+        $move = Image::make($file)->save('uploads/university/'. $file_name,20);
         if ($move) {
           $field->image_name = $file_name;
           $field->image_path = 'uploads/university/' . $file_name;

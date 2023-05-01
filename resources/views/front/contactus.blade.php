@@ -1,7 +1,6 @@
-<?php
-$error = $this->session->flashdata('val_err');
-$old = $this->session->flashdata('post_value');
-?>
+@php
+  use App\Models\Address;
+@endphp
 @extends('front.layouts.main')
 @push('seo_meta_tag')
 @include('front.layouts.static_page_meta_tag')
@@ -140,7 +139,7 @@ $old = $this->session->flashdata('post_value');
 <div class="ps-breadcrumb">
   <div class="ps-container">
     <ul class="breadcrumb bread-scrollbar">
-      <li><a href="<?php echo base_url(); ?>">Home</a></li>
+      <li><a href="<?php echo url('/'); ?>">Home</a></li>
       <li>Contact Us</li>
     </ul>
   </div>
@@ -204,7 +203,7 @@ $old = $this->session->flashdata('post_value');
         <ul class="nav nav-tabs vertically-scrollbar" role="tablist">
         <?php
           $i = 1;
-          foreach ($rows as $row) {
+          foreach ($locations as $row) {
         ?>
           <li role="presentation"><a class="<?php echo $i==1?'active':''; ?>" href="#<?php echo $row->country; ?>" aria-controls="<?php echo $row->country; ?>" role="tab" data-toggle="tab" aria-expanded="false"><?php echo $row->country; ?></a></li>
           <?php  $i++; } ?>
@@ -215,12 +214,12 @@ $old = $this->session->flashdata('post_value');
 
         <?php
           $i = 1;
-          foreach ($rows as $row) {
+          foreach ($locations as $row) {
         ?>
           <div role="tabpanel" class="tab-pane  <?php echo $i==1?'active':''; ?>" id="<?php echo $row->country; ?>">
             <div class="row">
               <?php
-                $addrs = $this->mm->getAlldata7(['country'=>$row->country],'addresses');
+                $addrs = Address::where(['country'=>$row->country])->get();
                 foreach ($addrs as $ro) {
               ?>
               <div class="col-md-3">
@@ -261,17 +260,17 @@ $old = $this->session->flashdata('post_value');
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <?php if ($this->session->flashdata('smsg')) { ?>
+          <?php if (session()->has('smsg')) { ?>
             <div class="alert alert-success alert-outline-coloured alert-dismissible" role="alert">
               <div class="alert-message">
-                <strong><?php echo $this->session->flashdata('smsg'); ?></strong>
+                <strong><?php echo session()->get('smsg'); ?></strong>
               </div>
             </div>
           <?php } ?>
-          <?php if ($this->session->flashdata('emsg')) { ?>
+          <?php if (session()->has('emsg')) { ?>
             <div class="alert alert-danger alert-outline-coloured alert-dismissible" role="alert">
               <div class="alert-message">
-                <strong><?php echo $this->session->flashdata('emsg'); ?></strong>
+                <strong><?php echo session()->get('emsg'); ?></strong>
               </div>
             </div>
           <?php } ?>
@@ -280,87 +279,84 @@ $old = $this->session->flashdata('post_value');
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.694307607099!2d77.0675921150787!3d28.458630082486835!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d19f0ff999f77%3A0x21bc6aa869a4d8f8!2sTutelage%20Study!5e0!3m2!1sen!2sin!4v1602920690248!5m2!1sen!2sin" width="100%" height="420" style="border:2px dotted #0047ab;box-shadow: 0 0 25px rgb(0 0 0 / 29%);" allowfullscreen="" loading="lazy"></iframe>
         </div>
         <div class="col-md-6">
-          <form class="ps-form--contact-us" action="<?php echo base_url('inquiry/submit-inquiry/'); ?>" method="post">
+          <form class="ps-form--contact-us" action="{{ url('inquiry/submit-university-inquiry') }}/" method="post">
+            @csrf
             <h3 style="margin-top:20px">Get In Touch</h3>
             <p class="text-danger">All field are required.</p>
-            <input type="hidden" name="page_url" value="<?php echo base_url($this->uri->uri_string()); ?>">
+            <input type="hidden" name="page_url" value="<?php echo url()->current(); ?>">
             <div class="row">
               <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="form-group">
-                  <input class="form-control" name="name" type="text" placeholder="Name" value="<?php echo $old['name'] ? $old['name'] : ''; ?>" required>
+                  <input type="text" name="name" id="name" class="form-control" placeholder="Enter Name" value="{{ old('name')??'' }}" required>
+                  @error('name')
+                    {{ '<span class="err-clr">' . $message . '</span>' }}
+                  @enderror
                 </div>
-                <?php if ($error['name']) { ?>
-                  <span class="text-danger"><?php echo $error['name']; ?></span>
-                <?php  } ?>
               </div>
               <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="form-group">
-                  <input class="form-control" name="email" type="email" placeholder="Email *" value="<?php echo $old['email'] ? $old['email'] : ''; ?>" required>
+                  <input type="email" class="form-control" name="email" id="email" value="{{ old('email')??'' }}" placeholder="Enter Email" required>
+                  @error('email')
+                    {{ '<span class="err-clr">' . $message . '</span>' }}
+                  @enderror
                 </div>
-                <?php if ($error['email']) { ?>
-                  <span class="text-danger"><?php echo $error['email']; ?></span>
-                <?php  } ?>
               </div>
               <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                <select class="form-control" name="c_code" id="c_code" aria-placeholder="Country Code" required>
-                  <option value="">Country Code</option>
+                <select class="form-control" name="c_code" id="c_code" required>
+                  <option value="">Select Code</option>
                   <?php
-                  $country = $this->mm->getDataByGroup3('phonecode', 'ASC', 'countries', 'phonecode');
-                  foreach ($country as $row) {
+                  foreach ($phonecodes as $row) {
                   ?>
-                    <option value="<?php echo $row->phonecode; ?>" <?php echo $old['c_code'] == $row->phonecode ? 'Selected' : ''; ?>> +<?php echo $row->phonecode; ?> (<?php echo $row->name; ?>)</option>
+                    <option value="<?php echo $row->phonecode; ?>" <?php echo old('c_code') && old('c_code') == $row->phonecode ? 'Selected' : ''; ?>> +<?php echo $row->phonecode; ?> (<?php echo $row->name; ?>)</option>
                   <?php } ?>
                 </select>
-                <?php if ($error['c_code']) { ?>
-                  <span class="text-danger"><?php echo $error['c_code']; ?></span>
-                <?php  } ?>
+                @error('c_code')
+                  {{ '<span class="err-clr">' . $message . '</span>' }}
+                @enderror
               </div>
               <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="form-group">
-                  <input class="form-control" name="mobile" type="text" placeholder="Mobile Number : 919876543210 *" pattern="[0-9]+" value="<?php echo $old['mobile'] ? $old['mobile'] : ''; ?>" required>
+                  <input type="text" class="form-control u-ltr" placeholder="Enter Mobile Number" data-error="Please enter a valid phone number" name="mobile" id="mobile" value="<?php echo old('mobile'); ?>" required>
+                  @error('mobile')
+                    {{ '<span class="err-clr">' . $message . '</span>' }}
+                  @enderror
                 </div>
-                <?php if ($error['mobile']) { ?>
-                  <span class="text-danger"><?php echo $error['mobile']; ?></span>
-                <?php  } ?>
               </div>
               <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                <select class="form-control" name="nationality" id="nationality" aria-placeholder="Select Your Country" required>
+                <select class="form-control" name="nationality" id="nationality" required>
                   <option value="">Select Your Country</option>
-
                   <?php
-                  $country = $this->mm->getDataByGroup3('name', 'ASC', 'countries', 'name');
-                  foreach ($country as $row) {
+                  foreach ($countries as $row) {
                   ?>
-                    <option value="<?php echo $row->name; ?>" <?php echo $old['nationality'] == $row->name ? 'Selected' : ''; ?>><?php echo $row->name; ?></option>
+                    <option value="<?php echo $row->name; ?>" <?php echo old('nationality') == $row->name ? 'Selected' : ''; ?>> <?php echo $row->name; ?></option>
                   <?php } ?>
                 </select>
-                <?php if ($error['nationality']) { ?>
-                  <span class="text-danger"><?php echo $error['nationality']; ?></span>
-                <?php  } ?>
+                @error('nationality')
+                  {{ '<span class="err-clr">' . $message . '</span>' }}
+                @enderror
               </div>
               <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                <select class="form-control" name="destination" id="destination" aria-placeholder="Destination" required>
-                  <option value="">Destination</option>
+                <select class="form-control" name="destination" id="destination" required>
+                  <option value="">Select Destination</option>
                   <?php
-                  $destinations = $this->mm->getDataByGroup3('page_name', 'ASC', 'destinations', 'page_name');
                   foreach ($destinations as $row) {
                   ?>
-                    <option value="<?php echo $row->page_name; ?>" <?php echo $old['destination'] == $row->page_name ? 'Selected' : ''; ?>><?php echo $row->page_name; ?></option>
+                    <option value="<?php echo $row->page_name; ?>" <?php echo old('destination') == $row->page_name ? 'Selected' : ''; ?>><?php echo $row->page_name; ?></option>
                   <?php } ?>
                 </select>
-                <?php if ($error['destination']) { ?>
-                  <span class="text-danger"><?php echo $error['destination']; ?></span>
-                <?php  } ?>
+                @error('destination')
+                  {{ '<span class="err-clr">' . $message . '</span>' }}
+                @enderror
               </div>
             </div>
-            <br>
+            {{-- <br>
             <div class="row">
               <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
                 <div class="form-group">
                   <div class="g-recaptcha" data-sitekey="<?php echo recaptcha_site_key; ?>" required></div>
                 </div>
               </div>
-            </div>
+            </div> --}}
             <div class="form-group submit">
               <button class="ps-btn" type="submit">Send message</button>
             </div>

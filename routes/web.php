@@ -66,6 +66,12 @@ use Illuminate\Support\Facades\Route;
 // });
 
 //Clear Cache facade value:
+Route::get('/optimize-clear/', function () {
+  $exitCode = Artisan::call('optimize:clear');
+  return '<h1>Optimized successfully</h1>';
+});
+
+//Clear Cache facade value:
 Route::get('/clear-cache/', function () {
   $exitCode = Artisan::call('cache:clear');
   return '<h1>Cache facade value cleared</h1>';
@@ -73,11 +79,11 @@ Route::get('/clear-cache/', function () {
 
 //Reoptimized class loader:
 Route::get('/optimize/', function () {
-  $exitCode = Artisan::call('optimize');
+  $exitCode = Artisan::call('optimize:clear');
   return '<h1>Reoptimized class loader</h1>';
 });
 Route::get('/f/optimize/', function () {
-  $exitCode = Artisan::call('optimize');
+  $exitCode = Artisan::call('optimize:clear');
   return true;
 });
 
@@ -119,7 +125,7 @@ Route::get('/f/migrate/', function () {
 Route::get('/', [HomeFc::class, 'index']);
 Route::get('/home/', [HomeFc::class, 'index']);
 Route::get('/about/', [AboutFc::class, 'index']);
-Route::get('/contact/', [ContactFc::class, 'index']);
+Route::get('/contact-us/', [ContactFc::class, 'index']);
 Route::post('/contact/', [ContactFc::class, 'submitInquiry']);
 Route::get('/terms-of-use/', [HomeFc::class, 'termsConditions']);
 Route::get('/privacy-disclaimer/', [HomeFc::class, 'privacyPolicy']);
