@@ -124,11 +124,11 @@ Route::get('/f/migrate/', function () {
 /* FRONT ROUTES */
 Route::get('/', [HomeFc::class, 'index']);
 Route::get('/home/', [HomeFc::class, 'index']);
-Route::get('/about/', [AboutFc::class, 'index']);
+Route::get('/about-us/', [AboutFc::class, 'index']);
 Route::get('/contact-us/', [ContactFc::class, 'index']);
 Route::post('/contact/', [ContactFc::class, 'submitInquiry']);
-Route::get('/terms-of-use/', [HomeFc::class, 'termsConditions']);
-Route::get('/privacy-disclaimer/', [HomeFc::class, 'privacyPolicy']);
+Route::get('/term-and-condition/', [HomeFc::class, 'termsConditions']);
+Route::get('/privacy-policy/', [HomeFc::class, 'privacyPolicy']);
 
 
 Route::get('/blog/', [BlogFc::class, 'index']);

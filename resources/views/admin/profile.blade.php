@@ -112,7 +112,7 @@
               <div class="card-body">
                 <div>
                   <form id="validation-form" method="post" enctype="multipart/form-data"
-                    action="{{ url('admin/update-profile') }}">
+                    action="{{ url('admin/update-profile') }}/">
                     @csrf
                     <input type="hidden" name="id" value="{{ session()->get('adminLoggedIn')['user_id'] }}">
                     <div class="row">

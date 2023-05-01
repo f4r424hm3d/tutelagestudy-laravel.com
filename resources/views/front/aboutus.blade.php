@@ -46,7 +46,7 @@ transition: all 0.5s
 <div class="ps-breadcrumb">
 <div class="ps-container">
 <ul class="breadcrumb bread-scrollbar">
-<li><a href="<?php echo base_url(); ?>">Home</a></li>
+<li><a href="<?php echo url('/'); ?>">Home</a></li>
 <li>About Us</li>
 </ul>
 </div>

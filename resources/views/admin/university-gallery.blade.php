@@ -22,6 +22,9 @@
     @include('admin.university-profile-header')
     <div class="row">
       <div class="col-xl-12">
+        @if($errors->any())
+          {!! implode('', $errors->all('<div class="text-danger">:message</div>')) !!}
+        @endif
         <!-- NOTIFICATION FIELD START -->
         <x-ResultNotificationField></x-ResultNotificationField>
         <!-- NOTIFICATION FIELD END -->

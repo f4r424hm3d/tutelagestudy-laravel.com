@@ -29,11 +29,11 @@ class HomeFc extends Controller
   }
   public function privacyPolicy(Request $request)
   {
-    return view('front.privacy-policy');
+    return view('front.privacypolicy');
   }
   public function termsConditions(Request $request)
   {
-    return view('front.terms-conditions');
+    return view('front.termandcondition');
   }
   public function searchUniversity(Request $request)
   {

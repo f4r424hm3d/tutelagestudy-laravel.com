@@ -64,7 +64,17 @@ class InquiryController extends Controller
       }
     );
 
-    $emaildata2 = ['name' => $request['name'], 'email' => $request['email'], 'mobile' => $request['mobile'],];
+    $emaildata2 = [
+      'name' => $request['name'],
+      'email' => $request['email'],
+      'c_code' => $request['c_code'],
+      'mobile' => $request['mobile'],
+      'nationality' => $request['nationality'],
+      'destination' => $request['destination'],
+      'page_url' => $request['source_url'],
+      'neet_qualified' => false,
+      'question' => false,
+    ];
 
     $dd2 = ['to' => TO_EMAIL, 'cc' => CC_EMAIL, 'to_name' => TO_NAME, 'cc_name' => CC_NAME, 'subject' => 'New Inquiry'];
 
