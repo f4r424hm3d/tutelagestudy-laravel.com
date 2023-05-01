@@ -48,8 +48,9 @@
       <div class="ps-container">
         <div class="navigation__left">
           <div class="menu--product-categories">
-            <div class="menu__toggle"><i class="icon-menu"></i><span>News Category</span></div>
-            <div class="menu__content">
+            <div class="menu__toggle"><i class="icon-menu"></i><a href="{{ url('/blog/') }}">News & Articles</a></div>
+            {{-- <div class="menu__toggle"><i class="icon-menu"></i><span>News Category</span></div> --}}
+            {{-- <div class="menu__content">
               <ul class="menu--dropdown">
                 <?php
                 $allcat = News::orderBy('id','asc')->distinct('cate_id')->get();
@@ -60,7 +61,7 @@
                   </li>
                 <?php } ?>
               </ul>
-            </div>
+            </div> --}}
           </div>
         </div>
         <div class="navigation__right">

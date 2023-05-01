@@ -448,6 +448,8 @@
                   </div>
                 </div>
               </div>
+              @push('breadcrumb_schema')
+              <!-- FAQ SCHEMA START -->
               <script type="application/ld+json">
                 {
                   "@context": "https:\/\/schema.org",
@@ -471,6 +473,8 @@
                   ]
                 }
               </script>
+              <!-- FAQ SCHEMA END -->
+              @endpush
               <?php } ?>
               <?php if ($otherexam->count()>0) { ?>
               <div class="ps-product__box mb-20" id="2">
@@ -580,15 +584,27 @@
                   <h3 style=" background:#cd2122; color:#fff; font-size:16px; padding:10px 20px; margin:0px">News Categories</h3>
                   <div class="ps-widget__content" style="background:#fff">
                     <ul>
-                      <?php
-                        foreach ($allcat as $cat) {
-                      ?>
+                      <?php foreach ($allcat as $cat) { ?>
                       <li><a href="<?php echo url('category/' . $cat->slug); ?>/"><i class="icon-arrow-right"></i> <?php echo $cat->cate_name; ?></a></li>
                       <?php } ?>
                     </ul>
                   </div>
                 </aside>
               </div>
+              <?php if (count($otherexam)>1) { ?>
+              <div class="ps-section__left" style="top:60px; background:#fff">
+                <aside class="ps-widget--account-dashboard">
+                  <div class="ps-widget__content">
+                    <div style="font-size:18px; color:#fff; background:#045dab; padding:10px; text-align:center">Other Destination</div>
+                    <ul style="max-height:480px; overflow:auto">
+                      <?php foreach ($otherexam as $row) { ?>
+                      <li><a href="<?php echo url($row->slug); ?>/"><i class="icon-arrow-right"></i> <?php echo $row->page_name; ?></a></li>
+                      <?php } ?>
+                    </ul>
+                  </div>
+                </aside>
+              </div>
+              <?php } ?>
               <?php if (count($otabs)>1) { ?>
               <div class="ps-section__left" style="top:60px; background:#fff">
                 <aside class="ps-widget--account-dashboard">
@@ -597,20 +613,6 @@
                     <ul style="max-height:480px; overflow:auto">
                       <?php foreach ($otabs as $tab) { ?>
                       <li><a href="<?php echo url($row->getTab->slug); ?><?php echo $tab->getTab->slug == 'overview' ? '' : '/' . $tab->getTab->slug; ?>/"><i class="icon-arrow-right"></i> <?php echo ucwords($tab->getTab->page_name); ?> <?php echo ucwords($tab->getTab->tab); ?></a></li>
-                      <?php } ?>
-                    </ul>
-                  </div>
-                </aside>
-              </div>
-              <?php } ?>
-              <?php if (count($otherexam)>1) { ?>
-              <div class="ps-section__left" style="top:60px; background:#fff">
-                <aside class="ps-widget--account-dashboard">
-                  <div class="ps-widget__content">
-                    <div style=" font-size:18px; color:#fff; background:#045dab; padding:10px; text-align:center">Other Destination</div>
-                    <ul style="max-height:480px; overflow:auto">
-                      <?php foreach ($otherexam as $row) { ?>
-                      <li><a href="<?php echo url($row->slug); ?>/"><i class="icon-arrow-right"></i> <?php echo $row->page_name; ?></a></li>
                       <?php } ?>
                     </ul>
                   </div>
@@ -633,13 +635,13 @@
               </div>
               <div class="ps-section__content">
                 <div class="ps-carousel--nav owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="10000" data-owl-gap="30" data-owl-nav="true" data-owl-dots="false" data-owl-item="3" data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="3" data-owl-item-lg="3" data-owl-duration="1000" data-owl-mousedrag="on">
-                  <?php foreach ($testimonials as $row) { ?>
+                  <?php foreach ($testimonials as $test) { ?>
                   <div class="ps-block--testimonial pt-3 pb-3 pl-5 pr-5">
-                    <div class="ps-block__header"><img src="<?php echo $row->image!=null?asset($row->image):asset('front/user-tesimonial-photo.jpg'); ?>" alt="MBBS Abroad Testimonial"></div>
+                    <div class="ps-block__header"><img src="<?php echo $test->image!=null?asset($test->image):asset('front/user-tesimonial-photo.jpg'); ?>" alt="MBBS Abroad Testimonial"></div>
                     <div class="ps-block__content pt-5 pb-3">
                       <i class="icon-quote-close"></i>
-                      <span class="sph"><?php echo $row->name; ?></span>
-                      <p><?php echo $row->review; ?></p>
+                      <span class="sph"><?php echo $test->name; ?></span>
+                      <p><?php echo $test->review; ?></p>
                     </div>
                   </div>
                   <?php } ?>

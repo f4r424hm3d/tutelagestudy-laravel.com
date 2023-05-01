@@ -55,7 +55,7 @@
       <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
         <a href="https://www.tutelagestudy.com/mbbs-in-malaysia/">
           <div class="ps-post ps-product shadow">
-            <div class="ps-post__thumbnail"><img src="https://www.tutelagestudy.com/assets/web/img/mbbs-malaysia.jpg" alt=""></div>
+            <div class="ps-post__thumbnail"><img src="{{ asset('/front/') }}/img/mbbs-malaysia.jpg" alt=""></div>
             <div class="ps-post__content" style="border:0px; padding:12px 0px; background:#fff">
               <div class="ps-post__title text-center">MBBS IN MALAYSIA</div>
             </div>
@@ -65,7 +65,7 @@
       <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
         <a href="https://www.tutelagestudy.com/mbbs-in-russia/">
           <div class="ps-post ps-product shadow">
-            <div class="ps-post__thumbnail"><img src="https://www.tutelagestudy.com/assets/web/img/mbbs-russia.jpg" alt=""></div>
+            <div class="ps-post__thumbnail"><img src="{{ asset('/front/') }}/img/mbbs-russia.jpg" alt=""></div>
             <div class="ps-post__content" style="border:0px; padding:12px 0px; background:#fff">
               <div class="ps-post__title text-center">MBBA IN RUSSIA</div>
             </div>
@@ -75,7 +75,7 @@
       <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
         <a href="https://www.tutelagestudy.com/mbbs-in-mauritius/">
           <div class="ps-post ps-product shadow">
-            <div class="ps-post__thumbnail"><img src="https://www.tutelagestudy.com/assets/web/img/mbbs-mauritius.jpg" alt=""></div>
+            <div class="ps-post__thumbnail"><img src="{{ asset('/front/') }}/img/mbbs-mauritius.jpg" alt=""></div>
             <div class="ps-post__content" style="border:0px; padding:12px 0px; background:#fff">
               <div class="ps-post__title text-center">MBBS IN MAURITUS</div>
             </div>
@@ -85,7 +85,7 @@
       <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
         <a href="https://www.tutelagestudy.com/mbbs-in-iran/">
           <div class="ps-post ps-product shadow">
-            <div class="ps-post__thumbnail"><img src="https://www.tutelagestudy.com/assets/web/img/mbbs-iran.jpg" alt=""></div>
+            <div class="ps-post__thumbnail"><img src="{{ asset('/front/') }}/img/mbbs-iran.jpg" alt=""></div>
             <div class="ps-post__content" style="border:0px; padding:12px 0px; background:#fff">
               <div class="ps-post__title text-center">MBBS IN IRAN</div>
             </div>

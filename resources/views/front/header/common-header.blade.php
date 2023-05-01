@@ -56,8 +56,8 @@ $data['ogimgpath'] = '';
   <meta name="language" content="EN" />
   <meta property="og:title" content="<?php echo $meta_title; ?>" />
   <meta property="og:description" content="<?php echo $meta_description; ?>" />
-  <link rel="shortcut icon" href="https://www.tutelagestudy.com/assets/web/img/icon.png" type="image/x-icon">
-  <link rel="apple-touch-icon" href="https://www.tutelagestudy.com/assets/web/img/icon.png"/>
+  <link rel="shortcut icon" href="{{ asset('/front/') }}/img/icon.png" type="image/x-icon">
+  <link rel="apple-touch-icon" href="{{ asset('/front/') }}/img/icon.png"/>
   <meta property="og:locale" content="en_US" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Tutelage Study Education Consultants : India" />
@@ -104,7 +104,7 @@ $data['ogimgpath'] = '';
     "@id":"https://www.tutelagestudy.com/#organization",
     "name": "Tutelage Study",
     "url": "https://www.tutelagestudy.com/",
-    "logo": "https://www.tutelagestudy.com/assets/web/img/logo_light.png",
+    "logo": "{{ asset('/front/') }}/img/logo_light.png",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "B-16 Ground Floor, Mayfield Garden, Sector 50",

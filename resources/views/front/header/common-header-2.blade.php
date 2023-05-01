@@ -12,7 +12,7 @@
   <meta name="page-topic" content="<?php echo $page_content; ?>" />
   <meta property="og:title" content="<?php echo $meta_title; ?>" />
   <meta property="og:description" content="<?php echo $meta_description; ?>" />
-  <link rel="shortcut icon" href="https://www.tutelagestudy.com/assets/web/img/icon.png" type="image/x-icon">
+  <link rel="shortcut icon" href="{{ asset('/front/') }}/img/icon.png" type="image/x-icon">
   <meta property="og:url" content="<?php echo $fullurl; ?>/" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="Tutelage Study MBBS Abroad Consultant" />
@@ -22,7 +22,7 @@
   <meta name="twitter:description" content="<?php echo $meta_description; ?>" />
   <meta name="twitter:image" content="<?php echo base_url($ogimgpath); ?>" />
   <meta property="twitter:image:type" content="image/jpg" />
-  <link rel="apple-touch-icon" href="https://www.tutelagestudy.com/assets/web/img/icon.png"/>
+  <link rel="apple-touch-icon" href="{{ asset('/front/') }}/img/icon.png"/>
   <meta property="og:image" content="<?php echo base_url($ogimgpath); ?>" />
 
   <?php $this->load->view('web/cssjs'); ?>
@@ -34,7 +34,7 @@
     "@id":"https://www.tutelagestudy.com/#organization",
     "name": "Tutelage Study",
     "url": "https://www.tutelagestudy.com/",
-    "logo": "https://www.tutelagestudy.com/assets/web/img/logo_light.png",
+    "logo": "{{ asset('/front/') }}/img/logo_light.png",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "B-16 Ground Floor, Mayfield Garden, Sector 50",

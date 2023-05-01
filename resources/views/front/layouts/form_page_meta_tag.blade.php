@@ -14,6 +14,8 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="<?php echo $title; ?>" />
 <meta name="twitter:site" content="@tutelagestudy" />
+<link rel="shortcut icon" href="{{ asset('/front/') }}/img/icon.png" type="image/x-icon">
+  <link rel="apple-touch-icon" href="{{ asset('/front/') }}/img/icon.png"/>
 @include('front.cssjs')
 <!-- organization schema code -->
 <script type="application/ld+json">
@@ -30,7 +32,7 @@
 
       "url": "https://www.tutelagestudy.com/",
 
-      "logo": "https://www.tutelagestudy.com/assets/web/img/logo_light.png",
+      "logo": "{{ asset('/front/') }}/img/logo_light.png",
 
       "address": {
 

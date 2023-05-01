@@ -30,7 +30,7 @@
 
       "url": "https://www.tutelagestudy.com/",
 
-      "logo": "https://www.tutelagestudy.com/assets/web/img/logo_light.png",
+      "logo": "{{ asset('/front/') }}/img/logo_light.png",
 
       "address": {
 

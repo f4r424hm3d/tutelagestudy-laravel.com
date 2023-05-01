@@ -15,6 +15,8 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="<?php echo $title; ?>" />
   <meta name="twitter:site" content="@tutelagestudy" />
+  <link rel="shortcut icon" href="{{ asset('/front/') }}/img/icon.png" type="image/x-icon">
+  <link rel="apple-touch-icon" href="{{ asset('/front/') }}/img/icon.png"/>
 
   @include('front.cssjs')
   <!-- organization schema code -->
@@ -25,7 +27,7 @@
       "@id":"https://www.tutelagestudy.com/#organization",
       "name": "Tutelage Study",
       "url": "https://www.tutelagestudy.com/",
-      "logo": "https://www.tutelagestudy.com/assets/web/img/logo_light.png",
+      "logo": "{{ asset('/front/') }}/img/logo_light.png",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "B-16 Ground Floor, Mayfield Garden, Sector 50",

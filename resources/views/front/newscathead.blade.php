@@ -21,7 +21,7 @@
   <meta name="robots" content="index,follow" />
   <meta property="og:title" content="<?php echo $meta_title; ?>" />
   <meta property="og:description" content="<?php echo $meta_description; ?>" />
-  <link rel="shortcut icon" href="https://www.tutelagestudy.com/assets/web/img/icon.png" type="image/x-icon">
+  <link rel="shortcut icon" href="{{ asset('/front/') }}/img/icon.png" type="image/x-icon">
   <meta property="og:type" content="website" />
   <meta property="og:image" content="" />
   <meta property="og:locale" content="en_US" />

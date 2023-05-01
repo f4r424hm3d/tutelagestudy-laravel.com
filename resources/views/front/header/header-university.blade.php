@@ -2,7 +2,7 @@
 
 <html lang="en">
 
-<head>  
+<head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="googlebot" content=" index, follow " />
@@ -21,11 +21,11 @@
   <meta name="robots" content="index,follow" />
   <meta property="og:title" content="<?php echo $meta_title; ?>" />
   <meta property="og:description" content="<?php echo $meta_description; ?>" />
-  <link rel="shortcut icon" href="https://www.tutelagestudy.com/assets/web/img/icon.png" type="image/x-icon">
+  <link rel="shortcut icon" href="{{ asset('/front/') }}/img/icon.png" type="image/x-icon">
   <meta property="og:locale" content="en_US" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Tutelage Study Education Consultants : India" />
-  <link rel="apple-touch-icon" href="https://www.tutelagestudy.com/assets/web/img/icon.png"/>
+  <link rel="apple-touch-icon" href="{{ asset('/front/') }}/img/icon.png"/>
   <meta property="og:type" content="website" />
   <meta property="og:image" content="<?php echo base_url($ogimgpath); ?>" />
   <meta property="og:locale" content="en_US" />
@@ -51,7 +51,7 @@
     "@id":"https://www.tutelagestudy.com/#organization",
     "name": "Tutelage Study",
     "url": "https://www.tutelagestudy.com/",
-    "logo": "https://www.tutelagestudy.com/assets/web/img/logo_light.png",
+    "logo": "{{ asset('/front/') }}/img/logo_light.png",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "B-16 Ground Floor, Mayfield Garden, Sector 50",

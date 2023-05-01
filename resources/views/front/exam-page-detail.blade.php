@@ -461,7 +461,7 @@
                 <div class="ps-widget__content" style="background:#fff">
                   <ul>
                     <?php foreach ($exam_pages as $row) { ?>
-                    <li><a href="<?php echo url($exam_page->exam_slug.'/' . $row->slug); ?>/"><i class="icon-arrow-right"></i> <?php echo $row->page_name; ?></a></li>
+                    <li><a href="<?php echo url($exam->exam_slug.'/' . $row->slug); ?>/"><i class="icon-arrow-right"></i> <?php echo $row->page_name; ?></a></li>
                     <?php } ?>
                   </ul>
                 </div>

@@ -52,7 +52,7 @@ transition: all 0.5s
 </div>
 </div>
 
-<div class="ps-page--single" id="about-us"><img src="https://www.tutelagestudy.com/assets/web/img/about-us-cover.jpg" alt="">
+<div class="ps-page--single" id="about-us"><img src="{{ asset('/front/') }}/img/about-us-cover.jpg" alt="">
 
 <div class="ps-about-intro" style="background:#f9f9f9">
 <div class="container">
@@ -72,7 +72,7 @@ transition: all 0.5s
 </div>
 </div>
 <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
-<img src="https://www.tutelagestudy.com/assets/web/img/about-image.png" class="img-fluid">
+<img src="{{ asset('/front/') }}/img/about-image.png" class="img-fluid">
 </div>
 </div>
 </div>
@@ -115,7 +115,7 @@ transition: all 0.5s
 </div>
 </div>
 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-<img src="https://www.tutelagestudy.com/assets/web/img/what-do-we-stand.jpg" class="img-fluid">
+<img src="{{ asset('/front/') }}/img/what-do-we-stand.jpg" class="img-fluid">
 </div>
 
 <div class="col-lg-12 mb30">

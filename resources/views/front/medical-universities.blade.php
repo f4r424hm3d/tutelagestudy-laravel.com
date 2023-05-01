@@ -244,7 +244,7 @@
                                 <p style="margin:0px">
                                   <!-- <a target="_blank" class="ps-btn w-100" style="background:#0047ab" href="<?php echo url($key->uname . '/write-review'); ?>"><i class=" fa fa-comments"></i> Write review</a> -->
 
-                                  <a onclick="setModelAttr()" class="ps-btn mt-2 w-100" href="javascript:void()"><i class="icon-question-circle"></i> Request Info</a>
+                                  <a class="ps-btn mt-2 w-100" href="{{ url('mbbs-abroad-counselling/') }}/"><i class="icon-question-circle"></i> Request Info</a>
                                 </p>
                               </div>
                             </div>

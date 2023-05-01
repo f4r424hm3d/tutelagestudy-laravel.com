@@ -13,7 +13,7 @@
   <meta name="language" content="EN" />
   <meta name="googlebot" content=" noindex, follow " />
   <meta property="og:title" content="Page not found | Tutelage Study" />
-  <link rel="shortcut icon" href="https://www.tutelagestudy.com/assets/web/img/icon.png" type="image/x-icon">
+  <link rel="shortcut icon" href="{{ asset('/front/') }}/img/icon.png" type="image/x-icon">
   <meta name="google-site-verification" content="SokbVdHyUAjOFBjbYT24LZso--Gh5GaYXY2TKUldJIY" />
 
   <?php $this->load->view('web/cssjs'); ?>
@@ -45,7 +45,7 @@
       "@id": "https://www.tutelagestudy.com/#organization",
       "name": "Tutelage Study",
       "url": "https://www.tutelagestudy.com/",
-      "logo": "https://www.tutelagestudy.com/assets/web/img/logo_light.png",
+      "logo": "{{ asset('/front/') }}/img/logo_light.png",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "B-16 Ground Floor, Mayfield Garden, Sector 50",

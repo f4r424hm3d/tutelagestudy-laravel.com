@@ -61,7 +61,7 @@
       "@id": "https://www.tutelagestudy.com/#organization",
       "name": "Tutelage Study",
       "url": "https://www.tutelagestudy.com/",
-      "logo": "https://www.tutelagestudy.com/assets/web/img/logo_light.png",
+      "logo": "{{ asset('/front/') }}/img/logo_light.png",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "B-16 Ground Floor, Mayfield Garden, Sector 50",
