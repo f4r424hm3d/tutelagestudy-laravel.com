@@ -14,7 +14,7 @@ class ExamPageContentC extends Controller
   {
     $exampage = ExamPage::find($page_id);
     $exam = Exam::find($exampage->exam_id);
-    $rows = ExamPageContent::where('page_id',$page_id)->get();
+    $rows = ExamPageContent::where('page_id',$page_id)->orderBy('priority','ASC')->get();
     if ($id != null) {
       $sd = ExamPageContent::find($id);
       if (!is_null($sd)) {

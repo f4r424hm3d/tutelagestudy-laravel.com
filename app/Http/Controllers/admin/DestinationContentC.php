@@ -17,7 +17,7 @@ class DestinationContentC extends Controller
     if($tab_id != null){
       $rows = $rows->where('tab_id',$tab_id);
     }
-    $rows = $rows->get();
+    $rows = $rows->orderBy('priority','ASC')->get();
     if ($id != null) {
       $sd = DestinationPageContent::find($id);
       if (!is_null($sd)) {
