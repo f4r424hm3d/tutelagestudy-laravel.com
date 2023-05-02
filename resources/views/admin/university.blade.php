@@ -112,6 +112,22 @@
     <div class="row">
       <div class="col-12">
         <div class="card">
+          <div class="card-body">
+            <form class="needs-validation" method="get" novalidate>
+              <div class="row">
+                <div class="col-md-6 col-sm-12 mb-3">
+                  <div class="form-group">
+                    <label>Search</label>
+                    <input name="search" id="search" type="text" class="form-control" placeholder="search by name" value="{{ $_GET['search']??'' }}" required>
+                  </div>
+                </div>
+              </div>
+              <a href="{{ aurl($page_route) }}" class="btn btn-sm btn-info "><i class="ti-trash"></i> Reset</a>
+              <button class="btn btn-sm btn-primary" type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+        <div class="card">
           <div class="card-header">
             <h4 class="card-title">
               {{ $page_title }}  List

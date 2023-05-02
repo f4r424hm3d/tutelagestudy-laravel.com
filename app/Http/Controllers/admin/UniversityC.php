@@ -19,9 +19,17 @@ class UniversityC extends Controller
 {
   public function index($id = null)
   {
+    // echo $request->search;
+    // die;
     $authors = Author::all();
     $destinations = Destination::all();
-    $rows = University::with('getAuthor','getInstType')->paginate(10);
+
+    $rows = University::with('getAuthor','getInstType');
+    if(isset($_GET['search']) && $_GET['search'] != null){
+      $rows = $rows->where('name','like','%'.$_GET['search'].'%');
+    }
+    $rows = $rows->paginate(10);
+
     // printArray($rows->toArray());
     // die;
     $cp = $rows->currentPage();
