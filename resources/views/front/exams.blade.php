@@ -18,13 +18,8 @@
     }, {
       "@type": "ListItem",
       "position": 2,
-      "name": "Destinations",
-      "item": "<?php echo url('destinations/'); ?>/"
-    }, {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "<?php echo $exam->page_name; ?>",
-      "item": "<?php echo url(Request::segment(1)); ?>/"
+      "name": "<?php echo $exam->exam_name; ?>",
+      "item": "<?php echo url()->current(); ?>/"
     }]
   }
   </script> <!-- breadcrumb schema Code End -->

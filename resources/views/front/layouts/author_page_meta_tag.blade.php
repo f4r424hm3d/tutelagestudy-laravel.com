@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <title><?php echo $title; ?></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="follow, index"/>
   <meta property="og:locale" content="en_US" />
   <meta property="og:type" content="profile" />
@@ -17,6 +18,7 @@
   <meta name="twitter:site" content="@tutelagestudy" />
   <link rel="shortcut icon" href="{{ asset('/front/') }}/img/icon.png" type="image/x-icon">
   <link rel="apple-touch-icon" href="{{ asset('/front/') }}/img/icon.png"/>
+
 
   @include('front.cssjs')
   <!-- organization schema code -->

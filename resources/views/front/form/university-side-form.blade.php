@@ -9,7 +9,7 @@
   <div class="row">
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
       <div class="ps-product__box">
-        <h4>Interested in <?php echo $row->page_name; ?> ?<br>We can help – fill in your details get free counselling from experts team.</h4>
+        <h4>We can help – fill in your details get free counselling from experts team.</h4>
         <?php if (session()->has('smsg')) { ?>
           <div class="alert alert-success alert-outline-coloured alert-dismissible" role="alert">
             <div class="alert-message">
