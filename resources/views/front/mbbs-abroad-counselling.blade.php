@@ -72,7 +72,7 @@
                     <?php
                     foreach ($phonecodes as $row) {
                     ?>
-                      <option value="<?php echo $row->phonecode; ?>" <?php echo old('c_code') && old('c_code') == $row->phonecode ? 'Selected' : ''; ?>> +<?php echo $row->phonecode; ?> (<?php echo $row->name; ?>)</option>
+                      <option value="<?php echo $row->phonecode; ?>" <?php echo old('c_code') && old('c_code') == $row->phonecode || $row->phonecode==91 ? 'Selected' : ''; ?>> +<?php echo $row->phonecode; ?> (<?php echo $row->name; ?>)</option>
                     <?php } ?>
                   </select>
                   @error('c_code')

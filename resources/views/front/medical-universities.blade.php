@@ -285,7 +285,7 @@
   <div class="loader-section section-left"></div>
   <div class="loader-section section-right"></div>
 </div>
-
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
 <script>
   function setModelAttr(img, name) {
     //alert(img + ' , ' + name);

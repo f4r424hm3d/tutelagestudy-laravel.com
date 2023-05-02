@@ -484,36 +484,6 @@
 
               <div class="pt-0 pb-20 get-detail text-center"> <a class="ps-btn" href="<?php echo url('destinations'); ?>/" target="blank">View All Countries</a> </div>
 
-              <?php if ($tu->count()>10000) { ?>
-              <div class="ps-page--product" style="background-color:white;">
-                <div class="ps-container pt-10" id="topuniversities">
-                  <div class="ps-section--default pb-2">
-                    <div class="ps-section__header" style="margin-bottom:0px; padding-bottom:10px; border:0px">
-                      <h3><?php echo $c_destination->page_name; ?> Top Medical Universities</h3>
-                    </div>
-                    <div class="ps-section__content">
-                      <div class="ps-carousel--nav owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="10000" data-owl-gap="20" data-owl-nav="true" data-owl-dots="false" data-owl-item="3" data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="3" data-owl-item-lg="3" data-owl-item-xl="3" data-owl-duration="1000" data-owl-mousedrag="on">
-                        <?php foreach ($tu as $tu) { ?>
-                        <article class="ps-block--store mb-0">
-                          <!--<div class="ps-block__thumbnail bg--cover" data-background="<?php echo url($tu->bannerpath); ?>"></div>-->
-                          <hr>
-                          <br>
-                          <br>
-                          <div class="ps-block__content">
-                            <div class="ps-block__author"> <a class="ps-block__user" style="height:60px!important" href="<?php echo url($tu->country_slug . '/' . $tu->uname); ?>/"> <img src="<?php echo url($tu->imgpath); ?>" alt="<?php echo $tu->name; ?>" style="height:100px!important;border:3px solid #0047ab;border-radius: 100%;" loading="lazy"> </a> </div>
-                            <p><?php echo $tu->name; ?></p>
-                            <!-- <div class="ps-block__inquiry"><a href="<?php echo url($tu->uname . '/courses'); ?>"> View All Courses</a></div> -->
-                          </div>
-                        </article>
-                        <?php } ?>
-                      </div>
-                    </div>
-                    <hr>
-                    <div class="pt-0 pb-20 get-detail text-center"> <a class="ps-btn" href="<?php echo url('medical-universities/') ?>" target="blank">View All Universities</a> </div>
-                  </div>
-                </div>
-              </div>
-              <?php } ?>
               <style>
                 .author{align-items:center; margin-bottom:15px;}
                 .author .img-div{width:100%;}
@@ -568,18 +538,6 @@
               <!-- INQUIRY FORM END -->
             </div>
             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
-              {{-- <div class="ps-section__left" style="top:0;">
-                <aside class="ps-widget--account-dashboard">
-                  <h3 style=" background:#cd2122; color:#fff; font-size:16px; padding:10px 20px; margin:0px">News Categories</h3>
-                  <div class="ps-widget__content" style="background:#fff">
-                    <ul>
-                      <?php foreach ($allcat as $cat) { ?>
-                      <li><a href="<?php echo url('category/' . $cat->slug); ?>/"><i class="icon-arrow-right"></i> <?php echo $cat->cate_name; ?></a></li>
-                      <?php } ?>
-                    </ul>
-                  </div>
-                </aside>
-              </div> --}}
               <?php if (count($otabs)>1) { ?>
               <div class="ps-section__left" style="top:60px; background:#fff">
                 <aside class="ps-widget--account-dashboard">
@@ -601,7 +559,23 @@
                     <div style="font-size:18px; color:#fff; background:#045dab; padding:10px; text-align:center">Other Destination</div>
                     <ul style="max-height:480px; overflow:auto">
                       <?php foreach ($otherexam as $row) { ?>
-                      <li><a href="<?php echo url($row->slug); ?>/"><i class="icon-arrow-right"></i> <?php echo $row->page_name; ?></a></li>
+                      <li><a href="<?php echo url($row->slug); ?>/"><i class="icon-arrow-right"></i> MBBS From <?php echo $row->country; ?></a></li>
+                      <?php } ?>
+                    </ul>
+                  </div>
+                </aside>
+              </div>
+              <?php } ?>
+              <?php if ($tu->count()>0) { ?>
+              <div class="ps-section__left" style="top:0;">
+                <aside class="ps-widget--account-dashboard">
+                  <h3 style=" background:#cd2122; color:#fff; font-size:16px; padding:10px 20px; margin:0px">Top Medical Universities in {{ $c_destination->country }}</h3>
+                  <div class="ps-widget__content" style="background:#fff">
+                    <ul>
+                      <?php foreach ($tu as $tu) { ?>
+                      <li>
+                        <a href="<?php echo url($tu->country_slug . '/' . $tu->uname); ?>/"><i class="icon-arrow-right"></i> <?php echo $tu->name; ?></a>
+                      </li>
                       <?php } ?>
                     </ul>
                   </div>
