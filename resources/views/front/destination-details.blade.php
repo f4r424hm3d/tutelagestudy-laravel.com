@@ -28,7 +28,7 @@
     }, {
       "@type": "ListItem",
       "position": 3,
-      "name": "<?php echo $row->page_name; ?>",
+      "name": "<?php echo $c_destination->page_name; ?>",
       "item": "<?php echo url(Request::segment(1)); ?>/"
     }]
   }
@@ -40,7 +40,7 @@
     "@context": "https://schema.org/",
     "@type": "webpage",
     "url": "<?php echo url(Request::segment(1)); ?>/",
-    "name": "<?php echo $row->page_name; ?>",
+    "name": "<?php echo $c_destination->page_name; ?>",
     "description": "<?php echo $meta_description; ?>",
     "inLanguage": "en-US",
     "keywords": [
@@ -58,7 +58,7 @@
       "@type": "AggregateRating",
       "ratingValue": "5",
       "bestRating": "5",
-      "ratingCount": "<?php echo $row->seo_rating; ?>"
+      "ratingCount": "<?php echo $c_destination->seo_rating; ?>"
     }
   }
 </script>
@@ -288,7 +288,7 @@
     <ul class="breadcrumb bread-scrollbar">
       <li><a href="<?php echo url('/'); ?>">Home</a></li>
       <li><a href="<?php echo url('destinations'); ?>/">Destinations</a></li>
-      <li><?php echo $row->page_name; ?></li>
+      <li><?php echo $c_destination->page_name; ?></li>
     </ul>
   </div>
 </div>
@@ -297,14 +297,14 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12 col-sm-12 pt-5 pb-4">
-        <h1 class="fcolor"><?php echo $row->page_name; ?> 2023</h1>
+        <h1 class="fcolor"><?php echo $c_destination->page_name; ?> 2023</h1>
         <div class="row" style="margin-top:10px">
           <div class="col-md-4 col-sm-6 col-xs-12 pad no-padding">
             <div class="media-left">
               <p class="fcolor"><i class="icon-clock pr-1"></i> Duration :</p>
             </div>
             <div class="media-right">
-              <p class="fcolor"><?php echo $row->course_duration; ?></p>
+              <p class="fcolor"><?php echo $c_destination->course_duration; ?></p>
             </div>
           </div>
           <div class="col-md-4 col-sm-6 col-xs-12 pad no-padding">
@@ -312,7 +312,7 @@
               <p class="fcolor"><i class="icon-pencil-line pr-1"></i> Neet Required :</p>
             </div>
             <div class="media-right">
-              <p class="fcolor"><?php echo $row->neet; ?></p>
+              <p class="fcolor"><?php echo $c_destination->neet; ?></p>
             </div>
           </div>
           <div class="col-md-4 col-sm-6 col-xs-12 pad no-padding">
@@ -320,7 +320,7 @@
               <p class="fcolor"><i class="icon-document pr-1"></i> IELTS/TOEFL :</p>
             </div>
             <div class="media-right">
-              <p class="fcolor"><?php echo $row->english_profiency_exam; ?></p>
+              <p class="fcolor"><?php echo $c_destination->english_profiency_exam; ?></p>
             </div>
           </div>
           <div class="col-md-4 col-sm-6 col-xs-12 pad no-padding">
@@ -328,7 +328,7 @@
               <p class="fcolor"><i class="icon-calendar-check pr-1"></i> Intake :</p>
             </div>
             <div class="media-right">
-              <p class="fcolor"><?php echo $row->intake; ?></p>
+              <p class="fcolor"><?php echo $c_destination->intake; ?></p>
             </div>
           </div>
           <div class="col-md-4 col-sm-6 col-xs-12 pad no-padding">
@@ -336,7 +336,7 @@
               <p class="fcolor"><i class="icon-graduation-hat pr-1"></i> Eligibility :</p>
             </div>
             <div class="media-right">
-              <p class="fcolor"><?php echo $row->eligibility; ?></p>
+              <p class="fcolor"><?php echo $c_destination->eligibility; ?></p>
             </div>
           </div>
           <div class="col-md-4 col-sm-6 col-xs-12 pad no-padding">
@@ -344,7 +344,7 @@
               <p class="fcolor"><i class="icon-desktop pr-1"></i> Medium of Teaching :</p>
             </div>
             <div class="media-right">
-              <p class="fcolor"><?php echo $row->medium_of_teaching; ?></p>
+              <p class="fcolor"><?php echo $c_destination->medium_of_teaching; ?></p>
             </div>
           </div>
         </div>
@@ -373,7 +373,7 @@
       <div class="ps-block__header">
         <div class="ps-carousel--nav ps-tab-list owl-slider" data-owl-auto="false" data-owl-speed="1000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="false" data-owl-item="8" data-owl-item-xs="3" data-owl-item-sm="4" data-owl-item-md="6" data-owl-item-lg="6" data-owl-duration="500" data-owl-mousedrag="on">
           <?php foreach ($tabs as $tab) { ?>
-          <a class="<?php echo $tab->getTab->slug == $tabTitleDet->id ? 'active' : ''; ?>" href="<?php echo url($row->getTab->slug); ?>/<?php echo $tab->getTab->slug == 'overview' ? '' : $tab->getTab->slug; ?>"> <?php echo ucwords($tab->getTab->tab); ?> </a>
+          <a class="<?php echo $tab->getTab->slug == $tabTitleDet->id ? 'active' : ''; ?>" href="<?php echo url($c_destination->getTab->slug); ?>/<?php echo $tab->getTab->slug == 'overview' ? '' : $tab->getTab->slug; ?>"> <?php echo ucwords($tab->getTab->tab); ?> </a>
           <?php } ?>
         </div>
       </div>
@@ -388,14 +388,14 @@
               <div class="ps-product__box">
                 <div class="ps-document">
                   <center>
-                    <img src="<?php echo url($row->image_path); ?>" alt="<?php echo $row->page_name; ?>" class="img-responsive">
+                    <img src="<?php echo url($c_destination->image_path); ?>" alt="<?php echo $c_destination->page_name; ?>" class="img-responsive">
                   </center>
                 </div>
               </div>
               <div class="ps-product__box mb-20">
                 <div class="ps-tabs">
                   <div class="ps-tab active">
-                    <div class="ps-document"> <?php echo $row->top_description; ?> </div>
+                    <div class="ps-document"> <?php echo $c_destination->top_description; ?> </div>
                   </div>
                 </div>
               </div>
@@ -480,31 +480,16 @@
               <!-- FAQ SCHEMA END -->
               @endpush
               <?php } ?>
-              <?php if ($otherexam->count()>0) { ?>
-              <div class="ps-product__box mb-20" id="2">
-                <aside class="widget widget_best-sale" data-mh="dealhot">
-                  <h3 class="widget-title">Check the Other MBBS Abroad Countries</h3>
-                  <div class="widget__content">
-                    <div class="owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="0" data-owl-nav="false" data-owl-dots="false" data-owl-item="3" data-owl-item-xs="2" data-owl-item-sm="2" data-owl-item-md="3" data-owl-item-lg="3" data-owl-duration="1000" data-owl-mousedrag="on">
-                      <?php foreach ($otherexam as $oe) { ?>
-                      <div class="ps-product-group">
-                        <div class="ps-product--horizontal">
-                          <div class="ps-product__content "> <span class="ps-btn"> <a href="<?php echo url($oe->slug); ?>/"> <?php echo $oe->page_name; ?> </a></span> </div>
-                        </div>
-                      </div>
-                      <?php } ?>
-                    </div>
-                  </div>
-                </aside>
-              </div>
-              <?php } ?>
+
+
               <div class="pt-0 pb-20 get-detail text-center"> <a class="ps-btn" href="<?php echo url('destinations'); ?>/" target="blank">View All Countries</a> </div>
-              <?php if ($tu->count()>0) { ?>
+
+              <?php if ($tu->count()>10000) { ?>
               <div class="ps-page--product" style="background-color:white;">
                 <div class="ps-container pt-10" id="topuniversities">
                   <div class="ps-section--default pb-2">
                     <div class="ps-section__header" style="margin-bottom:0px; padding-bottom:10px; border:0px">
-                      <h3><?php echo $row->page_name; ?> Top Medical Universities</h3>
+                      <h3><?php echo $c_destination->page_name; ?> Top Medical Universities</h3>
                     </div>
                     <div class="ps-section__content">
                       <div class="ps-carousel--nav owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="10000" data-owl-gap="20" data-owl-nav="true" data-owl-dots="false" data-owl-item="3" data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="3" data-owl-item-lg="3" data-owl-item-xl="3" data-owl-duration="1000" data-owl-mousedrag="on">
@@ -550,7 +535,7 @@
                 .author .cont-div p{font-size:14px;}
                 }
               </style>
-              <?php if($row->author_id != null){ ?>
+              <?php if($c_destination->author_id != null){ ?>
               <div class="ps-page--product" style="background-color:white;">
                 <div class="ps-container pt-10" id="topuniversities">
                   <div class="ps-section--default pb-2" style="margin-bottom:0px">
@@ -564,7 +549,7 @@
                         <div class="col-md-10">
                           <div class="cont-div">
                             <h6><?php echo $author->name; ?></h6>
-                            <span>Content Curator | Updated on - <?php echo getFormattedDate($row->updated_at,'M d, Y'); ?></span>
+                            <span>Content Curator | Updated on - <?php echo getFormattedDate($c_destination->updated_at,'M d, Y'); ?></span>
                             <?php if($author->shortnote!=null){ ?>
                             <p><?php echo $author->shortnote; ?></p>
                             <br>
@@ -583,7 +568,7 @@
               <!-- INQUIRY FORM END -->
             </div>
             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
-              <div class="ps-section__left" style="top:0;">
+              {{-- <div class="ps-section__left" style="top:0;">
                 <aside class="ps-widget--account-dashboard">
                   <h3 style=" background:#cd2122; color:#fff; font-size:16px; padding:10px 20px; margin:0px">News Categories</h3>
                   <div class="ps-widget__content" style="background:#fff">
@@ -594,7 +579,21 @@
                     </ul>
                   </div>
                 </aside>
+              </div> --}}
+              <?php if (count($otabs)>1) { ?>
+              <div class="ps-section__left" style="top:60px; background:#fff">
+                <aside class="ps-widget--account-dashboard">
+                  <div class="ps-widget__content">
+                    <div style=" font-size:18px; color:#fff; background:#045dab; padding:10px; text-align:center">Quick links</div>
+                    <ul style="max-height:480px; overflow:auto">
+                      <?php foreach ($otabs as $tab) { ?>
+                      <li><a href="<?php echo url($c_destination->getTab->slug); ?><?php echo $tab->getTab->slug == 'overview' ? '' : '/' . $tab->getTab->slug; ?>/"><i class="icon-arrow-right"></i> <?php echo ucwords($tab->getTab->page_name); ?> <?php echo ucwords($tab->getTab->tab); ?></a></li>
+                      <?php } ?>
+                    </ul>
+                  </div>
+                </aside>
               </div>
+              <?php } ?>
               <?php if (count($otherexam)>1) { ?>
               <div class="ps-section__left" style="top:60px; background:#fff">
                 <aside class="ps-widget--account-dashboard">
@@ -603,20 +602,6 @@
                     <ul style="max-height:480px; overflow:auto">
                       <?php foreach ($otherexam as $row) { ?>
                       <li><a href="<?php echo url($row->slug); ?>/"><i class="icon-arrow-right"></i> <?php echo $row->page_name; ?></a></li>
-                      <?php } ?>
-                    </ul>
-                  </div>
-                </aside>
-              </div>
-              <?php } ?>
-              <?php if (count($otabs)>1) { ?>
-              <div class="ps-section__left" style="top:60px; background:#fff">
-                <aside class="ps-widget--account-dashboard">
-                  <div class="ps-widget__content">
-                    <div style=" font-size:18px; color:#fff; background:#045dab; padding:10px; text-align:center">Quick links</div>
-                    <ul style="max-height:480px; overflow:auto">
-                      <?php foreach ($otabs as $tab) { ?>
-                      <li><a href="<?php echo url($row->getTab->slug); ?><?php echo $tab->getTab->slug == 'overview' ? '' : '/' . $tab->getTab->slug; ?>/"><i class="icon-arrow-right"></i> <?php echo ucwords($tab->getTab->page_name); ?> <?php echo ucwords($tab->getTab->tab); ?></a></li>
                       <?php } ?>
                     </ul>
                   </div>
@@ -635,7 +620,7 @@
             <div class="container-fluid">
               <div class="ps-section__header pb-0">
                 <p class="mb-2">WHAT STUDENTS SAY ABOUT US</p>
-                <h4><?php echo $row->page_name; ?> Testimonials</h4>
+                <h4><?php echo $c_destination->page_name; ?> Testimonials</h4>
               </div>
               <div class="ps-section__content">
                 <div class="ps-carousel--nav owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="10000" data-owl-gap="30" data-owl-nav="true" data-owl-dots="false" data-owl-item="3" data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="3" data-owl-item-lg="3" data-owl-duration="1000" data-owl-mousedrag="on">
@@ -660,7 +645,7 @@
             <div class="container-fluid">
               <div class="ps-section__header pb-0">
                 <h4>Photo Gallery</h4>
-                <p class="mb-5"><?php echo $row->page_name; ?> Practical Training, Classrooms, Indian Food, Hostel, Indian Students</p>
+                <p class="mb-5"><?php echo $c_destination->page_name; ?> Practical Training, Classrooms, Indian Food, Hostel, Indian Students</p>
               </div>
               <div class="row">
                 <?php foreach ($photos as $row) { ?>

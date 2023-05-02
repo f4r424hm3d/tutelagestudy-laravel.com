@@ -217,4 +217,8 @@ return [
       'Image' => Intervention\Image\Facades\Image::class,
     ])->toArray(),
 
+    'cdn' => array(
+      "newtutel.b-cdn.net" => ""
+    ),
+
 ];

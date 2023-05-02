@@ -84,46 +84,33 @@
   </div>
 </div>
 <div id="back2top"><i class="pe-7s-angle-up"></i></div>
-<!-- <script rel="preload" src="{{ url('front/') }}/plugins/jquery.min.js"></script> -->
-<script rel="preload" src="{{ url('front/') }}/js/main.js"></script>
-<script rel="preload" src="{{ url('front/') }}/plugins/nouislider/nouislider.min.js"></script>
-<script rel="preload" src="{{ url('front/') }}/plugins/popper.min.js"></script>
-<script rel="preload" src="{{ url('front/') }}/plugins/owl-carousel/owl.carousel.min.js"></script>
-<script rel="preload" src="{{ url('front/') }}/plugins/bootstrap/js/bootstrap.min.js"></script>
-<script rel="preload" src="{{ url('front/') }}/plugins/imagesloaded.pkgd.min.js"></script>
-<script src="{{ url('front/') }}/plugins/masonry.pkgd.min.js"></script>
-<script rel="preload" src="{{ url('front/') }}/plugins/isotope.pkgd.min.js"></script>
-<script rel="preload" src="{{ url('front/') }}/plugins/jquery.matchHeight-min.js"></script>
-<script rel="preload" src="{{ url('front/') }}/plugins/slick/slick/slick.min.js"></script>
-<script rel="preload" src="{{ url('front/') }}/plugins/jquery-bar-rating/dist/jquery.barrating.min.js" defer></script>
-<script src="{{ url('front/') }}/plugins/lightGallery-master/dist/js/lightgallery-all.min.js" defer></script>
-<script rel="preload" src="{{ url('front/') }}/plugins/select2/dist/js/select2.full.min.js"></script>
-<!--Start of Tawk.to Script-->
-<!--<script type="text/javascript">-->
-<!--  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();-->
-<!--  (function(){-->
-<!--  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];-->
-<!--  s1.async=true;-->
-<!--  s1.src='https://embed.tawk.to/5ef05b1b9e5f694422910b32/default';-->
-<!--  s1.charset='UTF-8';-->
-<!--  s1.setAttribute('crossorigin','*');-->
-<!--  s0.parentNode.insertBefore(s1,s0);-->
-<!--  })();-->
-<!--</script>-->
-<!--End of Tawk.to Script-->
+<!-- <script rel="preload" src="{{ cdn('front') }}/plugins/jquery.min.js"></script> -->
+<script rel="preload" src="{{ cdn('front') }}/js/main.js"></script>
+<script rel="preload" src="{{ cdn('front') }}/plugins/nouislider/nouislider.min.js"></script>
+<script rel="preload" src="{{ cdn('front') }}/plugins/popper.min.js"></script>
+<script rel="preload" src="{{ cdn('front') }}/plugins/owl-carousel/owl.carousel.min.js"></script>
+<script rel="preload" src="{{ cdn('front') }}/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script rel="preload" src="{{ cdn('front') }}/plugins/imagesloaded.pkgd.min.js"></script>
+<script src="{{ cdn('front') }}/plugins/masonry.pkgd.min.js"></script>
+<script rel="preload" src="{{ cdn('front') }}/plugins/isotope.pkgd.min.js"></script>
+<script rel="preload" src="{{ cdn('front') }}/plugins/jquery.matchHeight-min.js"></script>
+<script rel="preload" src="{{ cdn('front') }}/plugins/slick/slick/slick.min.js"></script>
+<script rel="preload" src="{{ cdn('front') }}/plugins/jquery-bar-rating/dist/jquery.barrating.min.js" defer></script>
+<script src="{{ cdn('front') }}/plugins/lightGallery-master/dist/js/lightgallery-all.min.js" defer></script>
+<script rel="preload" src="{{ cdn('front') }}/plugins/select2/dist/js/select2.full.min.js"></script>
+
 <!--End of Tawk.to Script-->
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<!--<script defer src="https://www.googletagmanager.com/gtag/js?id=UA-169815601-1"></script>-->
-<!--<script>-->
-<!--  window.dataLayer = window.dataLayer || [];-->
+<script defer src="https://www.googletagmanager.com/gtag/js?id=UA-169815601-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+   dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', 'UA-169815601-1');
+</script>
 
-<!--  function gtag() {-->
-<!--    dataLayer.push(arguments);-->
-<!--  }-->
-<!--  gtag('js', new Date());-->
-
-<!--  gtag('config', 'UA-169815601-1');-->
-<!--</script>-->
 <button class="scrollToTopBtn" aria-label="Scroll Top">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 490.4 490.4" width="30" height="30">
     <path d="M245.2 490.4c135.2 0 245.2-110 245.2-245.2S380.4 0 245.2 0 0 110 0 245.2s110 245.2 245.2 245.2zm0-465.9c121.7 0 220.7 99 220.7 220.7s-99 220.7-220.7 220.7-220.7-99-220.7-220.7 99-220.7 220.7-220.7z" class="up-arrow_svg__active-path" fill="#607D8B"></path>
@@ -158,7 +145,7 @@
   document.addEventListener("scroll", handleScroll);
 </script>
 
-<script src="{{ url('front/') }}/plugins/jquery-5.2.js"></script>
+<script src="{{ cdn('front') }}/plugins/jquery-5.2.js"></script>
 <script>
   $('a[href*="#"]')
   .not('[href="#"]')
