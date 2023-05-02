@@ -623,7 +623,7 @@
               </div>
               <div class="row">
                 <?php foreach ($photos as $row) { ?>
-                <div class="col-md-3 col-sm-6 col-6 mb-5"><img src="<?php echo $row->image_path; ?>" alt="<?php echo $row->title; ?>" class="img-fluid rounded-lg" style="height: 100%;"></div>
+                <div class="col-md-3 col-sm-6 col-6 mb-5"><img src="{{ asset($row->image_path) }}" alt="<?php echo $row->title; ?>" class="img-fluid rounded-lg" style="height: 100%;"></div>
                 <?php } ?>
               </div>
             </div>
