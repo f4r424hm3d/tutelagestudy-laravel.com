@@ -407,22 +407,27 @@
                   data-ad-slot="1542813279"></ins>
                 <script>
                   (adsbygoogle = window.adsbygoogle || []).push({});
-
                 </script>
+
                 <?php if (count($destinations)) { ?>
                 <div class="ps-product__box mb-20" id="2">
                   <aside class="widget widget_best-sale" data-mh="dealhot">
                     <h3 class="widget-title">You might be interested in related destination</h3>
                     <div class="widget__content">
                       <div class="owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="0" data-owl-nav="false" data-owl-dots="false" data-owl-item="4" data-owl-item-xs="2" data-owl-item-sm="2" data-owl-item-md="4" data-owl-item-lg="4" data-owl-duration="1000" data-owl-mousedrag="on">
-                        <?php
-                          foreach ($destinations as $oe) {
-
-                          ?>
+                        <?php foreach ($destinations as $oe) { ?>
                         <div class="ps-product-group">
                           <div class="ps-product--horizontal">
-                            <div class="ps-product__thumbnail ml-10" style="background:#fff"> <a href="<?php echo url($oe->slug); ?>/"> <img src="<?php echo asset($oe->thumbnail); ?>" alt="<?php echo $oe->page_name; ?>" loading="lazy"> </a> </div>
-                            <div class="ps-product__content"> <a class="ps-product__title" href="<?php echo url($oe->slug); ?>/"> <?php echo $oe->page_name; ?> </a> </div>
+                            <div class="ps-product__thumbnail ml-10" style="background:#fff">
+                              <a href="<?php echo url($oe->slug); ?>/">
+                                <img src="<?php echo asset($oe->thumbnail); ?>" alt="<?php echo $oe->page_name; ?>" loading="lazy">
+                              </a>
+                            </div>
+                            <div class="ps-product__content">
+                              <a class="ps-product__title" href="<?php echo url($oe->slug); ?>/">
+                                <?php echo $oe->page_name; ?>
+                              </a>
+                            </div>
                           </div>
                         </div>
                         <?php } ?>
@@ -431,6 +436,7 @@
                   </aside>
                 </div>
                 <?php } ?>
+
                 @include('front.form.university-side-form')
                 <style>
                   .author{align-items:center; margin-bottom:15px;}
@@ -482,32 +488,30 @@
               </div>
               <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                 <!-- Sidebar ads -->
-                <ins class="adsbygoogle"
-                  style="display:block"
-                  data-ad-client="ca-pub-9059329067714963"
-                  data-ad-slot="3207282183"
-                  data-ad-format="auto"
-                  data-full-width-responsive="true"></ins>
-                <script>
-                  (adsbygoogle = window.adsbygoogle || []).push({});
-
-                </script>
-                <div class="ps-product__box mb-20" style="padding:5px!important">
-                  <div class="row">
-                    <div class="col-12 text-center"> <img src="<?php echo asset('assets/web/'); ?>img/ieltsAd.jpg" class="shadow img-responsive" alt="IELTS Online Coaching Apply" loading="lazy"> </div>
+                <aside class="ps-widget--account-dashboard">
+                  <h3 style=" background:#cd2122; color:#fff; font-size:16px; padding:10px 20px; margin:0px">Blog & News</h3>
+                  <div class="ps-widget__content" style="background:#fff">
+                    <ul>
+                      @foreach ($categories as $cat)
+                      <li><a href="<?php echo url('category/' . $cat->slug); ?>/"><i class="icon-arrow-right"></i> {{ $cat->cate_name }}</a></li>
+                      @endforeach
+                    </ul>
                   </div>
-                  <div class="row" style="margin-top:5px">
-                    <div class="col-12 text-center"><a class="ps-btn w-100" style="font-size:13px!important; padding:7px 0px!important"  href="https://www.britannicaoverseas.com/ielts-coaching-in-gurgaon/" target="_blank" rel="sponsored">APPLY NOW</a></div>
+                </aside>
+                <?php if (count($destinations)) { ?>
+                  <div class="ps-section__left" style="top:60px; background:#fff">
+                    <aside class="ps-widget--account-dashboard">
+                      <div class="ps-widget__content">
+                        <div style="font-size:18px; color:#fff; background:#045dab; padding:10px; text-align:center">Other Destination</div>
+                        <ul style="max-height:480px; overflow:auto">
+                          <?php foreach ($destinations as $row) { ?>
+                          <li><a href="<?php echo url($row->slug); ?>/"><i class="icon-arrow-right"></i> MBBS From <?php echo $row->country; ?></a></li>
+                          <?php } ?>
+                        </ul>
+                      </div>
+                    </aside>
                   </div>
-                </div>
-                <div class="ps-product__box mb-20" style="padding:5px!important">
-                  <div class="row">
-                    <div class="col-12 text-center"> <img src="<?php echo asset('assets/web/'); ?>img/oetAd.jpg" class="shadow img-responsive" alt="OET Online Coaching Apply" loading="lazy"> </div>
-                  </div>
-                  <div class="row" style="margin-top:5px">
-                    <div class="col-12 text-center"><a class="ps-btn w-100" style="font-size:13px!important; padding:7px 0px!important" href="https://www.britannicaoverseas.com/oet-coaching/" target="_blank" rel="sponsored">APPLY NOW</a></div>
-                  </div>
-                </div>
+                  <?php } ?>
               </div>
             </div>
           </div>

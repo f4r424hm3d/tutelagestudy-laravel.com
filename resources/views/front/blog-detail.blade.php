@@ -399,7 +399,7 @@
                   <?php foreach ($destinations as $row) { ?>
                     <li>
                       <a href="<?php echo url($row->slug); ?>/">
-                        <i class="icon-arrow-right"></i> <?php echo $row->page_name; ?>
+                        <i class="icon-arrow-right"></i> MBBS From <?php echo $row->country; ?>
                       </a>
                     </li>
                   <?php } ?>
