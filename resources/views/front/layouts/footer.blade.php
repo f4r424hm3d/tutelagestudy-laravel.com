@@ -192,7 +192,6 @@
   });
 </script>
 <!-- start whatsapp chat -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <div class="wa__btn_popup">
   <div class="wa__btn_popup_txt"><strong>Chat with us</strong></div>
   <div class="wa__btn_popup_icon"></div>

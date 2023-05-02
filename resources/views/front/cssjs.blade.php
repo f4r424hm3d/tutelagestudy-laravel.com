@@ -12,8 +12,6 @@
 <link rel="stylesheet" dns-prefetch href="{{ url('front/') }}/plugins/select2/dist/css/select2.min.css" preload">
 <link rel="stylesheet" dns-prefetch href="{{ url('front/') }}/css/style.css" preload">
 <script src='https://www.google.com/recaptcha/api.js' defer></script>
-
-
 <style>
     .pointer {
 

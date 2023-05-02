@@ -29,7 +29,10 @@ class UniversityFc extends Controller
 
     $countries = Country::all();
 
-    $destinations = University::with('getDestination')->select('country','country_slug')->where(['status' => 1])->distinct()->get();
+    $destinations = University::with('getDestination')->select('destination_id')->where(['status' => 1])->distinct()->get();
+
+    // printArray($destinations->toArray());
+    // die;
 
     $wrdseo = ['url' => 'medical-universities'];
     $dseo = DefaultSeo::where($wrdseo )->first();
@@ -54,6 +57,7 @@ class UniversityFc extends Controller
   {
     if ($request->segment(1) != 'medical-universities') {
       $country_slug = str_replace("medical-universities-in-", "", $request->segment(1));
+      $country_slug = str_replace('-',' ',$country_slug);
       $currentDestinationdet = Destination::where('country',$country_slug)->first();
       $_SESSION['unifilter_destination'] = $currentDestinationdet->page_name;
       $currentCountry = $currentDestinationdet->country;
@@ -72,7 +76,7 @@ class UniversityFc extends Controller
 
     $countries = Country::all();
 
-    $destinations = University::with('getDestination')->select('country','country_slug')->where(['status' => 1])->distinct()->get();
+    $destinations = University::with('getDestination')->select('destination_id')->where(['status' => 1])->distinct()->get();
 
     $wrdseo = ['url' => 'medical-universities'];
     $dseo = DefaultSeo::where($wrdseo )->first();

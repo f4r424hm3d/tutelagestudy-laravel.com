@@ -20,6 +20,7 @@ class UniversityC extends Controller
   public function index($id = null)
   {
     $authors = Author::all();
+    $destinations = Destination::all();
     $rows = University::with('getAuthor','getInstType')->paginate(10);
     // printArray($rows->toArray());
     // die;
@@ -47,7 +48,7 @@ class UniversityC extends Controller
     }
     $page_title = "University";
     $page_route = "university";
-    $data = compact('rows', 'sd', 'ft', 'url', 'title', 'page_title', 'page_route','instType','countries','states','i','authors');
+    $data = compact('rows', 'sd', 'ft', 'url', 'title', 'page_title', 'page_route','instType','countries','states','i','authors','destinations');
     return view('admin.university')->with($data);
   }
   public function store(Request $request)
@@ -57,6 +58,7 @@ class UniversityC extends Controller
     $request->validate(
       [
         'name' => 'required|unique:universities,name',
+        'destination_id' => 'required',
         'logo' => 'nullable|max:5000|mimes:jpg,jpeg,png,gif',
         'banner' => 'nullable|max:5000|mimes:jpg,jpeg,png,gif'
       ]
@@ -93,6 +95,7 @@ class UniversityC extends Controller
     $field->name = $request['name'];
     $field->uname = slugify($request['uname']);
     $field->author_id = $request['author_id'];
+    $field->destination_id = $request['destination_id'];
     $field->views = $request['views'];
     $field->established_year = $request['established_year'];
     $field->country = $request['country'];
@@ -117,7 +120,8 @@ class UniversityC extends Controller
   {
     $request->validate(
       [
-        'name' => 'required|unique:universities,name',
+        'name' => 'required|unique:universities,name,'.$id,
+        'destination_id' => 'required',
         'logo' => 'nullable|max:5000|mimes:jpg,jpeg,png,gif',
         'banner' => 'nullable|max:5000|mimes:jpg,jpeg,png,gif'
       ]
@@ -154,6 +158,7 @@ class UniversityC extends Controller
     }
     $field->name = $request['name'];
     $field->uname = slugify($request['uname']);
+    $field->destination_id = $request['destination_id'];
     $field->author_id = $request['author_id'];
     $field->views = $request['views'];
     $field->established_year = $request['established_year'];

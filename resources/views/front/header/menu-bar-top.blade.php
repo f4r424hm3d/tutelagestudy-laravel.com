@@ -1,6 +1,11 @@
 @php
   use App\Models\News;
   use App\Models\Destination;
+  use App\Models\Country;
+
+  $countriesSF = Country::orderBy('name','asc')->get();
+  $phonecodesSF = Country::select('phonecode','name')->distinct()->orderBy('phonecode','asc')->get();
+  $destinationsSF = Destination::where(['status' => 1])->get();
 @endphp
 <style>
   .hide-this {
@@ -167,15 +172,135 @@
         </div>
       </form>
     </div>
-    
-    
-    
-<div class="navigation__content">
-asfdasd
-</div>
-    
-    
-    
+
+
+
+    <div class="navigation__content">
+      <div class="p-5">
+      <div class="row shadow">
+        <div class="col-md-8">
+          <div style="font-size:16px; margin-bottom:10px; color:#cd2122; font-weight:500; margin-top:15px; text-align:center">Apply Now for MBBS Upcoming Intake</div>
+          <form class="ps-form--visa" action="{{ url('inquiry/submit-mbbs-inquiry') }}/" method="post">
+            @csrf
+            <input type="hidden" name="source_url" value="<?php echo $_GET['page']??''; ?>">
+            <input type="hidden" name="page_url" value="{{ url()->current() }}">
+            <div class="row">
+              <div class="col-lg-6 col-md-5 col-sm-12 col-xs-12 pr7">
+                <div class="form-group">
+                  <input type="text" name="name" id="name" class="form-control" placeholder="Enter Name" value="{{ old('name')??'' }}" required>
+                  @error('name')
+                    {!! '<span class="text-danger">' . $message . '</span>' !!}
+                  @enderror
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-7 col-sm-12 col-xs-12 pl7">
+                <div class="form-group">
+                  <input type="email" class="form-control" name="email" id="email" value="{{ old('email')??'' }}" placeholder="Enter Email" required>
+                  @error('email')
+                    {!! '<span class="text-danger">' . $message . '</span>' !!}
+                  @enderror
+                </div>
+              </div>
+              <div class="col-4 col-lg-4 col-md-4 col-sm-4 col-xs-6 pr7">
+                <div class="form-group">
+                  <select class="form-control" name="c_code" id="c_code" required >
+                    <option value="">Select Code</option>
+                    <?php
+                    foreach ($phonecodesSF as $row) {
+                    ?>
+                      <option value="<?php echo $row->phonecode; ?>" <?php echo old('c_code') && old('c_code') == $row->phonecode ? 'Selected' : ''; ?>> +<?php echo $row->phonecode; ?> (<?php echo $row->name; ?>)</option>
+                    <?php } ?>
+                  </select>
+                  @error('c_code')
+                    {!! '<span class="text-danger">' . $message . '</span>' !!}
+                  @enderror
+                </div>
+              </div>
+              <div class="col-8 col-lg-8 col-md-8 col-sm-8 col-xs-6 pl7">
+                <div class="form-group">
+                  <input type="text" class="form-control u-ltr" placeholder="Enter Mobile Number" data-error="Please enter a valid phone number" name="mobile" id="mobile" value="<?php echo old('mobile'); ?>" required >
+                  @error('mobile')
+                    {!! '<span class="text-danger">' . $message . '</span>' !!}
+                  @enderror
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr7">
+                <div class="form-group">
+                  <select class="form-control" name="nationality" id="nationality" required >
+                    <option value="">Select Nationality</option>
+                    <?php
+                    foreach ($countriesSF as $row) {
+                    ?>
+                      <option value="<?php echo $row->name; ?>" <?php echo old('nationality') == $row->name ? 'Selected' : ''; ?>> <?php echo $row->name; ?></option>
+                    <?php } ?>
+                  </select>
+                  @error('nationality')
+                    {!! '<span class="text-danger">' . $message . '</span>' !!}
+                  @enderror
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl7">
+                <div class="form-group">
+                  <select class="form-control" name="destination" id="destination" required >
+                    <option value="">Preferred MBBS Country</option>
+                    <?php
+                    foreach ($destinationsSF as $row) {
+                    ?>
+                      <option value="<?php echo $row->page_name; ?>" <?php echo old('destination') == $row->page_name ? 'Selected' : ''; ?>><?php echo $row->page_name; ?></option>
+                    <?php } ?>
+                  </select>
+                  @error('destination')
+                    {!! '<span class="text-danger">' . $message . '</span>' !!}
+                  @enderror
+                </div>
+              </div>
+              {{-- <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="form-group">
+                  <div class="g-recaptcha" data-sitekey="6LfEJo4jAAAAAIEVgbaWIR-uic-I3h9RBYFCqOTS" ></div>
+                </div>
+              </div> --}}
+              <div class="form-group">
+                <div class="ps-checkbox pl-20">
+                  <input class="form-control " type="checkbox" name="terms" id="terms" >
+                  <label for="terms">I agree to the <a href="https://www.tutelagestudy.com/term-and-condition/" style="color: blue;" target="_blank">terms & conditions</a> .*</label>
+                  @error('terms')
+                    {!! '<span class="text-danger">' . $message . '</span>' !!}
+                  @enderror
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="ps-checkbox pl-20">
+                  <input class="form-control " type="checkbox" name="contact_me" id="contact_me" >
+                  <label for="contact_me">Contact me by phone, email or<br>SMS to assist me .*</label>
+                  @error('contact_me')
+                    {!! '<span class="text-danger">' . $message . '</span>' !!}
+                  @enderror
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="ps-checkbox pl-20">
+                  <input class="form-control" type="checkbox" name="update" id="update" >
+                  <label for="update">I would like to receive updates and offers<br>from Tutelage Study.*</label>
+                </div>
+              </div>
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <button type="submit" class="ps-btn ps-btn--fullwidth">Submit</button>
+              </div>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+            </div>
+          </form>
+        </div>
+      </div>
+      </div>
+    </div>
+
+
+
   </div>
   <div class="ps-panel--sidebar" id="menu-mobile">
     <div class="ps-panel__header">

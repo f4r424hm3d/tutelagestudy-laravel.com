@@ -54,16 +54,19 @@
                   <x-InputField type="text" label="URL" name="uname" id="uname" :ft="$ft" :sd="$sd" required="required"></x-InputField>
                 </div>
                 <div class="col-md-3 col-sm-12 mb-3">
-                  <x-SelectField label="Author" name="author_id" id="author_id" savev="id" showv="name" :list="$authors" :ft="$ft" :sd="$sd" required="required"></x-SelectField>
+                  <x-SelectField label="Author" name="author_id" id="author_id" savev="id" showv="name" :list="$authors" :ft="$ft" :sd="$sd" ></x-SelectField>
                 </div>
                 <div class="col-md-2 col-sm-12 mb-3">
-                  <x-InputField type="number" label="Views" name="views" id="views" :ft="$ft" :sd="$sd" required="required"></x-InputField>
+                  <x-InputField type="number" label="Views" name="views" id="views" :ft="$ft" :sd="$sd" ></x-InputField>
                 </div>
                 <div class="col-md-2 col-sm-12 mb-3">
-                  <x-InputField type="number" label="Established Year" name="established_year" id="established_year" :ft="$ft" :sd="$sd" required="required"></x-InputField>
+                  <x-InputField type="number" label="Established Year" name="established_year" id="established_year" :ft="$ft" :sd="$sd" ></x-InputField>
                 </div>
                 <div class="col-md-3 col-sm-12 mb-3">
                   <x-SelectField label="Country" name="country" id="country" savev="name" showv="name" :list="$countries" :ft="$ft" :sd="$sd" required="required"></x-SelectField>
+                </div>
+                <div class="col-md-3 col-sm-12 mb-3">
+                  <x-SelectField label="Destination" name="destination_id" id="destination_id" savev="id" showv="page_name" :list="$destinations" :ft="$ft" :sd="$sd" required="required"></x-SelectField>
                 </div>
                 {{-- <div class="col-md-3 col-sm-12 mb-3">
                   <x-DatalistField type="text" label="State" name="state" id="state" savev="statename" showv="statename" :list="$states" :ft="$ft" :sd="$sd" required="required"></x-DatalistField>
@@ -142,6 +145,7 @@
                   </td>
                   <td>
                     <b>Country : </b><?php echo $row->country; ?><br>
+                    <b>Destination : </b><?php echo $row->getDestination->page_name??'N/A'; ?><br>
                     <b>View : </b><?php echo $row->views; ?><br>
                     <b>Rank : </b><?php echo $row->rank; ?><br>
                     <b>Established Year : </b><?php echo $row->established_year; ?><br>

@@ -167,7 +167,7 @@
               ?>
                 <label class="check-filter">
                   <?php echo $row->getDestination->page_name; ?>
-                  <input type="checkbox" id="pub" name="check" value="<?php echo $row->country_slug; ?>" onclick="<?php echo isset($_SESSION['unifilter_destination']) && $_SESSION['unifilter_destination'] == $row->getDestination->page_name ? "removeAppliedFilter('unifilter_destination')" : "AppliedFilter('unifilter_destination','" . $row->country_slug . "')"; ?>" <?php echo isset($_SESSION['unifilter_destination']) && $_SESSION['unifilter_destination'] == $row->getDestination->page_name ? "checked" : ""; ?> />
+                  <input type="checkbox" id="pub" name="check" value="<?php echo $row->getDestination->country; ?>" onclick="<?php echo isset($_SESSION['unifilter_destination']) && $_SESSION['unifilter_destination'] == $row->getDestination->page_name ? "removeAppliedFilter('unifilter_destination')" : "AppliedFilter('unifilter_destination','" . $row->getDestination->country . "')"; ?>" <?php echo isset($_SESSION['unifilter_destination']) && $_SESSION['unifilter_destination'] == $row->getDestination->page_name ? "checked" : ""; ?> />
                   <span class="checkmark"></span>
                 </label>
               <?php } ?>
@@ -179,10 +179,33 @@
   </aside>
 </div>
 <script>
+  function removeAppliedFilter(a) {
+    //alert(col + ' ' + val);
+    if (a != "") {
+      $.ajax({
+        url: "{{ url('university/remove-filter/') }}/",
+        method: "GET",
+        data: {
+          value: a
+        },
+        success: function(b) {
+          if (a == "unifilter_destination") {
+            window.location.replace("<?php echo url('medical-universities/'); ?>/");
+          } else {
+            location.reload(true);
+          }
+        }
+      });
+    }
+  }
+
   function AppliedFilter(col, val) {
     //alert(col + ' ' + val);
+    var fval = val.toLowerCase();
+    fval = fval.replace(" ", "-");
+
     if (col == 'unifilter_destination') {
-      var path = 'medical-universities-in-' + val;
+      var path = 'medical-universities-in-' + fval;
       window.location.replace("<?php echo url('/'); ?>/" + path + "/");
     } else {
       location.reload(true);
@@ -190,4 +213,5 @@
   }
 
 </script>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
