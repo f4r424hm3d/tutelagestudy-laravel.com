@@ -88,11 +88,11 @@ if (!function_exists('ip_details')) {
   }
 }
 
-function cdn($asset){
+function cdnq($asset){
   return url($asset);
 }
 // global CDN link helper function
-function cdnq( $asset ){
+function cdn( $asset ){
 
   // Verify if KeyCDN URLs are present in the config file
   if( !Config::get('app.cdn') )

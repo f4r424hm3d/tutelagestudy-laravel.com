@@ -426,7 +426,7 @@
       <div class="col-md-6">
         <h2 class="main-h1">Online Coaching</h2>
         <p class="onlinePrepare">Prepare for your future course of study of professional growth!</p>
-        <p class="main-p">Take advantage of easy-to-access courses to your degree by renowed subject-matter faculty and continue to expand your learning curve.</p>
+        <p class="">Take advantage of easy-to-access courses to your degree by renowed subject-matter faculty and continue to expand your learning curve.</p>
         <div class="counselling-content">
           <ul>
             <li>
@@ -461,7 +461,7 @@
         <div class="cur-conver">
           <h2>Time & Currency Converter</h2>
           <p>Tutelage Study currency converter is an excellent tool to convert currency from one exchange to another.</p>
-          <p class="main-p">Check the currency rates against all the world currencies here. The currency converter below is easy to use and the currency rates are updated frequently. This is very much needed given the extreme volatility in global currencies lately.</p>
+          <p class="">Check the currency rates against all the world currencies here. The currency converter below is easy to use and the currency rates are updated frequently. This is very much needed given the extreme volatility in global currencies lately.</p>
           <form id="currencyConvertForm" class="cur-conver-form" method="post">
 
             <div class="row">

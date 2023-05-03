@@ -44,7 +44,7 @@ class UniversityProfileFc extends Controller
     $title = $uri3 == '' ? $university->name : $uri3;
     $city = $university->city;
     $shortnote = $university->shortnote;
-    $inst_type = $university->getInstType->type;
+    $inst_type = $university->getInstType->type??'null';
 
     $university_name = $university->name;
 

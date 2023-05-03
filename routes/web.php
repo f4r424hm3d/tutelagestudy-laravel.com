@@ -43,6 +43,7 @@ use App\Http\Controllers\front\InquiryController;
 use App\Http\Controllers\front\ServiceFc;
 use App\Http\Controllers\front\UniversityFc;
 use App\Http\Controllers\front\UniversityProfileFc;
+use App\Http\Controllers\sitemap\SitemapController;
 use App\Models\Destination;
 use App\Models\Exam;
 use App\Models\News;
@@ -436,10 +437,11 @@ Route::prefix('common')->group(function () {
 });
 
 // SITE MAP
-// Route::get('sitemap\.xml', [SitemapController::class, 'sitemap']);
-// Route::get('sitemap-home\.xml', [SitemapController::class, 'sitemapHome']);
-// Route::get('sitemap-exams\.xml', [SitemapController::class, 'sitemapExam']);
-// Route::get('sitemap-articles\.xml', [SitemapController::class, 'sitemapArticles']);
-// Route::get('sitemap-about-us\.xml', [SitemapController::class, 'whoweare']);
-// Route::get('sitemap-course\.xml', [SitemapController::class, 'sitemapCourse']);
-// Route::get('sitemap-university\.xml', [SitemapController::class, 'university']);
+Route::get('sitemap.xml', [SitemapController::class, 'sitemap']);
+Route::get('sitemap-home.xml', [SitemapController::class, 'home']);
+Route::get('sitemap-blog.xml', [SitemapController::class, 'blog']);
+Route::get('sitemap-medical-universities.xml', [SitemapController::class, 'medicalUniversity']);
+Route::get('sitemap-destinations.xml', [SitemapController::class, 'destination']);
+Route::get('sitemap-services.xml', [SitemapController::class, 'services']);
+Route::get('sitemap-exams.xml', [SitemapController::class, 'exam']);
+Route::get('sitemap-university.xml', [SitemapController::class, 'university']);

@@ -26,6 +26,7 @@
   <title><?php echo ucwords($meta_title); ?></title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
   <meta name="description" content="<?php echo $meta_description; ?>">
   <meta name="keywords" content="<?php echo $meta_keyword; ?>">
   <link rel="canonical" href="<?php echo $page_url; ?>/" />
@@ -42,7 +43,7 @@
   <meta property="og:locale" content="en_US" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Tutelage Study Education Consultants : India" />
-  <meta property="og:image" content="https://www.indianuniversities.net/assets/web/img/slider/home-1/germany-banner-4.jpg" />
+  <meta property="og:image" content="{{ url('front/img/slider/home-1/germany-banner-2.jpg') }}" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:url" content="<?php echo $page_url; ?>" />
   <meta property="og:image:alt" content="<?php echo $page_content; ?>" />
@@ -52,7 +53,7 @@
   <meta name="twitter:url" content="<?php echo $page_url; ?>/" />
   <meta name="twitter:title" content="<?php echo $meta_title; ?>" />
   <meta name="twitter:description" content="<?php echo $meta_description; ?>" />
-  <meta name="twitter:image" content="https://www.indianuniversities.net/assets/web/img/slider/home-1/germany-banner-4.jpg" />
+  <meta name="twitter:image" content="{{ url('front/img/slider/home-1/germany-banner-2.jpg') }}" />
   <meta property="twitter:image:type" content="image/jpeg" />
   <meta name="google-site-verification" content="SokbVdHyUAjOFBjbYT24LZso--Gh5GaYXY2TKUldJIY" />
 
