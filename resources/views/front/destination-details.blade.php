@@ -566,22 +566,23 @@
                 </aside>
               </div>
               <?php } ?>
-              <?php if ($tu->count()>0) { ?>
-              <div class="ps-section__left" style="top:0;">
+
+              @if ($tu->count()>0)
+              <div class="ps-section__left" style="top:60px; background:#fff">
                 <aside class="ps-widget--account-dashboard">
-                  <h3 style=" background:#cd2122; color:#fff; font-size:16px; padding:10px 20px; margin:0px">Top Medical Universities in {{ $c_destination->country }}</h3>
-                  <div class="ps-widget__content" style="background:#fff">
-                    <ul>
-                      <?php foreach ($tu as $tu) { ?>
+                  <div class="ps-widget__content">
+                    <div style="font-size:18px; color:#fff; background:#045dab; padding:10px; text-align:center">MBBS Universities</div>
+                    <ul style="max-height:480px; overflow:auto">
+                      @foreach ($tu as $tu)
                       <li>
                         <a href="<?php echo url($tu->country_slug . '/' . $tu->uname); ?>/"><i class="icon-arrow-right"></i> <?php echo $tu->name; ?></a>
                       </li>
-                      <?php } ?>
+                      @endforeach
                     </ul>
                   </div>
                 </aside>
               </div>
-              <?php } ?>
+              @endif
             </div>
           </div>
           <style>

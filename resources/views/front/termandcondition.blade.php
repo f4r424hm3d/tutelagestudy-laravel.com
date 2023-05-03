@@ -60,7 +60,7 @@
 
             <div class="cor-con-mid mt-5">
 
-              <h2>Terms & Conditions</h2>
+              <h1>Terms & Conditions</h1>
 
               <p>The User of the web-site www.tutelagestudy.com must carefully read and agree to the following terms and conditions, including any future amendments (hereinafter collectively referred to as the "Terms & Conditions") before using the web-site www.tutelagestudy.com. By using the web-site User is accepting to be bound by the provisions of these terms & conditions, the privacy policy of the MBBS Abroad Admission.</p>
 

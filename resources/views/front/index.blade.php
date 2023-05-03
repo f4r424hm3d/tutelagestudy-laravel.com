@@ -167,37 +167,45 @@
     <div class="row pt-10">
       <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
         <div class="ps-block--category">
-          <a class="ps-block__overlay" href="<?php echo url('medical-universities/'); ?>" target="_blank"></a> <img src="<?php echo url('front'); ?>/img/find-university.jpg" alt="Find All Universities" style="width:100%!important">
+          <br>
+          <a class="ps-block__overlay" href="<?php echo url('medical-universities'); ?>/" target="_blank">All Universities</a>
+          <img src="<?php echo url('front'); ?>/img/find-university.jpg" alt="All Universities" style="width:100%!important">
           <h4 class="pt-10 mb-0 button cur-conver-btn">Find All Universities</h4>
         </div>
       </div>
       <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 ">
         <div class="ps-block--category">
-          <a class="ps-block__overlay" href="<?php echo url('services'); ?>/" target="_blank"></a> <img src="<?php echo url('front'); ?>/img/top-courses.jpg" alt="Services" style="width:100%!important">
+          <br>
+          <a class="ps-block__overlay" href="<?php echo url('services'); ?>/" target="_blank">Services</a>
+          <img src="<?php echo url('front'); ?>/img/top-courses.jpg" alt="Services" style="width:100%!important">
           <h4 class="pt-10 mb-0 button cur-conver-btn">Our Services</h4>
         </div>
       </div>
       <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 ">
         <div class="ps-block--category">
-          <a class="ps-block__overlay" href="<?php echo url('destinations'); ?>/" target="_blank"></a> <img src="<?php echo url('front'); ?>/img/exams.jpg" alt="All Destinations" style="width:100%!important">
+          <br>
+          <a class="ps-block__overlay" href="<?php echo url('destinations'); ?>/" target="_blank">MBBS Countries</a> <img src="<?php echo url('front'); ?>/img/exams.jpg" alt="All Destinations" style="width:100%!important">
           <h4 class="pt-10 mb-0 button cur-conver-btn">All Destinations</h4>
         </div>
       </div>
       <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 ">
         <div class="ps-block--category">
-          <a class="ps-block__overlay" href="<?php echo url('blog'); ?>/" target="_blank"></a> <img src="<?php echo url('front'); ?>/img/news.jpg" alt="latest news" style="width:100%!important">
+          <br>
+          <a class="ps-block__overlay" href="<?php echo url('blog'); ?>/" target="_blank">Blog</a> <img src="<?php echo url('front'); ?>/img/news.jpg" alt="latest news" style="width:100%!important">
           <h4 class="pt-10 mb-0 button cur-conver-btn">News & Article</h4>
         </div>
       </div>
       <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 ">
         <div class="ps-block--category">
-          <a class="ps-block__overlay" href="<?php echo url('mbbs-abroad-counselling'); ?>/" target="_blank"></a> <img src="<?php echo url('front'); ?>/img/scholarship.jpg" alt="Enquire Now" style="width:100%!important">
+          <br>
+          <a class="ps-block__overlay" href="<?php echo url('mbbs-abroad-counselling'); ?>/" target="_blank">Inquiry Now</a> <img src="<?php echo url('front'); ?>/img/scholarship.jpg" alt="Enquire Now" style="width:100%!important">
           <h4 class="pt-10 mb-0 button cur-conver-btn">Free Counselling</h4>
         </div>
       </div>
       <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 ">
         <div class="ps-block--category">
-          <a class="ps-block__overlay" href="<?php echo url('neet-ug'); ?>/"></a><img src="<?php echo url('front'); ?>/img/compare.jpg" alt="compare universities" style="width:100%!important">
+          <br>
+          <a class="ps-block__overlay" href="<?php echo url('neet-ug'); ?>/">Explore Neet Exam</a><img src="<?php echo url('front'); ?>/img/compare.jpg" alt="compare universities" style="width:100%!important">
           <h4 class="pt-10 mb-0 button cur-conver-btn">NEET UG</h4>
         </div>
       </div>
@@ -341,14 +349,14 @@
     </div>
     <div class="row">
       <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
-        <a href="https://www.tutelagestudy.com/mbbs-in-malaysia/">
+
           <div class="ps-post ps-product shadow">
             <div class="ps-post__thumbnail"><img src="{{ asset('/front/') }}/img/mbbs-malaysia.jpg" alt="MBBS in Malaysia"></div>
             <div class="ps-post__content" style="border:0px; padding:12px 0px; background:#fff">
-              <div class="ps-post__title text-center">MBBS IN MALAYSIA</div>
+              <a class="ps-post__title text-center" href="https://www.tutelagestudy.com/mbbs-in-malaysia/">MBBS IN MALAYSIA</a>
             </div>
           </div>
-        </a>
+
       </div>
       <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
         <a href="https://www.tutelagestudy.com/mbbs-in-russia/">
@@ -361,68 +369,55 @@
         </a>
       </div>
       <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
-        <a href="https://www.tutelagestudy.com/mbbs-in-mauritius/">
           <div class="ps-post ps-product shadow">
             <div class="ps-post__thumbnail"><img src="{{ asset('/front/') }}/img/mbbs-mauritius.jpg" alt="MBBS in Mauritius"></div>
             <div class="ps-post__content" style="border:0px; padding:12px 0px; background:#fff">
-              <div class="ps-post__title text-center">MBBS IN MAURITUS</div>
+              <a href="https://www.tutelagestudy.com/mbbs-in-mauritius/" class="ps-post__title text-center">MBBS IN MAURITUS</a>
             </div>
           </div>
-        </a>
       </div>
       <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
-        <a href="https://www.tutelagestudy.com/mbbs-in-iran/">
           <div class="ps-post ps-product shadow">
             <div class="ps-post__thumbnail"><img src="{{ asset('/front/') }}/img/mbbs-iran.jpg" alt="MBBS in Iran"></div>
             <div class="ps-post__content" style="border:0px; padding:12px 0px; background:#fff">
-              <div class="ps-post__title text-center">MBBS IN IRAN</div>
+              <a href="https://www.tutelagestudy.com/mbbs-in-iran/" href="https://www.tutelagestudy.com/mbbs-in-iran/" class="ps-post__title text-center">MBBS IN IRAN</a>
             </div>
           </div>
-        </a>
       </div>
       <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
-        <a href="https://www.tutelagestudy.com/mbbs-in-vietnam/">
           <div class="ps-post ps-product shadow">
             <div class="ps-post__thumbnail"><img src="{{ asset('/front/') }}/img/mbbs-vietnam.jpg" alt="MBBS in Vietnam"></div>
             <div class="ps-post__content" style="border:0px; padding:12px 0px; background:#fff">
-              <div class="ps-post__title text-center">MBBS IN VIETNAM</div>
+              <a href="https://www.tutelagestudy.com/mbbs-in-vietnam/" class="ps-post__title text-center">MBBS IN VIETNAM</a>
             </div>
           </div>
-        </a>
       </div>
       <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
-        <a href="https://www.tutelagestudy.com/mbbs-in-cyprus/">
           <div class="ps-post ps-product shadow">
             <div class="ps-post__thumbnail"><img src="{{ asset('/front/') }}/img/mbbs-cyprus.jpg" alt="MBBS in Cyprus"></div>
             <div class="ps-post__content" style="border:0px; padding:12px 0px; background:#fff">
-              <div class="ps-post__title text-center">MBBS IN CYPRUS</div>
+              <a href="https://www.tutelagestudy.com/mbbs-in-cyprus/" class="ps-post__title text-center">MBBS IN CYPRUS</a>
             </div>
           </div>
-        </a>
       </div>
       <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
-        <a href="https://www.tutelagestudy.com/mbbs-in-belarus/">
           <div class="ps-post ps-product shadow">
             <div class="ps-post__thumbnail"><img src="{{ asset('/front/') }}/img/mbbs-belarus.jpg" alt="MBBS in Belarus"></div>
             <div class="ps-post__content" style="border:0px; padding:12px 0px; background:#fff">
-              <div class="ps-post__title text-center">MBBS IN BELARUS</div>
+              <a href="https://www.tutelagestudy.com/mbbs-in-belarus/" class="ps-post__title text-center">MBBS IN BELARUS</a>
             </div>
           </div>
-        </a>
       </div>
       <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
-        <a href="https://www.tutelagestudy.com/mbbs-in-bangladesh/">
           <div class="ps-post ps-product shadow">
             <div class="ps-post__thumbnail"><img src="{{ asset('/front/') }}/img/mbbs-bangladesh.jpg" alt="MBBS in Bangladesh"></div>
             <div class="ps-post__content" style="border:0px; padding:12px 0px; background:#fff">
-              <div class="ps-post__title text-center">MBBS IN BANGLADESH</div>
+              <a href="https://www.tutelagestudy.com/mbbs-in-bangladesh/" class="ps-post__title text-center">MBBS IN BANGLADESH</a>
             </div>
           </div>
-        </a>
       </div>
     </div>
     <div class="pt-20" align="center"><a href="/destinations/" target="_blank" class="button home-btn">Browse All Destinations</a></div>
-
   </div>
 </div>
 <section class="onlineCoaching" style="background:#eee">
@@ -623,10 +618,16 @@
             foreach ($news as $row) {
           ?>
           <div class="ps-post ps-product">
-            <div class="ps-post__thumbnail"> <a class="ps-post__overlay" href="<?php echo url($row->slug); ?>/"></a> <img src="<?php echo url($row->imgpath); ?>" alt="<?php echo $row->headline; ?>" style="width:100%; height: 150px;!important"> </div>
+            <div class="ps-post__thumbnail">
+              <img src="<?php echo url($row->imgpath); ?>" alt="<?php echo $row->headline; ?>" style="width:100%; height: 150px;!important">
+            </div>
             <div class="ps-post__content">
-              <div class="ps-post__meta"> <a href="<?php echo url('category/' . $row->cate_slug); ?>/"><?php echo ucwords(str_replace('-', ' ', $row->cate_slug)); ?></a> </div>
-              <a class="ps-post__title" href="<?php echo url($row->slug); ?>/" title="<?php echo $row->headline; ?>" data-toggle="tooltip"> <?php echo strlen($row->headline) > 44 ? substr($row->headline, 0, 44) . '...' : $row->headline; ?> </a>
+              <div class="ps-post__meta">
+                <a href="<?php echo url('category/' . $row->cate_slug); ?>/"><?php echo ucwords(str_replace('-', ' ', $row->cate_slug)); ?></a>
+              </div>
+              <a class="ps-post__title" href="<?php echo url($row->slug); ?>/" title="<?php echo $row->headline; ?>" data-toggle="tooltip">
+                <?php echo strlen($row->headline) > 44 ? substr($row->headline, 0, 44) . '...' : $row->headline; ?>
+              </a>
               <p style="margin-bottom:0px; font-size:11px"> <?php echo getFormattedDate($row->created_at, 'd M, Y'); ?> by<span> admin</span> </p>
             </div>
           </div>

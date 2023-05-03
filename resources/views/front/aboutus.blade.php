@@ -60,13 +60,13 @@ transition: all 0.5s
 <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
 <div class="ps-section__header" style="max-width:100%; margin:0px">
 <p>ABOUT TUTELAGE STUDY ABROAD</p>
-<h2>Our Vision: Make You Successful</h2>
+<h1>Our Vision: Make You Successful</h1>
 <p class="jsfy">Tutelage Study is currently dealing with study abroad education in Malaysia, Singapore, UK, New Zealand, and Canada for various courses like Business, Engineering, Tourism and Hospitality, Early childhood Education, Allied health Science courses, Medicine, Post Graduate courses, MBA, and Doctoral courses.</p>
 <p class="jsfy">We are willing to expand our reach to world-class education destinations all over the world. In the current era of globalization, students must have a global vision to get a successful career in this competitive world.</p>
 <p class="jsfy">Tutelage is a pioneer in providing such career opportunities to students who are willing to open doors for Global vision. The international education market is always open only for high-income class families but we offer unique counseling sessions for middle-class families for selection of university and selection of country in an easy way to send their child overseas for abroad education.</p><br>
 
 
-<h2>Why should you study MBBS abroad?</h2>
+<h1>Why should you study MBBS abroad?</h1>
 <p class="jsfy">We built a healthy relationship with our customers by maintaining the best and timely consultation firm in India.</p>
 
 </div>

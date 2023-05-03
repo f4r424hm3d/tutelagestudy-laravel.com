@@ -58,7 +58,7 @@
         </div>
         <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
           <div class="ps-section__left">
-            <div class="ps-block--testimonial-bg bg--top" data-background="<?php echo url('/'); ?>/assets/web/img/about.jpg">
+            <div class="ps-block--testimonial-bg bg--top" data-background="{{ asset('front/img/about-image.png') }}">
               <div class="ps-block__content">
                 <h3>“I'm addicted to the idea of creating things that are both deep and simple.”</h3>
                 <figure>

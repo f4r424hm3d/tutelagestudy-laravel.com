@@ -149,7 +149,7 @@
   <div class="ps-contact-info">
     <div class="container">
       <div class="ps-section__header">
-        <h3>Contact Us For Any Questions</h3>
+        <h1>Contact Us For Any Questions</h1>
         <p>Our experts give career guidance in a well-organized way to benefit the students up choosing the correct career. We have credible ideas offered for the students with the required facilities to acquire Tutelage Studies.</p>
       </div>
 
