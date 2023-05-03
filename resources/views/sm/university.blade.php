@@ -9,7 +9,7 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>';
       <loc>{{ url($row->country_slug.'/'.$row->uname) }}/</loc>
       <priority>0.51</priority>
       <changefreq>always</changefreq>
-      <lastmod><?php echo date("Y-m-d H:i:s", strtotime($row->updated_at)); ?></lastmod>
+      <lastmod><?php echo date("Y-m-d", strtotime($row->updated_at)); ?></lastmod>
     </url>
   <?php } ?>
 

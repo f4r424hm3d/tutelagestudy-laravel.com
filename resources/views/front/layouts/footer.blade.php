@@ -60,7 +60,7 @@
               <p class="whitec">© 2023 Tutelage Study. All Rights Reserved</p>
             </div>
             <div class="col-md-6">
-              <p class="whitec text-right"><span class="b1" style="color:#fff"><a href="https://tutelagestudy.com/sitemap.xml" target="_blank">Sitemap</a></span></p>
+              <p class="whitec text-right"><span class="b1" style="color:#fff"><a href="{{ url('sitemap.xml') }}/" target="_blank">Sitemap</a></span></p>
             </div>
           </div>
         </div>

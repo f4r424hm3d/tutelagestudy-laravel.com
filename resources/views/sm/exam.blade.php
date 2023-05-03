@@ -9,7 +9,7 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>';
       <loc>{{ url($row->exam_slug) }}/</loc>
       <priority>1</priority>
       <changefreq>always</changefreq>
-      <lastmod><?php echo date("Y-m-d H:i:s", strtotime($row->updated_at)); ?></lastmod>
+      <lastmod><?php echo date("Y-m-d", strtotime($row->updated_at)); ?></lastmod>
     </url>
   <?php } ?>
   <?php foreach ($exampages as $row) { ?>
@@ -17,7 +17,7 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>';
       <loc>{{ url($row->getExam->exam_slug.'/'.$row->slug) }}/</loc>
       <priority>0.80</priority>
       <changefreq>always</changefreq>
-      <lastmod><?php echo date("Y-m-d H:i:s", strtotime($row->updated_at)); ?></lastmod>
+      <lastmod><?php echo date("Y-m-d", strtotime($row->updated_at)); ?></lastmod>
     </url>
   <?php } ?>
 

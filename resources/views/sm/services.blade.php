@@ -16,7 +16,7 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>';
       <loc>{{ url('/services/'.$row->slug) }}/</loc>
       <priority>0.80</priority>
       <changefreq>always</changefreq>
-      <lastmod><?php echo date("Y-m-d H:i:s", strtotime($row->updated_at)); ?></lastmod>
+      <lastmod><?php echo date("Y-m-d", strtotime($row->updated_at)); ?></lastmod>
     </url>
   <?php } ?>
 
