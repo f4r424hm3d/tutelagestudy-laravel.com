@@ -177,7 +177,7 @@
   <div class="container">
     <div class="card mb-3 p-4">
       <div class="row align-items-center">
-        <div class="col-md-3"><img src="<?php echo asset($author->profile_pic_path) ?>" class="rounded img-fluid mb-4"></div>
+        <div class="col-md-3"><img src="<?php echo asset($author->profile_pic_path) ?>" alt="{{ $author->name }}" class="rounded img-fluid mb-4"></div>
         <div class="col-md-9">
           <h1><?php echo $author->name; ?> <small>(Content Curator)</small></h1>
           <hr>

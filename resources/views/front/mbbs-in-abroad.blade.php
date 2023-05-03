@@ -55,7 +55,7 @@
           <p class="jsfy">They offer medical courses at an affordable price. MBBS abroad helps the students in developing their lifestyles to get adapted to all the circumstances. This also makes them know the various cultural practices in foreign countries and have better learning experiences with a pleasant environment. So, these features help most of the students to choose MBBS in abroad.</p>
         </div>
       </div>
-      <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12"><img src="{{ asset('/front/') }}/img/mbbs-in-abroad.png" class="img-fluid"></div>
+      <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12"><img src="{{ asset('/front/') }}/img/mbbs-in-abroad.png" alt="MBBS Abroad" class="img-fluid"></div>
       <!--<div class="col-lg-12">-->
       <!--<div class="ps-section__header" style="max-width:100%; margin:0px">-->
       <!--<p class="jsfy">This issue could be resolved while studying MBBS in abroad as there is no capitation is received for the admission. The foreign medical universities stand as salvage to Indian medical students and also for the other students who seek good education in abroad countries.</p>-->

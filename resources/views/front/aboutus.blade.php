@@ -72,7 +72,7 @@ transition: all 0.5s
 </div>
 </div>
 <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
-<img src="{{ asset('/front/') }}/img/about-image.png" class="img-fluid">
+<img src="{{ asset('/front/') }}/img/about-image.png" alt="About us" class="img-fluid">
 </div>
 </div>
 </div>
@@ -115,7 +115,7 @@ transition: all 0.5s
 </div>
 </div>
 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-<img src="{{ asset('/front/') }}/img/what-do-we-stand.jpg" class="img-fluid">
+<img src="{{ asset('/front/') }}/img/what-do-we-stand.jpg" alt="About tutelage study" class="img-fluid">
 </div>
 
 <div class="col-lg-12 mb30">

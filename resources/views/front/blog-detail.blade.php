@@ -277,7 +277,7 @@
           <div class="ps-post--detail sidebar">
             <div class="ps-post__content card">
               <div class="ps-post__header">
-                <h2 class="mb-1"><?php echo ucfirst($blog->headline); ?></h2>
+                <h1 class="mb-1" style="font-size: 20px"><?php echo ucfirst($blog->headline); ?></h1>
                 <p style="font-size:12px"><?php echo getFormattedDate($blog->created_at, 'd M, Y'); ?>, <b>By Tutelage Team</b>, <a href="<?php echo url('category/' . $blog->cate_slug); ?>/"><?php echo ucwords(str_replace('-', ' ', $blog->cate_slug)); ?></a></p>
               </div>
               <div>

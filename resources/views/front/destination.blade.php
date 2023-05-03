@@ -74,10 +74,10 @@
         <?php foreach ($destinations as $row) { ?>
         <div class="col-md-3 mt-3 mb30">
           <div class="img-content">
-            <a href="<?php echo url($row->slug); ?>/">
-            <img src="<?php echo asset($row->thumbnail); ?>" style="width:100%">
+            <a href="{{ url($row->slug) }}/">
+            <img src="{{ asset($row->thumbnail) }}" alt="{{ $row->page_name }}" style="width:100%">
             <span class="detail-link">
-            <?php echo $row->page_name; ?> <i class="icon-arrow-right"></i>
+            {{ $row->page_name }} <i class="icon-arrow-right"></i>
             </span>
             </a>
           </div>
