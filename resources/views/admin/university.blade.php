@@ -48,40 +48,50 @@
               @csrf
               <div class="row">
                 <div class="col-md-6 col-sm-12 mb-3">
-                  <x-InputField type="text" label="Name" name="name" id="name" :ft="$ft" :sd="$sd" required="required"></x-InputField>
+                  <x-InputField type="text" label="Name" name="name" id="name" :ft="$ft" :sd="$sd"
+                    required="required"></x-InputField>
                 </div>
                 <div class="col-md-6 col-sm-12 mb-3">
-                  <x-InputField type="text" label="URL" name="uname" id="uname" :ft="$ft" :sd="$sd" required="required"></x-InputField>
+                  <x-InputField type="text" label="URL" name="uname" id="uname" :ft="$ft" :sd="$sd"
+                    required="required"></x-InputField>
                 </div>
                 <div class="col-md-3 col-sm-12 mb-3">
-                  <x-SelectField label="Author" name="author_id" id="author_id" savev="id" showv="name" :list="$authors" :ft="$ft" :sd="$sd" ></x-SelectField>
+                  <x-SelectField label="Author" name="author_id" id="author_id" savev="id" showv="name" :list="$authors"
+                    :ft="$ft" :sd="$sd"></x-SelectField>
                 </div>
                 <div class="col-md-2 col-sm-12 mb-3">
-                  <x-InputField type="number" label="Views" name="views" id="views" :ft="$ft" :sd="$sd" ></x-InputField>
+                  <x-InputField type="number" label="Views" name="views" id="views" :ft="$ft" :sd="$sd"></x-InputField>
                 </div>
                 <div class="col-md-2 col-sm-12 mb-3">
-                  <x-InputField type="number" label="Established Year" name="established_year" id="established_year" :ft="$ft" :sd="$sd" ></x-InputField>
+                  <x-InputField type="number" label="Established Year" name="established_year" id="established_year"
+                    :ft="$ft" :sd="$sd"></x-InputField>
                 </div>
                 <div class="col-md-3 col-sm-12 mb-3">
-                  <x-SelectField label="Country" name="country" id="country" savev="name" showv="name" :list="$countries" :ft="$ft" :sd="$sd" required="required"></x-SelectField>
+                  <x-SelectField label="Country" name="country" id="country" savev="name" showv="name"
+                    :list="$countries" :ft="$ft" :sd="$sd" required="required"></x-SelectField>
                 </div>
                 <div class="col-md-3 col-sm-12 mb-3">
-                  <x-SelectField label="Destination" name="destination_id" id="destination_id" savev="id" showv="page_name" :list="$destinations" :ft="$ft" :sd="$sd" required="required"></x-SelectField>
+                  <x-SelectField label="Destination" name="destination_id" id="destination_id" savev="id"
+                    showv="page_name" :list="$destinations" :ft="$ft" :sd="$sd" required="required"></x-SelectField>
                 </div>
                 {{-- <div class="col-md-3 col-sm-12 mb-3">
-                  <x-DatalistField type="text" label="State" name="state" id="state" savev="statename" showv="statename" :list="$states" :ft="$ft" :sd="$sd" required="required"></x-DatalistField>
+                  <x-DatalistField type="text" label="State" name="state" id="state" savev="statename" showv="statename"
+                    :list="$states" :ft="$ft" :sd="$sd" required="required"></x-DatalistField>
                 </div>
                 <div class="col-md-3 col-sm-12 mb-3">
-                  <x-InputField type="text" label="City" name="city" id="city" :ft="$ft" :sd="$sd" required="required"></x-InputField>
+                  <x-InputField type="text" label="City" name="city" id="city" :ft="$ft" :sd="$sd"
+                    required="required"></x-InputField>
                 </div> --}}
                 <div class="col-md-2 col-sm-12 mb-3">
                   <x-InputField type="text" label="Rank" name="rank" id="rank" :ft="$ft" :sd="$sd"></x-InputField>
                 </div>
                 <div class="col-md-3 col-sm-12 mb-3">
-                  <x-SelectField label="Institute Type" name="institute_type" id="institute_type" savev="id" showv="type" :list="$instType" :ft="$ft" :sd="$sd"></x-SelectField>
+                  <x-SelectField label="Institute Type" name="institute_type" id="institute_type" savev="id"
+                    showv="type" :list="$instType" :ft="$ft" :sd="$sd"></x-SelectField>
                 </div>
                 {{-- <div class="col-md-12 col-sm-12 mb-3">
-                  <x-TextareaField label="Shortnote" name="shortnote" id="shortnote" :ft="$ft" :sd="$sd"></x-TextareaField>
+                  <x-TextareaField label="Shortnote" name="shortnote" id="shortnote" :ft="$ft"
+                    :sd="$sd"></x-TextareaField>
                 </div> --}}
                 <div class="col-md-3 col-sm-12 mb-3">
                   <x-InputField type="file" label="Logo" name="logo" id="logo" :ft="$ft" :sd="$sd"></x-InputField>
@@ -97,10 +107,10 @@
               <!--  SEO INPUT FIELD COMPONENT END  -->
 
               @if ($ft == 'add')
-                <button type="reset" class="btn btn-sm btn-warning  mr-1"><i class="ti-trash"></i> Reset</button>
+              <button type="reset" class="btn btn-sm btn-warning  mr-1"><i class="ti-trash"></i> Reset</button>
               @endif
               @if ($ft == 'edit')
-                <a href="{{ aurl($page_route) }}" class="btn btn-sm btn-info "><i class="ti-trash"></i> Cancel</a>
+              <a href="{{ aurl($page_route) }}" class="btn btn-sm btn-info "><i class="ti-trash"></i> Cancel</a>
               @endif
               <button class="btn btn-sm btn-primary" type="submit">Submit</button>
             </form>
@@ -118,7 +128,8 @@
                 <div class="col-md-6 col-sm-12 mb-3">
                   <div class="form-group">
                     <label>Search</label>
-                    <input name="search" id="search" type="text" class="form-control" placeholder="search by name" value="{{ $_GET['search']??'' }}" required>
+                    <input name="search" id="search" type="text" class="form-control"
+                      placeholder="search by Name and Country" value="{{ $_GET['search']??'' }}" required>
                   </div>
                 </div>
               </div>
@@ -130,10 +141,10 @@
         <div class="card">
           <div class="card-header">
             <h4 class="card-title">
-              {{ $page_title }}  List
-              {{--  <span style="float:right;">
+              {{ $page_title }} List
+              {{-- <span style="float:right;">
                 <button class="btn btn-xs btn-success">Export</button>
-              </span>  --}}
+              </span> --}}
             </h4>
           </div>
           <div class="card-body">
@@ -160,14 +171,22 @@
                     <b>URL :</b> {{ $row->uname }}
                   </td>
                   <td>
-                    <b>Country : </b><?php echo $row->country; ?><br>
-                    <b>Destination : </b><?php echo $row->getDestination->page_name??'N/A'; ?><br>
-                    <b>View : </b><?php echo $row->views; ?><br>
-                    <b>Rank : </b><?php echo $row->rank; ?><br>
-                    <b>Established Year : </b><?php echo $row->established_year; ?><br>
-                    <b>Institute Type : </b><?php echo $row->getInstType->type??''; ?><br>
+                    <b>Country : </b>
+                    <?php echo $row->country; ?><br>
+                    <b>Destination : </b>
+                    <?php echo $row->getDestination->page_name??'N/A'; ?><br>
+                    <b>View : </b>
+                    <?php echo $row->views; ?><br>
+                    <b>Rank : </b>
+                    <?php echo $row->rank; ?><br>
+                    <b>Established Year : </b>
+                    <?php echo $row->established_year; ?><br>
+                    <b>Institute Type : </b>
+                    <?php echo $row->getInstType->type??''; ?><br>
                   </td>
-                  <td><?php echo $row->author_id != null ? $row->getAuthor->name : ''; ?></td>
+                  <td>
+                    <?php echo $row->author_id != null ? $row->getAuthor->name : ''; ?>
+                  </td>
                   <td>
                     @if ($row->imgpath != null)
                     <img src="{{ asset($row->imgpath) }}" alt="" height="80" width="80">
@@ -183,7 +202,8 @@
                   </td>
                   {{-- <td>
                     @if ($row->shortnote != null)
-                    <button type="button" class="btn btn-xs btn-outline-info waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#ShtModalScrollable{{ $row->id }}">View</button>
+                    <button type="button" class="btn btn-xs btn-outline-info waves-effect waves-light"
+                      data-bs-toggle="modal" data-bs-target="#ShtModalScrollable{{ $row->id }}">View</button>
                     <div class="modal fade" id="ShtModalScrollable{{ $row->id }}" tabindex="-1" role="dialog"
                       aria-labelledby="ShrtModalScrollableTitle{{ $row->id }}" aria-hidden="true">
                       <div class="modal-dialog modal-dialog-scrollable">
@@ -213,18 +233,22 @@
                         <tr>
                           <td>Status</td>
                           <td>
-                            <span id="astatus{{ $row->id }}" class="badge bg-success {{ $row->status == 1 ? '' : 'hide-this' }}"
+                            <span id="astatus{{ $row->id }}"
+                              class="badge bg-success {{ $row->status == 1 ? '' : 'hide-this' }}"
                               onclick="changeStatus('{{ $row->id }}','status','0')">Active</span>
-                            <span id="istatus{{ $row->id }}" class="badge bg-danger {{ $row->status == 0 ? '' : 'hide-this' }}"
+                            <span id="istatus{{ $row->id }}"
+                              class="badge bg-danger {{ $row->status == 0 ? '' : 'hide-this' }}"
                               onclick="changeStatus('{{ $row->id }}','status','1')">Inactive</span>
                           </td>
                         </tr>
                         <tr>
                           <td>Home View</td>
                           <td>
-                            <span id="ahomeview{{ $row->id }}" class="badge bg-success {{ $row->homeview == 1 ? '' : 'hide-this' }}"
+                            <span id="ahomeview{{ $row->id }}"
+                              class="badge bg-success {{ $row->homeview == 1 ? '' : 'hide-this' }}"
                               onclick="changeStatus('{{ $row->id }}','homeview','0')">Active</span>
-                            <span id="ihomeview{{ $row->id }}" class="badge bg-danger {{ $row->homeview == 0 ? '' : 'hide-this' }}"
+                            <span id="ihomeview{{ $row->id }}"
+                              class="badge bg-danger {{ $row->homeview == 0 ? '' : 'hide-this' }}"
                               onclick="changeStatus('{{ $row->id }}','homeview','1')">Inactive</span>
                           </td>
                         </tr>
@@ -233,7 +257,8 @@
                   </td>
                   <td>
                     @if ($row->meta_title != null)
-                    <button type="button" class="btn btn-xs btn-outline-info waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#SeoModalScrollable{{ $row->id }}">View</button>
+                    <button type="button" class="btn btn-xs btn-outline-info waves-effect waves-light"
+                      data-bs-toggle="modal" data-bs-target="#SeoModalScrollable{{ $row->id }}">View</button>
                     <div class="modal fade" id="SeoModalScrollable{{ $row->id }}" tabindex="-1" role="dialog"
                       aria-labelledby="SeoModalScrollableTitle{{ $row->id }}" aria-hidden="true">
                       <div class="modal-dialog modal-dialog-scrollable">
@@ -261,7 +286,8 @@
                     @endif
                   </td>
                   <td>
-                    <a title="Profile" href="{{ aurl('university-overview/'.$row->id) }}" class="waves-effect waves-light btn btn-xs btn-outline btn-success">
+                    <a title="Profile" href="{{ aurl('university-overview/'.$row->id) }}"
+                      class="waves-effect waves-light btn btn-xs btn-outline btn-success">
                       <i class="fa fa-eye" aria-hidden="true"></i>
                     </a>
                     <a href="javascript:void()" onclick="DeleteAjax('{{ $row->id }}')"
@@ -288,8 +314,8 @@
   </div>
 </div>
 <script>
-  $(document).ready(function() {
-    $('#name').change(function() {
+  $(document).ready(function () {
+    $('#name').change(function () {
       var val = $('#name').val();
       if (val != '') {
         $.ajax({
@@ -298,7 +324,7 @@
           data: {
             val: val,
           },
-          success: function(data) {
+          success: function (data) {
             $('#uname').val(data);
           }
         });
@@ -306,7 +332,7 @@
     });
   });
 
-  function changeStatus(id,col,val) {
+  function changeStatus(id, col, val) {
     //alert(id);
     var tbl = 'universities';
     $.ajax({
@@ -318,16 +344,16 @@
         col: col,
         val: val
       },
-      success: function(data) {
+      success: function (data) {
         if (data == '1') {
           //alert('status changed of ' + id + ' to ' + val);
           if (val == '1') {
-            $('#a'+col+id).toggle();
-            $('#i'+col+id).toggle();
+            $('#a' + col + id).toggle();
+            $('#i' + col + id).toggle();
           }
           if (val == '0') {
-            $('#a'+col+id).toggle();
-            $('#i'+col+id).toggle();
+            $('#a' + col + id).toggle();
+            $('#i' + col + id).toggle();
           }
         }
       }
@@ -340,7 +366,7 @@
     if (cd == true) {
       $.ajax({
         url: "{{ url('admin/'.$page_route.'/delete') }}" + "/" + id,
-        success: function(data) {
+        success: function (data) {
           if (data == '1') {
             var h = 'Success';
             var msg = 'Record deleted successfully';

@@ -24,9 +24,9 @@ class UniversityC extends Controller
     $authors = Author::all();
     $destinations = Destination::all();
 
-    $rows = University::with('getAuthor','getInstType');
-    if(isset($_GET['search']) && $_GET['search'] != null){
-      $rows = $rows->where('name','like','%'.$_GET['search'].'%');
+    $rows = University::with('getAuthor', 'getInstType');
+    if (isset($_GET['search']) && $_GET['search'] != null) {
+      $rows = $rows->where('name', 'like', '%' . $_GET['search'] . '%')->orWhere('country', 'like', '%' . $_GET['search'] . '%');
     }
     $rows = $rows->paginate(10);
 
@@ -56,7 +56,7 @@ class UniversityC extends Controller
     }
     $page_title = "University";
     $page_route = "university";
-    $data = compact('rows', 'sd', 'ft', 'url', 'title', 'page_title', 'page_route','instType','countries','states','i','authors','destinations');
+    $data = compact('rows', 'sd', 'ft', 'url', 'title', 'page_title', 'page_route', 'instType', 'countries', 'states', 'i', 'authors', 'destinations');
     return view('admin.university')->with($data);
   }
   public function store(Request $request)
@@ -128,7 +128,7 @@ class UniversityC extends Controller
   {
     $request->validate(
       [
-        'name' => 'required|unique:universities,name,'.$id,
+        'name' => 'required|unique:universities,name,' . $id,
         'destination_id' => 'required',
         'logo' => 'nullable|max:5000|mimes:jpg,jpeg,png,gif',
         'banner' => 'nullable|max:5000|mimes:jpg,jpeg,png,gif'
