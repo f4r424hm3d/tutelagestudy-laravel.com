@@ -1,9 +1,9 @@
-
-
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow" />
-<title><?php echo ucwords($meta_title); ?></title>
+<title>
+  <?php echo ucwords($meta_title); ?>
+</title>
 <meta name="description" content="<?php echo $meta_description; ?>">
 <meta name="keywords" content="<?php echo $meta_keyword; ?>">
 <link rel="canonical" href="<?php echo $page_url; ?>/" />
@@ -24,13 +24,13 @@
 <meta name="twitter:description" content="<?php echo $meta_description; ?>" />
 <meta name="twitter:image" content="<?php echo asset($og_image_path); ?>" />
 <meta property="twitter:image:type" content="image/jpg" />
-<link rel="apple-touch-icon" href="{{ asset('/front/') }}/img/icon.png"/>
+<link rel="apple-touch-icon" href="{{ asset('/front/') }}/img/icon.png" />
 <meta property="og:image" content="<?php echo asset($og_image_path); ?>" />
 
 @include('front.cssjs')
 <!-- Google Tag Manager -->
 <script>
-  (function(w, d, s, l, i) {
+  (function (w, d, s, l, i) {
     w[l] = w[l] || [];
     w[l].push({
       'gtm.start': new Date().getTime(),
@@ -46,8 +46,6 @@
   })(window, document, 'script', 'dataLayer', 'GTM-T4ZDHCD');
 </script>
 <!-- End Google Tag Manager -->
-<script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9059329067714963" crossorigin="anonymous"></script>
-
 <!-- organization schema code -->
 <script type="application/ld+json">
   {
@@ -82,4 +80,3 @@
     ]
   }
 </script>
-

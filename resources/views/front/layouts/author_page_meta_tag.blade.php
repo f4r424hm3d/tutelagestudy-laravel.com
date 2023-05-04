@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <title><?php echo $title; ?></title>
+  <title>
+    <?php echo $title; ?>
+  </title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="follow, index"/>
+  <meta name="robots" content="follow, index" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:type" content="profile" />
   <meta property="og:title" content="<?php echo $title; ?>" />
@@ -17,9 +20,7 @@
   <meta name="twitter:title" content="<?php echo $title; ?>" />
   <meta name="twitter:site" content="@tutelagestudy" />
   <link rel="shortcut icon" href="{{ asset('/front/') }}/img/icon.png" type="image/x-icon">
-  <link rel="apple-touch-icon" href="{{ asset('/front/') }}/img/icon.png"/>
-
-
+  <link rel="apple-touch-icon" href="{{ asset('/front/') }}/img/icon.png" />
   @include('front.cssjs')
   <!-- organization schema code -->
   <script type="application/ld+json">
@@ -82,7 +83,7 @@
   </script>
   <!-- breadcrumb schema Code End -->
   <script>
-    (function(w, d, s, l, i) {
+    (function (w, d, s, l, i) {
       w[l] = w[l] || [];
       w[l].push({
         'gtm.start': new Date().getTime(),
@@ -97,9 +98,4 @@
       f.parentNode.insertBefore(j, f);
     })(window, document, 'script', 'dataLayer', 'GTM-T4ZDHCD');
   </script>
-  <!-- End Google Tag Manager -->
-  <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9059329067714963"
-    crossorigin="anonymous"></script>
-
-
 </head>

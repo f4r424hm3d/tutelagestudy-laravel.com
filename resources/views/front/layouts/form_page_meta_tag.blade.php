@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<title><?php echo $title; ?></title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="follow, noindex"/>
-<meta property="og:locale" content="en_US" />
-<meta property="og:type" content="profile" />
-<meta property="og:title" content="<?php echo $title; ?>" />
-<meta property="og:url" content="{{ $page_url }}" />
-<meta property="og:site_name" content="Tutelage Study" />
-<meta property="og:image:alt" content="Tutelage Study" />
-<meta property="og:image:type" content="image/png" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="<?php echo $title; ?>" />
-<meta name="twitter:site" content="@tutelagestudy" />
-<link rel="shortcut icon" href="{{ asset('/front/') }}/img/icon.png" type="image/x-icon">
-  <link rel="apple-touch-icon" href="{{ asset('/front/') }}/img/icon.png"/>
-@include('front.cssjs')
-<!-- organization schema code -->
-<script type="application/ld+json">
+  <title>
+    <?php echo $title; ?>
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="follow, noindex" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="<?php echo $title; ?>" />
+  <meta property="og:url" content="{{ $page_url }}" />
+  <meta property="og:site_name" content="Tutelage Study" />
+  <meta property="og:image:alt" content="Tutelage Study" />
+  <meta property="og:image:type" content="image/png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="<?php echo $title; ?>" />
+  <meta name="twitter:site" content="@tutelagestudy" />
+  <link rel="shortcut icon" href="{{ asset('/front/') }}/img/icon.png" type="image/x-icon">
+  <link rel="apple-touch-icon" href="{{ asset('/front/') }}/img/icon.png" />
+  @include('front.cssjs')
+  <!-- organization schema code -->
+  <script type="application/ld+json">
 
     {
 
@@ -83,8 +86,8 @@
     }
 
   </script>
-<!-- breadcrumb schema Code -->
-<script type="application/ld+json">
+  <!-- breadcrumb schema Code -->
+  <script type="application/ld+json">
 
     {
 
@@ -121,10 +124,10 @@
     }
 
   </script>
-<!-- breadcrumb schema Code End -->
-<script>
+  <!-- breadcrumb schema Code End -->
+  <script>
 
-    (function(w, d, s, l, i) {
+    (function (w, d, s, l, i) {
 
       w[l] = w[l] || [];
 
@@ -153,6 +156,6 @@
     })(window, document, 'script', 'dataLayer', 'GTM-T4ZDHCD');
 
   </script>
-<!-- End Google Tag Manager -->
-<script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9059329067714963" crossorigin="anonymous"></script>
+  <!-- End Google Tag Manager -->
+
 </head>

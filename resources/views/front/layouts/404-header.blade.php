@@ -15,11 +15,11 @@
   <meta property="og:title" content="Page not found | Tutelage Study" />
   <meta name="google-site-verification" content="SokbVdHyUAjOFBjbYT24LZso--Gh5GaYXY2TKUldJIY" />
   <link rel="shortcut icon" href="{{ asset('/front/') }}/img/icon.png" type="image/x-icon">
-  <link rel="apple-touch-icon" href="{{ asset('/front/') }}/img/icon.png"/>
+  <link rel="apple-touch-icon" href="{{ asset('/front/') }}/img/icon.png" />
   @include('front.cssjs')
   <!-- Google Tag Manager -->
   <script>
-    (function(w, d, s, l, i) {
+    (function (w, d, s, l, i) {
       w[l] = w[l] || [];
       w[l].push({
         'gtm.start': new Date().getTime(),
@@ -34,8 +34,6 @@
       f.parentNode.insertBefore(j, f);
     })(window, document, 'script', 'dataLayer', 'GTM-T4ZDHCD');
   </script>
-  <!-- End Google Tag Manager -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9059329067714963" crossorigin="anonymous"></script>
 
   <!-- organization schema code -->
   <script type="application/ld+json">
