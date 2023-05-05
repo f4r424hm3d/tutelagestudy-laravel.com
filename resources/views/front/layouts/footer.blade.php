@@ -9,8 +9,7 @@
           <p class="whitec mb-0">Email : studytutelage@gmail.com</p>
           <p class="whitec">B-16 Ground Floor, Mayfield Garden,<br>
             Sector 50, Gurugram, <br>
-            Haryana, India 122002.
-          </p>
+            Haryana, India 122002.</p>
           <ul class="ps-list--social">
             <li><a class="facebook" href="https://www.facebook.com/tutelagestudyabroad/" target="_blank" rel="noreferrer" aria-label="Facebook"><i class="fa fa-facebook"></i></a></li>
             <li><a class="twitter" href="https://twitter.com/tutelagestudy" rel="noreferrer" aria-label="Twitter"><i class="fa fa-twitter"></i></a></li>
@@ -29,26 +28,28 @@
           <li><a href="<?php echo url('privacy-policy'); ?>/" class="whitec">Privacy Policy</a></li>
           <li><a href="<?php echo url('term-and-condition'); ?>/" class="whitec">Term & Condition</a></li>
           <li><a href="<?php echo url('/blog'); ?>/" class="whitec">News & Articles</a></li>
+           <li><a href="<?php echo url('/neet-ug'); ?>/" class="whitec">NEET UG</a></li>
         </ul>
       </aside>
       <aside class="widget_footer col-md-3">
         <span class="widget-title">MBBS Destination</span>
         <ul class="ps-list--link" style="margin-bottom:25px">
           <li><a href="https://www.tutelagestudy.com/mbbs-in-malaysia/" class="whitec">MBBS Malaysia</a></li>
-          <li><a href="https://www.tutelagestudy.com/mbbs-in-cyprus/" class="whitec">MBBS Cyprus</a></li>
-          <li><a href="https://www.tutelagestudy.com/mbbs-in-vietnam/" class="whitec">MBBS Vietnam</a></li>
+          <li><a href="https://www.tutelagestudy.com/mbbs-in-russia/" class="whitec">MBBS Russia</a></li>
+          <li><a href="https://www.tutelagestudy.com/mbbs-in-india/" class="whitec">MBBS India</a></li>
           <li><a href="https://www.tutelagestudy.com/mbbs-in-georgia/" class="whitec">MBBS Georgia</a></li>
           <li><a href="https://www.mymbbsadmission.com/mbbs-bangladesh/" class="whitec">MBBS Bangladesh</a></li>
+          <li><a href="https://www.tutelagestudy.com/destinations/" class="whitec">All MBBS Abroad Countries</a></li>
         </ul>
       </aside>
       <aside class="widget_footer col-md-3">
         <span class="widget-title">References</span>
         <ul class="ps-list--link" style="margin-bottom:25px">
-          <li><a href="https://neet.nta.nic.in/" class="whitec">NEET</a></li>
-          <li><a href="https://www.nmc.org.in/information-desk/for-students-to-study-in-abroad/" class="whitec">NMC</a></li>
-          <li><a href="https://www.usmle.org/" class="whitec">USMLE</a></li>
-          <li><a href="https://nbe.edu.in/" class="whitec">NBE</a></li>
-          <li><a href="https://www.wdoms.org/" class="whitec">WDOMs</a></li>
+          <li><a href="https://neet.nta.nic.in/" target="_blank" class="whitec">NEET</a></li>
+          <li><a href="https://www.nmc.org.in/information-desk/for-students-to-study-in-abroad/" target="_blank" class="whitec">NMC</a></li>
+          <li><a href="https://www.usmle.org/" target="_blank" class="whitec">USMLE</a></li>
+          <li><a href="https://nbe.edu.in/" target="_blank" class="whitec">NBE</a></li>
+          <li><a href="https://www.wdoms.org/" target="_blank" class="whitec">WDOMs</a></li>
         </ul>
       </aside>
     </div>

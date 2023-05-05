@@ -1,10 +1,37 @@
+@php
+use App\Models\Seo;
+$page_url = url()->current();
+$url = Request::segment(1)??'home';
+$seo = Seo::where(['url' => $url])->first();
+$site = url('/');
+$tagArray = ['currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
+
+$meta_title = $seo->meta_title??'';
+$meta_title = replaceTag($meta_title, $tagArray);
+
+$meta_keyword = $seo->meta_keyword??'';
+$meta_keyword = replaceTag($meta_keyword, $tagArray);
+
+$meta_description = $seo->meta_description??'';
+$meta_description = replaceTag($meta_description, $tagArray);
+
+$page_content = $seo->page_content??'';
+$page_content = replaceTag($page_content, $tagArray);
+
+$seo_rating = $seo->seo_rating??'';
+$og_image_path = $seo->og_image_path??'';
+@endphp
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <title>
-    <?php echo $title; ?>
-  </title>
+  <meta name="robots" content="index, follow" />
+  <title><?php echo ucwords($meta_title); ?></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta name="description" content="<?php echo $meta_description; ?>">
+  <meta name="keywords" content="<?php echo $meta_keyword; ?>">
+  <link rel="canonical" href="<?php echo $page_url; ?>/" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="follow, noindex" />
   <meta property="og:locale" content="en_US" />
@@ -22,14 +49,13 @@
   @include('front.cssjs')
   <!-- organization schema code -->
   <script type="application/ld+json">
-
     {
 
       "@context": "https://schema.org",
 
       "@type": "Organization",
 
-      "@id":"https://www.tutelagestudy.com/#organization",
+      "@id": "https://www.tutelagestudy.com/#organization",
 
       "name": "Tutelage Study",
 
@@ -84,11 +110,9 @@
       ]
 
     }
-
   </script>
   <!-- breadcrumb schema Code -->
   <script type="application/ld+json">
-
     {
 
       "@context": "https://schema.org/",
@@ -122,12 +146,10 @@
       }]
 
     }
-
   </script>
   <!-- breadcrumb schema Code End -->
   <script>
-
-    (function (w, d, s, l, i) {
+    (function(w, d, s, l, i) {
 
       w[l] = w[l] || [];
 
@@ -154,7 +176,6 @@
       f.parentNode.insertBefore(j, f);
 
     })(window, document, 'script', 'dataLayer', 'GTM-T4ZDHCD');
-
   </script>
   <!-- End Google Tag Manager -->
 

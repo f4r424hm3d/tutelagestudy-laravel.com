@@ -62,7 +62,7 @@ $og_image_path = $seo->og_image_path??'';
 @include('front.cssjs')
 <!-- Google Tag Manager -->
 <script>
-  (function (w, d, s, l, i) {
+  (function(w, d, s, l, i) {
     w[l] = w[l] || [];
     w[l].push({
       'gtm.start': new Date().getTime(),
@@ -82,35 +82,35 @@ $og_image_path = $seo->og_image_path??'';
 
 <!-- organization schema code -->
 <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "@id":"https://www.tutelagestudy.com/#organization",
-      "name": "Tutelage Study",
-      "url": "https://www.tutelagestudy.com/",
-      "logo": "{{ asset('/front/') }}/img/logo_light.png",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "B-16 Ground Floor, Mayfield Garden, Sector 50",
-        "addressLocality": "Gurugram",
-        "addressRegion": "Haryana",
-        "postalCode": "122002",
-        "addressCountry": "India"
-      },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "contactType": "contact",
-        "telephone": "+91-9870406867",
-        "email": "info@tutelagestudy.com"
-      },
-      "sameAs": [
-        "https://www.facebook.com/tutelagestudyabroad/",
-        "https://twitter.com/tutelagestudy",
-        "https://www.youtube.com/channel/UCK2eeC1CkS3YkYrGnnzBUEQ",
-        "https://in.pinterest.com/tutelagestudy/",
-        "https://in.linkedin.com/in/tutelage-study-4085a51ab",
-        "https://www.instagram.com/tutelagestudy/",
-        "https://www.tumblr.com/tutelagestudyabroad/"
-      ]
-    }
-  </script>
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://www.tutelagestudy.com/#organization",
+    "name": "Tutelage Study",
+    "url": "https://www.tutelagestudy.com/",
+    "logo": "{{ asset('/front/') }}/img/logo_light.png",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "B-16 Ground Floor, Mayfield Garden, Sector 50",
+      "addressLocality": "Gurugram",
+      "addressRegion": "Haryana",
+      "postalCode": "122002",
+      "addressCountry": "India"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "contact",
+      "telephone": "+91-9870406867",
+      "email": "info@tutelagestudy.com"
+    },
+    "sameAs": [
+      "https://www.facebook.com/tutelagestudyabroad/",
+      "https://twitter.com/tutelagestudy",
+      "https://www.youtube.com/channel/UCK2eeC1CkS3YkYrGnnzBUEQ",
+      "https://in.pinterest.com/tutelagestudy/",
+      "https://in.linkedin.com/in/tutelage-study-4085a51ab",
+      "https://www.instagram.com/tutelagestudy/",
+      "https://www.tumblr.com/tutelagestudyabroad/"
+    ]
+  }
+</script>
