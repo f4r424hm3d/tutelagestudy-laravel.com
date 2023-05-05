@@ -28,7 +28,7 @@
           <li><a href="<?php echo url('privacy-policy'); ?>/" class="whitec">Privacy Policy</a></li>
           <li><a href="<?php echo url('term-and-condition'); ?>/" class="whitec">Term & Condition</a></li>
           <li><a href="<?php echo url('/blog'); ?>/" class="whitec">News & Articles</a></li>
-           <li><a href="<?php echo url('/neet-ug'); ?>/" class="whitec">NEET UG</a></li>
+          <li><a href="<?php echo url('/neet-ug'); ?>/" class="whitec">NEET UG</a></li>
         </ul>
       </aside>
       <aside class="widget_footer col-md-3">
@@ -49,7 +49,7 @@
           <li><a href="https://www.nmc.org.in/information-desk/for-students-to-study-in-abroad/" target="_blank" class="whitec">NMC</a></li>
           <li><a href="https://www.usmle.org/" target="_blank" class="whitec">USMLE</a></li>
           <li><a href="https://nbe.edu.in/" target="_blank" class="whitec">NBE</a></li>
-          <li><a href="https://www.wdoms.org/" target="_blank" class="whitec">WDOMs</a></li>
+          <li><a href="https://www.wdoms.org/" target="_blank" rel="nofollow" class="whitec">WDOMs</a></li>
         </ul>
       </aside>
     </div>
@@ -105,8 +105,9 @@
 <script defer src="https://www.googletagmanager.com/gtag/js?id=UA-169815601-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
+
   function gtag() {
-   dataLayer.push(arguments);
+    dataLayer.push(arguments);
   }
   gtag('js', new Date());
   gtag('config', 'UA-169815601-1');
@@ -149,24 +150,23 @@
 <script src="{{ cdn('front') }}/plugins/jquery-5.2.js"></script>
 <script>
   $('a[href*="#"]')
-  .not('[href="#"]')
-  .not('[href="#0"]')
-  .click(function(event) {
-  if (
-  location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
-  &&
-  location.hostname == this.hostname
-  ) {
-  var target = $(this.hash);
-  target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-  if (target.length) {
-  event.preventDefault();
-  $('html, body').animate({
-  scrollTop: target.offset().top - 20
-  }, 500, function() {});
-  }
-  }
-  });
+    .not('[href="#"]')
+    .not('[href="#0"]')
+    .click(function(event) {
+      if (
+        location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') &&
+        location.hostname == this.hostname
+      ) {
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+        if (target.length) {
+          event.preventDefault();
+          $('html, body').animate({
+            scrollTop: target.offset().top - 20
+          }, 500, function() {});
+        }
+      }
+    });
 </script>
 
 <script>
@@ -222,22 +222,55 @@
 </div>
 
 <script>
-!function(a){var _,t;a(document).ready(function(){function o(a){for(var _=a+"=",t=document.cookie.split(";"),o=0;o<t.length;o++){for(var e=t[o];" "==e.charAt(0);)e=e.substring(1);if(0==e.indexOf(_))return e.substring(_.length,e.length)}return""}a(".wa__btn_popup").on("click",function(){a(".wa__popup_chat_box").hasClass("wa__active")?(a(".wa__popup_chat_box").removeClass("wa__active"),a(".wa__btn_popup").removeClass("wa__active"),clearTimeout(t),a(".wa__popup_chat_box").hasClass("wa__lauch")&&(_=setTimeout(function(){a(".wa__popup_chat_box").removeClass("wa__pending"),a(".wa__popup_chat_box").removeClass("wa__lauch")},400))):(a(".wa__popup_chat_box").addClass("wa__pending"),a(".wa__popup_chat_box").addClass("wa__active"),a(".wa__btn_popup").addClass("wa__active"),clearTimeout(_),a(".wa__popup_chat_box").hasClass("wa__lauch")||(t=setTimeout(function(){a(".wa__popup_chat_box").addClass("wa__lauch")},100)))}),a("#nta-wa-gdpr").change(function(){this.checked&&(!function(a,_,t){var o=new Date;o.setTime(o.getTime()+24*t*60*60*1e3);var e="expires="+o.toUTCString();document.cookie=a+"="+_+";"+e+";path=/"}("nta-wa-gdpr","accept",30),""!=o("nta-wa-gdpr")&&(a(".nta-wa-gdpr").hide(500),a(".wa__popup_content_item").each(function(){a(this).removeClass("pointer-disable"),a(".wa__popup_content_list").off("click")})))}),""!=o("nta-wa-gdpr")?a(".wa__popup_content_list").off("click"):a(".wa__popup_content_list").click(function(){a(".nta-wa-gdpr").delay(500).css({background:"red",color:"#fff"})})})}(jQuery);
+  ! function(a) {
+    var _, t;
+    a(document).ready(function() {
+      function o(a) {
+        for (var _ = a + "=", t = document.cookie.split(";"), o = 0; o < t.length; o++) {
+          for (var e = t[o];
+            " " == e.charAt(0);) e = e.substring(1);
+          if (0 == e.indexOf(_)) return e.substring(_.length, e.length)
+        }
+        return ""
+      }
+      a(".wa__btn_popup").on("click", function() {
+        a(".wa__popup_chat_box").hasClass("wa__active") ? (a(".wa__popup_chat_box").removeClass("wa__active"), a(".wa__btn_popup").removeClass("wa__active"), clearTimeout(t), a(".wa__popup_chat_box").hasClass("wa__lauch") && (_ = setTimeout(function() {
+          a(".wa__popup_chat_box").removeClass("wa__pending"), a(".wa__popup_chat_box").removeClass("wa__lauch")
+        }, 400))) : (a(".wa__popup_chat_box").addClass("wa__pending"), a(".wa__popup_chat_box").addClass("wa__active"), a(".wa__btn_popup").addClass("wa__active"), clearTimeout(_), a(".wa__popup_chat_box").hasClass("wa__lauch") || (t = setTimeout(function() {
+          a(".wa__popup_chat_box").addClass("wa__lauch")
+        }, 100)))
+      }), a("#nta-wa-gdpr").change(function() {
+        this.checked && (! function(a, _, t) {
+          var o = new Date;
+          o.setTime(o.getTime() + 24 * t * 60 * 60 * 1e3);
+          var e = "expires=" + o.toUTCString();
+          document.cookie = a + "=" + _ + ";" + e + ";path=/"
+        }("nta-wa-gdpr", "accept", 30), "" != o("nta-wa-gdpr") && (a(".nta-wa-gdpr").hide(500), a(".wa__popup_content_item").each(function() {
+          a(this).removeClass("pointer-disable"), a(".wa__popup_content_list").off("click")
+        })))
+      }), "" != o("nta-wa-gdpr") ? a(".wa__popup_content_list").off("click") : a(".wa__popup_content_list").click(function() {
+        a(".nta-wa-gdpr").delay(500).css({
+          background: "red",
+          color: "#fff"
+        })
+      })
+    })
+  }(jQuery);
 </script>
 <!-- end whatsapp chat -->
 
 @php
-  use App\Models\Exam;
+use App\Models\Exam;
 @endphp
 <?php
-  $pageArray = [];
-  $pageUrl = Request::segment(1);
-  $allpages = Exam::all();
-  foreach ($allpages as $exm) {
-    $pageArray[] = $exm->exam_slug;
-  }
-  $form_url = in_array($pageUrl,$pageArray)?'neet-counselling':'mbbs-abroad-counselling';
-  $finalUrl = url($form_url);
+$pageArray = [];
+$pageUrl = Request::segment(1);
+$allpages = Exam::all();
+foreach ($allpages as $exm) {
+  $pageArray[] = $exm->exam_slug;
+}
+$form_url = in_array($pageUrl, $pageArray) ? 'neet-counselling' : 'mbbs-abroad-counselling';
+$finalUrl = url($form_url);
 ?>
 <div class="new-footer-fixed">
   <ul>
@@ -264,4 +297,5 @@
   </ul>
 </div>
 </body>
+
 </html>
