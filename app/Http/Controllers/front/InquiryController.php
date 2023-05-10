@@ -106,11 +106,11 @@ class InquiryController extends Controller
     $title = 'Neet Counselling';
     $page_url = url()->current();
 
-    $countries = Country::orderBy('name','asc')->get();
-    $phonecodes = Country::select('phonecode','name')->distinct()->orderBy('phonecode','asc')->get();
+    $countries = Country::orderBy('name', 'asc')->get();
+    $phonecodes = Country::select('phonecode', 'name')->distinct()->orderBy('phonecode', 'asc')->get();
     $destinations = Destination::where(['status' => 1])->get();
 
-    $data = compact('title','page_url','countries','phonecodes','destinations');
+    $data = compact('title', 'page_url', 'countries', 'phonecodes', 'destinations');
     return view('front.mbbs-abroad-counselling')->with($data);
   }
   public function submitMbbsInquiry(Request $request)
@@ -152,6 +152,17 @@ class InquiryController extends Controller
       'destination' => $request['destination'],
       'page_url' => $request['source_url'],
     ];
+
+    $api_url = "https://www.tutelagestudy.com/crm/Api/submitDestinationInquiryFromTutelageWeb";
+    $form_data = $emaildata;
+    //echo json_encode($form_data, true);
+    $client = curl_init($api_url);
+    curl_setopt($client, CURLOPT_POST, true);
+    curl_setopt($client, CURLOPT_POSTFIELDS, $form_data);
+    curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
+    $response = curl_exec($client);
+    curl_close($client);
+
     $dd = ['to' => $request['email'], 'to_name' => $request['name'], 'subject' => 'Inquiry'];
 
     Mail::send(
@@ -176,7 +187,7 @@ class InquiryController extends Controller
       'question' => false,
     ];
 
-    $dd2 = ['to' => TO_EMAIL, 'cc' => CC_EMAIL, 'to_name' => TO_NAME, 'cc_name' => CC_NAME, 'subject' => 'New Inquiry'];
+    $dd2 = ['to' => TO_EMAIL, 'cc' => CC_EMAIL, 'to_name' => TO_NAME, 'cc_name' => CC_NAME, 'subject' => 'New Inquiry', 'bcc' => BCC_EMAIL, 'bcc_name' => BCC_NAME];
 
     Mail::send(
       'mails.get-quote-mail-to-admin',
@@ -184,20 +195,11 @@ class InquiryController extends Controller
       function ($message) use ($dd2) {
         $message->to($dd2['to'], $dd2['to_name']);
         $message->cc($dd2['cc'], $dd2['cc_name']);
+        $message->bcc($dd2['bcc'], $dd2['bcc_name']);
         $message->subject($dd2['subject']);
         $message->priority(1);
       }
     );
-
-    $api_url = "https://www.tutelagestudy.com/crm/Api/submitDestinationInquiryFromTutelageWeb";
-    $form_data = $emaildata;
-    //echo json_encode($form_data, true);
-    $client = curl_init($api_url);
-    curl_setopt($client, CURLOPT_POST, true);
-    curl_setopt($client, CURLOPT_POSTFIELDS, $form_data);
-    curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
-    $response = curl_exec($client);
-    curl_close($client);
 
     return redirect(url('thank-you/'));
   }
@@ -205,7 +207,7 @@ class InquiryController extends Controller
   {
     $title = 'MBBS Abroad Counselling';
     $page_url = url()->current();
-    $data = compact('title','page_url');
+    $data = compact('title', 'page_url');
     return view('front.neet-counselling')->with($data);
   }
   public function submitNeetInquiry(Request $request)
@@ -247,6 +249,17 @@ class InquiryController extends Controller
       'question' => $request['question'],
       'page_url' => $request['source_url'],
     ];
+
+    $api_url = "https://www.tutelagestudy.com/crm/Api/submitNeetInquiryFromTutelageWeb";
+    $form_data = $emaildata;
+    //echo json_encode($form_data, true);
+    $client = curl_init($api_url);
+    curl_setopt($client, CURLOPT_POST, true);
+    curl_setopt($client, CURLOPT_POSTFIELDS, $form_data);
+    curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
+    $response = curl_exec($client);
+    curl_close($client);
+
     $dd = ['to' => $request['email'], 'to_name' => $request['name'], 'subject' => 'Inquiry'];
 
     Mail::send(
@@ -271,7 +284,7 @@ class InquiryController extends Controller
       'destination' => false,
     ];
 
-    $dd2 = ['to' => TO_EMAIL, 'cc' => CC_EMAIL, 'to_name' => TO_NAME, 'cc_name' => CC_NAME, 'subject' => 'New Inquiry'];
+    $dd2 = ['to' => TO_EMAIL, 'cc' => CC_EMAIL, 'to_name' => TO_NAME, 'cc_name' => CC_NAME, 'subject' => 'New Inquiry', 'bcc' => BCC_EMAIL, 'bcc_name' => BCC_NAME];
 
     Mail::send(
       'mails.get-quote-mail-to-admin',
@@ -279,20 +292,11 @@ class InquiryController extends Controller
       function ($message) use ($dd2) {
         $message->to($dd2['to'], $dd2['to_name']);
         $message->cc($dd2['cc'], $dd2['cc_name']);
+        $message->bcc($dd2['bcc'], $dd2['bcc_name']);
         $message->subject($dd2['subject']);
         $message->priority(1);
       }
     );
-
-    $api_url = "https://www.tutelagestudy.com/crm/Api/submitNeetInquiryFromTutelageWeb";
-    $form_data = $emaildata;
-    //echo json_encode($form_data, true);
-    $client = curl_init($api_url);
-    curl_setopt($client, CURLOPT_POST, true);
-    curl_setopt($client, CURLOPT_POSTFIELDS, $form_data);
-    curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
-    $response = curl_exec($client);
-    curl_close($client);
 
     return redirect(url('thank-you/'));
   }
@@ -302,11 +306,11 @@ class InquiryController extends Controller
     $title = 'Thank You';
     $page_url = url()->current();
 
-    $countries = Country::orderBy('name','asc')->get();
-    $phonecodes = Country::select('phonecode','name')->distinct()->orderBy('phonecode','asc')->get();
+    $countries = Country::orderBy('name', 'asc')->get();
+    $phonecodes = Country::select('phonecode', 'name')->distinct()->orderBy('phonecode', 'asc')->get();
     $destinations = Destination::where(['status' => 1])->get();
 
-    $data = compact('title','page_url','countries','phonecodes','destinations');
+    $data = compact('title', 'page_url', 'countries', 'phonecodes', 'destinations');
     return view('front.thank-you')->with($data);
   }
 }
