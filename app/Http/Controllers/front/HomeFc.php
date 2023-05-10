@@ -15,12 +15,12 @@ class HomeFc extends Controller
 {
   public function index(Request $request)
   {
-    $universities1 = University::where(['homeview' => 1,'status' => 1])->orderBy('id','ASC')->offset('0')->limit('4')->get();
-    $universities2 = University::where(['homeview' => 1,'status' => 1])->orderBy('id','ASC')->offset('4')->limit('4')->get();
-    $universities3 = University::where(['homeview' => 1,'status' => 1])->orderBy('id','ASC')->offset('8')->limit('4')->get();
-    $news = News::orderBy('id','DESC')->limit('20')->get();
+    $universities1 = University::where(['homeview' => 1, 'status' => 1])->orderBy('id', 'ASC')->offset('0')->limit('4')->get();
+    $universities2 = University::where(['homeview' => 1, 'status' => 1])->orderBy('id', 'ASC')->offset('4')->limit('4')->get();
+    $universities3 = University::where(['homeview' => 1, 'status' => 1])->orderBy('id', 'ASC')->offset('8')->limit('4')->get();
+    $news = News::orderBy('id', 'DESC')->limit('20')->get();
     $country = Currency::all();
-    $data = compact('universities1','country','news','universities2','universities3');
+    $data = compact('universities1', 'country', 'news', 'universities2', 'universities3');
     return view('front.index')->with($data);
   }
   public function mbbsAbroad(Request $request)
@@ -38,10 +38,10 @@ class HomeFc extends Controller
   public function searchUniversity(Request $request)
   {
     $keyword = $request->keyword;
-    $field = DB::table('universities')->where('name','LIKE','%'.$keyword.'%')->get();
+    $field = DB::table('universities')->where('name', 'LIKE', '%' . $keyword . '%')->get();
     $output = '<li class="active">UNIVERSITIES</li>';
     foreach ($field as $row) {
-      $output .= '<li><a href="'.$row->slug.'">'.$row->name.'</a></li>';
+      $output .= '<li><a href="' . $row->slug . '">' . $row->name . '</a></li>';
     }
     echo $output;
   }

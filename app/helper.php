@@ -2,8 +2,8 @@
 
 define('TO_EMAIL', 'farazahmad280@gmail.com');
 define('TO_NAME', 'Mohd Faraz');
-define('CC_EMAIL', 'mhdrafay@gmail.com');
-define('CC_NAME', 'Mohd Rafay');
+define('CC_EMAIL', 'mhdrafay@gmail.com,studytutelage@gmail.com,amanahlawat1918@gmail.com');
+define('CC_NAME', 'Team Tutelage Study');
 // define('CC_EMAIL', '4hm3df4r42@gmail.com');
 // define('CC_NAME', 'Tutelage Study');
 
@@ -68,15 +68,15 @@ if (!function_exists('uurl')) {
   }
 }
 if (!function_exists('replaceTag')) {
-	function replaceTag($string, $array)
-	{
-		foreach ($array as $key => $value) {
-			$string = $string == null ? null : str_replace('%' . $key . '%', $value, $string);
-		}
-		$string = trim(preg_replace('/\s+/', ' ', $string));
-		$string = ucwords($string);
-		return $string;
-	}
+  function replaceTag($string, $array)
+  {
+    foreach ($array as $key => $value) {
+      $string = $string == null ? null : str_replace('%' . $key . '%', $value, $string);
+    }
+    $string = trim(preg_replace('/\s+/', ' ', $string));
+    $string = ucwords($string);
+    return $string;
+  }
 }
 if (!function_exists('ip_details')) {
 
@@ -88,36 +88,38 @@ if (!function_exists('ip_details')) {
   }
 }
 
-function cdnq($asset){
+function cdnq($asset)
+{
   return url($asset);
 }
 // global CDN link helper function
-function cdn( $asset ){
+function cdn($asset)
+{
 
   // Verify if KeyCDN URLs are present in the config file
-  if( !Config::get('app.cdn') )
-      return asset( $asset );
+  if (!Config::get('app.cdn'))
+    return asset($asset);
 
   // Get file name incl extension and CDN URLs
   $cdns = Config::get('app.cdn');
-  $assetName = basename( $asset );
+  $assetName = basename($asset);
 
   // Remove query string
   $assetName = explode("?", $assetName);
   $assetName = $assetName[0];
 
   // Select the CDN URL based on the extension
-  foreach( $cdns as $cdn => $types ) {
-      if( preg_match('/^.*\.(' . $types . ')$/i', $assetName) )
-          return cdnPath($cdn, $asset);
+  foreach ($cdns as $cdn => $types) {
+    if (preg_match('/^.*\.(' . $types . ')$/i', $assetName))
+      return cdnPath($cdn, $asset);
   }
 
   // In case of no match use the last in the array
   end($cdns);
-  return cdnPath( key( $cdns ) , $asset);
-
+  return cdnPath(key($cdns), $asset);
 }
 
-function cdnPath($cdn, $asset) {
-  return  "//" . rtrim($cdn, "/") . "/" . ltrim( $asset, "/");
+function cdnPath($cdn, $asset)
+{
+  return  "//" . rtrim($cdn, "/") . "/" . ltrim($asset, "/");
 }
