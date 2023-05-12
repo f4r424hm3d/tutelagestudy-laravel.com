@@ -24,7 +24,9 @@
               <select class="form-control" style="width:200px; background:#fff" id="newscate">
                 <option value="">Select Category</option>
                 <?php foreach ($categories as $cat) { ?>
-                  <option value="<?php echo $cat->slug; ?>/" ><?php echo $cat->cate_name; ?></option>
+                <option value="<?php echo $cat->slug; ?>/">
+                  <?php echo $cat->cate_name; ?>
+                </option>
                 <?php } ?>
               </select>
             </div>
@@ -33,29 +35,38 @@
                 <?php
                 foreach ($blogs as $row) {
                 ?>
-                  <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-12 ">
-                    <div class="ps-post ps-product">
-                      <div class="ps-post__thumbnail">
-                        <a class="ps-post__overlay" href="<?php echo url($row->slug); ?>/"></a><img src="<?php echo asset($row->imgpath); ?>" alt="<?php echo $row->headline; ?>" style="height: 150px;!important">
-                      </div>
-                      <div class="ps-post__content">
-                        <div class="ps-post__meta"><a href="<?php echo url('category/' . $row->getCategory->slug); ?>/">{{ $row->getCategory->slug }}</a></div>
+                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-12 ">
+                  <div class="ps-post ps-product">
+                    <div class="ps-post__thumbnail">
+                      <a class="ps-post__overlay" href="<?php echo url($row->slug); ?>/"></a><img
+                        src="<?php echo asset($row->imgpath); ?>" alt="<?php echo $row->headline; ?>"
+                        style="height: 150px;!important">
+                    </div>
+                    <div class="ps-post__content">
+                      <div class="ps-post__meta"><a href="<?php echo url('category/' . $row->getCategory->slug); ?>/">{{
+                          $row->getCategory->slug }}</a></div>
 
-                        <a class="ps-post__title" href="<?php echo url($row->slug); ?>/" title="<?php echo $row->headline; ?>" data-toggle="tooltip"><?php echo strlen($row->headline) > 48 ? substr($row->headline, 0, 48) . '...' : $row->headline; ?></a>
-                        <p style="margin-bottom:0px; font-size:11px"><?php echo getFormattedDate($row->created_at, 'd M, Y'); ?> by<span> {{ $row->getAuthor->name }}</span></p>
-                      </div>
+                      <a class="ps-post__title" href="<?php echo url($row->slug); ?>/"
+                        title="<?php echo $row->headline; ?>" data-toggle="tooltip">
+                        <?php echo strlen($row->headline) > 48 ? substr($row->headline, 0, 48) . '...' : $row->headline; ?>
+                      </a>
+                      <p style="margin-bottom:0px; font-size:11px">
+                        <?php echo getFormattedDate($row->created_at, 'd M, Y'); ?> by<span> {{ $row->getAuthor->name
+                          }}</span>
+                      </p>
                     </div>
                   </div>
+                </div>
                 <?php } ?>
               </div>
               {!! $blogs->links('pagination::bootstrap-5') !!}
-              </div>
             </div>
-          </section>
         </div>
-      </div>
-    </div>
   </section>
+</div>
+</div>
+</div>
+</section>
 </div>
 <script>
   $(document).ready(function() {
