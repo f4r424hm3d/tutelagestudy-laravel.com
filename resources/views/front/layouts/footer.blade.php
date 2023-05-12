@@ -11,12 +11,18 @@
             Sector 50, Gurugram, <br>
             Haryana, India 122002.</p>
           <ul class="ps-list--social">
-            <li><a class="facebook" href="https://www.facebook.com/tutelagestudyabroad/" target="_blank" rel="noreferrer" aria-label="Facebook"><i class="fa fa-facebook"></i></a></li>
-            <li><a class="twitter" href="https://twitter.com/tutelagestudy" rel="noreferrer" aria-label="Twitter"><i class="fa fa-twitter"></i></a></li>
-            <li><a class="instagram" href="https://www.instagram.com/tutelagestudy/" rel="noreferrer" aria-label="Instagram"><i class="fa fa-instagram"></i></a></li>
-            <li><a style="color:#0A66C2" href="https://in.linkedin.com/in/tutelage-study-4085a51ab" rel="noreferrer" aria-label="linkedin"><i class="fa fa-linkedin"></i></a></li>
-            <li><a style="color:#E60023" href="https://in.pinterest.com/tutelagestudy/" rel="noreferrer" aria-label="pinterest"><i class="fa fa-pinterest"></i></a></li>
-            <li><a style="color:#FF0000" href="https://www.youtube.com/channel/UCK2eeC1CkS3YkYrGnnzBUEQ" rel="noreferrer" aria-label="youtube"><i class="fa fa-youtube"></i></a></li>
+            <li><a class="facebook" href="https://www.facebook.com/tutelagestudyabroad/" target="_blank"
+                rel="noreferrer" aria-label="Facebook"><i class="fa fa-facebook"></i></a></li>
+            <li><a class="twitter" href="https://twitter.com/tutelagestudy" rel="noreferrer" aria-label="Twitter"><i
+                  class="fa fa-twitter"></i></a></li>
+            <li><a class="instagram" href="https://www.instagram.com/tutelagestudy/" rel="noreferrer"
+                aria-label="Instagram"><i class="fa fa-instagram"></i></a></li>
+            <li><a style="color:#0A66C2" href="https://in.linkedin.com/in/tutelage-study-4085a51ab" rel="noreferrer"
+                aria-label="linkedin"><i class="fa fa-linkedin"></i></a></li>
+            <li><a style="color:#E60023" href="https://in.pinterest.com/tutelagestudy/" rel="noreferrer"
+                aria-label="pinterest"><i class="fa fa-pinterest"></i></a></li>
+            <li><a style="color:#FF0000" href="https://www.youtube.com/channel/UCK2eeC1CkS3YkYrGnnzBUEQ"
+                rel="noreferrer" aria-label="youtube"><i class="fa fa-youtube"></i></a></li>
           </ul>
         </div>
       </aside>
@@ -46,7 +52,8 @@
         <span class="widget-title">References</span>
         <ul class="ps-list--link" style="margin-bottom:25px">
           <li><a href="https://neet.nta.nic.in/" target="_blank" class="whitec">NEET</a></li>
-          <li><a href="https://www.nmc.org.in/information-desk/for-students-to-study-in-abroad/" target="_blank" class="whitec">NMC</a></li>
+          <li><a href="https://www.nmc.org.in/information-desk/for-students-to-study-in-abroad/" target="_blank"
+              class="whitec">NMC</a></li>
           <li><a href="https://www.usmle.org/" target="_blank" class="whitec">USMLE</a></li>
           <li><a href="https://nbe.edu.in/" target="_blank" class="whitec">NBE</a></li>
           <li><a href="https://www.wdoms.org/" target="_blank" rel="nofollow" class="whitec">WDOMs</a></li>
@@ -61,7 +68,8 @@
               <p class="whitec">© 2023 Tutelage Study. All Rights Reserved</p>
             </div>
             <div class="col-md-6">
-              <p class="whitec text-right"><span class="b1" style="color:#fff"><a href="{{ url('sitemap.xml') }}/" target="_blank">Sitemap</a></span></p>
+              <p class="whitec text-right"><span class="b1" style="color:#fff"><a href="{{ url('sitemap.xml') }}/"
+                    target="_blank">Sitemap</a></span></p>
             </div>
           </div>
         </div>
@@ -85,7 +93,6 @@
   </div>
 </div>
 <div id="back2top"><i class="pe-7s-angle-up"></i></div>
-<!-- <script rel="preload" src="{{ cdn('front') }}/plugins/jquery.min.js"></script> -->
 <script rel="preload" src="{{ cdn('front') }}/js/main.js"></script>
 <script rel="preload" src="{{ cdn('front') }}/plugins/nouislider/nouislider.min.js"></script>
 <script rel="preload" src="{{ cdn('front') }}/plugins/popper.min.js"></script>
@@ -115,8 +122,12 @@
 
 <button class="scrollToTopBtn" aria-label="Scroll Top">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 490.4 490.4" width="30" height="30">
-    <path d="M245.2 490.4c135.2 0 245.2-110 245.2-245.2S380.4 0 245.2 0 0 110 0 245.2s110 245.2 245.2 245.2zm0-465.9c121.7 0 220.7 99 220.7 220.7s-99 220.7-220.7 220.7-220.7-99-220.7-220.7 99-220.7 220.7-220.7z" class="up-arrow_svg__active-path" fill="#607D8B"></path>
-    <path d="M185 216.2l48-48v183.4c0 6.8 5.5 12.3 12.3 12.3 6.8 0 12.3-5.5 12.3-12.3V168.3l48 48c2.4 2.4 5.5 3.6 8.7 3.6s6.3-1.2 8.7-3.6c4.8-4.8 4.8-12.5 0-17.3l-68.9-68.9c-4.8-4.8-12.5-4.8-17.3 0L167.9 199c-4.8 4.8-4.8 12.5 0 17.3 4.5 4.7 12.3 4.7 17.1-.1z" class="up-arrow_svg__active-path" fill="#607D8B"></path>
+    <path
+      d="M245.2 490.4c135.2 0 245.2-110 245.2-245.2S380.4 0 245.2 0 0 110 0 245.2s110 245.2 245.2 245.2zm0-465.9c121.7 0 220.7 99 220.7 220.7s-99 220.7-220.7 220.7-220.7-99-220.7-220.7 99-220.7 220.7-220.7z"
+      class="up-arrow_svg__active-path" fill="#607D8B"></path>
+    <path
+      d="M185 216.2l48-48v183.4c0 6.8 5.5 12.3 12.3 12.3 6.8 0 12.3-5.5 12.3-12.3V168.3l48 48c2.4 2.4 5.5 3.6 8.7 3.6s6.3-1.2 8.7-3.6c4.8-4.8 4.8-12.5 0-17.3l-68.9-68.9c-4.8-4.8-12.5-4.8-17.3 0L167.9 199c-4.8 4.8-4.8 12.5 0 17.3 4.5 4.7 12.3 4.7 17.1-.1z"
+      class="up-arrow_svg__active-path" fill="#607D8B"></path>
   </svg>
 </button>
 
@@ -196,9 +207,12 @@
     <div class="wa__popup_notice">The team typically replies in a few minutes.</div>
     <div class="wa__popup_content_list">
       <div class="wa__popup_content_item">
-        <a target="_blank" href="https://api.whatsapp.com/send?phone=919818560331&text=Hello there!! I want to get counseling by experts. Want to know more information about Tutelage Study | www.tutelagestudy.com" class="wa__stt wa__stt_online">
+        <a target="_blank"
+          href="https://api.whatsapp.com/send?phone=919818560331&text=Hello there!! I want to get counseling by experts. Want to know more information about Tutelage Study | www.tutelagestudy.com"
+          class="wa__stt wa__stt_online">
           <div class="wa__popup_avatar">
-            <div class="wa__cs_img_wrap"><img src="{{ asset('/front/') }}/img/ind-flag.png" width="44" height="40" alt="Indian Flag" border="0"></div>
+            <div class="wa__cs_img_wrap"><img src="{{ asset('/front/') }}/img/ind-flag.png" width="44" height="40"
+                alt="Indian Flag" border="0"></div>
           </div>
           <div class="wa__popup_txt">
             <div class="wa__member_name">India Office, Gurgaon</div>
@@ -207,9 +221,12 @@
         </a>
       </div>
       <div class="wa__popup_content_item">
-        <a target="_blank" href="https://api.whatsapp.com/send?phone=919342914452&text=Hello there!! I want to get counseling by experts. Want to know more information about Tutelage Study | www.tutelagestudy.com" class="wa__stt wa__stt_online">
+        <a target="_blank"
+          href="https://api.whatsapp.com/send?phone=919342914452&text=Hello there!! I want to get counseling by experts. Want to know more information about Tutelage Study | www.tutelagestudy.com"
+          class="wa__stt wa__stt_online">
           <div class="wa__popup_avatar">
-            <div class="wa__cs_img_wrap"><img src="{{ asset('/front/') }}/img/ind-flag.png" width="44" height="40" alt="Indian Flag" border="0"></div>
+            <div class="wa__cs_img_wrap"><img src="{{ asset('/front/') }}/img/ind-flag.png" width="44" height="40"
+                alt="Indian Flag" border="0"></div>
           </div>
           <div class="wa__popup_txt">
             <div class="wa__member_name">India Office, Chennai</div>
