@@ -481,7 +481,7 @@ $seg2 = Request::segment(2);
                 <span style="font-size:18px; color:#cd2122;">Get Free Counselling</span>
                 <a class="ps-btn" onclick="window.location.href='{{ url('mbbs-abroad-counselling/') }}'"
                   href="javascript:void()">Enquire Now</a>
-                <a class="ps-btn" href="#brochureForm">Get Brochure</a>
+                <a class="ps-btn hide-this" href="#brochureForm">Get Brochure</a>
               </div>
 
               @if ($count_content>1)
@@ -722,7 +722,7 @@ $seg2 = Request::segment(2);
 
               @if ($tu->count()>0)
               <!-- BROCHURE FORM START -->
-              <div class="ps-page--product" id="brochureForm">
+              <div class="ps-page--product hide-this" id="brochureForm">
                 <div class="row">
                   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="ps-product__box">
