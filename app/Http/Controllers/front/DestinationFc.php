@@ -68,6 +68,7 @@ class DestinationFc extends Controller
     $otherexam = Destination::where(['status' => 1])->where('id', '!=', $c_destination->id)->limit('10')->get();
 
     $tu = University::where(['status' => 1, 'country' => $c_destination->country])->get();
+    $brochureUniversities = University::where(['status' => 1, 'country' => $c_destination->country])->where('brochure_path', '!=', null)->get();
 
     $tslug = $tabTitleDet->id;
     $whrco = ['page_id' => $c_destination->id, 'tab_id' => $tslug];
@@ -83,7 +84,7 @@ class DestinationFc extends Controller
 
     $destinations =
 
-      $data = compact('c_destination', 'tabTitleDet', 'testimonials', 'photos', 'author', 'faqs', 'meta_title', 'meta_keyword', 'meta_description', 'page_content', 'og_image_path', 'otherexam', 'tu', 'site', 'content', 'count_content', 'tabs', 'otabs', 'allcat', 'allnews', 'page_url');
+      $data = compact('c_destination', 'tabTitleDet', 'testimonials', 'photos', 'author', 'faqs', 'meta_title', 'meta_keyword', 'meta_description', 'page_content', 'og_image_path', 'otherexam', 'tu', 'site', 'content', 'count_content', 'tabs', 'otabs', 'allcat', 'allnews', 'page_url', 'brochureUniversities');
 
     return view('front.destination-details')->with($data);
   }

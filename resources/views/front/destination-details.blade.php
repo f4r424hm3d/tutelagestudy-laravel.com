@@ -761,7 +761,7 @@ $seg2 = Request::segment(2);
                                     <div class="col-sm-3">
                                       <div class="form-group">
                                         <input type="c_code" class="form-control" name="c_code" id="c_code"
-                                          value="{{ old('c_code')??'91' }}" placeholder="Country Code" required>
+                                          value="{{ old('c_code')??'+91' }}" placeholder="Country Code" required>
                                         @error('c_code')
                                         {{ '<span class="text-danger">' . $message . '</span>' }}
                                         @enderror
@@ -783,13 +783,13 @@ $seg2 = Request::segment(2);
                                       <div class="form-group">
                                         <select class="form-control" name="university" id="university" required>
                                           <option value="">Select University</option>
-                                          @foreach ($tu as $row)
-                                          <option value="{{ $row->id }}" {{ old('university')==$row->
-                                            page_name ? 'Selected' : '' }}>{{$row->university_name??$row->name}}
+                                          @foreach ($brochureUniversities as $row)
+                                          <option value="{{ $row->id }}" {{ old('university')==$row->id ? 'Selected' :
+                                            '' }}>{{$row->university_name??$row->name}}
                                           </option>
                                           @endforeach
                                         </select>
-                                        @error('destination')
+                                        @error('university')
                                         {{ '<span class="text-danger">' . $message . '</span>' }}
                                         @enderror
                                       </div>
@@ -798,12 +798,12 @@ $seg2 = Request::segment(2);
 
                                   <div class="form-group">
                                     <label for="keep-update">By clicking Submit, you agree to our <a
-                                        href="<?php echo url('term-and-condition'); ?>/" class="b black">Terms and
+                                        href="{{ url('term-and-condition') }}/" class="b black">Terms and
                                         Conditions</a> & <a href="<?php echo url('privacy-policy'); ?>/"
                                         class="b black">Privacy Policy</a></label>
                                   </div>
                                   <button class="ps-btn w-100" type="submit">
-                                    <span class="b">Send</span>
+                                    <span class="b">Download</span>
                                   </button>
                                 </div>
                               </div>

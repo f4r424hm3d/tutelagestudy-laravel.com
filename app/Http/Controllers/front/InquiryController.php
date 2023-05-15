@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Country;
 use App\Models\Destination;
 use App\Models\Student;
+use App\Models\University;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use Mail;
@@ -288,6 +289,91 @@ class InquiryController extends Controller
 
     Mail::send(
       'mails.get-quote-mail-to-admin',
+      $emaildata2,
+      function ($message) use ($dd2) {
+        $message->to($dd2['to'], $dd2['to_name']);
+        $message->cc($dd2['cc'], $dd2['cc_name']);
+        $message->bcc($dd2['bcc'], $dd2['bcc_name']);
+        $message->subject($dd2['subject']);
+        $message->priority(1);
+      }
+    );
+
+    return redirect(url('thank-you/'));
+  }
+  public function submitBrochureInquiry(Request $request)
+  {
+    // printArray($request->all());
+    // die;
+    $university = University::find($request->university);
+    $request->validate(
+      [
+        'name' => 'required|regex:/^[a-zA-Z ]*$/',
+        'email' => 'required|email:rfc,dns',
+        'c_code' => 'required|numeric',
+        'mobile' => 'required|numeric',
+        'university' => 'required|numeric',
+      ]
+    );
+    $field = new Student();
+    $field->name = $request['name'];
+    $field->email = $request['email'];
+    $field->c_code = $request['c_code'];
+    $field->mobile = $request['mobile'];
+    $field->destination = $request['destination'];
+    $field->page_url = $request['source_url'];
+    $field->save();
+
+    session()->flash('smsg', ' Your inquiry has been submitted. we will contact you soon..');
+
+    $emaildata = [
+      'name' => $request['name'],
+      'email' => $request['email'],
+      'c_code' => $request['c_code'],
+      'mobile' => $request['mobile'],
+      'destination' => $request['destination'],
+      'intrested_university' => $university->university_name ?? $university->name,
+      'brochure_path' => $university->brochure_path,
+      'page_url' => $request['source_url'],
+    ];
+
+    $api_url = "https://www.tutelagestudy.com/crm/Api/submitBrochureInquiryFromTutelageWeb";
+    $form_data = $emaildata;
+    //echo json_encode($form_data, true);
+    $client = curl_init($api_url);
+    curl_setopt($client, CURLOPT_POST, true);
+    curl_setopt($client, CURLOPT_POSTFIELDS, $form_data);
+    curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
+    $response = curl_exec($client);
+    curl_close($client);
+
+    $dd = ['to' => $request['email'], 'to_name' => $request['name'], 'subject' => 'Brochure Inquiry', 'brochure_path' => $university->brochure_path,];
+
+    Mail::send(
+      'mails.brochure-inquiry-reply',
+      $emaildata,
+      function ($message) use ($dd) {
+        $message->to($dd['to'], $dd['to_name']);
+        $message->subject($dd['subject']);
+        $message->attach($dd['brochure_path']);
+        $message->priority(1);
+      }
+    );
+
+    $emaildata2 = [
+      'name' => $request['name'],
+      'email' => $request['email'],
+      'c_code' => $request['c_code'],
+      'mobile' => $request['mobile'],
+      'destination' => $request['destination'],
+      'intrested_university' => $university->university_name ?? $university->name,
+      'page_url' => $request['source_url'],
+    ];
+
+    $dd2 = ['to' => TO_EMAIL, 'cc' => CC_EMAIL, 'to_name' => TO_NAME, 'cc_name' => CC_NAME, 'subject' => 'Brochure Inquiry', 'bcc' => BCC_EMAIL, 'bcc_name' => BCC_NAME];
+
+    Mail::send(
+      'mails.get-brochure-mail-to-admin',
       $emaildata2,
       function ($message) use ($dd2) {
         $message->to($dd2['to'], $dd2['to_name']);
