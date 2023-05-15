@@ -1,4 +1,5 @@
 <?php
+
 use App\Http\Controllers\admin\AddressC;
 use App\Http\Controllers\admin\AdminDashboard;
 use App\Http\Controllers\admin\AdminLogin;
@@ -136,7 +137,7 @@ Route::get('/blog/', [BlogFc::class, 'index']);
 Route::get('/category/{category_slug}/', [BlogFc::class, 'blogByCategory']);
 $blogs = News::all();
 foreach ($blogs as $row) {
-  Route::get('/'.$row->slug.'/', [BlogFc::class, 'blogdetail']);
+  Route::get('/' . $row->slug . '/', [BlogFc::class, 'blogdetail']);
 }
 
 Route::get('/mbbs-in-abroad/', [HomeFc::class, 'mbbsAbroad']);
@@ -144,7 +145,7 @@ Route::get('/mbbs-in-abroad/', [HomeFc::class, 'mbbsAbroad']);
 Route::get('/destinations/', [DestinationFc::class, 'index']);
 $dest = Destination::all();
 foreach ($dest as $row) {
-  Route::get('/'.$row->slug.'/', [DestinationFc::class, 'destinationDetail']);
+  Route::get('/' . $row->slug . '/', [DestinationFc::class, 'destinationDetail']);
 }
 
 Route::get('/remove-filter/', [UniversityFc::class, 'removeFilter']);
@@ -154,15 +155,15 @@ Route::get('/services/{slug}/', [ServiceFc::class, 'serviceDetail']);
 
 $exams = Exam::all();
 foreach ($exams as $row) {
-  Route::get('/'.$row->exam_slug.'/', [ExamFc::class, 'examPage']);
-  Route::get('/'.$row->exam_slug.'/{slug}'.'/', [ExamFc::class, 'examPageDetail']);
+  Route::get('/' . $row->exam_slug . '/', [ExamFc::class, 'examPage']);
+  Route::get('/' . $row->exam_slug . '/{slug}' . '/', [ExamFc::class, 'examPageDetail']);
 }
 
 Route::get('/medical-universities/', [UniversityFc::class, 'index']);
 Route::get('/university/remove-filter/', [UniversityFc::class, 'removeFilter']);
 $universities = University::select('country_slug')->groupBy('country_slug')->get();
 foreach ($universities as $row) {
-  Route::get('/medical-universities-in-'.$row->country_slug.'/', [UniversityFc::class, 'universitybyCountry']);
+  Route::get('/medical-universities-in-' . $row->country_slug . '/', [UniversityFc::class, 'universitybyCountry']);
 }
 Route::get('author/{slug}/', [AuthorFc::class, 'index']);
 
@@ -171,14 +172,15 @@ Route::get('/mbbs-abroad-counselling/', [InquiryController::class, 'mbbs']);
 Route::post('/inquiry/submit-mbbs-inquiry/', [InquiryController::class, 'submitMbbsInquiry']);
 Route::get('/neet-counselling/', [InquiryController::class, 'neet']);
 Route::post('/inquiry/submit-neet-inquiry/', [InquiryController::class, 'submitNeetInquiry']);
+Route::post('/inquiry/get-brochure/', [InquiryController::class, 'submitBrochureInquiry']);
 Route::get('/thank-you/', [InquiryController::class, 'thankyou']);
 
 $universities2 = University::all();
 foreach ($universities2 as $row) {
-  Route::get($row->country_slug.'/'.$row->uname.'/', [UniversityProfileFc::class, 'index']);
-  Route::get($row->country_slug.'/'.$row->uname.'/write-review/', [UniversityProfileFc::class, 'writeReview']);
-  Route::get($row->country_slug.'/'.$row->uname.'/reviews/', [UniversityProfileFc::class, 'reviews']);
-  Route::get($row->country_slug.'/'.$row->uname.'/gallery/', [UniversityProfileFc::class, 'gallery']);
+  Route::get($row->country_slug . '/' . $row->uname . '/', [UniversityProfileFc::class, 'index']);
+  Route::get($row->country_slug . '/' . $row->uname . '/write-review/', [UniversityProfileFc::class, 'writeReview']);
+  Route::get($row->country_slug . '/' . $row->uname . '/reviews/', [UniversityProfileFc::class, 'reviews']);
+  Route::get($row->country_slug . '/' . $row->uname . '/gallery/', [UniversityProfileFc::class, 'gallery']);
 }
 
 /* ADMIN ROUTES BEFORE LOGIN */

@@ -6,8 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Imports\UniversityImport;
 use App\Models\Author;
 use App\Models\Country;
-use App\Models\CourseCategory;
-use App\Models\CourseSpecialization;
 use App\Models\Destination;
 use App\Models\InstituteType;
 use App\Models\State;

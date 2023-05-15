@@ -26,7 +26,7 @@ class DestinationFc extends Controller
   }
   public function destinationDetail(Request $request)
   {
-    $tab_title = $request->segment(2)==''?'overview':$request->segment(2);
+    $tab_title = $request->segment(2) == '' ? 'overview' : $request->segment(2);
     $tabTitleDet = DestinationPageTabs::where(['slug' => $tab_title])->first();
 
     $c_destination = Destination::where(['slug' => $request->segment(1)])->first();
@@ -65,7 +65,7 @@ class DestinationFc extends Controller
 
     $og_image_path = $c_destination->image_path == '' ? $dseo->ogimgpath : $c_destination->image_path;
 
-    $otherexam = Destination::where(['status' => 1])->where('id','!=',$c_destination->id)->limit('10')->get();
+    $otherexam = Destination::where(['status' => 1])->where('id', '!=', $c_destination->id)->limit('10')->get();
 
     $tu = University::where(['status' => 1, 'country' => $c_destination->country])->get();
 
@@ -76,12 +76,14 @@ class DestinationFc extends Controller
     $tabs = DestinationPageContent::with('getTab')->select('tab_id')->groupBy('tab_id')->where(['page_id' => $c_destination->id])->get();
     // printArray($tabs->toArray());
     // die;
-    $otabs = DestinationPageContent::with('getTab')->select('tab_id')->groupBy('tab_id')->where(['page_id' => $c_destination->id])->where('tab_id','!=',$tslug)->get();
+    $otabs = DestinationPageContent::with('getTab')->select('tab_id')->groupBy('tab_id')->where(['page_id' => $c_destination->id])->where('tab_id', '!=', $tslug)->get();
 
     $allcat = NewsCategory::all();
     $allnews = News::limit(20)->get();
 
-    $data = compact('c_destination','tabTitleDet','testimonials','photos','author','faqs','meta_title','meta_keyword','meta_description','page_content','og_image_path','otherexam','tu','site','content','count_content','tabs','otabs','allcat','allnews','page_url');
+    $destinations =
+
+      $data = compact('c_destination', 'tabTitleDet', 'testimonials', 'photos', 'author', 'faqs', 'meta_title', 'meta_keyword', 'meta_description', 'page_content', 'og_image_path', 'otherexam', 'tu', 'site', 'content', 'count_content', 'tabs', 'otabs', 'allcat', 'allnews', 'page_url');
 
     return view('front.destination-details')->with($data);
   }
