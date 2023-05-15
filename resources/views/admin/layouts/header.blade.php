@@ -8,7 +8,8 @@
   <meta content="Tutelage Study" name="description" />
   <meta content="Themesbrand" name="author" />
   <!-- choices css -->
-  <link href="{{ url('backend/') }}/assets/libs/choices.js/public/assets/styles/choices.min.css" rel="stylesheet" type="text/css" />
+  <link href="{{ url('backend/') }}/assets/libs/choices.js/public/assets/styles/choices.min.css" rel="stylesheet"
+    type="text/css" />
 
   <!-- DataTables -->
   <link href="{{ url('backend/') }}/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet"
@@ -65,6 +66,10 @@
     .just {
       text-align: justify;
       text-justify: inter-word;
+    }
+
+    .col-btn {
+      margin-top: 34px;
     }
   </style>
 </head>
@@ -217,7 +222,8 @@
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-more" role="button">
                   <i data-feather="file-text"></i>
-                  <span data-key="t-extra-pages">University</span><div class="arrow-down"></div>
+                  <span data-key="t-extra-pages">University</span>
+                  <div class="arrow-down"></div>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="topnav-more">
                   <div class="dropdown">
@@ -225,8 +231,8 @@
                       role="button">
                       <span data-key="t-authentication">University</span>
                     </a>
-                    <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('institute-types') }}" id="topnav-auth"
-                      role="button">
+                    <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('institute-types') }}"
+                      id="topnav-auth" role="button">
                       <span data-key="t-authentication">Institute Type</span>
                     </a>
                   </div>
@@ -235,12 +241,13 @@
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-more" role="button">
                   <i data-feather="file-text"></i>
-                  <span data-key="t-extra-pages">Blogs</span><div class="arrow-down"></div>
+                  <span data-key="t-extra-pages">Blogs</span>
+                  <div class="arrow-down"></div>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="topnav-more">
                   <div class="dropdown">
-                    <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('news-category') }}" id="topnav-auth"
-                      role="button">
+                    <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('news-category') }}"
+                      id="topnav-auth" role="button">
                       <span data-key="t-authentication">Category</span>
                     </a>
                     <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('news') }}" id="topnav-auth"
@@ -253,16 +260,17 @@
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-more" role="button">
                   <i data-feather="file-text"></i>
-                  <span data-key="t-extra-pages">Destinations</span><div class="arrow-down"></div>
+                  <span data-key="t-extra-pages">Destinations</span>
+                  <div class="arrow-down"></div>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="topnav-more">
                   <div class="dropdown">
-                    <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('Destinations') }}" id="topnav-auth"
-                      role="button">
+                    <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('Destinations') }}"
+                      id="topnav-auth" role="button">
                       <span data-key="t-authentication">Destination</span>
                     </a>
-                    <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('Destination-tabs') }}" id="topnav-auth"
-                      role="button">
+                    <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('Destination-tabs') }}"
+                      id="topnav-auth" role="button">
                       <span data-key="t-authentication">Destination Tab</span>
                     </a>
                   </div>
@@ -283,7 +291,8 @@
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-more" role="button">
                   <i data-feather="file-text"></i>
-                  <span data-key="t-extra-pages">SEOS</span><div class="arrow-down"></div>
+                  <span data-key="t-extra-pages">SEOS</span>
+                  <div class="arrow-down"></div>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="topnav-more">
                   <div class="dropdown">
@@ -291,8 +300,8 @@
                       role="button">
                       <span data-key="t-authentication">SEO</span>
                     </a>
-                    <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('default-seos') }}" id="topnav-auth"
-                      role="button">
+                    <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('default-seos') }}"
+                      id="topnav-auth" role="button">
                       <span data-key="t-authentication">Default Seo</span>
                     </a>
                   </div>
@@ -301,7 +310,8 @@
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-more" role="button">
                   <i data-feather="file-text"></i>
-                  <span data-key="t-extra-pages">More</span><div class="arrow-down"></div>
+                  <span data-key="t-extra-pages">More</span>
+                  <div class="arrow-down"></div>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="topnav-more">
                   <div class="dropdown">
@@ -313,8 +323,8 @@
                       role="button">
                       <span data-key="t-authentication">Services</span>
                     </a>
-                    <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('Testimonials') }}" id="topnav-auth"
-                      role="button">
+                    <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('Testimonials') }}"
+                      id="topnav-auth" role="button">
                       <span data-key="t-authentication">Testimonials</span>
                     </a>
                   </div>

@@ -48,14 +48,18 @@
               @csrf
               <div class="row">
                 <div class="col-md-6 col-sm-12 mb-3">
-                  <x-InputField type="text" label="Name" name="name" id="name" :ft="$ft" :sd="$sd"
-                    required="required"></x-InputField>
+                  <x-InputField type="text" label="Name" name="name" id="name" :ft="$ft" :sd="$sd" required="required">
+                  </x-InputField>
                 </div>
                 <div class="col-md-6 col-sm-12 mb-3">
-                  <x-InputField type="text" label="URL" name="uname" id="uname" :ft="$ft" :sd="$sd"
-                    required="required"></x-InputField>
+                  <x-InputField type="text" label="URL" name="uname" id="uname" :ft="$ft" :sd="$sd" required="required">
+                  </x-InputField>
                 </div>
-                <div class="col-md-3 col-sm-12 mb-3">
+                <div class="col-md-4 col-sm-12 mb-3">
+                  <x-InputField type="text" label="Other Name" name="university_name" id="university_name" :ft="$ft"
+                    :sd="$sd"></x-InputField>
+                </div>
+                <div class="col-md-2 col-sm-12 mb-3">
                   <x-SelectField label="Author" name="author_id" id="author_id" savev="id" showv="name" :list="$authors"
                     :ft="$ft" :sd="$sd"></x-SelectField>
                 </div>
@@ -66,11 +70,11 @@
                   <x-InputField type="number" label="Established Year" name="established_year" id="established_year"
                     :ft="$ft" :sd="$sd"></x-InputField>
                 </div>
-                <div class="col-md-3 col-sm-12 mb-3">
+                <div class="col-md-2 col-sm-12 mb-3">
                   <x-SelectField label="Country" name="country" id="country" savev="name" showv="name"
                     :list="$countries" :ft="$ft" :sd="$sd" required="required"></x-SelectField>
                 </div>
-                <div class="col-md-3 col-sm-12 mb-3">
+                <div class="col-md-2 col-sm-12 mb-3">
                   <x-SelectField label="Destination" name="destination_id" id="destination_id" savev="id"
                     showv="page_name" :list="$destinations" :ft="$ft" :sd="$sd" required="required"></x-SelectField>
                 </div>
@@ -79,25 +83,42 @@
                     :list="$states" :ft="$ft" :sd="$sd" required="required"></x-DatalistField>
                 </div>
                 <div class="col-md-3 col-sm-12 mb-3">
-                  <x-InputField type="text" label="City" name="city" id="city" :ft="$ft" :sd="$sd"
-                    required="required"></x-InputField>
+                  <x-InputField type="text" label="City" name="city" id="city" :ft="$ft" :sd="$sd" required="required">
+                  </x-InputField>
                 </div> --}}
                 <div class="col-md-2 col-sm-12 mb-3">
                   <x-InputField type="text" label="Rank" name="rank" id="rank" :ft="$ft" :sd="$sd"></x-InputField>
                 </div>
-                <div class="col-md-3 col-sm-12 mb-3">
+                <div class="col-md-2 col-sm-12 mb-3">
                   <x-SelectField label="Institute Type" name="institute_type" id="institute_type" savev="id"
                     showv="type" :list="$instType" :ft="$ft" :sd="$sd"></x-SelectField>
                 </div>
                 {{-- <div class="col-md-12 col-sm-12 mb-3">
-                  <x-TextareaField label="Shortnote" name="shortnote" id="shortnote" :ft="$ft"
-                    :sd="$sd"></x-TextareaField>
+                  <x-TextareaField label="Shortnote" name="shortnote" id="shortnote" :ft="$ft" :sd="$sd">
+                  </x-TextareaField>
                 </div> --}}
                 <div class="col-md-3 col-sm-12 mb-3">
                   <x-InputField type="file" label="Logo" name="logo" id="logo" :ft="$ft" :sd="$sd"></x-InputField>
                 </div>
                 <div class="col-md-3 col-sm-12 mb-3">
                   <x-InputField type="file" label="Banner" name="banner" id="banner" :ft="$ft" :sd="$sd"></x-InputField>
+                </div>
+                <div class="col-md-4 col-sm-12 mb-3" id="uploadBroDiv">
+                  <x-InputField type="file" label="Brochure" name="brochure" id="brochure" :ft="$ft" :sd="$sd">
+                  </x-InputField>
+                </div>
+                <div class="col-md-2 col-sm-12 mb-3" id="insertLinkBtn">
+                  <button onclick="togglebrochureUpload('insertLinkBtn')" type="button"
+                    class="btn btn-xs btn-info col-btn"><small>Insert Link</small></button>
+                </div>
+                <div class="col-md-4 col-sm-12 mb-3 hide-this" id="insertLinkDiv">
+                  <x-InputField type="text" label="Enter Link" name="brochure_path" id="brochure_path" :ft="$ft"
+                    :sd="$sd">
+                  </x-InputField>
+                </div>
+                <div class="col-md-2 col-sm-12 mb-3 hide-this" id="uploadBroBtn">
+                  <button onclick="togglebrochureUpload('uploadBroBtn')" type="button"
+                    class="btn btn-xs btn-info col-btn"><small>Upload File</small></button>
                 </div>
               </div>
               <hr>
@@ -156,6 +177,7 @@
                   <th>Info</th>
                   <th>Author</th>
                   <th>Logo/Banner</th>
+                  <th>Brochure</th>
                   {{-- <th>Short Note</th> --}}
                   <th>Permission</th>
                   <th>SEO</th>
@@ -168,7 +190,8 @@
                   <td>{{ $i }}</td>
                   <td>
                     <b>Name :</b> {{ $row->name }} <br>
-                    <b>URL :</b> {{ $row->uname }}
+                    <b>URL :</b> {{ $row->uname }} <br>
+                    <b>Other Name :</b> {{ $row->university_name }}
                   </td>
                   <td>
                     <b>Country : </b>
@@ -189,13 +212,23 @@
                   </td>
                   <td>
                     @if ($row->imgpath != null)
-                    <img src="{{ asset($row->imgpath) }}" alt="" height="80" width="80">
+                    <img src="{{ asset($row->imgpath) }}" alt="" height="50" width="50">
                     @else
                     N/A
                     @endif
                     <br>
                     @if ($row->bannerpath != null)
-                    <img src="{{ asset($row->bannerpath) }}" alt="" height="80" width="80">
+                    <img src="{{ asset($row->bannerpath) }}" alt="" height="50" width="50">
+                    @else
+                    N/A
+                    @endif
+                  </td>
+                  <td>
+                    @if ($row->brochure_path != null)
+                    <a target="_blank" href="{{ asset($row->brochure_path) }}"
+                      class="btn btn-xs btn-info"><small>View</small></a> | <a target="_blank"
+                      href="{{ asset($row->brochure_path) }}" download="{{ $row->name }}"
+                      class="btn btn-xs btn-danger"><small>Download</small></a>
                     @else
                     N/A
                     @endif
@@ -314,6 +347,16 @@
   </div>
 </div>
 <script>
+  function togglebrochureUpload()
+  {
+    $('#uploadBroBtn').toggle();
+    $('#uploadBroDiv').toggle();
+    $('#insertLinkDiv').toggle();
+    $('#insertLinkBtn').toggle();
+    $('#brochure').val('');
+    $('#brochure_path').val('');
+  }
+
   $(document).ready(function () {
     $('#name').change(function () {
       var val = $('#name').val();

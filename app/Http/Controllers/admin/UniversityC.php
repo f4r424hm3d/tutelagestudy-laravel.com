@@ -66,6 +66,7 @@ class UniversityC extends Controller
     $request->validate(
       [
         'name' => 'required|unique:universities,name',
+        'university_name' => 'required|unique:universities,university_name',
         'destination_id' => 'required',
         'logo' => 'nullable|max:5000|mimes:jpg,jpeg,png,gif',
         'banner' => 'nullable|max:5000|mimes:jpg,jpeg,png,gif'
@@ -100,8 +101,26 @@ class UniversityC extends Controller
         session()->flash('emsg', 'Some problem occured. File not uploaded.');
       }
     }
+    if ($request->hasFile('brochure')) {
+      $fileOriginalName = $request->file('brochure')->getClientOriginalName();
+      $fileNameWithoutExtention = pathinfo($fileOriginalName, PATHINFO_FILENAME);
+      $file_name_slug = slugify($fileNameWithoutExtention);
+      $fileExtention = $request->file('brochure')->getClientOriginalExtension();
+      $file_name = $file_name_slug . '_' . time() . '.' . $fileExtention;
+      $move = $request->file('brochure')->move('uploads/university/', $file_name);
+      if ($move) {
+        $field->brochure_name = $file_name;
+        $field->brochure_path = 'uploads/university/' . $file_name;
+      } else {
+        session()->flash('emsg', 'Some problem occured. File not uploaded.');
+      }
+    } else {
+      $field->brochure_path = $request['brochure_path'];
+    }
     $field->name = $request['name'];
     $field->uname = slugify($request['uname']);
+    $field->university_name = $request['university_name'];
+    $field->university_name_slug = slugify($request['university_name']);
     $field->author_id = $request['author_id'];
     $field->destination_id = $request['destination_id'];
     $field->views = $request['views'];
@@ -129,6 +148,7 @@ class UniversityC extends Controller
     $request->validate(
       [
         'name' => 'required|unique:universities,name,' . $id,
+        'university_name' => 'required|unique:universities,university_name,' . $id,
         'destination_id' => 'required',
         'logo' => 'nullable|max:5000|mimes:jpg,jpeg,png,gif',
         'banner' => 'nullable|max:5000|mimes:jpg,jpeg,png,gif'
@@ -164,8 +184,26 @@ class UniversityC extends Controller
         session()->flash('emsg', 'Some problem occured. File not uploaded.');
       }
     }
+    if ($request->hasFile('brochure')) {
+      $fileOriginalName = $request->file('brochure')->getClientOriginalName();
+      $fileNameWithoutExtention = pathinfo($fileOriginalName, PATHINFO_FILENAME);
+      $file_name_slug = slugify($fileNameWithoutExtention);
+      $fileExtention = $request->file('brochure')->getClientOriginalExtension();
+      $file_name = $file_name_slug . '_' . time() . '.' . $fileExtention;
+      $move = $request->file('brochure')->move('uploads/university/', $file_name);
+      if ($move) {
+        $field->brochure_name = $file_name;
+        $field->brochure_path = 'uploads/university/' . $file_name;
+      } else {
+        session()->flash('emsg', 'Some problem occured. File not uploaded.');
+      }
+    } else {
+      $field->brochure_path = $request['brochure_path'];
+    }
     $field->name = $request['name'];
     $field->uname = slugify($request['uname']);
+    $field->university_name = $request['university_name'];
+    $field->university_name_slug = slugify($request['university_name']);
     $field->destination_id = $request['destination_id'];
     $field->author_id = $request['author_id'];
     $field->views = $request['views'];
