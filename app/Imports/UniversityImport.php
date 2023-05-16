@@ -43,6 +43,8 @@ class UniversityImport implements ToCollection, WithHeadingRow, WithChunkReading
           'country_slug' => slugify($row['country']),
           'rank' => $row['rank'],
           'institute_type' => $row['institute_type_id'],
+          'brochure_path' => $row['brochure_path'],
+          'status' => $row['status'] ?? 0,
         ]);
         $rowsInserted++;
       }

@@ -68,7 +68,7 @@ class DestinationFc extends Controller
     $otherexam = Destination::where(['status' => 1])->where('id', '!=', $c_destination->id)->limit('10')->get();
 
     $tu = University::where(['status' => 1, 'country' => $c_destination->country])->get();
-    $brochureUniversities = University::where(['status' => 1, 'country' => $c_destination->country])->where('brochure_path', '!=', null)->get();
+    $brochureUniversities = University::where(['country' => $c_destination->country])->where('brochure_path', '!=', null)->get();
 
     $tslug = $tabTitleDet->id;
     $whrco = ['page_id' => $c_destination->id, 'tab_id' => $tslug];
