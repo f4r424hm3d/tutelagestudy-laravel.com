@@ -64,7 +64,7 @@ class UniversityC extends Controller
     $request->validate(
       [
         'name' => 'required|unique:universities,name',
-        'university_name' => 'required|unique:universities,university_name',
+        'university_name' => 'nullable|unique:universities,university_name',
         'destination_id' => 'required',
         'logo' => 'nullable|max:5000|mimes:jpg,jpeg,png,gif',
         'banner' => 'nullable|max:5000|mimes:jpg,jpeg,png,gif'
@@ -146,7 +146,7 @@ class UniversityC extends Controller
     $request->validate(
       [
         'name' => 'required|unique:universities,name,' . $id,
-        'university_name' => 'required|unique:universities,university_name,' . $id,
+        'university_name' => 'nullable|unique:universities,university_name,' . $id,
         'destination_id' => 'required',
         'logo' => 'nullable|max:5000|mimes:jpg,jpeg,png,gif',
         'banner' => 'nullable|max:5000|mimes:jpg,jpeg,png,gif'

@@ -52,7 +52,7 @@
                   </x-InputField>
                 </div>
                 <div class="col-md-6 col-sm-12 mb-3">
-                  <x-InputField type="text" label="URL" name="uname" id="uname" :ft="$ft" :sd="$sd" required="required">
+                  <x-InputField type="text" label="URL" name="uname" id="uname" :ft="$ft" :sd="$sd">
                   </x-InputField>
                 </div>
                 <div class="col-md-4 col-sm-12 mb-3">
@@ -72,20 +72,13 @@
                 </div>
                 <div class="col-md-2 col-sm-12 mb-3">
                   <x-SelectField label="Country" name="country" id="country" savev="name" showv="name"
-                    :list="$countries" :ft="$ft" :sd="$sd" required="required"></x-SelectField>
+                    :list="$countries" :ft="$ft" :sd="$sd"></x-SelectField>
                 </div>
                 <div class="col-md-2 col-sm-12 mb-3">
                   <x-SelectField label="Destination" name="destination_id" id="destination_id" savev="id"
-                    showv="page_name" :list="$destinations" :ft="$ft" :sd="$sd" required="required"></x-SelectField>
+                    showv="page_name" :list="$destinations" :ft="$ft" :sd="$sd"></x-SelectField>
                 </div>
-                {{-- <div class="col-md-3 col-sm-12 mb-3">
-                  <x-DatalistField type="text" label="State" name="state" id="state" savev="statename" showv="statename"
-                    :list="$states" :ft="$ft" :sd="$sd" required="required"></x-DatalistField>
-                </div>
-                <div class="col-md-3 col-sm-12 mb-3">
-                  <x-InputField type="text" label="City" name="city" id="city" :ft="$ft" :sd="$sd" required="required">
-                  </x-InputField>
-                </div> --}}
+
                 <div class="col-md-2 col-sm-12 mb-3">
                   <x-InputField type="text" label="Rank" name="rank" id="rank" :ft="$ft" :sd="$sd"></x-InputField>
                 </div>
@@ -93,10 +86,7 @@
                   <x-SelectField label="Institute Type" name="institute_type" id="institute_type" savev="id"
                     showv="type" :list="$instType" :ft="$ft" :sd="$sd"></x-SelectField>
                 </div>
-                {{-- <div class="col-md-12 col-sm-12 mb-3">
-                  <x-TextareaField label="Shortnote" name="shortnote" id="shortnote" :ft="$ft" :sd="$sd">
-                  </x-TextareaField>
-                </div> --}}
+
                 <div class="col-md-3 col-sm-12 mb-3">
                   <x-InputField type="file" label="Logo" name="logo" id="logo" :ft="$ft" :sd="$sd"></x-InputField>
                 </div>
@@ -153,9 +143,13 @@
                       placeholder="search by Name and Country" value="{{ $_GET['search']??'' }}" required>
                   </div>
                 </div>
+                <div class="col-md-6 col-sm-12 mb-3">
+                  <a href="{{ aurl($page_route) }}" class="btn btn-sm btn-info col-btn"><i class="ti-trash"></i>
+                    Reset</a>
+                  <button class="btn btn-sm btn-primary col-btn" type="submit">Submit</button>
+                </div>
               </div>
-              <a href="{{ aurl($page_route) }}" class="btn btn-sm btn-info "><i class="ti-trash"></i> Reset</a>
-              <button class="btn btn-sm btn-primary" type="submit">Submit</button>
+
             </form>
           </div>
         </div>
@@ -178,7 +172,6 @@
                   <th>Author</th>
                   <th>Logo/Banner</th>
                   <th>Brochure</th>
-                  {{-- <th>Short Note</th> --}}
                   <th>Permission</th>
                   <th>SEO</th>
                   <th>Action</th>
@@ -233,33 +226,6 @@
                     N/A
                     @endif
                   </td>
-                  {{-- <td>
-                    @if ($row->shortnote != null)
-                    <button type="button" class="btn btn-xs btn-outline-info waves-effect waves-light"
-                      data-bs-toggle="modal" data-bs-target="#ShtModalScrollable{{ $row->id }}">View</button>
-                    <div class="modal fade" id="ShtModalScrollable{{ $row->id }}" tabindex="-1" role="dialog"
-                      aria-labelledby="ShrtModalScrollableTitle{{ $row->id }}" aria-hidden="true">
-                      <div class="modal-dialog modal-dialog-scrollable">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="ShrtModalScrollableTitle{{ $row->id }}">
-                              Shortnote
-                            </h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body">
-                            {!! $row->shortnote !!}
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    @else
-                    Null
-                    @endif
-                  </td> --}}
                   <td id="statustd{{ $row->id }}">
                     <table class="table-sm ">
                       <tbody>
@@ -354,7 +320,6 @@
     $('#insertLinkDiv').toggle();
     $('#insertLinkBtn').toggle();
     $('#brochure').val('');
-    $('#brochure_path').val('');
   }
 
   $(document).ready(function () {
