@@ -83,7 +83,9 @@
     <ul class="breadcrumb bread-scrollbar">
       <li><a href="<?php echo url('/'); ?>">Home</a></li>
       <li><a href="<?php echo url('services'); ?>/"> Services</a></li>
-      <li><span><?php echo $row->headline; ?></span></li>
+      <li><span>
+          <?php echo $row->headline; ?>
+        </span></li>
     </ul>
   </div>
 </div>
@@ -96,7 +98,9 @@
 
         <div class="ps-product__box mb-20">
           <aside class="widget widget_best-sale shadow" style="border:0px; padding:20px">
-            <h2><?php echo $row->headline; ?></h2>
+            <h2>
+              <?php echo $row->headline; ?>
+            </h2>
             <div class="widget__content tbl-cntnt">
               <img src="<?php echo asset($row->imgpath); ?>" alt="<?php echo $row->headline; ?>" class="mb-15">
               <?php echo $row->description; ?>
@@ -108,7 +112,8 @@
           <center>
             <h4 class="mb-0">Get Free Counselling</h4>
             <br>
-            <a class="ps-btn" href="javascript:void()" onclick="window.location.href='<?php echo url('mbbs-abroad-counselling/'); ?>'">Enquire Now</a>
+            <a class="ps-btn" href="javascript:void()"
+              onclick="window.location.href='<?php echo url('mbbs-abroad-counselling/'); ?>/'">Enquire Now</a>
           </center>
         </div>
         <hr>
@@ -117,22 +122,24 @@
           <aside class="widget widget_best-sale" data-mh="dealhot">
             <h3 class="widget-title">You might be interested in related destination</h3>
             <div class="widget__content">
-              <div class="owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="0" data-owl-nav="false" data-owl-dots="false" data-owl-item="4" data-owl-item-xs="2" data-owl-item-sm="2" data-owl-item-md="4" data-owl-item-lg="4" data-owl-duration="1000" data-owl-mousedrag="on">
+              <div class="owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="0"
+                data-owl-nav="false" data-owl-dots="false" data-owl-item="4" data-owl-item-xs="2" data-owl-item-sm="2"
+                data-owl-item-md="4" data-owl-item-lg="4" data-owl-duration="1000" data-owl-mousedrag="on">
                 <?php
                 foreach ($destinations as $oe) {
                 ?>
-                  <div class="ps-product-group">
-                    <div class="ps-product--horizontal">
-                      <div class="ps-product__thumbnail ml-10" style="background:#fff">
-                          <img src="<?php echo asset($oe->thumbnail); ?>" alt="<?php echo $oe->page_name; ?>">
-                      </div>
-                      <div class="ps-product__content">
-                        <a class="ps-product__title" href="<?php echo url($oe->slug); ?>/">
-                          <?php echo $oe->page_name; ?>
-                        </a>
-                      </div>
+                <div class="ps-product-group">
+                  <div class="ps-product--horizontal">
+                    <div class="ps-product__thumbnail ml-10" style="background:#fff">
+                      <img src="<?php echo asset($oe->thumbnail); ?>" alt="<?php echo $oe->page_name; ?>">
+                    </div>
+                    <div class="ps-product__content">
+                      <a class="ps-product__title" href="<?php echo url($oe->slug); ?>/">
+                        <?php echo $oe->page_name; ?>
+                      </a>
                     </div>
                   </div>
+                </div>
                 <?php } ?>
               </div>
             </div>
@@ -145,10 +152,13 @@
         <div class="ps-section__left shadow" style="position:sticky; top:20px; background:#fff">
           <aside class="ps-widget--account-dashboard">
             <div class="ps-widget__content">
-              <div style=" font-size:18px; color:#fff; background:#cd2122; padding:10px; text-align:center">Quick links</div>
+              <div style=" font-size:18px; color:#fff; background:#cd2122; padding:10px; text-align:center">Quick links
+              </div>
               <ul style="max-height:480px; overflow:auto">
                 <?php foreach ($services as $s) { ?>
-                  <li><a href="<?php echo url('services/' . $s->slug); ?>/"><i class="icon-arrow-right"></i> <?php echo $s->headline; ?></a></li>
+                <li><a href="<?php echo url('services/' . $s->slug); ?>/"><i class="icon-arrow-right"></i>
+                    <?php echo $s->headline; ?>
+                  </a></li>
                 <?php } ?>
               </ul>
             </div>

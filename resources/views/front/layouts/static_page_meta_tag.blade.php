@@ -47,7 +47,7 @@ $og_image_path = $seo->og_image_path??'';
 <meta property="og:site_name" content="Tutelage Study Education Consultants : India" />
 <meta property="og:image" content="{{ url('front/img/slider/home-1/germany-banner-2.jpg') }}" />
 <meta property="og:locale" content="en_US" />
-<meta property="og:url" content="<?php echo $page_url; ?>" />
+<meta property="og:url" content="<?php echo $page_url; ?>/" />
 <meta property="og:image:alt" content="<?php echo $page_content; ?>" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="Tutelage Study" />

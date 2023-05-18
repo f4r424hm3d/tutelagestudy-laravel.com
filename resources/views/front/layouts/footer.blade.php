@@ -15,7 +15,7 @@
                 rel="noreferrer" aria-label="Facebook"><i class="fa fa-facebook"></i></a></li>
             <li><a class="twitter" href="https://twitter.com/tutelagestudy" rel="noreferrer" aria-label="Twitter"><i
                   class="fa fa-twitter"></i></a></li>
-            <li><a class="instagram" href="https://www.instagram.com/tutelagestudy/" rel="noreferrer"
+            <li><a class="instagram" href="https://www.instagram.com/tutelagestudy/" rel="noreferrer nofollow"
                 aria-label="Instagram"><i class="fa fa-instagram"></i></a></li>
             <li><a style="color:#0A66C2" href="https://in.linkedin.com/in/tutelage-study-4085a51ab" rel="noreferrer"
                 aria-label="linkedin"><i class="fa fa-linkedin"></i></a></li>
@@ -51,12 +51,12 @@
       <aside class="widget_footer col-md-3">
         <span class="widget-title">References</span>
         <ul class="ps-list--link" style="margin-bottom:25px">
-          <li><a href="https://neet.nta.nic.in/" target="_blank" class="whitec">NEET</a></li>
+          <li><a href="https://neet.nta.nic.in/" target="_blank" class="whitec" rel="nofollow">NEET</a></li>
           <li><a href="https://www.nmc.org.in/information-desk/for-students-to-study-in-abroad/" target="_blank"
-              class="whitec">NMC</a></li>
-          <li><a href="https://www.usmle.org/" target="_blank" class="whitec">USMLE</a></li>
-          <li><a href="https://nbe.edu.in/" target="_blank" class="whitec">NBE</a></li>
-          <li><a href="https://www.wdoms.org/" target="_blank" rel="nofollow" class="whitec">WDOMs</a></li>
+              class="whitec" rel="nofollow">NMC</a></li>
+          <li><a href="https://www.usmle.org/" target="_blank" class="whitec" rel="nofollow">USMLE</a></li>
+          <li><a href="https://nbe.edu.in/" target="_blank" class="whitec" rel="nofollow">NBE</a></li>
+          <li><a href="https://www.wdoms.org/" target="_blank" class="whitec" rel="nofollow">WDOMs</a></li>
         </ul>
       </aside>
     </div>
@@ -65,7 +65,8 @@
         <div class="ps-footer__copyright">
           <div class="row">
             <div class="col-md-6">
-              <p class="whitec">© 2023 Tutelage Study. All Rights Reserved</p>
+              <p class="whitec">© 2023 <a href="{{ url('/') }}">Tutelage Study</a>. All Rights Reserved
+              </p>
             </div>
             <div class="col-md-6">
               <p class="whitec text-right"><span class="b1" style="color:#fff"><a href="{{ url('sitemap.xml') }}/"

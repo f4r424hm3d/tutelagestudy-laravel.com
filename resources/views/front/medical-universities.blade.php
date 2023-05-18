@@ -42,7 +42,7 @@
 @section('main-section')
 <style>
   .pagination li.active span {
-    background-color: #117888!important;
+    background-color: #117888 !important;
     color: #fff;
   }
 </style>
@@ -118,57 +118,59 @@
   </div>
 </div>
 <?php if (isset($_SESSION['unifilter_destination'])) { ?>
-  <!-- top filter start -->
-  <div class="ps-section--default ps-home-blog">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12">
-          <div class="ps-block--recent-viewed">
-            <div class="ps-block__header">
-              <h4>TOP Medical UNIVERSITIES/COLLEGES IN Abroad</h4>
-            </div>
-            <style>
-              .ps-section--default {
-                margin-bottom: 30px !important
-              }
+<!-- top filter start -->
+<div class="ps-section--default ps-home-blog">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="ps-block--recent-viewed">
+          <div class="ps-block__header">
+            <h4>TOP Medical UNIVERSITIES/COLLEGES IN Abroad</h4>
+          </div>
+          <style>
+            .ps-section--default {
+              margin-bottom: 30px !important
+            }
 
-              .filter-hdr {
-                border: 1px solid #edeff0;
-                box-shadow: 0 0 5px 0 rgb(207 207 207 / 50%);
-                background: #fff;
-                padding: 10px 10px 5px 10px;
-              }
+            .filter-hdr {
+              border: 1px solid #edeff0;
+              box-shadow: 0 0 5px 0 rgb(207 207 207 / 50%);
+              background: #fff;
+              padding: 10px 10px 5px 10px;
+            }
 
-              .filter-hdr a {
-                display: inline-block;
-                color: #756d6d;
-                border-radius: 100px;
-                padding: 5px 10px 5px 10px;
-                font-size: 11px;
-                border: 1px solid;
-                background-color: #eee;
-                text-decoration: none;
-                text-transform: uppercase;
-                margin-right: 5px;
-                margin-bottom: 5px
-              }
+            .filter-hdr a {
+              display: inline-block;
+              color: #756d6d;
+              border-radius: 100px;
+              padding: 5px 10px 5px 10px;
+              font-size: 11px;
+              border: 1px solid;
+              background-color: #eee;
+              text-decoration: none;
+              text-transform: uppercase;
+              margin-right: 5px;
+              margin-bottom: 5px
+            }
 
-              .filter-hdr a:hover {
-                background: #0047ab;
-                color: #fff;
-                cursor: pointer;
-              }
-            </style>
-            <div class="row filter-hdr">
-              <?php if (isset($_SESSION['unifilter_destination'])) { ?>
-                <a href="javascript:void(0)" onclick="removeAppliedFilter('unifilter_destination')"><?php echo $_SESSION['unifilter_destination']??''; ?> <span>×</span></a>
-              <?php } ?>
-            </div>
+            .filter-hdr a:hover {
+              background: #0047ab;
+              color: #fff;
+              cursor: pointer;
+            }
+          </style>
+          <div class="row filter-hdr">
+            <?php if (isset($_SESSION['unifilter_destination'])) { ?>
+            <a href="javascript:void(0)" onclick="removeAppliedFilter('unifilter_destination')">
+              <?php echo $_SESSION['unifilter_destination']??''; ?> <span>×</span>
+            </a>
+            <?php } ?>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 <?php } ?>
 <style>
   .alert {
@@ -203,19 +205,26 @@
               <div class="ps-layout__right">
                 <div class="ps-shopping ps-tab-root">
                   <?php if (session()->has('smsg')) { ?>
-                    <div class="alert"> <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> <strong><?php echo session()->get('smsg'); ?></strong> </div>
+                  <div class="alert"> <span class="closebtn"
+                      onclick="this.parentElement.style.display='none';">&times;</span> <strong>
+                      <?php echo session()->get('smsg'); ?>
+                    </strong> </div>
                   <?php } ?>
                   <div class="ps-shopping__header">
-                    <p><?php echo $pageHeadingTitle; ?></p>
+                    <p>
+                      <?php echo $pageHeadingTitle; ?>
+                    </p>
                   </div>
 
                   <div class="row">
                     <div class="col-md-8">
                       <div class="header__center">
                         <form class="ps-form--quick-search" method="get">
-                          <input class="form-control" name="search" type="text" placeholder="Search Universities" value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>" id="input-search" style="background:#fff; height: 45px;">
+                          <input class="form-control" name="search" type="text" placeholder="Search Universities"
+                            value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>" id="input-search"
+                            style="background:#fff; height: 45px;">
                           <button>Search</button>
-                          <a href="<?php echo url('medical-universities/'); ?>">Reset</a>
+                          <a href="<?php echo url('medical-universities/'); ?>/">Reset</a>
                         </form>
                       </div>
                     </div>
@@ -226,41 +235,49 @@
                     if ($total > 0) {
                       foreach ($rows as $key) {
                     ?>
-                        <div class="ps-tab active" id="tab-2">
-                          <div>
-                            <div class="ps-product ps-product--wide">
-                              <div class="ps-product__thumbnail universitylogo text-center col-md-2 col-sm-12 col-xs-12"><img src="<?php echo url($key->imgpath); ?>" alt="<?php echo $key->name; ?>" loading="lazy"> </div>
-                              <div class="ps-product__container col-md-7 col-sm-12 col-xs-12">
-                                <div class="ps-product__content">
-                                  <a class="ps-product__title b" href="<?php echo url($key->country_slug . '/' . $key->uname); ?>/">
-                                    <h5><?php echo $key->name; ?></h5>
-                                  </a>
-                                  <p>
-                                    <i class="fa fa-university"></i><span> <?php echo $key->getInstType->type??'N/A'; ?></span>
-                                  </p>
-                                </div>
-                              </div>
-                              <div class="ps-product__container col-md-3 col-sm-12 col-xs-12 text-center">
-                                <p style="margin:0px">
-                                  <!-- <a target="_blank" class="ps-btn w-100" style="background:#0047ab" href="<?php echo url($key->uname . '/write-review'); ?>"><i class=" fa fa-comments"></i> Write review</a> -->
-
-                                  <a class="ps-btn mt-2 w-100" href="{{ url('mbbs-abroad-counselling/') }}/"><i class="icon-question-circle"></i> Request Info</a>
-                                </p>
-                              </div>
+                    <div class="ps-tab active" id="tab-2">
+                      <div>
+                        <div class="ps-product ps-product--wide">
+                          <div class="ps-product__thumbnail universitylogo text-center col-md-2 col-sm-12 col-xs-12">
+                            <img src="<?php echo url($key->imgpath); ?>" alt="<?php echo $key->name; ?>" loading="lazy">
+                          </div>
+                          <div class="ps-product__container col-md-7 col-sm-12 col-xs-12">
+                            <div class="ps-product__content">
+                              <a class="ps-product__title b"
+                                href="<?php echo url($key->country_slug . '/' . $key->uname); ?>/">
+                                <h5>
+                                  <?php echo $key->name; ?>
+                                </h5>
+                              </a>
+                              <p>
+                                <i class="fa fa-university"></i><span>
+                                  <?php echo $key->getInstType->type??'N/A'; ?>
+                                </span>
+                              </p>
                             </div>
                           </div>
-                        </div>
-                      <?php
-                      }
-                    } else {
-                      ?>
-                      <div class="ps-shopping__header">
-                        <div class="row">
-                          <div class="header">
-                            <span>No data found</span>
+                          <div class="ps-product__container col-md-3 col-sm-12 col-xs-12 text-center">
+                            <p style="margin:0px">
+                              <!-- <a target="_blank" class="ps-btn w-100" style="background:#0047ab" href="<?php echo url($key->uname . '/write-review'); ?>"><i class=" fa fa-comments"></i> Write review</a> -->
+
+                              <a class="ps-btn mt-2 w-100" href="{{ url('mbbs-abroad-counselling/') }}/"><i
+                                  class="icon-question-circle"></i> Request Info</a>
+                            </p>
                           </div>
                         </div>
                       </div>
+                    </div>
+                    <?php
+                      }
+                    } else {
+                      ?>
+                    <div class="ps-shopping__header">
+                      <div class="row">
+                        <div class="header">
+                          <span>No data found</span>
+                        </div>
+                      </div>
+                    </div>
                     <?php } ?>
 
                     <div class="ps-pagination">

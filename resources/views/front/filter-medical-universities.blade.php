@@ -1,4 +1,3 @@
-
 <style>
   .widget_shop {
     padding: 0px;
@@ -165,11 +164,16 @@
               <?php
               foreach ($destinations as $row) {
               ?>
-                <label class="check-filter">
-                  <?php echo $row->getDestination->page_name; ?>
-                  <input type="checkbox" id="pub" name="check" value="<?php echo $row->getDestination->country; ?>" onclick="<?php echo isset($_SESSION['unifilter_destination']) && $_SESSION['unifilter_destination'] == $row->getDestination->page_name ? "removeAppliedFilter('unifilter_destination')" : "AppliedFilter('unifilter_destination','" . $row->getDestination->country . "')"; ?>" <?php echo isset($_SESSION['unifilter_destination']) && $_SESSION['unifilter_destination'] == $row->getDestination->page_name ? "checked" : ""; ?> />
-                  <span class="checkmark"></span>
-                </label>
+              <label class="check-filter">
+                <?php echo $row->getDestination->page_name; ?>
+                <input type="checkbox" id="pub" name="check" value="<?php echo $row->getDestination->country; ?>"
+                  onclick="<?php echo isset($_SESSION['unifilter_destination']) && $_SESSION['unifilter_destination'] == $row->getDestination->page_name ? "
+                  removeAppliedFilter('unifilter_destination')" : "AppliedFilter('unifilter_destination','" .
+                  $row->getDestination->country . "')"; ?>"
+                <?php echo isset($_SESSION['unifilter_destination']) && $_SESSION['unifilter_destination'] == $row->getDestination->page_name ? "checked" : ""; ?>
+                />
+                <span class="checkmark"></span>
+              </label>
               <?php } ?>
             </div>
           </figure>

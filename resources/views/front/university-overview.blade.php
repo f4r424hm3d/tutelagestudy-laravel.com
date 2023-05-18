@@ -5,7 +5,7 @@
 @push('breadcrumb_schema')
 <!-- breadcrumb schema Code -->
 <script type="application/ld+json">
-    {
+  {
       "@context": "https://schema.org/",
       "@type": "BreadcrumbList",
       "name": "<?php echo ucwords($meta_title); ?>",
@@ -27,10 +27,10 @@
         "item": "{{ $page_url }}/"
       }]
     }
-  </script> <!-- breadcrumb schema Code End -->
+</script> <!-- breadcrumb schema Code End -->
 <!-- webpage schema Code Destinations -->
 <script type="application/ld+json">
-    {
+  {
       "@context": "https://schema.org/",
       "@type": "webpage",
       "url": "{{ $page_url }}/",
@@ -41,7 +41,7 @@
         "<?php echo $meta_keyword; ?>"
       ]
     }
-  </script>
+</script>
 @endpush
 @section('main-section')
 <style>
@@ -428,7 +428,7 @@
   <div class="ps-container">
     <ul class="breadcrumb bread-scrollbar">
       <li><a href="<?php echo url('/'); ?>">Home</a></li>
-      <li><a href="<?php echo url('medical-universities/'); ?>">Universities</a></li>
+      <li><a href="<?php echo url('medical-universities/'); ?>/">Universities</a></li>
       <li>
         <?php echo $university->name; ?>
       </li>

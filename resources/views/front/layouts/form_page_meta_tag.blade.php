@@ -26,7 +26,9 @@ $og_image_path = $seo->og_image_path??'';
 
 <head>
   <meta name="robots" content="index, follow" />
-  <title><?php echo ucwords($meta_title); ?></title>
+  <title>
+    <?php echo ucwords($meta_title); ?>
+  </title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
   <meta name="description" content="<?php echo $meta_description; ?>">
@@ -37,7 +39,7 @@ $og_image_path = $seo->og_image_path??'';
   <meta property="og:locale" content="en_US" />
   <meta property="og:type" content="profile" />
   <meta property="og:title" content="<?php echo $title; ?>" />
-  <meta property="og:url" content="{{ $page_url }}" />
+  <meta property="og:url" content="{{ $page_url }}/" />
   <meta property="og:site_name" content="Tutelage Study" />
   <meta property="og:image:alt" content="Tutelage Study" />
   <meta property="og:image:type" content="image/png" />

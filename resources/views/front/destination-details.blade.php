@@ -479,7 +479,7 @@ $seg2 = Request::segment(2);
 
               <div class="pt-0 pb-20 get-detail">
                 <span style="font-size:18px; color:#cd2122;">Get Free Counselling</span>
-                <a class="ps-btn" onclick="window.location.href='{{ url('mbbs-abroad-counselling/') }}'"
+                <a class="ps-btn" onclick="window.location.href='{{ url('mbbs-abroad-counselling/') }}/'"
                   href="javascript:void()">Enquire Now</a>
                 <a class="ps-btn hide-this" href="#brochureForm">Get Brochure</a>
               </div>

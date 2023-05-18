@@ -282,7 +282,7 @@
               <br>
               <div class="pt-0 pb-20 get-detail">
                 <h4 class="mb-0">Get Free Counselling</h4>
-                <a class="ps-btn" onclick="window.location.href='<?php echo url('mbbs-abroad-counselling/'); ?>'"
+                <a class="ps-btn" onclick="window.location.href='<?php echo url('mbbs-abroad-counselling/'); ?>/'"
                   href="javascript:void()">Enquire
                   Now</a>
               </div>
