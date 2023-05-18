@@ -16,10 +16,11 @@ class UniversityFc extends Controller
   {
     //error_reporting(0);
     $rows = University::where(['status' => 1]);
-    if($request->has('search') && $request->search != ''){
-      $rows = $rows->where('name','like','%' . $request->search.'%');
+    if ($request->has('search') && $request->search != '') {
+      $rows = $rows->where('name', 'like', '%' . $request->search . '%');
     }
-    $rows = $rows->paginate(20)->withQueryString();
+    $rows = $rows->paginate(20)->withPath('/medical-universities/')->withQueryString();
+    //$rows = $rows->setPath('medical-universities/?');
     $currentCountry = 'Abroad';
 
     $total = $rows->total();
@@ -35,7 +36,7 @@ class UniversityFc extends Controller
     // die;
 
     $wrdseo = ['url' => 'medical-universities'];
-    $dseo = DefaultSeo::where($wrdseo )->first();
+    $dseo = DefaultSeo::where($wrdseo)->first();
     $page_url = url()->current();
 
     $uword = $total > 1 ? 'Universities' : 'University';
@@ -50,21 +51,21 @@ class UniversityFc extends Controller
     $meta_description = replaceTag($dseo->description, $tagArray);
     $og_image_path = null;
 
-    $data = compact('rows', 'i','destinations','total','dseo','page_url','meta_title','meta_keyword','page_content','meta_description','og_image_path','pageHeadingTitle','countries');
+    $data = compact('rows', 'i', 'destinations', 'total', 'dseo', 'page_url', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'pageHeadingTitle', 'countries');
     return view('front.medical-universities')->with($data);
   }
   public function universitybyCountry(Request $request)
   {
     if ($request->segment(1) != 'medical-universities') {
       $country_slug = str_replace("medical-universities-in-", "", $request->segment(1));
-      $country_slug = str_replace('-',' ',$country_slug);
-      $currentDestinationdet = Destination::where('country',$country_slug)->first();
+      $country_slug = str_replace('-', ' ', $country_slug);
+      $currentDestinationdet = Destination::where('country', $country_slug)->first();
       $_SESSION['unifilter_destination'] = $currentDestinationdet->page_name;
       $currentCountry = $currentDestinationdet->country;
     }
 
     $rows = University::where(['status' => 1]);
-    if($_SESSION['unifilter_destination']){
+    if ($_SESSION['unifilter_destination']) {
       $rows = $rows->where(['country' => $currentCountry]);
     }
     $rows = $rows->paginate(20)->withQueryString();
@@ -79,7 +80,7 @@ class UniversityFc extends Controller
     $destinations = University::with('getDestination')->select('destination_id')->where(['status' => 1])->distinct()->get();
 
     $wrdseo = ['url' => 'medical-universities'];
-    $dseo = DefaultSeo::where($wrdseo )->first();
+    $dseo = DefaultSeo::where($wrdseo)->first();
     $page_url = url()->current();
 
     $uword = $total > 1 ? 'Universities' : 'University';
@@ -94,7 +95,7 @@ class UniversityFc extends Controller
     $meta_description = replaceTag($dseo->description, $tagArray);
     $og_image_path = null;
 
-    $data = compact('rows', 'i','destinations','total','dseo','page_url','meta_title','meta_keyword','page_content','meta_description','og_image_path','pageHeadingTitle','countries');
+    $data = compact('rows', 'i', 'destinations', 'total', 'dseo', 'page_url', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'pageHeadingTitle', 'countries');
     return view('front.medical-universities')->with($data);
   }
 
