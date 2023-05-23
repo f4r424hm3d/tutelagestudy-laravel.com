@@ -1,13 +1,7 @@
 @php
 use App\Models\News;
 use App\Models\Destination;
-use App\Models\Country;
 
-$countriesSF = Country::orderBy('name', 'asc')->get();
-$phonecodesSF = Country::select('phonecode', 'name')
-->distinct()
-->orderBy('phonecode', 'asc')
-->get();
 $destinationsSF = Destination::where(['status' => 1])->get();
 @endphp
 <style>
@@ -218,18 +212,9 @@ $destinationsSF = Destination::where(['status' => 1])->get();
                 </div>
                 <div class="col-4 col-lg-4 col-md-4 col-sm-4 col-xs-6 pr7">
                   <div class="form-group">
-                    <select class="form-control" name="c_code" id="c_code" required>
+                    <select class="form-control" name="c_code" id="mb_c_code" required>
                       <option value="">Select Code</option>
-                      <?php
-                    foreach ($phonecodesSF as $row) {
-                    ?>
-                      <option value="<?php echo $row->phonecode; ?>" <?php echo (old('c_code') && old('c_code')==$row->
-                        phonecode) || $row->phonecode == 91 ? 'Selected' : ''; ?>> +
-                        <?php echo $row->phonecode; ?>
-                        (
-                        <?php echo $row->name; ?>)
-                      </option>
-                      <?php } ?>
+
                     </select>
                     @error('c_code')
                     {!! '<span class="text-danger">' . $message . '</span>' !!}
@@ -248,16 +233,9 @@ $destinationsSF = Destination::where(['status' => 1])->get();
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr7">
                   <div class="form-group">
-                    <select class="form-control" name="nationality" id="nationality" required>
+                    <select class="form-control" name="nationality" id="mf_nationality" required>
                       <option value="">Select Nationality</option>
-                      <?php
-                    foreach ($countriesSF as $row) {
-                    ?>
-                      <option value="<?php echo $row->name; ?>" <?php echo old('nationality')==$row->name || $row->name
-                        == 'INDIA' ? 'Selected' : ''; ?>>
-                        <?php echo $row->name; ?>
-                      </option>
-                      <?php } ?>
+
                     </select>
                     @error('nationality')
                     {!! '<span class="text-danger">' . $message . '</span>' !!}
@@ -282,11 +260,7 @@ $destinationsSF = Destination::where(['status' => 1])->get();
                     @enderror
                   </div>
                 </div>
-                {{-- <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                  <div class="form-group">
-                    <div class="g-recaptcha" data-sitekey="6LfEJo4jAAAAAIEVgbaWIR-uic-I3h9RBYFCqOTS"></div>
-                  </div>
-                </div> --}}
+
                 <div class="form-group">
                   <div class="ps-checkbox pl-20">
                     <input class="form-control " type="checkbox" name="terms" id="terms">
@@ -327,9 +301,6 @@ $destinationsSF = Destination::where(['status' => 1])->get();
         </div>
       </div>
     </div>
-
-
-
   </div>
   <div class="ps-panel--sidebar" id="menu-mobile">
     <div class="ps-panel__header">
@@ -381,3 +352,35 @@ $destinationsSF = Destination::where(['status' => 1])->get();
       </ul>
     </div>
   </div>
+
+  <script>
+    getFormData();
+    function getFormData(){
+
+      return new Promise(function(resolve,reject) {
+        setTimeout(() => {
+          $.ajax({
+            url: "{{ url('form/getCountryCode/') }}/",
+            method: "GET",
+            success: function(data) {
+              //alert(data);
+              $("#mb_c_code").html(data);
+            }
+          });
+        });
+
+        setTimeout(() => {
+          $.ajax({
+            url: "{{ url('form/getCountry/') }}/",
+            method: "GET",
+            success: function(data) {
+              $("#mf_nationality").html(data);
+            }
+          });
+        });
+
+      });
+
+
+    }
+  </script>

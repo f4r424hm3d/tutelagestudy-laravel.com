@@ -457,25 +457,8 @@ $seg2 = Request::segment(2);
         <div class="ps-tab-root">
           <div class="row">
             <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12 mb-20">
-              @if ($seg2 == null)
-              <div class="ps-product__box">
-                <div class="ps-document">
-                  <center>
-                    <img src="<?php echo url($c_destination->image_path); ?>"
-                      alt="<?php echo $c_destination->page_name; ?>" class="img-responsive">
-                  </center>
-                </div>
-              </div>
-              <div class="ps-product__box mb-20">
-                <div class="ps-tabs">
-                  <div class="ps-tab active">
-                    <div class="ps-document">
-                      <?php echo $c_destination->top_description; ?>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              @endif
+
+              <div id="ajaxOverviewDiv"></div>
 
               <div class="pt-0 pb-20 get-detail">
                 <span style="font-size:18px; color:#cd2122;">Get Free Counselling</span>
@@ -484,37 +467,10 @@ $seg2 = Request::segment(2);
                 <a class="ps-btn hide-this" href="#brochureForm">Get Brochure</a>
               </div>
 
-              @if ($count_content>1)
-              <div class="ps-product__box mb-20">
-                <aside class="widget widget_best-sale">
-                  <h3 class="widget-title"> Table of Contents <span style="float:right;">
-                      <button class="btn btn-outline-info tglBtn hide-this">+</button>
-                      <button class="btn btn-outline-info tglBtn">-</button>
-                    </span>
-                  </h3>
-                  <div class="widget__content tbl-cntnt " id="tblCDiv">
-                    <ol style="list-style:circle;">
-                      <?php foreach ($content as $t) { ?>
-                      <li><a href="#<?php echo slugify($t->title); ?>">
-                          <?php echo $t->title; ?>
-                        </a></li>
-                      <?php } ?>
-                    </ol>
-                  </div>
-                </aside>
-              </div>
-              @endif
-              @foreach ($content as $c)
-              <div class="ps-product__box mb-20" id="<?php echo slugify($c->title); ?>">
-                <div class="ps-tabs">
-                  <div class="ps-tab active">
-                    <div class="ps-document">
-                      <?php echo $c->tab_content; ?>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              @endforeach
+              <div id="ajaxTableOfContentDiv"></div>
+
+              <div id="ajaxContentDiv"></div>
+
               @if ($faqs->count()>0)
               <div class="ps-product__box mb-20">
                 <div class="ps-section--default">
@@ -683,42 +639,7 @@ $seg2 = Request::segment(2);
                 }
               </style>
 
-              @if($c_destination->author_id != null)
-              <div class="ps-page--product" style="background-color:white;">
-                <div class="ps-container pt-10" id="topuniversities">
-                  <div class="ps-section--default pb-2" style="margin-bottom:0px">
-                    <div class="ps-section__header" style="margin-bottom:0px; padding-bottom:0px; border:0px">
-                      <div class="row author">
-                        <div class="col-md-2">
-                          <div class="img-div">
-                            <img src="<?php echo url($author->profile_pic_path); ?>"
-                              alt="<?php echo $author->name; ?>"><i class="fa fa-check-circle"></i>
-                          </div>
-                        </div>
-                        <div class="col-md-10">
-                          <div class="cont-div">
-                            <h6>
-                              <?php echo $author->name; ?>
-                            </h6>
-                            <span>Content Curator | Updated on -
-                              <?php echo getFormattedDate($c_destination->updated_at,'M d, Y'); ?>
-                            </span>
-                            <?php if($author->shortnote!=null){ ?>
-                            <p>
-                              <?php echo $author->shortnote; ?>
-                            </p>
-                            <br>
-                            <?php } ?>
-                            <a style="float:right" href="<?php echo url('author/'.$author->slug); ?>/"
-                              class="bio-btn">Read Full Bio</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              @endif
+              <div id="ajaxAuthorDiv"></div>
 
               @if ($tu->count()>0)
               <!-- BROCHURE FORM START -->
@@ -888,6 +809,7 @@ $seg2 = Request::segment(2);
               margin-right: -20px;
             }
           </style>
+
           @if($testimonials->count()>0)
           <!-- Testimonials -->
           <div class="ps-section--vendor">
@@ -905,9 +827,11 @@ $seg2 = Request::segment(2);
                   data-owl-duration="1000" data-owl-mousedrag="on">
                   <?php foreach ($testimonials as $test) { ?>
                   <div class="ps-block--testimonial pt-3 pb-3 pl-5 pr-5">
-                    <div class="ps-block__header"><img
+                    <div class="ps-block__header">
+                      <img
                         src="<?php echo $test->image!=null?asset($test->image):asset('front/user-tesimonial-photo.jpg'); ?>"
-                        alt="MBBS Abroad Testimonial"></div>
+                        alt="MBBS Abroad Testimonial">
+                    </div>
                     <div class="ps-block__content pt-5 pb-3">
                       <i class="icon-quote-close"></i>
                       <span class="sph">
@@ -924,28 +848,10 @@ $seg2 = Request::segment(2);
             </div>
           </div>
           @endif
-          @if($photos->count()>0)
-          <!-- Photo Gallery -->
-          <div class="ps-section--vendor pt-0">
-            <div class="container-fluid">
-              <div class="ps-section__header pb-0">
-                <h4>Photo Gallery</h4>
-                <p class="mb-5">
-                  <?php echo $c_destination->page_name; ?> Practical Training, Classrooms, Indian Food, Hostel, Indian
-                  Students
-                </p>
-              </div>
-              <div class="row">
-                @foreach ($photos as $row)
-                <div class="col-md-3 col-sm-6 col-6 mb-5">
-                  <img src="{{ asset($row->image_path) }}" alt="<?php echo $row->title; ?>" class="img-fluid rounded-lg"
-                    style="height: 100%;">
-                </div>
-                @endforeach
-              </div>
-            </div>
-          </div>
-          @endif
+
+          {{-- <div id="ajaxTestimonialDiv"></div> --}}
+
+          <div id="ajaxPhotosDiv"></div>
         </div>
       </div>
     </div>
@@ -953,6 +859,100 @@ $seg2 = Request::segment(2);
 
 </div>
 <script>
+  getData();
+  function getData(){
+    var tab_title = '{{ $tab_title }}';
+    var seg1 = '{{ $seg1 }}';
+    var seg2 = '{{ $seg2 }}';
+
+    return new Promise(function(resolve,reject) {
+      setTimeout(() => {
+        $.ajax({
+          url: "{{ url('destination/getOverview/') }}/",
+          method: "GET",
+          data: {
+            tab_title: tab_title,
+            seg1: seg1,
+            seg2: seg2,
+          },
+          success: function(data) {
+            //alert(data);
+            $("#ajaxOverviewDiv").html(data);
+          }
+        });
+      });
+
+      setTimeout(() => {
+        $.ajax({
+          url: "{{ url('destination/getContent/') }}/",
+          method: "GET",
+          data: {
+            tab_title: tab_title,
+            seg1: seg1,
+          },
+          success: function(data) {
+            $("#ajaxContentDiv").html(data);
+          }
+        });
+      });
+
+      setTimeout(() => {
+        $.ajax({
+          url: "{{ url('destination/getTableContent/') }}/",
+          method: "GET",
+          data: {
+            tab_title: tab_title,
+            seg1: seg1,
+          },
+          success: function(data) {
+            $("#ajaxTableOfContentDiv").html(data);
+          }
+        });
+      });
+
+      setTimeout(() => {
+        $.ajax({
+          url: "{{ url('destination/getAuthor/') }}/",
+          method: "GET",
+          data: {
+            seg1: seg1,
+          },
+          success: function(data) {
+            $("#ajaxAuthorDiv").html(data);
+          }
+        });
+      });
+
+      setTimeout(() => {
+        $.ajax({
+          url: "{{ url('destination/getTestimonial/') }}/",
+          method: "GET",
+          data: {
+            seg1: seg1,
+          },
+          success: function(data) {
+            //$("#ajaxTestimonialDiv").html(data);
+          }
+        });
+      });
+
+      setTimeout(() => {
+        $.ajax({
+          url: "{{ url('destination/getPhotos/') }}/",
+          method: "GET",
+          data: {
+            seg1: seg1,
+          },
+          success: function(data) {
+            $("#ajaxPhotosDiv").html(data);
+          }
+        });
+      });
+    });
+
+
+  }
+
   $(document).ready(function() {
     $('.tglBtn').on('click', function() {
       $('.tglBtn').toggle();

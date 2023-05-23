@@ -147,6 +147,12 @@ $dest = Destination::all();
 foreach ($dest as $row) {
   Route::get('/' . $row->slug . '/', [DestinationFc::class, 'destinationDetail']);
 }
+Route::get('/destination/getContent/', [DestinationFc::class, 'getContent']);
+Route::get('/destination/getOverview/', [DestinationFc::class, 'getOverview']);
+Route::get('/destination/getTableContent/', [DestinationFc::class, 'getTableContent']);
+Route::get('/destination/getAuthor/', [DestinationFc::class, 'getAuthor']);
+Route::get('/destination/getTestimonial/', [DestinationFc::class, 'getTestimonial']);
+Route::get('/destination/getPhotos/', [DestinationFc::class, 'getPhotos']);
 
 Route::get('/remove-filter/', [UniversityFc::class, 'removeFilter']);
 
@@ -174,6 +180,9 @@ Route::get('/neet-counselling/', [InquiryController::class, 'neet']);
 Route::post('/inquiry/submit-neet-inquiry/', [InquiryController::class, 'submitNeetInquiry']);
 Route::post('/inquiry/get-brochure/', [InquiryController::class, 'submitBrochureInquiry']);
 Route::get('/thank-you/', [InquiryController::class, 'thankyou']);
+
+Route::get('/form/getCountryCode/', [InquiryController::class, 'getCountryCode']);
+Route::get('/form/getCountry/', [InquiryController::class, 'getCountry']);
 
 $universities2 = University::all();
 foreach ($universities2 as $row) {

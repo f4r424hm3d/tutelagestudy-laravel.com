@@ -399,4 +399,30 @@ class InquiryController extends Controller
     $data = compact('title', 'page_url', 'countries', 'phonecodes', 'destinations');
     return view('front.thank-you')->with($data);
   }
+
+
+  public function getCountryCode(Request $request)
+  {
+    $phonecodesSF = Country::select('phonecode', 'name')->distinct()->orderBy('phonecode', 'asc')->get();
+
+    $output = '';
+    foreach ($phonecodesSF as $row) {
+      $sel = $row->phonecode == 91 ? 'Selected' : '';
+      $output .= '<option value="' . $row->phonecode . '" ' . $sel . '> +
+                        ' . $row->phonecode . '
+                        (' . $row->name . ')
+                      </option>';
+    }
+    return $output;
+  }
+  public function getCountry(Request $request)
+  {
+    $countriesSF = Country::orderBy('name', 'asc')->get();
+    $output = '';
+    foreach ($countriesSF as $row) {
+      $sel = $row->name == 'INDIA' ? 'Selected' : '';
+      $output .= '<option value="' . $row->name . '" ' . $sel . '>' . $row->name . '</option>';
+    }
+    return $output;
+  }
 }
