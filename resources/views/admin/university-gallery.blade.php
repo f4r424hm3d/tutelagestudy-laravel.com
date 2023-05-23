@@ -8,7 +8,8 @@
     <div class="row">
       <div class="col-12">
         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-          <h4 class="mb-sm-0 font-size-18">{{ $page_title }} <span class="text-danger">({{ $university->name }})</span></h4>
+          <h4 class="mb-sm-0 font-size-18">{{ $page_title }} <span class="text-danger">({{ $university->name }})</span>
+          </h4>
           <div class="page-title-right">
             <ol class="breadcrumb m-0">
               <li class="breadcrumb-item"><a href="{{ url('/admin/') }}"><i class="mdi mdi-home-outline"></i></a></li>
@@ -23,7 +24,7 @@
     <div class="row">
       <div class="col-xl-12">
         @if($errors->any())
-          {!! implode('', $errors->all('<div class="text-danger">:message</div>')) !!}
+        {!! implode('', $errors->all('<div class="text-danger">:message</div>')) !!}
         @endif
         <!-- NOTIFICATION FIELD START -->
         <x-ResultNotificationField></x-ResultNotificationField>
@@ -50,14 +51,15 @@
                   <x-InputField type="text" label="Title" name="title" id="title" :ft="$ft" :sd="$sd"></x-InputField>
                 </div>
                 <div class="col-md-4 col-sm-12 mb-3">
-                  <x-MultipleInputField type="file" label="Photo" name="photo" id="photo" :ft="$ft" :sd="$sd"></x-MultipleInputField>
+                  <x-MultipleInputField type="file" label="Photo" name="photo" id="photo" :ft="$ft" :sd="$sd">
+                  </x-MultipleInputField>
                 </div>
               </div>
               @if ($ft == 'add')
-                <button type="reset" class="btn btn-sm btn-warning  mr-1"><i class="ti-trash"></i> Reset</button>
+              <button type="reset" class="btn btn-sm btn-warning  mr-1"><i class="ti-trash"></i> Reset</button>
               @endif
               @if ($ft == 'edit')
-                <a href="{{ aurl($page_route) }}" class="btn btn-sm btn-info "><i class="ti-trash"></i> Cancel</a>
+              <a href="{{ aurl($page_route) }}" class="btn btn-sm btn-info "><i class="ti-trash"></i> Cancel</a>
               @endif
               <button class="btn btn-sm btn-primary" type="submit">Submit</button>
             </form>
@@ -71,10 +73,10 @@
         <div class="card">
           <div class="card-header">
             <h4 class="card-title">
-              {{ $page_title }}  List
-              {{--  <span style="float:right;">
+              {{ $page_title }} List
+              {{-- <span style="float:right;">
                 <button class="btn btn-xs btn-success">Export</button>
-              </span>  --}}
+              </span> --}}
             </h4>
           </div>
           <div class="card-body">

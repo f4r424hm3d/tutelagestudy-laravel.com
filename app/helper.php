@@ -90,12 +90,12 @@ if (!function_exists('ip_details')) {
   }
 }
 
-function cdnq($asset)
+function cdn($asset)
 {
   return url($asset);
 }
 // global CDN link helper function
-function cdn($asset)
+function cdnq($asset)
 {
 
   // Verify if KeyCDN URLs are present in the config file

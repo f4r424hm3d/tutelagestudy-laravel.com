@@ -387,7 +387,7 @@ $seg2 = Request::segment(2);
           </div>
           <div class="col-md-4 col-sm-6 col-xs-12 pad no-padding">
             <div class="media-left">
-              <p class="fcolor"><i class="icon-pencil-line pr-1"></i> Neet Required :</p>
+              <p class="fcolor"><i class="icon-pencil-line pr-1"></i> NEET Required :</p>
             </div>
             <div class="media-right">
               <p class="fcolor">{{$c_destination->neet}}</p>
