@@ -79,7 +79,7 @@ class ServiceC extends Controller
   {
     $request->validate(
       [
-        'headline' => 'required|unique:services,headline,'.$id,
+        'headline' => 'required|unique:services,headline,' . $id,
         'thumbnail' => 'nullable|max:5000|mimes:jpg,jpeg,png,gif',
         'description' => 'required',
       ]
