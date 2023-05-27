@@ -32,9 +32,9 @@ class DestinationFc extends Controller
     $c_destination = Destination::where(['slug' => $request->segment(1)])->first();
 
     $testimonials = Testimonial::where(['country' => $c_destination->country])->get();
-    //$photos = DestinationGallery::where(['destination_id' => $c_destination->id])->get();
+    $photos = DestinationGallery::where(['destination_id' => $c_destination->id])->get();
 
-    //$author = Author::find($c_destination->author_id);
+    $author = Author::find($c_destination->author_id);
 
     $faqs = DestinationPageFaq::where(['page_id' => $c_destination->id])->get();
 
@@ -72,8 +72,8 @@ class DestinationFc extends Controller
 
     $tslug = $tabTitleDet->id;
     $whrco = ['page_id' => $c_destination->id, 'tab_id' => $tslug];
-    //$content = DestinationPageContent::where($whrco)->orderBy('priority', 'ASC')->get();
-    //$count_content = $content->count();
+    $content = DestinationPageContent::where($whrco)->orderBy('priority', 'ASC')->get();
+    $count_content = $content->count();
     $tabs = DestinationPageContent::with('getTab')->select('tab_id')->groupBy('tab_id')->where(['page_id' => $c_destination->id])->get();
     // printArray($tabs->toArray());
     // die;
@@ -82,7 +82,7 @@ class DestinationFc extends Controller
     $allcat = NewsCategory::all();
     $allnews = News::limit(20)->get();
 
-    $data = compact('c_destination', 'tabTitleDet', 'testimonials', 'faqs', 'meta_title', 'meta_keyword', 'meta_description', 'page_content', 'og_image_path', 'otherexam', 'tu', 'site', 'tabs', 'otabs', 'allcat', 'allnews', 'page_url', 'brochureUniversities', 'tab_title', 'seg1');
+    $data = compact('c_destination', 'tabTitleDet', 'testimonials', 'faqs', 'meta_title', 'meta_keyword', 'meta_description', 'page_content', 'og_image_path', 'otherexam', 'tu', 'site', 'tabs', 'otabs', 'allcat', 'allnews', 'page_url', 'brochureUniversities', 'tab_title', 'seg1', 'photos', 'author', 'content', 'count_content');
 
     return view('front.destination-details')->with($data);
   }
