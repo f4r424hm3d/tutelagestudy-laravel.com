@@ -8,9 +8,9 @@ use Illuminate\Http\Request;
 
 class DestinationGalleryC extends Controller
 {
-  public function index($destination_id,$id = null)
+  public function index($destination_id, $id = null)
   {
-    $rows = DestinationGallery::where('destination_id',$destination_id);
+    $rows = DestinationGallery::where('destination_id', $destination_id);
     $rows = $rows->get();
     if ($id != null) {
       $sd = DestinationGallery::find($id);
@@ -67,7 +67,7 @@ class DestinationGalleryC extends Controller
       }
     }
     session()->flash('smsg', 'New record has been added successfully.');
-    return redirect('admin/destination-gallery/'.$request['destination_id']);
+    return redirect('admin/destination-gallery/' . $request['destination_id']);
   }
   public function delete($id)
   {
@@ -100,7 +100,6 @@ class DestinationGalleryC extends Controller
     $field->title = $request['title'];
     $field->save();
     session()->flash('smsg', 'Record has been updated successfully.');
-    return redirect('admin/destination-gallery/'.$request['destination_id']);
+    return redirect('admin/destination-gallery/' . $request['destination_id']);
   }
-
 }
