@@ -504,10 +504,8 @@
                         <div class="ps-product-group">
                           <div class="ps-product--horizontal">
                             <div class="ps-product__thumbnail ml-10" style="background:#fff">
-                              <a href="<?php echo url($oe->slug); ?>/">
-                                <img src="<?php echo asset($oe->thumbnail); ?>" alt="<?php echo $oe->page_name; ?>"
-                                  loading="lazy">
-                              </a>
+                              <img src="<?php echo asset($oe->thumbnail); ?>" alt="<?php echo $oe->page_name; ?>"
+                                loading="lazy">
                             </div>
                             <div class="ps-product__content">
                               <a class="ps-product__title" href="<?php echo url($oe->slug); ?>/">
@@ -523,7 +521,7 @@
                 </div>
                 <?php } ?>
 
-                @include('front.form.university-side-form')
+                {{-- @include('front.form.university-side-form') --}}
                 <style>
                   .author {
                     align-items: center;
@@ -699,7 +697,7 @@
               </div>
             </div>
           </div>
-
+          <br>
           <!-- TOP TRENDING UNIVERSITIES -->
           @include('front.top-trending-universities')
           <!-- TOP TRENDING UNIVERSITIES -->
