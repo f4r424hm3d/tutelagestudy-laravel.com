@@ -12,17 +12,17 @@
             Haryana, India 122002.</p>
           <ul class="ps-list--social">
             <li><a class="facebook" href="https://www.facebook.com/tutelagestudyabroad/" target="_blank"
-                rel="noreferrer" aria-label="Facebook"><i class="fa fa-facebook"></i></a></li>
-            <li><a class="twitter" href="https://twitter.com/tutelagestudy" rel="noreferrer" aria-label="Twitter"><i
+                rel="noopener noreferrer" aria-label="Facebook"><i class="fa fa-facebook"></i></a></li>
+            <li><a class="twitter" href="https://twitter.com/tutelagestudy" rel="noopener noreferrer" aria-label="Twitter"><i
                   class="fa fa-twitter"></i></a></li>
-            <li><a class="instagram" href="https://www.instagram.com/tutelagestudy/" rel="noreferrer nofollow"
+            <li><a class="instagram" href="https://www.instagram.com/tutelagestudy/" rel="noopener noreferrer nofollow"
                 aria-label="Instagram"><i class="fa fa-instagram"></i></a></li>
-            <li><a style="color:#0A66C2" href="https://in.linkedin.com/in/tutelage-study-4085a51ab" rel="noreferrer"
+            <li><a style="color:#0A66C2" href="https://in.linkedin.com/in/tutelage-study-4085a51ab" rel="noopener noreferrer"
                 aria-label="linkedin"><i class="fa fa-linkedin"></i></a></li>
-            <li><a style="color:#E60023" href="https://in.pinterest.com/tutelagestudy/" rel="noreferrer"
+            <li><a style="color:#E60023" href="https://in.pinterest.com/tutelagestudy/" rel="noopener noreferrer"
                 aria-label="pinterest"><i class="fa fa-pinterest"></i></a></li>
             <li><a style="color:#FF0000" href="https://www.youtube.com/channel/UCK2eeC1CkS3YkYrGnnzBUEQ"
-                rel="noreferrer" aria-label="youtube"><i class="fa fa-youtube"></i></a></li>
+                rel="noopener noreferrer" aria-label="youtube"><i class="fa fa-youtube"></i></a></li>
           </ul>
         </div>
       </aside>
@@ -51,12 +51,12 @@
       <aside class="widget_footer col-md-3">
         <span class="widget-title">References</span>
         <ul class="ps-list--link" style="margin-bottom:25px">
-          <li><a href="https://neet.nta.nic.in/" target="_blank" class="whitec" rel="nofollow">NEET</a></li>
+          <li><a href="https://neet.nta.nic.in/" target="_blank" class="whitec" rel="nofollow noopener noreferrer">NEET</a></li>
           <li><a href="https://www.nmc.org.in/information-desk/for-students-to-study-in-abroad/" target="_blank"
-              class="whitec" rel="nofollow">NMC</a></li>
-          <li><a href="https://www.usmle.org/" target="_blank" class="whitec" rel="nofollow">USMLE</a></li>
-          <li><a href="https://nbe.edu.in/" target="_blank" class="whitec" rel="nofollow">NBE</a></li>
-          <li><a href="https://www.wdoms.org/" target="_blank" class="whitec" rel="nofollow">WDOMs</a></li>
+              class="whitec" rel="nofollow noopener noreferrer">NMC</a></li>
+          <li><a href="https://www.usmle.org/" target="_blank" class="whitec" rel="nofollow noopener noreferrer">USMLE</a></li>
+          <li><a href="https://nbe.edu.in/" target="_blank" class="whitec" rel="nofollow noopener noreferrer">NBE</a></li>
+          <li><a href="https://www.wdoms.org/" target="_blank" class="whitec" rel="nofollow noopener noreferrer">WDOMs</a></li>
         </ul>
       </aside>
     </div>
@@ -69,8 +69,7 @@
               </p>
             </div>
             <div class="col-md-6">
-              <p class="whitec text-right"><span class="b1" style="color:#fff"><a href="{{ url('sitemap.xml') }}/"
-                    target="_blank">Sitemap</a></span></p>
+              <p class="whitec text-right"><span class="b1" style="color:#fff"><a href="{{ url('sitemap.xml') }}/">Sitemap</a></span></p>
             </div>
           </div>
         </div>
@@ -191,91 +190,107 @@
     $(".text").toggleClass("show-more-height");
   });
 </script>
-<!-- start whatsapp chat -->
-<div class="wa__btn_popup">
-  <div class="wa__btn_popup_txt"><strong>Chat with us</strong></div>
-  <div class="wa__btn_popup_icon"></div>
+
+
+
+<!-- Whatsapp Box and Button -->
+<style>
+/* whatsapp css */
+.pr0{ padding-right:0px}
+.pl0{ padding-left:0px}
+
+.whats-float{position:fixed; transform:translate(-125px,0px);bottom:80px; left:0; width:180px; overflow: hidden;background-color:#2db742; color:#FFF; border-radius: 2px 0 0 2px; z-index:999;transition: all 0.5s ease-in-out; vertical-align: middle;border-radius:0px 6px 6px 0px;padding-left:15px;	padding-right:5px}
+.whats-float a span{color:white; font-size:14px; padding-top:10px; padding-bottom:10px; float: left; line-height: 16px; font-weight:600}
+.whats-float img{width:50px;padding:10px; transform:rotate(0deg); transition: all 0.5s ease-in-out;float:right}
+.whats-float:hover{color: #FFFFFF; transform:translate(0px,0px);}
+.whats-float:hover img{transform:rotate(360deg);}
+.chat-popup{display:none; position:fixed; bottom:145px; left:10px; z-index:999; box-shadow:0 10px 10px 4px rgba(0,0,0,.06)}
+
+.align-items-center{display:flex; align-items:center;}
+.wa-container{max-width:325px; background-color:white; transition: all 0.5s ease-in-out; border-radius:7px}
+.wa-container .cancel{width:35px; height:35px; background:#fff!important; color:#000; transition: all 0.5s ease-in-out; font-size:14px; line-height:20px; padding:0px; text-align:center; top:-15px; right:-15px; position:absolute; border:0px; border-radius:50%;box-shadow:0 10px 10px 4px rgba(0,0,0,.06);}
+.wa-container .header{padding:20px 20px 5px 20px; color:#fff; background:#2db742; border-radius:7px 7px 0px 0px}
+.wa-container .header .title{ font-size:16px; font-weight:600; line-height:18px; margin-bottom:5px}
+.wa-container .header .text{font-size:11px; margin-bottom:10px}
+
+.wa-container .content{padding:12px;}
+.wa-container .content .country-box{ display:block; font-size:12px; background:#f5f7f9; padding:15px; margin-bottom:10px; color:#000; border-radius:4px; border-left:2px solid #2db742}
+.wa-container .content .country-box:hover{ background:#fff; box-shadow:0 0px 10px 4px rgba(0,0,0,.06)}
+@media (max-width: 1199px){
+.wa-container .header {display:flex!important;}
+}
+/* whatsapp css */
+</style>
+
+<div class="whats-float">
+<a href="javascript:void()" class="open-button" onClick="openForm()">
+<span>Need any help<br><small>Chat with us</small></span>
+<img src="{{ asset('/front/') }}/img/wa.png" width="30" alt="whatsapp image"></a></div>
+
+<div class="chat-popup" id="myForm">
+<div class="wa-container">
+<button type="button" class="cancel" onClick="closeForm()"><i class="fa fa-close"></i></button>
+<div class="header">
+<div class="row">
+<div class="col-2 pr0"><img src="{{ asset('/front/') }}/img/wa.png" alt="whatsapp image" class="img-fluid"></div>
+<div class="col-10">
+<div class="title">Talk to Our Expert Counsellors</div>
+<div class="text">Hi! Click one of our Counsellors below to chat on <strong>WhatsApp</strong></div>
 </div>
-<div class="wa__popup_chat_box">
-  <div class="wa__popup_heading">
-    <div class="wa__popup_title">Talk to Our Expert Counsellors</div>
-    <div class="wa__popup_intro">
-      Hi! Click one of our Counsellors below to chat on <strong>WhatsApp</strong>
-      <div id="\&quot;eJOY__extension_root\&quot;"></div>
-    </div>
-  </div>
-  <div class="wa__popup_content wa__popup_content_left">
-    <div class="wa__popup_notice">The team typically replies in a few minutes.</div>
-    <div class="wa__popup_content_list">
-      <div class="wa__popup_content_item">
-        <a target="_blank"
-          href="https://api.whatsapp.com/send?phone=919818560331&text=Hello there!! I want to get counseling by experts. Want to know more information about Tutelage Study | www.tutelagestudy.com"
-          class="wa__stt wa__stt_online">
-          <div class="wa__popup_avatar">
-            <div class="wa__cs_img_wrap"><img src="{{ asset('/front/') }}/img/ind-flag.png" width="44" height="40"
-                alt="Indian Flag" border="0"></div>
-          </div>
-          <div class="wa__popup_txt">
-            <div class="wa__member_name">India Office, Gurgaon</div>
-            <div class="wa__member_duty">Start Chat with Mr. Gaurav</div>
-          </div>
-        </a>
-      </div>
-      <div class="wa__popup_content_item">
-        <a target="_blank"
-          href="https://api.whatsapp.com/send?phone=919342914452&text=Hello there!! I want to get counseling by experts. Want to know more information about Tutelage Study | www.tutelagestudy.com"
-          class="wa__stt wa__stt_online">
-          <div class="wa__popup_avatar">
-            <div class="wa__cs_img_wrap"><img src="{{ asset('/front/') }}/img/ind-flag.png" width="44" height="40"
-                alt="Indian Flag" border="0"></div>
-          </div>
-          <div class="wa__popup_txt">
-            <div class="wa__member_name">India Office, Chennai</div>
-            <div class="wa__member_duty">Start Chat with Ms. Anitha</div>
-          </div>
-        </a>
-      </div>
-    </div>
-  </div>
+</div>
+</div>
+
+<div class="content">
+<a class="country-box" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=919667667331&amp;text=Hello there!! I want to get counseling by experts. Want to know more information about Tutelage Study | www.tutelagestudy.com">
+<div class="row align-items-center">
+<div class="col-2 pr0"><img src="{{ asset('/front/') }}/img/flag-india.png" alt="whatsapp now" class="img-fluid"></div>
+<div class="col-8 pr0">
+<strong>India Office, Gurgaon</strong><br>
+Start Chat with Mr. Gaurav
+</div>
+<div class="col-2 pl0 text-right"><img src="{{ asset('/front/') }}/img/wad.png" alt="whatsapp now" width="20"></div>
+</div>
+</a>
+
+<a class="country-box" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=919342914452&amp;text=Hello there!! I want to get counseling by experts. Want to know more information about Tutelage Study | www.tutelagestudy.com">
+<div class="row align-items-center">
+<div class="col-2 pr0"><img src="{{ asset('/front/') }}/img/flag-india.png" alt="whatsapp now" class="img-fluid"></div>
+<div class="col-8 pr0">
+<strong>India Office, Chennai</strong><br>
+Start Chat with Ms. Anitha
+</div>
+<div class="col-2 pl0 text-right"><img src="{{ asset('/front/') }}/img/wad.png" alt="whatsapp now" width="20"></div>
+</div>
+</a>
+
+<a class="country-box" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=919619593689&amp;text=Hello there!! I want to get counseling by experts. Want to know more information about Tutelage Study | www.tutelagestudy.com">
+<div class="row align-items-center">
+<div class="col-2 pr0"><img src="{{ asset('/front/') }}/img/flag-india.png" alt="whatsapp image" class="img-fluid"></div>
+<div class="col-8 pr0">
+<strong>India Office, Mumbai</strong><br>
+Start Chat with Mr. Piyush
+</div>
+<div class="col-2 pl0 text-right"><img src="{{ asset('/front/') }}/img/wad.png" alt="whatsapp image" width="20"></div>
+</div>
+</a>
+
+</div>
+
+</div>
 </div>
 
 <script>
-  ! function(a) {
-    var _, t;
-    a(document).ready(function() {
-      function o(a) {
-        for (var _ = a + "=", t = document.cookie.split(";"), o = 0; o < t.length; o++) {
-          for (var e = t[o];
-            " " == e.charAt(0);) e = e.substring(1);
-          if (0 == e.indexOf(_)) return e.substring(_.length, e.length)
-        }
-        return ""
-      }
-      a(".wa__btn_popup").on("click", function() {
-        a(".wa__popup_chat_box").hasClass("wa__active") ? (a(".wa__popup_chat_box").removeClass("wa__active"), a(".wa__btn_popup").removeClass("wa__active"), clearTimeout(t), a(".wa__popup_chat_box").hasClass("wa__lauch") && (_ = setTimeout(function() {
-          a(".wa__popup_chat_box").removeClass("wa__pending"), a(".wa__popup_chat_box").removeClass("wa__lauch")
-        }, 400))) : (a(".wa__popup_chat_box").addClass("wa__pending"), a(".wa__popup_chat_box").addClass("wa__active"), a(".wa__btn_popup").addClass("wa__active"), clearTimeout(_), a(".wa__popup_chat_box").hasClass("wa__lauch") || (t = setTimeout(function() {
-          a(".wa__popup_chat_box").addClass("wa__lauch")
-        }, 100)))
-      }), a("#nta-wa-gdpr").change(function() {
-        this.checked && (! function(a, _, t) {
-          var o = new Date;
-          o.setTime(o.getTime() + 24 * t * 60 * 60 * 1e3);
-          var e = "expires=" + o.toUTCString();
-          document.cookie = a + "=" + _ + ";" + e + ";path=/"
-        }("nta-wa-gdpr", "accept", 30), "" != o("nta-wa-gdpr") && (a(".nta-wa-gdpr").hide(500), a(".wa__popup_content_item").each(function() {
-          a(this).removeClass("pointer-disable"), a(".wa__popup_content_list").off("click")
-        })))
-      }), "" != o("nta-wa-gdpr") ? a(".wa__popup_content_list").off("click") : a(".wa__popup_content_list").click(function() {
-        a(".nta-wa-gdpr").delay(500).css({
-          background: "red",
-          color: "#fff"
-        })
-      })
-    })
-  }(jQuery);
+function openForm() {
+document.getElementById("myForm").style.display = "block";
+}
+function closeForm() {
+document.getElementById("myForm").style.display = "none";
+}
 </script>
-<!-- end whatsapp chat -->
+<!-- Whatsapp Box and Button -->
+
+
+
 
 @php
 use App\Models\Exam;

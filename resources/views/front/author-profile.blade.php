@@ -5,41 +5,35 @@
 @section('main-section')
 <style>
   .mb30 {
-    margin-bottom: 30px
+  margin-bottom: 30px
   }
-
   .img-content {
-    background: #0047ab;
-    text-align: center
+  background: #0047ab;
+  text-align: center
   }
-
   .img-content .img-responsive {
-    opacity: 1;
+  opacity: 1;
   }
-
   .img-content:hover .img-responsive {
-    opacity: 0.2;
+  opacity: 0.2;
   }
-
   .img-content:hover i {
-    padding-left: 5px;
-    transition: all 0.5s
+  padding-left: 5px;
+  transition: all 0.5s
   }
-
   .detail-link {
-    font-size: 18px;
-    color: #fff;
-    line-height: 45px;
-    -webkit-transition: all .3s ease;
-    transition: all .3s ease;
-    text-shadow: 1px 2px 3px #212121;
+  font-size: 18px;
+  color: #fff;
+  line-height: 45px;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+  text-shadow: 1px 2px 3px #212121;
   }
-
   .detail-link i {
-    font-size: 20px;
-    bottom: -2px !important;
-    position: relative;
-    transition: all 0.5s
+  font-size: 20px;
+  bottom: -2px !important;
+  position: relative;
+  transition: all 0.5s
   }
 </style>
 <style>
@@ -175,9 +169,7 @@
     <ul class="breadcrumb bread-scrollbar">
       <li><a href="https://www.tutelagestudy.com/">Home</a></li>
       <li>Author</li>
-      <li>
-        <?php echo $author->name; ?>
-      </li>
+      <li><?php echo $author->name; ?></li>
     </ul>
   </div>
 </div>
@@ -185,12 +177,9 @@
   <div class="container">
     <div class="card mb-3 p-4">
       <div class="row align-items-center">
-        <div class="col-md-3"><img src="<?php echo asset($author->profile_pic_path) ?>" alt="{{ $author->name }}"
-            class="rounded img-fluid mb-4"></div>
+        <div class="col-md-3"><img src="<?php echo asset($author->profile_pic_path) ?>" alt="{{ $author->name }}" class="rounded img-fluid mb-4"></div>
         <div class="col-md-9">
-          <h1>
-            <?php echo $author->name; ?> <small>(Content Curator)</small>
-          </h1>
+          <h1><?php echo $author->name; ?> <small>(Content Curator)</small></h1>
           <hr>
           <h4 class="mb-2">Highlights</h4>
           <ul style="list-style:circle; padding-left:20px">
@@ -208,114 +197,86 @@
         </div>
       </div>
     </div>
-    <div class="container">
-      <ul class="nav nav-tabs vertically-scrollbar" role="tablist">
+		<div class="container">
+        <ul class="nav nav-tabs vertically-scrollbar" role="tablist">
 
-        <li role="presentation"><a class="active" href="#blogs" aria-controls="blogs" role="tab" data-toggle="tab"
-            aria-expanded="false">Blogs</a></li>
+          <li role="presentation"><a class="active" href="#blogs" aria-controls="blogs" role="tab" data-toggle="tab" aria-expanded="false">Blogs</a></li>
 
-        <li role="presentation"><a class="" href="#Destinations" aria-controls="Destinations" role="tab"
-            data-toggle="tab" aria-expanded="false">Destinations</a></li>
+          <li role="presentation"><a class="" href="#Destinations" aria-controls="Destinations" role="tab" data-toggle="tab" aria-expanded="false">Destinations</a></li>
 
-        <li role="presentation"><a class="" href="#Exams" aria-controls="Exams" role="tab" data-toggle="tab"
-            aria-expanded="false">Exams</a></li>
+          <li role="presentation"><a class="" href="#Exams" aria-controls="Exams" role="tab" data-toggle="tab" aria-expanded="false">Exams</a></li>
 
-      </ul>
+        </ul>
 
-      <!-- Tab panes -->
-      <div class="tab-content latest-info bg-white" style="margin-top:0px">
+        <!-- Tab panes -->
+        <div class="tab-content latest-info bg-white" style="margin-top:0px">
 
-        <div role="tabpanel" class="tab-pane active" id="blogs">
-          <div class="row">
-            <?php
+          <div role="tabpanel" class="tab-pane active" id="blogs">
+						<div class="row">
+							<?php
 							foreach ($news as $row) {
 							?>
-            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-12 ">
-              <div class="ps-post ps-product">
-                <div class="ps-post__thumbnail">
-                  <a class="ps-post__overlay" href="<?php echo url($row->slug); ?>/"></a><img
-                    src="<?php echo asset($row->imgpath); ?>" alt="<?php echo $row->headline; ?>"
-                    style="height: 150px;!important">
-                </div>
-                <div class="ps-post__content">
-                  <div class="ps-post__meta"><a href="<?php echo url('category/' . $row->cate_slug); ?>/">
-                      <?php echo ucwords(str_replace('-', ' ', $row->cate_slug)); ?>
-                    </a></div>
-                  <a class="ps-post__title" href="<?php echo url($row->slug); ?>/" title="<?php echo $row->headline; ?>"
-                    data-toggle="tooltip">
-                    <?php echo strlen($row->headline) > 48 ? substr($row->headline, 0, 48) . '...' : $row->headline; ?>
-                  </a>
-                  <p style="margin-bottom:0px; font-size:11px">
-                    <?php echo getFormattedDate($row->created_at, 'd M, Y'); ?> by<span>
-                      <?php echo $author->name; ?>
-                    </span>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <?php } ?>
+								<div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-12 ">
+									<div class="ps-post ps-product">
+										<div class="ps-post__thumbnail">
+											<a class="ps-post__overlay" href="<?php echo url($row->slug); ?>/"></a><img src="<?php echo asset($row->imgpath); ?>" alt="<?php echo $row->headline; ?>" style="height: 150px;!important">
+										</div>
+										<div class="ps-post__content">
+											<div class="ps-post__meta"><a href="<?php echo url('category/' . $row->cate_slug); ?>/"><?php echo ucwords(str_replace('-', ' ', $row->cate_slug)); ?></a></div>
+											<a class="ps-post__title" href="<?php echo url($row->slug); ?>/" title="<?php echo $row->headline; ?>" data-toggle="tooltip"><?php echo strlen($row->headline) > 48 ? substr($row->headline, 0, 48) . '...' : $row->headline; ?></a>
+											<p style="margin-bottom:0px; font-size:11px"><?php echo getFormattedDate($row->created_at, 'd M, Y'); ?> by<span> <?php echo $author->name; ?></span></p>
+										</div>
+									</div>
+								</div>
+							<?php } ?>
+						</div>
           </div>
-        </div>
-        <div role="tabpanel" class="tab-pane " id="Destinations">
-          <div class="row">
-            <?php
+          <div role="tabpanel" class="tab-pane " id="Destinations">
+						<div class="row">
+							<?php
 								foreach ($destinations as $row) {
 							?>
-            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-12 ">
-              <div class="ps-post ps-product">
-                <div class="ps-post__thumbnail">
-                  <a class="ps-post__overlay" href="<?php echo url($row->slug); ?>/"></a>
-                  <img src="<?php echo asset($row->thumbnail); ?>" alt="<?php echo $row->page_name; ?>"
-                    style="height: 150px;!important">
-                </div>
-                <div class="ps-post__content">
-                  <a class="ps-post__title" href="<?php echo url($row->slug); ?>/"
-                    title="<?php echo $row->page_name; ?>" data-toggle="tooltip">
-                    <?php echo $row->page_name; ?>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <?php } ?>
+								<div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-12 ">
+									<div class="ps-post ps-product">
+										<div class="ps-post__thumbnail">
+											<a class="ps-post__overlay" href="<?php echo url($row->slug); ?>/"></a>
+											<img src="<?php echo asset($row->thumbnail); ?>" alt="<?php echo $row->page_name; ?>" style="height: 150px;!important">
+										</div>
+										<div class="ps-post__content">
+											<a class="ps-post__title" href="<?php echo url($row->slug); ?>/" title="<?php echo $row->page_name; ?>" data-toggle="tooltip"><?php echo $row->page_name; ?></a>
+										</div>
+									</div>
+								</div>
+							<?php } ?>
+						</div>
           </div>
-        </div>
-        <div role="tabpanel" class="tab-pane " id="Exams">
-          <div class="row">
-            <?php
+					<div role="tabpanel" class="tab-pane " id="Exams">
+						<div class="row">
+							<?php
 							foreach ($exam_pages as $row) {
 							?>
-            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-12 ">
-              <div class="ps-post ps-product">
-                <div class="ps-post__thumbnail">
-                  <a class="ps-post__overlay" href="<?php echo url($row->getExam->exam_slug.'/'.$row->slug); ?>/"></a>
-                  <img src="<?php echo asset($row->image_path); ?>" alt="<?php echo $row->page_name; ?>"
-                    style="height: 150px;!important">
-                </div>
-                <div class="ps-post__content">
-                  <div class="ps-post__meta">
-                    <a href="<?php echo url($row->getExam->exam_slug); ?>/">
-                      <?php echo $row->getExam->exam_name; ?>
-                    </a>
-                  </div>
-                  <a class="ps-post__title" href="<?php echo url($row->getExam->exam_slug.'/'.$row->slug); ?>/"
-                    title="<?php echo $row->page_name; ?>" data-toggle="tooltip">
-                    <?php echo strlen($row->page_name) > 48 ? substr($row->page_name, 0, 48) . '...' : $row->page_name; ?>
-                  </a>
-                  <p style="margin-bottom:0px; font-size:11px">
-                    <?php echo getFormattedDate($row->created_at, 'd M, Y'); ?> by<span>
-                      <?php echo $author->name; ?>
-                    </span>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <?php } ?>
+								<div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-12 ">
+									<div class="ps-post ps-product">
+										<div class="ps-post__thumbnail">
+											<a class="ps-post__overlay" href="<?php echo url($row->getExam->exam_slug.'/'.$row->slug); ?>/"></a>
+											<img src="<?php echo asset($row->image_path); ?>" alt="<?php echo $row->page_name; ?>" style="height: 150px;!important">
+										</div>
+										<div class="ps-post__content">
+											<div class="ps-post__meta">
+												<a href="<?php echo url($row->getExam->exam_slug); ?>/"><?php echo $row->getExam->exam_name; ?></a>
+											</div>
+											<a class="ps-post__title" href="<?php echo url($row->getExam->exam_slug.'/'.$row->slug); ?>/" title="<?php echo $row->page_name; ?>" data-toggle="tooltip"><?php echo strlen($row->page_name) > 48 ? substr($row->page_name, 0, 48) . '...' : $row->page_name; ?></a>
+											<p style="margin-bottom:0px; font-size:11px"><?php echo getFormattedDate($row->created_at, 'd M, Y'); ?> by<span> <?php echo $author->name; ?></span></p>
+										</div>
+									</div>
+								</div>
+							<?php } ?>
+						</div>
           </div>
+
         </div>
 
       </div>
-
-    </div>
   </div>
 </div>
 @endsection

@@ -32,6 +32,8 @@
               </select>
             </div>
             <div class="ps-blog__content">
+                <h1 class="text-center">Our Latest Blog for MBBS {{ $category->cate_name }}</h1>
+        <h2 class="text-center">Check out our Latest news on Studying MBBS Abroad</h2><br>
               <div class="row">
                 <?php
                 foreach ($blogs as $row) {

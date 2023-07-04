@@ -375,7 +375,7 @@ $seg2 = Request::segment(2);
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12 col-sm-12 pt-5 pb-4">
-        <h1 class="fcolor">{{ $c_destination->page_name }} 2023</h1>
+        <h2 class="fcolor">{{ $c_destination->page_name }} 2023</h2>
         <div class="row" style="margin-top:10px">
           <div class="col-md-4 col-sm-6 col-xs-12 pad no-padding">
             <div class="media-left">
@@ -574,7 +574,7 @@ $seg2 = Request::segment(2);
 
 
               <div class="pt-0 pb-20 get-detail text-center">
-                <a class="ps-btn" href="<?php echo url('destinations'); ?>/" target="blank">View All Countries</a>
+                <a class="ps-btn" href="<?php echo url('destinations'); ?>/" target="blank" rel="noopener noreferrer">View All Countries</a>
               </div>
 
               <style>
