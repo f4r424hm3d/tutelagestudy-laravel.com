@@ -8,7 +8,8 @@
     <div class="row">
       <div class="col-12">
         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-          <h4 class="mb-sm-0 font-size-18">{{ $page_title }} <span class="text-danger">({{ $exam->exam_name }})</span></h4>
+          <h4 class="mb-sm-0 font-size-18">{{ $page_title }} <span class="text-danger">({{ $exam->exam_name }})</span>
+          </h4>
 
           <div class="page-title-right">
             <ol class="breadcrumb m-0">
@@ -45,19 +46,23 @@
               <input type="hidden" name="exam_id" value="{{ $exam_id }}">
               <div class="row">
                 <div class="col-md-6 col-sm-12 mb-3">
-                  <x-InputField type="text" label="Page Name" name="page_name" id="page_name" :ft="$ft" :sd="$sd"></x-InputField>
+                  <x-InputField type="text" label="Page Name" name="page_name" id="page_name" :ft="$ft" :sd="$sd">
+                  </x-InputField>
                 </div>
                 <div class="col-md-6 col-sm-12 mb-3">
                   <x-InputField type="text" label="Page URL" name="slug" id="slug" :ft="$ft" :sd="$sd"></x-InputField>
                 </div>
                 <div class="col-md-4 col-sm-12 mb-3">
-                  <x-SelectField label="Created By" name="author_id" id="author_id" savev="id" showv="name" :list="$authors" :ft="$ft" :sd="$sd"></x-SelectField>
+                  <x-SelectField label="Created By" name="author_id" id="author_id" savev="id" showv="name"
+                    :list="$authors" :ft="$ft" :sd="$sd"></x-SelectField>
                 </div>
                 <div class="col-md-4 col-sm-12 mb-3">
-                  <x-InputField type="file" label="Upload Image" name="thumbnail" id="thumbnail" :ft="$ft" :sd="$sd"></x-InputField>
+                  <x-InputField type="file" label="Upload Image" name="thumbnail" id="thumbnail" :ft="$ft" :sd="$sd">
+                  </x-InputField>
                 </div>
                 <div class="col-md-4 col-sm-12 mb-3">
-                  <x-InputField type="text" label="Seo Rating" name="seo_rating" id="seo_rating" :ft="$ft" :sd="$sd"></x-InputField>
+                  <x-InputField type="text" label="Seo Rating" name="seo_rating" id="seo_rating" :ft="$ft" :sd="$sd">
+                  </x-InputField>
                 </div>
               </div>
               <hr>
@@ -65,10 +70,10 @@
               <x-SeoField :ft="$ft" :sd="$sd"></x-SeoField>
               <!--  SEO INPUT FILED COMPONENT END  -->
               @if ($ft == 'add')
-                <button type="reset" class="btn btn-sm btn-warning  mr-1"><i class="ti-trash"></i> Reset</button>
+              <button type="reset" class="btn btn-sm btn-warning  mr-1"><i class="ti-trash"></i> Reset</button>
               @endif
               @if ($ft == 'edit')
-                <a href="{{ aurl($page_route) }}" class="btn btn-sm btn-info "><i class="ti-trash"></i> Cancel</a>
+              <a href="{{ aurl($page_route) }}" class="btn btn-sm btn-info "><i class="ti-trash"></i> Cancel</a>
               @endif
               <button class="btn btn-sm btn-primary" type="submit">Submit</button>
             </form>
@@ -100,7 +105,9 @@
                 @foreach ($rows as $row)
                 <tr id="row{{ $row->id }}">
                   <td>{{ $i }}</td>
-                  <td><?php echo $row->page_name; ?></td>
+                  <td>
+                    <?php echo $row->page_name; ?>
+                  </td>
                   <td>{{ $row->getAuthor->name??'Null' }}</td>
                   <td>
                     @if ($row->image_path != null)
@@ -111,7 +118,8 @@
                   </td>
                   <td>
                     @if ($row->meta_title != null)
-                    <button type="button" class="btn btn-xs btn-outline-info waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#SeoModalScrollable{{ $row->id }}">View</button>
+                    <button type="button" class="btn btn-xs btn-outline-info waves-effect waves-light"
+                      data-bs-toggle="modal" data-bs-target="#SeoModalScrollable{{ $row->id }}">View</button>
                     <div class="modal fade" id="SeoModalScrollable{{ $row->id }}" tabindex="-1" role="dialog"
                       aria-labelledby="SeoModalScrollableTitle{{ $row->id }}" aria-hidden="true">
                       <div class="modal-dialog modal-dialog-scrollable">
@@ -143,11 +151,11 @@
                     <x-StatusField :row="$row"></x-StatusField>
                   </td>
                   <td>
-                    <a target="_blank" href="{{ url('/admin/exam-page-contents/'.$row->id) }}"
+                    <a target="_blank" rel="noopener noreferrer" href="{{ url('/admin/exam-page-contents/'.$row->id) }}"
                       class="waves-effect waves-light btn btn-xs btn-outline btn-success">
                       <i class="fa fa-eye" aria-hidden="true"></i>
                     </a>
-                    <a target="_blank" href="{{ url('/admin/exam-page-faqs/'.$row->id) }}"
+                    <a target="_blank" rel="noopener noreferrer" href="{{ url('/admin/exam-page-faqs/'.$row->id) }}"
                       class="waves-effect waves-light btn btn-xs btn-outline btn-primary">
                       FAQ
                     </a>

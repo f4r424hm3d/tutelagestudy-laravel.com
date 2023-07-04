@@ -90,7 +90,7 @@
                     $tu = $this->mm->getDataByOWL('id', 'RANDOM', $whrcoe, 'universities', '4', '0');
                     foreach ($tu as $tu) {
                     ?>
-                    <li class="current-menu-item "><a target="_blank"
+                    <li class="current-menu-item "><a target="_blank" rel="noopener noreferrer"
                         href="<?php echo base_url($tu->country_slug . '/' . $tu->uname); ?>/">
                         <?php echo $tu->name; ?>
                       </a> </li>
@@ -105,7 +105,8 @@
                     foreach ($tu as $tu) {
                     ?>
                     <li class="current-menu-item ">
-                      <a target="_blank" href="<?php echo base_url($tu->country_slug . '/' . $tu->uname); ?>/">
+                      <a target="_blank" rel="noopener noreferrer"
+                        href="<?php echo base_url($tu->country_slug . '/' . $tu->uname); ?>/">
                         <?php echo $tu->name; ?>
                       </a>
                     </li>
@@ -153,7 +154,7 @@
             <li><a href="<?php echo base_url('contact-us'); ?>/">Contact Us</a><span class="sub-toggle"></span></li>
             <!-- </ul>
           <ul class="navigation__extra">
-            <li><a href="https://www.britannicaoverseas.com/crm/agent-login" target="_blank" class="b1">Be a Partner</a></li>
+            <li><a href="https://www.britannicaoverseas.com/crm/agent-login" target="_blank" rel="noopener noreferrer" class="b1">Be a Partner</a></li>
           </ul> -->
         </div>
       </div>
@@ -242,7 +243,8 @@
                 foreach ($tu as $tu) {
                 ?>
                 <li class="current-menu-item ">
-                  <a target="_blank" href="<?php echo base_url($tu->country_slug . '/' . $tu->uname); ?>/">
+                  <a target="_blank" rel="noopener noreferrer"
+                    href="<?php echo base_url($tu->country_slug . '/' . $tu->uname); ?>/">
                     <?php echo $tu->name; ?>
                   </a>
                 </li>
@@ -257,7 +259,8 @@
                 foreach ($tu as $tu) {
                 ?>
                 <li class="current-menu-item ">
-                  <a target="_blank" href="<?php echo base_url($tu->country_slug . '/' . $tu->uname); ?>/">
+                  <a target="_blank" rel="noopener noreferrer"
+                    href="<?php echo base_url($tu->country_slug . '/' . $tu->uname); ?>/">
                     <?php echo $tu->name; ?>
                   </a>
                 </li>

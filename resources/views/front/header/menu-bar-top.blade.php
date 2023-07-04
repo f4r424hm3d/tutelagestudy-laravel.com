@@ -265,7 +265,7 @@ $destinationsSF = Destination::where(['status' => 1])->get();
                   <div class="ps-checkbox pl-20">
                     <input class="form-control " type="checkbox" name="terms" id="terms">
                     <label for="terms">I agree to the <a href="https://www.tutelagestudy.com/term-and-condition/"
-                        style="color: blue;" target="_blank">terms & conditions</a> .*</label>
+                        style="color: blue;" target="_blank" rel="noopener noreferrer">terms & conditions</a> .*</label>
                     @error('terms')
                     {!! '<span class="text-danger">' . $message . '</span>' !!}
                     @enderror

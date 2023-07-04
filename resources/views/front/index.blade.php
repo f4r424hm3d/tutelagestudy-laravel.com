@@ -197,7 +197,8 @@
       <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
         <div class="ps-block--category">
           <br>
-          <a class="ps-block__overlay" href="<?php echo url('medical-universities'); ?>/" target="_blank">All
+          <a class="ps-block__overlay" href="<?php echo url('medical-universities'); ?>/" target="_blank"
+            rel="noopener noreferrer">All
             Universities</a>
           <img src="<?php echo url('front'); ?>/img/find-university.jpg" alt="All Universities"
             style="width:100%!important">
@@ -207,7 +208,8 @@
       <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 ">
         <div class="ps-block--category">
           <br>
-          <a class="ps-block__overlay" href="<?php echo url('services'); ?>/" target="_blank">Services</a>
+          <a class="ps-block__overlay" href="<?php echo url('services'); ?>/" target="_blank"
+            rel="noopener noreferrer">Services</a>
           <img src="<?php echo url('front'); ?>/img/top-courses.jpg" alt="Services" style="width:100%!important">
           <h4 class="pt-10 mb-0 button cur-conver-btn">Our Services</h4>
         </div>
@@ -215,7 +217,8 @@
       <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 ">
         <div class="ps-block--category">
           <br>
-          <a class="ps-block__overlay" href="<?php echo url('destinations'); ?>/" target="_blank">MBBS Countries</a>
+          <a class="ps-block__overlay" href="<?php echo url('destinations'); ?>/" target="_blank"
+            rel="noopener noreferrer">MBBS Countries</a>
           <img src="<?php echo url('front'); ?>/img/exams.jpg" alt="All Destinations" style="width:100%!important">
           <h4 class="pt-10 mb-0 button cur-conver-btn">All Destinations</h4>
         </div>
@@ -223,15 +226,17 @@
       <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 ">
         <div class="ps-block--category">
           <br>
-          <a class="ps-block__overlay" href="<?php echo url('blog'); ?>/" target="_blank">Blog</a> <img
-            src="<?php echo url('front'); ?>/img/news.jpg" alt="latest news" style="width:100%!important">
+          <a class="ps-block__overlay" href="<?php echo url('blog'); ?>/" target="_blank"
+            rel="noopener noreferrer">Blog</a> <img src="<?php echo url('front'); ?>/img/news.jpg" alt="latest news"
+            style="width:100%!important">
           <h4 class="pt-10 mb-0 button cur-conver-btn">News & Article</h4>
         </div>
       </div>
       <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 ">
         <div class="ps-block--category">
           <br>
-          <a class="ps-block__overlay" href="<?php echo url('mbbs-abroad-counselling'); ?>/" target="_blank">Inquiry
+          <a class="ps-block__overlay" href="<?php echo url('mbbs-abroad-counselling'); ?>/" target="_blank"
+            rel="noopener noreferrer">Inquiry
             Now</a> <img src="<?php echo url('front'); ?>/img/scholarship.jpg" alt="Enquire Now"
             style="width:100%!important">
           <h4 class="pt-10 mb-0 button cur-conver-btn">Free Counselling</h4>
@@ -485,7 +490,8 @@
         </div>
       </div>
     </div>
-    <div class="pt-20" align="center"><a href="/destinations/" target="_blank" class="button home-btn">Browse All
+    <div class="pt-20" align="center"><a href="/destinations/" target="_blank" rel="noopener noreferrer"
+        class="button home-btn">Browse All
         Destinations</a></div>
   </div>
 </div>
@@ -529,7 +535,7 @@
             </li>
           </ul>
           <a href="https://www.britannicaoverseas.com/ielts-coaching-in-gurgaon/" target="_blank"
-            class="button home-btn">Know More</a>
+            rel="noopener noreferrer" class="button home-btn">Know More</a>
         </div>
       </div>
       <div class="col-md-6">

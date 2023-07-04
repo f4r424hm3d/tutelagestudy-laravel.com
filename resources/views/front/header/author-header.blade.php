@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <title><?php echo $title; ?></title>
-  <meta name="robots" content="follow, index"/>
+  <title>
+    <?php echo $title; ?>
+  </title>
+  <meta name="robots" content="follow, index" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:type" content="profile" />
   <meta property="og:title" content="<?php echo $title; ?>" />

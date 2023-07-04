@@ -258,7 +258,7 @@
                           </div>
                           <div class="ps-product__container col-md-3 col-sm-12 col-xs-12 text-center">
                             <p style="margin:0px">
-                              <!-- <a target="_blank" class="ps-btn w-100" style="background:#0047ab" href="<?php echo url($key->uname . '/write-review'); ?>"><i class=" fa fa-comments"></i> Write review</a> -->
+                              <!-- <a target="_blank" rel="noopener noreferrer" class="ps-btn w-100" style="background:#0047ab" href="<?php echo url($key->uname . '/write-review'); ?>"><i class=" fa fa-comments"></i> Write review</a> -->
 
                               <a class="ps-btn mt-2 w-100" href="{{ url('mbbs-abroad-counselling/') }}/"><i
                                   class="icon-question-circle"></i> Request Info</a>

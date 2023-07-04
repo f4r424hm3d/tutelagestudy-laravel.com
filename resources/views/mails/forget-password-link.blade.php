@@ -58,7 +58,7 @@
             <td valign="top" align="center" class="masthead"
               style="padding:20px 0px 5px 0px;background:#3f4079;color:white;">
               <h1 style="font-size:32px;margin:0 auto;max-width:90%;line-height:1.25;">
-                <a href="https://ieltspractice.britannicaoverseas.com/" target="_blank"
+                <a href="https://ieltspractice.britannicaoverseas.com/" target="_blank" rel="noopener noreferrer"
                   style="text-decoration:none;color:#ffffff;">Study Abroad</a>
                 <p style="margin-bottom:0;line-height:12px;font-weight:normal;margin-top:15px;font-size:18px;"></p>
               </h1>
