@@ -21,37 +21,34 @@ $page_content = replaceTag($page_content, $tagArray);
 $seo_rating = $seo->seo_rating??'';
 $og_image_path = $seo->og_image_path??'';
 @endphp
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta name="robots" content="index, follow" />
-  <title>
-    <?php echo ucwords($meta_title); ?>
-  </title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-  <meta name="description" content="<?php echo $meta_description; ?>">
-  <meta name="keywords" content="<?php echo $meta_keyword; ?>">
-  <link rel="canonical" href="<?php echo $page_url; ?>/" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="follow, noindex" />
-  <meta property="og:locale" content="en_US" />
-  <meta property="og:type" content="profile" />
-  <meta property="og:title" content="<?php echo $title; ?>" />
-  <meta property="og:url" content="{{ $page_url }}/" />
-  <meta property="og:site_name" content="Tutelage Study" />
-  <meta property="og:image:alt" content="Tutelage Study" />
-  <meta property="og:image:type" content="image/png" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="<?php echo $title; ?>" />
-  <meta name="twitter:site" content="@tutelagestudy" />
-  <link rel="shortcut icon" href="{{ asset('/front/') }}/img/icon.png" type="image/x-icon">
-  <link rel="apple-touch-icon" href="{{ asset('/front/') }}/img/icon.png" />
-  @include('front.cssjs')
-  <!-- organization schema code -->
-  <script type="application/ld+json">
-    {
+<meta name="robots" content="index, follow" />
+<title>
+  <?php echo ucwords($meta_title); ?>
+</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta name="description" content="<?php echo $meta_description; ?>">
+<meta name="keywords" content="<?php echo $meta_keyword; ?>">
+<link rel="canonical" href="<?php echo $page_url; ?>/" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="follow, noindex" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="profile" />
+<meta property="og:title" content="<?php echo $title; ?>" />
+<meta property="og:url" content="{{ $page_url }}/" />
+<meta property="og:site_name" content="Tutelage Study" />
+<meta property="og:image:alt" content="Tutelage Study" />
+<meta property="og:image:type" content="image/png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="<?php echo $title; ?>" />
+<meta name="twitter:site" content="@tutelagestudy" />
+<link rel="shortcut icon" href="{{ asset('/front/') }}/img/icon.png" type="image/x-icon">
+<link rel="apple-touch-icon" href="{{ asset('/front/') }}/img/icon.png" />
+@include('front.cssjs')
+<!-- organization schema code -->
+<script type="application/ld+json">
+  {
 
       "@context": "https://schema.org",
 
@@ -112,10 +109,10 @@ $og_image_path = $seo->og_image_path??'';
       ]
 
     }
-  </script>
-  <!-- breadcrumb schema Code -->
-  <script type="application/ld+json">
-    {
+</script>
+<!-- breadcrumb schema Code -->
+<script type="application/ld+json">
+  {
 
       "@context": "https://schema.org/",
 
@@ -148,10 +145,10 @@ $og_image_path = $seo->og_image_path??'';
       }]
 
     }
-  </script>
-  <!-- breadcrumb schema Code End -->
-  <script>
-    (function(w, d, s, l, i) {
+</script>
+<!-- breadcrumb schema Code End -->
+<script>
+  (function(w, d, s, l, i) {
 
       w[l] = w[l] || [];
 
@@ -178,7 +175,5 @@ $og_image_path = $seo->og_image_path??'';
       f.parentNode.insertBefore(j, f);
 
     })(window, document, 'script', 'dataLayer', 'GTM-T4ZDHCD');
-  </script>
-  <!-- End Google Tag Manager -->
-
-</head>
+</script>
+<!-- End Google Tag Manager -->
