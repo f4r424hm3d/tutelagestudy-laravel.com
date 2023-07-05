@@ -3,7 +3,6 @@
 @include('front.layouts.static_page_meta_tag')
 @endpush
 @section('main-section')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <div class="ps-page--single ps-page--vendor">
   <div class="ps-breadcrumb">
     <div class="container">

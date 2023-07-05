@@ -157,7 +157,8 @@
   <aside class="widget widget_shop">
     <ul class="ps-list--categories">
       <li class="current-menu-item menu-item-has-children hide-this">
-        <a data-toggle="collapse">Select Institute Type</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
+        <a data-toggle="collapse">Select Institute Type</a><span class="sub-toggle"><i
+            class="fa fa-angle-down"></i></span>
         <ul class="sub-menu">
           <figure>
             <div class="ps-scrl-bar">
@@ -165,7 +166,14 @@
               $getInstType = $this->mm->getInstType();
               foreach ($getInstType as $row) {
               ?>
-                <label class="check-filter"><?php echo $row->type; ?> <input type="checkbox" id="pub" name="check" value="<?php echo $row->slug; ?>" onclick="<?php echo $_SESSION['unifilter_instype'] == $row->id ? "removeAppliedFilter('unifilter_instype')" : "AppliedFilter('unifilter_instype','" . $row->slug . "')"; ?>" <?php echo $_SESSION['unifilter_instype'] == $row->id ? "checked" : ""; ?> /><span class="checkmark"></span></label>
+              <label class="check-filter">
+                <?php echo $row->type; ?> <input type="checkbox" id="pub" name="check" value="<?php echo $row->slug; ?>"
+                  onclick="<?php echo $_SESSION['unifilter_instype'] == $row->id ? "
+                  removeAppliedFilter('unifilter_instype')" : "AppliedFilter('unifilter_instype','" . $row->slug . "')";
+                ?>"
+                <?php echo $_SESSION['unifilter_instype'] == $row->id ? "checked" : ""; ?> /><span
+                  class="checkmark"></span>
+              </label>
               <?php } ?>
             </div>
           </figure>
@@ -181,11 +189,15 @@
               //printArray($destination);
               foreach ($destination as $row) {
               ?>
-                <label class="check-filter">
-                  <?php echo $row->page_name; ?>
-                  <input type="checkbox" id="pub" name="check" value="<?php echo $row->uni_country_slug; ?>" onclick="<?php echo $_SESSION['unifilter_destination'] == $row->page_name ? "removeAppliedFilter('unifilter_destination')" : "AppliedFilter('unifilter_destination','" . $row->uni_country_slug . "')"; ?>" <?php echo $_SESSION['unifilter_destination'] == $row->page_name ? "checked" : ""; ?> />
-                  <span class="checkmark"></span>
-                </label>
+              <label class="check-filter">
+                <?php echo $row->page_name; ?>
+                <input type="checkbox" id="pub" name="check" value="<?php echo $row->uni_country_slug; ?>"
+                  onclick="<?php echo $_SESSION['unifilter_destination'] == $row->page_name ? "
+                  removeAppliedFilter('unifilter_destination')" : "AppliedFilter('unifilter_destination','" .
+                  $row->uni_country_slug . "')"; ?>"
+                <?php echo $_SESSION['unifilter_destination'] == $row->page_name ? "checked" : ""; ?> />
+                <span class="checkmark"></span>
+              </label>
               <?php } ?>
             </div>
           </figure>
@@ -237,4 +249,3 @@
     }
   }
 </script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

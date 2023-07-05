@@ -1,4 +1,3 @@
-<script async src="{{ cdn('front') }}/js/jquery.min.js"></script>
 {{-- <script src="{{ cdn('front') }}/css/jquery-2.1.4.min.js"></script> --}}
 <link rel="stylesheet" dns-prefetch
   href="{{ cdn('front') }}/plugins/jquery-bar-rating/dist/themes/fontawesome-stars.css" media="all">

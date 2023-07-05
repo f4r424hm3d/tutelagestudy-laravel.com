@@ -3,13 +3,14 @@
 @include('front.layouts.static_page_meta_tag')
 @endpush
 @section('main-section')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <div class="ps-page--single ps-page--vendor">
   <div class="ps-breadcrumb">
     <div class="container">
       <ul class="breadcrumb bread-scrollbar">
         <li><a href="<?= base_url() ?>">Home</a></li>
-        <li><?php echo $lp->exam_name; ?></li>
+        <li>
+          <?php echo $lp->exam_name; ?>
+        </li>
       </ul>
     </div>
   </div>
@@ -25,7 +26,10 @@
                 <?php
                 foreach ($alllp as $alp) {
                 ?>
-                  <option value="<?php echo $alp->exam_slug; ?>/" <?php echo $this->uri->segment(2) == $alp->exam_slug ? 'Selected' : ''; ?>><?php echo $alp->exam_name; ?></option>
+                <option value="<?php echo $alp->exam_slug; ?>/" <?php echo $this->uri->segment(2) == $alp->exam_slug ?
+                  'Selected' : ''; ?>>
+                  <?php echo $alp->exam_name; ?>
+                </option>
                 <?php } ?>
               </select>
             </div>
@@ -35,21 +39,29 @@
 
                 foreach ($rows as $row) {
                 ?>
-                  <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-12 ">
-                    <div class="ps-post ps-product">
-                      <div class="ps-post__thumbnail">
-                        <a class="ps-post__overlay" href="<?php echo base_url($lp->exam_slug.'/'.$row->slug); ?>/"></a>
-                        <img src="<?php echo base_url($row->image_path); ?>" alt="<?php echo $row->page_name; ?>" style="height: 150px;!important">
+                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-12 ">
+                  <div class="ps-post ps-product">
+                    <div class="ps-post__thumbnail">
+                      <a class="ps-post__overlay" href="<?php echo base_url($lp->exam_slug.'/'.$row->slug); ?>/"></a>
+                      <img src="<?php echo base_url($row->image_path); ?>" alt="<?php echo $row->page_name; ?>"
+                        style="height: 150px;!important">
+                    </div>
+                    <div class="ps-post__content">
+                      <div class="ps-post__meta">
+                        <a href="<?php echo base_url($lp->exam_slug); ?>/">
+                          <?php echo $lp->exam_name; ?>
+                        </a>
                       </div>
-                      <div class="ps-post__content">
-                        <div class="ps-post__meta">
-                          <a href="<?php echo base_url($lp->exam_slug); ?>/"><?php echo $lp->exam_name; ?></a>
-                        </div>
-                        <a class="ps-post__title" href="<?php echo base_url($lp->exam_slug.'/'.$row->slug); ?>/" title="<?php echo $row->page_name; ?>" data-toggle="tooltip"><?php echo strlen($row->page_name) > 48 ? substr($row->page_name, 0, 48) . '...' : $row->page_name; ?></a>
-                        <p style="margin-bottom:0px; font-size:11px"><?php echo getFormattedDate($row->created_at, 'd M, Y'); ?> by<span> admin</span></p>
-                      </div>
+                      <a class="ps-post__title" href="<?php echo base_url($lp->exam_slug.'/'.$row->slug); ?>/"
+                        title="<?php echo $row->page_name; ?>" data-toggle="tooltip">
+                        <?php echo strlen($row->page_name) > 48 ? substr($row->page_name, 0, 48) . '...' : $row->page_name; ?>
+                      </a>
+                      <p style="margin-bottom:0px; font-size:11px">
+                        <?php echo getFormattedDate($row->created_at, 'd M, Y'); ?> by<span> admin</span>
+                      </p>
                     </div>
                   </div>
+                </div>
                 <?php } ?>
               </div>
               <div class="ps-pagination">
@@ -72,31 +84,40 @@
                 $npage = $segment4 + 1;
                 if ($tp > 1) {
                 ?>
-                  <ul class="pagination">
-                    <?php if ($ppage > 0) { ?>
-                      <li><a href="javascript:void()" onclick="myfunction(<?php echo $ppage; ?>)">Pre</a></li>
-                    <?php } ?>
-                    <?php if ($b3 > 4) { ?>
-                      <li><a href="javascript:void()" onclick="myfunction('1')">1</a></li>
-                      <li><a href="javascript:void()">...</a></li>
-                    <?php } ?>
-                    <?php if ($b2 > 0) { ?>
-                      <li><a href="javascript:void()" onclick="myfunction(<?php echo $b2; ?>)"><?php echo $b2; ?></a></li>
-                    <?php } ?>
-                    <?php if ($b3 > 0) { ?>
-                      <li class="active"><a style="background-color:#ee6e73;border-color:#ee6e73" href="javascript:void()" onclick="myfunction(<?php echo $b3; ?>)"><?php echo $b3; ?></a></li>
-                    <?php } ?>
-                    <?php if ($b4 <= $tp) { ?>
-                      <li><a href="javascript:void()" onclick="myfunction(<?php echo $b4; ?>)"><?php echo $b4; ?></a></li>
-                    <?php } ?>
-                    <?php if ($tp > 3 && $tp != $segment4 && $b5 != $tp && $b4 != $tp) { ?>
-                      <li><a href="javascript:void()">...</a></li>
-                      <li><a href="javascript:void()" onclick="myfunction(<?php echo $tp; ?>)"><?php echo $tp; ?></a></li>
-                    <?php } ?>
-                    <?php if ($npage <= $tp) { ?>
-                      <li><a href="javascript:void()" onclick="myfunction(<?php echo $npage; ?>)">Next</a></li>
-                    <?php } ?>
-                  </ul>
+                <ul class="pagination">
+                  <?php if ($ppage > 0) { ?>
+                  <li><a href="javascript:void()" onclick="myfunction(<?php echo $ppage; ?>)">Pre</a></li>
+                  <?php } ?>
+                  <?php if ($b3 > 4) { ?>
+                  <li><a href="javascript:void()" onclick="myfunction('1')">1</a></li>
+                  <li><a href="javascript:void()">...</a></li>
+                  <?php } ?>
+                  <?php if ($b2 > 0) { ?>
+                  <li><a href="javascript:void()" onclick="myfunction(<?php echo $b2; ?>)">
+                      <?php echo $b2; ?>
+                    </a></li>
+                  <?php } ?>
+                  <?php if ($b3 > 0) { ?>
+                  <li class="active"><a style="background-color:#ee6e73;border-color:#ee6e73" href="javascript:void()"
+                      onclick="myfunction(<?php echo $b3; ?>)">
+                      <?php echo $b3; ?>
+                    </a></li>
+                  <?php } ?>
+                  <?php if ($b4 <= $tp) { ?>
+                  <li><a href="javascript:void()" onclick="myfunction(<?php echo $b4; ?>)">
+                      <?php echo $b4; ?>
+                    </a></li>
+                  <?php } ?>
+                  <?php if ($tp > 3 && $tp != $segment4 && $b5 != $tp && $b4 != $tp) { ?>
+                  <li><a href="javascript:void()">...</a></li>
+                  <li><a href="javascript:void()" onclick="myfunction(<?php echo $tp; ?>)">
+                      <?php echo $tp; ?>
+                    </a></li>
+                  <?php } ?>
+                  <?php if ($npage <= $tp) { ?>
+                  <li><a href="javascript:void()" onclick="myfunction(<?php echo $npage; ?>)">Next</a></li>
+                  <?php } ?>
+                </ul>
                 <?php } ?>
               </div>
             </div>

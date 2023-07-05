@@ -148,7 +148,8 @@
 <div class="ps-layout__left">
   <aside class="widget widget_shop">
     <ul class="ps-list--categories">
-      <li class="current-menu-item menu-item-has-children"><a href="javascript:void()" data-toggle="collapse">Select Level</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
+      <li class="current-menu-item menu-item-has-children"><a href="javascript:void()" data-toggle="collapse">Select
+          Level</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
         <ul class="sub-menu">
           <figure>
             <div class="ps-scrl-bar">
@@ -156,17 +157,22 @@
               $levels = $this->mm->getLevel();
               foreach ($levels as $level) {
               ?>
-                <label class="check-filter">
-                  <?php echo $level->level; ?>
-                  <input type="checkbox" id="level<?php echo $level->id; ?>" name="check" value="<?php echo $level->level; ?>" onclick="<?php echo isset($_SESSION['filter_level']) && $_SESSION['filter_level'] == $level->level ? "removeAppliedFilter('filter_level')" : "AppliedFilter('filter_level','" . $level->level . "')"; ?>" <?php echo isset($_SESSION['filter_level']) && $_SESSION['filter_level'] == $level->level ? "checked" : ""; ?>>
-                  <span class="checkmark"></span>
-                </label>
+              <label class="check-filter">
+                <?php echo $level->level; ?>
+                <input type="checkbox" id="level<?php echo $level->id; ?>" name="check"
+                  value="<?php echo $level->level; ?>"
+                  onclick="<?php echo isset($_SESSION['filter_level']) && $_SESSION['filter_level'] == $level->level ? "
+                  removeAppliedFilter('filter_level')" : "AppliedFilter('filter_level','" . $level->level . "')"; ?>"
+                <?php echo isset($_SESSION['filter_level']) && $_SESSION['filter_level'] == $level->level ? "checked" : ""; ?>>
+                <span class="checkmark"></span>
+              </label>
               <?php } ?>
             </div>
           </figure>
         </ul>
       </li>
-      <li class="current-menu-item menu-item-has-children"><a href="javascript:void()" data-toggle="collapse">Select Course</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
+      <li class="current-menu-item menu-item-has-children"><a href="javascript:void()" data-toggle="collapse">Select
+          Course</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
         <ul class="sub-menu">
           <figure>
             <div class="ps-scrl-bar">
@@ -179,17 +185,21 @@
               $sg = $this->mm->getDataByOWG('sg', 'ASC', $whrsg, 'sg', 'university_programs');
               foreach ($sg as $sg) {
               ?>
-                <label class="check-filter">
-                  <?php echo $sg->sg; ?>
-                  <input type="checkbox" id="crs<?php echo $sg->id; ?>" name="check" value="<?php echo $sg->sg_slug; ?>" onclick="<?php echo isset($_SESSION['filter_sg']) && $_SESSION['filter_sg'] == $sg->sg_slug ? "removeAppliedFilter('filter_sg')" : "AppliedFilter('filter_sg','" . $sg->sg_slug . "')"; ?>" <?php echo isset($_SESSION['filter_sg']) && $_SESSION['filter_sg'] == $sg->sg_slug ? "checked" : ""; ?>>
-                  <span class="checkmark"></span>
-                </label>
+              <label class="check-filter">
+                <?php echo $sg->sg; ?>
+                <input type="checkbox" id="crs<?php echo $sg->id; ?>" name="check" value="<?php echo $sg->sg_slug; ?>"
+                  onclick="<?php echo isset($_SESSION['filter_sg']) && $_SESSION['filter_sg'] == $sg->sg_slug ? "
+                  removeAppliedFilter('filter_sg')" : "AppliedFilter('filter_sg','" . $sg->sg_slug . "')"; ?>"
+                <?php echo isset($_SESSION['filter_sg']) && $_SESSION['filter_sg'] == $sg->sg_slug ? "checked" : ""; ?>>
+                <span class="checkmark"></span>
+              </label>
               <?php } ?>
             </div>
           </figure>
         </ul>
       </li>
-      <li class="current-menu-item menu-item-has-children"><a href="javascript:void()" data-toggle="collapse">Select Stream</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
+      <li class="current-menu-item menu-item-has-children"><a href="javascript:void()" data-toggle="collapse">Select
+          Stream</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
         <ul class="sub-menu">
           <figure>
             <div class="ps-scrl-bar">
@@ -205,17 +215,23 @@
               $subjects = $this->mm->getDataByOWG('subject', 'ASC', $whrsg, 'subject', 'university_programs');
               foreach ($subjects as $subject) {
               ?>
-                <label class="check-filter">
-                  <?php echo $subject->subject; ?>
-                  <input type="checkbox" id="subject<?php echo $subject->id; ?>" name="check" value="<?php echo $subject->sub_slug; ?>" onclick="<?php echo isset($_SESSION['filter_specialization']) && $_SESSION['filter_specialization'] == $subject->sub_slug ? "removeAppliedFilter('filter_specialization')" : "AppliedFilter('filter_specialization','" . $subject->sub_slug . "')"; ?>" <?php echo isset($_SESSION['filter_specialization']) && $_SESSION['filter_specialization'] == $subject->sub_slug ? "checked" : ""; ?>>
-                  <span class="checkmark"></span>
-                </label>
+              <label class="check-filter">
+                <?php echo $subject->subject; ?>
+                <input type="checkbox" id="subject<?php echo $subject->id; ?>" name="check"
+                  value="<?php echo $subject->sub_slug; ?>"
+                  onclick="<?php echo isset($_SESSION['filter_specialization']) && $_SESSION['filter_specialization'] == $subject->sub_slug ? "
+                  removeAppliedFilter('filter_specialization')" : "AppliedFilter('filter_specialization','" .
+                  $subject->sub_slug . "')"; ?>"
+                <?php echo isset($_SESSION['filter_specialization']) && $_SESSION['filter_specialization'] == $subject->sub_slug ? "checked" : ""; ?>>
+                <span class="checkmark"></span>
+              </label>
               <?php } ?>
             </div>
           </figure>
         </ul>
       </li>
-      <li class="current-menu-item menu-item-has-children"><a href="javascript:void()" data-toggle="collapse">Select Mode</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
+      <li class="current-menu-item menu-item-has-children"><a href="javascript:void()" data-toggle="collapse">Select
+          Mode</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
         <ul class="sub-menu">
           <figure>
             <div class="ps-scrl-bar">
@@ -223,11 +239,15 @@
               $stm = $this->mm->getAllData('study_modes');
               foreach ($stm as $stm) {
               ?>
-                <label class="check-filter">
-                  <?php echo $stm->mode; ?>
-                  <input type="checkbox" id="mode<?php echo $stm->id; ?>" name="check" value="<?php echo $stm->mode; ?>" onclick="<?php echo isset($_SESSION['filter_studymode']) && $_SESSION['filter_studymode'] == $stm->mode ? "removeAppliedFilter('filter_studymode')" : "AppliedFilter('filter_studymode','" . $stm->mode . "')"; ?>" <?php echo isset($_SESSION['filter_studymode']) && $_SESSION['filter_studymode'] == $stm->mode ? "checked" : ""; ?>>
-                  <span class="checkmark"></span>
-                </label>
+              <label class="check-filter">
+                <?php echo $stm->mode; ?>
+                <input type="checkbox" id="mode<?php echo $stm->id; ?>" name="check" value="<?php echo $stm->mode; ?>"
+                  onclick="<?php echo isset($_SESSION['filter_studymode']) && $_SESSION['filter_studymode'] == $stm->mode ? "
+                  removeAppliedFilter('filter_studymode')" : "AppliedFilter('filter_studymode','" . $stm->mode . "')";
+                ?>"
+                <?php echo isset($_SESSION['filter_studymode']) && $_SESSION['filter_studymode'] == $stm->mode ? "checked" : ""; ?>>
+                <span class="checkmark"></span>
+              </label>
               <?php } ?>
             </div>
           </figure>
@@ -261,4 +281,3 @@
     }
   }
 </script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

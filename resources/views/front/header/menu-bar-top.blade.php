@@ -12,14 +12,15 @@ $destinationsSF = Destination::where(['status' => 1])->get();
 
 <body>
   <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T4ZDHCD" height="0" width="0"
-      style="display:none;visibility:hidden"></iframe></noscript>
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T4ZDHCD" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe>
+  </noscript>
   <!-- End Google Tag Manager (noscript) -->
   <header class="header header--1">
     <div class="header__top">
       <div class="ps-container">
         <div class="header__left">
-
           <a class="ps-logo" href="<?php echo url('/'); ?>"><img src="{{ url('front/') }}/img/logo_light.png"
               alt="Tutelage Study logo"></a>
         </div>
@@ -356,7 +357,6 @@ $destinationsSF = Destination::where(['status' => 1])->get();
   <script>
     getFormData();
     function getFormData(){
-
       return new Promise(function(resolve,reject) {
         setTimeout(() => {
           $.ajax({
@@ -380,7 +380,5 @@ $destinationsSF = Destination::where(['status' => 1])->get();
         });
 
       });
-
-
     }
   </script>

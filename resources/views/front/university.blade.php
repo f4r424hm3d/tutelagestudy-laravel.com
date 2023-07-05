@@ -208,7 +208,8 @@ if ($pn > $tp) {
                       <div>
                         <div class="ps-product ps-product--wide">
                           <div class="ps-product__thumbnail universitylogo text-center col-md-2 col-sm-12 col-xs-12">
-                            <img src="<?php echo base_url($key->imgpath); ?>" alt="u<?php echo $key->name; ?>"> </div>
+                            <img src="<?php echo base_url($key->imgpath); ?>" alt="u<?php echo $key->name; ?>">
+                          </div>
                           <div class="ps-product__container col-md-7 col-sm-12 col-xs-12">
                             <div class="ps-product__content">
                               <a class="ps-product__title b"
@@ -461,7 +462,6 @@ if ($pn > $tp) {
     </div>
   </div>
 </div>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
 <script>
   function setModelAttr(img, name) {
     //alert(img + ' , ' + name);
