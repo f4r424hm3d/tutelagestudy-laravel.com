@@ -99,6 +99,7 @@
 </div>
 <div id="back2top"><i class="pe-7s-angle-up"></i></div>
 <script rel="preload" src="{{ cdn('front') }}/js/main.js"></script>
+<script src="{{ cdn('front') }}/js/jquery.min.js"></script>
 <script rel="preload" src="{{ cdn('front') }}/plugins/nouislider/nouislider.min.js"></script>
 <script rel="preload" src="{{ cdn('front') }}/plugins/popper.min.js"></script>
 <script rel="preload" src="{{ cdn('front') }}/plugins/owl-carousel/owl.carousel.min.js"></script>
@@ -115,7 +116,6 @@
 <!--End of Tawk.to Script-->
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script defer src="https://www.googletagmanager.com/gtag/js?id=UA-169815601-1"></script>
-<script async src="{{ cdn('front') }}/js/jquery.min.js"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
 

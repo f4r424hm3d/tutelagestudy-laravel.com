@@ -1,4 +1,3 @@
-{{-- <script src="{{ cdn('front') }}/css/jquery-2.1.4.min.js"></script> --}}
 <link rel="stylesheet" dns-prefetch
   href="{{ cdn('front') }}/plugins/jquery-bar-rating/dist/themes/fontawesome-stars.css" media="all">
 <link rel="stylesheet" href="{{ cdn('front') }}/plugins/font-awesome/css/font-awesome.min.css" as="font">
