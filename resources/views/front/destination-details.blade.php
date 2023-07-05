@@ -574,7 +574,8 @@ $seg2 = Request::segment(2);
 
 
               <div class="pt-0 pb-20 get-detail text-center">
-                <a class="ps-btn" href="<?php echo url('destinations'); ?>/" target="blank" rel="noopener noreferrer">View All Countries</a>
+                <a class="ps-btn" href="<?php echo url('destinations'); ?>/" target="blank"
+                  rel="noopener noreferrer">View All Countries</a>
               </div>
 
               <style>

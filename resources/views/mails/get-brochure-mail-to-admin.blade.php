@@ -74,8 +74,12 @@
                 <li>Name : {{ $name }}</li>
                 <li>Email : {{ $email }}</li>
                 <li>Mobile : {{ $c_code??'' }} {{ $mobile }}</li>
+                @if ($destination != null)
                 <li>Destination : {{ $destination }}</li>
+                @endif
+                @if ($intrested_university != null)
                 <li>University : {{ $intrested_university }}</li>
+                @endif
               </ul>
               </p>
             </td>

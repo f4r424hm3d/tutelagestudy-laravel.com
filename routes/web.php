@@ -179,6 +179,7 @@ Route::post('/inquiry/submit-mbbs-inquiry/', [InquiryController::class, 'submitM
 Route::get('/neet-counselling/', [InquiryController::class, 'neet']);
 Route::post('/inquiry/submit-neet-inquiry/', [InquiryController::class, 'submitNeetInquiry']);
 Route::post('/inquiry/get-brochure/', [InquiryController::class, 'submitBrochureInquiry']);
+Route::post('/inquiry/download-brochure/', [InquiryController::class, 'submitDownloadBrochureInquiry']);
 Route::get('/thank-you/', [InquiryController::class, 'thankyou']);
 
 Route::get('/form/getCountryCode/', [InquiryController::class, 'getCountryCode']);

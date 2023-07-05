@@ -138,21 +138,74 @@ $destinationsSF = Destination::where(['status' => 1])->get();
   </header>
   <div class="ps-panel--sidebar" id="navigation-mobile">
     <div class="ps-panel__header">
-      <h3>Latest News</h3>
+      <h3>Download Brochure</h3>
     </div>
     <div class="ps-panel__content">
-      <ul class="menu--mobile">
-        <?php
-        $allcat = News::orderBy('id','asc')->distinct('cate_id')->get();
-        foreach ($allcat as $cat) {
-        ?>
-        <li class="current-menu-item">
-          <a href="<?php echo url('category/' . $cat->cate_slug); ?>/">
-            <i class="icon-star"></i> {{ $cat->getCategory->cate_name }}
-          </a>
-        </li>
-        <?php } ?>
-      </ul>
+
+      <form action="{{ url('inquiry/download-brochure') }}/" method="post">
+        @csrf
+        <input type="hidden" class="form-control" name="page_url" value="{{ url()->current() }}">
+        <div class="ps-form__content">
+          <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+              <div class="ps-form__billing-info">
+                <div class="row">
+                  <div class="col-sm-5">
+                    <div class="form-group">
+                      <input type="text" name="name" id="name" class="form-control" placeholder="Enter Name"
+                        value="{{ old('name')??'' }}" required>
+                      @error('name')
+                      {{ '<span class="text-danger">' . $message . '</span>' }}
+                      @enderror
+                    </div>
+                  </div>
+                  <div class="col-sm-7">
+                    <div class="form-group">
+                      <input type="email" class="form-control" name="email" id="email" value="{{ old('email')??'' }}"
+                        placeholder="Enter Email" required>
+                      @error('email')
+                      {{ '<span class="text-danger">' . $message . '</span>' }}
+                      @enderror
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                      <input type="c_code" class="form-control" name="c_code" id="c_code"
+                        value="{{ old('c_code')??'+91' }}" placeholder="Country Code" required>
+                      @error('c_code')
+                      {{ '<span class="text-danger">' . $message . '</span>' }}
+                      @enderror
+                    </div>
+                  </div>
+                  <div class="col-sm-9">
+                    <div class="form-group">
+                      <input type="text" class="form-control u-ltr" placeholder="Enter Mobile Number"
+                        data-error="Please enter a valid phone number" name="mobile" id="mobile"
+                        value="<?php echo old('mobile'); ?>" required>
+                      @error('mobile')
+                      {{ '<span class="text-danger">' . $message . '</span>' }}
+                      @enderror
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="keep-update">By clicking Submit, you agree to our <a
+                      href="{{ url('term-and-condition') }}/" class="b black">Terms and
+                      Conditions</a> & <a href="<?php echo url('privacy-policy'); ?>/" class="b black">Privacy
+                      Policy</a></label>
+                </div>
+                <button class="ps-btn w-100" type="submit">
+                  <span class="b">Download</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+
     </div>
   </div>
   <div class="navigation--list">
@@ -161,7 +214,7 @@ $destinationsSF = Destination::where(['status' => 1])->get();
         <i class="icon-menu" aria-hidden="true"></i><span> Menu</span>
       </a>
       <a class="navigation__item ps-toggle--sidebar" href="#navigation-mobile" aria-label="Left Align">
-        <i class="icon-list4" aria-hidden="true"></i><span> Blog</span>
+        <i class="icon-list4" aria-hidden="true"></i><span> Brochure</span>
       </a>
       <a class="navigation__item ps-toggle--sidebar" href="#search-sidebar" aria-label="Left Align">
         <i class="icon-pencil-line" aria-hidden="true"></i><span> Enquire Now</span>
@@ -266,7 +319,8 @@ $destinationsSF = Destination::where(['status' => 1])->get();
                   <div class="ps-checkbox pl-20">
                     <input class="form-control " type="checkbox" name="terms" id="terms">
                     <label for="terms">I agree to the <a href="https://www.tutelagestudy.com/term-and-condition/"
-                        style="color: blue;" target="_blank" rel="noopener noreferrer">terms & conditions</a> .*</label>
+                        style="color: blue;" target="_blank" rel="noopener noreferrer">terms & conditions</a>
+                      .*</label>
                     @error('terms')
                     {!! '<span class="text-danger">' . $message . '</span>' !!}
                     @enderror
