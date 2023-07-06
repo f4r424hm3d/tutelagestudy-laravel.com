@@ -28,8 +28,8 @@ class InquiryController extends Controller
       [
         'name' => 'required|regex:/^[a-zA-Z ]*$/',
         'email' => 'required|email',
-        'c_code' => 'required|numeric',
-        'mobile' => 'required|numeric',
+        'c_code' => 'required|numeric|digits_between:1,5',
+        'mobile' => 'required|numeric|digits_between:9,12',
         'nationality' => 'required',
         'destination' => 'required'
       ]
@@ -124,8 +124,8 @@ class InquiryController extends Controller
       [
         'name' => 'required|regex:/^[a-zA-Z ]*$/',
         'email' => 'required|email:rfc,dns',
-        'c_code' => 'required|numeric',
-        'mobile' => 'required|numeric',
+        'c_code' => 'required|numeric|digits_between:1,5',
+        'mobile' => 'required|numeric|digits_between:9,12',
         'nationality' => 'required',
         'destination' => 'required',
         'terms' => 'required',
@@ -221,7 +221,7 @@ class InquiryController extends Controller
       [
         'name' => 'required|regex:/^[a-zA-Z ]*$/',
         'email' => 'required|email:rfc,dns',
-        'mobile' => 'required|numeric',
+        'mobile' => 'required|numeric|digits_between:9,12',
         'state' => 'required',
         'neet_qualified' => 'required',
         'question' => 'required',
@@ -310,8 +310,8 @@ class InquiryController extends Controller
       [
         'name' => 'required|regex:/^[a-zA-Z ]*$/',
         'email' => 'required|email:rfc,dns',
-        'c_code' => 'required|numeric',
-        'mobile' => 'required|numeric',
+        'c_code' => 'required|numeric|digits_between:1,5',
+        'mobile' => 'required|numeric|digits_between:9,12',
         'university' => 'required|numeric',
       ]
     );
@@ -396,8 +396,8 @@ class InquiryController extends Controller
       [
         'name' => 'required|regex:/^[a-zA-Z ]*$/',
         'email' => 'required|email:rfc,dns',
-        'c_code' => 'required|numeric',
-        'mobile' => 'required|numeric',
+        'c_code' => 'required|numeric|digits_between:1,5',
+        'mobile' => 'required|numeric|digits_between:9,12',
       ]
     );
     $field = new Student();
