@@ -33,7 +33,7 @@ class DestinationC extends Controller
     }
     $page_title = "Destination";
     $page_route = "destinations";
-    $data = compact('rows', 'sd', 'ft', 'url', 'title', 'page_title', 'page_route','countries','users');
+    $data = compact('rows', 'sd', 'ft', 'url', 'title', 'page_title', 'page_route', 'countries', 'users');
     return view('admin.destinations')->with($data);
   }
   public function store(Request $request)
@@ -76,7 +76,7 @@ class DestinationC extends Controller
       }
     }
     $field->page_name = $request['page_name'];
-    $field->slug = slugify($request['page_name']);
+    $field->slug = slugify($request['slug']);
     $field->country = $request['country'];
     $field->author_id = $request['author_id'];
     $field->course_duration = $request['course_duration'];
@@ -138,7 +138,7 @@ class DestinationC extends Controller
       }
     }
     $field->page_name = $request['page_name'];
-    $field->slug = slugify($request['page_name']);
+    $field->slug = slugify($request['slug']);
     $field->country = $request['country'];
     $field->author_id = $request['author_id'];
     $field->course_duration = $request['course_duration'];
@@ -157,5 +157,4 @@ class DestinationC extends Controller
     session()->flash('smsg', 'Record has been updated successfully.');
     return redirect('admin/destinations');
   }
-
 }
