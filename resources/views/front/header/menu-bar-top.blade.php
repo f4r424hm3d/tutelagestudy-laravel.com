@@ -54,7 +54,7 @@ $destinationsSF = Destination::where(['status' => 1])->get();
       <div class="ps-container">
         <div class="navigation__left">
           <div class="menu--product-categories">
-            <div class="menu__toggle"><i class="icon-menu"></i><a href="{{ url('/blog/') }}/">News & Articles</a></div>
+            <div class="menu__toggle"><i class="icon-menu"></i><a href="{{ url('blog') }}/">News & Articles</a></div>
             {{-- <div class="menu__toggle"><i class="icon-menu"></i><span>News Category</span></div> --}}
             {{-- <div class="menu__content">
               <ul class="menu--dropdown">
@@ -414,7 +414,7 @@ $destinationsSF = Destination::where(['status' => 1])->get();
       return new Promise(function(resolve,reject) {
         setTimeout(() => {
           $.ajax({
-            url: "{{ url('form/getCountryCode/') }}/",
+            url: "{{ url('form/getCountryCode') }}/",
             method: "GET",
             success: function(data) {
               //alert(data);
@@ -425,7 +425,7 @@ $destinationsSF = Destination::where(['status' => 1])->get();
 
         setTimeout(() => {
           $.ajax({
-            url: "{{ url('form/getCountry/') }}/",
+            url: "{{ url('form/getCountry') }}/",
             method: "GET",
             success: function(data) {
               $("#mf_nationality").html(data);

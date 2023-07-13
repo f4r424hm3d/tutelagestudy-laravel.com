@@ -75,7 +75,7 @@
       var newscate = $('#newscate').val();
       //alert(newscate);
       if (newscate != '') {
-        window.location.replace("{{ url('/category/') }}/" + newscate);
+        window.location.replace("{{ url('/category') }}/" + newscate);
       } else {
         window.location.replace("<?php echo url('/') ?>blog/");
       }

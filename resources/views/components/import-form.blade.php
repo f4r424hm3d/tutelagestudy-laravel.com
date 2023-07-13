@@ -1,4 +1,4 @@
-<form method="post" action="{{ url('admin/'.$pageRoute.'/import/') }}/" id="import_csv" enctype="multipart/form-data">
+<form method="post" action="{{ url('admin/'.$pageRoute.'/import') }}/" id="import_csv" enctype="multipart/form-data">
   @csrf
   <div class="row">
     <div class="form-group col-md-4 mb-3">

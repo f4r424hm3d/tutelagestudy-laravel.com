@@ -868,7 +868,7 @@ $seg2 = Request::segment(2);
     return new Promise(function(resolve,reject) {
       setTimeout(() => {
         $.ajax({
-          url: "{{ url('destination/getOverview/') }}/",
+          url: "{{ url('destination/getOverview') }}/",
           method: "GET",
           data: {
             tab_title: tab_title,
@@ -884,7 +884,7 @@ $seg2 = Request::segment(2);
 
       setTimeout(() => {
         $.ajax({
-          url: "{{ url('destination/getContent/') }}/",
+          url: "{{ url('destination/getContent') }}/",
           method: "GET",
           data: {
             tab_title: tab_title,
@@ -898,7 +898,7 @@ $seg2 = Request::segment(2);
 
       setTimeout(() => {
         $.ajax({
-          url: "{{ url('destination/getTableContent/') }}/",
+          url: "{{ url('destination/getTableContent') }}/",
           method: "GET",
           data: {
             tab_title: tab_title,
@@ -912,7 +912,7 @@ $seg2 = Request::segment(2);
 
       setTimeout(() => {
         $.ajax({
-          url: "{{ url('destination/getAuthor/') }}/",
+          url: "{{ url('destination/getAuthor') }}/",
           method: "GET",
           data: {
             seg1: seg1,
@@ -925,7 +925,7 @@ $seg2 = Request::segment(2);
 
       setTimeout(() => {
         $.ajax({
-          url: "{{ url('destination/getTestimonial/') }}/",
+          url: "{{ url('destination/getTestimonial') }}/",
           method: "GET",
           data: {
             seg1: seg1,
@@ -938,7 +938,7 @@ $seg2 = Request::segment(2);
 
       setTimeout(() => {
         $.ajax({
-          url: "{{ url('destination/getPhotos/') }}/",
+          url: "{{ url('destination/getPhotos') }}/",
           method: "GET",
           data: {
             seg1: seg1,

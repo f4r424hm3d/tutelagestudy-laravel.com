@@ -187,7 +187,7 @@
     //alert(col + ' ' + val);
     if (a != "") {
       $.ajax({
-        url: "{{ url('university/remove-filter/') }}/",
+        url: "{{ url('university/remove-filter') }}/",
         method: "GET",
         data: {
           value: a
