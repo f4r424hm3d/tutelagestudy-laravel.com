@@ -45,12 +45,10 @@
               @csrf
               <div class="row">
                 <div class="col-md-4 col-sm-12 mb-3">
-                  <x-InputField type="text" label="Exam Name" name="exam_name" id="exam_name" :ft="$ft" :sd="$sd">
-                  </x-InputField>
+                  <x-InputField type="text" label="Exam Name" name="exam_name" id="exam_name" :ft="$ft" :sd="$sd"></x-InputField>
                 </div>
                 <div class="col-md-4 col-sm-12 mb-3">
-                  <x-InputField type="text" label="Seo Rating" name="seo_rating" id="seo_rating" :ft="$ft" :sd="$sd">
-                  </x-InputField>
+                  <x-InputField type="text" label="Seo Rating" name="seo_rating" id="seo_rating" :ft="$ft" :sd="$sd"></x-InputField>
                 </div>
               </div>
               <hr>
@@ -58,10 +56,10 @@
               <x-SeoField :ft="$ft" :sd="$sd"></x-SeoField>
               <!--  SEO INPUT FILED COMPONENT END  -->
               @if ($ft == 'add')
-              <button type="reset" class="btn btn-sm btn-warning  mr-1"><i class="ti-trash"></i> Reset</button>
+                <button type="reset" class="btn btn-sm btn-warning  mr-1"><i class="ti-trash"></i> Reset</button>
               @endif
               @if ($ft == 'edit')
-              <a href="{{ aurl($page_route) }}" class="btn btn-sm btn-info "><i class="ti-trash"></i> Cancel</a>
+                <a href="{{ aurl($page_route) }}" class="btn btn-sm btn-info "><i class="ti-trash"></i> Cancel</a>
               @endif
               <button class="btn btn-sm btn-primary" type="submit">Submit</button>
             </form>
@@ -93,8 +91,7 @@
                   <td>{{ $row->exam_name }}</td>
                   <td>
                     @if ($row->meta_title != null)
-                    <button type="button" class="btn btn-xs btn-outline-info waves-effect waves-light"
-                      data-bs-toggle="modal" data-bs-target="#SeoModalScrollable{{ $row->id }}">View</button>
+                    <button type="button" class="btn btn-xs btn-outline-info waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#SeoModalScrollable{{ $row->id }}">View</button>
                     <div class="modal fade" id="SeoModalScrollable{{ $row->id }}" tabindex="-1" role="dialog"
                       aria-labelledby="SeoModalScrollableTitle{{ $row->id }}" aria-hidden="true">
                       <div class="modal-dialog modal-dialog-scrollable">
@@ -123,7 +120,7 @@
                     @endif
                   </td>
                   <td>
-                    <a target="_blank" rel="noopener noreferrer" href="{{ url('/admin/exam-pages/'.$row->id) }}"
+                    <a target="_blank" href="{{ url('/admin/exam-pages/'.$row->id) }}"
                       class="waves-effect waves-light btn btn-xs btn-outline btn-success">
                       <i class="fa fa-eye" aria-hidden="true"></i>
                     </a>

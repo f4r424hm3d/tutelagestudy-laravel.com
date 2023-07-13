@@ -44,16 +44,13 @@
               @csrf
               <div class="row">
                 <div class="col-md-8 col-sm-12 mb-3">
-                  <x-InputField type="text" label="Enter Service Title" name="headline" id="headline" :ft="$ft"
-                    :sd="$sd"></x-InputField>
+                  <x-InputField type="text" label="Enter Service Title" name="headline" id="headline" :ft="$ft" :sd="$sd"></x-InputField>
                 </div>
                 <div class="col-md-4 col-sm-12 mb-3">
-                  <x-InputField type="file" label="Thumbnail" name="thumbnail" id="thumbnail" :ft="$ft" :sd="$sd">
-                  </x-InputField>
+                  <x-InputField type="file" label="Thumbnail" name="thumbnail" id="thumbnail" :ft="$ft" :sd="$sd"></x-InputField>
                 </div>
                 <div class="col-md-12 col-sm-12 mb-3">
-                  <x-TextareaField label="Description" name="description" id="description" :ft="$ft" :sd="$sd">
-                  </x-TextareaField>
+                  <x-TextareaField label="Description" name="description" id="description" :ft="$ft" :sd="$sd"></x-TextareaField>
                 </div>
               </div>
               <hr>
@@ -61,10 +58,10 @@
               <x-SeoField :ft="$ft" :sd="$sd"></x-SeoField>
               <!--  SEO INPUT FILED COMPONENT END  -->
               @if ($ft == 'add')
-              <button type="reset" class="btn btn-sm btn-warning  mr-1"><i class="ti-trash"></i> Reset</button>
+                <button type="reset" class="btn btn-sm btn-warning  mr-1"><i class="ti-trash"></i> Reset</button>
               @endif
               @if ($ft == 'edit')
-              <a href="{{ aurl($page_route) }}" class="btn btn-sm btn-info "><i class="ti-trash"></i> Cancel</a>
+                <a href="{{ aurl($page_route) }}" class="btn btn-sm btn-info "><i class="ti-trash"></i> Cancel</a>
               @endif
               <button class="btn btn-sm btn-primary" type="submit">Submit</button>
             </form>
@@ -98,8 +95,7 @@
                   <td>{{ $row->headline }}</td>
                   <td>
                     @if ($row->description != null)
-                    <button type="button" class="btn btn-xs btn-outline-info waves-effect waves-light"
-                      data-bs-toggle="modal" data-bs-target="#SModalScrollable{{ $row->id }}">View</button>
+                    <button type="button" class="btn btn-xs btn-outline-info waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#SModalScrollable{{ $row->id }}">View</button>
                     <div class="modal fade" id="SModalScrollable{{ $row->id }}" tabindex="-1" role="dialog"
                       aria-labelledby="SModalScrollableTitle{{ $row->id }}" aria-hidden="true">
                       <div class="modal-dialog modal-dialog-scrollable">
@@ -132,8 +128,7 @@
                   </td>
                   <td>
                     @if ($row->meta_title != null)
-                    <button type="button" class="btn btn-xs btn-outline-info waves-effect waves-light"
-                      data-bs-toggle="modal" data-bs-target="#SeoModalScrollable{{ $row->id }}">View</button>
+                    <button type="button" class="btn btn-xs btn-outline-info waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#SeoModalScrollable{{ $row->id }}">View</button>
                     <div class="modal fade" id="SeoModalScrollable{{ $row->id }}" tabindex="-1" role="dialog"
                       aria-labelledby="SeoModalScrollableTitle{{ $row->id }}" aria-hidden="true">
                       <div class="modal-dialog modal-dialog-scrollable">

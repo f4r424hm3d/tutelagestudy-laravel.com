@@ -145,7 +145,7 @@ $destinationsSF = Destination::where(['status' => 1])->get();
       <form action="{{ url('inquiry/download-brochure') }}/" method="post">
         @csrf
         <input type="hidden" class="form-control" name="page_url" value="{{ url()->current() }}">
-        <div class="ps-form__content">
+        <div class="ps-form__content" style="padding:20px">
           <div class="row">
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
               <div class="ps-form__billing-info">

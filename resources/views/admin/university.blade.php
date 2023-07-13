@@ -201,7 +201,7 @@
                     <?php echo $row->getInstType->type??''; ?><br>
                   </td>
                   <td>
-                    {{ $row->author_id != null ? $row->getAuthor->name : ''; }}
+                    <?php echo $row->author_id != null ? $row->getAuthor->name : ''; ?>
                   </td>
                   <td>
                     @if ($row->imgpath != null)
