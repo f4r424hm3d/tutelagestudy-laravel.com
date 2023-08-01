@@ -1,8 +1,12 @@
 @php
 use App\Models\News;
 use App\Models\Destination;
+use App\Models\Country;
 
 $destinationsSF = Destination::where(['status' => 1])->get();
+$phonecodesSF = Country::select('phonecode', 'name')->where('phonecode','!=','0')->orderBy('phonecode', 'asc')->get();
+$countriesSF = Country::orderBy('name', 'asc')->get();
+
 @endphp
 <style>
   .hide-this {
@@ -268,7 +272,14 @@ $destinationsSF = Destination::where(['status' => 1])->get();
                   <div class="form-group">
                     <select class="form-control" name="c_code" id="mb_c_code" required>
                       <option value="">Select Code</option>
-
+                      <?php
+                      foreach ($phonecodesSF as $row) {
+                      ?>
+                      <option value="<?php echo $row->phonecode; ?>" <?php echo old('c_code')==$row->phonecode ?
+                        'Selected' : ''; ?>>
+                        <?php echo $row->phonecode; ?> ({{ $row->name }})
+                      </option>
+                      <?php } ?>
                     </select>
                     @error('c_code')
                     {!! '<span class="text-danger">' . $message . '</span>' !!}
@@ -289,7 +300,14 @@ $destinationsSF = Destination::where(['status' => 1])->get();
                   <div class="form-group">
                     <select class="form-control" name="nationality" id="mf_nationality" required>
                       <option value="">Select Nationality</option>
-
+                      <?php
+                      foreach ($countriesSF as $row) {
+                      ?>
+                      <option value="<?php echo $row->name; ?>" <?php echo old('nationality')==$row->name ?
+                        'Selected' : ''; ?>>
+                        <?php echo $row->name; ?>
+                      </option>
+                      <?php } ?>
                     </select>
                     @error('nationality')
                     {!! '<span class="text-danger">' . $message . '</span>' !!}
@@ -411,28 +429,24 @@ $destinationsSF = Destination::where(['status' => 1])->get();
   <script>
     getFormData();
     function getFormData(){
+
       return new Promise(function(resolve,reject) {
-        setTimeout(() => {
-          $.ajax({
-            url: "{{ url('form/getCountryCode') }}/",
-            method: "GET",
-            success: function(data) {
-              //alert(data);
-              $("#mb_c_code").html(data);
-            }
-          });
+        $.ajax({
+          url: "{{ url('form/getCountryCode') }}/",
+          method: "GET",
+          success: function(data) {
+            alert(data);alert("Hello");
+            $("#mb_c_code").html(data);
+          }
         });
-
-        setTimeout(() => {
-          $.ajax({
-            url: "{{ url('form/getCountry') }}/",
-            method: "GET",
-            success: function(data) {
-              $("#mf_nationality").html(data);
-            }
-          });
+        $.ajax({
+          url: "{{ url('form/getCountry') }}/",
+          method: "GET",
+          success: function(data) {
+            alert(data);alert("Hello");
+            $("#mf_nationality").html(data);
+          }
         });
-
       });
     }
   </script>

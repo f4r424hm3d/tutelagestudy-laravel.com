@@ -164,6 +164,8 @@
   document.addEventListener("scroll", handleScroll);
 </script>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
 <script>
   $('a[href*="#"]')
     .not('[href="#"]')
@@ -196,8 +198,6 @@
   });
 </script>
 
-
-
 <!-- Whatsapp Box and Button -->
 <style>
   /* whatsapp css */
@@ -219,7 +219,7 @@
     background-color: #2db742;
     color: #FFF;
     border-radius: 2px 0 0 2px;
-    z-index: 999;
+    z-index: 9999;
     transition: all 0.5s ease-in-out;
     vertical-align: middle;
     border-radius: 0px 6px 6px 0px;
@@ -411,11 +411,11 @@
 
 <script>
   function openForm() {
-document.getElementById("myForm").style.display = "block";
-}
-function closeForm() {
-document.getElementById("myForm").style.display = "none";
-}
+    document.getElementById("myForm").style.display = "block";
+  }
+  function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+  }
 </script>
 <!-- Whatsapp Box and Button -->
 
@@ -444,7 +444,7 @@ $finalUrl = url($form_url);
       </a>
     </li>
     <li>
-      <a onclick="window.location.href='<?php echo $finalUrl; ?>/'" href="javascript:void()" title="Free Counselling">
+      <a onclick="window.location.href='<?php echo $finalUrl; ?>'" href="javascript:void()" title="Free Counselling">
         <div>
           <img src="{{ asset('/front/') }}/img/icons/counselling.png" alt="Free Counselling">
         </div>

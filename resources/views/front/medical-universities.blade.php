@@ -310,5 +310,39 @@
     // $('#uniImgTag').attr('src', imgpath);
     window.open("{{ url('mbbs-abroad-counselling') }}/","_self");
   }
+
+  function removeAppliedFilter(a) {
+    //alert(col + ' ' + val);
+    if (a != "") {
+      $.ajax({
+        url: "{{ url('university/remove-filter') }}/",
+        method: "GET",
+        data: {
+          value: a
+        },
+        success: function(b) {
+          if (a == "unifilter_destination") {
+            window.location.replace("<?php echo url('medical-universities/'); ?>/");
+          } else {
+            location.reload(true);
+          }
+        }
+      });
+    }
+  }
+
+  function AppliedFilter(col, val) {
+    //alert(col + ' ' + val);
+    var fval = val.toLowerCase();
+    fval = fval.replace(" ", "-");
+
+    if (col == 'unifilter_destination') {
+      var path = 'medical-universities-in-' + fval;
+      window.location.replace("<?php echo url('/'); ?>/" + path + "/");
+    } else {
+      location.reload(true);
+    }
+  }
+
 </script>
 @endsection
