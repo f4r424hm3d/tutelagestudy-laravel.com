@@ -46,7 +46,7 @@
                   <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
                     <div class="ps-post ps-product shadow">
                       <div class="ps-post__thumbnail">
-                        <img src="<?php echo asset($row->imgpath); ?>" alt="<?php echo $row->headline; ?>">
+                        <img data-src="<?php echo asset($row->imgpath); ?>" alt="<?php echo $row->headline; ?>">
                       </div>
                       <div class="ps-post__content" style="border:0px; padding:20px 25px">
                         <div class="ps-post__title"><?php echo $row->headline; ?></div>

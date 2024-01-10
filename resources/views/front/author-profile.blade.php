@@ -177,7 +177,7 @@
   <div class="container">
     <div class="card mb-3 p-4">
       <div class="row align-items-center">
-        <div class="col-md-3"><img src="<?php echo asset($author->profile_pic_path) ?>" alt="{{ $author->name }}" class="rounded img-fluid mb-4"></div>
+        <div class="col-md-3"><img data-src=="<?php echo asset($author->profile_pic_path) ?>" alt="{{ $author->name }}" class="rounded img-fluid mb-4"></div>
         <div class="col-md-9">
           <h1><?php echo $author->name; ?> <small>(Content Curator)</small></h1>
           <hr>
@@ -219,7 +219,7 @@
 								<div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-12 ">
 									<div class="ps-post ps-product">
 										<div class="ps-post__thumbnail">
-											<a class="ps-post__overlay" href="<?php echo url($row->slug); ?>/"></a><img src="<?php echo asset($row->imgpath); ?>" alt="<?php echo $row->headline; ?>" style="height: 150px;!important">
+											<a class="ps-post__overlay" href="<?php echo url($row->slug); ?>/"></a><img data-src=="<?php echo asset($row->imgpath); ?>" alt="<?php echo $row->headline; ?>" style="height: 150px;!important">
 										</div>
 										<div class="ps-post__content">
 											<div class="ps-post__meta"><a href="<?php echo url('category/' . $row->cate_slug); ?>/"><?php echo ucwords(str_replace('-', ' ', $row->cate_slug)); ?></a></div>
@@ -240,7 +240,7 @@
 									<div class="ps-post ps-product">
 										<div class="ps-post__thumbnail">
 											<a class="ps-post__overlay" href="<?php echo url($row->slug); ?>/"></a>
-											<img src="<?php echo asset($row->thumbnail); ?>" alt="<?php echo $row->page_name; ?>" style="height: 150px;!important">
+											<img data-src=="<?php echo asset($row->thumbnail); ?>" alt="<?php echo $row->page_name; ?>" style="height: 150px;!important">
 										</div>
 										<div class="ps-post__content">
 											<a class="ps-post__title" href="<?php echo url($row->slug); ?>/" title="<?php echo $row->page_name; ?>" data-toggle="tooltip"><?php echo $row->page_name; ?></a>
@@ -259,7 +259,7 @@
 									<div class="ps-post ps-product">
 										<div class="ps-post__thumbnail">
 											<a class="ps-post__overlay" href="<?php echo url($row->getExam->exam_slug.'/'.$row->slug); ?>/"></a>
-											<img src="<?php echo asset($row->image_path); ?>" alt="<?php echo $row->page_name; ?>" style="height: 150px;!important">
+											<img data-src=="<?php echo asset($row->image_path); ?>" alt="<?php echo $row->page_name; ?>" style="height: 150px;!important">
 										</div>
 										<div class="ps-post__content">
 											<div class="ps-post__meta">

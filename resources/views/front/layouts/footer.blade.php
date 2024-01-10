@@ -344,7 +344,7 @@
 <div class="whats-float">
   <a href="javascript:void()" class="open-button" onClick="openForm()">
     <span>Need any help<br><small>Chat with us</small></span>
-    <img src="{{ asset('/front/') }}/img/wa.png" width="30" alt="whatsapp image"></a>
+    <img data-src="{{ asset('/front/') }}/img/wa.png" width="30" alt="whatsapp image"></a>
 </div>
 
 <div class="chat-popup" id="myForm">
@@ -352,7 +352,7 @@
     <button type="button" class="cancel" onClick="closeForm()"><i class="fa fa-close"></i></button>
     <div class="header">
       <div class="row">
-        <div class="col-2 pr0"><img src="{{ asset('/front/') }}/img/wa.png" alt="whatsapp image" class="img-fluid">
+        <div class="col-2 pr0"><img data-src="{{ asset('/front/') }}/img/wa.png" alt="whatsapp image" class="img-fluid">
         </div>
         <div class="col-10">
           <div class="title">Talk to Our Expert Counsellors</div>
@@ -365,13 +365,13 @@
       <a class="country-box" target="_blank" rel="noopener noreferrer"
         href="https://api.whatsapp.com/send?phone=919667667331&amp;text=Hello there!! I want to get counseling by experts. Want to know more information about Tutelage Study | www.tutelagestudy.com">
         <div class="row align-items-center">
-          <div class="col-2 pr0"><img src="{{ asset('/front/') }}/img/flag-india.png" alt="whatsapp now"
+          <div class="col-2 pr0"><img data-src="{{ asset('/front/') }}/img/flag-india.png" alt="whatsapp now"
               class="img-fluid"></div>
           <div class="col-8 pr0">
             <strong>India Office, Gurgaon</strong><br>
             Start Chat with Mr. Gaurav
           </div>
-          <div class="col-2 pl0 text-right"><img src="{{ asset('/front/') }}/img/wad.png" alt="whatsapp now" width="20">
+          <div class="col-2 pl0 text-right"><img data-src="{{ asset('/front/') }}/img/wad.png" alt="whatsapp now" width="20">
           </div>
         </div>
       </a>
@@ -379,13 +379,13 @@
       <a class="country-box" target="_blank" rel="noopener noreferrer"
         href="https://api.whatsapp.com/send?phone=919342914452&amp;text=Hello there!! I want to get counseling by experts. Want to know more information about Tutelage Study | www.tutelagestudy.com">
         <div class="row align-items-center">
-          <div class="col-2 pr0"><img src="{{ asset('/front/') }}/img/flag-india.png" alt="whatsapp now"
+          <div class="col-2 pr0"><img data-src="{{ asset('/front/') }}/img/flag-india.png" alt="whatsapp now"
               class="img-fluid"></div>
           <div class="col-8 pr0">
             <strong>India Office, Chennai</strong><br>
             Start Chat with Ms. Anitha
           </div>
-          <div class="col-2 pl0 text-right"><img src="{{ asset('/front/') }}/img/wad.png" alt="whatsapp now" width="20">
+          <div class="col-2 pl0 text-right"><img data-src="{{ asset('/front/') }}/img/wad.png" alt="whatsapp now" width="20">
           </div>
         </div>
       </a>
@@ -393,13 +393,13 @@
       <a class="country-box" target="_blank" rel="noopener noreferrer"
         href="https://api.whatsapp.com/send?phone=919619593689&amp;text=Hello there!! I want to get counseling by experts. Want to know more information about Tutelage Study | www.tutelagestudy.com">
         <div class="row align-items-center">
-          <div class="col-2 pr0"><img src="{{ asset('/front/') }}/img/flag-india.png" alt="whatsapp image"
+          <div class="col-2 pr0"><img data-src="{{ asset('/front/') }}/img/flag-india.png" alt="whatsapp image"
               class="img-fluid"></div>
           <div class="col-8 pr0">
             <strong>India Office, Mumbai</strong><br>
             Start Chat with Mr. Piyush
           </div>
-          <div class="col-2 pl0 text-right"><img src="{{ asset('/front/') }}/img/wad.png" alt="whatsapp image"
+          <div class="col-2 pl0 text-right"><img data-src="{{ asset('/front/') }}/img/wad.png" alt="whatsapp image"
               width="20"></div>
         </div>
       </a>
@@ -439,26 +439,44 @@ $finalUrl = url($form_url);
   <ul>
     <li>
       <a href="tel:+919818560331" title="Call Us">
-        <div><img src="{{ asset('/front/') }}/img/icons/phone.png" alt="call us"></div>
+        <div><img data-src="{{ asset('/front/') }}/img/icons/phone.png" alt="call us"></div>
         Call Us
       </a>
     </li>
     <li>
       <a onclick="window.location.href='<?php echo $finalUrl; ?>'" href="javascript:void()" title="Free Counselling">
         <div>
-          <img src="{{ asset('/front/') }}/img/icons/counselling.png" alt="Free Counselling">
+          <img data-src="{{ asset('/front/') }}/img/icons/counselling.png" alt="Free Counselling">
         </div>
         <span>Free</span> Counselling
       </a>
     </li>
     <li>
       <a href="mailto:studytutelage@gmail.com" title="Email Us">
-        <div><img src="{{ asset('/front/') }}/img/icons/email.png" alt="email us"></div>
+        <div><img data-src="{{ asset('/front/') }}/img/icons/email.png" alt="email us"></div>
         Email Us
       </a>
     </li>
   </ul>
 </div>
-</body>
+<script>
+	document.addEventListener("DOMContentLoaded", function() {
+		var lazyImages = document.querySelectorAll('[data-src]');
 
+		var observer = new IntersectionObserver(function(entries, observer) {
+			entries.forEach(function(entry) {
+				if (entry.isIntersecting) {
+					var lazyImage = entry.target;
+					lazyImage.src = lazyImage.dataset.src;
+					observer.unobserve(lazyImage);
+				}
+			});
+		});
+
+		lazyImages.forEach(function(lazyImage) {
+			observer.observe(lazyImage);
+		});
+	});
+</script>
+</body>
 </html>

@@ -169,13 +169,13 @@
 <section class="onlineCoaching">
   <div class="container">
     <div class="row">
-      <div class="col-xl-5 col-lg-5 col-md-5 col-sm-6 col-12"><img src="{{ asset('/front/') }}/img/who-we-are.jpg"
+      <div class="col-xl-5 col-lg-5 col-md-5 col-sm-6 col-12"><img data-src="{{ asset('/front/') }}/img/who-we-are.jpg"
           alt="Who we are ?" border="0" width="w-100"></div>
       <div class="col-xl-7 col-lg-7 col-md-7 col-sm-6 col-12">
         <h2 class="main-h1">Who we are ?</h2>
         <p class="onlinePrepare">We're #1 MBBS Abroad Consultants in India</p>
-        <p>Tutelage Study is currently dealing with study MBBS Abroad Education for Indian Students.</p>
-        <p>You will be able to enroll in the best medical colleges in the world thanks to Tutelage Study. The desire of
+        <p>Tutelage Study is currently dealing with study <a href="https://www.tutelagestudy.com/mbbs-in-abroad/">MBBS Abroad</a> Education for Indian Students.</p>
+        <p class="jsfy">You will be able to enroll in the best medical colleges in the world thanks to Tutelage Study. The desire of
           many students is to join MBBS Abroad in top countries like Cyprus, Belarus, Vietnam, Georgia, Russia, and
           more. If you belong to such a group, we can direct you in the correct direction. Your future visions will be
           built by your international education, so start laying the groundwork today for bigger accomplishments. You
@@ -200,7 +200,7 @@
           <a class="ps-block__overlay" href="<?php echo url('medical-universities'); ?>/" target="_blank"
             rel="noopener noreferrer">All
             Universities</a>
-          <img src="<?php echo url('front'); ?>/img/find-university.jpg" alt="All Universities"
+          <img data-src="<?php echo url('front'); ?>/img/find-university.jpg" alt="All Universities"
             style="width:100%!important">
           <h4 class="pt-10 mb-0 button cur-conver-btn">Find All Universities</h4>
         </div>
@@ -210,7 +210,7 @@
           <br>
           <a class="ps-block__overlay" href="<?php echo url('services'); ?>/" target="_blank"
             rel="noopener noreferrer">Services</a>
-          <img src="<?php echo url('front'); ?>/img/top-courses.jpg" alt="Services" style="width:100%!important">
+          <img data-src="<?php echo url('front'); ?>/img/top-courses.jpg" alt="Services" style="width:100%!important">
           <h4 class="pt-10 mb-0 button cur-conver-btn">Our Services</h4>
         </div>
       </div>
@@ -219,7 +219,7 @@
           <br>
           <a class="ps-block__overlay" href="<?php echo url('destinations'); ?>/" target="_blank"
             rel="noopener noreferrer">MBBS Countries</a>
-          <img src="<?php echo url('front'); ?>/img/exams.jpg" alt="All Destinations" style="width:100%!important">
+          <img data-src="<?php echo url('front'); ?>/img/exams.jpg" alt="All Destinations" style="width:100%!important">
           <h4 class="pt-10 mb-0 button cur-conver-btn">All Destinations</h4>
         </div>
       </div>
@@ -227,7 +227,7 @@
         <div class="ps-block--category">
           <br>
           <a class="ps-block__overlay" href="<?php echo url('blog'); ?>/" target="_blank"
-            rel="noopener noreferrer">Blog</a> <img src="<?php echo url('front'); ?>/img/news.jpg" alt="latest news"
+            rel="noopener noreferrer">Blog</a> <img data-src="<?php echo url('front'); ?>/img/news.jpg" alt="latest news"
             style="width:100%!important">
           <h4 class="pt-10 mb-0 button cur-conver-btn">News & Article</h4>
         </div>
@@ -237,7 +237,7 @@
           <br>
           <a class="ps-block__overlay" href="<?php echo url('mbbs-abroad-counselling'); ?>/" target="_blank"
             rel="noopener noreferrer">Inquiry
-            Now</a> <img src="<?php echo url('front'); ?>/img/scholarship.jpg" alt="Enquire Now"
+            Now</a> <img data-src="<?php echo url('front'); ?>/img/scholarship.jpg" alt="Enquire Now"
             style="width:100%!important">
           <h4 class="pt-10 mb-0 button cur-conver-btn">Free Counselling</h4>
         </div>
@@ -391,7 +391,7 @@
           <div class="servicebox">
             <div class="service-icon"><span><i class="fa fa-language"></i></span></div>
             <h3 class="title">Study in English medium</h3>
-            <p>Studying MBBS abroad doesn't require paying a huge amount of fees. When you apply via Tutelage, you can
+            <p>Studying <a href="https://www.tutelagestudy.com/mbbs-in-uzbekistan/">MBBS</a> abroad doesn't require paying a huge amount of fees. When you apply via Tutelage, you can
               experience a low tuition fee structure and minimal living cost</p>
           </div>
         </div>
@@ -410,7 +410,7 @@
       <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
 
         <div class="ps-post ps-product shadow">
-          <div class="ps-post__thumbnail"><img src="{{ asset('/front/') }}/img/mbbs-malaysia.jpg"
+          <div class="ps-post__thumbnail"><img data-src="{{ asset('/front/') }}/img/mbbs-malaysia.jpg"
               alt="MBBS in Malaysia"></div>
           <div class="ps-post__content" style="border:0px; padding:12px 0px; background:#fff">
             <a class="ps-post__title text-center" href="https://www.tutelagestudy.com/mbbs-in-malaysia/">MBBS IN
@@ -422,7 +422,7 @@
       <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
         <a href="https://www.tutelagestudy.com/mbbs-in-russia/">
           <div class="ps-post ps-product shadow">
-            <div class="ps-post__thumbnail"><img src="{{ asset('/front/') }}/img/mbbs-russia.jpg" alt="MBBS in russia">
+            <div class="ps-post__thumbnail"><img data-src="{{ asset('/front/') }}/img/mbbs-russia.jpg" alt="MBBS in russia">
             </div>
             <div class="ps-post__content" style="border:0px; padding:12px 0px; background:#fff">
               <div class="ps-post__title text-center">MBBA IN RUSSIA</div>
@@ -432,7 +432,7 @@
       </div>
       <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
         <div class="ps-post ps-product shadow">
-          <div class="ps-post__thumbnail"><img src="{{ asset('/front/') }}/img/mbbs-mauritius.jpg"
+          <div class="ps-post__thumbnail"><img data-src="{{ asset('/front/') }}/img/mbbs-mauritius.jpg"
               alt="MBBS in Mauritius"></div>
           <div class="ps-post__content" style="border:0px; padding:12px 0px; background:#fff">
             <a href="https://www.tutelagestudy.com/mbbs-in-mauritius/" class="ps-post__title text-center">MBBS IN
@@ -442,7 +442,7 @@
       </div>
       <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
         <div class="ps-post ps-product shadow">
-          <div class="ps-post__thumbnail"><img src="{{ asset('/front/') }}/img/mbbs-iran.jpg" alt="MBBS in Iran"></div>
+          <div class="ps-post__thumbnail"><img data-src="{{ asset('/front/') }}/img/mbbs-iran.jpg" alt="MBBS in Iran"></div>
           <div class="ps-post__content" style="border:0px; padding:12px 0px; background:#fff">
             <a href="https://www.tutelagestudy.com/mbbs-in-iran/" href="https://www.tutelagestudy.com/mbbs-in-iran/"
               class="ps-post__title text-center">MBBS IN IRAN</a>
@@ -451,7 +451,7 @@
       </div>
       <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
         <div class="ps-post ps-product shadow">
-          <div class="ps-post__thumbnail"><img src="{{ asset('/front/') }}/img/mbbs-vietnam.jpg" alt="MBBS in Vietnam">
+          <div class="ps-post__thumbnail"><img data-src="{{ asset('/front/') }}/img/mbbs-vietnam.jpg" alt="MBBS in Vietnam">
           </div>
           <div class="ps-post__content" style="border:0px; padding:12px 0px; background:#fff">
             <a href="https://www.tutelagestudy.com/mbbs-in-vietnam/" class="ps-post__title text-center">MBBS IN
@@ -461,7 +461,7 @@
       </div>
       <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
         <div class="ps-post ps-product shadow">
-          <div class="ps-post__thumbnail"><img src="{{ asset('/front/') }}/img/mbbs-cyprus.jpg" alt="MBBS in Cyprus">
+          <div class="ps-post__thumbnail"><img data-src="{{ asset('/front/') }}/img/mbbs-cyprus.jpg" alt="MBBS in Cyprus">
           </div>
           <div class="ps-post__content" style="border:0px; padding:12px 0px; background:#fff">
             <a href="https://www.tutelagestudy.com/mbbs-in-cyprus/" class="ps-post__title text-center">MBBS IN
@@ -471,7 +471,7 @@
       </div>
       <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
         <div class="ps-post ps-product shadow">
-          <div class="ps-post__thumbnail"><img src="{{ asset('/front/') }}/img/mbbs-belarus.jpg" alt="MBBS in Belarus">
+          <div class="ps-post__thumbnail"><img data-src="{{ asset('/front/') }}/img/mbbs-belarus.jpg" alt="MBBS in Belarus">
           </div>
           <div class="ps-post__content" style="border:0px; padding:12px 0px; background:#fff">
             <a href="https://www.tutelagestudy.com/mbbs-in-belarus/" class="ps-post__title text-center">MBBS IN
@@ -481,7 +481,7 @@
       </div>
       <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
         <div class="ps-post ps-product shadow">
-          <div class="ps-post__thumbnail"><img src="{{ asset('/front/') }}/img/mbbs-bangladesh.jpg"
+          <div class="ps-post__thumbnail"><img data-src="{{ asset('/front/') }}/img/mbbs-bangladesh.jpg"
               alt="MBBS in Bangladesh"></div>
           <div class="ps-post__content" style="border:0px; padding:12px 0px; background:#fff">
             <a href="https://www.tutelagestudy.com/mbbs-in-bangladesh/" class="ps-post__title text-center">MBBS IN
@@ -507,35 +507,35 @@
           <ul>
             <li>
               <div>
-                <span class="counselling-right-image"><img src="{{ asset('front/') }}/img/Oicon1.png"
+                <span class="counselling-right-image"><img data-src="{{ asset('front/') }}/img/Oicon1.png"
                     alt="Online Coaching Icon"></span>
                 <p>Unlimited Access to Course</p>
               </div>
             </li>
             <li>
               <div>
-                <span class="counselling-right-image"><img src="{{ asset('front/') }}/img/Oicon2.png"
+                <span class="counselling-right-image"><img data-src="{{ asset('front/') }}/img/Oicon2.png"
                     alt="Online Coaching Icon"></span>
                 <p>Live Online Classes</p>
               </div>
             </li>
             <li>
               <div>
-                <span class="counselling-right-image"><img src="{{ asset('front/') }}/img/Oicon3.png"
+                <span class="counselling-right-image"><img data-src="{{ asset('front/') }}/img/Oicon3.png"
                     alt="Online Coaching Icon"></span>
                 <p>Learn from Subject Matter Experts</p>
               </div>
             </li>
             <li>
               <div>
-                <span class="counselling-right-image"><img src="{{ asset('front/') }}/img/Oicon4.png"
+                <span class="counselling-right-image"><img data-src="{{ asset('front/') }}/img/Oicon4.png"
                     alt="Online Coaching Icon"></span>
                 <p>Consult Experts Anytime</p>
               </div>
             </li>
           </ul>
-          <a href="https://www.britannicaoverseas.com/ielts-coaching-in-gurgaon/" target="_blank"
-            rel="noopener noreferrer" class="button home-btn">Know More</a>
+          <a href="https://www.tutelagestudy.com/mbbs-in-india/"
+            class="button home-btn">Know More</a>
         </div>
       </div>
       <div class="col-md-6">
@@ -641,7 +641,7 @@
           <ul>
             <li>
               <div>
-                <span class="counselling-right-image"><img src="{{ asset('front/') }}/img/Cicon1.png"
+                <span class="counselling-right-image"><img data-src="{{ asset('front/') }}/img/Cicon1.png"
                     alt="Conselling Icon"></span>
                 <p>No Hidden <br>
                   Charges
@@ -650,7 +650,7 @@
             </li>
             <li>
               <div>
-                <span class="counselling-right-image"><img src="{{ asset('front/') }}/img/Cicon2.png"
+                <span class="counselling-right-image"><img data-src="{{ asset('front/') }}/img/Cicon2.png"
                     alt="Conselling Icon"></span>
                 <p>1 on 1 <br>
                   Counselling
@@ -659,7 +659,7 @@
             </li>
             <li>
               <div>
-                <span class="counselling-right-image"><img src="{{ asset('front/') }}/img/Cicon3.png"
+                <span class="counselling-right-image"><img data-src="{{ asset('front/') }}/img/Cicon3.png"
                     alt="Conselling Icon"></span>
                 <p>100% Online <br>
                   Process
@@ -668,7 +668,7 @@
             </li>
             <li>
               <div>
-                <span class="counselling-right-image"><img src="{{ asset('front/') }}/img/Cicon4.png"
+                <span class="counselling-right-image"><img data-src="{{ asset('front/') }}/img/Cicon4.png"
                     alt="Conselling Icon"></span>
                 <p>Counselling by<br />
                   Experts
@@ -677,7 +677,7 @@
             </li>
             <li>
               <div>
-                <span class="counselling-right-image"><img src="{{ asset('front/') }}/img/Cicon5.png"
+                <span class="counselling-right-image"><img data-src="{{ asset('front/') }}/img/Cicon5.png"
                     alt="Conselling Icon"></span>
                 <p>No need to step <br>
                   out of home
@@ -686,7 +686,7 @@
             </li>
             <li>
               <div>
-                <span class="counselling-right-image"><img src="{{ asset('front/') }}/img/Cicon6.png"
+                <span class="counselling-right-image"><img data-src="{{ asset('front/') }}/img/Cicon6.png"
                     alt="Conselling Icon"></span>
                 <p>Loan Support @ <br>
                   0% Interest
@@ -715,7 +715,7 @@
           ?>
           <div class="ps-post ps-product">
             <div class="ps-post__thumbnail">
-              <img src="<?php echo url($row->imgpath); ?>" alt="<?php echo $row->headline; ?>"
+              <img data-src="<?php echo url($row->imgpath); ?>" alt="<?php echo $row->headline; ?>"
                 style="width:100%; height: 150px;!important">
             </div>
             <div class="ps-post__content">

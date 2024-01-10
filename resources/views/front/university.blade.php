@@ -208,7 +208,7 @@ if ($pn > $tp) {
                       <div>
                         <div class="ps-product ps-product--wide">
                           <div class="ps-product__thumbnail universitylogo text-center col-md-2 col-sm-12 col-xs-12">
-                            <img src="<?php echo base_url($key->imgpath); ?>" alt="u<?php echo $key->name; ?>">
+                            <img data-src="<?php echo base_url($key->imgpath); ?>" alt="u<?php echo $key->name; ?>">
                           </div>
                           <div class="ps-product__container col-md-7 col-sm-12 col-xs-12">
                             <div class="ps-product__content">

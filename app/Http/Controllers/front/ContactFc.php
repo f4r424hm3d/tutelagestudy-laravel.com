@@ -13,10 +13,10 @@ class ContactFc extends Controller
   public function index(Request $request)
   {
     $locations = Address::select('country')->groupBy('country')->get();
-    $countries = Country::orderBy('name','asc')->get();
-    $phonecodes = Country::select('phonecode','name')->distinct()->orderBy('phonecode','asc')->get();
+    $countries = Country::orderBy('name', 'asc')->get();
+    $phonecodes = Country::select('phonecode', 'name')->distinct()->orderBy('phonecode', 'asc')->get();
     $destinations = Destination::where(['status' => 1])->get();
-    $data = compact('locations','destinations','countries','phonecodes');
+    $data = compact('locations', 'destinations', 'countries', 'phonecodes');
     return view('front.contactus')->with($data);
   }
 }

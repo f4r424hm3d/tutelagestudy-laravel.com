@@ -38,7 +38,7 @@
                   <div class="ps-post ps-product">
                     <div class="ps-post__thumbnail">
                       <a class="ps-post__overlay" href="<?php echo url($row->slug); ?>/"></a><img
-                        src="<?php echo asset($row->imgpath); ?>" alt="<?php echo $row->headline; ?>"
+                        data-src="<?php echo asset($row->imgpath); ?>" alt="<?php echo $row->headline; ?>"
                         style="height: 150px;!important">
                     </div>
                     <div class="ps-post__content">

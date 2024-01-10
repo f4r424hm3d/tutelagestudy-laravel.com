@@ -210,7 +210,7 @@ if ($pn > $tp) {
                   <div class="ps-product ps-product--wide bg-white">
                     <div class="ps-product__thumbnail universitylogo text-center text-center col-md-2">
                       <span class="pointer">
-                        <img src="<?php echo $uni->imgpath; ?>" alt="<?php echo $uni->name; ?>" style="width:100%">
+                        <img data-src="<?php echo $uni->imgpath; ?>" alt="<?php echo $uni->name; ?>" style="width:100%">
                       </span>
                     </div>
                     <div class="ps-product__container col-md-8" style="padding-top:0px!important;padding-bottom:0px!important;">

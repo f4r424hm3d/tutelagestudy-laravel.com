@@ -239,7 +239,7 @@
                       <div>
                         <div class="ps-product ps-product--wide">
                           <div class="ps-product__thumbnail universitylogo text-center col-md-2 col-sm-12 col-xs-12">
-                            <img src="<?php echo url($key->imgpath); ?>" alt="<?php echo $key->name; ?>" loading="lazy">
+                            <img data-src="<?php echo url($key->imgpath); ?>" alt="<?php echo $key->name; ?> Logo" loading="lazy">
                           </div>
                           <div class="ps-product__container col-md-7 col-sm-12 col-xs-12">
                             <div class="ps-product__content">

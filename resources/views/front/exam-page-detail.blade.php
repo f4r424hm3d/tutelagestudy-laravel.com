@@ -295,7 +295,7 @@
           <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12 mb-20">
             <div class="ps-product__box">
               <div class="ps-document">
-                <center><img src="<?php echo url($exam_page->image_path); ?>" alt="<?php echo $exam_page->page_name; ?>" class="img-responsive"></center>
+                <center><img data-src="<?php echo url($exam_page->image_path); ?>" alt="<?php echo $exam_page->page_name; ?>" class="img-responsive"></center>
               </div>
             </div>
             <br>
@@ -430,7 +430,7 @@
                       <div class="row author">
                         <div class="col-md-2">
                           <div class="img-div">
-                            <img src="<?php echo asset($exam_page->getAuthor->profile_pic_path); ?>" alt="<?php echo $exam_page->getAuthor->name; ?>"><i class="fa fa-check-circle"></i>
+                            <img data-src="<?php echo asset($exam_page->getAuthor->profile_pic_path); ?>" alt="<?php echo $exam_page->getAuthor->name; ?>"><i class="fa fa-check-circle"></i>
                           </div>
                         </div>
                         <div class="col-md-10">

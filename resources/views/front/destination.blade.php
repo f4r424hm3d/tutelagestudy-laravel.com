@@ -45,7 +45,7 @@
   </div>
 </div>
 <div class="ps-page--single" id="about-us">
-  <img src="https://www.educationmalaysia.in/assets/uploadFiles/study/IMG_20221210_133900.jpg" alt="destinations mbbs abroad">
+  <img data-src="https://www.educationmalaysia.in/assets/uploadFiles/study/IMG_20221210_133900.jpg" alt="destinations mbbs abroad">
   <div class="ps-about-intro">
     <div class="container">
       <div class="row">
@@ -75,7 +75,7 @@
         <div class="col-md-3 mt-3 mb30">
           <div class="img-content">
             <a href="{{ url($row->slug) }}/">
-            <img src="{{ asset($row->thumbnail) }}" alt="{{ $row->page_name }}" style="width:100%">
+            <img data-src="{{ asset($row->thumbnail) }}" alt="{{ $row->page_name }}" style="width:100%">
             <span class="detail-link">
             {{ $row->page_name }} <i class="icon-arrow-right"></i>
             </span>

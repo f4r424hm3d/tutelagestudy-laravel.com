@@ -28,11 +28,10 @@ $og_image_path = $seo->og_image_path??'';
 </title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-
 <meta name="description" content="<?php echo $meta_description; ?>">
 <meta name="keywords" content="<?php echo $meta_keyword; ?>">
 <link rel="canonical" href="<?php echo $page_url; ?>/" />
-<meta name="copyright" content="TutelageStudy.com" />
+<meta name="copyright" content="Tutelage Study" />
 <meta name="author" content="Tutelage Study" />
 <meta name="email" content="info@tutelagestudy.com" />
 <meta name="Distribution" content="Global" />

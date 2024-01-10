@@ -19,7 +19,7 @@
               <div class="ps-block__content">
                 <div class="ps-block__author">
 
-                  <img src="<?php echo url($row->imgpath); ?>" alt="<?php echo $row->name; ?>"
+                  <img data-src="<?php echo url($row->imgpath); ?>" alt="<?php echo $row->name; ?>"
                     style="height:100px!important;border:1px solid #0047ab;" loading="lazy">
 
                 </div>

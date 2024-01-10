@@ -22,7 +22,6 @@ $seo_rating = $seo->seo_rating??'';
 $og_image_path = $seo->og_image_path??'';
 @endphp
 
-<meta name="robots" content="index, follow" />
 <title>
   <?php echo ucwords($meta_title); ?>
 </title>
@@ -32,7 +31,7 @@ $og_image_path = $seo->og_image_path??'';
 <meta name="keywords" content="<?php echo $meta_keyword; ?>">
 <link rel="canonical" href="<?php echo $page_url; ?>/" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="follow, noindex" />
+<meta name="robots" content="index, follow" />
 <meta property="og:locale" content="en_US" />
 <meta property="og:type" content="profile" />
 <meta property="og:title" content="<?php echo $title; ?>" />

@@ -32,9 +32,9 @@ class UniversityProgramBulkUpdateImport implements ToCollection, WithHeadingRow,
     $rowsInserted = 0;
     $totalRows = 0;
     foreach ($rows as $row) {
-      $study_mode = explode(',',$row['study_mode']);
+      $study_mode = explode(',', $row['study_mode']);
       $study_mode = json_encode($study_mode);
-      $course_mode = explode(',',$row['course_mode']);
+      $course_mode = explode(',', $row['course_mode']);
       $course_mode = json_encode($course_mode);
       $field = UniversityProgram::find($row['id']);
       $field->course_category_id = $row['course_category_id'];

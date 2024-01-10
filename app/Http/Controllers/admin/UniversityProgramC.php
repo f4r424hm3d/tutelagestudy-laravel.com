@@ -20,7 +20,7 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class UniversityProgramC extends Controller
 {
-  public function index($university_id,$id = null)
+  public function index($university_id, $id = null)
   {
     $exams = Exam::all();
     $categories = CourseCategory::all();
@@ -29,8 +29,8 @@ class UniversityProgramC extends Controller
     $studymodes = StudyMode::all();
     $coursemodes = CourseMode::all();
     $university = University::find($university_id);
-    $levels = Level::where('destination_id',$university->destination_id)->get();
-    $rows = UniversityProgram::where('university_id',$university_id)->paginate(10);
+    $levels = Level::where('destination_id', $university->destination_id)->get();
+    $rows = UniversityProgram::where('university_id', $university_id)->paginate(10);
     $cp = $rows->currentPage();
     $pp = $rows->perPage();
     $i = ($cp - 1) * $pp + 1;
@@ -38,23 +38,23 @@ class UniversityProgramC extends Controller
       $sd = UniversityProgram::find($id);
       if (!is_null($sd)) {
         $ft = 'edit';
-        $url = url('admin/university-programs/'.$university_id.'/update/' . $id);
+        $url = url('admin/university-programs/' . $university_id . '/update/' . $id);
         $title = 'Update';
       } else {
         return redirect('admin/university-programs');
       }
     } else {
       $ft = 'add';
-      $url = url('admin/university-programs/'.$university_id.'/store');
+      $url = url('admin/university-programs/' . $university_id . '/store');
       $title = 'Add New';
       $sd = '';
     }
     $page_title = "University Programs";
     $page_route = "university-programs";
-    $data = compact('rows', 'sd', 'ft', 'url', 'title', 'page_title', 'page_route','university','categories','specializations','programs','levels','studymodes','i','coursemodes','exams');
+    $data = compact('rows', 'sd', 'ft', 'url', 'title', 'page_title', 'page_route', 'university', 'categories', 'specializations', 'programs', 'levels', 'studymodes', 'i', 'coursemodes', 'exams');
     return view('admin.university-programs')->with($data);
   }
-  public function store($university_id,Request $request)
+  public function store($university_id, Request $request)
   {
     // printArray($request->all());
     // die;
@@ -70,7 +70,7 @@ class UniversityProgramC extends Controller
         'exam_accepted' => 'required|array',
       ]
     );
-    if($request['program_name']=='addnew'){
+    if ($request['program_name'] == 'addnew') {
       $pf = new Program();
       $pf->course_category_id = $request['course_category_id'];
       $pf->specialization_id = $request['specialization_id'];
@@ -78,7 +78,7 @@ class UniversityProgramC extends Controller
       $pf->program_slug = slugify($request['new_program']);
       $pf->save();
       $program_name = $request['new_program'];
-    }else{
+    } else {
       $program_name = $request['program_name'];
     }
     $field = new UniversityProgram;
@@ -100,14 +100,14 @@ class UniversityProgramC extends Controller
     $field->seo_rating = $request['seo_rating'];
     $field->save();
     session()->flash('smsg', 'New record has been added successfully.');
-    return redirect('admin/university-programs/'.$university_id);
+    return redirect('admin/university-programs/' . $university_id);
   }
   public function delete($id)
   {
     //echo $id;
     echo $result = UniversityProgram::find($id)->delete();
   }
-  public function update($university_id,$id, Request $request)
+  public function update($university_id, $id, Request $request)
   {
     $request->validate(
       [
@@ -121,7 +121,7 @@ class UniversityProgramC extends Controller
         'exam_accepted' => 'required|array',
       ]
     );
-    if($request['program_name']=='addnew'){
+    if ($request['program_name'] == 'addnew') {
       $pf = new Program();
       $pf->course_category_id = $request['course_category_id'];
       $pf->specialization_id = $request['specialization_id'];
@@ -129,7 +129,7 @@ class UniversityProgramC extends Controller
       $pf->program_slug = slugify($request['new_program']);
       $pf->save();
       $program_name = $request['new_program'];
-    }else{
+    } else {
       $program_name = $request['program_name'];
     }
     $field = UniversityProgram::find($id);
@@ -151,9 +151,9 @@ class UniversityProgramC extends Controller
     $field->seo_rating = $request['seo_rating'];
     $field->save();
     session()->flash('smsg', 'Record has been updated successfully.');
-    return redirect('admin/university-programs/'.$university_id);
+    return redirect('admin/university-programs/' . $university_id);
   }
-  public function Import($university_id,Request $request)
+  public function Import($university_id, Request $request)
   {
     // printArray($data->all());
     // die;
@@ -166,7 +166,7 @@ class UniversityProgramC extends Controller
       try {
         $result = Excel::import(new UniversityProgramImport($data), $file);
         // session()->flash('smsg', 'Data has been imported succesfully.');
-        return redirect('admin/university-programs/'.$university_id);
+        return redirect('admin/university-programs/' . $university_id);
       } catch (\Exception $ex) {
         dd($ex);
       }
@@ -177,7 +177,7 @@ class UniversityProgramC extends Controller
     $data['university_id'] = $university_id;
     return Excel::download(new UniversityProgramsExport($data), 'university-programs-list.xlsx');
   }
-  public function bulkUpdateImport($university_id,Request $request)
+  public function bulkUpdateImport($university_id, Request $request)
   {
     // printArray($data->all());
     // die;
@@ -190,7 +190,7 @@ class UniversityProgramC extends Controller
       try {
         $result = Excel::import(new UniversityProgramBulkUpdateImport($data), $file);
         // session()->flash('smsg', 'Data has been imported succesfully.');
-        return redirect('admin/university-programs/'.$university_id);
+        return redirect('admin/university-programs/' . $university_id);
       } catch (\Exception $ex) {
         dd($ex);
       }

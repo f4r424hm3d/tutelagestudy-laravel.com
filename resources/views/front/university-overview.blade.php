@@ -455,7 +455,7 @@
 																												</h2>
 																												<?php if ($row->imgpath != null) { ?>
 																												<center>
-																														<img src="<?php echo asset($row->imgpath); ?>" alt="<?php echo $row->h; ?>" class="img-responsive"
+																														<img data-src="<?php echo asset($row->imgpath); ?>" alt="<?php echo $row->h; ?>" class="img-responsive"
 																																loading="lazy" style="padding: 10px">
 																												</center>
 																												<?php } ?>
@@ -502,7 +502,7 @@
 																										<div class="ps-product-group">
 																												<div class="ps-product--horizontal">
 																														<div class="ps-product__thumbnail ml-10" style="background:#fff">
-																																<img src="<?php echo asset($oe->thumbnail); ?>" alt="<?php echo $oe->page_name; ?>" loading="lazy">
+																																<img data-src="<?php echo asset($oe->thumbnail); ?>" alt="<?php echo $oe->page_name; ?>" loading="lazy">
 																														</div>
 																														<div class="ps-product__content">
 																																<a class="ps-product__title" href="<?php echo url($oe->slug); ?>/">
@@ -630,7 +630,7 @@
 																								<div class="ps-section__header" style="margin-bottom:0px; padding-bottom:0px; border:0px">
 																										<div class="row author">
 																												<div class="col-md-2">
-																														<div class="img-div"> <img src="<?php echo asset($university->getAuthor->profile_pic_path); ?>" alt="<?php echo $university->getAuthor->name; ?>"><i
+																														<div class="img-div"> <img data-src="<?php echo asset($university->getAuthor->profile_pic_path); ?>" alt="<?php echo $university->getAuthor->name; ?>"><i
 																																		class="fa fa-check-circle"></i>
 																														</div>
 																												</div>

@@ -102,7 +102,7 @@
               <?php echo $row->headline; ?>
             </h2>
             <div class="widget__content tbl-cntnt">
-              <img src="<?php echo asset($row->imgpath); ?>" alt="<?php echo $row->headline; ?>" class="mb-15">
+              <img data-src="<?php echo asset($row->imgpath); ?>" alt="<?php echo $row->headline; ?>" class="mb-15">
               <?php echo $row->description; ?>
             </div>
           </aside>
@@ -131,7 +131,7 @@
                 <div class="ps-product-group">
                   <div class="ps-product--horizontal">
                     <div class="ps-product__thumbnail ml-10" style="background:#fff">
-                      <img src="<?php echo asset($oe->thumbnail); ?>" alt="<?php echo $oe->page_name; ?>">
+                      <img data-src="<?php echo asset($oe->thumbnail); ?>" alt="<?php echo $oe->page_name; ?>">
                     </div>
                     <div class="ps-product__content">
                       <a class="ps-product__title" href="<?php echo url($oe->slug); ?>/">

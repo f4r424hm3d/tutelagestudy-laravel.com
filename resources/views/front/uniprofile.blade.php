@@ -6,7 +6,7 @@
         </div>
         <div class="ps-block__user">
           <div class="ps-block__user-avatar">
-            <img src="<?php echo url($university->imgpath); ?>" alt="<?php echo $university->name; ?>">
+            <img data-src="<?php echo url($university->imgpath); ?>" alt="<?php echo $university->name; ?> Logo">
           </div>
           <div class="ps-block__user-content" style="margin-top:20px;">
             <h1 class="white"><i class="icon-graduation-hat"></i> <?php echo $university->name; ?></h1>

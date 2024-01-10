@@ -52,7 +52,7 @@
 				</div>
 		</div>
 
-		<div class="ps-page--single" id="about-us"><img src="{{ asset('/front/') }}/img/about-us-cover.jpg" alt="">
+		<div class="ps-page--single" id="about-us"><img data-src="{{ asset('/front/') }}/img/about-us-cover.jpg" alt="">
 
 				<div class="ps-about-intro" style="background:#f9f9f9">
 						<div class="container">
@@ -61,7 +61,7 @@
 												<div class="ps-section__header" style="max-width:100%; margin:0px">
 														<p>ABOUT TUTELAGE STUDY ABROAD</p>
 														<h1>Our Vision: Make You Successful</h1>
-														<p class="jsfy">Tutelage Study is currently dealing with study abroad education in Malaysia, Singapore,
+														<p class="jsfy"><a href="https://www.tutelagestudy.com/about-us/">Tutelage Study</a> is currently dealing with study abroad education in Malaysia, Singapore,
 																UK, New Zealand, and Canada for various courses like Business, Engineering, Tourism and Hospitality, Early
 																childhood Education, Allied health Science courses, Medicine, Post Graduate courses, MBA, and Doctoral
 																courses.</p>
@@ -82,7 +82,7 @@
 												</div>
 										</div>
 										<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
-												<img src="{{ asset('/front/') }}/img/about-image.png" alt="About us" class="img-fluid">
+												<img data-src="{{ asset('/front/') }}/img/about-image.png" alt="About us" class="img-fluid">
 										</div>
 								</div>
 						</div>
@@ -103,7 +103,7 @@
 																				of abroad education. So, yes, you can trust us, and rely on our esteemed service for a better learning
 																				experience.</span></li>
 																<li><span>We have experts with years of experience.</span></li>
-																<li><span>We provide an affordable MBBS educational consultancy as per your economy.</span></li>
+																<li><span>We provide an affordable <a href="https://www.tutelagestudy.com/destinations/">MBBS</a> educational consultancy as per your economy.</span></li>
 																<li><span>We are partnered with WHO and MCI recognized Universities.</span></li>
 																<li><span>We ensure 24*7 tutelage study services for abroad education.</span></li>
 														</ul>
@@ -136,7 +136,7 @@
 												</div>
 										</div>
 										<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-												<img src="{{ asset('/front/') }}/img/what-do-we-stand.jpg" alt="About tutelage study" class="img-fluid">
+												<img data-src="{{ asset('/front/') }}/img/what-do-we-stand.jpg" alt="About tutelage study" class="img-fluid">
 										</div>
 
 										<div class="col-lg-12 mb30">

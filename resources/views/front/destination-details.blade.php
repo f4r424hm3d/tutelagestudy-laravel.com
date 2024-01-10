@@ -370,66 +370,7 @@ $seg2 = Request::segment(2);
     </ul>
   </div>
 </div>
-<!-- header background section ends -->
-<div class="header-bg1" style="background:linear-gradient(to right, #215697 0%, #ab2700 100%); padding:5px 1% 15px;">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-12 col-sm-12 pt-5 pb-4">
-        <h2 class="fcolor">{{ $c_destination->page_name }} 2023</h2>
-        <div class="row" style="margin-top:10px">
-          <div class="col-md-4 col-sm-6 col-xs-12 pad no-padding">
-            <div class="media-left">
-              <p class="fcolor"><i class="icon-clock pr-1"></i> Duration :</p>
-            </div>
-            <div class="media-right">
-              <p class="fcolor">{{$c_destination->course_duration}}</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6 col-xs-12 pad no-padding">
-            <div class="media-left">
-              <p class="fcolor"><i class="icon-pencil-line pr-1"></i> NEET Required :</p>
-            </div>
-            <div class="media-right">
-              <p class="fcolor">{{$c_destination->neet}}</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6 col-xs-12 pad no-padding">
-            <div class="media-left">
-              <p class="fcolor"><i class="icon-document pr-1"></i> IELTS/TOEFL :</p>
-            </div>
-            <div class="media-right">
-              <p class="fcolor">{{$c_destination->english_profiency_exam}}</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6 col-xs-12 pad no-padding">
-            <div class="media-left">
-              <p class="fcolor"><i class="icon-calendar-check pr-1"></i> Intake :</p>
-            </div>
-            <div class="media-right">
-              <p class="fcolor">{{$c_destination->intake}}</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6 col-xs-12 pad no-padding">
-            <div class="media-left">
-              <p class="fcolor"><i class="icon-graduation-hat pr-1"></i> Eligibility :</p>
-            </div>
-            <div class="media-right">
-              <p class="fcolor">{{$c_destination->eligibility}}</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6 col-xs-12 pad no-padding">
-            <div class="media-left">
-              <p class="fcolor"><i class="icon-desktop pr-1"></i> Medium of Teaching :</p>
-            </div>
-            <div class="media-right">
-              <p class="fcolor">{{$c_destination->medium_of_teaching}}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+
 
 <!-- header background section ends -->
 <div class="ps-page--product-box">
@@ -461,11 +402,77 @@ $seg2 = Request::segment(2);
               <div class="ps-product__box">
                 <div class="ps-document">
                   <center>
-                    <img src="<?php echo url($c_destination->image_path); ?>"
+                    <img data-src="<?php echo url($c_destination->image_path); ?>"
                       alt="<?php echo $c_destination->page_name; ?>" class="img-responsive">
                   </center>
                 </div>
-              </div>
+              </div><!-- header background section ends -->
+<div class="header-bg1" style="background:linear-gradient(to right, #215697 0%, #35d7dc 100%); padding:5px 1% 15px;">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 pt-5 pb-4">
+        <h2 class="fcolor">Quick Details about {{ $c_destination->page_name }} 2024-25</h2>
+        <div class="row" style="margin-top:10px">
+          <div class="col-md-6 col-sm-6 col-xs-12 pad no-padding">
+            <div class="media-left">
+              <p class="fcolor"><i class="icon-clock pr-1"></i> Duration :</p>
+            </div>
+            <div class="media-right">
+              <p class="fcolor">{{$c_destination->course_duration}}</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-12 pad no-padding">
+            <div class="media-left">
+              <p class="fcolor"><i class="icon-pencil-line pr-1"></i> NEET Required :</p>
+            </div>
+            <div class="media-right">
+              <p class="fcolor">{{$c_destination->neet}}</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-12 pad no-padding">
+            <div class="media-left">
+              <p class="fcolor"><i class="icon-document pr-1"></i> IELTS/TOEFL :</p>
+            </div>
+            <div class="media-right">
+              <p class="fcolor">{{$c_destination->english_profiency_exam}}</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-12 pad no-padding">
+            <div class="media-left">
+              <p class="fcolor"><i class="icon-calendar-check pr-1"></i> Intake :</p>
+            </div>
+            <div class="media-right">
+              <p class="fcolor">{{$c_destination->intake}}</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-12 pad no-padding">
+            <div class="media-left">
+              <p class="fcolor"><i class="icon-graduation-hat pr-1"></i> Eligibility :</p>
+            </div>
+            <div class="media-right">
+              <p class="fcolor">{{$c_destination->eligibility}}</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-12 pad no-padding">
+            <div class="media-left">
+              <p class="fcolor"><i class="icon-desktop pr-1"></i> Medium of Teaching :</p>
+            </div>
+            <div class="media-right">
+              <p class="fcolor">{{$c_destination->medium_of_teaching}}</p>
+            </div>
+          </div>
+        </div>            
+        
+        <div class="pt-20 pb-20 get-detail text-center">
+    <!--<span style="font-size:18px; color:#fff;">Get Free Counselling</span>-->
+    <a class="button cur-conver-btn" onclick="window.location.href='{{ url('mbbs-abroad-counselling/') }}/'"
+      href="javascript:void()">GET FREE COUNSELLING</a>
+    <a class="ps-btn hide-this" href="#brochureForm">Get Brochure</a>
+  </div>
+      </div>
+    </div>
+  </div>
+</div>
               <div class="ps-product__box mb-20">
                 <div class="ps-tabs">
                   <div class="ps-tab active">
@@ -483,7 +490,6 @@ $seg2 = Request::segment(2);
                   href="javascript:void()">Enquire Now</a>
                 <a class="ps-btn hide-this" href="#brochureForm">Get Brochure</a>
               </div>
-
               @if ($count_content>1)
               <div class="ps-product__box mb-20">
                 <aside class="widget widget_best-sale">
@@ -692,7 +698,7 @@ $seg2 = Request::segment(2);
                       <div class="row author">
                         <div class="col-md-2">
                           <div class="img-div">
-                            <img src="<?php echo url($author->profile_pic_path); ?>"
+                            <img data-src="<?php echo url($author->profile_pic_path); ?>"
                               alt="<?php echo $author->name; ?>"><i class="fa fa-check-circle"></i>
                           </div>
                         </div>
@@ -705,9 +711,9 @@ $seg2 = Request::segment(2);
                               <?php echo getFormattedDate($c_destination->updated_at,'M d, Y'); ?>
                             </span>
                             <?php if($author->shortnote!=null){ ?>
-                            <p>
+                            <p><b>
                               <?php echo $author->shortnote; ?>
-                            </p>
+                            </b></p>
                             <br>
                             <?php } ?>
                             <a style="float:right" href="<?php echo url('author/'.$author->slug); ?>/"
@@ -844,7 +850,7 @@ $seg2 = Request::segment(2);
               <div class="ps-section__left" style="top:60px; background:#fff">
                 <aside class="ps-widget--account-dashboard">
                   <div class="ps-widget__content">
-                    <div style="font-size:18px; color:#fff; background:#045dab; padding:10px; text-align:center">Other
+                    <div style="font-size:18px; color:#fff; background:#9D0E0E; padding:10px; text-align:center">Other
                       Destination</div>
                     <ul style="max-height:480px; overflow:auto">
                       <?php foreach ($otherexam as $row) { ?>
@@ -862,7 +868,7 @@ $seg2 = Request::segment(2);
               <div class="ps-section__left" style="top:60px; background:#fff">
                 <aside class="ps-widget--account-dashboard">
                   <div class="ps-widget__content">
-                    <div style="font-size:18px; color:#fff; background:#045dab; padding:10px; text-align:center">MBBS
+                    <div style="font-size:18px; color:#fff; background:#9D0E0E; padding:10px; text-align:center">MBBS
                       Universities</div>
                     <ul style="max-height:480px; overflow:auto">
                       @foreach ($tu as $tu)
@@ -879,7 +885,107 @@ $seg2 = Request::segment(2);
               </div>
               @endif
             </div>
-          </div>
+          </div><section class="image-bg endCounselling">
+  <div class="container">
+    <h2 class="main-h1">End-to-End MBBS Abroad Free Counselling</h2>
+    <h3 class="sub-h1">Looking to get the best career guidance? Our experts know exactly what you need!</h3>
+    <p class="main-p">At Tutelage Study, academic experts help you evaluate your career and course choices accurately
+      while taking into account your educational background, strengths &amp; skills. From shortlisting the best medical colleges
+      to tracking your entire admission process, the counselling by our experts will make your higher medical education journey
+      hassle-free and put you on the path of success.</p>
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <div class="counselling-left">
+          <div class="head">How it works</div>
+          <ul class="tl">
+            <li class="tl-item">
+              <div class="item-title">Tell us about your College / Course &amp; Location preferences.</div>
+            </li>
+            <li class="tl-item">
+              <div class="item-title">An Expert Counsellor will be assigned to you.</div>
+            </li>
+            <li class="tl-item">
+              <div class="item-title">Discuss your options with your counsellor.</div>
+            </li>
+            <li class="tl-item">
+              <div class="item-title">Apply online through our COMMON APPLICATION FORM platform.</div>
+            </li>
+            <li class="tl-item">
+              <div class="item-title">Your counselor will ensure seat allocation for you.</div>
+            </li>
+            <li class="tl-item">
+              <div class="item-title">Deposit your fee. If you need, avail Education Loan at 0% Interest Rate.</div>
+            </li>
+            <li class="tl-item">
+              <div class="item-title">Yippie! your dream college is right there waiting for you to join !</div>
+            </li>
+          </ul>
+          <a href="<?php echo url('contact-us'); ?>/" class="btn home-btn">Talk to our Experts</a>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 counselling-right">
+        <div class="counselling-content">
+          <ul>
+            <li>
+              <div>
+                <span class="counselling-right-image"><img data-src="{{ asset('front/') }}/img/Cicon1.png"
+                    alt="Conselling Icon"></span>
+                <p>No Hidden <br>
+                  Charges
+                </p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <span class="counselling-right-image"><img data-src="{{ asset('front/') }}/img/Cicon2.png"
+                    alt="Conselling Icon"></span>
+                <p>1 on 1 <br>
+                  Counselling
+                </p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <span class="counselling-right-image"><img data-src="{{ asset('front/') }}/img/Cicon3.png"
+                    alt="Conselling Icon"></span>
+                <p>100% Online <br>
+                  Process
+                </p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <span class="counselling-right-image"><img data-src="{{ asset('front/') }}/img/Cicon4.png"
+                    alt="Conselling Icon"></span>
+                <p>Counselling by<br />
+                  Experts
+                </p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <span class="counselling-right-image"><img data-src="{{ asset('front/') }}/img/Cicon5.png"
+                    alt="Conselling Icon"></span>
+                <p>No need to step <br>
+                  out of home
+                </p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <span class="counselling-right-image"><img data-src="{{ asset('front/') }}/img/Cicon6.png"
+                    alt="Conselling Icon"></span>
+                <p>Loan Support @ <br>
+                  0% Interest
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
           <style>
             .ps-carousel--nav .owl-nav .owl-prev {
               margin-left: -20px;
@@ -896,18 +1002,18 @@ $seg2 = Request::segment(2);
               <div class="ps-section__header pb-0">
                 <p class="mb-2">WHAT STUDENTS SAY ABOUT US</p>
                 <h4>
-                  <?php echo $c_destination->page_name; ?> Testimonials
+                  <?php echo $c_destination->page_name; ?> Students Feedback
                 </h4>
               </div>
               <div class="ps-section__content">
                 <div class="ps-carousel--nav owl-slider" data-owl-auto="true" data-owl-loop="true"
-                  data-owl-speed="10000" data-owl-gap="30" data-owl-nav="true" data-owl-dots="false" data-owl-item="3"
+                  data-owl-speed="10000" data-owl-gap="30" data-owl-nav="true" data-owl-dots="false" data-owl-item="2"
                   data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="3" data-owl-item-lg="3"
                   data-owl-duration="1000" data-owl-mousedrag="on">
                   <?php foreach ($testimonials as $test) { ?>
                   <div class="ps-block--testimonial pt-3 pb-3 pl-5 pr-5">
                     <div class="ps-block__header"><img
-                        src="<?php echo $test->image!=null?asset($test->image):asset('front/user-tesimonial-photo.jpg'); ?>"
+                        data-src="<?php echo $test->image!=null?asset($test->image):asset('front/user-tesimonial-photo.jpg'); ?>"
                         alt="MBBS Abroad Testimonial"></div>
                     <div class="ps-block__content pt-5 pb-3">
                       <i class="icon-quote-close"></i>
@@ -939,7 +1045,7 @@ $seg2 = Request::segment(2);
               <div class="row">
                 @foreach ($photos as $row)
                 <div class="col-md-3 col-sm-6 col-6 mb-5">
-                  <img src="{{ asset($row->image_path) }}" alt="<?php echo $row->title; ?>" class="img-fluid rounded-lg"
+                  <img data-src="{{ asset($row->image_path) }}" alt="<?php echo $row->title; ?>" class="img-fluid rounded-lg"
                     style="height: 100%;">
                 </div>
                 @endforeach
@@ -951,7 +1057,102 @@ $seg2 = Request::segment(2);
       </div>
     </div>
   </div>
+<div class="ps-search-trending">
+  <div class="container">
+    <div class="ps-section__header text-center">
+      <h3 style="color:white">Most Popular Countries for MBBS Abroad</h3>
+      <small style="color:white">With Tutelage Study you can get MBBS Abroad Admission in world top Medical
+        Universities</small>
+    </div>
+    <div class="row">
+      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
 
+        <div class="ps-post ps-product shadow">
+          <div class="ps-post__thumbnail"><img data-src="{{ asset('/front/') }}/img/mbbs-malaysia.jpg"
+              alt="MBBS in Malaysia"></div>
+          <div class="ps-post__content" style="border:0px; padding:12px 0px; background:#fff">
+            <a class="ps-post__title text-center" href="https://www.tutelagestudy.com/mbbs-in-malaysia/">MBBS IN
+              MALAYSIA</a>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+        <a href="https://www.tutelagestudy.com/mbbs-in-russia/">
+          <div class="ps-post ps-product shadow">
+            <div class="ps-post__thumbnail"><img data-src="{{ asset('/front/') }}/img/mbbs-russia.jpg" alt="MBBS in russia">
+            </div>
+            <div class="ps-post__content" style="border:0px; padding:12px 0px; background:#fff">
+              <div class="ps-post__title text-center">MBBA IN RUSSIA</div>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+        <div class="ps-post ps-product shadow">
+          <div class="ps-post__thumbnail"><img data-src="{{ asset('/front/') }}/img/mbbs-mauritius.jpg"
+              alt="MBBS in Mauritius"></div>
+          <div class="ps-post__content" style="border:0px; padding:12px 0px; background:#fff">
+            <a href="https://www.tutelagestudy.com/mbbs-in-mauritius/" class="ps-post__title text-center">MBBS IN
+              MAURITUS</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+        <div class="ps-post ps-product shadow">
+          <div class="ps-post__thumbnail"><img data-src="{{ asset('/front/') }}/img/mbbs-iran.jpg" alt="MBBS in Iran"></div>
+          <div class="ps-post__content" style="border:0px; padding:12px 0px; background:#fff">
+            <a href="https://www.tutelagestudy.com/mbbs-in-iran/" href="https://www.tutelagestudy.com/mbbs-in-iran/"
+              class="ps-post__title text-center">MBBS IN IRAN</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+        <div class="ps-post ps-product shadow">
+          <div class="ps-post__thumbnail"><img data-src="{{ asset('/front/') }}/img/mbbs-vietnam.jpg" alt="MBBS in Vietnam">
+          </div>
+          <div class="ps-post__content" style="border:0px; padding:12px 0px; background:#fff">
+            <a href="https://www.tutelagestudy.com/mbbs-in-vietnam/" class="ps-post__title text-center">MBBS IN
+              VIETNAM</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+        <div class="ps-post ps-product shadow">
+          <div class="ps-post__thumbnail"><img data-src="{{ asset('/front/') }}/img/mbbs-cyprus.jpg" alt="MBBS in Cyprus">
+          </div>
+          <div class="ps-post__content" style="border:0px; padding:12px 0px; background:#fff">
+            <a href="https://www.tutelagestudy.com/mbbs-in-cyprus/" class="ps-post__title text-center">MBBS IN
+              CYPRUS</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+        <div class="ps-post ps-product shadow">
+          <div class="ps-post__thumbnail"><img data-src="{{ asset('/front/') }}/img/mbbs-belarus.jpg" alt="MBBS in Belarus">
+          </div>
+          <div class="ps-post__content" style="border:0px; padding:12px 0px; background:#fff">
+            <a href="https://www.tutelagestudy.com/mbbs-in-belarus/" class="ps-post__title text-center">MBBS IN
+              BELARUS</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+        <div class="ps-post ps-product shadow">
+          <div class="ps-post__thumbnail"><img data-src="{{ asset('/front/') }}/img/mbbs-bangladesh.jpg"
+              alt="MBBS in Bangladesh"></div>
+          <div class="ps-post__content" style="border:0px; padding:12px 0px; background:#fff">
+            <a href="https://www.tutelagestudy.com/mbbs-in-bangladesh/" class="ps-post__title text-center">MBBS IN
+              BANGLADESH</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pt-20" align="center"><a href="/destinations/" target="_blank" rel="noopener noreferrer"
+        class="button home-btn">Browse All
+        Destinations</a></div>
+  </div>
+</div>
 </div>
 <script>
   $(document).ready(function() {

@@ -276,7 +276,7 @@
                 </p>
               </div>
               <div>
-                <img src="<?php echo asset($blog->imgpath); ?>" alt="<?php echo ucfirst($blog->headline); ?>"
+                <img data-src="<?php echo asset($blog->imgpath); ?>" alt="<?php echo ucfirst($blog->headline); ?>"
                   class="mb-20" width="1000">
               </div>
               <br>
@@ -407,7 +407,7 @@
                   <div class="row author">
                     <div class="col-md-2">
                       <div class="img-div">
-                        <img src="<?php echo asset($blog->getAuthor->profile_pic_path); ?>"
+                        <img data-src="<?php echo asset($blog->getAuthor->profile_pic_path); ?>"
                           alt="<?php echo $blog->getAuthor->name; ?>"><i class="fa fa-check-circle"></i>
                       </div>
                     </div>

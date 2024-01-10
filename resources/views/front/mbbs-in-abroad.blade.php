@@ -71,7 +71,7 @@
             So, these features help most of the students to choose MBBS in abroad.</p>
         </div>
       </div>
-      <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12"><img src="{{ asset('/front/') }}/img/mbbs-in-abroad.png"
+      <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12"><img data-src="{{ asset('/front/') }}/img/mbbs-in-abroad.png"
           alt="MBBS Abroad" class="img-fluid"></div>
       <!--<div class="col-lg-12">-->
       <!--<div class="ps-section__header" style="max-width:100%; margin:0px">-->
@@ -99,7 +99,7 @@
             economy and have the best destination for MBBS in abroad.</p>
         </div>
       </div>
-      <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12"><img src="{{ asset('/front/') }}/img/choose-best-country.jpg"
+      <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12"><img data-src="{{ asset('/front/') }}/img/choose-best-country.jpg"
           class="img-fluid"></div>
     </div>
   </div>
@@ -129,7 +129,7 @@
       <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
         <a href="https://www.tutelagestudy.com/mbbs-in-malaysia/">
           <div class="ps-post ps-product shadow">
-            <div class="ps-post__thumbnail"><img src="{{ asset('/front/') }}/img/mbbs-malaysia.jpg"
+            <div class="ps-post__thumbnail"><img data-src="{{ asset('/front/') }}/img/mbbs-malaysia.jpg"
                 alt="MBBS in Malaysia"></div>
             <div class="ps-post__content" style="border:0px; padding:12px 0px; background:#fff">
               <div class="ps-post__title text-center">MBBS IN MALAYSIA</div>
@@ -140,7 +140,7 @@
       <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
         <a href="https://www.tutelagestudy.com/mbbs-in-russia/">
           <div class="ps-post ps-product shadow">
-            <div class="ps-post__thumbnail"><img src="{{ asset('/front/') }}/img/mbbs-russia.jpg" alt="MBBS in Russia">
+            <div class="ps-post__thumbnail"><img data-src="{{ asset('/front/') }}/img/mbbs-russia.jpg" alt="MBBS in Russia">
             </div>
             <div class="ps-post__content" style="border:0px; padding:12px 0px; background:#fff">
               <div class="ps-post__title text-center">MBBA IN RUSSIA</div>
@@ -151,7 +151,7 @@
       <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
         <a href="https://www.tutelagestudy.com/mbbs-in-mauritius/">
           <div class="ps-post ps-product shadow">
-            <div class="ps-post__thumbnail"><img src="{{ asset('/front/') }}/img/mbbs-mauritius.jpg"
+            <div class="ps-post__thumbnail"><img data-src="{{ asset('/front/') }}/img/mbbs-mauritius.jpg"
                 alt="MBBS in Mauritius"></div>
             <div class="ps-post__content" style="border:0px; padding:12px 0px; background:#fff">
               <div class="ps-post__title text-center">MBBS IN MAURITUS</div>
@@ -162,7 +162,7 @@
       <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
         <a href="https://www.tutelagestudy.com/mbbs-in-iran/">
           <div class="ps-post ps-product shadow">
-            <div class="ps-post__thumbnail"><img src="{{ asset('/front/') }}/img/mbbs-iran.jpg" alt="MBBS in Iran">
+            <div class="ps-post__thumbnail"><img data-src="{{ asset('/front/') }}/img/mbbs-iran.jpg" alt="MBBS in Iran">
             </div>
             <div class="ps-post__content" style="border:0px; padding:12px 0px; background:#fff">
               <div class="ps-post__title text-center">MBBS IN IRAN</div>

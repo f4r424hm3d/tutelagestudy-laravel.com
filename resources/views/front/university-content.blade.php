@@ -611,7 +611,7 @@
                 <div class="ps-product__box mb-20 shadow" style="padding:5px!important">
                   <div class="row">
                     <div class="col-12 text-center">
-                      <img src="<?php echo base_url('assets/web/'); ?>img/oetAd.jpg" alt="OET Online Coaching Apply">
+                      <img data-src="<?php echo base_url('assets/web/'); ?>img/oetAd.jpg" alt="OET Online Coaching Apply">
                     </div>
                   </div>
                   <div class="row" style="margin-top:5px">
