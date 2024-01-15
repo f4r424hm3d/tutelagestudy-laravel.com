@@ -1,11 +1,14 @@
 @php
-use App\Models\News;
-use App\Models\Destination;
-use App\Models\Country;
+  use App\Models\News;
+  use App\Models\Destination;
+  use App\Models\Country;
 
-$destinationsSF = Destination::where(['status' => 1])->get();
-$phonecodesSF = Country::select('phonecode', 'name')->where('phonecode','!=','0')->orderBy('phonecode', 'asc')->get();
-$countriesSF = Country::orderBy('name', 'asc')->get();
+  $destinationsSF = Destination::where(['status' => 1])->get();
+  $phonecodesSF = Country::select('phonecode', 'name')
+      ->where('phonecode', '!=', '0')
+      ->orderBy('phonecode', 'asc')
+      ->get();
+  $countriesSF = Country::orderBy('name', 'asc')->get();
 
 @endphp
 <style>
@@ -30,8 +33,8 @@ $countriesSF = Country::orderBy('name', 'asc')->get();
         </div>
         <div class="header__center">
           <form class="ps-form--quick-search" action="<?php echo url('medical-universities/'); ?>/" method="get">
-            <input class="form-control" name="search" type="text" placeholder="Search Universities" id="input-search"
-              value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>">
+            <input class="form-control" name="search" type="text" placeholder="Search Universities"
+              id="input-search" value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>">
             <button>Search</button>
           </form>
         </div>
@@ -79,8 +82,7 @@ $countriesSF = Country::orderBy('name', 'asc')->get();
           <ul class="menu">
             <li><a href="<?php echo url('/'); ?>">Home</a><span class="sub-toggle"></span> </li>
 
-            <li><a href="<?php echo url('medical-universities'); ?>/">All Universities</a><span
-                class="sub-toggle"></span></li>
+            <li><a href="<?php echo url('medical-universities'); ?>/">All Universities</a><span class="sub-toggle"></span></li>
             <li><a href="<?php echo url('mbbs-in-abroad'); ?>/">MBBS Abroad</a><span class="sub-toggle"></span></li>
 
             <li class="menu-item-has-children has-mega-menu">
@@ -156,19 +158,19 @@ $countriesSF = Country::orderBy('name', 'asc')->get();
                 <div class="row">
                   <div class="col-sm-5">
                     <div class="form-group">
-                      <input type="text" name="name" id="name" class="form-control" placeholder="Enter Name"
-                        value="{{ old('name')??'' }}" required>
+                      <input type="text" name="name" id="name" class="form-control"
+                        placeholder="Enter Name" value="{{ old('name') ?? '' }}" required>
                       @error('name')
-                      {{ '<span class="text-danger">' . $message . '</span>' }}
+                        {{ '<span class="text-danger">' . $message . '</span>' }}
                       @enderror
                     </div>
                   </div>
                   <div class="col-sm-7">
                     <div class="form-group">
-                      <input type="email" class="form-control" name="email" id="email" value="{{ old('email')??'' }}"
-                        placeholder="Enter Email" required>
+                      <input type="email" class="form-control" name="email" id="email"
+                        value="{{ old('email') ?? '' }}" placeholder="Enter Email" required>
                       @error('email')
-                      {{ '<span class="text-danger">' . $message . '</span>' }}
+                        {{ '<span class="text-danger">' . $message . '</span>' }}
                       @enderror
                     </div>
                   </div>
@@ -177,9 +179,9 @@ $countriesSF = Country::orderBy('name', 'asc')->get();
                   <div class="col-sm-3">
                     <div class="form-group">
                       <input type="c_code" class="form-control" name="c_code" id="c_code"
-                        value="{{ old('c_code')??'+91' }}" placeholder="Country Code" required>
+                        value="{{ old('c_code') ?? '+91' }}" placeholder="Country Code" required>
                       @error('c_code')
-                      {{ '<span class="text-danger">' . $message . '</span>' }}
+                        {{ '<span class="text-danger">' . $message . '</span>' }}
                       @enderror
                     </div>
                   </div>
@@ -189,7 +191,7 @@ $countriesSF = Country::orderBy('name', 'asc')->get();
                         data-error="Please enter a valid phone number" name="mobile" id="mobile"
                         value="<?php echo old('mobile'); ?>" required>
                       @error('mobile')
-                      {{ '<span class="text-danger">' . $message . '</span>' }}
+                        {{ '<span class="text-danger">' . $message . '</span>' }}
                       @enderror
                     </div>
                   </div>
@@ -229,14 +231,12 @@ $countriesSF = Country::orderBy('name', 'asc')->get();
     <div class="ps-panel__header">
       <form class="ps-form--search-mobile" action="<?php echo url('medical-universities/'); ?>/" method="get">
         <div class="form-group--nest">
-          <input class="form-control" type="text" name="search"
-            value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>" placeholder="Search Universities...">
+          <input class="form-control" type="text" name="search" value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>"
+            placeholder="Search Universities...">
           <button aria-label="Left Align" type="submit"><i class="icon-magnifier" aria-hidden="true"></i></button>
         </div>
       </form>
     </div>
-
-
 
     <div class="navigation__content">
       <div class="p-5">
@@ -252,37 +252,28 @@ $countriesSF = Country::orderBy('name', 'asc')->get();
               <div class="row">
                 <div class="col-lg-6 col-md-5 col-sm-12 col-xs-12 pr7">
                   <div class="form-group">
-                    <input type="text" name="name" id="name" class="form-control" placeholder="Enter Name"
-                      value="{{ old('name') ?? '' }}" required>
+                    <input type="text" name="name" id="name" class="form-control"
+                      placeholder="Enter Name" value="{{ old('name') ?? '' }}" required>
                     @error('name')
-                    {!! '<span class="text-danger">' . $message . '</span>' !!}
+                      {!! '<span class="text-danger">' . $message . '</span>' !!}
                     @enderror
                   </div>
                 </div>
                 <div class="col-lg-6 col-md-7 col-sm-12 col-xs-12 pl7">
                   <div class="form-group">
-                    <input type="email" class="form-control" name="email" id="email" value="{{ old('email') ?? '' }}"
-                      placeholder="Enter Email" required>
+                    <input type="email" class="form-control" name="email" id="email"
+                      value="{{ old('email') ?? '' }}" placeholder="Enter Email" required>
                     @error('email')
-                    {!! '<span class="text-danger">' . $message . '</span>' !!}
+                      {!! '<span class="text-danger">' . $message . '</span>' !!}
                     @enderror
                   </div>
                 </div>
                 <div class="col-4 col-lg-4 col-md-4 col-sm-4 col-xs-6 pr7">
                   <div class="form-group">
-                    <select class="form-control" name="c_code" id="mb_c_code" required>
-                      <option value="">Select Code</option>
-                      <?php
-                      foreach ($phonecodesSF as $row) {
-                      ?>
-                      <option value="<?php echo $row->phonecode; ?>" <?php echo old('c_code')==$row->phonecode ?
-                        'Selected' : ''; ?>>
-                        <?php echo $row->phonecode; ?> ({{ $row->name }})
-                      </option>
-                      <?php } ?>
-                    </select>
+                    <input type="c_code" class="form-control" name="c_code" id="mb_c_code"
+                      value="{{ old('c_code') ?? '91' }}" placeholder="Enter Country Code" required>
                     @error('c_code')
-                    {!! '<span class="text-danger">' . $message . '</span>' !!}
+                      {!! '<span class="text-danger">' . $message . '</span>' !!}
                     @enderror
                   </div>
                 </div>
@@ -292,25 +283,16 @@ $countriesSF = Country::orderBy('name', 'asc')->get();
                       data-error="Please enter a valid phone number" name="mobile" id="mobile"
                       value="<?php echo old('mobile'); ?>" required>
                     @error('mobile')
-                    {!! '<span class="text-danger">' . $message . '</span>' !!}
+                      {!! '<span class="text-danger">' . $message . '</span>' !!}
                     @enderror
                   </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr7">
                   <div class="form-group">
-                    <select class="form-control" name="nationality" id="mf_nationality" required>
-                      <option value="">Select Nationality</option>
-                      <?php
-                      foreach ($countriesSF as $row) {
-                      ?>
-                      <option value="<?php echo $row->name; ?>" <?php echo old('nationality')==$row->name ?
-                        'Selected' : ''; ?>>
-                        <?php echo $row->name; ?>
-                      </option>
-                      <?php } ?>
-                    </select>
+                    <input type="nationality" class="form-control" name="nationality" id="mf_nationality"
+                      value="{{ old('nationality') ?? 'India' }}" placeholder="Enter Nationality" required>
                     @error('nationality')
-                    {!! '<span class="text-danger">' . $message . '</span>' !!}
+                      {!! '<span class="text-danger">' . $message . '</span>' !!}
                     @enderror
                   </div>
                 </div>
@@ -318,44 +300,41 @@ $countriesSF = Country::orderBy('name', 'asc')->get();
                   <div class="form-group">
                     <select class="form-control" name="destination" id="destination" required>
                       <option value="">Preferred MBBS Country</option>
-                      <?php
-                    foreach ($destinationsSF as $row) {
-                    ?>
-                      <option value="<?php echo $row->page_name; ?>" <?php echo old('destination')==$row->page_name ?
-                        'Selected' : ''; ?>>
-                        <?php echo $row->page_name; ?>
-                      </option>
-                      <?php } ?>
+                      @foreach ($destinationsSF as $row)
+                        <option value="<?php echo $row->page_name; ?>" <?php echo old('destination') == $row->page_name ? 'Selected' : ''; ?>>
+                          <?php echo $row->page_name; ?>
+                        </option>
+                      @endforeach
                     </select>
                     @error('destination')
-                    {!! '<span class="text-danger">' . $message . '</span>' !!}
+                      {!! '<span class="text-danger">' . $message . '</span>' !!}
                     @enderror
                   </div>
                 </div>
 
                 <div class="form-group">
                   <div class="ps-checkbox pl-20">
-                    <input class="form-control " type="checkbox" name="terms" id="terms">
+                    <input class="form-control " type="checkbox" name="terms" id="terms" checked>
                     <label for="terms">I agree to the <a href="https://www.tutelagestudy.com/term-and-condition/"
                         style="color: blue;" target="_blank" rel="noopener noreferrer">terms & conditions</a>
                       .*</label>
                     @error('terms')
-                    {!! '<span class="text-danger">' . $message . '</span>' !!}
+                      {!! '<span class="text-danger">' . $message . '</span>' !!}
                     @enderror
                   </div>
                 </div>
                 <div class="form-group">
                   <div class="ps-checkbox pl-20">
-                    <input class="form-control " type="checkbox" name="contact_me" id="contact_me">
+                    <input class="form-control " type="checkbox" name="contact_me" id="contact_me" checked>
                     <label for="contact_me">Contact me by phone, email or<br>SMS to assist me .*</label>
                     @error('contact_me')
-                    {!! '<span class="text-danger">' . $message . '</span>' !!}
+                      {!! '<span class="text-danger">' . $message . '</span>' !!}
                     @enderror
                   </div>
                 </div>
                 <div class="form-group">
                   <div class="ps-checkbox pl-20">
-                    <input class="form-control" type="checkbox" name="update" id="update">
+                    <input class="form-control" type="checkbox" name="update" id="update" checked>
                     <label for="update">I would like to receive updates and offers<br>from Tutelage Study.*</label>
                   </div>
                 </div>
@@ -428,14 +407,16 @@ $countriesSF = Country::orderBy('name', 'asc')->get();
 
   <script>
     getFormData();
-    function getFormData(){
 
-      return new Promise(function(resolve,reject) {
+    function getFormData() {
+
+      return new Promise(function(resolve, reject) {
         $.ajax({
           url: "{{ url('form/getCountryCode') }}/",
           method: "GET",
           success: function(data) {
-            alert(data);alert("Hello");
+            alert(data);
+            alert("Hello");
             $("#mb_c_code").html(data);
           }
         });
@@ -443,7 +424,8 @@ $countriesSF = Country::orderBy('name', 'asc')->get();
           url: "{{ url('form/getCountry') }}/",
           method: "GET",
           success: function(data) {
-            alert(data);alert("Hello");
+            alert(data);
+            alert("Hello");
             $("#mf_nationality").html(data);
           }
         });
