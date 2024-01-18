@@ -98,7 +98,6 @@
   </div>
 </div>
 <div id="back2top"><i class="pe-7s-angle-up"></i></div>
-<script src="{{ cdn('front') }}/js/jquery.min.js"></script>
 <script rel="preload" src="{{ cdn('front') }}/js/main.js"></script>
 <script rel="preload" src="{{ cdn('front') }}/plugins/nouislider/nouislider.min.js"></script>
 <script rel="preload" src="{{ cdn('front') }}/plugins/popper.min.js"></script>
@@ -108,10 +107,10 @@
 <script src="{{ cdn('front') }}/plugins/masonry.pkgd.min.js"></script>
 <script rel="preload" src="{{ cdn('front') }}/plugins/isotope.pkgd.min.js"></script>
 <script rel="preload" src="{{ cdn('front') }}/plugins/jquery.matchHeight-min.js"></script>
-<script rel="preload" src="{{ cdn('front') }}/plugins/slick/slick/slick.min.js"></script>
+<script src="{{ cdn('front') }}/plugins/slick/slick/slick.min.js" defer></script>
 <script rel="preload" src="{{ cdn('front') }}/plugins/jquery-bar-rating/dist/jquery.barrating.min.js" defer></script>
 <script src="{{ cdn('front') }}/plugins/lightGallery-master/dist/js/lightgallery-all.min.js" defer></script>
-<script rel="preload" src="{{ cdn('front') }}/plugins/select2/dist/js/select2.full.min.js"></script>
+{{-- <script rel="preload" src="{{ cdn('front') }}/plugins/select2/dist/js/select2.full.min.js"></script> --}}
 
 <!--End of Tawk.to Script-->
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -164,8 +163,8 @@
   document.addEventListener("scroll", handleScroll);
 </script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script> --}}
 <script>
   $('a[href*="#"]')
     .not('[href="#"]')

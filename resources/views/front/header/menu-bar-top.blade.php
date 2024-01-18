@@ -415,8 +415,8 @@
           url: "{{ url('form/getCountryCode') }}/",
           method: "GET",
           success: function(data) {
-            alert(data);
-            alert("Hello");
+            //alert(data);
+            //alert("Hello");
             $("#mb_c_code").html(data);
           }
         });
@@ -424,8 +424,8 @@
           url: "{{ url('form/getCountry') }}/",
           method: "GET",
           success: function(data) {
-            alert(data);
-            alert("Hello");
+            //alert(data);
+            //alert("Hello");
             $("#mf_nationality").html(data);
           }
         });
