@@ -352,7 +352,8 @@
     <button type="button" class="cancel" onClick="closeForm()"><i class="fa fa-close"></i></button>
     <div class="header">
       <div class="row">
-        <div class="col-2 pr0"><img data-src="{{ asset('/front/') }}/img/wa.png" alt="whatsapp image" class="img-fluid">
+        <div class="col-2 pr0"><img data-src="{{ asset('/front/') }}/img/wa.png" alt="whatsapp image"
+            class="img-fluid">
         </div>
         <div class="col-10">
           <div class="title">Talk to Our Expert Counsellors</div>
@@ -371,7 +372,8 @@
             <strong>India Office, Gurgaon</strong><br>
             Start Chat with Mr. Gaurav
           </div>
-          <div class="col-2 pl0 text-right"><img data-src="{{ asset('/front/') }}/img/wad.png" alt="whatsapp now" width="20">
+          <div class="col-2 pl0 text-right"><img data-src="{{ asset('/front/') }}/img/wad.png" alt="whatsapp now"
+              width="20">
           </div>
         </div>
       </a>
@@ -385,7 +387,8 @@
             <strong>India Office, Chennai</strong><br>
             Start Chat with Ms. Anitha
           </div>
-          <div class="col-2 pl0 text-right"><img data-src="{{ asset('/front/') }}/img/wad.png" alt="whatsapp now" width="20">
+          <div class="col-2 pl0 text-right"><img data-src="{{ asset('/front/') }}/img/wad.png" alt="whatsapp now"
+              width="20">
           </div>
         </div>
       </a>
@@ -413,24 +416,22 @@
   function openForm() {
     document.getElementById("myForm").style.display = "block";
   }
+
   function closeForm() {
     document.getElementById("myForm").style.display = "none";
   }
 </script>
 <!-- Whatsapp Box and Button -->
 
-
-
-
 @php
-use App\Models\Exam;
+  use App\Models\Exam;
 @endphp
 <?php
 $pageArray = [];
 $pageUrl = Request::segment(1);
 $allpages = Exam::all();
 foreach ($allpages as $exm) {
-  $pageArray[] = $exm->exam_slug;
+    $pageArray[] = $exm->exam_slug;
 }
 $form_url = in_array($pageUrl, $pageArray) ? 'neet-counselling' : 'mbbs-abroad-counselling';
 $finalUrl = url($form_url);
@@ -444,7 +445,7 @@ $finalUrl = url($form_url);
       </a>
     </li>
     <li>
-      <a onclick="window.location.href='<?php echo $finalUrl; ?>'" href="javascript:void()" title="Free Counselling">
+      <a onclick="window.location.href='<?php echo $finalUrl; ?>/'" href="javascript:void()" title="Free Counselling">
         <div>
           <img data-src="{{ asset('/front/') }}/img/icons/counselling.png" alt="Free Counselling">
         </div>
@@ -460,23 +461,24 @@ $finalUrl = url($form_url);
   </ul>
 </div>
 <script>
-	document.addEventListener("DOMContentLoaded", function() {
-		var lazyImages = document.querySelectorAll('[data-src]');
+  document.addEventListener("DOMContentLoaded", function() {
+    var lazyImages = document.querySelectorAll('[data-src]');
 
-		var observer = new IntersectionObserver(function(entries, observer) {
-			entries.forEach(function(entry) {
-				if (entry.isIntersecting) {
-					var lazyImage = entry.target;
-					lazyImage.src = lazyImage.dataset.src;
-					observer.unobserve(lazyImage);
-				}
-			});
-		});
+    var observer = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var lazyImage = entry.target;
+          lazyImage.src = lazyImage.dataset.src;
+          observer.unobserve(lazyImage);
+        }
+      });
+    });
 
-		lazyImages.forEach(function(lazyImage) {
-			observer.observe(lazyImage);
-		});
-	});
+    lazyImages.forEach(function(lazyImage) {
+      observer.observe(lazyImage);
+    });
+  });
 </script>
 </body>
+
 </html>

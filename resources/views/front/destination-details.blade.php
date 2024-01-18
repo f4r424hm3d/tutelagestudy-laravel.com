@@ -10,28 +10,7 @@ $seg2 = Request::segment(2);
 @push('breadcrumb_schema')
 <!-- breadcrumb schema Code -->
 <script type="application/ld+json">
-  {
-    "@context": "https://schema.org/",
-    "@type": "BreadcrumbList",
-    "name": "<?php echo ucwords($meta_title); ?>",
-    "description": "<?php echo $meta_description; ?>",
-    "itemListElement": [{
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "<?php echo url('/'); ?>"
-    }, {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Destinations",
-      "item": "<?php echo url('destinations/'); ?>/"
-    }, {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "<?php echo $c_destination->page_name; ?>",
-      "item": "<?php echo url(Request::segment(1)); ?>/"
-    }]
-  }
+  { "@context": "https://schema.org/", "@type": "BreadcrumbList", "name": "<?php echo ucwords($meta_title); ?>", "description": "<?php echo $meta_description; ?>", "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "<?php echo url('/'); ?>" }, { "@type": "ListItem", "position": 2, "name": "Destinations", "item": "<?php echo url('destinations/'); ?>/" }, { "@type": "ListItem", "position": 3, "name": "<?php echo $c_destination->page_name; ?>", "item": "<?php echo url(Request::segment(1)); ?>/" }] }
 </script>
 <!-- breadcrumb schema Code End -->
 <!-- webpage schema Code Destinations -->
@@ -49,317 +28,11 @@ $seg2 = Request::segment(2);
   }
 </script>
 <!-- rating schema Code -->
-<script type="application/ld+json">
-  {
-    "@context": "https://schema.org/",
-    "@type": "CreativeWorkSeries",
-    "name": "<?php echo ucwords($meta_title); ?>",
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5",
-      "bestRating": "5",
-      "ratingCount": "<?php echo $c_destination->seo_rating; ?>"
-    }
-  }
-</script>
+<script type="application/ld+json"> { "@context": "https://schema.org/", "@type": "CreativeWorkSeries", "name": "<?php echo ucwords($meta_title); ?>", "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5", "bestRating": "5", "ratingCount": "<?php echo $c_destination->seo_rating; ?>" } } </script>
 @endpush
 @section('main-section')
 <style type="text/css">
-  .header-bg1 .col-box {
-    width: 100%;
-    display: block;
-    padding: 10px 0 15px;
-    color: white !important;
-  }
-
-  .header-bg1 .col-box .media-left {
-    padding: 0 10px 0 0;
-    min-width: 145px;
-  }
-
-  .text-danger {
-    color: red !important;
-  }
-
-  .fcolor {
-    color: white !important;
-    margin-bottom: 0px !important
-  }
-
-  .media-body,
-  .media-left,
-  .media-right {
-    display: table-cell;
-    vertical-align: top;
-  }
-
-  .media-left,
-  .media>.pull-left {
-    padding-right: 10px;
-  }
-
-  .get-detail {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-transform: uppercase
-  }
-
-  .get-detail a {
-    margin-left: 10px
-  }
-
-  .modal-content {
-    margin: 18% auto
-  }
-
-  .modal {
-    padding-right: 0px !important;
-    z-index: 13
-  }
-
-  .modal-text-p {
-    padding-top: 20px
-  }
-
-  .modal-backdrop.show {
-    z-index: 12
-  }
-
-  .collegeTabs {
-    z-index: 11
-  }
-
-  .ps-block--categories-tabs .ps-tab-list a span {
-    background: none;
-    -webkit-text-fill-color: #000 !important;
-  }
-
-  .ps-block--categories-tabs .ps-tab-list a:hover {
-    box-shadow: none !important
-  }
-
-  .tbl-cntnt ul {
-    list-style: inside !important;
-    display: flow-root !important;
-    padding-left: 5px !important
-  }
-
-  .tbl-cntnt ul li {
-    width: 50%;
-    float: left;
-    line-height: 24px
-  }
-
-  .tbl-cntnt ul li:before {
-    display: none !important;
-  }
-
-  .tbl-cntnt ul li a {
-    color: #cd2122;
-    margin-left: -7px
-  }
-
-  .tbl-cntnt ul li a:hover {
-    text-decoration: underline;
-    color: #348fd6;
-  }
-
-  .widget_best-sale .widget-title {
-    background: #f8f8f8;
-    padding: 10px;
-    border-bottom: 0px;
-    font-weight: 400;
-    margin-top: 0px;
-  }
-
-  .ps-document h2 {
-    background: #ebeded;
-    padding: 8px 15px;
-    font-size: 20px;
-    font-weight: 400
-  }
-
-  .ps-document h3 {
-    background: #ebeded;
-    padding: 8px 15px;
-    font-size: 20px;
-    font-weight: 400
-  }
-
-  .ps-document h4 {
-    background: #ebeded;
-    padding: 8px 15px;
-    font-size: 20px;
-    font-weight: 400
-  }
-
-  .ps-product__content h3 {
-    background: #f8f8f8;
-    padding: 10px;
-    font-size: 20px;
-    font-weight: 400
-  }
-
-  .ps-section--default h3 {
-    background: #f8f8f8;
-    padding: 10px;
-    font-size: 20px;
-    font-weight: 400
-  }
-
-  .ps-document p {
-    text-align: justify
-  }
-
-  .ps-product__box h3 {
-    margin: 12px 0px 0px 0px;
-    font-size: 18px;
-  }
-
-  .ps-document ol {
-    padding-left: 20px;
-  }
-
-  .ps-product__box ul li a {
-    color: #cd2122
-  }
-
-  .ps-product__box ul li a:hover {
-    color: #117888;
-    text-decoration: underline
-  }
-
-  .ps-product__box table a {
-    color: #cd2122
-  }
-
-  .ps-product__box table a:hover {
-    color: #117888;
-  }
-
-  .tbl-cntnt ol {
-    padding-left: 20px;
-  }
-
-  .tbl-cntnt ol li a {
-    color: #cd2122
-  }
-
-  .tbl-cntnt ol li a:hover {
-    color: #117888;
-    text-decoration: underline
-  }
-
-  .ps-product__box ul {
-    padding-left: 20px;
-    list-style: none;
-  }
-
-  .ps-product__box ul li:before {
-    content: "\e999";
-    font-family: Linearicons;
-    /* speak: none; */
-    font-style: normal;
-    font-weight: 400;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-    color: #cd2122;
-    display: inline-block;
-    margin-left: -1.3em;
-    width: 1.5em;
-  }
-
-  .ps-product__box p {
-    text-align: justify
-  }
-
-  .ps-product__box p:last-child {
-    margin-bottom: 0px;
-  }
-
-  .ps-product__box table {
-    margin: 5px 0px;
-  }
-
-  .ps-product__box td {
-    padding-left: 10px !important;
-  }
-
-  .ps-block--categories-tabs .ps-block__header {
-    padding: 0 30px;
-    overflow-y: hidden;
-  }
-
-  .ps-block--categories-tabs .ps-tab-list a:hover {
-    background: #fff
-  }
-
-  @media screen and (max-width:767px) {
-    .get-detail {
-      display: block;
-      text-align: center !important
-    }
-
-    .get-detail p {
-      margin-bottom: 10px !important
-    }
-
-    .get-detail a {
-      margin-left: 0px
-    }
-
-    .ps-block--store .ps-block__content {
-      padding: 0px 10px 10px 10px
-    }
-
-    .ps-carousel--nav {
-      margin: 0px;
-      padding-bottom: 10px
-    }
-
-    .modal-content {
-      margin: 16% auto
-    }
-
-    .modal-text-p {
-      padding-top: 10px
-    }
-
-    .ps-carousel--nav .owl-nav>* i {
-      font-size: 22px !important
-    }
-
-    .ps-carousel--nav .owl-nav {
-      display: block !important;
-    }
-
-    .tbl-cntnt ul li {
-      width: 100% !important;
-      float: none !important
-    }
-
-    .ps-block--categories-tabs .ps-block__header {
-      padding: 0 30px;
-    }
-
-    .ps-block--categories-tabs .ps-block__header .ps-tab-list a.active {
-      -webkit-text-fill-color: #c01874 !important;
-      border-bottom: 2px solid #c01874 !important;
-    }
-
-    .ps-block--categories-tabs .ps-block__header .ps-tab-list a:hover {
-      border-bottom: 2px solid #c01874 !important;
-    }
-  }
-
-  .sph {
-    font-size: 18px;
-    margin-bottom: 10px;
-    color: #cd2122;
-    font-weight: 600;
-  }
+ .header-bg1 .col-box { width: 100%; display: block; padding: 10px 0 15px; color: white !important; } .header-bg1 .col-box .media-left { padding: 0 10px 0 0; min-width: 145px; } .text-danger { color: red !important; } .fcolor { color: white !important; margin-bottom: 0px !important } .media-body, .media-left, .media-right { display: table-cell; vertical-align: top; } .media-left, .media>.pull-left { padding-right: 10px; } .get-detail { display: flex; align-items: center; justify-content: center; text-transform: uppercase } .get-detail a { margin-left: 10px } .modal-content { margin: 18% auto } .modal { padding-right: 0px !important; z-index: 13 } .modal-text-p { padding-top: 20px } .modal-backdrop.show { z-index: 12 } .collegeTabs { z-index: 11 } .ps-block--categories-tabs .ps-tab-list a span { background: none; -webkit-text-fill-color: #000 !important; } .ps-block--categories-tabs .ps-tab-list a:hover { box-shadow: none !important } .tbl-cntnt ul { list-style: inside !important; display: flow-root !important; padding-left: 5px !important } .tbl-cntnt ul li { width: 50%; float: left; line-height: 24px } .tbl-cntnt ul li:before { display: none !important; } .tbl-cntnt ul li a { color: #cd2122; margin-left: -7px } .tbl-cntnt ul li a:hover { text-decoration: underline; color: #348fd6; } .widget_best-sale .widget-title { background: #f8f8f8; padding: 10px; border-bottom: 0px; font-weight: 400; margin-top: 0px; } .ps-document h2 { background: #ebeded; padding: 8px 15px; font-size: 20px; font-weight: 400 } .ps-document h3 { background: #ebeded; padding: 8px 15px; font-size: 20px; font-weight: 400 } .ps-document h4 { background: #ebeded; padding: 8px 15px; font-size: 20px; font-weight: 400 } .ps-product__content h3 { background: #f8f8f8; padding: 10px; font-size: 20px; font-weight: 400 } .ps-section--default h3 { background: #f8f8f8; padding: 10px; font-size: 20px; font-weight: 400 } .ps-document p { text-align: justify } .ps-product__box h3 { margin: 12px 0px 0px 0px; font-size: 18px; } .ps-document ol { padding-left: 20px; } .ps-product__box ul li a { color: #cd2122 } .ps-product__box ul li a:hover { color: #117888; text-decoration: underline } .ps-product__box table a { color: #cd2122 } .ps-product__box table a:hover { color: #117888; } .tbl-cntnt ol { padding-left: 20px; } .tbl-cntnt ol li a { color: #cd2122 } .tbl-cntnt ol li a:hover { color: #117888; text-decoration: underline } .ps-product__box ul { padding-left: 20px; list-style: none; } .ps-product__box ul li:before { content: "\e999"; font-family: Linearicons; /* speak: none; */ font-style: normal; font-weight: 400; font-variant: normal; text-transform: none; line-height: 1; color: #cd2122; display: inline-block; margin-left: -1.3em; width: 1.5em; } .ps-product__box p { text-align: justify } .ps-product__box p:last-child { margin-bottom: 0px; } .ps-product__box table { margin: 5px 0px; } .ps-product__box td { padding-left: 10px !important; } .ps-block--categories-tabs .ps-block__header { padding: 0 30px; overflow-y: hidden; } .ps-block--categories-tabs .ps-tab-list a:hover { background: #fff } @media screen and (max-width:767px) { .get-detail { display: block; text-align: center !important } .get-detail p { margin-bottom: 10px !important } .get-detail a { margin-left: 0px } .ps-block--store .ps-block__content { padding: 0px 10px 10px 10px } .ps-carousel--nav { margin: 0px; padding-bottom: 10px } .modal-content { margin: 16% auto } .modal-text-p { padding-top: 10px } .ps-carousel--nav .owl-nav>* i { font-size: 22px !important } .ps-carousel--nav .owl-nav { display: block !important; } .tbl-cntnt ul li { width: 100% !important; float: none !important } .ps-block--categories-tabs .ps-block__header { padding: 0 30px; } .ps-block--categories-tabs .ps-block__header .ps-tab-list a.active { -webkit-text-fill-color: #c01874 !important; border-bottom: 2px solid #c01874 !important; } .ps-block--categories-tabs .ps-block__header .ps-tab-list a:hover { border-bottom: 2px solid #c01874 !important; } } .sph { font-size: 18px; margin-bottom: 10px; color: #cd2122; font-weight: 600; }
 </style>
 <div class="ps-breadcrumb">
   <div class="ps-container">
@@ -401,14 +74,12 @@ $seg2 = Request::segment(2);
               @if ($seg2 == null)
               <div class="ps-product__box">
                 <div class="ps-document">
-                  <center>
-                    <img data-src="<?php echo url($c_destination->image_path); ?>"
+                    <img src="<?php echo url($c_destination->image_path); ?>"
                       alt="<?php echo $c_destination->page_name; ?>" class="img-responsive">
-                  </center>
                 </div>
               </div><!-- header background section ends -->
-<div class="header-bg1" style="background:linear-gradient(to right, #215697 0%, #35d7dc 100%); padding:5px 1% 15px;">
-  <div class="container-fluid">
+
+  <div class="container-fluid" style="background:linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(25,136,158,1) 100%); padding:5px 1% 15px;">
     <div class="row">
       <div class="col-md-12 col-sm-12 pt-5 pb-4">
         <h2 class="fcolor">Quick Details about {{ $c_destination->page_name }} 2024-25</h2>
@@ -464,16 +135,15 @@ $seg2 = Request::segment(2);
         </div>            
         
         <div class="pt-20 pb-20 get-detail text-center">
-    <!--<span style="font-size:18px; color:#fff;">Get Free Counselling</span>-->
-    <a class="button cur-conver-btn" onclick="window.location.href='{{ url('mbbs-abroad-counselling/') }}/'"
+    <a class="ps-btn" onclick="window.location.href='{{ url('mbbs-abroad-counselling/') }}/'"
       href="javascript:void()">GET FREE COUNSELLING</a>
     <a class="ps-btn hide-this" href="#brochureForm">Get Brochure</a>
   </div>
       </div>
     </div>
   </div>
-</div>
-              <div class="ps-product__box mb-20">
+
+        <div class="ps-product__box mb-20">
                 <div class="ps-tabs">
                   <div class="ps-tab active">
                     <div class="ps-document">
@@ -534,7 +204,7 @@ $seg2 = Request::segment(2);
                         <a onclick="toggleFaq('<?php echo $faq->id; ?>')" class="card-link text-dark"
                           href="javascript:void()">
                           <span class="float-right"><i class="fa fa-arrow-down"></i></span>
-                          <h5 class="mb-0" style="font-size:15px">
+                          <h5 class="mb-0">
                             <?php echo $faq->question; ?>
                           </h5>
                         </a>
@@ -583,113 +253,6 @@ $seg2 = Request::segment(2);
                 <a class="ps-btn" href="<?php echo url('destinations'); ?>/" target="blank"
                   rel="noopener noreferrer">View All Countries</a>
               </div>
-
-              <style>
-                .author {
-                  align-items: center;
-                  margin-bottom: 15px;
-                }
-
-                .author .img-div {
-                  width: 100%;
-                }
-
-                .author .img-div img {
-                  width: 100%;
-                  border-radius: 100%;
-                }
-
-                .author .img-div i {
-                  padding: 2px;
-                  color: green;
-                  border-radius: 100%;
-                  font-size: 20px;
-                  margin-left: -30px;
-                  margin-top: 5px;
-                  position: absolute;
-                  background: #fff;
-                }
-
-                .author .img-div .bio-btn {
-                  font-size: 14px;
-                  border: 1px solid #cd2122;
-                  color: #cd2122;
-                  border-radius: 5px;
-                  font-weight: 400;
-                  padding: 5px 12px;
-                  display: block;
-                  text-align: center;
-                  margin-top: 10px;
-                }
-
-                .author .img-div .bio-btn:hover {
-                  border: 1px solid #117888;
-                  background: #117888;
-                  color: #fff
-                }
-
-                .author .cont-div {
-                  width: auto
-                }
-
-                .author .cont-div p {
-                  font-size: 14px;
-                  text-align: justify;
-                  margin-bottom: 3px !important
-                }
-
-                .author .cont-div p strong {
-                  text-transform: uppercase;
-                  color: #cd2122;
-                  font-weight: 800 !important;
-                }
-
-                .author .cont-div h6 {
-                  font-size: 20px;
-                  color: #000;
-                  font-weight: 800;
-                  margin-bottom: 6px !important;
-                }
-
-                .author a {
-                  font-size: 16px;
-                  font-weight: 600;
-                  color: #da0b4e
-                }
-
-                .author span {
-                  display: block;
-                  font-size: 13px;
-                  padding-bottom: 10px;
-                  margin-bottom: 10px;
-                  border-bottom: 1px dashed #e2e2e2
-                }
-
-                @media (max-width: 767px) {
-                  .author {
-                    margin-bottom: 0px;
-                  }
-
-                  .author .img-div {
-                    width: 50%;
-                    margin: auto
-                  }
-
-                  .author .cont-div {
-                    text-align: center
-                  }
-
-                  .author .cont-div h6 {
-                    font-size: 18px;
-                    margin-top: 20px
-                  }
-
-                  .author .cont-div p {
-                    font-size: 14px;
-                  }
-                }
-              </style>
-
               @if($c_destination->author_id != null)
               <div class="ps-page--product" style="background-color:white;">
                 <div class="ps-container pt-10" id="topuniversities">
@@ -885,116 +448,10 @@ $seg2 = Request::segment(2);
               </div>
               @endif
             </div>
-          </div><section class="image-bg endCounselling">
-  <div class="container">
-    <h2 class="main-h1">End-to-End MBBS Abroad Free Counselling</h2>
-    <h3 class="sub-h1">Looking to get the best career guidance? Our experts know exactly what you need!</h3>
-    <p class="main-p">At Tutelage Study, academic experts help you evaluate your career and course choices accurately
-      while taking into account your educational background, strengths &amp; skills. From shortlisting the best medical colleges
-      to tracking your entire admission process, the counselling by our experts will make your higher medical education journey
-      hassle-free and put you on the path of success.</p>
-    <div class="row">
-      <div class="col-12 col-md-6">
-        <div class="counselling-left">
-          <div class="head">How it works</div>
-          <ul class="tl">
-            <li class="tl-item">
-              <div class="item-title">Tell us about your College / Course &amp; Location preferences.</div>
-            </li>
-            <li class="tl-item">
-              <div class="item-title">An Expert Counsellor will be assigned to you.</div>
-            </li>
-            <li class="tl-item">
-              <div class="item-title">Discuss your options with your counsellor.</div>
-            </li>
-            <li class="tl-item">
-              <div class="item-title">Apply online through our COMMON APPLICATION FORM platform.</div>
-            </li>
-            <li class="tl-item">
-              <div class="item-title">Your counselor will ensure seat allocation for you.</div>
-            </li>
-            <li class="tl-item">
-              <div class="item-title">Deposit your fee. If you need, avail Education Loan at 0% Interest Rate.</div>
-            </li>
-            <li class="tl-item">
-              <div class="item-title">Yippie! your dream college is right there waiting for you to join !</div>
-            </li>
-          </ul>
-          <a href="<?php echo url('contact-us'); ?>/" class="btn home-btn">Talk to our Experts</a>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 counselling-right">
-        <div class="counselling-content">
-          <ul>
-            <li>
-              <div>
-                <span class="counselling-right-image"><img data-src="{{ asset('front/') }}/img/Cicon1.png"
-                    alt="Conselling Icon"></span>
-                <p>No Hidden <br>
-                  Charges
-                </p>
-              </div>
-            </li>
-            <li>
-              <div>
-                <span class="counselling-right-image"><img data-src="{{ asset('front/') }}/img/Cicon2.png"
-                    alt="Conselling Icon"></span>
-                <p>1 on 1 <br>
-                  Counselling
-                </p>
-              </div>
-            </li>
-            <li>
-              <div>
-                <span class="counselling-right-image"><img data-src="{{ asset('front/') }}/img/Cicon3.png"
-                    alt="Conselling Icon"></span>
-                <p>100% Online <br>
-                  Process
-                </p>
-              </div>
-            </li>
-            <li>
-              <div>
-                <span class="counselling-right-image"><img data-src="{{ asset('front/') }}/img/Cicon4.png"
-                    alt="Conselling Icon"></span>
-                <p>Counselling by<br />
-                  Experts
-                </p>
-              </div>
-            </li>
-            <li>
-              <div>
-                <span class="counselling-right-image"><img data-src="{{ asset('front/') }}/img/Cicon5.png"
-                    alt="Conselling Icon"></span>
-                <p>No need to step <br>
-                  out of home
-                </p>
-              </div>
-            </li>
-            <li>
-              <div>
-                <span class="counselling-right-image"><img data-src="{{ asset('front/') }}/img/Cicon6.png"
-                    alt="Conselling Icon"></span>
-                <p>Loan Support @ <br>
-                  0% Interest
-                </p>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-          <style>
-            .ps-carousel--nav .owl-nav .owl-prev {
-              margin-left: -20px;
-            }
-
-            .ps-carousel--nav .owl-nav .owl-next {
-              margin-right: -20px;
-            }
-          </style>
+          </div>
+<style>
+.ps-carousel--nav .owl-nav .owl-prev { margin-left: -20px; } .ps-carousel--nav .owl-nav .owl-next { margin-right: -20px; }
+</style>
           @if($testimonials->count()>0)
           <!-- Testimonials -->
           <div class="ps-section--vendor">
@@ -1166,4 +623,7 @@ $seg2 = Request::segment(2);
     $('#a' + id).toggle(500);
   }
 </script>
+<style>
+.author { align-items: center; margin-bottom: 15px; } .author .img-div { width: 100%; } .author .img-div img { width: 100%; border-radius: 100%; } .author .img-div i { padding: 2px; color: green; border-radius: 100%; font-size: 20px; margin-left: -30px; margin-top: 5px; position: absolute; background: #fff; } .author .img-div .bio-btn { font-size: 14px; border: 1px solid #cd2122; color: #cd2122; border-radius: 5px; font-weight: 400; padding: 5px 12px; display: block; text-align: center; margin-top: 10px; } .author .img-div .bio-btn:hover { border: 1px solid #117888; background: #117888; color: #fff } .author .cont-div { width: auto } .author .cont-div p { font-size: 14px; text-align: justify; margin-bottom: 3px !important } .author .cont-div p strong { text-transform: uppercase; color: #cd2122; font-weight: 800 !important; } .author .cont-div h6 { font-size: 20px; color: #000; font-weight: 800; margin-bottom: 6px !important; } .author a { font-size: 16px; font-weight: 600; color: #da0b4e } .author span { display: block; font-size: 13px; padding-bottom: 10px; margin-bottom: 10px; border-bottom: 1px dashed #e2e2e2 } @media (max-width: 767px) { .author { margin-bottom: 0px; } .author .img-div { width: 50%; margin: auto } .author .cont-div { text-align: center } .author .cont-div h6 { font-size: 18px; margin-top: 20px } .author .cont-div p { font-size: 14px; } }
+</style>
 @endsection

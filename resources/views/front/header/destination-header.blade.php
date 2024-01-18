@@ -27,7 +27,6 @@
   <meta property="twitter:image:type" content="image/jpg" />
   <link rel="apple-touch-icon" href="{{ asset('/front/') }}/img/icon.png"/>
   <meta property="og:image" content="<?php echo base_url($ogimgpath); ?>" />
-
   <?php $this->load->view('web/cssjs'); ?>
   <!-- organization schema code -->
 <script type="application/ld+json">
