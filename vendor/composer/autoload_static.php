@@ -126,6 +126,7 @@ class ComposerStaticInit88e25c66d9d291cc4f1ade66b2fe2310
         ),
         'L' => 
         array (
+            'Litespeed\\LSCache\\' => 18,
             'League\\MimeTypeDetection\\' => 25,
             'League\\Flysystem\\' => 17,
             'League\\Config\\' => 14,
@@ -419,6 +420,10 @@ class ComposerStaticInit88e25c66d9d291cc4f1ade66b2fe2310
         'Maatwebsite\\Excel\\' => 
         array (
             0 => __DIR__ . '/..' . '/maatwebsite/excel/src',
+        ),
+        'Litespeed\\LSCache\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/litespeed/lscache-laravel/src',
         ),
         'League\\MimeTypeDetection\\' => 
         array (
@@ -4021,6 +4026,11 @@ class ComposerStaticInit88e25c66d9d291cc4f1ade66b2fe2310
         'League\\MimeTypeDetection\\GeneratedExtensionToMimeTypeMap' => __DIR__ . '/..' . '/league/mime-type-detection/src/GeneratedExtensionToMimeTypeMap.php',
         'League\\MimeTypeDetection\\MimeTypeDetector' => __DIR__ . '/..' . '/league/mime-type-detection/src/MimeTypeDetector.php',
         'League\\MimeTypeDetection\\OverridingExtensionToMimeTypeMap' => __DIR__ . '/..' . '/league/mime-type-detection/src/OverridingExtensionToMimeTypeMap.php',
+        'Litespeed\\LSCache\\LSCache' => __DIR__ . '/..' . '/litespeed/lscache-laravel/src/LSCache.php',
+        'Litespeed\\LSCache\\LSCacheMiddleware' => __DIR__ . '/..' . '/litespeed/lscache-laravel/src/LSCacheMiddleware.php',
+        'Litespeed\\LSCache\\LSCacheServiceProvider' => __DIR__ . '/..' . '/litespeed/lscache-laravel/src/LSCacheServiceProvider.php',
+        'Litespeed\\LSCache\\LSTagsMiddleware' => __DIR__ . '/..' . '/litespeed/lscache-laravel/src/LSTagsMiddleware.php',
+        'Litespeed\\LSCache\\LiteSpeedCache' => __DIR__ . '/..' . '/litespeed/lscache-laravel/src/LiteSpeedCache.php',
         'Maatwebsite\\Excel\\Cache\\BatchCache' => __DIR__ . '/..' . '/maatwebsite/excel/src/Cache/BatchCache.php',
         'Maatwebsite\\Excel\\Cache\\BatchCacheDeprecated' => __DIR__ . '/..' . '/maatwebsite/excel/src/Cache/BatchCacheDeprecated.php',
         'Maatwebsite\\Excel\\Cache\\CacheManager' => __DIR__ . '/..' . '/maatwebsite/excel/src/Cache/CacheManager.php',

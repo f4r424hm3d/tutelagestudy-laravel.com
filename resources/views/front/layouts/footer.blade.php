@@ -1,6 +1,5 @@
 <footer class="pb-70">
   <div class="pt-30" style="background-color:#111112">
-
     <div class="ps-footer__widgets mt-5 container">
       <aside class="widget_footer widget_contact-us col-md-3">
         <span class="widget-title">Contact us</span>
@@ -69,7 +68,7 @@
         <div class="ps-footer__copyright">
           <div class="row">
             <div class="col-md-6">
-              <p class="whitec">© 2023 <a href="{{ url('/') }}">Tutelage Study</a>. All Rights Reserved
+              <p class="whitec">© 2024 <a href="{{ url('/') }}">Tutelage Study</a>. All Rights Reserved
               </p>
             </div>
             <div class="col-md-6">
@@ -103,13 +102,13 @@
 <script rel="preload" src="{{ cdn('front') }}/plugins/popper.min.js"></script>
 <script rel="preload" src="{{ cdn('front') }}/plugins/owl-carousel/owl.carousel.min.js"></script>
 <script rel="preload" src="{{ cdn('front') }}/plugins/bootstrap/js/bootstrap.min.js"></script>
-<script rel="preload" src="{{ cdn('front') }}/plugins/imagesloaded.pkgd.min.js"></script>
-<script src="{{ cdn('front') }}/plugins/masonry.pkgd.min.js"></script>
-<script rel="preload" src="{{ cdn('front') }}/plugins/isotope.pkgd.min.js"></script>
+<!--<script rel="preload" src="{{ cdn('front') }}/plugins/imagesloaded.pkgd.min.js"></script>-->
+<!--<script src="{{ cdn('front') }}/plugins/masonry.pkgd.min.js"></script>-->
+<!--<script rel="preload" src="{{ cdn('front') }}/plugins/isotope.pkgd.min.js"></script>-->
 <script rel="preload" src="{{ cdn('front') }}/plugins/jquery.matchHeight-min.js"></script>
 <script src="{{ cdn('front') }}/plugins/slick/slick/slick.min.js" defer></script>
-<script rel="preload" src="{{ cdn('front') }}/plugins/jquery-bar-rating/dist/jquery.barrating.min.js" defer></script>
-<script src="{{ cdn('front') }}/plugins/lightGallery-master/dist/js/lightgallery-all.min.js" defer></script>
+<!--<script rel="preload" src="{{ cdn('front') }}/plugins/jquery-bar-rating/dist/jquery.barrating.min.js" defer></script>-->
+<!--<script src="{{ cdn('front') }}/plugins/lightGallery-master/dist/js/lightgallery-all.min.js" defer></script>-->
 {{-- <script rel="preload" src="{{ cdn('front') }}/plugins/select2/dist/js/select2.full.min.js"></script> --}}
 
 <!--End of Tawk.to Script-->
@@ -439,21 +438,21 @@ $finalUrl = url($form_url);
   <ul>
     <li>
       <a href="tel:+919818560331" title="Call Us">
-        <div><img data-src="{{ asset('/front/') }}/img/icons/phone.png" alt="call us"></div>
+        <div><img data-src="{{ asset('/front/') }}/img/icons/phone.png" alt="call image icon"></div>
         Call Us
       </a>
     </li>
     <li>
       <a onclick="window.location.href='<?php echo $finalUrl; ?>/'" href="javascript:void()" title="Free Counselling">
         <div>
-          <img data-src="{{ asset('/front/') }}/img/icons/counselling.png" alt="Free Counselling">
+          <img data-src="{{ asset('/front/') }}/img/icons/counselling.png" alt="Counselling image icon">
         </div>
         <span>Free</span> Counselling
       </a>
     </li>
     <li>
       <a href="mailto:studytutelage@gmail.com" title="Email Us">
-        <div><img data-src="{{ asset('/front/') }}/img/icons/email.png" alt="email us"></div>
+        <div><img data-src="{{ asset('/front/') }}/img/icons/email.png" alt="email image icon"></div>
         Email Us
       </a>
     </li>

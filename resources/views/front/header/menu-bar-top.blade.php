@@ -43,13 +43,7 @@
             <div class="ps-block--user-header">
               <!-- <div class="ps-block__left"><i class="icon-envelope-open"></i></div>&nbsp;&nbsp; -->
               <div class="ps-block__right">
-                <a class="ps-btn" style="background-color:#1d4d7a" href="mailto:studytutelage@gmail.com">
-                  <div class="ps-block__left"><i class="icon-envelope-open"></i></div>
-                </a>
-              </div>
-              <div class="ps-block__right">
-                <a class="ps-btn" href="tel:+919818560331">
-                  <div class="ps-block__left"><i class="icon-telephone"></i></div>
+                <a class="ps-btn" href="https://www.tutelagestudy.com/mbbs-abroad-counselling/">Free MBBS Counselling
                 </a>
               </div>
             </div>
@@ -135,7 +129,7 @@
         <div class="header__actions">
           <div class="ps-block--user-header">
             <div class="ps-block__left pt-15">
-              <a href="tel:+919818560331" class="ps-btn"><i class="icon-telephone2"></i></a>
+              <a href="tel:+919818560331" class="ps-btn"><i class="icon-telephone"></i> Call Now</a>
             </div>
           </div>
         </div>
