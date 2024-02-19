@@ -125,3 +125,15 @@ function cdnPath($cdn, $asset)
 {
   return  "//" . rtrim($cdn, "/") . "/" . ltrim($asset, "/");
 }
+if (!function_exists('gr_site_key')) {
+  function gr_site_key()
+  {
+    return "6LcXpncpAAAAAAk9gbC73-Ea2C6YGb-YLVz6fnqb";
+  }
+}
+if (!function_exists('gr_secret_key')) {
+  function gr_secret_key()
+  {
+    return "6LcXpncpAAAAAIvnMfK39FxixoVlNnnEMp5b1U_H";
+  }
+}

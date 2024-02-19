@@ -4,10 +4,7 @@
   use App\Models\Country;
 
   $destinationsSF = Destination::where(['status' => 1])->get();
-  $phonecodesSF = Country::select('phonecode', 'name')
-      ->where('phonecode', '!=', '0')
-      ->orderBy('phonecode', 'asc')
-      ->get();
+  $phonecodesSF = Country::select('phonecode', 'name')->where('phonecode', '!=', '0')->orderBy('phonecode', 'asc')->get();
   $countriesSF = Country::orderBy('name', 'asc')->get();
 
 @endphp
@@ -142,8 +139,14 @@
     </div>
     <div class="ps-panel__content">
 
+      @error('g-recaptcha-response')
+        <span class="text-danger">{{ $message }}</span>
+      @enderror
       <form action="{{ url('inquiry/download-brochure') }}/" method="post">
         @csrf
+        <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response-db">
+        <input type="hidden" name="source" value="Brochure">
+        <input type="hidden" name="source_path" value="{{ URL::full() }}">
         <input type="hidden" class="form-control" name="page_url" value="{{ url()->current() }}">
         <div class="ps-form__content" style="padding:20px">
           <div class="row">
@@ -155,7 +158,7 @@
                       <input type="text" name="name" id="name" class="form-control"
                         placeholder="Enter Name" value="{{ old('name') ?? '' }}" required>
                       @error('name')
-                        {{ '<span class="text-danger">' . $message . '</span>' }}
+                        {!! '<span class="text-danger">' . $message . '</span>' !!}
                       @enderror
                     </div>
                   </div>
@@ -164,7 +167,7 @@
                       <input type="email" class="form-control" name="email" id="email"
                         value="{{ old('email') ?? '' }}" placeholder="Enter Email" required>
                       @error('email')
-                        {{ '<span class="text-danger">' . $message . '</span>' }}
+                        {!! '<span class="text-danger">' . $message . '</span>' !!}
                       @enderror
                     </div>
                   </div>
@@ -175,7 +178,7 @@
                       <input type="c_code" class="form-control" name="c_code" id="c_code"
                         value="{{ old('c_code') ?? '+91' }}" placeholder="Country Code" required>
                       @error('c_code')
-                        {{ '<span class="text-danger">' . $message . '</span>' }}
+                        {!! '<span class="text-danger">' . $message . '</span>' !!}
                       @enderror
                     </div>
                   </div>
@@ -185,7 +188,7 @@
                         data-error="Please enter a valid phone number" name="mobile" id="mobile"
                         value="<?php echo old('mobile'); ?>" required>
                       @error('mobile')
-                        {{ '<span class="text-danger">' . $message . '</span>' }}
+                        {!! '<span class="text-danger">' . $message . '</span>' !!}
                       @enderror
                     </div>
                   </div>
@@ -239,8 +242,14 @@
             <div
               style="font-size:16px; margin-bottom:10px; color:#cd2122; font-weight:500; margin-top:15px; text-align:center">
               Apply Now for MBBS Upcoming Intake</div>
+            @error('g-recaptcha-response')
+              <span class="text-danger">{{ $message }}</span>
+            @enderror
             <form class="ps-form--visa" action="{{ url('inquiry/submit-mbbs-inquiry') }}/" method="post">
               @csrf
+              <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response-smi">
+              <input type="hidden" name="source" value="MObile Form Inquiry">
+              <input type="hidden" name="source_path" value="{{ URL::full() }}">
               <input type="hidden" name="source_url" value="<?php echo $_GET['page'] ?? ''; ?>">
               <input type="hidden" name="page_url" value="{{ url()->current() }}">
               <div class="row">
@@ -425,4 +434,25 @@
         });
       });
     }
+  </script>
+  <script>
+    grecaptcha.ready(function() {
+      grecaptcha.execute('{{ gr_site_key() }}', {
+          action: 'contact_us'
+        })
+        .then(function(token) {
+          // Set the reCAPTCHA token in the hidden input field
+          document.getElementById('g-recaptcha-response-smi').value = token;
+        });
+    });
+
+    grecaptcha.ready(function() {
+      grecaptcha.execute('{{ gr_site_key() }}', {
+          action: 'contact_us'
+        })
+        .then(function(token) {
+          // Set the reCAPTCHA token in the hidden input field
+          document.getElementById('g-recaptcha-response-db').value = token;
+        });
+    });
   </script>

@@ -103,6 +103,9 @@
           </div>
         </div>
         <?php } ?>
+        @error('g-recaptcha-response')
+          <span class="text-danger">{{ $message }}</span>
+        @enderror
         <div class="row">
           <div class="col-md-5">
             <img data-src="https://www.tutelagestudy.com/uploads/destinations/IMG_20221213_105139.jpg" class="w-100" />
@@ -111,6 +114,9 @@
             <h1>Apply Now for MBBS Upcoming Intake</h1>
             <form class="ps-form--visa" action="{{ url('inquiry/submit-mbbs-inquiry') }}/" method="post">
               @csrf
+              <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response">
+              <input type="hidden" name="source" value="MBBS Abroad Counselling">
+              <input type="hidden" name="source_path" value="{{ URL::full() }}">
               <input type="hidden" name="source_url" value="<?php echo $_GET['page'] ?? ''; ?>">
               <input type="hidden" name="page_url" value="{{ $page_url }}">
               <div class="row">
@@ -272,4 +278,15 @@
           class="button home-btn">Browse All Destinations</a></div>
     </div>
   </div>
+  <script>
+    grecaptcha.ready(function() {
+      grecaptcha.execute('{{ gr_site_key() }}', {
+          action: 'contact_us'
+        })
+        .then(function(token) {
+          // Set the reCAPTCHA token in the hidden input field
+          document.getElementById('g-recaptcha-response').value = token;
+        });
+    });
+  </script>
 @endsection

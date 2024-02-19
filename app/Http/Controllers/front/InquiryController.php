@@ -9,7 +9,7 @@ use App\Models\Student;
 use App\Models\University;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
-use Mail;
+use Illuminate\Support\Facades\Mail;
 
 class InquiryController extends Controller
 {
@@ -26,6 +26,7 @@ class InquiryController extends Controller
     // die;
     $request->validate(
       [
+        'g-recaptcha-response' => 'required',
         'name' => 'required|regex:/^[a-zA-Z ]*$/',
         'email' => 'required|email',
         'c_code' => 'required|numeric|digits_between:1,5',
@@ -122,6 +123,7 @@ class InquiryController extends Controller
     // die;
     $request->validate(
       [
+        'g-recaptcha-response' => 'required',
         'name' => 'required|regex:/^[a-zA-Z ]*$/',
         'email' => 'required|email:rfc,dns',
         'c_code' => 'required|numeric|digits_between:1,5',
@@ -219,6 +221,7 @@ class InquiryController extends Controller
     // die;
     $request->validate(
       [
+        'g-recaptcha-response' => 'required',
         'name' => 'required|regex:/^[a-zA-Z ]*$/',
         'email' => 'required|email:rfc,dns',
         'mobile' => 'required|numeric|digits_between:9,12',
@@ -394,6 +397,7 @@ class InquiryController extends Controller
     $brochure_path = "tb/MBBS-brochure-table-new-printing.pdf";
     $request->validate(
       [
+        'g-recaptcha-response' => 'required',
         'name' => 'required|regex:/^[a-zA-Z ]*$/',
         'email' => 'required|email:rfc,dns',
         'c_code' => 'required|numeric|digits_between:1,5',
