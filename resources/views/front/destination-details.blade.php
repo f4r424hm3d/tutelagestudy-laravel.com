@@ -370,7 +370,7 @@
                     style="background:linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(25,136,158,1) 100%); padding:5px 1% 15px;">
                     <div class="row">
                       <div class="col-md-12 col-sm-12 p-5">
-                        <h2 class="fcolor">Quick Details about {{ $c_destination->page_name }} 2024-25</h2>
+                        <h2 class="fcolor">Quick Details about {{ $c_destination->page_name }} for the academic year 2024-25</h2>
                         <div class="row" style="margin-top:10px">
                           <div class="col-md-7 col-sm-12 col-xs-12 pad no-padding">
                             <div class="media-left">

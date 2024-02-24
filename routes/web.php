@@ -319,7 +319,6 @@ Route::middleware(['adminLoggedIn'])->group(function () {
       Route::get('/{university_id}/update/{id}/', [UniversityOverviewC::class, 'index']);
       Route::post('/{university_id}/update/{id}/', [UniversityOverviewC::class, 'update']);
     });
-
     Route::prefix('/university-gallery')->group(function () {
       Route::get('/{university_id}', [UniversityGalleryC::class, 'index']);
       Route::post('/{university_id}/store', [UniversityGalleryC::class, 'store']);
