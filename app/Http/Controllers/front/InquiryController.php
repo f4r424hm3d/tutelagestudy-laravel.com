@@ -91,7 +91,7 @@ class InquiryController extends Controller
       }
     );
 
-    $api_url = "https://www.tutelagestudy.com/crm/Api/submitInquiryFromTutelageWeb";
+    $api_url = "https://www.crm.tutelagestudy.com/Api/submitInquiryFromTutelageWeb";
     $form_data = $emaildata;
     //echo json_encode($form_data, true);
     $client = curl_init($api_url);
@@ -156,7 +156,7 @@ class InquiryController extends Controller
       'page_url' => $request['source_url'],
     ];
 
-    $api_url = "https://www.tutelagestudy.com/crm/Api/submitDestinationInquiryFromTutelageWeb";
+    $api_url = "https://www.crm.tutelagestudy.com/Api/submitDestinationInquiryFromTutelageWeb";
     $form_data = $emaildata;
     //echo json_encode($form_data, true);
     $client = curl_init($api_url);
@@ -254,7 +254,7 @@ class InquiryController extends Controller
       'page_url' => $request['source_url'],
     ];
 
-    $api_url = "https://www.tutelagestudy.com/crm/Api/submitNeetInquiryFromTutelageWeb";
+    $api_url = "https://www.crm.tutelagestudy.com/Api/submitNeetInquiryFromTutelageWeb";
     $form_data = $emaildata;
     //echo json_encode($form_data, true);
     $client = curl_init($api_url);
@@ -340,7 +340,7 @@ class InquiryController extends Controller
       'page_url' => $request['source_url'],
     ];
 
-    $api_url = "https://www.tutelagestudy.com/crm/Api/submitBrochureInquiryFromTutelageWeb";
+    $api_url = "https://www.crm.tutelagestudy.com/Api/submitBrochureInquiryFromTutelageWeb";
     $form_data = $emaildata;
     //echo json_encode($form_data, true);
     $client = curl_init($api_url);
@@ -423,7 +423,7 @@ class InquiryController extends Controller
       'page_url' => $request['source_url'],
     ];
 
-    $api_url = "https://www.tutelagestudy.com/crm/Api/submitBrochureInquiryFromTutelageWeb2";
+    $api_url = "https://www.crm.tutelagestudy.com/Api/submitBrochureInquiryFromTutelageWeb2";
     $form_data = $emaildata;
     //echo json_encode($form_data, true);
     $client = curl_init($api_url);
