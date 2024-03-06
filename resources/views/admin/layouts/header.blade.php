@@ -27,7 +27,6 @@
   <link href="{{ url('backend/') }}/assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css"
     rel="stylesheet" type="text/css" />
 
-
   <!-- Bootstrap Css -->
   <link href="{{ url('backend/') }}/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet"
     type="text/css" />
@@ -68,8 +67,12 @@
       text-justify: inter-word;
     }
 
-    .col-btn {
-      margin-top: 34px;
+    .setBtn {
+      margin-top: 31px;
+    }
+
+    .card {
+      border: 1px solid #6d70738f !important;
     }
   </style>
 </head>
@@ -181,8 +184,6 @@
             </div>
           </div>
 
-
-
           <div class="dropdown d-inline-block">
             <button type="button" class="btn header-item bg-soft-light border-start border-end"
               id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -222,13 +223,34 @@
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-more" role="button">
                   <i data-feather="file-text"></i>
+                  <span data-key="t-extra-pages">
+                    Students
+                  </span>
+                  <div class="arrow-down"></div>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="topnav-more">
+                  <div class="dropdown">
+                    <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('leads/') }}" id="topnav-auth"
+                      role="button">
+                      <span data-key="t-authentication">Students</span>
+                    </a>
+                    {{-- <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('leads/add') }}"
+                      id="topnav-auth" role="button">
+                      <span data-key="t-authentication">Add Student</span>
+                    </a> --}}
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-more" role="button">
+                  <i data-feather="file-text"></i>
                   <span data-key="t-extra-pages">University</span>
                   <div class="arrow-down"></div>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="topnav-more">
                   <div class="dropdown">
-                    <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('university') }}" id="topnav-auth"
-                      role="button">
+                    <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('university') }}"
+                      id="topnav-auth" role="button">
                       <span data-key="t-authentication">University</span>
                     </a>
                     <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('institute-types') }}"
@@ -315,12 +337,12 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="topnav-more">
                   <div class="dropdown">
-                    <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('addresses') }}" id="topnav-auth"
-                      role="button">
+                    <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('addresses') }}"
+                      id="topnav-auth" role="button">
                       <span data-key="t-authentication">Addresses</span>
                     </a>
-                    <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('services') }}" id="topnav-auth"
-                      role="button">
+                    <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('services') }}"
+                      id="topnav-auth" role="button">
                       <span data-key="t-authentication">Services</span>
                     </a>
                     <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('Testimonials') }}"

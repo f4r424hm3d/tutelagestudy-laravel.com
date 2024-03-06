@@ -25,6 +25,7 @@ use App\Http\Controllers\admin\ProgramC;
 use App\Http\Controllers\admin\SeoC;
 use App\Http\Controllers\admin\ServiceC;
 use App\Http\Controllers\admin\ServiceContentC;
+use App\Http\Controllers\admin\StudentC;
 use App\Http\Controllers\admin\StudyModeC;
 use App\Http\Controllers\admin\TestimonialC;
 use App\Http\Controllers\admin\UniversityC;
@@ -426,6 +427,22 @@ Route::middleware(['adminLoggedIn'])->group(function () {
       Route::get('/update/{id}/', [AddressC::class, 'index']);
       Route::post('/update/{id}/', [AddressC::class, 'update']);
     });
+    Route::prefix('leads')->group(function () {
+      Route::get('', [StudentC::class, 'index']);
+      Route::get('/move', [StudentC::class, 'move']);
+      Route::get('/add', [StudentC::class, 'add']);
+      Route::get('/update/{id}', [StudentC::class, 'add']);
+      Route::post('/update/{id}', [StudentC::class, 'update']);
+      Route::get('/delete/{id}', [StudentC::class, 'delete']);
+      Route::post('/store', [StudentC::class, 'store']);
+      Route::get('get-quick-info', [StudentC::class, 'getQuickInfo']);
+      Route::get('/update-quick-info/', [StudentC::class, 'updateQuickInfo']);
+      Route::get('/fetch-last-updated-record/{id}', [StudentC::class, 'fetchLastRecord']);
+
+
+      Route::get('/add2', [StudentC::class, 'add2']);
+      Route::post('/store-ajax', [StudentC::class, 'storeAjax']);
+    });
 
     Route::prefix('/users')->group(function () {
       Route::get('/', [UserC::class, 'index']);
@@ -444,6 +461,7 @@ Route::prefix('common')->group(function () {
   Route::get('/get-country-by-destination/', [CommonController::class, 'getCountryByDestination']);
   Route::get('/search-university-and-program/', [HomeFc::class, 'searchUniversity']);
   Route::get('/slugify/', [CommonController::class, 'slugifyString']);
+  Route::get('/bulk-delete', [CommonController::class, 'bulkDelete']);
 });
 
 // SITE MAP

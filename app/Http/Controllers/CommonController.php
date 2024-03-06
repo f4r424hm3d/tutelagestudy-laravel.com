@@ -74,5 +74,9 @@ class CommonController extends Controller
       echo "Please fill all the information";
     }
   }
-
+  public function bulkDelete(Request $request)
+  {
+    $result = DB::table($request->tbl)->whereIn('id', $request->ids)->delete();
+    return response()->json(['affected_rows' => $result]);
+  }
 }
