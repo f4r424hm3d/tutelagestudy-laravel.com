@@ -122,15 +122,15 @@
           <img src="{{ url('front/') }}/img/logo_light.png" alt="Tutelage Study logo">
         </a>
       </div>
-      <div class="navigation__right">
-        <div class="header__actions">
-          <div class="ps-block--user-header">
-            <div class="ps-block__left pt-15">
-              <a href="tel:+919818560331" class="ps-btn"><i class="icon-telephone"></i> Call Now</a>
-            </div>
-          </div>
-        </div>
-      </div>
+      <!--<div class="navigation__right">-->
+      <!--  <div class="header__actions">-->
+      <!--    <div class="ps-block--user-header">-->
+      <!--      <div class="ps-block__left pt-15">-->
+      <!--        <a href="tel:+919818560331" class="ps-btn"><i class="icon-telephone"></i> Call Now</a>-->
+      <!--      </div>-->
+      <!--    </div>-->
+      <!--  </div>-->
+      <!--</div>-->
     </div>
   </header>
   <div class="ps-panel--sidebar" id="navigation-mobile">

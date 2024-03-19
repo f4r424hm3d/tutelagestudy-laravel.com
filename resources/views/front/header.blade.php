@@ -40,17 +40,17 @@
             <button>Search</button>
           </form>
         </div>
-        <div class="header__right">
-          <div class="header__actions">
-            <div class="ps-block--user-header">
+        <!--<div class="header__right">-->
+        <!--  <div class="header__actions">-->
+        <!--    <div class="ps-block--user-header">-->
               <!-- <div class="ps-block__left"><i class="icon-envelope-open"></i></div>&nbsp;&nbsp; -->
-              <div class="ps-block__left"><i class="icon-telephone2"></i></div>
-              <div class="ps-block__right">
-                <a class="ps-btn" href="tel:+919818560331">Call Now</a>
-              </div>
-            </div>
-          </div>
-        </div>
+        <!--      <div class="ps-block__left"><i class="icon-telephone2"></i></div>-->
+        <!--      <div class="ps-block__right">-->
+        <!--        <a class="ps-btn" href="tel:+919818560331">Call Now</a>-->
+        <!--      </div>-->
+        <!--    </div>-->
+        <!--  </div>-->
+        <!--</div>-->
       </div>
     </div>
     <nav class="navigation">

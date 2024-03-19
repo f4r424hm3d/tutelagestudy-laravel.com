@@ -107,11 +107,11 @@
           <span class="text-danger">{{ $message }}</span>
         @enderror
         <div class="row">
-          <div class="col-md-5">
-            <img data-src="https://www.tutelagestudy.com/uploads/destinations/IMG_20221213_105139.jpg" class="w-100" />
-          </div>
-          <div class="col-md-7">
-            <h1>Apply Now for MBBS Upcoming Intake</h1>
+          <!--<div class="col-md-5">-->
+          <!--  <img data-src="https://www.tutelagestudy.com/uploads/destinations/IMG_20221213_105139.jpg" class="w-100" />-->
+          <!--</div>-->
+          <div class="col-md-11">
+            <h1>Apply Now for MBBS Upcoming Intake & Free Couselling Session</h1>
             <form class="ps-form--visa" action="{{ url('inquiry/submit-mbbs-inquiry') }}/" method="post">
               @csrf
               <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response">
@@ -277,7 +277,33 @@
       <div class="pt-20" align="center"><a href="/destinations/" target="_blank" rel="noopener noreferrer"
           class="button home-btn">Browse All Destinations</a></div>
     </div>
-  </div>
+  </div></br>
+  <div class="container"><div class="ps-product__box mb-20" id="2">
+<aside class="widget widget_best-sale" data-mh="dealhot">
+<h3 class="widget-title">You might be interested in related destination</h3>
+<div class="widget__content">
+<div class="owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000"
+data-owl-gap="0" data-owl-nav="false" data-owl-dots="false" data-owl-item="4"
+data-owl-item-xs="2" data-owl-item-sm="2" data-owl-item-md="4" data-owl-item-lg="4"
+data-owl-duration="1000" data-owl-mousedrag="on">
+<?php foreach ($destinations as $oe) { ?>
+<div class="ps-product-group">
+		<div class="ps-product--horizontal">
+				<div class="ps-product__thumbnail ml-10" style="background:#fff">
+						<img data-src="<?php echo asset($oe->thumbnail); ?>" alt="<?php echo $oe->page_name; ?>" loading="lazy">
+				</div>
+				<div class="ps-product__content">
+						<a class="ps-product__title" href="<?php echo url($oe->slug); ?>/">
+								<?php echo $oe->page_name; ?>
+						</a>
+				</div>
+		</div>
+</div>
+<?php } ?>
+</div>
+</div>
+</aside>
+</div></div>
   <script>
     grecaptcha.ready(function() {
       grecaptcha.execute('{{ gr_site_key() }}', {
