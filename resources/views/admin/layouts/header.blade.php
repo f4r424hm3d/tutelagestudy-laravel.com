@@ -349,6 +349,10 @@
                       id="topnav-auth" role="button">
                       <span data-key="t-authentication">Testimonials</span>
                     </a>
+                    <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('upload-files') }}"
+                      id="topnav-auth" role="button">
+                      <span data-key="t-authentication">Upload Files</span>
+                    </a>
                   </div>
                 </div>
               </li>

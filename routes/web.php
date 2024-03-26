@@ -32,6 +32,7 @@ use App\Http\Controllers\admin\UniversityC;
 use App\Http\Controllers\admin\UniversityGalleryC;
 use App\Http\Controllers\admin\UniversityOverviewC;
 use App\Http\Controllers\admin\UniversityVideoGalleryC;
+use App\Http\Controllers\admin\UploadFilesC;
 use App\Http\Controllers\admin\UserC;
 use App\Http\Controllers\CommonController;
 use App\Http\Controllers\front\AboutFc;
@@ -450,6 +451,15 @@ Route::middleware(['adminLoggedIn'])->group(function () {
       Route::get('/delete/{id}/', [UserC::class, 'delete']);
       Route::get('/update/{id}/', [UserC::class, 'index']);
       Route::post('/update/{id}/', [UserC::class, 'update']);
+    });
+
+    Route::prefix('/upload-files')->group(function () {
+      Route::get('/', [UploadFilesC::class, 'index']);
+      Route::get('/get-data', [UploadFilesC::class, 'getData']);
+      Route::get('/delete/{id}', [UploadFilesC::class, 'delete']);
+      Route::post('/store-ajax', [UploadFilesC::class, 'storeAjax']);
+      Route::get('/update/{id}', [UploadFilesC::class, 'index']);
+      Route::post('/update/{id}', [UploadFilesC::class, 'update']);
     });
   });
 });

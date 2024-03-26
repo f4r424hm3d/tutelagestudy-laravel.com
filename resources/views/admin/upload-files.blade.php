@@ -1,6 +1,7 @@
 @extends('admin.layouts.main')
 @push('title')
 <title>{{ $page_title }}</title>
+<meta name="csrf-token" content="{{ csrf_token() }}">
 @endpush
 @section('main-section')
 <div class="page-content">
@@ -34,21 +35,20 @@
             <h4 class="card-title">{{ $title }} Record</h4>
           </div>
           <div class="card-body">
-            <form action="{{ $url }}/" class="needs-validation" method="post" enctype="multipart/form-data" novalidate>
+            <form id="dataForm" class="needs-validation" method="post" enctype="multipart/form-data" novalidate>
               @csrf
               <div class="row">
-                {{-- <div class="col-md-2 col-sm-12 mb-3">
-                  <div class="form-group">
-                    <label>Band Score</label>
-                    <input name="band_score" type="number" class="form-control" placeholder="Band Score"
-                      value="{{ $ft == 'edit' ? $sd->band_score : old('band_score') }}" step="any" min="1" max="9">
+                <div class="col-md-3">
+                  <div class="mb-3">
+                    <label class="form-label" for="title">Enter Title</label>
+                    <input type="text" class="form-control" id="title" name="title" {{ $ft=='edit' ? '' : 'requir' }}>
                     <span class="text-danger">
-                      @error('band_score')
+                      @error('title')
                       {{ $message }}
                       @enderror
                     </span>
                   </div>
-                </div> --}}
+                </div>
                 <div class="col-md-3">
                   <div class="mb-3">
                     <label class="form-label" for="file">Upload Image</label>
@@ -72,7 +72,7 @@
     <div class="row">
       <div class="col-12">
         <div class="card">
-          <div class="card-body">
+          <div class="card-body" id="trdata">
             <table id="datatable" class="table table-bordered dt-responsiv nowra w-100">
               <thead>
                 <tr>
@@ -123,7 +123,117 @@
   </div>
 </div>
 <script>
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
+
+
+  $(document).ready(function() {
+    $(document).on('click', '.pagination a', function(event){
+      event.preventDefault();
+      var page = $(this).attr('href').split('page=')[1];
+      getData(page);
+    });
+
+    $('#dataForm').on('submit', function(event) {
+      event.preventDefault();
+      $(".errSpan").text('');
+      $.ajax({
+        url: "{{ aurl($page_route.'/store-ajax/') }}",
+        method: "POST",
+        data: new FormData(this),
+        contentType: false,
+        cache: false,
+        processData: false,
+        success: function(data) {
+          //alert(data);
+          if($.isEmptyObject(data.error)){
+            //alert(data.success);
+            if(data.hasOwnProperty('success')){
+              var h = 'Success';
+              var msg = data.success;
+              var type = 'success';
+              getData();
+            }else{
+              var h = 'Failed';
+              var msg = data.failed;
+              var type = 'danger';
+            }
+            $('#dataForm')[0].reset();
+          }else{
+            //alert(data.error);
+            printErrorMsg(data.error);
+            var h = 'Failed';
+            var msg = 'Some error occured.';
+            var type = 'danger';
+          }
+          showToastr(h, msg, type);
+        }
+      })
+    });
+
+  });
+
+  function printErrorMsg (msg) {
+    $.each( msg, function( key, value ) {
+      $("#"+key+"-err").text(value);
+    });
+  }
+
+  getData();
+  function getData(page){
+    if(page){
+      page = page;
+    }else{
+      var page = '{{ $page_no }}';
+    }
+    //alert(page+university_id);
+    return new Promise(function(resolve,reject) {
+      //$("#migrateBtn").text('Migrating...');
+      setTimeout(() => {
+        $.ajax({
+        url: "{{ aurl($page_route.'/get-data') }}",
+        method: "GET",
+        data: {
+          page: page,
+        },
+        success: function(data) {
+          $("#trdata").html(data);
+        }
+      }).fail(err => {
+          // $("#migrateBtn").attr('class','btn btn-danger');
+          // $("#migrateBtn").text('Migration Failed');
+        });
+      });
+    });
+  }
+
+  function DeleteAjax(id) {
+    //alert(id);
+    var cd = confirm("Are you sure ?");
+    if (cd == true) {
+      $.ajax({
+        url: "{{ url('admin/'.$page_route.'/delete') }}" + "/" + id,
+        success: function(data) {
+          if (data == '1') {
+            getData();
+            var h = 'Success';
+            var msg = 'Record deleted successfully';
+            var type = 'success';
+            //$('#row' + id).remove();
+            $('#toastMsg').text(msg);
+            $('#liveToast').show();
+            showToastr(h, msg, type);
+          }
+        }
+      });
+    }
+  }
+
   function copyFunc(id) {
+    //alert(id);
     var copyText = document.getElementById("url" + id);
     copyText.select();
     copyText.setSelectionRange(0, 99999);
@@ -133,22 +243,5 @@
     tooltip.innerHTML = "Copied: " + copyText.value;
   }
 
-  function DeleteAjax(id) {
-      //alert(id);
-      var cd = confirm("Are you sure ?");
-      if (cd == true) {
-        $.ajax({
-          url: "{{ url('admin/upload-files/delete') }}" + "/" + id,
-          success: function(data) {
-            if (data == '1') {
-              var msg = 'Record deleted successfully';
-              $('#row' + id).remove();
-              $('#toastMsg').text(msg);
-              $('#liveToast').show();
-            }
-          }
-        });
-      }
-    }
 </script>
 @endsection
