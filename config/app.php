@@ -217,8 +217,8 @@ return [
     'Image' => Intervention\Image\Facades\Image::class,
   ])->toArray(),
 
-  // 'cdn' => array(
-  //   "tutelagestdy.b-cdn.net" => ""
-  // ),
+  'cdn' => array(
+    "tutelagestdy.b-cdn.net" => ""
+  ),
 
 ];
