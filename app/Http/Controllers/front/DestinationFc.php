@@ -65,7 +65,7 @@ class DestinationFc extends Controller
 
     $og_image_path = $c_destination->image_path == '' ? $dseo->ogimgpath : $c_destination->image_path;
 
-    $otherexam = Destination::where(['status' => 1])->where('id', '!=', $c_destination->id)->limit('10')->get();
+    $otherexam = Destination::inRandomOrder('id')->where(['status' => 1])->where('id', '!=', $c_destination->id)->limit(10)->get();
 
     $tu = University::where(['status' => 1, 'country' => $c_destination->country])->get();
     $brochureUniversities = University::where(['country' => $c_destination->country])->where('brochure_path', '!=', null)->get();
