@@ -4,7 +4,10 @@
   use App\Models\Country;
 
   $destinationsSF = Destination::where(['status' => 1])->get();
-  $phonecodesSF = Country::select('phonecode', 'name')->where('phonecode', '!=', '0')->orderBy('phonecode', 'asc')->get();
+  $phonecodesSF = Country::select('phonecode', 'name')
+      ->where('phonecode', '!=', '0')
+      ->orderBy('phonecode', 'asc')
+      ->get();
   $countriesSF = Country::orderBy('name', 'asc')->get();
 
 @endphp
@@ -155,7 +158,7 @@
                 <div class="row">
                   <div class="col-sm-5">
                     <div class="form-group">
-                      <input type="text" name="name" id="name" class="form-control"
+                      <input type="text" name="name" id="b-name" class="form-control"
                         placeholder="Enter Name" value="{{ old('name') ?? '' }}" required>
                       @error('name')
                         {!! '<span class="text-danger">' . $message . '</span>' !!}
@@ -164,7 +167,7 @@
                   </div>
                   <div class="col-sm-7">
                     <div class="form-group">
-                      <input type="email" class="form-control" name="email" id="email"
+                      <input type="email" class="form-control" name="email" id="b-email"
                         value="{{ old('email') ?? '' }}" placeholder="Enter Email" required>
                       @error('email')
                         {!! '<span class="text-danger">' . $message . '</span>' !!}
@@ -175,7 +178,7 @@
                 <div class="row">
                   <div class="col-sm-3">
                     <div class="form-group">
-                      <input type="c_code" class="form-control" name="c_code" id="c_code"
+                      <input type="c_code" class="form-control" name="c_code" id="b-c_code"
                         value="{{ old('c_code') ?? '+91' }}" placeholder="Country Code" required>
                       @error('c_code')
                         {!! '<span class="text-danger">' . $message . '</span>' !!}
@@ -185,7 +188,7 @@
                   <div class="col-sm-9">
                     <div class="form-group">
                       <input type="text" class="form-control u-ltr" placeholder="Enter Mobile Number"
-                        data-error="Please enter a valid phone number" name="mobile" id="mobile"
+                        data-error="Please enter a valid phone number" name="mobile" id="b-mobile"
                         value="<?php echo old('mobile'); ?>" required>
                       @error('mobile')
                         {!! '<span class="text-danger">' . $message . '</span>' !!}
@@ -255,7 +258,7 @@
               <div class="row">
                 <div class="col-lg-6 col-md-5 col-sm-12 col-xs-12 pr7">
                   <div class="form-group">
-                    <input type="text" name="name" id="name" class="form-control"
+                    <input type="text" name="name" id="b-name" class="form-control"
                       placeholder="Enter Name" value="{{ old('name') ?? '' }}" required>
                     @error('name')
                       {!! '<span class="text-danger">' . $message . '</span>' !!}
@@ -264,7 +267,7 @@
                 </div>
                 <div class="col-lg-6 col-md-7 col-sm-12 col-xs-12 pl7">
                   <div class="form-group">
-                    <input type="email" class="form-control" name="email" id="email"
+                    <input type="email" class="form-control" name="email" id="b-email"
                       value="{{ old('email') ?? '' }}" placeholder="Enter Email" required>
                     @error('email')
                       {!! '<span class="text-danger">' . $message . '</span>' !!}
@@ -283,7 +286,7 @@
                 <div class="col-8 col-lg-8 col-md-8 col-sm-8 col-xs-6 pl7">
                   <div class="form-group">
                     <input type="text" class="form-control u-ltr" placeholder="Enter Mobile Number"
-                      data-error="Please enter a valid phone number" name="mobile" id="mobile"
+                      data-error="Please enter a valid phone number" name="mobile" id="b-mobile"
                       value="<?php echo old('mobile'); ?>" required>
                     @error('mobile')
                       {!! '<span class="text-danger">' . $message . '</span>' !!}
@@ -301,7 +304,7 @@
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl7">
                   <div class="form-group">
-                    <select class="form-control" name="destination" id="destination" required>
+                    <select class="form-control" name="destination" id="b_destination" required>
                       <option value="">Preferred MBBS Country</option>
                       @foreach ($destinationsSF as $row)
                         <option value="<?php echo $row->page_name; ?>" <?php echo old('destination') == $row->page_name ? 'Selected' : ''; ?>>

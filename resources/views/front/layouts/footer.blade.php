@@ -130,7 +130,147 @@
 
 <!-- Whatsapp Box and Button -->
 <style>
-.wa-container,.wa-container .cancel,.whats-float,.whats-float img{transition:.5s ease-in-out}.chat-popup,.wa-container .cancel{box-shadow:0 10px 10px 4px rgba(0,0,0,.06)}.pr0{padding-right:0}.pl0{padding-left:0}.whats-float{position:fixed;transform:translate(-125px,0);bottom:80px;left:0;width:180px;overflow:hidden;background-color:#2db742;color:#fff;border-radius:0 6px 6px 0;z-index:9999;vertical-align:middle;padding-left:15px;padding-right:5px}.whats-float a span{color:#fff;font-size:14px;padding-top:10px;padding-bottom:10px;float:left;line-height:16px;font-weight:600}.whats-float img{width:50px;padding:10px;transform:rotate(0);float:right}.whats-float:hover{color:#fff;transform:translate(0,0)}.whats-float:hover img{transform:rotate(360deg)}.chat-popup{display:none;position:fixed;bottom:145px;left:10px;z-index:999}.align-items-center{display:flex;align-items:center}.wa-container{max-width:325px;background-color:#fff;border-radius:7px}.wa-container .cancel{width:35px;height:35px;background:#fff!important;color:#000;font-size:14px;line-height:20px;padding:0;text-align:center;top:-15px;right:-15px;position:absolute;border:0;border-radius:50%}.wa-container .header{padding:20px 20px 5px;color:#fff;background:#2db742;border-radius:7px 7px 0 0}.wa-container .header .title{font-size:16px;font-weight:600;line-height:18px;margin-bottom:5px}.wa-container .header .text{font-size:11px;margin-bottom:10px}.wa-container .content{padding:12px}.wa-container .content .country-box{display:block;font-size:12px;background:#f5f7f9;padding:15px;margin-bottom:10px;color:#000;border-radius:4px;border-left:2px solid #2db742}.wa-container .content .country-box:hover{background:#fff;box-shadow:0 0 10px 4px rgba(0,0,0,.06)}@media (max-width:1199px){.wa-container .header{display:flex!important}}
+  .wa-container,
+  .wa-container .cancel,
+  .whats-float,
+  .whats-float img {
+    transition: .5s ease-in-out
+  }
+
+  .chat-popup,
+  .wa-container .cancel {
+    box-shadow: 0 10px 10px 4px rgba(0, 0, 0, .06)
+  }
+
+  .pr0 {
+    padding-right: 0
+  }
+
+  .pl0 {
+    padding-left: 0
+  }
+
+  .whats-float {
+    position: fixed;
+    transform: translate(-125px, 0);
+    bottom: 80px;
+    left: 0;
+    width: 180px;
+    overflow: hidden;
+    background-color: #2db742;
+    color: #fff;
+    border-radius: 0 6px 6px 0;
+    z-index: 9999;
+    vertical-align: middle;
+    padding-left: 15px;
+    padding-right: 5px
+  }
+
+  .whats-float a span {
+    color: #fff;
+    font-size: 14px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    float: left;
+    line-height: 16px;
+    font-weight: 600
+  }
+
+  .whats-float img {
+    width: 50px;
+    padding: 10px;
+    transform: rotate(0);
+    float: right
+  }
+
+  .whats-float:hover {
+    color: #fff;
+    transform: translate(0, 0)
+  }
+
+  .whats-float:hover img {
+    transform: rotate(360deg)
+  }
+
+  .chat-popup {
+    display: none;
+    position: fixed;
+    bottom: 145px;
+    left: 10px;
+    z-index: 999
+  }
+
+  .align-items-center {
+    display: flex;
+    align-items: center
+  }
+
+  .wa-container {
+    max-width: 325px;
+    background-color: #fff;
+    border-radius: 7px
+  }
+
+  .wa-container .cancel {
+    width: 35px;
+    height: 35px;
+    background: #fff !important;
+    color: #000;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 0;
+    text-align: center;
+    top: -15px;
+    right: -15px;
+    position: absolute;
+    border: 0;
+    border-radius: 50%
+  }
+
+  .wa-container .header {
+    padding: 20px 20px 5px;
+    color: #fff;
+    background: #2db742;
+    border-radius: 7px 7px 0 0
+  }
+
+  .wa-container .header .title {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 18px;
+    margin-bottom: 5px
+  }
+
+  .wa-container .header .text {
+    font-size: 11px;
+    margin-bottom: 10px
+  }
+
+  .wa-container .content {
+    padding: 12px
+  }
+
+  .wa-container .content .country-box {
+    display: block;
+    font-size: 12px;
+    background: #f5f7f9;
+    padding: 15px;
+    margin-bottom: 10px;
+    color: #000;
+    border-radius: 4px;
+    border-left: 2px solid #2db742
+  }
+
+  .wa-container .content .country-box:hover {
+    background: #fff;
+    box-shadow: 0 0 10px 4px rgba(0, 0, 0, .06)
+  }
+
+  @media (max-width:1199px) {
+    .wa-container .header {
+      display: flex !important
+    }
+  }
 </style>
 
 <div class="whats-float">
@@ -139,7 +279,49 @@
     <img data-src="{{ asset('/front/') }}/img/wa.png" width="30" alt="whatsapp image"></a>
 </div>
 
-<div class="chat-popup" id="myForm"> <div class="wa-container"> <button type="button" class="cancel" onClick="closeForm()"><i class="fa fa-close"></i></button> <div class="header"> <div class="row"> <div class="col-2 pr0"><img data-src="{{ asset('/front/') }}/img/wa.png" alt="whatsapp image" class="img-fluid"> </div> <div class="col-10"> <div class="title">Talk to Our Expert Counsellors</div> <div class="text">Hi! Click one of our Counsellors below to chat on <strong>WhatsApp</strong></div> </div> </div> </div> <div class="content"> <a class="country-box" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=919667667331&amp;text=Hello there!! I want to get counseling by experts. Want to know more information about Tutelage Study | www.tutelagestudy.com"> <div class="row align-items-center"> <div class="col-2 pr0"><img data-src="{{ asset('/front/') }}/img/flag-india.png" alt="whatsapp now" class="img-fluid"></div> <div class="col-8 pr0"> <strong>India Office, Gurgaon</strong><br> Start Chat with Mr. Gaurav </div> <div class="col-2 pl0 text-right"><img data-src="{{ asset('/front/') }}/img/wad.png" alt="whatsapp now" width="20"> </div> </div> </a> <a class="country-box" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=919342914452&amp;text=Hello there!! I want to get counseling by experts. Want to know more information about Tutelage Study | www.tutelagestudy.com"> <div class="row align-items-center"> <div class="col-2 pr0"><img data-src="{{ asset('/front/') }}/img/flag-india.png" alt="whatsapp now" class="img-fluid"></div> <div class="col-8 pr0"> <strong>India Office, Chennai</strong><br> Start Chat with Ms. Anitha </div> <div class="col-2 pl0 text-right"><img data-src="{{ asset('/front/') }}/img/wad.png" alt="whatsapp now" width="20"> </div> </div> </a> <a class="country-box" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=919619593689&amp;text=Hello there!! I want to get counseling by experts. Want to know more information about Tutelage Study | www.tutelagestudy.com"> <div class="row align-items-center"> <div class="col-2 pr0"><img data-src="{{ asset('/front/') }}/img/flag-india.png" alt="whatsapp image" class="img-fluid"></div> <div class="col-8 pr0"> <strong>India Office, Mumbai</strong><br> Start Chat with Mr. Piyush </div> <div class="col-2 pl0 text-right"><img data-src="{{ asset('/front/') }}/img/wad.png" alt="whatsapp image" width="20"></div> </div> </a> </div> </div> </div>
+<div class="chat-popup" id="myForm">
+  <div class="wa-container"> <button type="button" class="cancel" onClick="closeForm()"><i
+        class="fa fa-close"></i></button>
+    <div class="header">
+      <div class="row">
+        <div class="col-2 pr0"><img data-src="{{ asset('/front/') }}/img/wa.png" alt="whatsapp image"
+            class="img-fluid"> </div>
+        <div class="col-10">
+          <div class="title">Talk to Our Expert Counsellors</div>
+          <div class="text">Hi! Click one of our Counsellors below to chat on <strong>WhatsApp</strong></div>
+        </div>
+      </div>
+    </div>
+    <div class="content"> <a class="country-box" target="_blank" rel="noopener noreferrer"
+        href="https://api.whatsapp.com/send?phone=919667667331&amp;text=Hello there!! I want to get counseling by experts. Want to know more information about Tutelage Study | www.tutelagestudy.com">
+        <div class="row align-items-center">
+          <div class="col-2 pr0"><img data-src="{{ asset('/front/') }}/img/flag-india.png" alt="whatsapp now"
+              class="img-fluid"></div>
+          <div class="col-8 pr0"> <strong>India Office, Gurgaon</strong><br> Start Chat with Mr. Gaurav </div>
+          <div class="col-2 pl0 text-right"><img data-src="{{ asset('/front/') }}/img/wad.png" alt="whatsapp now"
+              width="20"> </div>
+        </div>
+      </a> <a class="country-box" target="_blank" rel="noopener noreferrer"
+        href="https://api.whatsapp.com/send?phone=919342914452&amp;text=Hello there!! I want to get counseling by experts. Want to know more information about Tutelage Study | www.tutelagestudy.com">
+        <div class="row align-items-center">
+          <div class="col-2 pr0"><img data-src="{{ asset('/front/') }}/img/flag-india.png" alt="whatsapp now"
+              class="img-fluid"></div>
+          <div class="col-8 pr0"> <strong>India Office, Chennai</strong><br> Start Chat with Ms. Anitha </div>
+          <div class="col-2 pl0 text-right"><img data-src="{{ asset('/front/') }}/img/wad.png" alt="whatsapp now"
+              width="20"> </div>
+        </div>
+      </a> <a class="country-box" target="_blank" rel="noopener noreferrer"
+        href="https://api.whatsapp.com/send?phone=919619593689&amp;text=Hello there!! I want to get counseling by experts. Want to know more information about Tutelage Study | www.tutelagestudy.com">
+        <div class="row align-items-center">
+          <div class="col-2 pr0"><img data-src="{{ asset('/front/') }}/img/flag-india.png" alt="whatsapp image"
+              class="img-fluid"></div>
+          <div class="col-8 pr0"> <strong>India Office, Mumbai</strong><br> Start Chat with Mr. Piyush </div>
+          <div class="col-2 pl0 text-right"><img data-src="{{ asset('/front/') }}/img/wad.png" alt="whatsapp image"
+              width="20"></div>
+        </div>
+      </a> </div>
+  </div>
+</div>
 
 <script>
   function openForm() {
@@ -165,7 +347,20 @@ foreach ($allpages as $exm) {
 $form_url = in_array($pageUrl, $pageArray) ? 'neet-counselling' : 'mbbs-abroad-counselling';
 $finalUrl = url($form_url);
 ?>
-<div class="new-footer-fixed"> <ul> <li> <a href="tel:+919818560331" title="Call Us"> <div><img data-src="{{ asset('/front/') }}/img/icons/phone.png" alt="call image icon"></div> Call Us </a> </li> <li> <a onclick="window.location.href='<?php echo $finalUrl; ?>/'" href="javascript:void()" title="Free Counselling"> <div> <img data-src="{{ asset('/front/') }}/img/icons/counselling.png" alt="Counselling image icon"> </div> <span>Free</span> Counselling </a> </li> <li> <a href="mailto:studytutelage@gmail.com" title="Email Us"> <div><img data-src="{{ asset('/front/') }}/img/icons/email.png" alt="email image icon"></div> Email Us </a> </li> </ul> </div>
+<div class="new-footer-fixed">
+  <ul>
+    <li> <a href="tel:+919818560331" title="Call Us">
+        <div><img data-src="{{ asset('/front/') }}/img/icons/phone.png" alt="call image icon"></div> Call Us
+      </a> </li>
+    <li> <a onclick="window.location.href='<?php echo $finalUrl; ?>/'" href="javascript:void()" title="Free Counselling">
+        <div> <img data-src="{{ asset('/front/') }}/img/icons/counselling.png" alt="Counselling image icon"> </div>
+        <span>Free</span> Counselling
+      </a> </li>
+    <li> <a href="mailto:studytutelage@gmail.com" title="Email Us">
+        <div><img data-src="{{ asset('/front/') }}/img/icons/email.png" alt="email image icon"></div> Email Us
+      </a> </li>
+  </ul>
+</div>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     var lazyImages = document.querySelectorAll('[data-src]');
@@ -187,15 +382,17 @@ $finalUrl = url($form_url);
 </script>
 <!--Start of Tawk.to Script
 <script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/5ef05b1b9e5f694422910b32/default';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
+  var Tawk_API = Tawk_API || {},
+    Tawk_LoadStart = new Date();
+  (function() {
+    var s1 = document.createElement("script"),
+      s0 = document.getElementsByTagName("script")[0];
+    s1.async = true;
+    s1.src = 'https://embed.tawk.to/5ef05b1b9e5f694422910b32/default';
+    s1.charset = 'UTF-8';
+    s1.setAttribute('crossorigin', '*');
+    s0.parentNode.insertBefore(s1, s0);
+  })();
 </script>
 <!--End of Tawk.to Script-->
 </body>
