@@ -97,14 +97,13 @@
   </div>
 </div>
 <div id="back2top"><i class="pe-7s-angle-up"></i></div>
-<script rel="preload" src="{{ cdn('front') }}/js/main.js"></script>
-<script rel="preload" src="{{ cdn('front') }}/plugins/nouislider/nouislider.min.js"></script>
-<script rel="preload" src="{{ cdn('front') }}/plugins/popper.min.js"></script>
-<script rel="preload" src="{{ cdn('front') }}/plugins/owl-carousel/owl.carousel.min.js"></script>
+<script src="{{ cdn('front') }}/js/main.js" defer></script>
+<script src="{{ cdn('front') }}/plugins/nouislider/nouislider.min.js" defer></script>
+<script src="{{ cdn('front') }}/plugins/popper.min.js" defer></script>
+<script src="{{ cdn('front') }}/plugins/owl-carousel/owl.carousel.min.js" defer></script>
 <script src="{{ cdn('front') }}/plugins/bootstrap/js/bootstrap.min.js" defer></script>
-<script rel="preload" src="{{ cdn('front') }}/plugins/jquery.matchHeight-min.js"></script>
+<script src="{{ cdn('front') }}/plugins/jquery.matchHeight-min.js" defer></script>
 <script src="{{ cdn('front') }}/plugins/slick/slick/slick.min.js" defer></script>
-{{-- <script rel="preload" src="{{ cdn('front') }}/plugins/select2/dist/js/select2.full.min.js"></script> --}}
 
 <!--End of Tawk.to Script-->
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -118,68 +117,6 @@
   gtag('js', new Date());
   gtag('config', 'UA-169815601-1');
 </script>
-
-<button class="scrollToTopBtn" aria-label="Scroll Top">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 490.4 490.4" width="30" height="30">
-    <path
-      d="M245.2 490.4c135.2 0 245.2-110 245.2-245.2S380.4 0 245.2 0 0 110 0 245.2s110 245.2 245.2 245.2zm0-465.9c121.7 0 220.7 99 220.7 220.7s-99 220.7-220.7 220.7-220.7-99-220.7-220.7 99-220.7 220.7-220.7z"
-      class="up-arrow_svg__active-path" fill="#607D8B"></path>
-    <path
-      d="M185 216.2l48-48v183.4c0 6.8 5.5 12.3 12.3 12.3 6.8 0 12.3-5.5 12.3-12.3V168.3l48 48c2.4 2.4 5.5 3.6 8.7 3.6s6.3-1.2 8.7-3.6c4.8-4.8 4.8-12.5 0-17.3l-68.9-68.9c-4.8-4.8-12.5-4.8-17.3 0L167.9 199c-4.8 4.8-4.8 12.5 0 17.3 4.5 4.7 12.3 4.7 17.1-.1z"
-      class="up-arrow_svg__active-path" fill="#607D8B"></path>
-  </svg>
-</button>
-
-<script>
-  var scrollToTopBtn = document.querySelector(".scrollToTopBtn");
-  var rootElement = document.documentElement;
-
-  function handleScroll() {
-    // Do something on scroll
-    var scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
-    if (rootElement.scrollTop / scrollTotal > 0.3) {
-      // Show button
-      scrollToTopBtn.classList.add("showBtn");
-    } else {
-      // Hide button
-      scrollToTopBtn.classList.remove("showBtn");
-    }
-  }
-
-  function scrollToTop() {
-    // Scroll to top logic
-    rootElement.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-  }
-  scrollToTopBtn.addEventListener("click", scrollToTop);
-  document.addEventListener("scroll", handleScroll);
-</script>
-
-{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script> --}}
-<script>
-  $('a[href*="#"]')
-    .not('[href="#"]')
-    .not('[href="#0"]')
-    .click(function(event) {
-      if (
-        location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') &&
-        location.hostname == this.hostname
-      ) {
-        var target = $(this.hash);
-        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-        if (target.length) {
-          event.preventDefault();
-          $('html, body').animate({
-            scrollTop: target.offset().top - 20
-          }, 500, function() {});
-        }
-      }
-    });
-</script>
-
 <script>
   $(".show-more").click(function() {
     if ($(".text").hasClass("show-more-height")) {
@@ -228,30 +165,7 @@ foreach ($allpages as $exm) {
 $form_url = in_array($pageUrl, $pageArray) ? 'neet-counselling' : 'mbbs-abroad-counselling';
 $finalUrl = url($form_url);
 ?>
-<div class="new-footer-fixed">
-  <ul>
-    <li>
-      <a href="tel:+919818560331" title="Call Us">
-        <div><img data-src="{{ asset('/front/') }}/img/icons/phone.png" alt="call image icon"></div>
-        Call Us
-      </a>
-    </li>
-    <li>
-      <a onclick="window.location.href='<?php echo $finalUrl; ?>/'" href="javascript:void()" title="Free Counselling">
-        <div>
-          <img data-src="{{ asset('/front/') }}/img/icons/counselling.png" alt="Counselling image icon">
-        </div>
-        <span>Free</span> Counselling
-      </a>
-    </li>
-    <li>
-      <a href="mailto:studytutelage@gmail.com" title="Email Us">
-        <div><img data-src="{{ asset('/front/') }}/img/icons/email.png" alt="email image icon"></div>
-        Email Us
-      </a>
-    </li>
-  </ul>
-</div>
+<div class="new-footer-fixed"> <ul> <li> <a href="tel:+919818560331" title="Call Us"> <div><img data-src="{{ asset('/front/') }}/img/icons/phone.png" alt="call image icon"></div> Call Us </a> </li> <li> <a onclick="window.location.href='<?php echo $finalUrl; ?>/'" href="javascript:void()" title="Free Counselling"> <div> <img data-src="{{ asset('/front/') }}/img/icons/counselling.png" alt="Counselling image icon"> </div> <span>Free</span> Counselling </a> </li> <li> <a href="mailto:studytutelage@gmail.com" title="Email Us"> <div><img data-src="{{ asset('/front/') }}/img/icons/email.png" alt="email image icon"></div> Email Us </a> </li> </ul> </div>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     var lazyImages = document.querySelectorAll('[data-src]');
@@ -271,7 +185,7 @@ $finalUrl = url($form_url);
     });
   });
 </script>
-<!--Start of Tawk.to Script-->
+<!--Start of Tawk.to Script
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
 (function(){
