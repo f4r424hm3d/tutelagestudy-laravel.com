@@ -125,15 +125,7 @@
           <img src="{{ url('front/') }}/img/logo_light.png" alt="Tutelage Study logo">
         </a>
       </div>
-      <!--<div class="navigation__right">-->
-      <!--  <div class="header__actions">-->
-      <!--    <div class="ps-block--user-header">-->
-      <!--      <div class="ps-block__left pt-15">-->
-      <!--        <a href="tel:+919818560331" class="ps-btn"><i class="icon-telephone"></i> Call Now</a>-->
-      <!--      </div>-->
-      <!--    </div>-->
-      <!--  </div>-->
-      <!--</div>-->
+
     </div>
   </header>
   <div class="ps-panel--sidebar" id="navigation-mobile">
@@ -143,6 +135,9 @@
     <div class="ps-panel__content">
 
       @error('g-recaptcha-response')
+        <span class="text-danger">{{ $message }}</span>
+      @enderror
+      @error('captcha')
         <span class="text-danger">{{ $message }}</span>
       @enderror
       <form action="{{ url('inquiry/download-brochure') }}/" method="post">
@@ -195,13 +190,30 @@
                       @enderror
                     </div>
                   </div>
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl7">
+                    <div class="form-group">
+                      <label for="captcha">Enter the CAPTCHA:</label><br>
+                      <img src="{{ Captcha::src('flat') }}" alt="CAPTCHA">
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl7">
+                    <div class="form-group">
+                      <input type="text" id="captcha" name="captcha" class="form-control">
+                    </div>
+                    @error('captcha')
+                      {!! '<span class="text-danger">' . $message . '</span>' !!}
+                    @enderror
+                  </div>
                 </div>
 
                 <div class="form-group">
-                  <label for="keep-update">By clicking Submit, you agree to our <a
-                      href="{{ url('term-and-condition') }}/" class="b black">Terms and
-                      Conditions</a> & <a href="<?php echo url('privacy-policy'); ?>/" class="b black">Privacy
-                      Policy</a></label>
+                  <label for="keep-update">
+                    By clicking Submit, you agree to our
+                    <a href="{{ url('term-and-condition') }}/" class="b black">Terms and
+                      Conditions</a> & <a href="<?php echo url('privacy-policy'); ?>/" class="b black">
+                      Privacy Policy
+                    </a>
+                  </label>
                 </div>
                 <button class="ps-btn w-100" type="submit">
                   <span class="b">Download</span>
@@ -246,6 +258,9 @@
               style="font-size:16px; margin-bottom:10px; color:#cd2122; font-weight:500; margin-top:15px; text-align:center">
               Apply Now for MBBS Upcoming Intake</div>
             @error('g-recaptcha-response')
+              <span class="text-danger">{{ $message }}</span>
+            @enderror
+            @error('captcha')
               <span class="text-danger">{{ $message }}</span>
             @enderror
             <form class="ps-form--visa" action="{{ url('inquiry/submit-mbbs-inquiry') }}/" method="post">
@@ -316,6 +331,20 @@
                       {!! '<span class="text-danger">' . $message . '</span>' !!}
                     @enderror
                   </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl7">
+                  <div class="form-group">
+                    <label for="captcha">Enter the CAPTCHA:</label><br>
+                    <img src="{{ Captcha::src('flat') }}" alt="CAPTCHA">
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl7">
+                  <div class="form-group">
+                    <input type="text" id="captcha" name="captcha" class="form-control">
+                  </div>
+                  @error('captcha')
+                    {!! '<span class="text-danger">' . $message . '</span>' !!}
+                  @enderror
                 </div>
 
                 <div class="form-group">

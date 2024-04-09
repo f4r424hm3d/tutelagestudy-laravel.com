@@ -132,6 +132,9 @@ class InquiryController extends Controller
         'destination' => 'required',
         'terms' => 'required',
         'contact_me' => 'required',
+      ],
+      [
+        'captcha.captcha' => 'Please enter the correct CAPTCHA value.',
       ]
     );
     $field = new Student();
@@ -221,7 +224,7 @@ class InquiryController extends Controller
     // die;
     $request->validate(
       [
-        'g-recaptcha-response' => 'required',
+        'captcha' => 'required|captcha',
         'name' => 'required|regex:/^[a-zA-Z ]*$/',
         'email' => 'required|email:rfc,dns',
         'mobile' => 'required|numeric|digits_between:9,12',
@@ -230,6 +233,9 @@ class InquiryController extends Controller
         'question' => 'required',
         'terms' => 'required',
         'contact_me' => 'required',
+      ],
+      [
+        'captcha.captcha' => 'Please enter the correct CAPTCHA value.',
       ]
     );
     $field = new Student();
@@ -397,11 +403,14 @@ class InquiryController extends Controller
     $brochure_path = "tb/MBBS-brochure-table-new-printing.pdf";
     $request->validate(
       [
-        'g-recaptcha-response' => 'required',
+        'captcha' => 'required|captcha',
         'name' => 'required|regex:/^[a-zA-Z ]*$/',
         'email' => 'required|email:rfc,dns',
         'c_code' => 'required|numeric|digits_between:1,5',
         'mobile' => 'required|numeric|digits_between:9,12',
+      ],
+      [
+        'captcha.captcha' => 'Please enter the correct CAPTCHA value.',
       ]
     );
     $field = new Student();

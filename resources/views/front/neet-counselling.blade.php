@@ -96,6 +96,9 @@
         @error('g-recaptcha-response')
           <span class="text-danger">{{ $message }}</span>
         @enderror
+        @error('captcha')
+          <span class="text-danger">{{ $message }}</span>
+        @enderror
         <div class="neet-counselling-box">
           <h1>NEET Counselling</h1>
           <form class="ps-form--visa" action="{{ url('inquiry/submit-neet-inquiry') }}/" method="post">
@@ -170,11 +173,20 @@
                   @enderror
                 </div>
               </div>
-              {{-- <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-              <div class="form-group">
-                <div class="g-recaptcha" data-sitekey="6LfEJo4jAAAAAIEVgbaWIR-uic-I3h9RBYFCqOTS" required></div>
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl7">
+                <div class="form-group">
+                  <label for="captcha">Enter the CAPTCHA:</label><br>
+                  <img src="{{ Captcha::src('flat') }}" alt="CAPTCHA">
+                </div>
               </div>
-            </div> --}}
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl7">
+                <div class="form-group">
+                  <input type="text" id="captcha" name="captcha" class="form-control">
+                </div>
+                @error('captcha')
+                  {!! '<span class="text-danger">' . $message . '</span>' !!}
+                @enderror
+              </div>
               <div class="form-group">
                 <div class="ps-checkbox pl-20">
                   <input class="form-control " type="checkbox" name="terms" id="terms" checked>
@@ -251,7 +263,8 @@
         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
           <a href="https://www.tutelagestudy.com/mbbs-in-iran/">
             <div class="ps-post ps-product shadow">
-              <div class="ps-post__thumbnail"><img src="{{ asset('/front/') }}/img/mbbs-iran.jpg" alt=""></div>
+              <div class="ps-post__thumbnail"><img src="{{ asset('/front/') }}/img/mbbs-iran.jpg" alt="">
+              </div>
               <div class="ps-post__content" style="border:0px; padding:12px 0px; background:#fff">
                 <div class="ps-post__title text-center">MBBS IN IRAN</div>
               </div>
