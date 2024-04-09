@@ -123,7 +123,7 @@ class InquiryController extends Controller
     // die;
     $request->validate(
       [
-        'g-recaptcha-response' => 'required',
+        'captcha' => 'required|captcha',
         'name' => 'required|regex:/^[a-zA-Z ]*$/',
         'email' => 'required|email:rfc,dns',
         'c_code' => 'required|numeric|digits_between:1,5',

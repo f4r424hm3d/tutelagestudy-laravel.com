@@ -32,6 +32,7 @@ class ComposerStaticInit88e25c66d9d291cc4f1ade66b2fe2310
         'c7a3c339e7e14b60e06a2d7fcce9476b' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Events/functions.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
+        '5e8fe2a5ffaded85af682684fe3bbf5a' => __DIR__ . '/..' . '/mews/captcha/src/helpers.php',
         'ec07570ca5a812141189b1fa81503674' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert/Functions.php',
         '320163ac6b93aebe3dc25b60a0533d56' => __DIR__ . '/..' . '/spatie/laravel-ignition/src/helpers.php',
         '1aff2f8abd60e952b4bdd52d4f05a132' => __DIR__ . '/../..' . '/app/helper.php',
@@ -121,6 +122,7 @@ class ComposerStaticInit88e25c66d9d291cc4f1ade66b2fe2310
         array (
             'MyCLabs\\Enum\\' => 13,
             'Monolog\\' => 8,
+            'Mews\\Captcha\\' => 13,
             'Matrix\\' => 7,
             'Maatwebsite\\Excel\\' => 18,
         ),
@@ -412,6 +414,10 @@ class ComposerStaticInit88e25c66d9d291cc4f1ade66b2fe2310
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
+        ),
+        'Mews\\Captcha\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mews/captcha/src',
         ),
         'Matrix\\' => 
         array (
@@ -4193,6 +4199,11 @@ class ComposerStaticInit88e25c66d9d291cc4f1ade66b2fe2310
         'Matrix\\Operators\\Multiplication' => __DIR__ . '/..' . '/markbaker/matrix/classes/src/Operators/Multiplication.php',
         'Matrix\\Operators\\Operator' => __DIR__ . '/..' . '/markbaker/matrix/classes/src/Operators/Operator.php',
         'Matrix\\Operators\\Subtraction' => __DIR__ . '/..' . '/markbaker/matrix/classes/src/Operators/Subtraction.php',
+        'Mews\\Captcha\\Captcha' => __DIR__ . '/..' . '/mews/captcha/src/Captcha.php',
+        'Mews\\Captcha\\CaptchaController' => __DIR__ . '/..' . '/mews/captcha/src/CaptchaController.php',
+        'Mews\\Captcha\\CaptchaServiceProvider' => __DIR__ . '/..' . '/mews/captcha/src/CaptchaServiceProvider.php',
+        'Mews\\Captcha\\Facades\\Captcha' => __DIR__ . '/..' . '/mews/captcha/src/Facades/Captcha.php',
+        'Mews\\Captcha\\LumenCaptchaController' => __DIR__ . '/..' . '/mews/captcha/src/LumenCaptchaController.php',
         'Minify' => __DIR__ . '/..' . '/mrclay/minify/lib/Minify.php',
         'Minify\\App' => __DIR__ . '/..' . '/mrclay/minify/lib/Minify/App.php',
         'Minify\\Config' => __DIR__ . '/..' . '/mrclay/minify/lib/Minify/Config.php',

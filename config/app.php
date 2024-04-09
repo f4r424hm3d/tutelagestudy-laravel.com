@@ -188,6 +188,7 @@ return [
     Maatwebsite\Excel\ExcelServiceProvider::class,
     HTMLMin\HTMLMin\HTMLMinServiceProvider::class,
     Intervention\Image\ImageServiceProvider::class,
+    Mews\Captcha\CaptchaServiceProvider::class,
 
     /*
          * Application Service Providers...
@@ -215,6 +216,7 @@ return [
     'Excel' => Maatwebsite\Excel\Facades\Excel::class,
     'HTMLMin' => HTMLMin\HTMLMin\Facades\HTMLMin::class,
     'Image' => Intervention\Image\Facades\Image::class,
+    'Captcha' => Mews\Captcha\Facades\Captcha::class,
   ])->toArray(),
 
   // 'cdn' => array(

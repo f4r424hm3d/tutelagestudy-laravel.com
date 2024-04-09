@@ -60,6 +60,7 @@ return array(
     'NunoMaduro\\Collision\\' => array($vendorDir . '/nunomaduro/collision/src'),
     'MyCLabs\\Enum\\' => array($vendorDir . '/myclabs/php-enum/src'),
     'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
+    'Mews\\Captcha\\' => array($vendorDir . '/mews/captcha/src'),
     'Matrix\\' => array($vendorDir . '/markbaker/matrix/classes/src'),
     'Maatwebsite\\Excel\\' => array($vendorDir . '/maatwebsite/excel/src'),
     'Litespeed\\LSCache\\' => array($vendorDir . '/litespeed/lscache-laravel/src'),

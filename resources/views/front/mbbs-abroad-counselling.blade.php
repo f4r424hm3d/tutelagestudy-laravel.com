@@ -106,6 +106,9 @@
         @error('g-recaptcha-response')
           <span class="text-danger">{{ $message }}</span>
         @enderror
+        @error('captcha')
+          <span class="text-danger">{{ $message }}</span>
+        @enderror
         <div class="row">
           <!--<div class="col-md-5">-->
           <!--  <img data-src="https://www.tutelagestudy.com/uploads/destinations/IMG_20221213_105139.jpg" class="w-100" />-->
@@ -183,16 +186,19 @@
                     @enderror
                   </div>
                 </div>
-                {{-- <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                <div class="form-group">
-                  <div class="g-recaptcha" data-sitekey="6LfEJo4jAAAAAIEVgbaWIR-uic-I3h9RBYFCqOTS"></div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pl7">
+                  <div class="form-group">
+                    <label for="captcha">Enter the CAPTCHA:</label><br>
+                    <img src="{{ Captcha::src('flat') }}" alt="CAPTCHA"><br>
+                    <input type="text" id="captcha" name="captcha"><br>
+                  </div>
                 </div>
-              </div> --}}
                 <div class="form-group">
                   <div class="ps-checkbox pl-20">
                     <input class="form-control " type="checkbox" name="terms" id="terms" checked>
                     <label for="terms">I agree to the <a href="https://www.tutelagestudy.com/term-and-condition/"
-                        style="color: blue;" target="_blank" rel="noopener noreferrer">terms & conditions</a> .*</label>
+                        style="color: blue;" target="_blank" rel="noopener noreferrer">terms & conditions</a>
+                      .*</label>
                     @error('terms')
                       {!! '<span class="text-danger">' . $message . '</span>' !!}
                     @enderror
@@ -278,32 +284,33 @@
           class="button home-btn">Browse All Destinations</a></div>
     </div>
   </div></br>
-  <div class="container"><div class="ps-product__box mb-20" id="2">
-<aside class="widget widget_best-sale" data-mh="dealhot">
-<h3 class="widget-title">You might be interested in related destination</h3>
-<div class="widget__content">
-<div class="owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000"
-data-owl-gap="0" data-owl-nav="false" data-owl-dots="false" data-owl-item="4"
-data-owl-item-xs="2" data-owl-item-sm="2" data-owl-item-md="4" data-owl-item-lg="4"
-data-owl-duration="1000" data-owl-mousedrag="on">
-<?php foreach ($destinations as $oe) { ?>
-<div class="ps-product-group">
-		<div class="ps-product--horizontal">
-				<div class="ps-product__thumbnail ml-10" style="background:#fff">
-						<img data-src="<?php echo asset($oe->thumbnail); ?>" alt="<?php echo $oe->page_name; ?>" loading="lazy">
-				</div>
-				<div class="ps-product__content">
-						<a class="ps-product__title" href="<?php echo url($oe->slug); ?>/">
-								<?php echo $oe->page_name; ?>
-						</a>
-				</div>
-		</div>
-</div>
-<?php } ?>
-</div>
-</div>
-</aside>
-</div></div>
+  <div class="container">
+    <div class="ps-product__box mb-20" id="2">
+      <aside class="widget widget_best-sale" data-mh="dealhot">
+        <h3 class="widget-title">You might be interested in related destination</h3>
+        <div class="widget__content">
+          <div class="owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="0"
+            data-owl-nav="false" data-owl-dots="false" data-owl-item="4" data-owl-item-xs="2" data-owl-item-sm="2"
+            data-owl-item-md="4" data-owl-item-lg="4" data-owl-duration="1000" data-owl-mousedrag="on">
+            <?php foreach ($destinations as $oe) { ?>
+            <div class="ps-product-group">
+              <div class="ps-product--horizontal">
+                <div class="ps-product__thumbnail ml-10" style="background:#fff">
+                  <img data-src="<?php echo asset($oe->thumbnail); ?>" alt="<?php echo $oe->page_name; ?>" loading="lazy">
+                </div>
+                <div class="ps-product__content">
+                  <a class="ps-product__title" href="<?php echo url($oe->slug); ?>/">
+                    <?php echo $oe->page_name; ?>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <?php } ?>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
   <script>
     grecaptcha.ready(function() {
       grecaptcha.execute('{{ gr_site_key() }}', {
