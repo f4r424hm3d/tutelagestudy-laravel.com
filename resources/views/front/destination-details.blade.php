@@ -51,17 +51,6 @@
               <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12 mb-20">
                 @if ($seg2 == null)
                   <!-- header background section ends -->
-                  <div class="container-fluid hide-this"
-                    style="background-color:#1d4d7a">
-                    <div class="row">
-                      <div class="col-md-12 col-sm-12 p-5">
-                        <div class="pt-20 pb-20 get-detail text-center">
-                          <a class="ps-btn" onclick="window.location.href='{{ url('mbbs-abroad-counselling/') }}/'"
-                            href="javascript:void()">GET FREE COUNSELLING</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                   <div class="ps-product__box mb-20">
                     <div class="ps-tabs">
                       <div class="ps-tab active">
@@ -126,9 +115,9 @@
                             <a onclick="toggleFaq('<?php echo $faq->id; ?>')" class="card-link text-dark"
                               href="javascript:void()">
                               <span class="float-right"><i class="fa fa-arrow-down"></i></span>
-                              <h5 class="mb-0">
+                              <h6 class="mb-0">
                                 <?php echo $faq->question; ?>
-                              </h5>
+                              </h6>
                             </a>
                           </div>
                           <div id="a<?php echo $faq->id; ?>" style="display:none;">
@@ -188,16 +177,16 @@
                             </div>
                             <div class="col-md-10">
                               <div class="cont-div">
-                                <b>
+                                
                                   <?php echo $author->name; ?>
-                                </b>
+                                
                                 <span>Content Curator | Updated on -
                                   <?php echo getFormattedDate($c_destination->updated_at, 'M d, Y'); ?>
                                 </span>
                                 <?php if($author->shortnote!=null){ ?>
-                                <p><b>
+                                <p>
                                     <?php echo $author->shortnote; ?>
-                                  </b></p>
+                                  </p>
                                 <br>
                                 <?php } ?>
                                 <a style="float:right" href="<?php echo url('author/' . $author->slug); ?>/" class="bio-btn">Read Full Bio</a>
@@ -215,23 +204,23 @@
                 @endif
               </div>
               <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
-                <!--@if (count($otherexam) > 1)-->
-                <!--  <div class="ps-section__left" style="top:60px; background:#fff">-->
-                <!--    <aside class="ps-widget--account-dashboard">-->
-                <!--      <div class="ps-widget__content">-->
-                <!--        <div style="font-size:18px; color:#fff; background:#9D0E0E; padding:10px; text-align:center">-->
-                <!--          Other  Destination</div>-->
-                <!--        <ul style="max-height:380px; overflow:auto">-->
-                <!--          <?php foreach ($otherexam as $row) { ?>-->
-                <!--          <li><a href="<?php echo url($row->slug); ?>/"><i class="icon-arrow-right"></i> MBBS From-->
-                <!--              <?php echo $row->country; ?>-->
-                <!--            </a></li>-->
-                <!--          <?php } ?>-->
-                <!--        </ul>-->
-                <!--      </div>-->
-                <!--    </aside>-->
-                <!--  </div>-->
-                <!--@endif-->
+                @if (count($otherexam) > 1)
+                  <div class="ps-section__left" style="top:60px; background:#fff">
+                    <aside class="ps-widget--account-dashboard">
+                      <div class="ps-widget__content">
+                        <div style="font-size:18px; color:#fff; background:#9D0E0E; padding:10px; text-align:center">
+                          MBBS Abroad Countries</div>
+                        <ul style="max-height:380px; overflow:auto">
+                          <?php foreach ($otherexam as $row) { ?>
+                          <li><a href="<?php echo url($row->slug); ?>/"><i class="icon-arrow-right"></i> MBBS From
+                              <?php echo $row->country; ?>
+                            </a></li>
+                          <?php } ?>
+                        </ul>
+                      </div>
+                    </aside>
+                  </div>
+                @endif
 
                 @if ($tu->count() > 0)
                   <div class="ps-section__left" style="top:60px; background:#fff">

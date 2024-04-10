@@ -97,8 +97,8 @@
   </div>
 </div>
 <div id="back2top"><i class="pe-7s-angle-up"></i></div>
-<script src="{{ cdn('front') }}/js/main.js" defer></script>
-<script src="{{ cdn('front') }}/plugins/nouislider/nouislider.min.js" defer></script>
+<script src="{{ cdn('front') }}/js/main.js"></script>
+<script src="{{ cdn('front') }}/plugins/nouislider/nouislider.min.js"></script>
 <script src="{{ cdn('front') }}/plugins/popper.min.js" defer></script>
 <script src="{{ cdn('front') }}/plugins/owl-carousel/owl.carousel.min.js" defer></script>
 <script src="{{ cdn('front') }}/plugins/bootstrap/js/bootstrap.min.js" defer></script>
