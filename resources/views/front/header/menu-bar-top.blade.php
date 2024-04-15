@@ -88,6 +88,7 @@
                     @php
                       $destinations = Destination::where(['status' => 1])
                           ->inRandomOrder()
+                          ->limit(10)
                           ->get();
                     @endphp
                     @foreach ($destinations as $row)
