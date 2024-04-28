@@ -15,11 +15,6 @@ use Illuminate\Support\Facades\Validator;
 
 class InquiryController extends Controller
 {
-  public function __construct()
-  {
-    $this->mail_to = Config::get('constants.mail.to');
-    $this->mail_cc = Config::get('constants.mail.cc');
-  }
   public function universityIniquiry(Request $request)
   {
     $from_email = 'info@britannicaoverseas.com';
@@ -503,31 +498,32 @@ class InquiryController extends Controller
     $brochure_path = "tb/MBBS-brochure-table-new-printing.pdf";
     $request->validate(
       [
-        'captcha' => 'required|captcha',
-        'name' => 'required|regex:/^[a-zA-Z ]*$/',
-        'email' => 'required|email:rfc,dns',
-        'c_code' => 'required|numeric|digits_between:1,5',
-        'mobile' => 'required|numeric|digits_between:9,12',
+        'text_captcha' => 'required|captcha',
+        'user_name' => 'required|regex:/^[a-zA-Z ]*$/',
+        'user_email' => 'required|email:rfc,dns',
+        'user_country_code' => 'required|numeric|digits_between:1,5',
+        'user_mobile' => 'required|numeric|digits_between:9,12',
       ],
       [
-        'captcha.captcha' => 'Please enter the correct CAPTCHA value.',
+        'text_captcha.required' => 'Captcha field is required.',
+        'text_captcha.captcha' => 'Please enter the correct CAPTCHA value.'
       ]
     );
     $field = new Student();
-    $field->name = $request['name'];
-    $field->email = $request['email'];
-    $field->c_code = $request['c_code'];
-    $field->mobile = $request['mobile'];
+    $field->name = $request['user_name'];
+    $field->email = $request['user_email'];
+    $field->c_code = $request['user_country_code'];
+    $field->mobile = $request['user_mobile'];
     $field->page_url = $request['source_url'];
     $field->save();
 
     session()->flash('smsg', 'Your inquiry has been submitted. we will contact you soon.');
 
     $emaildata = [
-      'name' => $request['name'],
-      'email' => $request['email'],
-      'c_code' => $request['c_code'],
-      'mobile' => $request['mobile'],
+      'name' => $request['user_name'],
+      'email' => $request['user_email'],
+      'c_code' => $request['user_country_code'],
+      'mobile' => $request['user_mobile'],
       'brochure_path' => $brochure_path,
       'page_url' => $request['source_url'],
     ];
@@ -542,7 +538,7 @@ class InquiryController extends Controller
     $response = curl_exec($client);
     curl_close($client);
 
-    $dd = ['to' => $request['email'], 'to_name' => $request['name'], 'subject' => 'Brochure Inquiry', 'brochure_path' => $brochure_path,];
+    $dd = ['to' => $request['user_email'], 'to_name' => $request['user_name'], 'subject' => 'Brochure Inquiry', 'brochure_path' => $brochure_path,];
 
     Mail::send(
       'mails.brochure-inquiry-reply2',
@@ -556,10 +552,10 @@ class InquiryController extends Controller
     );
 
     $emaildata2 = [
-      'name' => $request['name'],
-      'email' => $request['email'],
-      'c_code' => $request['c_code'],
-      'mobile' => $request['mobile'],
+      'name' => $request['user_name'],
+      'email' => $request['user_email'],
+      'c_code' => $request['user_ccountry_code'],
+      'mobile' => $request['user_mobile'],
       'page_url' => $request['source_url'],
       'intrested_university' => null,
       'destination' => null,

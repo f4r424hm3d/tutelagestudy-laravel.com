@@ -145,7 +145,6 @@
       @enderror
       <form action="{{ url('inquiry/download-brochure') }}/" method="post">
         @csrf
-        <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response-db">
         <input type="hidden" name="source" value="Brochure">
         <input type="hidden" name="source_path" value="{{ URL::full() }}">
         <input type="hidden" class="form-control" name="page_url" value="{{ url()->current() }}">
@@ -156,18 +155,18 @@
                 <div class="row">
                   <div class="col-sm-5">
                     <div class="form-group">
-                      <input type="text" name="name" id="b-name" class="form-control"
-                        placeholder="Enter Name" value="{{ old('name') ?? '' }}" required>
-                      @error('name')
+                      <input type="text" name="user_name" id="b-name" class="form-control"
+                        placeholder="Enter Name" value="{{ old('user_name') ?? '' }}" required>
+                      @error('user_name')
                         {!! '<span class="text-danger">' . $message . '</span>' !!}
                       @enderror
                     </div>
                   </div>
                   <div class="col-sm-7">
                     <div class="form-group">
-                      <input type="email" class="form-control" name="email" id="b-email"
-                        value="{{ old('email') ?? '' }}" placeholder="Enter Email" required>
-                      @error('email')
+                      <input type="email" class="form-control" name="user_email" id="b-email"
+                        value="{{ old('user_email') ?? '' }}" placeholder="Enter Email" required>
+                      @error('user_email')
                         {!! '<span class="text-danger">' . $message . '</span>' !!}
                       @enderror
                     </div>
@@ -176,9 +175,9 @@
                 <div class="row">
                   <div class="col-sm-3">
                     <div class="form-group">
-                      <input type="c_code" class="form-control" name="c_code" id="b-c_code"
-                        value="{{ old('c_code') ?? '+91' }}" placeholder="Country Code" required>
-                      @error('c_code')
+                      <input type="number" class="form-control" name="user_country_code" id="b-c_code"
+                        value="{{ old('user_country_code') ?? '91' }}" placeholder="Country Code" required>
+                      @error('user_country_code')
                         {!! '<span class="text-danger">' . $message . '</span>' !!}
                       @enderror
                     </div>
@@ -186,9 +185,9 @@
                   <div class="col-sm-9">
                     <div class="form-group">
                       <input type="text" class="form-control u-ltr" placeholder="Enter Mobile Number"
-                        data-error="Please enter a valid phone number" name="mobile" id="b-mobile"
-                        value="<?php echo old('mobile'); ?>" required>
-                      @error('mobile')
+                        data-error="Please enter a valid phone number" name="user_mobile" id="b-mobile"
+                        value="<?php echo old('user_mobile'); ?>" required>
+                      @error('user_mobile')
                         {!! '<span class="text-danger">' . $message . '</span>' !!}
                       @enderror
                     </div>
@@ -201,9 +200,9 @@
                   </div>
                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl7">
                     <div class="form-group">
-                      <input type="text" id="captcha" name="captcha" class="form-control">
+                      <input type="text" id="captcha" name="text_captcha" class="form-control">
                     </div>
-                    @error('captcha')
+                    @error('text_captcha')
                       {!! '<span class="text-danger">' . $message . '</span>' !!}
                     @enderror
                   </div>
@@ -254,144 +253,6 @@
       </form>
     </div>
 
-    <div class="navigation__content">
-      <div class="p-5">
-        <div class="row shadow">
-          <div class="col-md-8">
-            <div
-              style="font-size:16px; margin-bottom:10px; color:#cd2122; font-weight:500; margin-top:15px; text-align:center">
-              Apply Now for MBBS Upcoming Intake</div>
-            @error('g-recaptcha-response')
-              <span class="text-danger">{{ $message }}</span>
-            @enderror
-            @error('captcha')
-              <span class="text-danger">{{ $message }}</span>
-            @enderror
-            <form class="ps-form--visa" action="{{ url('inquiry/submit-mbbs-inquiry') }}/" method="post">
-              @csrf
-              <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response-smi">
-              <input type="hidden" name="source" value="MObile Form Inquiry">
-              <input type="hidden" name="source_path" value="{{ URL::full() }}">
-              <input type="hidden" name="source_url" value="<?php echo $_GET['page'] ?? ''; ?>">
-              <input type="hidden" name="page_url" value="{{ url()->current() }}">
-              <div class="row">
-                <div class="col-lg-6 col-md-5 col-sm-12 col-xs-12 pr7">
-                  <div class="form-group">
-                    <input type="text" name="name" id="b-name" class="form-control"
-                      placeholder="Enter Name" value="{{ old('name') ?? '' }}" required>
-                    @error('name')
-                      {!! '<span class="text-danger">' . $message . '</span>' !!}
-                    @enderror
-                  </div>
-                </div>
-                <div class="col-lg-6 col-md-7 col-sm-12 col-xs-12 pl7">
-                  <div class="form-group">
-                    <input type="email" class="form-control" name="email" id="b-email"
-                      value="{{ old('email') ?? '' }}" placeholder="Enter Email" required>
-                    @error('email')
-                      {!! '<span class="text-danger">' . $message . '</span>' !!}
-                    @enderror
-                  </div>
-                </div>
-                <div class="col-4 col-lg-4 col-md-4 col-sm-4 col-xs-6 pr7">
-                  <div class="form-group">
-                    <input type="c_code" class="form-control" name="c_code" id="mb_c_code"
-                      value="{{ old('c_code') ?? '91' }}" placeholder="Enter Country Code" required>
-                    @error('c_code')
-                      {!! '<span class="text-danger">' . $message . '</span>' !!}
-                    @enderror
-                  </div>
-                </div>
-                <div class="col-8 col-lg-8 col-md-8 col-sm-8 col-xs-6 pl7">
-                  <div class="form-group">
-                    <input type="text" class="form-control u-ltr" placeholder="Enter Mobile Number"
-                      data-error="Please enter a valid phone number" name="mobile" id="b-mobile"
-                      value="<?php echo old('mobile'); ?>" required>
-                    @error('mobile')
-                      {!! '<span class="text-danger">' . $message . '</span>' !!}
-                    @enderror
-                  </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr7">
-                  <div class="form-group">
-                    <input type="nationality" class="form-control" name="nationality" id="mf_nationality"
-                      value="{{ old('nationality') ?? 'India' }}" placeholder="Enter Nationality" required>
-                    @error('nationality')
-                      {!! '<span class="text-danger">' . $message . '</span>' !!}
-                    @enderror
-                  </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl7">
-                  <div class="form-group">
-                    <select class="form-control" name="destination" id="b_destination" required>
-                      <option value="">Preferred MBBS Country</option>
-                      @foreach ($destinationsSF as $row)
-                        <option value="<?php echo $row->page_name; ?>" <?php echo old('destination') == $row->page_name ? 'Selected' : ''; ?>>
-                          <?php echo $row->page_name; ?>
-                        </option>
-                      @endforeach
-                    </select>
-                    @error('destination')
-                      {!! '<span class="text-danger">' . $message . '</span>' !!}
-                    @enderror
-                  </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl7">
-                  <div class="form-group">
-                    <label for="captcha">Enter the CAPTCHA:</label><br>
-                    <img src="{{ Captcha::src('flat') }}" alt="CAPTCHA">
-                  </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl7">
-                  <div class="form-group">
-                    <input type="text" id="captcha" name="captcha" class="form-control">
-                  </div>
-                  @error('captcha')
-                    {!! '<span class="text-danger">' . $message . '</span>' !!}
-                  @enderror
-                </div>
-
-                <div class="form-group">
-                  <div class="ps-checkbox pl-20">
-                    <input class="form-control " type="checkbox" name="terms" id="terms" checked>
-                    <label for="terms">I agree to the <a href="https://www.tutelagestudy.com/term-and-condition/"
-                        style="color: blue;" target="_blank" rel="noopener noreferrer">terms & conditions</a>
-                      .*</label>
-                    @error('terms')
-                      {!! '<span class="text-danger">' . $message . '</span>' !!}
-                    @enderror
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="ps-checkbox pl-20">
-                    <input class="form-control " type="checkbox" name="contact_me" id="contact_me" checked>
-                    <label for="contact_me">Contact me by phone, email or<br>SMS to assist me .*</label>
-                    @error('contact_me')
-                      {!! '<span class="text-danger">' . $message . '</span>' !!}
-                    @enderror
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="ps-checkbox pl-20">
-                    <input class="form-control" type="checkbox" name="update" id="update" checked>
-                    <label for="update">I would like to receive updates and offers<br>from Tutelage Study.*</label>
-                  </div>
-                </div>
-                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                  <button type="submit" class="ps-btn ps-btn--fullwidth">Submit</button>
-                </div>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
   <div class="ps-panel--sidebar" id="menu-mobile">
     <div class="ps-panel__header">
