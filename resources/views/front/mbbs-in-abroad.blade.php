@@ -4,49 +4,13 @@
 @endpush
 @section('main-section')
 <style>
-  .mb30 {
-    margin-bottom: 30px
-  }
-
-  .img-content {
-    background: #0047ab;
-    text-align: center
-  }
-
-  .img-content .img-responsive {
-    opacity: 1;
-  }
-
-  .img-content:hover .img-responsive {
-    opacity: 0.2;
-  }
-
-  .img-content:hover i {
-    padding-left: 5px;
-    transition: all 0.5s
-  }
-
-  .detail-link {
-    font-size: 18px;
-    color: #fff;
-    line-height: 45px;
-    -webkit-transition: all .3s ease;
-    transition: all .3s ease;
-    text-shadow: 1px 2px 3px #212121;
-  }
-
-  .detail-link i {
-    font-size: 20px;
-    bottom: -2px !important;
-    position: relative;
-    transition: all 0.5s
-  }
+ .mb30 { margin-bottom: 30px } .img-content { background: #0047ab; text-align: center } .img-content .img-responsive { opacity: 1; } .img-content:hover .img-responsive { opacity: 0.2; } .img-content:hover i { padding-left: 5px; transition: all 0.5s } .detail-link { font-size: 18px; color: #fff; line-height: 45px; -webkit-transition: all .3s ease; transition: all .3s ease; text-shadow: 1px 2px 3px #212121; } .detail-link i { font-size: 20px; bottom: -2px !important; position: relative; transition: all 0.5s }
 </style>
 <div class="ps-breadcrumb">
   <div class="ps-container">
     <ul class="breadcrumb bread-scrollbar">
       <li><a href="https://www.tutelagestudy.com/">Home</a></li>
-      <li>MBBS in Abroad</li>
+      <li>MBBS Abroad</li>
     </ul>
   </div>
 </div>
@@ -72,7 +36,7 @@
         </div>
       </div>
       <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12"><img data-src="{{ asset('/front/') }}/img/mbbs-in-abroad.png"
-          alt="MBBS Abroad" class="img-fluid"></div>
+          alt="MBBS Abroad for indian students" class="img-fluid"></div>
       <!--<div class="col-lg-12">-->
       <!--<div class="ps-section__header" style="max-width:100%; margin:0px">-->
       <!--<p class="jsfy">This issue could be resolved while studying MBBS in abroad as there is no capitation is received for the admission. The foreign medical universities stand as salvage to Indian medical students and also for the other students who seek good education in abroad countries.</p>-->
@@ -100,7 +64,7 @@
         </div>
       </div>
       <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12"><img data-src="{{ asset('/front/') }}/img/choose-best-country.jpg"
-          class="img-fluid"></div>
+          class="img-fluid" alt="mbbs in abroad for indian students"></div>
     </div>
   </div>
 </div>
@@ -113,10 +77,7 @@
           <p class="jsfy">Most of the abroad countries offer the best environment and high-quality education for the
             students at an affordable cost. The best countries for study abroad known for such medical education are
             Malaysia, Ukraine, Kazakhstan, Russia, Germany, Nepal, Bangladesh, China, and many other countries.</p>
-          <p class="jsfy mb30">The medical universities in these countries are approved and accredited by the World
-            Health Organisation(WHO) and enlisted with the Medical Councils of India(MCI). They follow the international
-            and advanced curriculum for the student to make them more skilled in the medical field. So, the
-            above-mentioned countries are best for MBBS in abroad.</p>
+          <p class="jsfy mb30">The medical universities in these countries are approved and accredited by the World Health Organisation(WHO) and enlisted with the Medical Councils of India(MCI). They follow the international and advanced curriculum for the student to make them more skilled in the medical field. So, the above-mentioned countries are best for <a href="https://www.mymbbsadmission.com/mbbs-abroad/">MBBS in abroad</a>.</p>
         </div>
       </div>
     </div>
@@ -143,7 +104,7 @@
             <div class="ps-post__thumbnail"><img data-src="{{ asset('/front/') }}/img/mbbs-russia.jpg" alt="MBBS in Russia">
             </div>
             <div class="ps-post__content" style="border:0px; padding:12px 0px; background:#fff">
-              <div class="ps-post__title text-center">MBBA IN RUSSIA</div>
+              <div class="ps-post__title text-center">MBBS IN RUSSIA</div>
             </div>
           </div>
         </a>
@@ -180,40 +141,14 @@
     <div class="row text-center">
       <div class="col-lg-12 col-md-6 col-sm-12 col-xs-12">
         <div class="ps-section__header" style="max-width:100%; margin:0px">
-          <h2>Choice of Countries to Study Medicine in Abroad</h2>
+          <h2>Choice of Countries to Study MBBS in Abroad</h2>
           <p class="jsfy">Nowadays, Indian students have many options to take and pursue MBBS admission in abroad at a
             very low cost. Following are the few countries where students can study MBBS in abroad:</p>
         </div>
       </div>
       <div class="col-lg-12 col-md-6 col-sm-12 col-xs-12">
         <table class="table table-bordered table-striped">
-          <tbody>
-            <tr>
-              <td><a href="https://www.tutelagestudy.com/mbbs-in-malaysia/">MBBS in Malaysia</a></td>
-              <td><a href="https://www.tutelagestudy.com/mbbs-in-kazakhstan/">MBBS in Kyrgyzstan</a></td>
-              <td><a href="https://www.tutelagestudy.com/study-mbbs-in-philippines/">MBBS in Philippines</a></td>
-            </tr>
-            <tr>
-              <td><a href="https://www.tutelagestudy.com/mbbs-in-bangladesh/">MBBS in Bangladesh</a></td>
-              <td><a href="https://www.tutelagestudy.com/mbbs-in-malta/">MBBS in Malta</a></td>
-              <td><a href="https://www.tutelagestudy.com/mbbs-in-armenia/">MBBS in Armenia</a></td>
-            </tr>
-            <tr>
-              <td><a href="https://www.tutelagestudy.com/mbbs-in-russia/">MBBS in Russia</a></td>
-              <td><a href="https://www.tutelagestudy.com/mbbs-in-vietnam/">MBBS in Vietnam</a></td>
-              <td><a href="https://www.tutelagestudy.com/mbbs-in-turkey/">MBBS in Turkey</a></td>
-            </tr>
-            <tr>
-              <td><a href="https://www.tutelagestudy.com/mbbs-in-georgia/">MBBS in Georgia</a></td>
-              <td><a href="https://www.tutelagestudy.com/mbbs-in-egypt/">MBBS in Egypt</a></td>
-              <td><a href="https://www.mymbbsadmission.com/mbbs-in-hungary/">MBBS in Hungary</a></td>
-            </tr>
-            <tr>
-              <td><a href="https://www.tutelagestudy.com/mbbs-md-ms-study-in-nepal/">MBBS in Nepal</a></td>
-              <td><a href="https://www.tutelagestudy.com/mbbs-in-mauritius/">MBBS in Mauritius</a></td>
-              <td><a href="https://www.tutelagestudy.com/mbbs-in-iran/">MBBS in iran</a></td>
-            </tr>
-          </tbody>
+         <tbody> <tr> <td><a href="https://www.tutelagestudy.com/mbbs-in-malaysia/">MBBS in Malaysia</a></td> <td><a href="https://www.tutelagestudy.com/mbbs-in-kazakhstan/">MBBS in Kyrgyzstan</a></td> <td><a href="https://www.tutelagestudy.com/study-mbbs-in-philippines/">MBBS in Philippines</a></td> </tr> <tr> <td><a href="https://www.tutelagestudy.com/mbbs-in-bangladesh/">MBBS in Bangladesh</a></td> <td><a href="https://www.tutelagestudy.com/mbbs-in-malta/">MBBS in Malta</a></td> <td><a href="https://www.tutelagestudy.com/mbbs-in-armenia/">MBBS in Armenia</a></td> </tr> <tr> <td><a href="https://www.tutelagestudy.com/mbbs-in-russia/">MBBS in Russia</a></td> <td><a href="https://www.tutelagestudy.com/mbbs-in-vietnam/">MBBS in Vietnam</a></td> <td><a href="https://www.tutelagestudy.com/mbbs-in-turkey/">MBBS in Turkey</a></td> </tr> <tr> <td><a href="https://www.tutelagestudy.com/mbbs-in-georgia/">MBBS in Georgia</a></td> <td><a href="https://www.tutelagestudy.com/mbbs-in-egypt/">MBBS in Egypt</a></td> <td><a href="https://www.mymbbsadmission.com/mbbs-in-hungary/">MBBS in Hungary</a></td> </tr> <tr> <td><a href="https://www.tutelagestudy.com/mbbs-in-uzbekistan/">MBBS in Uzbekistan</a></td> <td><a href="https://www.tutelagestudy.com/mbbs-in-kyrgyzstan/">MBBS in Kyrgyzstan</a></td> <td><a href="https://www.tutelagestudy.com/mbbs-in-poland/">MBBS in Poland</a></td> </tr> <tr> <td><a href="https://www.tutelagestudy.com/mbbs-md-ms-study-in-nepal/">MBBS in Nepal</a></td> <td><a href="https://www.tutelagestudy.com/mbbs-in-mauritius/">MBBS in Mauritius</a></td> <td><a href="https://www.tutelagestudy.com/mbbs-in-iran/">MBBS in iran</a></td> </tr> </tbody>
         </table>
       </div>
     </div>
@@ -224,7 +159,7 @@
     <div class="row text-center">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="ps-section__header" style="max-width:100%; margin:0px">
-          <h2>Country List of Top Medical Universities for MBBS Program</h2>
+          <h2>Country List of Top Medical Universities for MBBS Abroad</h2>
           <p class="jsfy">There are a number of best quality education universities in foreign countries. The MCI
             approved medical universities have their ranks. Here are some of the universities from different countries:
           </p>
@@ -333,6 +268,13 @@
               <td class="text-center">7155</td>
               <td class="text-center">2500$</td>
             </tr>
+                        <tr>
+              <td><a href="https://www.tutelagestudy.com/mbbs-in-kyrgyzstan/">Kyrgyzstan</a></td>
+              <td>International School of Medicine</td>
+              <td class="text-center">25</td>
+              <td class="text-center">11532</td>
+              <td class="text-center">$6,500$</td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -385,7 +327,7 @@
     <div class="row">
       <div class="col-lg-12 col-md-6 col-sm-12 col-xs-12">
         <div class="ps-section__header" style="max-width:100%; margin:0px">
-          <h2>Cost of Studying MBBS in Abroad for Indian Students</h2>
+          <h2>Cost of Studying MBBS Abroad for Indian Students</h2>
           <p class="jsfy">The students choose abroad countries for their MBBS in abroad because of the affordable cost
             offered for medical education. The number of Indian students chooses to study abroad for MBBS courses
             because of low fees structure with top medical universities.</p>

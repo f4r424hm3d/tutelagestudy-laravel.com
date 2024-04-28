@@ -11,22 +11,22 @@
             Haryana, India 122002.</p>
           <ul class="ps-list--social">
             <li><a class="facebook" href="https://www.facebook.com/tutelagestudyabroad/" target="_blank"
-                rel="noopener noreferrer" aria-label="Facebook"><i class="fa fa-facebook"></i></a></li>
-            <li><a class="twitter" href="https://twitter.com/tutelagestudy" rel="noopener noreferrer"
+             aria-label="Facebook"><i class="fa fa-facebook"></i></a></li>
+            <li><a class="twitter" href="https://twitter.com/tutelagestudy"
                 aria-label="Twitter"><i class="fa fa-twitter"></i></a></li>
             <li><a class="instagram" href="https://www.instagram.com/tutelagestudy/" rel="noopener noreferrer nofollow"
                 aria-label="Instagram"><i class="fa fa-instagram"></i></a></li>
             <li><a style="color:#0A66C2" href="https://in.linkedin.com/in/tutelage-study-4085a51ab"
-                rel="noopener noreferrer" aria-label="linkedin"><i class="fa fa-linkedin"></i></a></li>
-            <li><a style="color:#E60023" href="https://in.pinterest.com/tutelagestudy/" rel="noopener noreferrer"
+             aria-label="linkedin"><i class="fa fa-linkedin"></i></a></li>
+            <li><a style="color:#E60023" href="https://in.pinterest.com/tutelagestudy/"
                 aria-label="pinterest"><i class="fa fa-pinterest"></i></a></li>
             <li><a style="color:#FF0000" href="https://www.youtube.com/channel/UCK2eeC1CkS3YkYrGnnzBUEQ"
-                rel="noopener noreferrer" aria-label="youtube"><i class="fa fa-youtube"></i></a></li>
+             aria-label="youtube"><i class="fa fa-youtube"></i></a></li>
           </ul>
         </div>
       </aside>
       <aside class="widget_footer col-md-3">
-        <span class="widget-title">Quick links</span>
+        <span class="widget-title">Quick Links</span>
         <ul class="ps-list--link" style="margin-bottom:25px">
           <li><a href="<?php echo url('about-us'); ?>/" class="whitec">About Us</a></li>
           <li><a href="<?php echo url('contact-us'); ?>/" class="whitec">Our Offices</a></li>
@@ -37,7 +37,7 @@
         </ul>
       </aside>
       <aside class="widget_footer col-md-3">
-        <span class="widget-title">MBBS Destination</span>
+        <span class="widget-title">MBBS Countries</span>
         <ul class="ps-list--link" style="margin-bottom:25px">
           <li><a href="https://www.tutelagestudy.com/mbbs-in-malaysia/" class="whitec">MBBS Malaysia</a></li>
           <li><a href="https://www.tutelagestudy.com/mbbs-in-russia/" class="whitec">MBBS Russia</a></li>
@@ -52,7 +52,7 @@
         <ul class="ps-list--link" style="margin-bottom:25px">
           <li><a href="https://neet.nta.nic.in/" target="_blank" class="whitec"
               rel="nofollow noopener noreferrer">NEET</a></li>
-          <li><a href="https://www.nmc.org.in/information-desk/for-students-to-study-in-abroad/" target="_blank"
+          <li><a href="https://www.nmc.org.in/" target="_blank"
               class="whitec" rel="nofollow noopener noreferrer">NMC</a></li>
           <li><a href="https://www.usmle.org/" target="_blank" class="whitec"
               rel="nofollow noopener noreferrer">USMLE</a></li>
@@ -292,7 +292,7 @@
         </div>
       </div>
     </div>
-    <div class="content"> <a class="country-box" target="_blank" rel="noopener noreferrer"
+    <div class="content"> <a class="country-box" target="_blank"
         href="https://api.whatsapp.com/send?phone=919667667331&amp;text=Hello there!! I want to get counseling by experts. Want to know more information about Tutelage Study | www.tutelagestudy.com">
         <div class="row align-items-center">
           <div class="col-2 pr0"><img data-src="{{ asset('/front/') }}/img/flag-india.png" alt="whatsapp now"
@@ -301,7 +301,7 @@
           <div class="col-2 pl0 text-right"><img data-src="{{ asset('/front/') }}/img/wad.png" alt="whatsapp now"
               width="20"> </div>
         </div>
-      </a> <a class="country-box" target="_blank" rel="noopener noreferrer"
+      </a> <a class="country-box" target="_blank"
         href="https://api.whatsapp.com/send?phone=919342914452&amp;text=Hello there!! I want to get counseling by experts. Want to know more information about Tutelage Study | www.tutelagestudy.com">
         <div class="row align-items-center">
           <div class="col-2 pr0"><img data-src="{{ asset('/front/') }}/img/flag-india.png" alt="whatsapp now"
@@ -310,7 +310,7 @@
           <div class="col-2 pl0 text-right"><img data-src="{{ asset('/front/') }}/img/wad.png" alt="whatsapp now"
               width="20"> </div>
         </div>
-      </a> <a class="country-box" target="_blank" rel="noopener noreferrer"
+      </a> <a class="country-box" target="_blank"
         href="https://api.whatsapp.com/send?phone=919619593689&amp;text=Hello there!! I want to get counseling by experts. Want to know more information about Tutelage Study | www.tutelagestudy.com">
         <div class="row align-items-center">
           <div class="col-2 pr0"><img data-src="{{ asset('/front/') }}/img/flag-india.png" alt="whatsapp image"

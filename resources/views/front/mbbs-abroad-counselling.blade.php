@@ -110,9 +110,6 @@
           <span class="text-danger">{{ $message }}</span>
         @enderror
         <div class="row">
-          <!--<div class="col-md-5">-->
-          <!--  <img data-src="https://www.tutelagestudy.com/uploads/destinations/IMG_20221213_105139.jpg" class="w-100" />-->
-          <!--</div>-->
           <div class="col-md-11">
             <h1>Apply Now for MBBS Upcoming Intake & Free Couselling Session</h1>
             <form class="ps-form--visa" action="{{ url('inquiry/submit-mbbs-inquiry') }}/" method="post">
@@ -257,7 +254,7 @@
               <div class="ps-post__thumbnail"><img data-src="{{ asset('/front/') }}/img/mbbs-russia.jpg"
                   alt=""></div>
               <div class="ps-post__content" style="border:0px; padding:12px 0px; background:#fff">
-                <div class="ps-post__title text-center">MBBA IN RUSSIA</div>
+                <div class="ps-post__title text-center">MBBS IN RUSSIA</div>
               </div>
             </div>
           </a>

@@ -258,7 +258,7 @@
                   alt="MBBS in russia">
               </div>
               <div class="ps-post__content" style="border:0px; padding:12px 0px; background:#fff">
-                <div class="ps-post__title text-center">MBBA IN RUSSIA</div>
+                <div class="ps-post__title text-center">MBBS IN RUSSIA</div>
               </div>
             </div>
           </a>

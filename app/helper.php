@@ -76,7 +76,7 @@ if (!function_exists('replaceTag')) {
       $string = $string == null ? null : str_replace('%' . $key . '%', $value, $string);
     }
     $string = trim(preg_replace('/\s+/', ' ', $string));
-    $string = ucwords($string);
+    //$string = ucwords($string);
     return $string;
   }
 }
