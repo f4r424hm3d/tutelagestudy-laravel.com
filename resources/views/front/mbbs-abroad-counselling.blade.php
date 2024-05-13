@@ -185,11 +185,12 @@
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-6 pl7">
                   <label for="captcha">CAPTCHA:</label>
-                  <img src="{{ Captcha::src('flat') }}" alt="CAPTCHA">
+                  <img src="{{ Captcha::src('math') }}" alt="CAPTCHA">
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-6 pl7">
                   <div class="form-group">
-                    <input type="text" id="captcha" placeholder="enter the captcha" name="captcha" class="form-control">
+                    <input type="text" id="captcha" placeholder="enter the captcha" name="captcha"
+                      class="form-control">
                   </div>
                   @error('captcha')
                     {!! '<span class="text-danger">' . $message . '</span>' !!}

@@ -195,7 +195,7 @@
                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl7">
                     <div class="form-group">
                       <label for="captcha">Enter the CAPTCHA:</label><br>
-                      <img src="{{ Captcha::src('flat') }}" alt="CAPTCHA">
+                      <img src="{{ Captcha::src('math') }}" alt="CAPTCHA">
                     </div>
                   </div>
                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl7">
