@@ -60,12 +60,12 @@ class UniversityFc extends Controller
       $country_slug = str_replace("medical-universities-in-", "", $request->segment(1));
       $country_slug = str_replace('-', ' ', $country_slug);
       $currentDestinationdet = Destination::where('country', $country_slug)->first();
-      $_SESSION['unifilter_destination'] = $currentDestinationdet->page_name;
+      session()->put('unifilter_destination', $currentDestinationdet->page_name);
       $currentCountry = $currentDestinationdet->country;
     }
 
     $rows = University::where(['status' => 1]);
-    if ($_SESSION['unifilter_destination']) {
+    if (session('unifilter_destination')) {
       $rows = $rows->where(['country' => $currentCountry]);
     }
     $rows = $rows->paginate(20)->withQueryString();

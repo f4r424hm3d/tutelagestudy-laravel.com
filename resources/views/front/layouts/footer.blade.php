@@ -293,7 +293,7 @@
       </div>
     </div>
     <div class="content"> <a class="country-box" target="_blank"
-        href="https://api.whatsapp.com/send?phone=919667667331&amp;text=Hello there!! I want to get counseling by experts. Want to know more information about Tutelage Study | www.tutelagestudy.com">
+        href="https://api.whatsapp.com/send?phone=919667667331&amp;text=Hello there!! I want to get counseling by experts. Want to know more information about Study MBBS Abroad | www.tutelagestudy.com">
         <div class="row align-items-center">
           <div class="col-2 pr0"><img data-src="{{ asset('/front/') }}/img/flag-india.png" alt="whatsapp now"
               class="img-fluid"></div>
@@ -302,7 +302,7 @@
               width="20"> </div>
         </div>
       </a> <a class="country-box" target="_blank"
-        href="https://api.whatsapp.com/send?phone=919342914452&amp;text=Hello there!! I want to get counseling by experts. Want to know more information about Tutelage Study | www.tutelagestudy.com">
+        href="https://api.whatsapp.com/send?phone=919342914452&amp;text=Hello there!! I want to get counseling by experts. Want to know more information about Study MBBS Abroad | www.tutelagestudy.com">
         <div class="row align-items-center">
           <div class="col-2 pr0"><img data-src="{{ asset('/front/') }}/img/flag-india.png" alt="whatsapp now"
               class="img-fluid"></div>
@@ -311,11 +311,11 @@
               width="20"> </div>
         </div>
       </a> <a class="country-box" target="_blank"
-        href="https://api.whatsapp.com/send?phone=919619593689&amp;text=Hello there!! I want to get counseling by experts. Want to know more information about Tutelage Study | www.tutelagestudy.com">
+        href="https://api.whatsapp.com/send?phone=918448788675&amp;text=Hello there!! I want to get counseling by experts. Want to know more information about Study MBBS Abroad | www.tutelagestudy.com">
         <div class="row align-items-center">
           <div class="col-2 pr0"><img data-src="{{ asset('/front/') }}/img/flag-india.png" alt="whatsapp image"
               class="img-fluid"></div>
-          <div class="col-8 pr0"> <strong>India Office, Mumbai</strong><br> Start Chat with Mr. Piyush </div>
+          <div class="col-8 pr0"> <strong>India Office, Mumbai</strong><br> Start Chat with Miss. Yogita </div>
           <div class="col-2 pl0 text-right"><img data-src="{{ asset('/front/') }}/img/wad.png" alt="whatsapp image"
               width="20"></div>
         </div>

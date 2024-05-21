@@ -68,6 +68,7 @@
                   <a class="ps-btn" onclick="window.location.href='{{ url('mbbs-abroad-counselling/') }}/'"
                     href="javascript:void()">Enquire Now</a>
                 </div>
+                
                 @if ($count_content > 1)
                   <div class="ps-product__box mb-20">
                     <aside class="widget widget_best-sale">
@@ -103,7 +104,7 @@
                   <div class="ps-product__box mb-20">
                     <div class="ps-section--default">
                       <div class="ps-section__header" style="margin-bottom:0px; padding-bottom:10px; border:0px">
-                        <h3>Faqs</h3>
+                        <h3>FAQ's for MBBS in <?php echo $c_destination->country; ?></h3>
                       </div>
                       <div id="accordion">
                         <?php foreach ($faqs as $faq) { ?>
@@ -112,7 +113,7 @@
                             <a onclick="toggleFaq('<?php echo $faq->id; ?>')" class="card-link text-dark"
                               href="javascript:void()">
                               <span class="float-right"><i class="fa fa-arrow-down"></i></span>
-                              <h6 class="mb-0">
+                              <h6>
                                 <?php echo $faq->question; ?>
                               </h6>
                             </a>
@@ -216,7 +217,7 @@
                     <aside class="ps-widget--account-dashboard">
                       <div class="ps-widget__content">
                         <div style="font-size:18px; color:#fff; background:#9D0E0E; padding:10px; text-align:center">
-                          MBBS Colleges in <?php echo $c_destination->country; ?></div>
+                          Medical Colleges in <?php echo $c_destination->country; ?></div>
                         <ul style="max-height:480px; overflow:auto">
                           @foreach ($tu as $tu)
                             <li>
