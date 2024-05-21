@@ -112,9 +112,10 @@
   <div class="ps-breadcrumb">
     <div class="container-fluid mplr0">
       <ul class="breadcrumb bread-scrollbar">
-        <li><a href="<?php echo url('/'); ?>">Home</a></li>
+        <li><a href="{{ url('/') }}">Home</a></li>
         @if (session('unifilter_destination'))
-          <li>{{ session('unifilter_destination') }}</li>
+          <li><a href="{{ url(slugify(session('unifilter_destination'))) }}">{{ session('unifilter_destination') }}</a>
+          </li>
         @endif
         <li>Medical Universities</li>
       </ul>
