@@ -4,7 +4,33 @@
 @endpush
 @push('breadcrumb_schema')
   <!-- breadcrumb schema Code -->
-  <script type="application/ld+json">
+  @if (session('unifilter_destination'))
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "BreadcrumbList",
+    "name": "<?php echo ucwords($meta_title); ?>",
+    "description": "<?php echo $meta_description; ?>",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "<?php echo url('/'); ?>/"
+    }, {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "{{ session('unifilter_destination') }}",
+      "item": "{{ url(slugify(session('unifilter_destination'))) }}"
+    }, {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Universities",
+      "item": "{{ $page_url }}/"
+    }]
+  }
+</script>
+  @else
+    <script type="application/ld+json">
   {
     "@context": "https://schema.org/",
     "@type": "BreadcrumbList",
@@ -22,7 +48,8 @@
       "item": "{{ $page_url }}/"
     }]
   }
-</script> <!-- breadcrumb schema Code End -->
+</script>
+  @endif
 
   <!-- webpage schema Code Destinations -->
   <script type="application/ld+json">
