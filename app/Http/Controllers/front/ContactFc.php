@@ -12,7 +12,7 @@ class ContactFc extends Controller
 {
   public function index(Request $request)
   {
-    $locations = Address::select('country')->groupBy('country')->get();
+    $locations = Address::select('country')->groupBy('country')->orderBy('id')->get();
     $countries = Country::orderBy('name', 'asc')->get();
     $phonecodes = Country::select('phonecode', 'name')->distinct()->orderBy('phonecode', 'asc')->get();
     $destinations = Destination::where(['status' => 1])->get();

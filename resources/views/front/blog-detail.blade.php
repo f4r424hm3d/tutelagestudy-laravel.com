@@ -2,6 +2,55 @@
 @push('seo_meta_tag')
   @include('front.layouts.dynamic_page_meta_tag')
 @endpush
+@push('breadcrumb_schema')
+  <!-- breadcrumb schema Code -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "BreadcrumbList",
+    "name": "<?php echo ucwords($meta_title); ?>",
+    "description": "<?php echo $meta_description; ?>",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "<?php echo url('/'); ?>/"
+    }, {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "<?php echo url('blog'); ?>/"
+    }, {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "<?php echo ucfirst($blog->headline); ?>",
+      "item": "<?php echo $page_url; ?>/"
+    }]
+  }
+</script>
+  <!-- breadcrumb schema Code End -->
+
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "inLanguage": "en",
+    "headline": "<?= $meta_title ?>",
+    "description": "<?= $meta_description ?>",
+    "keywords": "<?= $meta_keyword ?>",
+    "dateModified": "<?= getISOFormatTime($blog->updated_at) ?>",
+    "datePublished": "<?= getISOFormatTime($blog->created_at) ?>",
+    "mainEntityOfPage": { "id": "<?= $page_url ?>/", "@type": "WebPage" },
+    "author": { "@type": "Person", "name": "Tutelage Team", "url": "https://www.tutelagestudy.com/author/tutelage-team/" },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Tutelage Study",
+        "logo": { "@type": "ImageObject", "name": "Tutelage Study", "url": "https://www.tutelagestudy.com/front/img/logo_light.png", "height": "65", "width": "258" }
+    },
+    "image": { "@type": "ImageObject", "url": "<?= asset($og_image_path) ?>" }
+  }
+</script>
+@endpush
 @section('main-section')
   <style type="text/css">
     .header-bg1 .col-box {

@@ -5,42 +5,68 @@
 @push('breadcrumb_schema')
   <!-- breadcrumb schema Code -->
   <script type="application/ld+json">
-{
-"@context": "https://schema.org/",
-"@type": "BreadcrumbList",
-"name": "<?php echo ucwords($meta_title); ?>",
-"description": "<?php echo $meta_description; ?>",
-"itemListElement": [{
-"@type": "ListItem",
-"position": 1,
-"name": "Home",
-"item": "<?php echo url('/'); ?>/"
-}, {
-"@type": "ListItem",
-"position": 2,
-"name": "Universities",
-"item": "<?php echo url('medical-universities/'); ?>/"
-}, {
-"@type": "ListItem",
-"position": 3,
-"name": "<?php echo $university->name; ?>",
-"item": "{{ $page_url }}/"
-}]
-}
-</script> <!-- breadcrumb schema Code End -->
+  {
+    "@context": "https://schema.org/",
+    "@type": "BreadcrumbList",
+    "name": "<?php echo ucwords($meta_title); ?>",
+    "description": "<?php echo $meta_description; ?>",
+    "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "<?php echo url('/'); ?>/"
+    }, {
+    "@type": "ListItem",
+    "position": 2,
+    "name": "{{ $university->getDestination->page_name }}",
+    "item": "{{ url($university->getDestination->slug) }}/"
+    }, {
+    "@type": "ListItem",
+    "position": 3,
+    "name": "{{ $university->country }} Medical Universities",
+    "item": "{{ url('medical-universities-in-' . $university->country_slug) }}/"
+    }, {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "{{ $university->name }}",
+      "item": "{{ $page_url }}/"
+    }]
+  }
+</script>
+  <!-- breadcrumb schema Code End -->
   <!-- webpage schema Code Destinations -->
   <script type="application/ld+json">
-{
-"@context": "https://schema.org/",
-"@type": "webpage",
-"url": "{{ $page_url }}/",
-"name": "<?php echo $university->name; ?>",
-"description": "<?php echo $meta_description; ?>",
-"inLanguage": "en-US",
-"keywords": [
-"<?php echo $meta_keyword; ?>"
-]
-}
+  {
+    "@context": "https://schema.org/",
+    "@type": "webpage",
+    "url": "{{ $page_url }}/",
+    "name": "<?php echo $university->name; ?>",
+    "description": "<?php echo $meta_description; ?>",
+    "inLanguage": "en-US",
+    "keywords": [
+    "<?php echo $meta_keyword; ?>"
+    ]
+  }
+</script>
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "inLanguage": "en",
+    "headline": "<?= $meta_title ?>",
+    "description": "<?= $meta_description ?>",
+    "keywords": "<?= $meta_keyword ?>",
+    "dateModified": "<?= getISOFormatTime($oschema->updated_at) ?>",
+    "datePublished": "<?= getISOFormatTime($oschema->created_at) ?>",
+    "mainEntityOfPage": { "id": "<?= $page_url ?>/", "@type": "WebPage" },
+    "author": { "@type": "Person", "name": "Tutelage Team", "url": "https://www.tutelagestudy.com/author/tutelage-team/" },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Tutelage Study",
+        "logo": { "@type": "ImageObject", "name": "Tutelage Study", "url": "https://www.tutelagestudy.com/front/img/logo_light.png", "height": "65", "width": "258" }
+    },
+    "image": { "@type": "ImageObject", "url": "<?= asset($og_image_path) ?>" }
+  }
 </script>
 @endpush
 @section('main-section')
@@ -299,23 +325,26 @@
                       </ul>
                     </div>
                   </aside>
-                  <?php if (count($destinations)) { ?>
-                  <div class="ps-section__left" style="top:60px; background:#fff">
-                    <aside class="ps-widget--account-dashboard">
-                      <div class="ps-widget__content">
-                        <div style="font-size:18px; color:#fff; background:#045dab; padding:10px; text-align:center">Other
-                          Destination</div>
-                        <ul style="max-height:480px; overflow:auto">
-                          <?php foreach ($destinations as $row) { ?>
-                          <li><a href="<?php echo url($row->slug); ?>/"><i class="icon-arrow-right"></i> MBBS From
-                              <?php echo $row->country; ?>
-                            </a></li>
-                          <?php } ?>
-                        </ul>
-                      </div>
-                    </aside>
-                  </div>
-                  <?php } ?>
+                  @if (count($destinations))
+                    <div class="ps-section__left" style="top:60px; background:#fff">
+                      <aside class="ps-widget--account-dashboard">
+                        <div class="ps-widget__content">
+                          <div style="font-size:18px; color:#fff; background:#045dab; padding:10px; text-align:center">
+                            Other
+                            Destination</div>
+                          <ul style="max-height:480px; overflow:auto">
+                            @foreach ($destinations as $row)
+                              <li>
+                                <a href="<?php echo url($row->slug); ?>/">
+                                  <i class="icon-arrow-right"></i> MBBS From {{ $row->country }}
+                                </a>
+                              </li>
+                            @endforeach
+                          </ul>
+                        </div>
+                      </aside>
+                    </div>
+                  @endif
                 </div>
               </div>
             </div>

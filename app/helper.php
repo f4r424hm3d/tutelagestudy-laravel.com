@@ -1,5 +1,7 @@
 <?php
 
+use Carbon\Carbon;
+
 define('TO_EMAIL', 'studytutelage@gmail.com');
 define('TO_NAME', 'Team tutelage Study');
 define('CC_EMAIL', 'amanahlawat1918@gmail.com');
@@ -94,6 +96,37 @@ function cdnq($asset)
 {
   return url($asset);
 }
+
+
+function cdnPath($cdn, $asset)
+{
+  return  "//" . rtrim($cdn, "/") . "/" . ltrim($asset, "/");
+}
+if (!function_exists('gr_site_key')) {
+  function gr_site_key()
+  {
+    return "6LcXpncpAAAAAAk9gbC73-Ea2C6YGb-YLVz6fnqb";
+  }
+}
+if (!function_exists('gr_secret_key')) {
+  function gr_secret_key()
+  {
+    return "6LcXpncpAAAAAIvnMfK39FxixoVlNnnEMp5b1U_H";
+  }
+}
+if (!function_exists('getISOFormatTime')) {
+  /**
+   * Get the ISO 8601 formatted time.
+   *
+   * @param  string  $time
+   * @return string
+   */
+  function getISOFormatTime($time)
+  {
+    $time = Carbon::parse($time);
+    return $time->format('Y-m-d\TH:i:sP');
+  }
+}
 // global CDN link helper function
 function cdn($asset)
 {
@@ -119,21 +152,4 @@ function cdn($asset)
   // In case of no match use the last in the array
   end($cdns);
   return cdnPath(key($cdns), $asset);
-}
-
-function cdnPath($cdn, $asset)
-{
-  return  "//" . rtrim($cdn, "/") . "/" . ltrim($asset, "/");
-}
-if (!function_exists('gr_site_key')) {
-  function gr_site_key()
-  {
-    return "6LcXpncpAAAAAAk9gbC73-Ea2C6YGb-YLVz6fnqb";
-  }
-}
-if (!function_exists('gr_secret_key')) {
-  function gr_secret_key()
-  {
-    return "6LcXpncpAAAAAIvnMfK39FxixoVlNnnEMp5b1U_H";
-  }
 }

@@ -20,18 +20,19 @@ class UniversityProfileFc extends Controller
   public function index(Request $request)
   {
     $uname = $request->segment(2);
-    $university = University::with('getInstType','getAuthor','getDestination')->where(['uname' => $uname])->first();
+    $university = University::with('getInstType', 'getAuthor', 'getDestination')->where(['uname' => $uname])->first();
     $tbl2 = 'university_overviews';
-    $overview = UniversityOverview::where(['u_id'=>$university->id])->get();
+    $overview = UniversityOverview::where(['u_id' => $university->id])->get();
+    $oschema = UniversityOverview::where(['u_id' => $university->id])->get()->last();
 
-    $allcont = UniversityContent::where(['u_id'=>$university->id])->get();
+    $allcont = UniversityContent::where(['u_id' => $university->id])->get();
 
     $toptenuni = University::where(['status' => 1])->limit(10)->get();
 
-    $countries = Country::orderBy('name','asc')->get();
-    $phonecodes = Country::select('phonecode','name')->distinct()->orderBy('phonecode','asc')->get();
+    $countries = Country::orderBy('name', 'asc')->get();
+    $phonecodes = Country::select('phonecode', 'name')->distinct()->orderBy('phonecode', 'asc')->get();
 
-    $gc = UniversityGallery::where(['university_id'=>$university->id])->get();
+    $gc = UniversityGallery::where(['university_id' => $university->id])->get();
 
     $page_url = url()->current();
 
@@ -44,7 +45,7 @@ class UniversityProfileFc extends Controller
     $title = $uri3 == '' ? $university->name : $uri3;
     $city = $university->city;
     $shortnote = $university->shortnote;
-    $inst_type = $university->getInstType->type??'null';
+    $inst_type = $university->getInstType->type ?? 'null';
 
     $university_name = $university->name;
 
@@ -69,7 +70,7 @@ class UniversityProfileFc extends Controller
     $destinations = Destination::where(['status' => 1])->get();
     $categories = NewsCategory::all();
 
-    $data = compact('university','overview','page_url','uri3','title','site','meta_title','meta_keyword','meta_keyword','page_content','meta_description','og_image_path','destinations','toptenuni','gc','allcont','countries','phonecodes','categories');
+    $data = compact('university', 'overview', 'page_url', 'uri3', 'title', 'site', 'meta_title', 'meta_keyword', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'destinations', 'toptenuni', 'gc', 'allcont', 'countries', 'phonecodes', 'categories', 'oschema');
     return view('front.university-overview')->with($data);
   }
 }
