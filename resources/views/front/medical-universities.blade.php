@@ -141,7 +141,7 @@
       <ul class="breadcrumb bread-scrollbar">
         <li><a href="{{ url('/') }}">Home</a></li>
         @if (session('unifilter_destination'))
-          <li><a href="{{ url(slugify(session('unifilter_destination'))) }}">{{ session('unifilter_destination') }}</a>
+          <li><a href="{{ url(slugify(session('unifilter_destination'))) }}/">{{ session('unifilter_destination') }}</a>
           </li>
         @endif
         <li>Medical Universities</li>
