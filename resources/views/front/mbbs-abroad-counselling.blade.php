@@ -116,9 +116,7 @@
               @csrf
               <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response">
               <input type="hidden" name="source" value="MBBS Abroad Counselling">
-              <input type="hidden" name="source_path" value="{{ URL::full() }}">
-              <input type="hidden" name="source_url" value="<?php echo $_GET['page'] ?? ''; ?>">
-              <input type="hidden" name="page_url" value="{{ $page_url }}">
+              <input type="hidden" name="source_path" value="{{ url()->previous() }}">
               <div class="row">
                 <div class="col-lg-6 col-md-5 col-sm-12 col-xs-12 pr7">
                   <div class="form-group">

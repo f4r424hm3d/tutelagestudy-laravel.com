@@ -24,6 +24,8 @@ class UniversityProfileFc extends Controller
     $tbl2 = 'university_overviews';
     $overview = UniversityOverview::where(['u_id' => $university->id])->get();
     $oschema = UniversityOverview::where(['u_id' => $university->id])->get()->last();
+    // printArray($oschema);
+    // die;
 
     $allcont = UniversityContent::where(['u_id' => $university->id])->get();
 

@@ -141,7 +141,8 @@ class InquiryController extends Controller
     $field->mobile = $request['mobile'];
     $field->nationality = $request['nationality'];
     $field->destination = $request['destination'];
-    $field->page_url = $request['source_url'];
+    $field->source = $request['source'];
+    $field->page_url = $request['source_path'];
     $field->save();
 
     session()->flash('smsg', ' Your inquiry has been submitted. we will contact you soon..');
@@ -153,7 +154,8 @@ class InquiryController extends Controller
       'mobile' => $request['mobile'],
       'nationality' => $request['nationality'],
       'destination' => $request['destination'],
-      'page_url' => $request['source_url'],
+      'source' => $request['source'],
+      'source_path' => $request['source_path'],
     ];
 
     $api_url = "https://www.crm.tutelagestudy.com/Api/submitDestinationInquiryFromTutelageWeb";
@@ -185,7 +187,8 @@ class InquiryController extends Controller
       'mobile' => $request['mobile'],
       'nationality' => $request['nationality'],
       'destination' => $request['destination'],
-      'page_url' => $request['source_url'],
+      'source' => $request['source'],
+      'source_path' => $request['source_path'],
       'neet_qualified' => false,
       'question' => false,
     ];
@@ -242,7 +245,8 @@ class InquiryController extends Controller
     $field->state = $request['state'];
     $field->neet_qualified = $request['neet_qualified'];
     $field->question = $request['question'];
-    $field->page_url = $request['source_url'];
+    $field->source = $request['source'];
+    $field->page_url = $request['source_path'];
     $field->save();
 
     session()->flash('smsg', ' Your inquiry has been submitted. we will contact you soon..');
@@ -254,7 +258,8 @@ class InquiryController extends Controller
       'mobile' => $request['mobile'],
       'neet_qualified' => $request['neet_qualified'],
       'question' => $request['question'],
-      'page_url' => $request['source_url'],
+      'source' => $request['source'],
+      'source_path' => $request['source_path'],
     ];
 
     $api_url = "https://www.crm.tutelagestudy.com/Api/submitNeetInquiryFromTutelageWeb";
@@ -286,7 +291,8 @@ class InquiryController extends Controller
       'mobile' => $request['mobile'],
       'neet_qualified' => $request['neet_qualified'],
       'question' => $request['question'],
-      'page_url' => $request['source_url'],
+      'source' => $request['source'],
+      'source_path' => $request['source_path'],
       'nationality' => false,
       'destination' => false,
     ];

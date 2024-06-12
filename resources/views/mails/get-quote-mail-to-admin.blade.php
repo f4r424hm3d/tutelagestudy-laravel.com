@@ -73,19 +73,21 @@
               <ul>
                 <li>Name : {{ $name }}</li>
                 <li>Email : {{ $email }}</li>
-                <li>Mobile : {{ $c_code??'' }} {{ $mobile }}</li>
+                <li>Mobile : {{ $c_code ?? '' }} {{ $mobile }}</li>
                 @if ($nationality)
-                <li>Nationality : {{ $nationality }}</li>
+                  <li>Nationality : {{ $nationality }}</li>
                 @endif
                 @if ($destination)
-                <li>Destination : {{ $destination }}</li>
+                  <li>Destination : {{ $destination }}</li>
                 @endif
                 @if ($question)
-                <li>Question : {{ $question }}</li>
+                  <li>Question : {{ $question }}</li>
                 @endif
                 @if ($neet_qualified)
-                <li>Neet Qualified : {{ $neet_qualified }}</li>
+                  <li>Neet Qualified : {{ $neet_qualified }}</li>
                 @endif
+                <li>Source : <b>{{ $source }}</b></li>
+                <li>Source URL (Previous Page) : <b>{{ $source_path }}</b></li>
               </ul>
               </p>
             </td>
