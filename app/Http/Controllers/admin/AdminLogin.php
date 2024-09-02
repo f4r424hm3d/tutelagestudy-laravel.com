@@ -20,7 +20,7 @@ class AdminLogin extends Controller
   {
     //printArray($request->all());
     //die;
-    $field = User::where('role', 'admin')->where('email', $request['username'])->orWhere('username', $request['username'])->first();
+    $field = User::where('role', 'admin')->where('email', $request['username'])->first();
     // printArray($field->toArray());
     // die;
     if (is_null($field)) {
