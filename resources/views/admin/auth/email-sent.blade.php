@@ -34,7 +34,7 @@
                 <div class="mb-4 mb-md-5 text-center">
                   <a href="{{ url('/') }}" class="d-block auth-logo">
                     <img src="{{ url('backend/') }}/assets/images/logo-sm.svg" alt="" height="28" />
-                    <span class="logo-txt">Tutelage Study</span>
+                    <span class="logo-txt">{{ config('app.name') }}</span>
                   </a>
                 </div>
                 <!-- NOTIFICATION FIELD START -->
@@ -47,7 +47,8 @@
                     </h4>
                     <p class="opacity-80">
                       <center>
-                        We sent an email to <b>{{ session()->get('forget_password_email') }}</b> with a link to get back
+                        We sent an email to <b>{{ session()->get('forget_password_email') }}</b> with a link to get
+                        back
                         into your
                         account.
                       </center>
@@ -61,7 +62,7 @@
                     <script>
                       document.write(new Date().getFullYear());
                     </script>
-                    Tutelage Study
+                    {{ config('app.name') }}
                   </p>
                 </div>
               </div>

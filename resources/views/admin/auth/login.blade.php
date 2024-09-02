@@ -34,11 +34,11 @@
                 <div class="mb-4 mb-md-5 text-center">
                   <a href="{{ url('/') }}" class="d-block auth-logo">
                     <img src="{{ url('backend/') }}/assets/images/logo-sm.svg" alt="" height="28" />
-                    <span class="logo-txt">Tutelage Study</span>
+                    <span class="logo-txt">{{ config('app.name') }}</span>
                   </a>
                 </div>
                 <!-- NOTIFICATION FIELD START -->
-                <x-ResultNotificationField></x-ResultNotificationField>
+                <x-result-notification-field></x-result-notification-field>
                 <!-- NOTIFICATION FIELD END -->
                 <div class="auth-content my-auto">
                   <form action="{{ url('admin/login') }}/" method="post">
@@ -99,7 +99,7 @@
                     <script>
                       document.write(new Date().getFullYear());
                     </script>
-                    Tutelage Study
+                    {{ config('app.name') }}
                   </p>
                 </div>
               </div>

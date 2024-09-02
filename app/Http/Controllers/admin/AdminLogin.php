@@ -28,13 +28,18 @@ class AdminLogin extends Controller
       return redirect('admin/login');
     } else {
       if (Hash::check($request['password'], $field->password)) {
-        $lc = $field->login_count == '' ? 0 : $field->login_count + 1;
-        $field->login_count = $lc;
-        $field->last_login = date("Y-m-d H:i:s");
-        $field->save();
-        session()->flash('smsg', 'Succesfully logged in');
-        $request->session()->put('adminLoggedIn', ['user_id' => $field->id, 'user_name' => $field->name, 'username' => $request['username']]);
-        return redirect('admin/dashboard');
+        if ($field->status == 1) {
+          $lc = $field->login_count == '' ? 0 : $field->login_count + 1;
+          $field->login_count = $lc;
+          $field->last_login = date("Y-m-d H:i:s");
+          $field->save();
+          session()->flash('smsg', 'Succesfully logged in');
+          $request->session()->put('adminLoggedIn', ['user_id' => $field->id, 'user_name' => $field->name, 'username' => $request['username']]);
+          return redirect('admin/dashboard');
+        } else {
+          session()->flash('emsg', 'You dont have permission to login. PLease contact admin.');
+          return redirect('admin/login');
+        }
       } else {
         session()->flash('emsg', 'Incorrect password entered');
         return redirect('admin/login');

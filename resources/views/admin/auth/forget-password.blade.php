@@ -34,7 +34,7 @@
                 <div class="mb-4 mb-md-5 text-center">
                   <a href="{{ url('/') }}" class="d-block auth-logo">
                     <img src="{{ url('backend/') }}/assets/images/logo-sm.svg" alt="" height="28" />
-                    <span class="logo-txt">Tutelage Study</span>
+                    <span class="logo-txt">{{ config('app.name') }}</span>
                   </a>
                 </div>
                 <h3 class="pt-3 mt-2 text-center font-800 font-40 mb-1">Forgot Password</h3>
@@ -71,7 +71,7 @@
                     <script>
                       document.write(new Date().getFullYear());
                     </script>
-                    Tutelage Study
+                    {{ config('app.name') }}
                   </p>
                 </div>
               </div>
