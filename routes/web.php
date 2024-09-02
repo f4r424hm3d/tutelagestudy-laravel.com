@@ -196,8 +196,17 @@ foreach ($universities2 as $row) {
 
 /* ADMIN ROUTES BEFORE LOGIN */
 Route::middleware(['adminLoggedOut'])->group(function () {
-  Route::get('/admin/login/', [AdminLogin::class, 'index']);
-  Route::post('/admin/login/', [AdminLogin::class, 'login']);
+  Route::prefix('/admin')->group(function () {
+    Route::get('/login/', [AdminLogin::class, 'index']);
+    Route::post('/login/', [AdminLogin::class, 'login']);
+    Route::get('/account/password/reset', [AdminLogin::class, 'viewForgetPassword']);
+    Route::post('/forget-password', [AdminLogin::class, 'forgetPassword']);
+    Route::get('/forget-password/email-sent', [AdminLogin::class, 'emailSent']);
+    Route::get('/email-login', [AdminLogin::class, 'emailLogin']);
+    Route::get('/password/reset', [AdminLogin::class, 'viewResetPassword']);
+    Route::post('/reset-password', [AdminLogin::class, 'resetPassword']);
+    Route::get('/account/invalid_link', [AdminLogin::class, 'invalidLink']);
+  });
 });
 /* ADMIN ROUTES AFTER LOGIN */
 Route::middleware(['adminLoggedIn'])->group(function () {

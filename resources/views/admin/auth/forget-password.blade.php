@@ -3,10 +3,9 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>Admin Login | Tutelage Study</title>
+  <title>Forget Password | {{ config('app.name') }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta content="Tutelage Study Britannica Overseas Education" name="description" />
-  <meta content="Themesbrand" name="author" />
+  <meta content="{{ config('app.name') }}" name="description" />
   <!-- App favicon -->
   <link rel="shortcut icon" href="{{ url('backend/') }}/assets/images/favicon.ico" />
 
@@ -38,58 +37,30 @@
                     <span class="logo-txt">Tutelage Study</span>
                   </a>
                 </div>
+                <h3 class="pt-3 mt-2 text-center font-800 font-40 mb-1">Forgot Password</h3>
+                <p class="text-center color-highlight font-11">Recover your Account password using your Email-id</p>
                 <!-- NOTIFICATION FIELD START -->
                 <x-ResultNotificationField></x-ResultNotificationField>
                 <!-- NOTIFICATION FIELD END -->
                 <div class="auth-content my-auto">
-                  <form action="{{ url('admin/login') }}/" method="post">
+                  <form action="{{ aurl('forget-password') }}/" method="post">
                     @csrf
                     <div class="mb-3">
-                      <label class="form-label">Username</label>
-                      <input type="text" name="username" class="form-control" placeholder="Username"
-                        value="{{ old('username') }}">
-                    </div>
-                    <div class="mb-3">
-                      <div class="d-flex align-items-start">
-                        <div class="flex-grow-1">
-                          <label class="form-label">Password</label>
-                        </div>
-                        <div class="flex-shrink-0">
-                          <div class="">
-                            <a href="{{ url('admin/forgot-password') }}" class="text-muted">Forgot password?</a>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="input-group auth-pass-inputgroup">
-                        <input type="password" name="password" class="form-control" placeholder="Enter password"
-                          aria-label="Password" aria-describedby="password-addon" />
-                        <button class="btn btn-light shadow-none ms-0" type="button" id="password-addon">
-                          <i class="mdi mdi-eye-outline"></i>
-                        </button>
-                      </div>
-                    </div>
-                    <div class="row mb-4">
-                      <div class="col">
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" id="remember-check" />
-                          <label class="form-check-label" for="remember-check">
-                            Remember me
-                          </label>
-                        </div>
-                      </div>
+                      <label class="form-label">Enter Email</label>
+                      <input type="email" name="email" class="form-control" placeholder="email"
+                        value="{{ old('email') }}">
                     </div>
                     <div class="mb-3">
                       <button class="btn btn-primary w-100 waves-effect waves-light" type="submit">
-                        Log In
+                        Send Reset Instructions
                       </button>
                     </div>
                   </form>
 
                   <div class="mt-5 text-center">
                     <p class="text-muted mb-0">
-                      <a href="{{ url('admin/forgot-password') }}" class="text-primary fw-semibold">
-                        Forgot Password
+                      <a href="{{ aurl('login') }}/" class="text-primary fw-semibold">
+                        Login
                       </a>
                     </p>
                   </div>

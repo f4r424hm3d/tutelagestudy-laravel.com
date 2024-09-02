@@ -11,17 +11,17 @@
             Haryana, India 122002.</p>
           <ul class="ps-list--social">
             <li><a class="facebook" href="https://www.facebook.com/tutelagestudyabroad/" target="_blank"
-             aria-label="Facebook"><i class="fa fa-facebook"></i></a></li>
-            <li><a class="twitter" href="https://twitter.com/tutelagestudy"
-                aria-label="Twitter"><i class="fa fa-twitter"></i></a></li>
+                aria-label="Facebook"><i class="fa fa-facebook"></i></a></li>
+            <li><a class="twitter" href="https://twitter.com/tutelagestudy" aria-label="Twitter"><i
+                  class="fa fa-twitter"></i></a></li>
             <li><a class="instagram" href="https://www.instagram.com/tutelagestudy/" rel="noopener noreferrer nofollow"
                 aria-label="Instagram"><i class="fa fa-instagram"></i></a></li>
             <li><a style="color:#0A66C2" href="https://in.linkedin.com/in/tutelage-study-4085a51ab"
-             aria-label="linkedin"><i class="fa fa-linkedin"></i></a></li>
-            <li><a style="color:#E60023" href="https://in.pinterest.com/tutelagestudy/"
-                aria-label="pinterest"><i class="fa fa-pinterest"></i></a></li>
+                aria-label="linkedin"><i class="fa fa-linkedin"></i></a></li>
+            <li><a style="color:#E60023" href="https://in.pinterest.com/tutelagestudy/" aria-label="pinterest"><i
+                  class="fa fa-pinterest"></i></a></li>
             <li><a style="color:#FF0000" href="https://www.youtube.com/channel/UCK2eeC1CkS3YkYrGnnzBUEQ"
-             aria-label="youtube"><i class="fa fa-youtube"></i></a></li>
+                aria-label="youtube"><i class="fa fa-youtube"></i></a></li>
           </ul>
         </div>
       </aside>
@@ -52,8 +52,8 @@
         <ul class="ps-list--link" style="margin-bottom:25px">
           <li><a href="https://neet.nta.nic.in/" target="_blank" class="whitec"
               rel="nofollow noopener noreferrer">NEET</a></li>
-          <li><a href="https://www.nmc.org.in/" target="_blank"
-              class="whitec" rel="nofollow noopener noreferrer">NMC</a></li>
+          <li><a href="https://www.nmc.org.in/" target="_blank" class="whitec"
+              rel="nofollow noopener noreferrer">NMC</a></li>
           <li><a href="https://www.usmle.org/" target="_blank" class="whitec"
               rel="nofollow noopener noreferrer">USMLE</a></li>
           <li><a href="https://nbe.edu.in/" target="_blank" class="whitec" rel="nofollow noopener noreferrer">NBE</a>
@@ -72,8 +72,31 @@
               </p>
             </div>
             <div class="col-md-6">
-              <p class="whitec text-right"><span class="b1" style="color:#fff"><a
-                    href="{{ url('sitemap.xml') }}/">Sitemap</a></span></p>
+              <p class="whitec text-right">
+                <span class="b1" style="color:#fff"><a
+                    href="https://www.tutelagestudy.com/services/mbbs-abroad-consultant-in-gurgaon/"
+                    target="_blank">Gurugram</a> |</span>
+                <span class="b1" style="color:#fff"><a
+                    href="https://www.tutelagestudy.com/services/mbbs-abroad-consultant-in-delhi/"
+                    target="_blank">Delhi</a> | </span>
+                <span class="b1" style="color:#fff"><a
+                    href="https://www.tutelagestudy.com/services/mbbs-abroad-consultant-in-nuh-haryana/"
+                    target="_blank">Nuh</a> |</span>
+                <span class="b1" style="color:#fff"><a
+                    href="https://www.tutelagestudy.com/services/mbbs-abroad-consultant-in-chennai/"
+                    target="_blank">Chennai</a> |</span>
+                <span class="b1" style="color:#fff"><a
+                    href="https://www.tutelagestudy.com/services/mbbs-abroad-consultant-in-andhra-pradesh/"
+                    target="_blank">Tirupathi</a> |</span>
+                <span class="b1" style="color:#fff"><a
+                    href="https://www.tutelagestudy.com/services/mbbs-abroad-consultant-in-mumbai/"
+                    target="_blank">Mumbai</a> |</span>
+                <span class="b1" style="color:#fff"><a
+                    href="https://www.tutelagestudy.com/services/mbbs-abroad-consultants-in-hyderabad/"
+                    target="_blank">Hyderabad</a> |</span>
+                <span class="b1" style="color:#fff"><a href="{{ url('sitemap.xml') }}/"
+                    target="_blank">Sitemap</a></span>
+              </p>
             </div>
           </div>
         </div>
@@ -292,7 +315,8 @@
         </div>
       </div>
     </div>
-    <div class="content"> <a class="country-box" target="_blank"
+    <div class="content">
+      <a class="country-box gurgaon-wapp" target="_blank"
         href="https://api.whatsapp.com/send?phone=919667667331&amp;text=Hello there!! I want to get counseling by experts. Want to know more information about Study MBBS Abroad | www.tutelagestudy.com">
         <div class="row align-items-center">
           <div class="col-2 pr0"><img data-src="{{ asset('/front/') }}/img/flag-india.png" alt="whatsapp now"
@@ -301,7 +325,8 @@
           <div class="col-2 pl0 text-right"><img data-src="{{ asset('/front/') }}/img/wad.png" alt="whatsapp now"
               width="20"> </div>
         </div>
-      </a> <a class="country-box" target="_blank"
+      </a>
+      <a class="country-box chennai-wapp" target="_blank"
         href="https://api.whatsapp.com/send?phone=919342914452&amp;text=Hello there!! I want to get counseling by experts. Want to know more information about Study MBBS Abroad | www.tutelagestudy.com">
         <div class="row align-items-center">
           <div class="col-2 pr0"><img data-src="{{ asset('/front/') }}/img/flag-india.png" alt="whatsapp now"
@@ -310,8 +335,9 @@
           <div class="col-2 pl0 text-right"><img data-src="{{ asset('/front/') }}/img/wad.png" alt="whatsapp now"
               width="20"> </div>
         </div>
-      </a> <a class="country-box" target="_blank"
-        href="https://api.whatsapp.com/send?phone=918448788675&amp;text=Hello there!! I want to get counseling by experts. Want to know more information about Study MBBS Abroad | www.tutelagestudy.com">
+      </a>
+      <a class="country-box mumbai-wapp" target="_blank"
+        href="https://api.whatsapp.com/send?phone=918448391296&amp;text=Hello there!! I want to get counseling by experts. Want to know more information about Study MBBS Abroad | www.tutelagestudy.com">
         <div class="row align-items-center">
           <div class="col-2 pr0"><img data-src="{{ asset('/front/') }}/img/flag-india.png" alt="whatsapp image"
               class="img-fluid"></div>
@@ -319,7 +345,8 @@
           <div class="col-2 pl0 text-right"><img data-src="{{ asset('/front/') }}/img/wad.png" alt="whatsapp image"
               width="20"></div>
         </div>
-      </a> </div>
+      </a>
+    </div>
   </div>
 </div>
 
@@ -349,16 +376,23 @@ $finalUrl = url($form_url);
 ?>
 <div class="new-footer-fixed">
   <ul>
-    <li> <a href="tel:+919818560331" title="Call Us">
+    <li>
+      <a href="tel:+919818560331" title="Call Us" class="call-us-click">
         <div><img data-src="{{ asset('/front/') }}/img/icons/phone.png" alt="call image icon"></div> Call Us
-      </a> </li>
-    <li> <a onclick="window.location.href='<?php echo $finalUrl; ?>/'" href="javascript:void()" title="Free Counselling">
+      </a>
+    </li>
+    <li>
+      <a onclick="window.location.href='<?php echo $finalUrl; ?>/'" href="javascript:void()" title="Free Counselling"
+        class="free-counselling-click">
         <div> <img data-src="{{ asset('/front/') }}/img/icons/counselling.png" alt="Counselling image icon"> </div>
         <span>Free</span> Counselling
-      </a> </li>
-    <li> <a href="mailto:studytutelage@gmail.com" title="Email Us">
+      </a>
+    </li>
+    <li>
+      <a href="mailto:studytutelage@gmail.com" title="Email Us"class="email-us-click">
         <div><img data-src="{{ asset('/front/') }}/img/icons/email.png" alt="email image icon"></div> Email Us
-      </a> </li>
+      </a>
+    </li>
   </ul>
 </div>
 <script>

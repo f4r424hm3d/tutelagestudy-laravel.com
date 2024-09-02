@@ -22,16 +22,16 @@ class AdminDashboard extends Controller
   {
     $request->validate(
       [
-        'name' => 'required|regex:/^[a-zA-Z ]*$/',
-        'email' => 'required|email|unique:users,email,' . $request['id'],
-        'username' => 'required|unique:users,username,' . $request['id'],
+        // 'name' => 'required|regex:/^[a-zA-Z ]*$/',
+        // 'email' => 'required|email|unique:users,email,' . $request['id'],
+        // 'username' => 'required|unique:users,username,' . $request['id'],
         'password' => 'required',
       ]
     );
     $field = User::find($request['id']);
-    $field->name = $request['name'];
-    $field->email = $request['email'];
-    $field->username = $request['username'];
+    // $field->name = $request['name'];
+    // $field->email = $request['email'];
+    // $field->username = $request['username'];
     $field->password = $request['password'];
     $field->save();
     session()->flash('smsg', 'Record has been updated successfully.');
