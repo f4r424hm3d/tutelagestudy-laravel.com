@@ -27,8 +27,10 @@ class CommonController extends Controller
   }
   public function updateFieldById(Request $request)
   {
-    echo $result = DB::table($request->tbl)->where('id', $request->id)->update([$request->col => $request->val]);
+    $result = DB::table($request->tbl)->where('id', $request->id)->update([$request->col => $request->val]);
+    return response()->json(['success' => $result]);
   }
+
   public function updateBulkField(Request $request)
   {
     echo $result = DB::table($request->tbl)->whereIn('id', $request->ids)->update([$request->col => $request->val]);

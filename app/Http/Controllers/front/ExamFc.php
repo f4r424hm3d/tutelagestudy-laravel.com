@@ -59,7 +59,7 @@ class ExamFc extends Controller
     $exam_pages = ExamPage::where(['exam_id' => $exam->id])->where('slug', '!=', $slug)->get();
 
     $exam_page = ExamPage::where('slug', $slug)->firstOrFail();
-    $exam_page_contents = ExamPageContent::where('page_id', $exam_page->id)->get();
+    $exam_page_contents = ExamPageContent::orderBy('priority', 'asc')->where('page_id', $exam_page->id)->get();
     $faqs = ExamPageFaq::where('page_id', $exam_page->id)->get();
 
     $wrdseo = ['url' => 'exam-page-detail'];

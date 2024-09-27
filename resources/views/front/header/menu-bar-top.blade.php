@@ -112,6 +112,7 @@
                 <div class="mega-menu__column">
                   <ul class="mega-menu__list">
                     <li class="current-menu-item"><a href="{{ url('neet-ug') }}/">NEET UG</a></li>
+                    <li class="current-menu-item"><a href="{{ url('plab-exam') }}/">PLAB Exam</a></li>
                   </ul>
                 </div>
               </div>
@@ -296,6 +297,7 @@
             <div class="mega-menu__column">
               <ul class="mega-menu__list" style="display:block">
                 <li class="current-menu-item"><a href="<?php echo url('neet-ug'); ?>/">NEET UG</a> </li>
+                <li class="current-menu-item"><a href="<?php echo url('plab-exam'); ?>/">PLAB Exam</a> </li>
               </ul>
             </div>
           </div>

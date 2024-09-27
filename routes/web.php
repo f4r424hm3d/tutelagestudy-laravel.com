@@ -65,22 +65,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//   return view('startpage');
-// });
-
-//Clear Cache facade value:
-Route::get('/optimize-clear/', function () {
-  $exitCode = Artisan::call('optimize:clear');
-  return '<h1>Optimized successfully</h1>';
-});
-
-//Clear Cache facade value:
-Route::get('/clear-cache/', function () {
-  $exitCode = Artisan::call('cache:clear');
-  return '<h1>Cache facade value cleared</h1>';
-});
-
 //Reoptimized class loader:
 Route::get('/optimize/', function () {
   $exitCode = Artisan::call('optimize:clear');
@@ -89,30 +73,6 @@ Route::get('/optimize/', function () {
 Route::get('/f/optimize/', function () {
   $exitCode = Artisan::call('optimize:clear');
   return true;
-});
-
-//Route cache:
-Route::get('/route-cache/', function () {
-  $exitCode = Artisan::call('route:cache');
-  return '<h1>Routes cached</h1>';
-});
-
-//Clear Route cache:
-Route::get('/route-clear/', function () {
-  $exitCode = Artisan::call('route:clear');
-  return '<h1>Route cache cleared</h1>';
-});
-
-//Clear View cache:
-Route::get('/view-clear/', function () {
-  $exitCode = Artisan::call('view:clear');
-  return '<h1>View cache cleared</h1>';
-});
-
-//Clear Config cache:
-Route::get('/config-cache/', function () {
-  $exitCode = Artisan::call('config:cache');
-  return '<h1>Clear Config cleared</h1>';
 });
 
 //For MIgrate:
@@ -475,7 +435,7 @@ Route::middleware(['adminLoggedIn'])->group(function () {
 
 Route::prefix('common')->group(function () {
   Route::get('/change-status/', [CommonController::class, 'changeStatus']);
-  Route::get('/update-field/', [CommonController::class, 'updateFieldById']);
+  Route::get('/update-field', [CommonController::class, 'updateFieldById']);
   Route::get('/update-bulk-field/', [CommonController::class, 'updateBulkField']);
   Route::get('/get-country-by-destination/', [CommonController::class, 'getCountryByDestination']);
   Route::get('/search-university-and-program/', [HomeFc::class, 'searchUniversity']);
