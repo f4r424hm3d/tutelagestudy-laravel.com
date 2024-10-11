@@ -121,7 +121,7 @@
                   @endforeach
                   <div class="pb-0 get-detail mb-20">
                     <h4 class="mb-0">Get details on Fee, Admission, Intake.</h4>
-                    <a class="ps-btn" href="#contact">Get Free Counselling</a>
+                    <a class="ps-btn" href="{{ url('mbbs-abroad-counselling') }}/">Get Free Counselling</a>
                   </div>
                   @if ($allcont->count())
                     @foreach ($allcont as $row)

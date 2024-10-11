@@ -27,6 +27,8 @@
         <div class="ps-section__content">
           <form action="{{ url('inquiry/submit-university-inquiry') }}/" method="post">
             @csrf
+            <input type="hidden" name="source" value="University Page Side Form">
+            <input type="hidden" name="source_path" value="{{ URL::full() }}">
             <input type="hidden" class="form-control" name="page_url" value="{{ $page_url }}">
             <div class="ps-form__content">
               <div class="row">

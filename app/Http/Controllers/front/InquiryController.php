@@ -39,6 +39,8 @@ class InquiryController extends Controller
     $field->mobile = $request['mobile'];
     $field->nationality = $request['nationality'];
     $field->destination = $request['destination'];
+    $field->source = $request['source'];
+    $field->page_url = $request['source_path'];
     $field->save();
 
     session()->flash('smsg', ' Your inquiry has been submitted. we will contact you soon..');
@@ -50,6 +52,8 @@ class InquiryController extends Controller
       'mobile' => $request['mobile'],
       'nationality' => $request['nationality'],
       'destination' => $request['destination'],
+      'source' => $request['source'],
+      'source_path' => $request['source_path'],
     ];
     $dd = ['to' => $request['email'], 'to_name' => $request['name'], 'subject' => 'Inquiry'];
 
@@ -333,7 +337,8 @@ class InquiryController extends Controller
     $field->c_code = $request['c_code'];
     $field->mobile = $request['mobile'];
     $field->destination = $request['destination'];
-    $field->page_url = $request['source_url'];
+    $field->source = $request['source'];
+    $field->page_url = $request['source_path'];
     $field->save();
 
     session()->flash('smsg', ' Your inquiry has been submitted. we will contact you soon..');
@@ -346,7 +351,8 @@ class InquiryController extends Controller
       'destination' => $request['destination'],
       'intrested_university' => $university->university_name ?? $university->name,
       'brochure_path' => $university->brochure_path,
-      'page_url' => $request['source_url'],
+      'source' => $request['source'],
+      'source_path' => $request['source_path'],
     ];
 
     $api_url = "https://www.crm.tutelagestudy.com/Api/submitBrochureInquiryFromTutelageWeb";
@@ -520,6 +526,7 @@ class InquiryController extends Controller
     $field->email = $request['user_email'];
     $field->c_code = $request['user_country_code'];
     $field->mobile = $request['user_mobile'];
+    $field->source = $request['source'];
     $field->page_url = $request['source_url'];
     $field->save();
 
@@ -531,7 +538,8 @@ class InquiryController extends Controller
       'c_code' => $request['user_country_code'],
       'mobile' => $request['user_mobile'],
       'brochure_path' => $brochure_path,
-      'page_url' => $request['source_url'],
+      'source' => $request['source'],
+      'source_url' => $request['source_url'],
     ];
 
     $api_url = "https://www.crm.tutelagestudy.com/Api/submitBrochureInquiryFromTutelageWeb2";

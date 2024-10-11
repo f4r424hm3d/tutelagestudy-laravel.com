@@ -292,7 +292,7 @@
               @csrf
               <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response">
               <input type="hidden" name="source" value="contact-us">
-              <input type="hidden" name="source_path" value="{{ URL::full() }}">
+              <input type="hidden" name="source_path" value="{{ url()->previous() }}">
               <h3 style="margin-top:20px">Get In Touch</h3>
               <p class="text-danger">All field are required.</p>
               <input type="hidden" name="page_url" value="<?php echo url()->current(); ?>">

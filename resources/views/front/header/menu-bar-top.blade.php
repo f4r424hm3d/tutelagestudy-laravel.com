@@ -147,8 +147,7 @@
       <form action="{{ url('inquiry/download-brochure') }}/" method="post">
         @csrf
         <input type="hidden" name="source" value="Brochure">
-        <input type="hidden" name="source_path" value="{{ URL::full() }}">
-        <input type="hidden" class="form-control" name="page_url" value="{{ url()->current() }}">
+        <input type="hidden" name="source_path" value="{{ url()->current() }}">
         <div class="ps-form__content" style="padding:20px">
           <div class="row">
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
