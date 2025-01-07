@@ -299,9 +299,11 @@
           <ul class="breadcrumb bread-scrollbar">
             <li><a href="<?= url('/') ?>">Home</a></li>
             <li><a href="<?= url('blog') ?>/"> Blog</a></li>
-            <li><span>
+            <li>
+              <span>
                 <?php echo ucfirst($blog->headline); ?>
-              </span></li>
+              </span>
+            </li>
           </ul>
         </div>
       </div>
@@ -488,7 +490,7 @@
                     <?php
                   foreach ($categories as $cat) {
                   ?>
-                    <li><a href="<?php echo url('category/' . $cat->slug); ?>/"><i class="icon-arrow-right"></i> {{ $cat->cate_name }}</a></li>
+                    <li><a href="<?php echo url('blog/' . $cat->slug); ?>/"><i class="icon-arrow-right"></i> {{ $cat->cate_name }}</a></li>
                     <?php } ?>
                   </ul>
                 </div>
@@ -503,7 +505,7 @@
                     <?php
                   foreach ($blogs as $rn) {
                   ?>
-                    <li><a href="<?php echo url($rn->slug); ?>/"><i class="icon-arrow-right"></i>
+                    <li><a href="{{ route('blog.detail', ['slug' => $rn->slug]) }}/"><i class="icon-arrow-right"></i>
                         <?php echo ucwords($rn->headline); ?>
                       </a></li>
                     <?php } ?>

@@ -15,14 +15,15 @@ class BlogFc extends Controller
   {
     $categories = NewsCategory::all();
     $blogs = News::paginate(20)->withQueryString();
-    $data = compact('blogs','categories');
+    $data = compact('blogs', 'categories');
     return view('front.blogs')->with($data);
   }
-  public function blogByCategory($category_slug,Request $request)
+  public function blogByCategory(Request $request)
   {
+    $category_slug = $request->segment(2);
     $categories = NewsCategory::all();
-    $category = NewsCategory::where('slug',$category_slug)->firstOrFail();
-    $blogs = News::where('cate_id',$category->id)->paginate(20)->withQueryString();
+    $category = NewsCategory::where('slug', $category_slug)->firstOrFail();
+    $blogs = News::where('cate_id', $category->id)->paginate(20)->withQueryString();
 
     $page_url = url()->current();
 
@@ -47,16 +48,15 @@ class BlogFc extends Controller
 
     $og_image_path = null;
 
-    $data = compact('category','blogs','categories','page_url','dseo','title','site','meta_title','meta_keyword','page_content','meta_description','og_image_path');
+    $data = compact('category', 'blogs', 'categories', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path');
     return view('front.blog-by-category')->with($data);
   }
-  public function blogdetail(Request $request)
+  public function blogdetail($slug, Request $request)
   {
-    $slug = $request->segment(1);
-    $blog = News::where('slug',$slug)->firstOrFail();
-    $blogs = News::where('id','!=',$blog->id)->limit(10)->get();
+    $blog = News::where('slug', $slug)->firstOrFail();
+    $blogs = News::where('id', '!=', $blog->id)->limit(10)->get();
     $categories = NewsCategory::all();
-    $destinations = Destination::where('status','1')->offset('0')->limit('8')->get();
+    $destinations = Destination::where('status', '1')->offset('0')->limit('8')->get();
 
     $page_url = url()->current();
 
@@ -83,9 +83,7 @@ class BlogFc extends Controller
 
     $og_image_path = $blog->imgpath == '' ? $dseo->ogimgpath : $blog->imgpath;
 
-    $data = compact('categories','blogs','blog','destinations','page_url','dseo','sub_slug','site','meta_title','meta_keyword','page_content','meta_description','og_image_path');
+    $data = compact('categories', 'blogs', 'blog', 'destinations', 'page_url', 'dseo', 'sub_slug', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path');
     return view('front.blog-detail')->with($data);
   }
-
-
 }

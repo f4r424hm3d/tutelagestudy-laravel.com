@@ -50,6 +50,7 @@ use App\Http\Controllers\sitemap\SitemapController;
 use App\Models\Destination;
 use App\Models\Exam;
 use App\Models\News;
+use App\Models\NewsCategory;
 use App\Models\University;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
@@ -94,12 +95,12 @@ Route::get('/term-and-condition/', [HomeFc::class, 'termsConditions']);
 Route::get('/privacy-policy/', [HomeFc::class, 'privacyPolicy']);
 
 
-Route::get('/blog/', [BlogFc::class, 'index']);
-Route::get('/category/{category_slug}/', [BlogFc::class, 'blogByCategory']);
-$blogs = News::all();
-foreach ($blogs as $row) {
-  Route::get('/' . $row->slug . '/', [BlogFc::class, 'blogdetail']);
+Route::get('/blog/', [BlogFc::class, 'index'])->name('blog');
+$categories = NewsCategory::all();
+foreach ($categories as $row) {
+  Route::get('blog/' . $row->slug, [BlogFc::class, 'blogByCategory']);
 }
+Route::get('blog/{slug}', [BlogFc::class, 'blogdetail'])->name('blog.detail');
 
 Route::get('/mbbs-in-abroad/', [HomeFc::class, 'mbbsAbroad']);
 
