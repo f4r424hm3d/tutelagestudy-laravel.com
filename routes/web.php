@@ -443,8 +443,6 @@ Route::prefix('common')->group(function () {
   Route::get('/change-status/', [CommonController::class, 'changeStatus']);
   Route::get('/update-field', [CommonController::class, 'updateFieldById']);
   Route::get('/update-bulk-field/', [CommonController::class, 'updateBulkField']);
-  Route::get('/get-country-by-destination/', [CommonController::class, 'getCountryByDestination']);
-  Route::get('/search-university-and-program/', [HomeFc::class, 'searchUniversity']);
   Route::get('/slugify/', [CommonController::class, 'slugifyString']);
   Route::get('/bulk-delete', [CommonController::class, 'bulkDelete']);
 });

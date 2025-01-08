@@ -36,13 +36,7 @@ class CommonController extends Controller
   {
     echo $result = DB::table($request->tbl)->whereIn('id', $request->ids)->update([$request->col => $request->val]);
   }
-  public function getCountryByDestination(Request $request)
-  {
-    //echo $id;
-    $field = DB::table('destinations')->where('id', $request['destination_id'])->first();
-    $output = $field->country;
-    return $output;
-  }
+
   public function slugifyString(Request $request)
   {
     $output = slugify($request->val);

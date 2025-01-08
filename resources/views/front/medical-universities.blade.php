@@ -252,7 +252,8 @@
                         <div class="header__center">
                           <form class="ps-form--quick-search" method="get">
                             <input class="form-control" name="search" type="text" placeholder="Search Universities"
-                              value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>" id="input-search" style="background:#fff; height: 45px;">
+                              value="{{ request('search', '') }}" id="input-search"
+                              style="background:#fff; height: 45px;">
                             <button>Search</button>
                             <a href="<?php echo url('medical-universities/'); ?>/">Reset</a>
                           </form>

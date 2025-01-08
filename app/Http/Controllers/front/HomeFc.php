@@ -35,14 +35,4 @@ class HomeFc extends Controller
   {
     return view('front.termandcondition');
   }
-  public function searchUniversity(Request $request)
-  {
-    $keyword = $request->keyword;
-    $field = DB::table('universities')->where('name', 'LIKE', '%' . $keyword . '%')->get();
-    $output = '<li class="active">UNIVERSITIES</li>';
-    foreach ($field as $row) {
-      $output .= '<li><a href="' . $row->slug . '">' . $row->name . '</a></li>';
-    }
-    echo $output;
-  }
 }

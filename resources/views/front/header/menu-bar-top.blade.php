@@ -32,9 +32,9 @@
               alt="Tutelage Study logo"></a>
         </div>
         <div class="header__center">
-          <form class="ps-form--quick-search" action="<?php echo url('medical-universities/'); ?>/" method="get">
+          <form class="ps-form--quick-search" action="{{ url('medical-universities/') }}" method="get">
             <input class="form-control" name="search" type="text" placeholder="Search Universities"
-              id="input-search" value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>">
+              id="input-search" value="{{ request('search', '') }}">
             <button>Search</button>
           </form>
         </div>
