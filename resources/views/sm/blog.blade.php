@@ -1,6 +1,6 @@
 <?php
 header('Content-Type: application/xml; charset=utf-8');
-echo '<?xml version="1.0" encoding="UTF-8" ?>'; ?>';
+echo '<?xml version="1.0" encoding="UTF-8" ?>'; ?>'; ?>'; ?>';
 ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
@@ -11,7 +11,7 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>'; ?>';
   </url>
   <?php foreach ($categories as $row) { ?>
   <url>
-    <loc>{{ url('/category/' . $row->slug) }}/</loc>
+    <loc>{{ url('/blog/' . $row->slug) }}/</loc>
     <priority>0.80</priority>
     <changefreq>always</changefreq>
     <lastmod><?php echo date('Y-m-d', strtotime($row->updated_at)); ?></lastmod>
@@ -20,7 +20,7 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>'; ?>';
 
   <?php foreach ($news as $row) { ?>
   <url>
-    <loc>{{ url($row->slug) }}/</loc>
+    <loc>{{ url('/blog/' . $row->slug) }}/</loc>
     <priority>0.50</priority>
     <changefreq>always</changefreq>
     <lastmod><?php echo date('Y-m-d', strtotime($row->updated_at)); ?></lastmod>

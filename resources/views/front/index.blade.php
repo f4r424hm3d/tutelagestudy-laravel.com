@@ -10,7 +10,7 @@
     <div class="ps-home-banner ps-home-banner--1">
       <div class="ps-container" style="padding:0px!important">
         <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12">
-            <h1 class="widget-title text-center">Most Trusted Study MBBS Abroad Consultants in India</h1>
+          <h1 class="widget-title text-center">Most Trusted Study MBBS Abroad Consultants in India</h1>
           <!--div class="ps-section__left"-->
           <div class="ps-carousel--nav-inside owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000"
             data-owl-gap="0" data-owl-nav="true" data-owl-dots="true" data-owl-item="1" data-owl-item-xs="1"
@@ -80,7 +80,7 @@
           <h2 class="main-h1">Who we are ?</h2>
           <p class="onlinePrepare">We're #1 MBBS Abroad Consultants in India</p>
           <p>Tutelage Study is currently dealing with study MBBS
-              Abroad Education for Indian Students.</p>
+            Abroad Education for Indian Students.</p>
           <p class="jsfy">You will be able to enroll in the best medical colleges in the world thanks to Tutelage Study.
             The desire of
             many students is to join MBBS Abroad in top countries like Cyprus, Belarus, Vietnam, Georgia, Russia, and
@@ -160,7 +160,82 @@
     </div>
   </section>
   <style>
-.servicebox { text-align: center; } .servicebox .service-icon { display: inline-block; width: 90px; height: 90px; background-color: #1d4d7a; margin-bottom: 20px; } .servicebox .service-icon i.fa { line-height: 90px; color: #ffffff; font-size: 35px; transition: all 0.3s ease 0s; } .servicebox:hover .service-icon i.fa { transform: rotateY(180deg); } .servicebox .title { color: #333; border-bottom: 1px solid #1d4d7a; display: block; line-height: 30px; margin: 0 auto 20px; padding-bottom: 20px; position: relative; text-align: center; text-transform: uppercase; width: 300px; } .servicebox .title:before, .servicebox .title:after { background: #1d4d7a; border-radius: 100%; bottom: -5px; content: ""; height: 10px; margin: 0 -5px 0 0; position: absolute; right: 50%; transition: all 0.4s ease 0s; width: 10px; } .servicebox .title:before { left: 50%; margin: 0 0 0 -5px; } .servicebox:hover .title:before { left: 100%; } .servicebox:hover .title:after { right: 100%; } .servicebox .description { color: grey; padding: 0 15px; font: 14px; line-height: 27px; transition: all 300ms ease 0s; } @media screen and (max-width:1000px) { .servicebox { margin-bottom: 30px; } }
+    .servicebox {
+      text-align: center;
+    }
+
+    .servicebox .service-icon {
+      display: inline-block;
+      width: 90px;
+      height: 90px;
+      background-color: #1d4d7a;
+      margin-bottom: 20px;
+    }
+
+    .servicebox .service-icon i.fa {
+      line-height: 90px;
+      color: #ffffff;
+      font-size: 35px;
+      transition: all 0.3s ease 0s;
+    }
+
+    .servicebox:hover .service-icon i.fa {
+      transform: rotateY(180deg);
+    }
+
+    .servicebox .title {
+      color: #333;
+      border-bottom: 1px solid #1d4d7a;
+      display: block;
+      line-height: 30px;
+      margin: 0 auto 20px;
+      padding-bottom: 20px;
+      position: relative;
+      text-align: center;
+      text-transform: uppercase;
+      width: 300px;
+    }
+
+    .servicebox .title:before,
+    .servicebox .title:after {
+      background: #1d4d7a;
+      border-radius: 100%;
+      bottom: -5px;
+      content: "";
+      height: 10px;
+      margin: 0 -5px 0 0;
+      position: absolute;
+      right: 50%;
+      transition: all 0.4s ease 0s;
+      width: 10px;
+    }
+
+    .servicebox .title:before {
+      left: 50%;
+      margin: 0 0 0 -5px;
+    }
+
+    .servicebox:hover .title:before {
+      left: 100%;
+    }
+
+    .servicebox:hover .title:after {
+      right: 100%;
+    }
+
+    .servicebox .description {
+      color: grey;
+      padding: 0 15px;
+      font: 14px;
+      line-height: 27px;
+      transition: all 300ms ease 0s;
+    }
+
+    @media screen and (max-width:1000px) {
+      .servicebox {
+        margin-bottom: 30px;
+      }
+    }
   </style>
   <section class="onlineCoaching" style="background-color:#e5e6eb">
     <div class="container" style="padding:30px 15px">
@@ -337,26 +412,29 @@
       <div class="row">
         <div class="col-md-6">
           <h2 class="main-h1">Why should you contact us?</h2>
-          <p class="jsfy">When you come to Tutelage, we’ll give you multiple reasons to consult our counsellors for Study MBBS abroad. Leverage our expert guidance to navigate the complex world of MBBS education seamlessly. Our experienced faculty members are here to illuminate your path toward a successful future. Trust in our expertise to steer you towards your academic and professional aspirations with clarity and confidence.</p>
+          <p class="jsfy">When you come to Tutelage, we’ll give you multiple reasons to consult our counsellors for
+            Study MBBS abroad. Leverage our expert guidance to navigate the complex world of MBBS education seamlessly.
+            Our experienced faculty members are here to illuminate your path toward a successful future. Trust in our
+            expertise to steer you towards your academic and professional aspirations with clarity and confidence.</p>
           <div class="counselling-content">
             <ul>
               <li>
-                  <h4 class="customcard">Book your University</h4>
+                <h4 class="customcard">Book your University</h4>
               </li>
               <li>
-                  <h4 class="customcard">Career Planning</h4>
+                <h4 class="customcard">Career Planning</h4>
               </li>
-               <li>
-                  <h4 class="customcard">Financial Advice</h4>
+              <li>
+                <h4 class="customcard">Financial Advice</h4>
               </li>
-               <li>
-                  <h4 class="customcard">Customised Solutions</h4>
+              <li>
+                <h4 class="customcard">Customised Solutions</h4>
               </li>
-               <li>
-                  <h4 class="customcard">Visa and Admission</h4>
+              <li>
+                <h4 class="customcard">Visa and Admission</h4>
               </li>
-               <li>
-                  <h4 class="customcard">Accommodations</h4>
+              <li>
+                <h4 class="customcard">Accommodations</h4>
               </li>
             </ul>
             <a href="https://www.tutelagestudy.com/mbbs-abroad-counselling/" class="button home-btn">Enquire Now</a>
@@ -365,7 +443,8 @@
         <div class="col-md-6">
           <div class="cur-conver">
             <h2>Time & Currency Converter</h2>
-            <p class="jsfy">Tutelage Study currency converter is an excellent tool to convert currency from one exchange to another.
+            <p class="jsfy">Tutelage Study currency converter is an excellent tool to convert currency from one
+              exchange to another.
             </p>
             <p class="jsfy">Check the currency rates against all the world currencies here. The currency converter
               below is
@@ -379,18 +458,16 @@
                     <div class="col-md-12">
                       <select name="from" id="from" required>
                         <option value="">-Select Country-</option>
-                        <?php
-                        foreach ($country as $c) {
-                            echo '<option value="' . $c->code . '">' . $c->country . '</option>';
-                        }
-                        ?>
+                        @foreach ($country as $c)
+                          <option value="{{ $c->code }}">{{ $c->country }}</option>
+                        @endforeach
                       </select>
                     </div>
                     <div class="col-md-5">
-                      <input name="from_code" id="from_code" placeholder="">
+                      <input name="from_code" id="from_code" placeholder="" readonly>
                     </div>
                     <div class="col-md-7">
-                      <input name="amount" id="from_amount" placeholder="0.00">
+                      <input name="amount" id="from_amount" placeholder="Enter Amount">
                     </div>
                   </div>
                 </div>
@@ -399,11 +476,9 @@
                     <div class="col-md-12">
                       <select name="to" id="to" required>
                         <option value="">-Select Country-</option>
-                        <?php
-                        foreach ($country as $c) {
-                            echo '<option value="' . $c->code . '">' . $c->country . '</option>';
-                        }
-                        ?>
+                        @foreach ($country as $c)
+                          <option value="{{ $c->code }}">{{ $c->country }}</option>
+                        @endforeach
                       </select>
                     </div>
                     <div class="col-md-5">
@@ -426,57 +501,62 @@
   </section>
   <div class="ps-page--product pt-70 pb-40" style="background:#e5e6eb;">
     <div class="ps-container">
-      <div class="ps-section--default customcard" style="pad customcardding:15px 20px;background: #fff; border-radius:5px">
-                    <aside class="widget widget_best-sale " data-mh="dealhot">
-            <h2 class="widget-title">Top Medical Universities of MBBS Abroad</h2>
-            <div class="widget__content">
-              <div class="owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="0"
-                data-owl-nav="false" data-owl-dots="false" data-owl-item="1" data-owl-item-xs="1" data-owl-item-sm="1"
-                data-owl-item-md="1" data-owl-item-lg="1" data-owl-duration="1000" data-owl-mousedrag="on">
-                <div class="ps-product-group">
-                  @foreach ($universities1 as $tu)
-                    <div class="ps-product--horizontal">
-                      <div class="ps-product__thumbnail"> <a href="<?php echo url($tu->country_slug . '/' . $tu->uname); ?>/"> <img src="<?php echo url($tu->imgpath); ?>"
-                            alt="<?php echo $tu->name; ?>"> </a> </div>
-                      <div class="ps-product__content"> <a class="ps-product__title" href="<?php echo url($tu->country_slug . '/' . $tu->uname); ?>/">
-                          <?php echo $tu->name; ?>
-                        </a> </div>
-                    </div>
-                  @endforeach
-                </div>
-                <div class="ps-product-group">
-                  @foreach ($universities2 as $tu)
-                    <div class="ps-product--horizontal">
-                      <div class="ps-product__thumbnail"> <a href="<?php echo url($tu->country_slug . '/' . $tu->uname); ?>/"> <img src="<?php echo url($tu->imgpath); ?>"
-                            alt="<?php echo $tu->name; ?>"> </a> </div>
-                      <div class="ps-product__content"> <a class="ps-product__title" href="<?php echo url($tu->country_slug . '/' . $tu->uname); ?>/">
-                          <?php echo $tu->name; ?>
-                        </a> </div>
-                    </div>
-                  @endforeach
-                </div>
-                <div class="ps-product-group">
-                  @foreach ($universities3 as $tu)
-                    <div class="ps-product--horizontal">
-                      <div class="ps-product__thumbnail"> <a href="<?php echo url($tu->country_slug . '/' . $tu->uname); ?>/"> <img src="<?php echo url($tu->imgpath); ?>"
-                            alt="<?php echo $tu->name; ?>"> </a> </div>
-                      <div class="ps-product__content"> <a class="ps-product__title" href="<?php echo url($tu->country_slug . '/' . $tu->uname); ?>/">
-                          <?php echo $tu->name; ?>
-                        </a> </div>
-                    </div>
-                  @endforeach
-                </div>
+      <div class="ps-section--default customcard"
+        style="pad customcardding:15px 20px;background: #fff; border-radius:5px">
+        <aside class="widget widget_best-sale " data-mh="dealhot">
+          <h2 class="widget-title">Top Medical Universities of MBBS Abroad</h2>
+          <div class="widget__content">
+            <div class="owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="0"
+              data-owl-nav="false" data-owl-dots="false" data-owl-item="1" data-owl-item-xs="1" data-owl-item-sm="1"
+              data-owl-item-md="1" data-owl-item-lg="1" data-owl-duration="1000" data-owl-mousedrag="on">
+              <div class="ps-product-group">
+                @foreach ($universities1 as $tu)
+                  <div class="ps-product--horizontal">
+                    <div class="ps-product__thumbnail"> <a href="<?php echo url($tu->country_slug . '/' . $tu->uname); ?>/"> <img
+                          src="<?php echo url($tu->imgpath); ?>" alt="<?php echo $tu->name; ?>"> </a> </div>
+                    <div class="ps-product__content"> <a class="ps-product__title" href="<?php echo url($tu->country_slug . '/' . $tu->uname); ?>/">
+                        <?php echo $tu->name; ?>
+                      </a> </div>
+                  </div>
+                @endforeach
+              </div>
+              <div class="ps-product-group">
+                @foreach ($universities2 as $tu)
+                  <div class="ps-product--horizontal">
+                    <div class="ps-product__thumbnail"> <a href="<?php echo url($tu->country_slug . '/' . $tu->uname); ?>/"> <img
+                          src="<?php echo url($tu->imgpath); ?>" alt="<?php echo $tu->name; ?>"> </a> </div>
+                    <div class="ps-product__content"> <a class="ps-product__title" href="<?php echo url($tu->country_slug . '/' . $tu->uname); ?>/">
+                        <?php echo $tu->name; ?>
+                      </a> </div>
+                  </div>
+                @endforeach
+              </div>
+              <div class="ps-product-group">
+                @foreach ($universities3 as $tu)
+                  <div class="ps-product--horizontal">
+                    <div class="ps-product__thumbnail"> <a href="<?php echo url($tu->country_slug . '/' . $tu->uname); ?>/"> <img
+                          src="<?php echo url($tu->imgpath); ?>" alt="<?php echo $tu->name; ?>"> </a> </div>
+                    <div class="ps-product__content"> <a class="ps-product__title" href="<?php echo url($tu->country_slug . '/' . $tu->uname); ?>/">
+                        <?php echo $tu->name; ?>
+                      </a> </div>
+                  </div>
+                @endforeach
               </div>
             </div>
-          </aside>
           </div>
-          </div>
-          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
   <section class="image-bg endCounselling">
     <div class="container">
       <h2 class="main-h1">#1 MBBS Education Consultants</h2>
       <h3 class="sub-h1">Looking to get the best career guidance? Our experts know exactly what you need!</h3>
-      <p class="main-p">Contact us without hesitation, as we are among the top MBBS educational counselors you'll encounter. Our sincere efforts, invaluable advice, and impartial guidance can turn your dreams into reality! As the most trusted abroad consultancy company in India, with over 8 years of experience, we offer premier educational solutions at an affordable cost. Explore our testimonials to address any doubts and let our dedicated team assist you thoroughly in pursuing your MBBS studies abroad.</p>
+      <p class="main-p">Contact us without hesitation, as we are among the top MBBS educational counselors you'll
+        encounter. Our sincere efforts, invaluable advice, and impartial guidance can turn your dreams into reality! As
+        the most trusted abroad consultancy company in India, with over 8 years of experience, we offer premier
+        educational solutions at an affordable cost. Explore our testimonials to address any doubts and let our dedicated
+        team assist you thoroughly in pursuing your MBBS studies abroad.</p>
       <div class="row">
         <div class="col-12 col-md-6">
           <div class="counselling-left">

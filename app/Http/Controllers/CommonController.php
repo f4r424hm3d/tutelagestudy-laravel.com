@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 
 class CommonController extends Controller
 {
@@ -15,7 +16,7 @@ class CommonController extends Controller
     foreach ($field as $row) {
       $output .= '<option value="' . $row->id . '">' . $row->sub_status . '</option>';
     }
-    echo $output;
+    return $output;
   }
   public function changeStatus(Request $request)
   {
@@ -40,42 +41,14 @@ class CommonController extends Controller
     //echo $id;
     $field = DB::table('destinations')->where('id', $request['destination_id'])->first();
     $output = $field->country;
-    echo $output;
+    return $output;
   }
   public function slugifyString(Request $request)
   {
     $output = slugify($request->val);
     echo $output;
   }
-  public function convert_currecy(Request $request)
-  {
-    //echo "Hello";
-    //die;
-    if ($_REQUEST) {
-      $from = strtoupper($_REQUEST['from']);
-      $to = strtoupper($_REQUEST['to']);
-      $amount = $_REQUEST['amount'];
-      //echo $from . ' , ' . $to . ' , ' . $amount;
-      $api_url = "https://api.getgeoapi.com/v2/currency/convert?api_key=3c10af8cae94eaf3650ba0b9edb97d1eef23505e&from=" . $from . "&to=" . $to . "&amount=" . $amount . "&format=json";
 
-      $client = curl_init($api_url);
-
-      curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
-
-      $response = curl_exec($client);
-      curl_close($client);
-
-      echo $response;
-      // $result = json_decode($response);
-      // // echo "<pre>";
-      // // print_r($result);
-      // // echo "</pre>";
-      // $rslt = $result->amount . ' ' . $result->base_currency_code . ' = ' . $result->rates->$to->rate_for_amount . ' ' . $to;
-      // echo $rslt;
-    } else {
-      echo "Please fill all the information";
-    }
-  }
   public function bulkDelete(Request $request)
   {
     $result = DB::table($request->tbl)->whereIn('id', $request->ids)->delete();
