@@ -132,7 +132,7 @@
         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 ">
           <div class="ps-block--category">
             <br>
-            <a class="ps-block__overlay" href="<?php echo url('blog'); ?>/" target="_blank"
+            <a class="ps-block__overlay" href="{{ url('blog') }}/" target="_blank"
               rel="noopener noreferrer">Blog</a> <img data-src="<?php echo url('front'); ?>/img/news.jpg" alt="latest news"
               style="width:100%!important">
             <h4 class="pt-10 mb-0 button cur-conver-btn">News & Article</h4>
@@ -661,30 +661,28 @@
             data-owl-gap="30" data-owl-nav="true" data-owl-dots="true" data-owl-item="4" data-owl-item-xs="1"
             data-owl-item-sm="2" data-owl-item-md="4" data-owl-item-lg="4" data-owl-item-xl="4"
             data-owl-duration="1000" data-owl-mousedrag="on" style="margin-bottom:0px!important">
-            <?php
-            foreach ($news as $row) {
-          ?>
-            <div class="ps-post ps-product">
-              <div class="ps-post__thumbnail">
-                <img data-src="<?php echo url($row->imgpath); ?>" alt="<?php echo $row->headline; ?>"
-                  style="width:100%; height: 150px;!important">
-              </div>
-              <div class="ps-post__content">
-                <div class="ps-post__meta">
-                  <a href="<?php echo url('category/' . $row->getCategory->slug); ?>/">
-                    {{ $row->getCategory->cate_name }}
-                  </a>
+            @foreach ($news as $row)
+              <div class="ps-post ps-product">
+                <div class="ps-post__thumbnail">
+                  <img data-src="{{ asset($row->imgpath) }}" alt="<?php echo $row->headline; ?>"
+                    style="width:100%; height: 150px;!important">
                 </div>
-                <a class="ps-post__title" href="<?php echo url($row->slug); ?>/" title="<?php echo $row->headline; ?>"
-                  data-toggle="tooltip">
-                  <?php echo strlen($row->headline) > 44 ? substr($row->headline, 0, 44) . '...' : $row->headline; ?>
-                </a>
-                <p style="margin-bottom:0px; font-size:11px">
-                  <?php echo getFormattedDate($row->created_at, 'd M, Y'); ?> by<span> admin</span>
-                </p>
+                <div class="ps-post__content">
+                  <div class="ps-post__meta">
+                    <a href="{{ url('blog/' . $row->getCategory->slug) }}/">
+                      {{ $row->getCategory->cate_name }}
+                    </a>
+                  </div>
+                  <a class="ps-post__title" href="{{ route('blog.detail', ['slug' => $row->slug]) }}/"
+                    title="<?php echo $row->headline; ?>" data-toggle="tooltip">
+                    <?php echo strlen($row->headline) > 44 ? substr($row->headline, 0, 44) . '...' : $row->headline; ?>
+                  </a>
+                  <p style="margin-bottom:0px; font-size:11px">
+                    <?php echo getFormattedDate($row->created_at, 'd M, Y'); ?> by<span> admin</span>
+                  </p>
+                </div>
               </div>
-            </div>
-            <?php } ?>
+            @endforeach
           </div>
         </div>
       </div>
