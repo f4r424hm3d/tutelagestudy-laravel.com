@@ -78,7 +78,7 @@
             <li><a href="<?php echo url('mbbs-in-abroad'); ?>/">MBBS Abroad</a><span class="sub-toggle"></span></li>
 
             <li class="menu-item-has-children has-mega-menu">
-              <a href="javascript:void()">Destinations</a>
+              <a href="{{ url('destinations') }}/">Destinations</a>
               <span class="sub-toggle"></span>
               <div class="mega-menu">
                 <div class="mega-menu__column">
@@ -90,7 +90,8 @@
                           ->get();
                     @endphp
                     @foreach ($destinations as $row)
-                      <li class="current-menu-item"><a href="{{ url($row->slug) }}/">
+                      <li class="current-menu-item"><a
+                          href="{{ route('destination.detail', ['destination_slug' => $row->slug]) }}/">
                           {{ ucwords($row->page_name) }}
                         </a> </li>
                     @endforeach

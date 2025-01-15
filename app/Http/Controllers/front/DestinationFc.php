@@ -24,12 +24,13 @@ class DestinationFc extends Controller
     $data = compact('destinations');
     return view('front.destination')->with($data);
   }
-  public function destinationDetail(Request $request)
+  public function destinationDetail($destination_slug, Request $request)
   {
-    $tab_title = $request->segment(2) == '' ? 'overview' : $request->segment(2);
+    $tabTitle = $request->segment(3);
+    $tab_title = $tabTitle == '' ? 'overview' : $tabTitle;
     $tabTitleDet = DestinationPageTabs::where(['slug' => $tab_title])->first();
-    $seg1 = $request->segment(1);
-    $c_destination = Destination::where(['slug' => $request->segment(1)])->first();
+    $seg1 = $destination_slug;
+    $c_destination = Destination::where(['slug' => $destination_slug])->first();
 
     $testimonials = Testimonial::where(['country' => $c_destination->country])->get();
     $photos = DestinationGallery::where(['destination_id' => $c_destination->id])->get();
@@ -38,7 +39,7 @@ class DestinationFc extends Controller
 
     $faqs = DestinationPageFaq::where(['page_id' => $c_destination->id])->get();
 
-    if ($request->segment(2) != '') {
+    if ($tabTitle != '') {
       $wrdseo = ['url' => 'destination-detail-page-tab'];
     } else {
       $wrdseo = ['url' => 'destination-detail-page'];

@@ -1,7 +1,5 @@
 @php
-  $seg2 = Request::segment(2);
-  // printArray($otabs->toArray());
-  // die;
+  $seg2 = Request::segment(3);
 @endphp
 @extends('front.layouts.main')
 @push('seo_meta_tag')
@@ -10,8 +8,8 @@
 @push('breadcrumb_schema')
   <!-- breadcrumb schema Code -->
   <script type="application/ld+json">
-  { "@context": "https://schema.org/", "@type": "BreadcrumbList", "name": "<?php echo ucwords($meta_title); ?>", "description": "<?php echo $meta_description; ?>", "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "<?php echo url('/'); ?>" }, { "@type": "ListItem", "position": 2, "name": "Destinations", "item": "<?php echo url('destinations/'); ?>/" }, { "@type": "ListItem", "position": 3, "name": "<?php echo $c_destination->page_name; ?>", "item": "<?php echo url(Request::segment(1)); ?>/" }] }
-</script>
+    { "@context": "https://schema.org/", "@type": "BreadcrumbList", "name": "<?php echo ucwords($meta_title); ?>", "description": "<?php echo $meta_description; ?>", "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "<?php echo url('/'); ?>" }, { "@type": "ListItem", "position": 2, "name": "Destinations", "item": "<?php echo url('destinations/'); ?>/" }, { "@type": "ListItem", "position": 3, "name": "<?php echo $c_destination->page_name; ?>", "item": "<?php echo url(Request::segment(1)); ?>/" }] }
+  </script>
   <!-- breadcrumb schema Code End -->
 
   <!-- rating schema Code -->
@@ -43,7 +41,7 @@
     <div class="ps-container">
       <ul class="breadcrumb bread-scrollbar">
         <li><a href="{{ url('/') }}">Home</a></li>
-        <li><a href="https://www.tutelagestudy.com/mbbs-in-abroad/">MBBS Abroad</a></li>
+        <li><a href="{{ url('destinations') }}/">Destinations</a></li>
         <li>{{ $c_destination->page_name }}</li>
       </ul>
     </div>

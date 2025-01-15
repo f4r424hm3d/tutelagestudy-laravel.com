@@ -104,11 +104,12 @@ Route::get('blog/{category_slug}/{slug}', [BlogFc::class, 'blogdetail'])->name('
 
 Route::get('/mbbs-in-abroad/', [HomeFc::class, 'mbbsAbroad']);
 
-Route::get('/destinations/', [DestinationFc::class, 'index']);
-$dest = Destination::all();
-foreach ($dest as $row) {
-  Route::get('/' . $row->slug . '/', [DestinationFc::class, 'destinationDetail']);
-}
+Route::get('/destinations/', [DestinationFc::class, 'index'])->name('destinations');
+Route::get('/destination/{destination_slug}/', [DestinationFc::class, 'destinationDetail'])->name('destination.detail');
+// $dest = Destination::all();
+// foreach ($dest as $row) {
+//   Route::get('/' . $row->slug . '/', [DestinationFc::class, 'destinationDetail']);
+// }
 Route::get('/destination/getContent/', [DestinationFc::class, 'getContent']);
 Route::get('/destination/getOverview/', [DestinationFc::class, 'getOverview']);
 Route::get('/destination/getTableContent/', [DestinationFc::class, 'getTableContent']);
