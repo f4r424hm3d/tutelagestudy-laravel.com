@@ -332,7 +332,7 @@
                           <ul style="max-height:480px; overflow:auto">
                             @foreach ($destinations as $row)
                               <li>
-                                <a href="<?php echo url($row->slug); ?>/">
+                                <a href="{{ route('destination.detail', ['destination_slug' => $row->slug]) }}/">
                                   <i class="icon-arrow-right"></i> MBBS From {{ $row->country }}
                                 </a>
                               </li>

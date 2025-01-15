@@ -96,10 +96,7 @@ Route::get('/privacy-policy/', [HomeFc::class, 'privacyPolicy']);
 
 
 Route::get('/blog/', [BlogFc::class, 'index'])->name('blog');
-$categories = NewsCategory::all();
-foreach ($categories as $row) {
-  Route::get('blog/' . $row->slug, [BlogFc::class, 'blogByCategory']);
-}
+Route::get('blog/{category_slug}', [BlogFc::class, 'blogByCategory'])->name('blog.category');
 Route::get('blog/{category_slug}/{slug}', [BlogFc::class, 'blogdetail'])->name('blog.detail');
 
 Route::get('/mbbs-in-abroad/', [HomeFc::class, 'mbbsAbroad']);
