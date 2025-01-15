@@ -314,12 +314,11 @@
                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                   <!-- Sidebar ads -->
                   <aside class="ps-widget--account-dashboard">
-                    <h3 style=" background:#cd2122; color:#fff; font-size:16px; padding:10px 20px; margin:0px">Blog & News
-                    </h3>
+                    <h3 style=" background:#cd2122; color:#fff; font-size:16px; padding:10px 20px; margin:0px">Blog</h3>
                     <div class="ps-widget__content" style="background:#fff">
                       <ul>
                         @foreach ($categories as $cat)
-                          <li><a href="<?php echo url('category/' . $cat->slug); ?>/"><i class="icon-arrow-right"></i> {{ $cat->cate_name }}</a>
+                          <li><a href="<?php echo url('blog/' . $cat->slug); ?>/"><i class="icon-arrow-right"></i> {{ $cat->cate_name }}</a>
                           </li>
                         @endforeach
                       </ul>

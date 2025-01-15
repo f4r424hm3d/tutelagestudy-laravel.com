@@ -100,7 +100,7 @@ $categories = NewsCategory::all();
 foreach ($categories as $row) {
   Route::get('blog/' . $row->slug, [BlogFc::class, 'blogByCategory']);
 }
-Route::get('blog/{slug}', [BlogFc::class, 'blogdetail'])->name('blog.detail');
+Route::get('blog/{category_slug}/{slug}', [BlogFc::class, 'blogdetail'])->name('blog.detail');
 
 Route::get('/mbbs-in-abroad/', [HomeFc::class, 'mbbsAbroad']);
 

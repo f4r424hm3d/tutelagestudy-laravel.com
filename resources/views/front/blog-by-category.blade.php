@@ -8,7 +8,7 @@
       <div class="container">
         <ul class="breadcrumb bread-scrollbar">
           <li><a href="<?= url('/') ?>">Home</a></li>
-          <li><a href="<?= url('blog') ?>/"> Articles</a></li>
+          <li><a href="<?= url('blog') ?>/"> Blog</a></li>
           <li><span>{{ $category->cate_name }}</span></li>
         </ul>
       </div>
@@ -40,7 +40,8 @@
                   <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-12 ">
                     <div class="ps-post ps-product">
                       <div class="ps-post__thumbnail">
-                        <a class="ps-post__overlay" href="{{ route('blog.detail', ['slug' => $row->slug]) }}/"></a>
+                        <a class="ps-post__overlay"
+                          href="{{ route('blog.detail', ['category_slug' => $row->getCategory->slug, 'slug' => $row->slug]) }}/"></a>
                         <img data-src="{{ asset($row->imgpath) }}" alt="<?php echo $row->headline; ?>"
                           style="height: 150px;!important">
                       </div>
@@ -48,7 +49,8 @@
                         <div class="ps-post__meta"><a
                             href="{{ url('blog/' . $row->getCategory->slug) }}/">{{ $row->getCategory->slug }}</a></div>
 
-                        <a class="ps-post__title" href="{{ route('blog.detail', ['slug' => $row->slug]) }}/"
+                        <a class="ps-post__title"
+                          href="{{ route('blog.detail', ['category_slug' => $row->getCategory->slug, 'slug' => $row->slug]) }}/"
                           title="<?php echo $row->headline; ?>" data-toggle="tooltip">
                           <?php echo strlen($row->headline) > 48 ? substr($row->headline, 0, 48) . '...' : $row->headline; ?>
                         </a>

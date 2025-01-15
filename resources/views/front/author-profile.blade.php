@@ -232,7 +232,7 @@
                     </div>
                     <div class="ps-post__content">
                       <div class="ps-post__meta"><a
-                          href="{{ url('category/' . $row->getCategory->slug) }}/">{{ $row->getCategory->cate_name }}</a>
+                          href="{{ url('blog/' . $row->getCategory->slug) }}/">{{ $row->getCategory->cate_name }}</a>
                       </div>
                       <a class="ps-post__title" href="{{ url($row->slug) }}/" title="{{ $row->headline }}"
                         data-toggle="tooltip">{{ strlen($row->headline) > 48 ? substr($row->headline, 0, 48) . '...' : $row->headline }}</a>

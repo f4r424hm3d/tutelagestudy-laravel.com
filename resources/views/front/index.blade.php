@@ -673,7 +673,8 @@
                       {{ $row->getCategory->cate_name }}
                     </a>
                   </div>
-                  <a class="ps-post__title" href="{{ route('blog.detail', ['slug' => $row->slug]) }}/"
+                  <a class="ps-post__title"
+                    href="{{ route('blog.detail', ['category_slug' => $row->getCategory->slug, 'slug' => $row->slug]) }}/"
                     title="<?php echo $row->headline; ?>" data-toggle="tooltip">
                     <?php echo strlen($row->headline) > 44 ? substr($row->headline, 0, 44) . '...' : $row->headline; ?>
                   </a>

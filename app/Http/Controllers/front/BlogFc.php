@@ -51,7 +51,7 @@ class BlogFc extends Controller
     $data = compact('category', 'blogs', 'categories', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path');
     return view('front.blog-by-category')->with($data);
   }
-  public function blogdetail($slug, Request $request)
+  public function blogdetail($category_slug, $slug, Request $request)
   {
     $blog = News::where('slug', $slug)->firstOrFail();
     $blogs = News::where('id', '!=', $blog->id)->limit(10)->get();

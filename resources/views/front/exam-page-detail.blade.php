@@ -5,78 +5,78 @@
 @push('breadcrumb_schema')
   <!-- breadcrumb schema Code -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org/",
-    "@type": "BreadcrumbList",
-    "name": "<?php echo ucwords($meta_title); ?>",
-    "description": "<?php echo $meta_description; ?>",
-    "itemListElement": [{
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "<?php echo url('/'); ?>/"
-    }, {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Destinations",
-      "item": "<?php echo url(Request::segment(1)); ?>/"
-    }, {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "<?php echo $exam_page->page_name; ?>",
-      "item": "<?php echo $page_url; ?>/"
-    }]
-  }
-</script>
+    {
+      "@context": "https://schema.org/",
+      "@type": "BreadcrumbList",
+      "name": "{{ ucwords($meta_title) }}",
+      "description": "{{ $meta_description }}",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "{{ url('/') }}/"
+      }, {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Destinations",
+        "item": "{{ url(Request::segment(1)) }}/"
+      }, {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "{{ $exam_page->page_name }}",
+        "item": "{{ $page_url }}/"
+      }]
+    }
+  </script>
   <!-- breadcrumb schema Code End -->
   <!-- webpage schema Code Destinations -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org/",
-    "@type": "webpage",
-    "url": "<?php echo url(Request::segment(1)); ?>",
-    "name": "<?php echo $exam_page->page_name; ?>",
-    "description": "<?php echo $meta_description; ?>",
-    "inLanguage": "en-US",
-    "keywords": [
-      "<?php echo $meta_keyword; ?>"
-    ]
-  }
-</script>
+    {
+      "@context": "https://schema.org/",
+      "@type": "webpage",
+      "url": "{{ url(Request::segment(1)) }}",
+      "name": "{{ $exam_page->page_name }}",
+      "description": "{{ $meta_description }}",
+      "inLanguage": "en-US",
+      "keywords": [
+        "{{ $meta_keyword }}"
+      ]
+    }
+  </script>
   <!-- rating schema Code -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org/",
-    "@type": "CreativeWorkSeries",
-    "name": "<?php echo ucwords($meta_title); ?>",
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5",
-      "bestRating": "5",
-      "ratingCount": "<?php echo $exam_page->seo_rating; ?>"
+    {
+      "@context": "https://schema.org/",
+      "@type": "CreativeWorkSeries",
+      "name": "{{ ucwords($meta_title) }}",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "bestRating": "5",
+        "ratingCount": "{{ $exam_page->seo_rating }}"
+      }
     }
-  }
-</script>
+  </script>
   <script type="application/ld+json">
-  {
-    "@context": "http://schema.org",
-    "@type": "Article",
-    "inLanguage": "en",
-    "headline": "<?= $meta_title ?>",
-    "description": "<?= $meta_description ?>",
-    "keywords": "<?= $meta_keyword ?>",
-    "dateModified": "<?= getISOFormatTime($exam_page->updated_at) ?>",
-    "datePublished": "<?= getISOFormatTime($exam_page->created_at) ?>",
-    "mainEntityOfPage": { "id": "<?= $page_url ?>/", "@type": "WebPage" },
-    "author": { "@type": "Person", "name": "Tutelage Team", "url": "https://www.tutelagestudy.com/author/tutelage-team/" },
-    "publisher": {
-        "@type": "Organization",
-        "name": "Tutelage Study",
-        "logo": { "@type": "ImageObject", "name": "Tutelage Study", "url": "https://www.tutelagestudy.com/front/img/logo_light.png", "height": "65", "width": "258" }
-    },
-    "image": { "@type": "ImageObject", "url": "<?= asset($og_image_path) ?>" }
-  }
-</script>
+    {
+      "@context": "http://schema.org",
+      "@type": "Article",
+      "inLanguage": "en",
+      "headline": "{{ $meta_title }}",
+      "description": "{{ $meta_description }}",
+      "keywords": "{{ $meta_keyword }}",
+      "dateModified": "{{ getISOFormatTime($exam_page->updated_at) }}",
+      "datePublished": "{{ getISOFormatTime($exam_page->created_at) }}",
+      "mainEntityOfPage": { "id": "{{ $page_url }}/", "@type": "WebPage" },
+      "author": { "@type": "Person", "name": "Tutelage Team", "url": "https://www.tutelagestudy.com/author/tutelage-team/" },
+      "publisher": {
+          "@type": "Organization",
+          "name": "Tutelage Study",
+          "logo": { "@type": "ImageObject", "name": "Tutelage Study", "url": "https://www.tutelagestudy.com/front/img/logo_light.png", "height": "65", "width": "258" }
+      },
+      "image": { "@type": "ImageObject", "url": "{{ asset($og_image_path) }}" }
+    }
+  </script>
 @endpush
 @section('main-section')
   <style type="text/css">
@@ -320,9 +320,9 @@
   <div class="ps-breadcrumb">
     <div class="ps-container">
       <ul class="breadcrumb bread-scrollbar">
-        <li><a href="<?php echo url('/'); ?>">Home</a></li>
-        <li><a href="<?php echo url($exam->exam_slug); ?>/"><?php echo $exam->exam_name; ?></a></li>
-        <li><?php echo $exam_page->page_name; ?></li>
+        <li><a href="{{ url('/') }}">Home</a></li>
+        <li><a href="{{ url($exam->exam_slug) }}/">{{ $exam->exam_name }}</a></li>
+        <li>{{ $exam_page->page_name }}</li>
       </ul>
     </div>
   </div>
@@ -335,293 +335,189 @@
             <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12 mb-20">
               <div class="ps-product__box">
                 <div class="ps-document">
-                  <center><img data-src="<?php echo url($exam_page->image_path); ?>" alt="<?php echo $exam_page->page_name; ?>" class="img-responsive"></center>
+                  <center>
+                    <img data-src="{{ url($exam_page->image_path) }}" alt="{{ $exam_page->page_name }}"
+                      class="img-responsive">
+                  </center>
                 </div>
               </div>
               <br>
               <div class="pt-0 pb-20 get-detail">
                 <span style="font-size:18px; color:#cd2122;">Get Free NEET Counselling from Experts</span>
-                <a class="ps-btn" onclick="window.location.href='<?php echo url('neet-counselling'); ?>/'" href="javascript:void()"
+                <a class="ps-btn" onclick="window.location.href='{{ url('neet-counselling') }}/'" href="javascript:void()"
                   rel="nofollow">Enquire Now</a>
               </div>
 
-              <?php if (count($exam_page_contents) > 1) { ?>
-              <div class="ps-product__box mb-20">
-                <aside class="widget widget_best-sale">
-                  <h3 class="widget-title">
-                    Table of Contents
-                    <span style="float:right;">
-                      <button class="btn btn-outline-info tglBtn hide-this">+</button>
-                      <button class="btn btn-outline-info tglBtn">-</button>
-                    </span>
-                  </h3>
-                  <div class="widget__content tbl-cntnt " id="tblCDiv">
-                    <ol style="list-style:circle;">
-                      <?php foreach ($exam_page_contents as $t) { ?>
-                      <li><a href="#<?php echo slugify($t->title); ?>"><?php echo $t->title; ?></a></li>
-                      <?php } ?>
-                    </ol>
-                  </div>
-                </aside>
-              </div>
-              <?php } ?>
-              <?php foreach ($exam_page_contents as $c) { ?>
-              <div class="ps-product__box mb-20" id="<?php echo slugify($c->title); ?>">
-                <div class="ps-tabs">
-                  <div class="ps-tab active">
-                    <div class="ps-document">
-                      <?php echo $c->tab_content; ?>
+              @if ($exam_page_contents->count() > 1)
+                <div class="ps-product__box mb-20">
+                  <aside class="widget widget_best-sale">
+                    <h3 class="widget-title">
+                      Table of Contents
+                      <span style="float:right;">
+                        <button class="btn btn-outline-info tglBtn hide-this">+</button>
+                        <button class="btn btn-outline-info tglBtn">-</button>
+                      </span>
+                    </h3>
+                    <div class="widget__content tbl-cntnt" id="tblCDiv">
+                      <ol style="list-style:circle;">
+                        @foreach ($exam_page_contents as $t)
+                          <li><a href="#{{ slugify($t->title) }}">{{ $t->title }}</a></li>
+                        @endforeach
+                      </ol>
+                    </div>
+                  </aside>
+                </div>
+              @endif
+
+              @foreach ($exam_page_contents as $c)
+                <div class="ps-product__box mb-20" id="{{ slugify($c->title) }}">
+                  <div class="ps-tabs">
+                    <div class="ps-tab active">
+                      <div class="ps-document">
+                        {!! $c->tab_content !!}
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <?php } ?>
-              <?php if (count($faqs)>0) { ?>
-              <div class="ps-product__box mb-20">
-                <div class="ps-section--default">
-                  <div class="ps-section__header" style="margin-bottom:0px; padding-bottom:10px; border:0px">
-                    <h3>Faqs</h3>
-                  </div>
-                  <div id="accordion">
-                    <?php foreach ($faqs as $faq) { ?>
-                    <div class="card">
-                      <div class="card-header">
-                        <a onclick="toggleFaq('<?php echo $faq->id; ?>')" class="card-link text-dark"
-                          href="javascript:void()">
-                          <span class="float-right"><i class="fa fa-arrow-down"></i></span>
-                          <h5 class="mb-0" style="font-size:15px"><?php echo $faq->question; ?></h5>
-                        </a>
-                      </div>
-                      <div id="a<?php echo $faq->id; ?>" style="display:none;">
-                        <div class="card-body"><?php echo $faq->answer; ?></div>
-                      </div>
+              @endforeach
+
+              @if ($faqs->count() > 0)
+                <div class="ps-product__box mb-20">
+                  <div class="ps-section--default">
+                    <div class="ps-section__header" style="margin-bottom:0px; padding-bottom:10px; border:0px">
+                      <h3>Faqs</h3>
                     </div>
-                    <?php } ?>
+                    <div id="accordion">
+                      @foreach ($faqs as $faq)
+                        <div class="card">
+                          <div class="card-header">
+                            <a onclick="toggleFaq('{{ $faq->id }}')" class="card-link text-dark"
+                              href="javascript:void()">
+                              <span class="float-right"><i class="fa fa-arrow-down"></i></span>
+                              <h5 class="mb-0" style="font-size:15px">{{ $faq->question }}</h5>
+                            </a>
+                          </div>
+                          <div id="a{{ $faq->id }}" style="display:none;">
+                            <div class="card-body">{{ $faq->answer }}</div>
+                          </div>
+                        </div>
+                      @endforeach
+                    </div>
                   </div>
                 </div>
-              </div>
-              <script type="application/ld+json">
-              {
-
-                "@context": "https:\/\/schema.org",
-
-                "@type": "FAQPage",
-
-                "mainEntity": [
-
-                  <?php
-                $i = 1;
-
-                $tfaq = count($faqs);
-
-                foreach ($faqs as $faq) {
-
-                ?> {
-
-                      "@type": "Question",
-
-                      "name": "<?php echo $faq->question; ?>",
-
-                      "acceptedAnswer": {
-
-                        "@type": "Answer",
-
-                        "text": "<?php echo str_replace('/', '\/', str_replace('"', '\"', $faq->answer)); ?>"
-
-                      }
-
-                    }
-
-                    <?php if ($i < $tfaq) { ?>, <?php } ?>
-
-                  <?php $i++;
-                } ?>
-
-                ]
-
-              }
-            </script>
-              <?php } ?>
+                <script type="application/ld+json">
+                  {
+                    "@context": "https://schema.org",
+                    "@type": "FAQPage",
+                    "mainEntity": [
+                        @foreach ($faqs as $index => $faq)
+                        {
+                            "@type": "Question",
+                            "name": "{{ $faq->question }}",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "{{ str_replace(['/', '"'], ['\/', '\"'], $faq->answer) }}"
+                            }
+                        } @if (!$loop->last), @endif
+                        @endforeach
+                    ]
+                  }
+                </script>
+              @endif
 
               <style>
+                /* Styles for the author section */
                 .author {
                   align-items: center;
                   margin-bottom: 15px;
                 }
 
-                .author .img-div {
-                  width: 100%;
-                }
-
-                .author .img-div img {
-                  width: 100%;
-                  border-radius: 100%;
-                }
-
-                .author .img-div i {
-                  padding: 2px;
-                  color: green;
-                  border-radius: 100%;
-                  font-size: 20px;
-                  margin-left: -30px;
-                  margin-top: 5px;
-                  position: absolute;
-                  background: #fff;
-                }
-
-                .author .img-div .bio-btn {
-                  font-size: 14px;
-                  border: 1px solid #cd2122;
-                  color: #cd2122;
-                  border-radius: 5px;
-                  font-weight: 400;
-                  padding: 5px 12px;
-                  display: block;
-                  text-align: center;
-                  margin-top: 10px;
-                }
-
-                .author .img-div .bio-btn:hover {
-                  border: 1px solid #117888;
-                  background: #117888;
-                  color: #fff
-                }
-
-                .author .cont-div {
-                  width: auto
-                }
-
-                .author .cont-div p {
-                  font-size: 15px;
-                  margin-bottom: 3px !important
-                }
-
-                .author .cont-div p strong {
-                  text-transform: uppercase;
-                  color: #cd2122;
-                  font-weight: 800 !important;
-                }
-
-                .author .cont-div h6 {
-                  font-size: 20px;
-                  color: #000;
-                  font-weight: 800;
-                  margin-bottom: 6px !important;
-                }
-
-                .author a {
-                  font-size: 16px;
-                  font-weight: 600;
-                  color: #da0b4e
-                }
-
-                .author span {
-                  display: block;
-                  font-size: 13px;
-                  padding-bottom: 10px;
-                  margin-bottom: 10px;
-                  border-bottom: 1px dashed #e2e2e2
-                }
-
-                @media (max-width: 767px) {
-                  .author {
-                    margin-bottom: 0px;
-                  }
-
-                  .author .img-div {
-                    width: 50%;
-                    margin: auto
-                  }
-
-                  .author .cont-div {
-                    text-align: center
-                  }
-
-                  .author .cont-div h6 {
-                    font-size: 18px;
-                    margin-top: 20px
-                  }
-
-                  .author .cont-div p {
-                    font-size: 14px;
-                  }
-                }
+                /* Add remaining styles here */
               </style>
-              <?php if($exam_page->author_id != null){ ?>
-              <div class="ps-page--product" style="background-color:white;">
-                <div class="ps-container pt-10" id="topuniversities">
-                  <div class="ps-section--default pb-2" style="margin-bottom:0px">
-                    <div class="ps-section__header" style="margin-bottom:0px; padding-bottom:0px; border:0px">
-                      <div class="row author">
-                        <div class="col-md-2">
-                          <div class="img-div">
-                            <img data-src="<?php echo asset($exam_page->getAuthor->profile_pic_path); ?>" alt="<?php echo $exam_page->getAuthor->name; ?>"><i
-                              class="fa fa-check-circle"></i>
+
+              @if ($exam_page->author_id != null)
+                <div class="ps-page--product" style="background-color:white;">
+                  <div class="ps-container pt-10" id="topuniversities">
+                    <div class="ps-section--default pb-2" style="margin-bottom:0px">
+                      <div class="ps-section__header" style="margin-bottom:0px; padding-bottom:0px; border:0px">
+                        <div class="row author">
+                          <div class="col-md-2">
+                            <div class="img-div">
+                              <img data-src="{{ asset($exam_page->getAuthor->profile_pic_path) }}"
+                                alt="{{ $exam_page->getAuthor->name }}">
+                              <i class="fa fa-check-circle"></i>
+                            </div>
                           </div>
-                        </div>
-                        <div class="col-md-10">
-                          <div class="cont-div">
-                            <h6>{{ $exam_page->getAuthor->name }}</h6>
-                            <span>Content Curator | Updated on - <?php echo getFormattedDate($exam_page->updated_at, 'M d, Y'); ?></span>
-                            <?php if($exam_page->getAuthor->shortnote!=null){ ?>
-                            <p><?php echo $exam_page->getAuthor->shortnote; ?></p><br>
-                            <?php } ?>
-                            <a style="float:right" href="<?php echo url('author/' . $exam_page->getAuthor->slug); ?>/" class="bio-btn">Read Full Bio</a>
+                          <div class="col-md-10">
+                            <div class="cont-div">
+                              <h6>{{ $exam_page->getAuthor->name }}</h6>
+                              <span>Content Curator | Updated on -
+                                {{ getFormattedDate($exam_page->updated_at, 'M d, Y') }}</span>
+                              @if ($exam_page->getAuthor->shortnote)
+                                <p>{{ $exam_page->getAuthor->shortnote }}</p><br>
+                              @endif
+                              <a style="float:right" href="{{ url('author/' . $exam_page->getAuthor->slug) }}/"
+                                class="bio-btn">Read Full Bio</a>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <?php } ?>
+              @endif
+            </div>
 
-              <!-- INQUIRY FORM START -->
-              <?php //$this->load->view('web/form/university-side-form');
-              ?>
-              <!-- INQUIRY FORM END -->
-            </div>
             <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
-              <?php if (count($exam_pages)>0) { ?>
-              <div class="ps-section__left" style="position:sticky; top:0;">
-                <aside class="ps-widget--account-dashboard">
-                  <h3 style=" background:#cd2122; color:#fff; font-size:16px; padding:10px 20px; margin:0px">News
-                    Categories</h3>
-                  <div class="ps-widget__content" style="background:#fff">
-                    <ul>
-                      <?php foreach ($exam_pages as $row) { ?>
-                      <li><a href="<?php echo url($exam->exam_slug . '/' . $row->slug); ?>/"><i class="icon-arrow-right"></i> <?php echo $row->page_name; ?></a></li>
-                      <?php } ?>
-                    </ul>
-                  </div>
-                </aside>
-              </div>
-              <?php } ?>
+              {{-- News Categories --}}
+              @if (count($exam_pages) > 0)
+                <div class="ps-section__left" style="position:sticky; top:0;">
+                  <aside class="ps-widget--account-dashboard">
+
+                    <div class="ps-widget__content" style="background:#fff">
+                      <ul>
+                        @foreach ($exam_pages as $row)
+                          <li>
+                            <a href="{{ url($exam->exam_slug . '/' . $row->slug) }}/">
+                              <i class="icon-arrow-right"></i> {{ $row->page_name }}
+                            </a>
+                          </li>
+                        @endforeach
+                      </ul>
+                    </div>
+                  </aside>
+                </div>
+              @endif
               <br>
-              <?php if (count($exams)) { ?>
-              <div class="ps-section__left" style="position:sticky; top:60px; background:#fff">
-                <aside class="ps-widget--account-dashboard">
-                  <div class="ps-widget__content">
-                    <div style=" font-size:18px; color:#fff; background:#045dab; padding:10px; text-align:center">Other
-                      Exam</div>
-                    <ul style="max-height:480px; overflow:auto">
-                      <?php foreach ($exams as $row) { ?>
-                      <li>
-                        <a href="<?php echo url($row->exam_slug); ?>/"><i class="icon-arrow-right"></i><?php echo $row->exam_name; ?></a>
-                      </li>
-                      <?php } ?>
-                    </ul>
-                  </div>
-                </aside>
-              </div>
-              <?php } ?>
+              {{-- Other Exam --}}
+              @if (count($exams) > 0)
+                <div class="ps-section__left" style="position:sticky; top:60px; background:#fff">
+                  <aside class="ps-widget--account-dashboard">
+                    <div class="ps-widget__content">
+                      <div style="font-size:18px; color:#fff; background:#045dab; padding:10px; text-align:center">Other
+                        Exam</div>
+                      <ul style="max-height:480px; overflow:auto">
+                        @foreach ($exams as $row)
+                          <li>
+                            <a href="{{ url($row->exam_slug) }}/">
+                              <i class="icon-arrow-right"></i> {{ $row->exam_name }}
+                            </a>
+                          </li>
+                        @endforeach
+                      </ul>
+                    </div>
+                  </aside>
+                </div>
+              @endif
             </div>
+
           </div>
         </div>
       </div>
     </div>
   </div>
   </div>
+
   <script>
     $(document).ready(function() {
       $('.tglBtn').on('click', function() {

@@ -14,42 +14,47 @@
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "<?php echo url('/'); ?>/"
+      "item": "{{ url('/') }}/"
     }, {
       "@type": "ListItem",
       "position": 2,
       "name": "Blog",
-      "item": "<?php echo url('blog'); ?>/"
+      "item": "{{ url('blog') }}/"
+    }, {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "{{ $blog->getCategory->cate_name }}",
+      "item": "{{ url('blog/'.$blog->getCategory->slug) }}/"
     }, {
       "@type": "ListItem",
       "position": 3,
       "name": "<?php echo ucfirst($blog->headline); ?>",
-      "item": "<?php echo $page_url; ?>/"
+      "item": "{{ url()->current() }}/"
     }]
   }
 </script>
   <!-- breadcrumb schema Code End -->
 
   <script type="application/ld+json">
-  {
-    "@context": "http://schema.org",
-    "@type": "Article",
-    "inLanguage": "en",
-    "headline": "<?= $meta_title ?>",
-    "description": "<?= $meta_description ?>",
-    "keywords": "<?= $meta_keyword ?>",
-    "dateModified": "<?= getISOFormatTime($blog->updated_at) ?>",
-    "datePublished": "<?= getISOFormatTime($blog->created_at) ?>",
-    "mainEntityOfPage": { "id": "<?= $page_url ?>/", "@type": "WebPage" },
-    "author": { "@type": "Person", "name": "Tutelage Team", "url": "https://www.tutelagestudy.com/author/tutelage-team/" },
-    "publisher": {
-        "@type": "Organization",
-        "name": "Tutelage Study",
-        "logo": { "@type": "ImageObject", "name": "Tutelage Study", "url": "https://www.tutelagestudy.com/front/img/logo_light.png", "height": "65", "width": "258" }
-    },
-    "image": { "@type": "ImageObject", "url": "<?= asset($og_image_path) ?>" }
-  }
-</script>
+    {
+      "@context": "http://schema.org",
+      "@type": "Article",
+      "inLanguage": "en",
+      "headline": "<?= $meta_title ?>",
+      "description": "<?= $meta_description ?>",
+      "keywords": "<?= $meta_keyword ?>",
+      "dateModified": "<?= getISOFormatTime($blog->updated_at) ?>",
+      "datePublished": "<?= getISOFormatTime($blog->created_at) ?>",
+      "mainEntityOfPage": { "id": "<?= $page_url ?>/", "@type": "WebPage" },
+      "author": { "@type": "Person", "name": "Tutelage Team", "url": "https://www.tutelagestudy.com/author/tutelage-team/" },
+      "publisher": {
+          "@type": "Organization",
+          "name": "Tutelage Study",
+          "logo": { "@type": "ImageObject", "name": "Tutelage Study", "url": "https://www.tutelagestudy.com/front/img/logo_light.png", "height": "65", "width": "258" }
+      },
+      "image": { "@type": "ImageObject", "url": "<?= asset($og_image_path) ?>" }
+    }
+  </script>
 @endpush
 @section('main-section')
   <style type="text/css">
@@ -299,11 +304,8 @@
           <ul class="breadcrumb bread-scrollbar">
             <li><a href="<?= url('/') ?>">Home</a></li>
             <li><a href="<?= url('blog') ?>/"> Blog</a></li>
-            <li>
-              <span>
-                <?php echo ucfirst($blog->headline); ?>
-              </span>
-            </li>
+            <li><a href="<?= url('blog/' . $blog->getCategory->slug) ?>/"> {{ $blog->getCategory->cate_name }}</a></li>
+            <li><span><?php echo ucfirst($blog->headline); ?></span></li>
           </ul>
         </div>
       </div>
@@ -320,7 +322,7 @@
                     <?php echo ucfirst($blog->headline); ?>
                   </h1>
                   <p style="font-size:12px">
-                    <?php echo getFormattedDate($blog->created_at, 'd M, Y'); ?>, <b>{{ $blog->getAuthor->name }}</b>, <a href="<?php echo url('category/' . $blog->getCategory->slug); ?>/">
+                    <?php echo getFormattedDate($blog->created_at, 'd M, Y'); ?>, <b>{{ $blog->getAuthor->name }}</b>, <a href="<?php echo url('blog/' . $blog->getCategory->slug); ?>/">
                       {{ $blog->getCategory->cate_name }}
                     </a>
                   </p>
@@ -505,7 +507,9 @@
                     <?php
                   foreach ($blogs as $rn) {
                   ?>
-                    <li><a href="{{ route('blog.detail', ['slug' => $rn->slug]) }}/"><i class="icon-arrow-right"></i>
+                    <li><a
+                        href="{{ route('blog.detail', ['category_slug' => $rn->getCategory->slug, 'slug' => $rn->slug]) }}/"><i
+                          class="icon-arrow-right"></i>
                         <?php echo ucwords($rn->headline); ?>
                       </a></li>
                     <?php } ?>

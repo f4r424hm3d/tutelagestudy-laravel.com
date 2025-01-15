@@ -55,21 +55,19 @@
       <div class="ps-container">
         <div class="navigation__left">
           <div class="menu--product-categories">
-            <div class="menu__toggle"><i class="icon-menu"></i><a href="{{ url('blog') }}/">News & Articles</a></div>
-            {{-- <div class="menu__toggle"><i class="icon-menu"></i><span>News Category</span></div> --}}
-            {{-- <div class="menu__content">
+            <div class="menu__toggle"><i class="icon-menu"></i><a href="{{ url('blog') }}/">Blog</a></div>
+            <div class="menu__content">
               <ul class="menu--dropdown">
-                <?php
-                $allcat = News::orderBy('id','asc')->distinct('cate_id')->get();
-                foreach ($allcat as $cat) {
-                ?>
-                <li class="current-menu-item">
-                  <a href="<?php echo url('category/' . $cat->cate_slug); ?>/"><i class="icon-star"></i> {{
-                    $cat->getCategory->cate_name }}</a>
-                </li>
-                <?php } ?>
+                @php
+                  $allcat = News::orderBy('id', 'asc')->distinct('cate_id')->get();
+                @endphp
+                @foreach ($allcat as $cat)
+                  <li class="current-menu-item">
+                    <a href="<?php echo url('blog/' . $cat->cate_slug); ?>/"><i class="icon-star"></i> {{ $cat->getCategory->cate_name }}</a>
+                  </li>
+                @endforeach
               </ul>
-            </div> --}}
+            </div>
           </div>
         </div>
         <div class="navigation__right">
