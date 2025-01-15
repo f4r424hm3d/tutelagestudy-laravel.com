@@ -15,16 +15,16 @@ class BlogFc extends Controller
   {
     $categories = NewsCategory::all();
     $blogs = News::paginate(20)->withQueryString();
-    $data = compact('blogs', 'categories');
+    $total = $blogs->total();
+    $data = compact('blogs', 'categories', 'total');
     return view('front.blogs')->with($data);
   }
-  public function blogByCategory(Request $request)
+  public function blogByCategory($category_slug, Request $request)
   {
-    $category_slug = $request->segment(2);
     $categories = NewsCategory::all();
     $category = NewsCategory::where('slug', $category_slug)->firstOrFail();
     $blogs = News::where('cate_id', $category->id)->paginate(20)->withQueryString();
-
+    $total = News::count();
     $page_url = url()->current();
 
     $wrdseo = ['url' => 'newscategory'];
@@ -48,7 +48,7 @@ class BlogFc extends Controller
 
     $og_image_path = null;
 
-    $data = compact('category', 'blogs', 'categories', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path');
+    $data = compact('category', 'blogs', 'categories', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'total');
     return view('front.blog-by-category')->with($data);
   }
   public function blogdetail($category_slug, $slug, Request $request)

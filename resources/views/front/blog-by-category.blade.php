@@ -3,6 +3,65 @@
   @include('front.layouts.dynamic_page_meta_tag')
 @endpush
 @section('main-section')
+  <style>
+    .blog-tabs {
+      background-color: #0058ab;
+      margin: 10px 0px 0px;
+      border-radius: 4px;
+      padding: 12px;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      position: relative;
+      z-index: 6;
+      gap: 12px;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+    }
+
+    .blog-tabs .btn-lg {
+      font-size: 14px;
+      color: #fff;
+      border: 1px solid #fff;
+    }
+
+    .blog-tabs .btn-lg:hover {
+      background-color: #fff;
+      color: #0058ab;
+    }
+
+    .blog-tabs .btn-info {
+      background-color: #fff;
+      color: #0058ab;
+    }
+
+    .ps-blog__content {
+      border: 1px solid #fff;
+      padding: 12px;
+      background-color: #fff;
+      padding-top: 0px;
+      margin-top: 15px;
+      border-radius: 4px;
+    }
+
+    .btn-info-show {
+      border: 2px solid #0058ab;
+      padding: 15px;
+      border-radius: 3px;
+      margin-top: -2px;
+      z-index: 1;
+      position: relative;
+    }
+
+    .btn-info-hide {
+      /* border: 2px solid #ffffff; */
+      padding: 15px;
+      border-radius: 3px;
+      margin-top: -2px;
+      z-index: 1;
+      position: relative;
+    }
+  </style>
   <div class="ps-page--single ps-page--vendor">
     <div class="ps-breadcrumb">
       <div class="container">
@@ -18,51 +77,50 @@
         <div class="ps-section__wrapper">
           <div class="">
             <section class="ps-store-box">
-              <div class="ps-section__header mt-20">
-                <p>Showing 1 - 8 of 22 results</p>
-                <select class="form-control" style="width:200px; background:#fff" id="newscate">
-                  <option value="">Select Category</option>
-                  <?php
-                foreach ($categories as $cat) {
-                ?>
-                  <option value="<?php echo $cat->slug; ?>/" <?php echo $category->slug == $cat->slug ? 'Selected' : '';
-                  ?>>{{ $cat->cate_name }}</option>
-                  <?php } ?>
-                </select>
-              </div>
               <div class="ps-blog__content">
-                <h1 class="text-center">Our Latest Blog for MBBS {{ $category->cate_name }}</h1>
-                <h2 class="text-center">Check out our Latest news on Studying MBBS Abroad</h2><br>
-                <div class="row">
-                  <?php
-                foreach ($blogs as $row) {
-                ?>
-                  <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-12 ">
-                    <div class="ps-post ps-product">
-                      <div class="ps-post__thumbnail">
-                        <a class="ps-post__overlay"
-                          href="{{ route('blog.detail', ['category_slug' => $row->getCategory->slug, 'slug' => $row->slug]) }}/"></a>
-                        <img data-src="{{ asset($row->imgpath) }}" alt="<?php echo $row->headline; ?>"
-                          style="height: 150px;!important">
-                      </div>
-                      <div class="ps-post__content">
-                        <div class="ps-post__meta"><a
-                            href="{{ url('blog/' . $row->getCategory->slug) }}/">{{ $row->getCategory->slug }}</a></div>
+                <div class="blog-tabs">
+                  <a href="{{ route('blog') }}" class="btn btn-lg btn-outline-info">All Blog
+                    <span>({{ $total }})</span></a>
+                  @foreach ($categories as $row)
+                    <a href="{{ route('blog.category', ['category_slug' => $row->slug]) }}"
+                      class="btn btn-lg {{ $row->id == $category->id ? 'btn-info' : 'btn-outline-info' }}">{{ $row->cate_name }}
+                      <span>{{ $row->blogs->count() }}</span></a>
+                  @endforeach
+                </div>
+                <div class="btn-info-show btn-info-hide">
+                  <h1 class="text-center">Our Latest Blog for MBBS {{ $category->cate_name }}</h1>
+                  <div class="row">
+                    @foreach ($blogs as $row)
+                      <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-12 ">
+                        <div class="ps-post ps-product">
+                          <div class="ps-post__thumbnail">
+                            <a class="ps-post__overlay"
+                              href="{{ route('blog.detail', ['category_slug' => $row->getCategory->slug, 'slug' => $row->slug]) }}/"></a><img
+                              data-src="{{ asset($row->imgpath) }}" alt="{{ $row->headline }}"
+                              style="height: 150px;!important">
+                          </div>
+                          <div class="ps-post__content">
+                            <div class="ps-post__meta"><a
+                                href="{{ url('blog/' . $row->getCategory->slug) }}/">{{ $row->getCategory->slug }}</a>
+                            </div>
 
-                        <a class="ps-post__title"
-                          href="{{ route('blog.detail', ['category_slug' => $row->getCategory->slug, 'slug' => $row->slug]) }}/"
-                          title="<?php echo $row->headline; ?>" data-toggle="tooltip">
-                          <?php echo strlen($row->headline) > 48 ? substr($row->headline, 0, 48) . '...' : $row->headline; ?>
-                        </a>
-                        <p style="margin-bottom:0px; font-size:11px">
-                          <?php echo getFormattedDate($row->created_at, 'd M, Y'); ?> by<span> {{ $row->getAuthor->name }}</span>
-                        </p>
+                            <a class="ps-post__title"
+                              href="{{ route('blog.detail', ['category_slug' => $row->getCategory->slug, 'slug' => $row->slug]) }}/"
+                              title="{{ $row->headline }}" data-toggle="tooltip">
+                              {{ strlen($row->headline) > 48 ? substr($row->headline, 0, 48) . '...' : $row->headline }}
+                            </a>
+                            <p style="margin-bottom:0px; font-size:11px">
+                              <?php echo getFormattedDate($row->created_at, 'd M, Y'); ?> by<span> {{ $row->getAuthor->name }}</span>
+                            </p>
+                          </div>
+                        </div>
                       </div>
+                    @endforeach
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+                      {!! $blogs->links('pagination::bootstrap-5') !!}
                     </div>
                   </div>
-                  <?php } ?>
                 </div>
-                {!! $blogs->links('pagination::bootstrap-5') !!}
               </div>
             </section>
           </div>
