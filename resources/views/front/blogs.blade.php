@@ -61,6 +61,10 @@
       z-index: 1;
       position: relative;
     }
+
+    .pagination {
+      margin-top: 16px;
+    }
   </style>
   <div class="ps-page--single ps-page--vendor">
     <div class="ps-breadcrumb">
