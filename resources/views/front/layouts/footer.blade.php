@@ -32,19 +32,19 @@
           <li><a href="<?php echo url('contact-us'); ?>/" class="whitec">Our Offices</a></li>
           <li><a href="<?php echo url('privacy-policy'); ?>/" class="whitec">Privacy Policy</a></li>
           <li><a href="<?php echo url('term-and-condition'); ?>/" class="whitec">Term & Condition</a></li>
-          <li><a href="<?php echo url('/blog'); ?>/" class="whitec">News & Articles</a></li>
+          <li><a href="<?php echo url('/blog'); ?>/" class="whitec">Blog</a></li>
           <li><a href="<?php echo url('/neet-ug'); ?>/" class="whitec">NEET UG</a></li>
         </ul>
       </aside>
       <aside class="widget_footer col-md-3">
         <span class="widget-title">MBBS Countries</span>
         <ul class="ps-list--link" style="margin-bottom:25px">
-          <li><a href="https://www.tutelagestudy.com/mbbs-in-malaysia/" class="whitec">MBBS Malaysia</a></li>
-          <li><a href="https://www.tutelagestudy.com/mbbs-in-russia/" class="whitec">MBBS Russia</a></li>
-          <li><a href="https://www.tutelagestudy.com/mbbs-in-india/" class="whitec">MBBS India</a></li>
-          <li><a href="https://www.tutelagestudy.com/mbbs-in-georgia/" class="whitec">MBBS Georgia</a></li>
+          <li><a href="{{ url('/') }}/mbbs-in-malaysia/" class="whitec">MBBS Malaysia</a></li>
+          <li><a href="{{ url('/') }}/mbbs-in-russia/" class="whitec">MBBS Russia</a></li>
+          <li><a href="{{ url('/') }}/mbbs-in-india/" class="whitec">MBBS India</a></li>
+          <li><a href="{{ url('/') }}/mbbs-in-georgia/" class="whitec">MBBS Georgia</a></li>
           <li><a href="https://www.mymbbsadmission.com/mbbs-bangladesh/" class="whitec">MBBS Bangladesh</a></li>
-          <li><a href="https://www.tutelagestudy.com/destinations/" class="whitec">All MBBS Abroad Countries</a></li>
+          <li><a href="{{ url('/') }}/destinations/" class="whitec">All MBBS Abroad Countries</a></li>
         </ul>
       </aside>
       <aside class="widget_footer col-md-3">
@@ -74,25 +74,25 @@
             <div class="col-md-6">
               <p class="whitec text-right">
                 <span class="b1" style="color:#fff"><a
-                    href="https://www.tutelagestudy.com/services/mbbs-abroad-consultant-in-gurgaon/"
+                    href="{{ url('/') }}/services/mbbs-abroad-consultant-in-gurgaon/"
                     target="_blank">Gurugram</a> |</span>
                 <span class="b1" style="color:#fff"><a
-                    href="https://www.tutelagestudy.com/services/mbbs-abroad-consultant-in-delhi/"
-                    target="_blank">Delhi</a> | </span>
+                    href="{{ url('/') }}/services/mbbs-abroad-consultant-in-delhi/" target="_blank">Delhi</a> |
+                </span>
                 <span class="b1" style="color:#fff"><a
-                    href="https://www.tutelagestudy.com/services/mbbs-abroad-consultant-in-nuh-haryana/"
-                    target="_blank">Nuh</a> |</span>
+                    href="{{ url('/') }}/services/mbbs-abroad-consultant-in-nuh-haryana/" target="_blank">Nuh</a>
+                  |</span>
                 <span class="b1" style="color:#fff"><a
-                    href="https://www.tutelagestudy.com/services/mbbs-abroad-consultant-in-chennai/"
-                    target="_blank">Chennai</a> |</span>
+                    href="{{ url('/') }}/services/mbbs-abroad-consultant-in-chennai/" target="_blank">Chennai</a>
+                  |</span>
                 <span class="b1" style="color:#fff"><a
-                    href="https://www.tutelagestudy.com/services/mbbs-abroad-consultant-in-andhra-pradesh/"
+                    href="{{ url('/') }}/services/mbbs-abroad-consultant-in-andhra-pradesh/"
                     target="_blank">Tirupathi</a> |</span>
                 <span class="b1" style="color:#fff"><a
-                    href="https://www.tutelagestudy.com/services/mbbs-abroad-consultant-in-mumbai/"
-                    target="_blank">Mumbai</a> |</span>
+                    href="{{ url('/') }}/services/mbbs-abroad-consultant-in-mumbai/" target="_blank">Mumbai</a>
+                  |</span>
                 <span class="b1" style="color:#fff"><a
-                    href="https://www.tutelagestudy.com/services/mbbs-abroad-consultants-in-hyderabad/"
+                    href="{{ url('/') }}/services/mbbs-abroad-consultants-in-hyderabad/"
                     target="_blank">Hyderabad</a> |</span>
                 <span class="b1" style="color:#fff"><a href="{{ url('sitemap.xml') }}/"
                     target="_blank">Sitemap</a></span>

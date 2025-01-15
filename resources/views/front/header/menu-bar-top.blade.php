@@ -1,5 +1,4 @@
 @php
-  use App\Models\News;
   use App\Models\Destination;
   use App\Models\Country;
 
@@ -56,18 +55,6 @@
         <div class="navigation__left">
           <div class="menu--product-categories">
             <div class="menu__toggle"><i class="icon-menu"></i><a href="{{ url('blog') }}/">Blog</a></div>
-            <div class="menu__content">
-              <ul class="menu--dropdown">
-                @php
-                  $allcat = News::orderBy('id', 'asc')->distinct('cate_id')->get();
-                @endphp
-                @foreach ($allcat as $cat)
-                  <li class="current-menu-item">
-                    <a href="<?php echo url('blog/' . $cat->cate_slug); ?>/"><i class="icon-star"></i> {{ $cat->getCategory->cate_name }}</a>
-                  </li>
-                @endforeach
-              </ul>
-            </div>
           </div>
         </div>
         <div class="navigation__right">
