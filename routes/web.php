@@ -105,7 +105,7 @@ Route::get('blog/{category_slug}/{slug}', [BlogFc::class, 'blogdetail'])->name('
 Route::get('/mbbs-in-abroad/', [HomeFc::class, 'mbbsAbroad']);
 
 Route::get('/destinations/', [DestinationFc::class, 'index'])->name('destinations');
-Route::get('/destination/{destination_slug}/', [DestinationFc::class, 'destinationDetail'])->name('destination.detail');
+Route::get('/destinations/{destination_slug}/', [DestinationFc::class, 'destinationDetail'])->name('destination.detail');
 
 
 Route::get('/remove-filter/', [UniversityFc::class, 'removeFilter']);

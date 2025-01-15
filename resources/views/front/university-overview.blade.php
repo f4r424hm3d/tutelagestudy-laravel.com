@@ -101,7 +101,7 @@
                   @foreach ($overview as $row)
                     <div class="ps-product__box mb-20">
                       <div class="show-more-box">
-                        <div class="text show-more-height">
+                        <div class="text show-more-heigh">
                           <div class="ps-document">
                             <h2>
                               <?php echo $row->h; ?>
@@ -115,7 +115,6 @@
                             <?php echo $row->p; ?>
                           </div>
                         </div>
-                        <div class="show-more">(Show More)</div>
                       </div>
                     </div>
                   @endforeach
@@ -171,7 +170,6 @@
                   </div>
                   <?php } ?>
 
-                  {{-- @include('front.form.university-side-form') --}}
                   <style>
                     .author {
                       align-items: center;
