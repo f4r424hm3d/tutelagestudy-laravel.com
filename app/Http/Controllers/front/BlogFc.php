@@ -13,7 +13,7 @@ class BlogFc extends Controller
 {
   public function index(Request $request)
   {
-    $categories = NewsCategory::all();
+    $categories = NewsCategory::whereHas('blogs')->get();
     $blogs = News::paginate(20)->withQueryString();
     $total = $blogs->total();
     $data = compact('blogs', 'categories', 'total');
@@ -21,8 +21,8 @@ class BlogFc extends Controller
   }
   public function blogByCategory($category_slug, Request $request)
   {
-    $categories = NewsCategory::all();
-    $category = NewsCategory::where('slug', $category_slug)->firstOrFail();
+    $categories = NewsCategory::whereHas('blogs')->get();
+    $category = NewsCategory::where('slug', $category_slug)->whereHas('blogs')->firstOrFail();
     $blogs = News::where('cate_id', $category->id)->paginate(20)->withQueryString();
     $total = News::count();
     $page_url = url()->current();
@@ -53,9 +53,10 @@ class BlogFc extends Controller
   }
   public function blogdetail($category_slug, $slug, Request $request)
   {
-    $blog = News::where('slug', $slug)->firstOrFail();
+    $blogCategory = NewsCategory::where('slug', $category_slug)->firstOrFail();
+    $blog = News::where('slug', $slug)->where('cate_id', $blogCategory->id)->firstOrFail();
     $blogs = News::where('id', '!=', $blog->id)->limit(10)->get();
-    $categories = NewsCategory::all();
+    $categories = NewsCategory::whereHas('blogs')->get();
     $destinations = Destination::where('status', '1')->offset('0')->limit('8')->get();
 
     $page_url = url()->current();
