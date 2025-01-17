@@ -161,20 +161,15 @@
         <ul class="sub-menu">
           <figure>
             <div class="ps-scrl-bar">
-              <?php
-              foreach ($destinations as $row) {
-              ?>
-              <label class="check-filter">
-                <?php echo $row->getDestination->page_name; ?>
-                <input type="checkbox" id="pub" name="check" value="<?php echo $row->getDestination->country; ?>"
-                  onclick="<?php echo isset($_SESSION['unifilter_destination']) && $_SESSION['unifilter_destination'] == $row->getDestination->page_name ? "
-                  removeAppliedFilter('unifilter_destination')" : "AppliedFilter('unifilter_destination','" .
-                  $row->getDestination->country . "')"; ?>"
-                <?php echo isset($_SESSION['unifilter_destination']) && $_SESSION['unifilter_destination'] == $row->getDestination->page_name ? "checked" : ""; ?>
-                />
-                <span class="checkmark"></span>
-              </label>
-              <?php } ?>
+              @foreach ($destinations as $row)
+                <label class="check-filter">
+                  {{ $row->page_name }}
+                  <input type="checkbox" id="pub" name="check" value="{{ $row->country }}"
+                    onclick="{{ session()->has('unifilter_destination') && session('unifilter_destination') == $row->id ? "removeAppliedFilter('unifilter_destination')" : "AppliedFilter('unifilter_destination','" . $row->slug . "')" }}"
+                    {{ session()->has('unifilter_destination') && session('unifilter_destination') == $row->id ? 'checked' : '' }} />
+                  <span class="checkmark"></span>
+                </label>
+              @endforeach
             </div>
           </figure>
         </ul>

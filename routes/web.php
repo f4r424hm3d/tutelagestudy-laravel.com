@@ -117,11 +117,14 @@ foreach ($exams as $row) {
 }
 
 Route::get('/medical-universities/', [UniversityFc::class, 'index']);
+Route::get('/medical-universities/{destination_slug}', [UniversityFc::class, 'universitybyCountry']);
+
 Route::get('/university/remove-filter/', [UniversityFc::class, 'removeFilter']);
-$universities = University::select('country_slug')->groupBy('country_slug')->get();
-foreach ($universities as $row) {
-  Route::get('/medical-universities-in-' . $row->country_slug . '/', [UniversityFc::class, 'universitybyCountry']);
-}
+
+// $universities = University::select('country_slug')->groupBy('country_slug')->get();
+// foreach ($universities as $row) {
+//   Route::get('/medical-universities-in-' . $row->country_slug . '/', [UniversityFc::class, 'universitybyCountry']);
+// }
 Route::get('author/{slug}/', [AuthorFc::class, 'index']);
 
 Route::post('/inquiry/submit-university-inquiry/', [InquiryController::class, 'universityIniquiry']);

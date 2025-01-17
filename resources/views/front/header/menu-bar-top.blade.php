@@ -53,15 +53,16 @@
     <nav class="navigation">
       <div class="ps-container">
         <div class="navigation__left">
-          <div class="menu--product-categories">
-            <div class="menu__toggle"><i class="icon-menu"></i><a href="{{ url('blog') }}/">Blog</a></div>
-          </div>
+          <ul class="menu">
+            <li><a href="<?php echo url('blog'); ?>"><i class="icon-menu"></i> Blog</a><span class="sub-toggle"></span> </li>
+          </ul>
+
         </div>
         <div class="navigation__right">
           <ul class="menu">
             <li><a href="<?php echo url('/'); ?>">Home</a><span class="sub-toggle"></span> </li>
 
-            <li><a href="<?php echo url('medical-universities'); ?>/">All Universities</a><span class="sub-toggle"></span></li>
+            <li><a href="<?php echo url('medical-universities'); ?>/">Medical Universities</a><span class="sub-toggle"></span></li>
             <li><a href="<?php echo url('mbbs-in-abroad'); ?>/">MBBS Abroad</a><span class="sub-toggle"></span></li>
 
             <li class="menu-item-has-children has-mega-menu">

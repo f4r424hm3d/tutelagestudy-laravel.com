@@ -11,6 +11,10 @@ class Destination extends Model
   protected $guarded = [];
   public function getUser()
   {
-    return $this->hasOne(User::class,'id','user_id');
+    return $this->hasOne(User::class, 'id', 'user_id');
+  }
+  public function universities()
+  {
+    return $this->hasMany(University::class, 'destination_id', 'id');
   }
 }

@@ -6,65 +6,64 @@
   <!-- breadcrumb schema Code -->
   @if (session('unifilter_destination'))
     <script type="application/ld+json">
-  {
-    "@context": "https://schema.org/",
-    "@type": "BreadcrumbList",
-    "name": "<?php echo ucwords($meta_title); ?>",
-    "description": "<?php echo $meta_description; ?>",
-    "itemListElement": [{
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "<?php echo url('/'); ?>/"
-    }, {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "{{ session('unifilter_destination') }}",
-      "item": "{{ url(slugify(session('unifilter_destination'))) }}"
-    }, {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "Universities",
-      "item": "{{ $page_url }}/"
-    }]
-  }
-</script>
+    {
+      "@context": "https://schema.org/",
+      "@type": "BreadcrumbList",
+      "name": "<?php echo ucwords($meta_title); ?>",
+      "description": "<?php echo $meta_description; ?>",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "<?php echo url('/'); ?>/"
+      }, {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "{{ session('unifilter_destination') }}",
+        "item": "{{ url(slugify(session('unifilter_destination'))) }}"
+      }, {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Universities",
+        "item": "{{ $page_url }}/"
+      }]
+    }
+  </script>
   @else
     <script type="application/ld+json">
-  {
-    "@context": "https://schema.org/",
-    "@type": "BreadcrumbList",
-    "name": "<?php echo ucwords($meta_title); ?>",
-    "description": "<?php echo $meta_description; ?>",
-    "itemListElement": [{
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "<?php echo url('/'); ?>/"
-    }, {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Universities",
-      "item": "{{ $page_url }}/"
-    }]
-  }
-</script>
+      {
+        "@context": "https://schema.org/",
+        "@type": "BreadcrumbList",
+        "name": "<?php echo ucwords($meta_title); ?>",
+        "description": "<?php echo $meta_description; ?>",
+        "itemListElement": [{
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "<?php echo url('/'); ?>/"
+        }, {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Universities",
+          "item": "{{ $page_url }}/"
+        }]
+      }
+    </script>
   @endif
-
   <!-- webpage schema Code Destinations -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org/",
-    "@type": "webpage",
-    "url": "<?php echo url(Request::segment(1)); ?>/",
-    "name": "Medical Universities",
-    "description": "<?php echo $meta_description; ?>",
-    "inLanguage": "en-US",
-    "keywords": [
-      "<?php echo $meta_keyword; ?>"
-    ]
-  }
-</script>
+    {
+      "@context": "https://schema.org/",
+      "@type": "webpage",
+      "url": "<?php echo url(Request::segment(1)); ?>/",
+      "name": "Medical Universities",
+      "description": "<?php echo $meta_description; ?>",
+      "inLanguage": "en-US",
+      "keywords": [
+        "<?php echo $meta_keyword; ?>"
+      ]
+    }
+  </script>
 @endpush
 @section('main-section')
   <style>
@@ -141,10 +140,13 @@
       <ul class="breadcrumb bread-scrollbar">
         <li><a href="{{ url('/') }}">Home</a></li>
         @if (session('unifilter_destination'))
-          <li><a href="{{ url(slugify(session('unifilter_destination'))) }}/">{{ session('unifilter_destination') }}</a>
+          <li><a href="{{ url('medical-universities') }}">Medical Universities</a></li>
+          <li>
+            {{ $currentDestinationdet->page_name }}
           </li>
+        @else
+          <li>Medical Universities</li>
         @endif
-        <li>Medical Universities</li>
       </ul>
     </div>
   </div>
@@ -191,11 +193,11 @@
               }
             </style>
             <div class="row filter-hdr">
-              <?php if (session('unifilter_destination')) { ?>
-              <a href="javascript:void(0)" onclick="removeAppliedFilter('unifilter_destination')">
-                {{ session('unifilter_destination') ?? '' }} <span>×</span>
-              </a>
-              <?php } ?>
+              @if (session('unifilter_destination'))
+                <a href="javascript:void(0)" onclick="removeAppliedFilter('unifilter_destination')">
+                  {{ $currentDestinationdet->page_name }} <span>×</span>
+                </a>
+              @endif
             </div>
           </div>
         </div>
@@ -362,7 +364,7 @@
       }
     }
 
-    function AppliedFilter(col, val) {
+    function AppliedFilter__XXX(col, val) {
       //alert(col + ' ' + val);
       var fval = val.toLowerCase();
       fval = fval.replace(" ", "-");
@@ -370,6 +372,19 @@
       if (col == 'unifilter_destination') {
         var path = 'medical-universities-in-' + fval;
         window.location.replace("<?php echo url('/'); ?>/" + path + "/");
+      } else {
+        location.reload(true);
+      }
+    }
+
+    function AppliedFilter(col, val) {
+      //alert(col + ' ' + val);
+      var fval = val.toLowerCase();
+      fval = fval.replace(" ", "-");
+
+      if (col == 'unifilter_destination') {
+        var path = fval;
+        window.location.replace("{{ url('medical-universities') }}/" + path + "/");
       } else {
         location.reload(true);
       }
