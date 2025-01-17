@@ -264,53 +264,51 @@
                     </div>
                     <br>
                     <div class="ps-tabs">
-                      <?php
-                    if ($total > 0) {
-                      foreach ($rows as $key) {
-                    ?>
-                      <div class="ps-tab active" id="tab-2">
-                        <div>
-                          <div class="ps-product ps-product--wide">
-                            <div class="ps-product__thumbnail universitylogo text-center col-md-2 col-sm-12 col-xs-12">
-                              <img data-src="<?php echo url($key->imgpath); ?>" alt="<?php echo $key->name; ?> Logo" loading="lazy">
-                            </div>
-                            <div class="ps-product__container col-md-7 col-sm-12 col-xs-12">
-                              <div class="ps-product__content">
-                                <a class="ps-product__title b" href="<?php echo url($key->country_slug . '/' . $key->uname); ?>/">
-                                  <h5>
-                                    <?php echo $key->name; ?>
-                                  </h5>
-                                </a>
-                                <p>
-                                  <i class="fa fa-university"></i><span>
-                                    <?php echo $key->getInstType->type ?? 'N/A'; ?>
-                                  </span>
-                                </p>
+
+                      @if ($total > 0)
+                        @foreach ($rows as $key)
+                          <div class="ps-tab active" id="tab-2">
+                            <div>
+                              <div class="ps-product ps-product--wide">
+                                <div
+                                  class="ps-product__thumbnail universitylogo text-center col-md-2 col-sm-12 col-xs-12">
+                                  <img data-src="{{ asset($key->imgpath) }}" alt="{{ $key->name }} Logo"
+                                    loading="lazy">
+                                </div>
+                                <div class="ps-product__container col-md-7 col-sm-12 col-xs-12">
+                                  <div class="ps-product__content">
+                                    <a class="ps-product__title b"
+                                      href="{{ url('medical-universities/' . $key->uname) }}/">
+                                      <h5>
+                                        {{ $key->name }}
+                                      </h5>
+                                    </a>
+                                    <p>
+                                      <i class="fa fa-university"></i><span>
+                                        {{ $key->getInstType->type ?? 'N/A' }}
+                                      </span>
+                                    </p>
+                                  </div>
+                                </div>
+                                <div class="ps-product__container col-md-3 col-sm-12 col-xs-12 text-center">
+                                  <p style="margin:0px">
+                                    <a class="ps-btn mt-2 w-100" href="{{ url('mbbs-abroad-counselling') }}/"><i
+                                        class="icon-question-circle"></i> Request Info</a>
+                                  </p>
+                                </div>
                               </div>
                             </div>
-                            <div class="ps-product__container col-md-3 col-sm-12 col-xs-12 text-center">
-                              <p style="margin:0px">
-                                <!-- <a target="_blank" rel="noopener noreferrer" class="ps-btn w-100" style="background:#0047ab" href="<?php echo url($key->uname . '/write-review'); ?>"><i class=" fa fa-comments"></i> Write review</a> -->
-
-                                <a class="ps-btn mt-2 w-100" href="{{ url('mbbs-abroad-counselling') }}/"><i
-                                    class="icon-question-circle"></i> Request Info</a>
-                              </p>
+                          </div>
+                        @endforeach
+                      @else
+                        <div class="ps-shopping__header">
+                          <div class="row">
+                            <div class="header">
+                              <span>No data found</span>
                             </div>
                           </div>
                         </div>
-                      </div>
-                      <?php
-                      }
-                    } else {
-                      ?>
-                      <div class="ps-shopping__header">
-                        <div class="row">
-                          <div class="header">
-                            <span>No data found</span>
-                          </div>
-                        </div>
-                      </div>
-                      <?php } ?>
+                      @endif
 
                       <div class="ps-pagination">
                         {!! $rows->links('pagination::bootstrap-4') !!}
@@ -355,7 +353,7 @@
           },
           success: function(b) {
             if (a == "unifilter_destination") {
-              window.location.replace("<?php echo url('medical-universities/'); ?>/");
+              window.location.replace("{{ url('medical-universities/') }}/");
             } else {
               location.reload(true);
             }
@@ -371,7 +369,7 @@
 
       if (col == 'unifilter_destination') {
         var path = 'medical-universities-in-' + fval;
-        window.location.replace("<?php echo url('/'); ?>/" + path + "/");
+        window.location.replace("{{ url('/') }}/" + path + "/");
       } else {
         location.reload(true);
       }

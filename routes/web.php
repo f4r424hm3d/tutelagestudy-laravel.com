@@ -116,15 +116,7 @@ foreach ($exams as $row) {
   Route::get('/' . $row->exam_slug . '/{slug}' . '/', [ExamFc::class, 'examPageDetail']);
 }
 
-Route::get('/medical-universities/', [UniversityFc::class, 'index']);
-Route::get('/medical-universities/{destination_slug}', [UniversityFc::class, 'universitybyCountry']);
 
-Route::get('/university/remove-filter/', [UniversityFc::class, 'removeFilter']);
-
-// $universities = University::select('country_slug')->groupBy('country_slug')->get();
-// foreach ($universities as $row) {
-//   Route::get('/medical-universities-in-' . $row->country_slug . '/', [UniversityFc::class, 'universitybyCountry']);
-// }
 Route::get('author/{slug}/', [AuthorFc::class, 'index']);
 
 Route::post('/inquiry/submit-university-inquiry/', [InquiryController::class, 'universityIniquiry']);
@@ -146,11 +138,21 @@ Route::get('/form/getCountry/', [InquiryController::class, 'getCountry']);
 
 $universities2 = University::all();
 foreach ($universities2 as $row) {
-  Route::get($row->country_slug . '/' . $row->uname . '/', [UniversityProfileFc::class, 'index']);
-  Route::get($row->country_slug . '/' . $row->uname . '/write-review/', [UniversityProfileFc::class, 'writeReview']);
-  Route::get($row->country_slug . '/' . $row->uname . '/reviews/', [UniversityProfileFc::class, 'reviews']);
-  Route::get($row->country_slug . '/' . $row->uname . '/gallery/', [UniversityProfileFc::class, 'gallery']);
+  Route::get('medical-universities/' . $row->uname . '/', [UniversityProfileFc::class, 'index']);
+  Route::get('medical-universities/' . $row->uname . '/write-review/', [UniversityProfileFc::class, 'writeReview']);
+  Route::get('medical-universities/' . $row->uname . '/reviews/', [UniversityProfileFc::class, 'reviews']);
+  Route::get('medical-universities/' . $row->uname . '/gallery/', [UniversityProfileFc::class, 'gallery']);
 }
+
+Route::get('/medical-universities/', [UniversityFc::class, 'index']);
+Route::get('/medical-universities/{destination_slug}', [UniversityFc::class, 'universitybyCountry']);
+
+Route::get('/university/remove-filter/', [UniversityFc::class, 'removeFilter']);
+
+// $universities = University::select('country_slug')->groupBy('country_slug')->get();
+// foreach ($universities as $row) {
+//   Route::get('/medical-universities-in-' . $row->country_slug . '/', [UniversityFc::class, 'universitybyCountry']);
+// }
 
 /* ADMIN ROUTES BEFORE LOGIN */
 Route::middleware(['adminLoggedOut'])->group(function () {
