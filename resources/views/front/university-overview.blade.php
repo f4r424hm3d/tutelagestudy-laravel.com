@@ -14,22 +14,17 @@
     "@type": "ListItem",
     "position": 1,
     "name": "Home",
-    "item": "<?php echo url('/'); ?>/"
+    "item": "{{  url('/') }}/"
     }, {
     "@type": "ListItem",
     "position": 2,
-    "name": "{{ $university->getDestination->page_name }}",
-    "item": "{{ url($university->getDestination->slug) }}/"
-    }, {
-    "@type": "ListItem",
-    "position": 3,
-    "name": "{{ $university->country }} Medical Universities",
-    "item": "{{ url('medical-universities-in-' . $university->country_slug) }}/"
+    "name": "Medical Universities",
+    "item": "{{ url('medical-universities') }}/"
     }, {
       "@type": "ListItem",
-      "position": 4,
+      "position": 3,
       "name": "{{ $university->name }}",
-      "item": "{{ $page_url }}/"
+      "item": "{{ $url()->current() }}/"
     }]
   }
 </script>
@@ -74,16 +69,7 @@
     <div class="ps-container">
       <ul class="breadcrumb bread-scrollbar">
         <li><a href="{{ url('/') }}">Home</a></li>
-        <li>
-          <a href="{{ url($university->getDestination->slug) }}/">
-            {{ $university->getDestination->page_name }}
-          </a>
-        </li>
-        <li>
-          <a href="{{ url('medical-universities-in-' . $university->country_slug) }}/">
-            {{ $university->country }} Medical Universities
-          </a>
-        </li>
+        <li><a href="{{ url('medical-universities') }}">Medical Universities</a></li>
         <li>{{ $university->name }}</li>
       </ul>
     </div>

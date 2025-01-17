@@ -15,17 +15,17 @@
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "<?php echo url('/'); ?>/"
+        "item": "{{ url('/') }}/"
       }, {
         "@type": "ListItem",
         "position": 2,
-        "name": "{{ session('unifilter_destination') }}",
-        "item": "{{ url(slugify(session('unifilter_destination'))) }}"
+        "name": "Medical Universities",
+        "item": "{{ url('medical-universities') }}"
       }, {
         "@type": "ListItem",
         "position": 3,
-        "name": "Universities",
-        "item": "{{ $page_url }}/"
+        "name": "{{ $currentDestinationdet->page_name }}",
+        "item": "{{ url()->current() }}/"
       }]
     }
   </script>
@@ -40,12 +40,12 @@
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "<?php echo url('/'); ?>/"
+          "item": "{{ url('/') }}/"
         }, {
           "@type": "ListItem",
           "position": 2,
-          "name": "Universities",
-          "item": "{{ $page_url }}/"
+          "name": "Medical Universities",
+          "item": "{{ url()->current() }}/"
         }]
       }
     </script>
