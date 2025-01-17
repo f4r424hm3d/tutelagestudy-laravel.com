@@ -39,10 +39,10 @@
       <aside class="widget_footer col-md-3">
         <span class="widget-title">MBBS Countries</span>
         <ul class="ps-list--link" style="margin-bottom:25px">
-          <li><a href="{{ url('/') }}/mbbs-in-malaysia/" class="whitec">MBBS Malaysia</a></li>
-          <li><a href="{{ url('/') }}/mbbs-in-russia/" class="whitec">MBBS Russia</a></li>
-          <li><a href="{{ url('/') }}/mbbs-in-india/" class="whitec">MBBS India</a></li>
-          <li><a href="{{ url('/') }}/mbbs-in-georgia/" class="whitec">MBBS Georgia</a></li>
+          <li><a href="{{ url('/') }}/destinations/mbbs-in-malaysia/" class="whitec">MBBS Malaysia</a></li>
+          <li><a href="{{ url('/') }}/destinations/mbbs-in-russia/" class="whitec">MBBS Russia</a></li>
+          <li><a href="{{ url('/') }}/destinations/mbbs-in-india/" class="whitec">MBBS India</a></li>
+          <li><a href="{{ url('/') }}/destinations/mbbs-in-georgia/" class="whitec">MBBS Georgia</a></li>
           <li><a href="https://www.mymbbsadmission.com/mbbs-bangladesh/" class="whitec">MBBS Bangladesh</a></li>
           <li><a href="{{ url('/') }}/destinations/" class="whitec">All MBBS Abroad Countries</a></li>
         </ul>

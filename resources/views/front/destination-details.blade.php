@@ -199,24 +199,6 @@
                 @endif
               </div>
               <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
-                @if (count($otherexam) > 1)
-                  <!--<div class="ps-section__left" style="top:60px; background:#fff">-->
-                  <!--  <aside class="ps-widget--account-dashboard">-->
-                  <!--    <div class="ps-widget__content">-->
-                  <!--      <div style="font-size:18px; color:#fff; background:#9D0E0E; padding:10px; text-align:center">-->
-                  <!--        MBBS Abroad Countries</div>-->
-                  <!--      <ul style="max-height:380px; overflow:auto">-->
-                  <!--        <?php foreach ($otherexam as $row) { ?>-->
-                  <!--        <li><a href="<?php echo url($row->slug); ?>/"><i class="icon-arrow-right"></i> MBBS From-->
-                  <!--            <?php echo $row->country; ?>-->
-                  <!--          </a></li>-->
-                  <!--        <?php } ?>-->
-                  <!--      </ul>-->
-                  <!--    </div>-->
-                  <!--  </aside>-->
-                  <!--</div>-->
-                @endif
-
                 @if ($tu->count() > 0)
                   <div class="ps-section__left" style="top:60px; background:#fff">
                     <aside class="ps-widget--account-dashboard">
@@ -226,7 +208,7 @@
                         <ul style="max-height:480px; overflow:auto">
                           @foreach ($tu as $tu)
                             <li>
-                              <a href="<?php echo url($tu->country_slug . '/' . $tu->uname); ?>/"><i class="icon-arrow-right"></i>
+                              <a href="<?php echo url('medical-universities/' . $tu->uname); ?>/"><i class="icon-arrow-right"></i>
                                 <?php echo $tu->name; ?>
                               </a>
                             </li>
@@ -256,9 +238,9 @@
                   </div>
                   <div class="ps-section__content">
                     <div class="ps-carousel--nav owl-slider" data-owl-auto="true" data-owl-loop="true"
-                      data-owl-speed="10000" data-owl-gap="30" data-owl-nav="true" data-owl-dots="false"
-                      data-owl-item="2" data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="3"
-                      data-owl-item-lg="3" data-owl-duration="1000" data-owl-mousedrag="on">
+                      data-owl-speed="10000" data-owl-gap="30" data-owl-nav="true" data-owl-dots="false" data-owl-item="2"
+                      data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="3" data-owl-item-lg="3"
+                      data-owl-duration="1000" data-owl-mousedrag="on">
                       <?php foreach ($testimonials as $test) { ?>
                       <div class="ps-block--testimonial pt-3 pb-3 pl-5 pr-5">
                         <div class="ps-block__header"><img data-src="<?php echo $test->image != null ? asset($test->image) : asset('front/user-tesimonial-photo.jpg'); ?>"
