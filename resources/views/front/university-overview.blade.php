@@ -24,7 +24,7 @@
       "@type": "ListItem",
       "position": 3,
       "name": "{{ $university->name }}",
-      "item": "{{ $url()->current() }}/"
+      "item": "{{ url()->current() }}/"
     }]
   }
 </script>
