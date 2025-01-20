@@ -5,7 +5,7 @@
   <!-- Sitemap -->
   <?php foreach ($universities as $row) { ?>
   <url>
-    <loc>{{ url($row->country_slug . '/' . $row->uname) }}/</loc>
+    <loc>{{ url('medical-universities/' . $row->uname) }}/</loc>
     <priority>0.51</priority>
     <changefreq>always</changefreq>
     <lastmod><?php echo date('Y-m-d', strtotime($row->updated_at)); ?></lastmod>
