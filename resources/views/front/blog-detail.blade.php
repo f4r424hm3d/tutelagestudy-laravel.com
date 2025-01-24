@@ -123,7 +123,39 @@
                   <a class="ps-btn" onclick="window.location.href='{{ url('mbbs-abroad-counselling/') }}/'"
                     href="javascript:void()">Enquire Now</a>
                 </div>
-                <hr>
+                @if ($blog->contents->count() > 0)
+                  <div class="card">
+                    <div class="card-header">
+                      <h3>Table of Content</h3>
+                    </div>
+                    <div class="card-body pl-4 pr-4 bg-light">
+                      <div class="table-of-content">
+                        <ol class="top-level">
+                          @foreach ($blog->parentContents as $row)
+                            <li>
+                              <a href="#{{ $row->slug }}"><b>{{ $row->title }}</b></a>
+
+                              @if ($row->childContents->count() > 0)
+                                <ol>
+                                  @foreach ($row->childContents as $child)
+                                    <li><a href="#{{ $child->slug }}">{{ $child->title }}</a></li>
+                                  @endforeach
+                                </ol>
+                              @endif
+                            </li>
+                          @endforeach
+                        </ol>
+                      </div>
+                    </div>
+                  </div>
+                  <hr>
+                  @foreach ($blog->contents as $row)
+                    <div class="ps-document">
+                      <h2 id="{{ $row->slug }}">{{ $row->title }}</h2>
+                      <p>{!! $row->description !!}</p><br>
+                    </div>
+                  @endforeach
+                @endif
                 <div class="ps-document">
                   {!! $blog->description !!}
                 </div>

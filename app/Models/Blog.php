@@ -22,7 +22,7 @@ class Blog extends Model
   }
   public function parentContents()
   {
-    return $this->hasMany(BlogContent::class, 'blog_id')->where('parent_id', null);
+    return $this->hasMany(BlogContent::class, 'blog_id', 'id')->orderBy('position', 'asc')->where('parent_id', null);
   }
   // public function faqs()
   // {

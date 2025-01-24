@@ -16,4 +16,8 @@ class BlogContent extends Model
   {
     return $this->hasOne(BlogContent::class, 'id', 'parent_id');
   }
+  public function childContents()
+  {
+    return $this->hasMany(BlogContent::class, 'parent_id', 'id')->orderBy('position', 'asc')->where('parent_id', '!=', null);
+  }
 }
