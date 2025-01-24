@@ -139,9 +139,16 @@ Route::get('/form/getCountry/', [InquiryController::class, 'getCountry']);
 $universities2 = University::all();
 foreach ($universities2 as $row) {
   Route::get('medical-universities/' . $row->uname . '/', [UniversityProfileFc::class, 'index']);
-  Route::get('medical-universities/' . $row->uname . '/write-review/', [UniversityProfileFc::class, 'writeReview']);
-  Route::get('medical-universities/' . $row->uname . '/reviews/', [UniversityProfileFc::class, 'reviews']);
-  Route::get('medical-universities/' . $row->uname . '/gallery/', [UniversityProfileFc::class, 'gallery']);
+  Route::get($row->country_slug . '/' . $row->uname . '/', function () use ($row) {
+    return redirect('medical-universities/' . $row->uname . '/', 301);
+  });
+}
+
+$destinations = Destination::all();
+foreach ($destinations as $row) {
+  Route::get($row->slug, function () use ($row) {
+    return redirect('destinations/' . $row->slug . '/', 301);
+  });
 }
 
 Route::get('/medical-universities/', [UniversityFc::class, 'index']);

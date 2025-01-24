@@ -34,9 +34,9 @@
                 <div class="ps-product-group">
                   @foreach ($universities1 as $tu)
                     <div class="ps-product--horizontal">
-                      <div class="ps-product__thumbnail"> <a href="<?php echo url($tu->country_slug . '/' . $tu->uname); ?>/"> <img src="<?php echo url($tu->imgpath); ?>"
+                      <div class="ps-product__thumbnail"> <a href="<?php echo url('medical-universities/' . $tu->uname); ?>/"> <img src="<?php echo url($tu->imgpath); ?>"
                             alt="<?php echo $tu->name; ?>"> </a> </div>
-                      <div class="ps-product__content"> <a class="ps-product__title" href="<?php echo url($tu->country_slug . '/' . $tu->uname); ?>/">
+                      <div class="ps-product__content"> <a class="ps-product__title" href="<?php echo url('medical-universities/' . $tu->uname); ?>/">
                           <?php echo $tu->name; ?>
                         </a> </div>
                     </div>
@@ -45,9 +45,9 @@
                 <div class="ps-product-group">
                   @foreach ($universities2 as $tu)
                     <div class="ps-product--horizontal">
-                      <div class="ps-product__thumbnail"> <a href="<?php echo url($tu->country_slug . '/' . $tu->uname); ?>/"> <img src="<?php echo url($tu->imgpath); ?>"
+                      <div class="ps-product__thumbnail"> <a href="<?php echo url('medical-universities/' . $tu->uname); ?>/"> <img src="<?php echo url($tu->imgpath); ?>"
                             alt="<?php echo $tu->name; ?>"> </a> </div>
-                      <div class="ps-product__content"> <a class="ps-product__title" href="<?php echo url($tu->country_slug . '/' . $tu->uname); ?>/">
+                      <div class="ps-product__content"> <a class="ps-product__title" href="<?php echo url('medical-universities/' . $tu->uname); ?>/">
                           <?php echo $tu->name; ?>
                         </a> </div>
                     </div>
@@ -56,9 +56,9 @@
                 <div class="ps-product-group">
                   @foreach ($universities3 as $tu)
                     <div class="ps-product--horizontal">
-                      <div class="ps-product__thumbnail"> <a href="<?php echo url($tu->country_slug . '/' . $tu->uname); ?>/"> <img src="<?php echo url($tu->imgpath); ?>"
+                      <div class="ps-product__thumbnail"> <a href="<?php echo url('medical-universities/' . $tu->uname); ?>/"> <img src="<?php echo url($tu->imgpath); ?>"
                             alt="<?php echo $tu->name; ?>"> </a> </div>
-                      <div class="ps-product__content"> <a class="ps-product__title" href="<?php echo url($tu->country_slug . '/' . $tu->uname); ?>/">
+                      <div class="ps-product__content"> <a class="ps-product__title" href="<?php echo url('medical-universities/' . $tu->uname); ?>/">
                           <?php echo $tu->name; ?>
                         </a> </div>
                     </div>
