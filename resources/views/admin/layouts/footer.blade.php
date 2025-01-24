@@ -99,13 +99,13 @@
       <h6 class="mt-4 mb-3 pt-2 sidebar-setting">Sidebar Size</h6>
 
       <div class="form-check sidebar-setting">
-        <input class="form-check-input" type="radio" name="sidebar-size" id="sidebar-size-default" value="default"
-          onchange="document.body.setAttribute('data-sidebar-size', 'lg')" />
+        <input class="form-check-input" type="radio" name="sidebar-size" id="sidebar-size-default"
+          value="default" onchange="document.body.setAttribute('data-sidebar-size', 'lg')" />
         <label class="form-check-label" for="sidebar-size-default">Default</label>
       </div>
       <div class="form-check sidebar-setting">
-        <input class="form-check-input" type="radio" name="sidebar-size" id="sidebar-size-compact" value="compact"
-          onchange="document.body.setAttribute('data-sidebar-size', 'md')" />
+        <input class="form-check-input" type="radio" name="sidebar-size" id="sidebar-size-compact"
+          value="compact" onchange="document.body.setAttribute('data-sidebar-size', 'md')" />
         <label class="form-check-label" for="sidebar-size-compact">Compact</label>
       </div>
       <div class="form-check sidebar-setting">
@@ -135,11 +135,13 @@
       <h6 class="mt-4 mb-3 pt-2">Direction</h6>
 
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="layout-direction" id="layout-direction-ltr" value="ltr" />
+        <input class="form-check-input" type="radio" name="layout-direction" id="layout-direction-ltr"
+          value="ltr" />
         <label class="form-check-label" for="layout-direction-ltr">LTR</label>
       </div>
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="layout-direction" id="layout-direction-rtl" value="rtl" />
+        <input class="form-check-input" type="radio" name="layout-direction" id="layout-direction-rtl"
+          value="rtl" />
         <label class="form-check-label" for="layout-direction-rtl">RTL</label>
       </div>
     </div>
@@ -157,6 +159,33 @@
         </div>
         <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
           aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  function showToastr(h, msg, type) {
+    $('#toastDiv').attr('class', 'align-items-center text-white bg-' + type + ' border-0');
+    $('#toastMsg').text(msg);
+    $('#liveToast').show();
+    setTimeout(() => {
+      $('#liveToast').hide();
+    }, 5000);
+  }
+
+  function closeToastr() {
+    $('#liveToast').hide();
+  }
+</script>
+<div class="position-fixed bottom-0 end-0 p-3">
+  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="align-items-center text-white bg-success border-0" id="toastDiv">
+      <div class="d-flex">
+        <div class="toast-body" id="toastMsg">
+
+        </div>
+        <button onclick="closeToastr()" type="button" class="btn-close btn-close-white me-2 m-auto"
+          data-bs-dismiss="toast" aria-label="Close"></button>
       </div>
     </div>
   </div>

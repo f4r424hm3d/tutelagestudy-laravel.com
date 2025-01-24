@@ -26,7 +26,7 @@ class BlogContentC extends Controller
       $sd = BlogContent::find($id);
       if (!is_null($sd)) {
         $ft = 'edit';
-        $url = url('admin/' . $this->page_route . '/' . $blog_id . '/update/' . $id);
+        $url = url('admin/' . $this->page_route . '/' . $blog_id . '/update/' . $id . '/');
         $title = 'Update';
       } else {
         return redirect('admin/' . $this->page_route . '/' . $blog_id);

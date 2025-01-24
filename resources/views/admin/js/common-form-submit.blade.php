@@ -16,7 +16,7 @@
       event.preventDefault();
       $(".errSpan").text('');
       $.ajax({
-        url: "{{ aurl($page_route . '/store/') }}",
+        url: "{{ aurl($page_route . '/store/') }}/",
         method: "POST",
         data: new FormData(this),
         contentType: false,

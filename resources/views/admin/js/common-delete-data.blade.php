@@ -12,11 +12,11 @@
     }).then((result) => {
       if (result.isConfirmed) {
         $.ajax({
-          url: "{{ url('admin/' . $page_route . '/delete') }}" + "/" + id,
+          url: "{{ url('admin/' . $page_route . '/delete') }}" + "/" + id + "/",
           success: function(data) {
             if (data.success == true) {
               getData();
-              Swal.fire('Deleted!','Your record has been deleted.','success');
+              Swal.fire('Deleted!', 'Your record has been deleted.', 'success');
             }
           }
         });

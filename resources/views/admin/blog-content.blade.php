@@ -42,7 +42,7 @@
               </h4>
             </div>
             <div class="card-body" id="tblCDiv">
-              <form id="{{ $ft == 'add' ? 'dataForm' : 'editForm' }}" {{ $ft == 'edit' ? 'action=' . $url : '' }}
+              <form id="{{ $ft == 'add' ? 'dataForm' : 'editForm' }}" {{ $ft == 'edit' ? 'action=' . $url . '/' : '' }}
                 class="needs-validation" method="post" enctype="multipart/form-data" novalidate>
                 @csrf
                 <input type="hidden" name="blog_id" value="{{ $blog_id }}">
@@ -68,7 +68,7 @@
                     </x-number-input>
                   </div>
                 </div>
-                @if ($ft == ' add')
+                @if ($ft == 'add')
                   <button type="reset" class="btn btn-sm btn-warning  mr-1"><i class="ti-trash"></i>
                     Reset</button>
                 @endif
@@ -107,7 +107,7 @@
         //$("#migrateBtn").text('Migrating...');
         setTimeout(() => {
           $.ajax({
-            url: "{{ aurl($page_route . '/get-data') }}",
+            url: "{{ aurl($page_route . '/get-data') }}/",
             method: "GET",
             data: {
               page: page,
@@ -119,6 +119,10 @@
           });
         });
       });
+    }
+
+    function setEditorBlank() {
+      CKEDITOR.instances.description.setData('');
     }
 
     $(function() {
