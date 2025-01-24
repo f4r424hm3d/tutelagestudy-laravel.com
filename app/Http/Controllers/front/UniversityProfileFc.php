@@ -7,7 +7,7 @@ use App\Models\Country;
 use App\Models\DefaultSeo;
 use App\Models\Destination;
 use App\Models\FeesAndDeadline;
-use App\Models\NewsCategory;
+use App\Models\BlogCategory;
 use App\Models\University;
 use App\Models\UniversityContent;
 use App\Models\UniversityGallery;
@@ -70,7 +70,7 @@ class UniversityProfileFc extends Controller
     $og_image_path = $university->bannerpath == '' ? $dseo->ogimgpath : $university->bannerpath;
 
     $destinations = Destination::where(['status' => 1])->get();
-    $categories = NewsCategory::all();
+    $categories = BlogCategory::all();
 
     $data = compact('university', 'overview', 'page_url', 'uri3', 'title', 'site', 'meta_title', 'meta_keyword', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'destinations', 'toptenuni', 'gc', 'allcont', 'countries', 'phonecodes', 'categories', 'oschema');
     return view('front.university-overview')->with($data);

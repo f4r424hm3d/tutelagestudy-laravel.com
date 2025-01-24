@@ -135,7 +135,7 @@
             <a class="ps-block__overlay" href="{{ url('blog') }}/" target="_blank"
               rel="noopener noreferrer">Blog</a> <img data-src="<?php echo url('front'); ?>/img/news.jpg" alt="latest news"
               style="width:100%!important">
-            <h4 class="pt-10 mb-0 button cur-conver-btn">News & Article</h4>
+            <h4 class="pt-10 mb-0 button cur-conver-btn">Blog & Article</h4>
           </div>
         </div>
         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 ">

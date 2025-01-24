@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Author;
 use App\Models\Destination;
 use App\Models\ExamPage;
-use App\Models\News;
+use App\Models\Blog;
 use Illuminate\Http\Request;
 
 class AuthorFc extends Controller
@@ -17,7 +17,7 @@ class AuthorFc extends Controller
 
     $exam_pages = ExamPage::where('author_id', $author->id)->limit(40)->get();
     $destinations = Destination::where('author_id', $author->id)->limit(40)->get();
-    $news = News::where('author_id', $author->id)->limit(40)->get();
+    $news = Blog::where('author_id', $author->id)->limit(40)->get();
     $title = $author->name . ', Author at Tutelage Study';
     $page_url = url()->current();
     $data = compact('author', 'exam_pages', 'destinations', 'news', 'title', 'page_url');

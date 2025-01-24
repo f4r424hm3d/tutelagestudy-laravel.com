@@ -19,8 +19,8 @@ use App\Http\Controllers\admin\ExamPageContentC;
 use App\Http\Controllers\admin\ExamPageFaqC;
 use App\Http\Controllers\admin\InstituteTypeC;
 use App\Http\Controllers\admin\LevelC;
-use App\Http\Controllers\admin\NewsC;
-use App\Http\Controllers\admin\NewsCategoryC;
+use App\Http\Controllers\admin\BlogC;
+use App\Http\Controllers\admin\BlogCategoryC;
 use App\Http\Controllers\admin\ProgramC;
 use App\Http\Controllers\admin\SeoC;
 use App\Http\Controllers\admin\ServiceC;
@@ -49,8 +49,8 @@ use App\Http\Controllers\front\UniversityProfileFc;
 use App\Http\Controllers\sitemap\SitemapController;
 use App\Models\Destination;
 use App\Models\Exam;
-use App\Models\News;
-use App\Models\NewsCategory;
+use App\Models\Blog;
+use App\Models\BlogCategory;
 use App\Models\University;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
@@ -354,19 +354,19 @@ Route::middleware(['adminLoggedIn'])->group(function () {
       Route::post('/update/{id}/', [ExamPageFaqC::class, 'update']);
     });
 
-    Route::prefix('/news-category')->group(function () {
-      Route::get('/', [NewsCategoryC::class, 'index']);
-      Route::post('/store/', [NewsCategoryC::class, 'store']);
-      Route::get('/delete/{id}/', [NewsCategoryC::class, 'delete']);
-      Route::get('/update/{id}/', [NewsCategoryC::class, 'index']);
-      Route::post('/update/{id}/', [NewsCategoryC::class, 'update']);
+    Route::prefix('/blog-category')->group(function () {
+      Route::get('/', [BlogCategoryC::class, 'index']);
+      Route::post('/store/', [BlogCategoryC::class, 'store']);
+      Route::get('/delete/{id}/', [BlogCategoryC::class, 'delete']);
+      Route::get('/update/{id}/', [BlogCategoryC::class, 'index']);
+      Route::post('/update/{id}/', [BlogCategoryC::class, 'update']);
     });
-    Route::prefix('/news')->group(function () {
-      Route::get('/', [NewsC::class, 'index']);
-      Route::post('/store/', [NewsC::class, 'store']);
-      Route::get('/delete/{id}/', [NewsC::class, 'delete']);
-      Route::get('/update/{id}/', [NewsC::class, 'index']);
-      Route::post('/update/{id}/', [NewsC::class, 'update']);
+    Route::prefix('/blogs')->group(function () {
+      Route::get('/', [BlogC::class, 'index']);
+      Route::post('/store/', [BlogC::class, 'store']);
+      Route::get('/delete/{id}/', [BlogC::class, 'delete']);
+      Route::get('/update/{id}/', [BlogC::class, 'index']);
+      Route::post('/update/{id}/', [BlogC::class, 'update']);
     });
     Route::prefix('/testimonials')->group(function () {
       Route::get('/', [TestimonialC::class, 'index']);

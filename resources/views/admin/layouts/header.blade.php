@@ -268,13 +268,13 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="topnav-more">
                   <div class="dropdown">
-                    <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('news-category') }}"
+                    <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('blog-category') }}"
                       id="topnav-auth" role="button">
                       <span data-key="t-authentication">Category</span>
                     </a>
-                    <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('news') }}" id="topnav-auth"
+                    <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('blogs') }}" id="topnav-auth"
                       role="button">
-                      <span data-key="t-authentication">News</span>
+                      <span data-key="t-authentication">Blog</span>
                     </a>
                   </div>
                 </div>

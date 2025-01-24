@@ -10,8 +10,8 @@ use App\Models\DestinationGallery;
 use App\Models\DestinationPageContent;
 use App\Models\DestinationPageFaq;
 use App\Models\DestinationPageTabs;
-use App\Models\News;
-use App\Models\NewsCategory;
+use App\Models\Blog;
+use App\Models\BlogCategory;
 use App\Models\Testimonial;
 use App\Models\University;
 use Illuminate\Http\Request;
@@ -80,8 +80,8 @@ class DestinationFc extends Controller
     // die;
     $otabs = DestinationPageContent::with('getTab')->select('tab_id')->groupBy('tab_id')->where(['page_id' => $c_destination->id])->where('tab_id', '!=', $tslug)->get();
 
-    $allcat = NewsCategory::all();
-    $allnews = News::limit(20)->get();
+    $allcat = BlogCategory::all();
+    $allnews = Blog::limit(20)->get();
 
     $data = compact('c_destination', 'tabTitleDet', 'testimonials', 'faqs', 'meta_title', 'meta_keyword', 'meta_description', 'page_content', 'og_image_path', 'otherexam', 'tu', 'site', 'tabs', 'otabs', 'allcat', 'allnews', 'page_url', 'brochureUniversities', 'tab_title', 'seg1', 'photos', 'author', 'content', 'count_content');
 

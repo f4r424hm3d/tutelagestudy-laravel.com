@@ -5,29 +5,29 @@ namespace App\Http\Controllers\front;
 use App\Http\Controllers\Controller;
 use App\Models\DefaultSeo;
 use App\Models\Destination;
-use App\Models\News;
-use App\Models\NewsCategory;
+use App\Models\Blog;
+use App\Models\BlogCategory;
 use Illuminate\Http\Request;
 
 class BlogFc extends Controller
 {
   public function index(Request $request)
   {
-    $categories = NewsCategory::whereHas('blogs')->get();
-    $blogs = News::paginate(20)->withQueryString();
+    $categories = BlogCategory::whereHas('blogs')->get();
+    $blogs = Blog::paginate(20)->withQueryString();
     $total = $blogs->total();
     $data = compact('blogs', 'categories', 'total');
     return view('front.blogs')->with($data);
   }
   public function blogByCategory($category_slug, Request $request)
   {
-    $categories = NewsCategory::whereHas('blogs')->get();
-    $category = NewsCategory::where('slug', $category_slug)->whereHas('blogs')->firstOrFail();
-    $blogs = News::where('cate_id', $category->id)->paginate(20)->withQueryString();
-    $total = News::count();
+    $categories = BlogCategory::whereHas('blogs')->get();
+    $category = BlogCategory::where('slug', $category_slug)->whereHas('blogs')->firstOrFail();
+    $blogs = Blog::where('cate_id', $category->id)->paginate(20)->withQueryString();
+    $total = Blog::count();
     $page_url = url()->current();
 
-    $wrdseo = ['url' => 'newscategory'];
+    $wrdseo = ['url' => 'BlogCategory'];
     $dseo = DefaultSeo::where($wrdseo)->first();
 
     $title = $category->cate_name;
@@ -53,10 +53,10 @@ class BlogFc extends Controller
   }
   public function blogdetail($category_slug, $slug, Request $request)
   {
-    $blogCategory = NewsCategory::where('slug', $category_slug)->firstOrFail();
-    $blog = News::where('slug', $slug)->where('cate_id', $blogCategory->id)->firstOrFail();
-    $blogs = News::where('id', '!=', $blog->id)->limit(10)->get();
-    $categories = NewsCategory::whereHas('blogs')->get();
+    $blogCategory = BlogCategory::where('slug', $category_slug)->firstOrFail();
+    $blog = Blog::where('slug', $slug)->where('cate_id', $blogCategory->id)->firstOrFail();
+    $blogs = Blog::where('id', '!=', $blog->id)->limit(10)->get();
+    $categories = BlogCategory::whereHas('blogs')->get();
     $destinations = Destination::where('status', '1')->offset('0')->limit('8')->get();
 
     $page_url = url()->current();

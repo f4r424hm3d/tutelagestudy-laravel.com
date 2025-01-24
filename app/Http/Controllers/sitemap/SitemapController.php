@@ -6,8 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Destination;
 use App\Models\Exam;
 use App\Models\ExamPage;
-use App\Models\News;
-use App\Models\NewsCategory;
+use App\Models\Blog;
+use App\Models\BlogCategory;
 use App\Models\Service;
 use App\Models\University;
 use Illuminate\Http\Request;
@@ -29,8 +29,8 @@ class SitemapController extends Controller
   public function blog(Request $request)
   {
     $utf = '<?xml version="1.0" encoding="UTF-8"?>';
-    $categories = NewsCategory::all();
-    $news = News::all();
+    $categories = BlogCategory::all();
+    $news = Blog::all();
     $data = compact('categories', 'news', 'utf');
     return response()->view('sm.blog', $data)->header('Content-Type', 'application/xml; charset=utf-8');
   }

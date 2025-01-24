@@ -10,10 +10,10 @@ class Blog extends Model
   use HasFactory;
   public function getCategory()
   {
-    return $this->hasOne(BlogCategory::class,'id','category_id');
+    return $this->hasOne(BlogCategory::class, 'id', 'cate_id');
   }
   public function getAuthor()
   {
-    return $this->hasOne(Author::class,'id','author_id');
+    return $this->hasOne(Author::class, 'id', 'author_id');
   }
 }

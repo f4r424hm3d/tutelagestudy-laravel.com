@@ -39,21 +39,24 @@
               </span>
             </h4>
           </div>
-          <div class="card-body" id="tblCDiv">
+          <div class="card-body {{ $ft=='edit'?'':'hide-this' }}" id="tblCDiv">
             <form action="{{ $url }}/" class="needs-validation" method="post" enctype="multipart/form-data" novalidate>
               @csrf
               <div class="row">
                 <div class="col-md-3 col-sm-12 mb-3">
-                  <x-SelectField label="Category" name="category_id" id="category_id" savev="id" showv="category_name" :list="$category" :ft="$ft" :sd="$sd"></x-SelectField>
+                  <x-SelectField label="Category" name="cate_id" id="cate_id" savev="id" showv="cate_name" :list="$category" :ft="$ft" :sd="$sd"></x-SelectField>
                 </div>
                 <div class="col-md-3 col-sm-12 mb-3">
-                  <x-SelectField label="Created By" name="user_id" id="user_id" savev="id" showv="name" :list="$users" :ft="$ft" :sd="$sd"></x-SelectField>
+                  <x-SelectField label="Created By" name="author_id" id="author_id" savev="id" showv="name" :list="$authors" :ft="$ft" :sd="$sd"></x-SelectField>
+                </div>
+                <div class="col-md-3 col-sm-12 mb-3">
+                  <x-SelectField label="University" name="u_id" id="u_id" savev="id" showv="name" :list="$universities" :ft="$ft" :sd="$sd"></x-SelectField>
                 </div>
                 <div class="col-md-3 col-sm-12 mb-3">
                   <x-InputField type="file" label="Thumbnail" name="thumbnail" id="thumbnail" :ft="$ft" :sd="$sd"></x-InputField>
                 </div>
                 <div class="col-md-12 col-sm-12 mb-3">
-                  <x-InputField type="text" label="Title" name="title" id="title" :ft="$ft" :sd="$sd"></x-InputField>
+                  <x-InputField type="text" label="Headline" name="headline" id="headline" :ft="$ft" :sd="$sd"></x-InputField>
                 </div>
                 <div class="col-md-12 col-sm-12 mb-3">
                   <x-TextareaField label="Description" name="description" id="description" :ft="$ft" :sd="$sd"></x-TextareaField>
@@ -100,8 +103,8 @@
                 @foreach ($rows as $row)
                 <tr id="row{{ $row->id }}">
                   <td>{{ $i }}</td>
-                  <td>{{ $row->getCategory->category_name }}</td>
-                  <td>{{ $row->title }}</td>
+                  <td>{{ $row->getCategory->cate_name }}</td>
+                  <td>{{ $row->headline }}</td>
                   <td>
                     @if ($row->description != null)
                     <button type="button" class="btn btn-xs btn-outline-info waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#DesModalScrollable{{ $row->id }}">View</button>
@@ -129,13 +132,13 @@
                     @endif
                   </td>
                   <td>
-                    @if ($row->thumbnail_path != null)
-                    <img src="{{ asset($row->thumbnail_path) }}" alt="" height="80" width="80">
+                    @if ($row->imgpath != null)
+                    <img src="{{ asset($row->imgpath) }}" alt="" height="80" width="80">
                     @else
                     N/A
                     @endif
                   </td>
-                  <td>{{ $row->getUser->name??'Null' }}</td>
+                  <td>{{ $row->getAuthor->name??'Null' }}</td>
                   <td>
                     @if ($row->meta_title != null)
                     <button type="button" class="btn btn-xs btn-outline-info waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#SeoModalScrollable{{ $row->id }}">View</button>

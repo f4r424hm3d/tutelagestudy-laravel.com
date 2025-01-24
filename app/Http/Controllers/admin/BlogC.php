@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Blog;
+use App\Models\Author;
 use App\Models\BlogCategory;
+use App\Models\Blog;
+use App\Models\University;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -12,7 +14,8 @@ class BlogC extends Controller
 {
   public function index($id = null)
   {
-    $users = User::all();
+    $authors = Author::all();
+    $universities = University::all();
     $category = BlogCategory::all();
     $rows = Blog::get();
     if ($id != null) {
@@ -30,9 +33,9 @@ class BlogC extends Controller
       $title = 'Add New';
       $sd = '';
     }
-    $page_title = "Blogs";
+    $page_title = "Blog";
     $page_route = "blogs";
-    $data = compact('rows', 'sd', 'ft', 'url', 'title', 'page_title', 'page_route','category','users');
+    $data = compact('rows', 'sd', 'ft', 'url', 'title', 'page_title', 'page_route', 'category', 'authors', 'universities');
     return view('admin.blogs')->with($data);
   }
   public function store(Request $request)
@@ -41,8 +44,8 @@ class BlogC extends Controller
     // die;
     $request->validate(
       [
-        'category_id' => 'required',
-        'title' => 'required|unique:blogs,title',
+        'cate_id' => 'required',
+        'headline' => 'required|unique:blogs,headline',
         'description' => 'required',
       ]
     );
@@ -55,22 +58,24 @@ class BlogC extends Controller
       $file_name = $file_name_slug . '_' . time() . '.' . $fileExtention;
       $move = $request->file('thumbnail')->move('uploads/blogs/', $file_name);
       if ($move) {
-        $field->thumbnail_name = $file_name;
-        $field->thumbnail_path = 'uploads/blogs/' . $file_name;
+        $field->imgname = $file_name;
+        $field->imgpath = 'uploads/blogs/' . $file_name;
       } else {
         session()->flash('emsg', 'Some problem occured. File not uploaded.');
       }
     }
-    $field->category_id = $request['category_id'];
-    $field->user_id = $request['user_id'];
-    $field->title = $request['title'];
-    $field->slug = slugify($request['title']);
+    $field->cate_id = $request['cate_id'];
+    $field->author_id = $request['author_id'];
+    $field->u_id = $request['u_id'];
+    $field->headline = $request['headline'];
+    $field->slug = slugify($request['headline']);
     $field->description = $request['description'];
     $field->meta_title = $request['meta_title'];
     $field->meta_keyword = $request['meta_keyword'];
     $field->meta_description = $request['meta_description'];
     $field->page_content = $request['page_content'];
-    $field->seo_rating = $request['seo_rating'];
+    $field->status = 1;
+    //$field->seo_rating = $request['seo_rating'];
     $field->save();
     session()->flash('smsg', 'New record has been added successfully.');
     return redirect('admin/blogs');
@@ -84,8 +89,8 @@ class BlogC extends Controller
   {
     $request->validate(
       [
-        'category_id' => 'required',
-        'title' => 'required|unique:blogs,title,'.$id,
+        'cate_id' => 'required',
+        'headline' => 'required|unique:blogs,headline,' . $id,
         'description' => 'required',
       ]
     );
@@ -98,22 +103,23 @@ class BlogC extends Controller
       $file_name = $file_name_slug . '_' . time() . '.' . $fileExtention;
       $move = $request->file('thumbnail')->move('uploads/blogs/', $file_name);
       if ($move) {
-        $field->thumbnail_name = $file_name;
-        $field->thumbnail_path = 'uploads/blogs/' . $file_name;
+        $field->imgname = $file_name;
+        $field->imgpath = 'uploads/blogs/' . $file_name;
       } else {
         session()->flash('emsg', 'Some problem occured. File not uploaded.');
       }
     }
-    $field->category_id = $request['category_id'];
-    $field->user_id = $request['user_id'];
-    $field->title = $request['title'];
-    $field->slug = slugify($request['title']);
+    $field->cate_id = $request['cate_id'];
+    $field->author_id = $request['author_id'];
+    $field->u_id = $request['u_id'];
+    $field->headline = $request['headline'];
+    $field->slug = slugify($request['headline']);
     $field->description = $request['description'];
     $field->meta_title = $request['meta_title'];
     $field->meta_keyword = $request['meta_keyword'];
     $field->meta_description = $request['meta_description'];
     $field->page_content = $request['page_content'];
-    $field->seo_rating = $request['seo_rating'];
+    //$field->seo_rating = $request['seo_rating'];
     $field->save();
     session()->flash('smsg', 'Record has been updated successfully.');
     return redirect('admin/blogs');

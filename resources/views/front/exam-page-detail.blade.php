@@ -469,7 +469,7 @@
             </div>
 
             <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
-              {{-- News Categories --}}
+              {{-- Blog Categories --}}
               @if (count($exam_pages) > 0)
                 <div class="ps-section__left" style="position:sticky; top:0;">
                   <aside class="ps-widget--account-dashboard">
