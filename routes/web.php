@@ -21,6 +21,7 @@ use App\Http\Controllers\admin\InstituteTypeC;
 use App\Http\Controllers\admin\LevelC;
 use App\Http\Controllers\admin\BlogC;
 use App\Http\Controllers\admin\BlogCategoryC;
+use App\Http\Controllers\admin\BlogContentC;
 use App\Http\Controllers\admin\ProgramC;
 use App\Http\Controllers\admin\SeoC;
 use App\Http\Controllers\admin\ServiceC;
@@ -367,6 +368,14 @@ Route::middleware(['adminLoggedIn'])->group(function () {
       Route::get('/delete/{id}/', [BlogC::class, 'delete']);
       Route::get('/update/{id}/', [BlogC::class, 'index']);
       Route::post('/update/{id}/', [BlogC::class, 'update']);
+    });
+    Route::prefix('/blog-contents/')->group(function () {
+      Route::get('/get-data', [BlogContentC::class, 'getData']);
+      Route::get('/delete/{id}', [BlogContentC::class, 'delete']);
+      Route::post('/store', [BlogContentC::class, 'store']);
+      Route::get('/{blog_id}/', [BlogContentC::class, 'index']);
+      Route::get('{blog_id}/update/{id}', [BlogContentC::class, 'index']);
+      Route::post('{blog_id}/update/{id}', [BlogContentC::class, 'update']);
     });
     Route::prefix('/testimonials')->group(function () {
       Route::get('/', [TestimonialC::class, 'index']);

@@ -36,6 +36,7 @@
   <link href="{{ url('backend/') }}/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
   <script src="{{ url('/') }}/ckeditor/ckeditor.js"></script>
   <script src="{{ url('backend/') }}/assets/libs/jquery/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <style>
     .hide-this {
       display: none;
