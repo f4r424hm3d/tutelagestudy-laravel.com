@@ -27,7 +27,7 @@ class BlogFc extends Controller
     $total = Blog::count();
     $page_url = url()->current();
 
-    $wrdseo = ['url' => 'BlogCategory'];
+    $wrdseo = ['url' => 'blog-by-category'];
     $dseo = DefaultSeo::where($wrdseo)->first();
 
     $title = $category->cate_name;
@@ -61,7 +61,7 @@ class BlogFc extends Controller
 
     $page_url = url()->current();
 
-    $wrdseo = ['url' => 'newsdetailpage'];
+    $wrdseo = ['url' => 'blog-details'];
     $dseo = DefaultSeo::where($wrdseo)->first();
 
     $sub_slug = $blog->headline;

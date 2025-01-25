@@ -52,7 +52,7 @@
     "description": "{{ $meta_description }}",
     "keywords": "{{ $meta_keyword }}",
     "dateModified": "{{ getISOFormatTime($blog->updated_at) }}",
-    "datePublished": "{{ getISOFormatTime($blog->created_at) }}",
+    "datePublished": "{{ getISOFormatTime($blog->updated_at) }}",
     "mainEntityOfPage": {
       "id": "{{ $page_url }}/",
       "@type": "WebPage"
@@ -109,7 +109,7 @@
                 <div class="ps-post__header">
                   <h1 class="mb-1" style="font-size: 20px">{{ ucfirst($blog->headline) }}</h1>
                   <p style="font-size:12px">
-                    {{ getFormattedDate($blog->created_at, 'd M, Y') }}, <b>{{ $blog->getAuthor->name }}</b>,
+                    {{ getFormattedDate($blog->updated_at, 'd M, Y') }}, <b>{{ $blog->getAuthor->name }}</b>,
                     <a href="{{ url('blog/' . $blog->getCategory->slug) }}/">{{ $blog->getCategory->cate_name }}</a>
                   </p>
                 </div>

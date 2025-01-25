@@ -114,7 +114,7 @@
                               {{ strlen($row->headline) > 48 ? substr($row->headline, 0, 48) . '...' : $row->headline }}
                             </a>
                             <p style="margin-bottom:0px; font-size:11px">
-                              <?php echo getFormattedDate($row->created_at, 'd M, Y'); ?> by<span> {{ $row->getAuthor->name }}</span>
+                              <?php echo getFormattedDate($row->updated_at, 'd M, Y'); ?> by<span> {{ $row->getAuthor->name }}</span>
                             </p>
                           </div>
                         </div>
