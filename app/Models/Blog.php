@@ -24,8 +24,8 @@ class Blog extends Model
   {
     return $this->hasMany(BlogContent::class, 'blog_id', 'id')->orderBy('position', 'asc')->where('parent_id', null);
   }
-  // public function faqs()
-  // {
-  //   return $this->hasMany(BlogFaq::class, 'blog_id');
-  // }
+  public function faqs()
+  {
+    return $this->hasMany(BlogFaq::class, 'blog_id', 'id');
+  }
 }

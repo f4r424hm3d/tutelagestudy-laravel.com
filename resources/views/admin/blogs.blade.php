@@ -109,6 +109,7 @@
                   @foreach ($rows as $row)
                     @php
                       $url = url('admin/blog-contents/' . $row->id);
+                      $faqUrl = url('admin/blog-faqs/' . $row->id);
                     @endphp
                     <tr id="row{{ $row->id }}">
                       <td>{{ $i }}</td>
@@ -170,6 +171,7 @@
                           <i class="fa fa-edit" aria-hidden="true"></i>
                         </a>
                         <x-custom-button :url="$url" label="Content" :count="$row->contents->count()" />
+                        <x-custom-button :url="$faqUrl" label="Faqs" :count="$row->faqs->count()" />
                       </td>
                     </tr>
                     @php
