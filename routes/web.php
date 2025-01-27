@@ -96,7 +96,6 @@ Route::get('/contact-us/', [ContactFc::class, 'index']);
 Route::get('/term-and-condition/', [HomeFc::class, 'termsConditions']);
 Route::get('/privacy-policy/', [HomeFc::class, 'privacyPolicy']);
 
-
 Route::get('/blog/', [BlogFc::class, 'index'])->name('blog');
 Route::get('blog/{category_slug}', [BlogFc::class, 'blogByCategory'])->name('blog.category');
 Route::get('blog/{category_slug}/{slug}', [BlogFc::class, 'blogdetail'])->name('blog.detail');
@@ -105,7 +104,6 @@ Route::get('/mbbs-in-abroad/', [HomeFc::class, 'mbbsAbroad']);
 
 Route::get('/destinations/', [DestinationFc::class, 'index'])->name('destinations');
 Route::get('/destinations/{destination_slug}/', [DestinationFc::class, 'destinationDetail'])->name('destination.detail');
-
 
 Route::get('/remove-filter/', [UniversityFc::class, 'removeFilter']);
 
@@ -117,7 +115,6 @@ foreach ($exams as $row) {
   Route::get('/' . $row->exam_slug . '/', [ExamFc::class, 'examPage']);
   Route::get('/' . $row->exam_slug . '/{slug}' . '/', [ExamFc::class, 'examPageDetail']);
 }
-
 
 Route::get('author/{slug}/', [AuthorFc::class, 'index']);
 

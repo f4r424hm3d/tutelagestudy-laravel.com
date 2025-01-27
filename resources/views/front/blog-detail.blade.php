@@ -161,43 +161,36 @@
                 </div>
                 <br>
 
-                <div class="accordion faq-accordian " id="accordionExample">
-<h2>FAQ </h2>
-  <div class="card">
-    <div class="card-header" id="headingTwo">
-      <h5 class="mb-0">
-        <button class="btn btn-link collapsed w-100 d-flex align-items-center justify-content-between" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Collapsible Group Item #1 
-          <img src="/front/img/down.png" class="img-down" alt="">
-        </button>
-      </h5>
-    </div>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-      <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header" id="headingThree">
-      <h5 class="mb-0">
-        <button class="btn btn-link collapsed w-100 d-flex align-items-center justify-content-between" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Collapsible Group Item #3
-          <img src="/front/img/down.png" class="img-down" alt="">
-        </button>
-      </h5>
-    </div>
-    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-      <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-</div>
+                @if ($blog->faqs->count() > 0)
+                  <div class="accordion faq-accordian " id="accordionExample">
+                    <h2>FAQ </h2>
+                    @foreach ($blog->faqs as $row)
+                      <div class="card">
+                        <div class="card-header" id="headingTwo{{ $row->id }}">
+                          <h5 class="mb-0">
+                            <button class="btn btn-link collapsed w-100 d-flex align-items-center justify-content-between"
+                              type="button" data-toggle="collapse" data-target="#collapseTwo{{ $row->id }}"
+                              aria-expanded="false" aria-controls="collapseTwo{{ $row->id }}">
+                              {{ $row->question }}
+                              {{-- <img src="/front/img/down.png" class="img-down" alt=""> --}}
+                              <i style="font-size:24px" class="fa">&#xf107;</i>
+                            </button>
+                          </h5>
+                        </div>
+                        <div id="collapseTwo{{ $row->id }}" class="collapse"
+                          aria-labelledby="headingTwo{{ $row->id }}" data-parent="#accordionExample">
+                          <div class="card-body">
+                            {!! $row->answer !!}
+                          </div>
+                        </div>
+                      </div>
+                    @endforeach
+                  </div>
+                @endif
                 <hr>
-                
+
               </div>
-              
+
             </div>
             <br>
             @if ($blog->author_id)
