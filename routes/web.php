@@ -96,6 +96,16 @@ Route::get('/contact-us/', [ContactFc::class, 'index']);
 Route::get('/term-and-condition/', [HomeFc::class, 'termsConditions']);
 Route::get('/privacy-policy/', [HomeFc::class, 'privacyPolicy']);
 
+$blogs = Blog::all();
+foreach ($blogs as $row) {
+  Route::get('blog/' . $row->slug . '/', function () use ($row) {
+    return redirect('blog/' . $row->getCategory->slug . '/' . $row->slug . '/', 301);
+  });
+  Route::get($row->slug . '/', function () use ($row) {
+    return redirect('blog/' . $row->getCategory->slug . '/' . $row->slug . '/', 301);
+  });
+}
+
 Route::get('/blog/', [BlogFc::class, 'index'])->name('blog');
 Route::get('blog/{category_slug}', [BlogFc::class, 'blogByCategory'])->name('blog.category');
 Route::get('blog/{category_slug}/{slug}', [BlogFc::class, 'blogdetail'])->name('blog.detail');
@@ -149,6 +159,8 @@ foreach ($destinations as $row) {
     return redirect('destinations/' . $row->slug . '/', 301);
   });
 }
+
+
 
 Route::get('/medical-universities/', [UniversityFc::class, 'index']);
 Route::get('/medical-universities/{destination_slug}', [UniversityFc::class, 'universitybyCountry']);
