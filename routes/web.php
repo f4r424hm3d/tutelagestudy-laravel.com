@@ -106,6 +106,19 @@ foreach ($blogs as $row) {
   });
 }
 
+// Define your broken URLs and their new redirects
+$redirects = [
+  '/list-medical-school-in-malaysia/' => '/blog/mbbs-abroad/best-private-and-public-medical-schools-in-malaysia/',
+  '/top-private-medical-colleges-bangladesh/' => '/blog/mbbs-abroad/top-private-medical-colleges-in-bangladesh/',
+  '/blog/mbbs-abroad/countries-for-indian-students-to-study-mbbs-abroad/' => '/blog/mbbs-abroad/top-15-countries-offering-affordable-mbbs-for-indian-students/',
+];
+
+foreach ($redirects as $oldUrl => $newUrl) {
+  Route::get($oldUrl, function () use ($newUrl) {
+    return redirect($newUrl, 301);
+  });
+}
+
 Route::get('/blog/', [BlogFc::class, 'index'])->name('blog');
 Route::get('blog/{category_slug}', [BlogFc::class, 'blogByCategory'])->name('blog.category');
 Route::get('blog/{category_slug}/{slug}', [BlogFc::class, 'blogdetail'])->name('blog.detail');
@@ -171,6 +184,8 @@ Route::get('/university/remove-filter/', [UniversityFc::class, 'removeFilter']);
 // foreach ($universities as $row) {
 //   Route::get('/medical-universities-in-' . $row->country_slug . '/', [UniversityFc::class, 'universitybyCountry']);
 // }
+
+
 
 /* ADMIN ROUTES BEFORE LOGIN */
 Route::middleware(['adminLoggedOut'])->group(function () {
