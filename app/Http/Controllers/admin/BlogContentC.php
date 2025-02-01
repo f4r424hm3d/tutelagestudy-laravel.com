@@ -97,6 +97,7 @@ class BlogContentC extends Controller
     <thead>
       <tr>
         <th>Sr. No.</th>
+        <th>Position</th>
         <th>Title</th>
         <th>Description</th>
         <th>Position</th>
