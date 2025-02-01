@@ -18,7 +18,7 @@ class Blog extends Model
   }
   public function contents()
   {
-    return $this->hasMany(BlogContent::class, 'blog_id');
+    return $this->hasMany(BlogContent::class, 'blog_id')->orderBy('position', 'asc');
   }
   public function parentContents()
   {

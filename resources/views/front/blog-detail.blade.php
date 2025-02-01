@@ -83,7 +83,10 @@
 
 @section('main-section')
   <style>
-    /* Your CSS styles here */
+    .child-heading {
+      margin-left: 30px;
+      /* Adjust the value to set the desired indentation */
+    }
   </style>
 
   <div class="ps-page--single ps-page--vendor">
@@ -118,42 +121,77 @@
                     width="1000">
                 </div>
                 <br>
-                <div class="pt-0 pb-20 get-detail">
+                <div class="pt-0 pb-20 get-detail text-center">
                   <h4 class="mb-0">Get Free Counselling</h4>
                   <a class="ps-btn" onclick="window.location.href='{{ url('mbbs-abroad-counselling/') }}/'"
                     href="javascript:void()">Enquire Now</a>
                 </div>
                 @if ($blog->contents->count() > 0)
+                  {{-- TABLE OF CONTENT START HERE --}}
                   <div class="card">
                     <div class="card-header">
                       <h3>Table of Content</h3>
                     </div>
                     <div class="card-body pl-4 pr-4 bg-light">
                       <div class="table-of-content">
-                        <ol class="top-level">
+                        <div class="top-level">
+                          @php
+                            $mh = 1;
+                          @endphp
                           @foreach ($blog->parentContents as $row)
-                            <li>
-                              <a href="#{{ $row->slug }}"><b>{{ $row->title }}</b></a>
-
+                            <span class="main-heading">
+                              <a href="#{{ $row->slug }}"><b>{{ $mh }}. {{ $row->title }}</b></a><br>
                               @if ($row->childContents->count() > 0)
-                                <ol>
+                                <div class="child-heading">
+                                  @php
+                                    $sh = 1;
+                                  @endphp
                                   @foreach ($row->childContents as $child)
-                                    <li><a href="#{{ $child->slug }}">{{ $child->title }}</a></li>
+                                    <span>
+                                      <a href="#{{ $child->slug }}">
+                                        {{ $mh }}.{{ $sh }} {{ $child->title }}
+                                      </a>
+                                    </span> <br>
+                                    @php $sh++; @endphp
                                   @endforeach
-                                </ol>
+                                </div>
                               @endif
-                            </li>
+                            </span>
+                            @php $mh++; @endphp
                           @endforeach
-                        </ol>
+                          @if ($blog->faqs->count() > 0)
+                            <span class="main-heading"><a href="#faqs"><b>{{ $mh }}. Faqs</b></a></span>
+                          @endif
+                        </div>
                       </div>
                     </div>
                   </div>
                   <hr>
-                  @foreach ($blog->contents as $row)
+                  {{-- TABLE OF CONTENT END HERE --}}
+                  @php
+                    $cmh = 1;
+                  @endphp
+                  @foreach ($blog->parentContents as $row)
+                    {{-- Main CONTENT START HERE --}}
                     <div class="ps-document">
                       <h2 id="{{ $row->slug }}">{{ $row->title }}</h2>
-                      <p>{!! $row->description !!}</p><br>
+                      <p>{!! $row->description !!}</p>
+
+                      @if ($row->childContents->count() > 0)
+                        @php
+                          $csh = 1;
+                        @endphp
+                        @foreach ($row->childContents as $child)
+                          {{-- CHILD CONTENT START HERE --}}
+                          <h2 id="{{ $child->slug }}">{{ $csh }}. {{ $child->title }}</h2>
+                          <p>{!! $child->description !!}</p>
+                          {{-- CHILD CONTENT END HERE --}}
+                          @php $csh++; @endphp
+                        @endforeach
+                      @endif
                     </div>
+                    {{-- Main CONTENT end HERE --}}
+                    @php $cmh++; @endphp
                   @endforeach
                 @endif
                 <div class="ps-document">
@@ -163,7 +201,7 @@
 
                 @if ($blog->faqs->count() > 0)
                   <div class="accordion faq-accordian " id="accordionExample">
-                    <h2>FAQ </h2>
+                    <h2 id="faqs">FAQ </h2>
                     @foreach ($blog->faqs as $row)
                       <div class="card">
                         <div class="card-header" id="headingTwo{{ $row->id }}">

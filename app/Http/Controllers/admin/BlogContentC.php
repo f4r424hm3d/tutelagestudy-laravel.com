@@ -39,7 +39,8 @@ class BlogContentC extends Controller
     }
     $page_title = "Blog Content";
     $page_route = $this->page_route;
-    $data = compact('rows', 'sd', 'ft', 'title', 'page_title', 'page_route', 'page_no', 'url', 'blog_id', 'blog', 'parentContents');
+    $lastPosition = $rows->count() + 1;
+    $data = compact('rows', 'sd', 'ft', 'title', 'page_title', 'page_route', 'page_no', 'url', 'blog_id', 'blog', 'parentContents', 'lastPosition');
     return view('admin.blog-content')->with($data);
   }
   public function store(Request $request)
@@ -138,5 +139,11 @@ class BlogContentC extends Controller
     } else {
       return response()->json(['success' => false]);
     }
+  }
+  public function getPosition(Request $request)
+  {
+    $rows = BlogContent::where('blog_id', $request->blog_id)->count();
+    $lastPosition = $rows + 1;
+    return $lastPosition;
   }
 }

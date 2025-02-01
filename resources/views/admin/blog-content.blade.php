@@ -103,6 +103,7 @@
         var page = '{{ $page_no }}';
       }
       var blog_id = '{{ $blog_id }}';
+      var ft = '{{ $ft }}';
       return new Promise(function(resolve, reject) {
         //$("#migrateBtn").text('Migrating...');
         setTimeout(() => {
@@ -115,6 +116,29 @@
             },
             success: function(data) {
               $("#trdata").html(data);
+              if (ft == 'add') {
+                setPosition();
+              }
+            }
+          });
+        });
+      });
+    }
+
+    function setPosition() {
+      //alert('Hello');
+      var blog_id = '{{ $blog_id }}';
+      return new Promise(function(resolve, reject) {
+        setTimeout(() => {
+          $.ajax({
+            url: "{{ aurl($page_route . '/get-position') }}/",
+            method: "GET",
+            data: {
+              blog_id: blog_id,
+            },
+            success: function(data) {
+              //alert(data);
+              $("#position").val(data);
             }
           });
         });

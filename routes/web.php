@@ -396,6 +396,7 @@ Route::middleware(['adminLoggedIn'])->group(function () {
     });
     Route::prefix('/blog-contents/')->group(function () {
       Route::get('/get-data', [BlogContentC::class, 'getData']);
+      Route::get('/get-position', [BlogContentC::class, 'getPosition']);
       Route::get('/delete/{id}', [BlogContentC::class, 'delete']);
       Route::post('/store', [BlogContentC::class, 'store']);
       Route::get('/{blog_id}/', [BlogContentC::class, 'index']);
