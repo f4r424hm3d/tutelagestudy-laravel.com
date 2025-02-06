@@ -57,15 +57,15 @@
                 @if ($seg2 == null)
                   <!-- header background section ends -->
                   <div class="ps-product__box mb-20">
+                    <div class="ps-document pt-10">
+                      <img data-src="<?php echo url($c_destination->image_path); ?>" alt="<?php echo $c_destination->page_name; ?>" class="img-responsive">
+                    </div>
                     <div class="ps-tabs">
                       <div class="ps-tab active">
                         <div class="ps-document">
                           <?php echo $c_destination->top_description; ?>
                         </div>
                       </div>
-                    </div>
-                    <div class="ps-document pt-10">
-                      <img data-src="<?php echo url($c_destination->image_path); ?>" alt="<?php echo $c_destination->page_name; ?>" class="img-responsive">
                     </div>
                   </div>
                 @endif
@@ -75,7 +75,8 @@
                     href="javascript:void()">Enquire Now</a>
                 </div>
 
-                @if ($count_content > 1)
+                @if ($c_destination->contents->count() > 0)
+                  {{-- TABLE OF CONTENT START HERE --}}
                   <div class="ps-product__box mb-20">
                     <aside class="widget widget_best-sale">
                       <p class="widget-title"> Table of Contents <span style="float:right;">
@@ -84,30 +85,71 @@
                         </span>
                       </p>
                       <div class="widget__content tbl-cntnt " id="tblCDiv">
-                        <ol style="list-style:circle;">
-                          <?php foreach ($content as $t) { ?>
-                          <li><a href="#<?php echo slugify($t->title); ?>">
-                              <?php echo $t->title; ?>
-                            </a></li>
-                          <?php } ?>
-                        </ol>
+                        @php
+                          $mh = 1;
+                        @endphp
+                        @foreach ($c_destination->parentContents as $row)
+                          <span class="main-heading">
+                            <a href="#{{ slugify($row->title) }}"><b>{{ $mh }}.
+                                {{ $row->title }}</b></a><br>
+                            @if ($row->childContents->count() > 0)
+                              <div class="child-heading">
+                                @php
+                                  $sh = 1;
+                                @endphp
+                                @foreach ($row->childContents as $child)
+                                  <span>
+                                    <a href="#{{ slugify($child->title) }}">
+                                      {{ $mh }}.{{ $sh }} {{ $child->title }}
+                                    </a>
+                                  </span> <br>
+                                  @php $sh++; @endphp
+                                @endforeach
+                              </div>
+                            @endif
+                          </span>
+                          @php $mh++; @endphp
+                        @endforeach
+                        @if ($c_destination->faqs->count() > 0)
+                          <span class="main-heading"><a href="#faqs"><b>{{ $mh }}. Faqs</b></a></span>
+                        @endif
                       </div>
                     </aside>
                   </div>
-                @endif
-                @foreach ($content as $c)
-                  <div class="ps-product__box mb-20" id="<?php echo slugify($c->title); ?>">
-                    <div class="ps-tabs">
-                      <div class="ps-tab active">
-                        <div class="ps-document">
-                          <?php echo $c->tab_content; ?>
+                  {{-- TABLE OF CONTENT END HERE --}}
+                  @php
+                    $cmh = 1;
+                  @endphp
+                  @foreach ($c_destination->parentContents as $row)
+                    {{-- Main CONTENT START HERE --}}
+                    <div class="ps-product__box mb-20">
+                      <div class="ps-tabs">
+                        <div class="ps-tab active">
+                          <div class="ps-document" id="{{ slugify($row->title) }}">
+                            {!! $row->tab_content !!}
+                          </div>
+                          @if ($row->childContents->count() > 0)
+                            @php
+                              $csh = 1;
+                            @endphp
+                            @foreach ($row->childContents as $child)
+                              {{-- CHILD CONTENT START HERE --}}
+                              <div class="ps-document" id="{{ slugify($child->title) }}">
+                                {!! $child->tab_content !!}
+                              </div>
+                              {{-- CHILD CONTENT END HERE --}}
+                              @php $csh++; @endphp
+                            @endforeach
+                          @endif
                         </div>
                       </div>
                     </div>
-                  </div>
-                @endforeach
+                    {{-- Main CONTENT end HERE --}}
+                    @php $cmh++; @endphp
+                  @endforeach
+                @endif
                 @if ($faqs->count() > 0)
-                  <div class="ps-product__box mb-20">
+                  <div class="ps-product__box mb-20" id="faqs">
                     <div class="ps-section--default">
                       <div class="ps-section__header" style="margin-bottom:0px; padding-bottom:10px; border:0px">
                         <h3>FAQ's for MBBS in <?php echo $c_destination->country; ?></h3>
@@ -238,9 +280,9 @@
                   </div>
                   <div class="ps-section__content">
                     <div class="ps-carousel--nav owl-slider" data-owl-auto="true" data-owl-loop="true"
-                      data-owl-speed="10000" data-owl-gap="30" data-owl-nav="true" data-owl-dots="false" data-owl-item="2"
-                      data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="3" data-owl-item-lg="3"
-                      data-owl-duration="1000" data-owl-mousedrag="on">
+                      data-owl-speed="10000" data-owl-gap="30" data-owl-nav="true" data-owl-dots="false"
+                      data-owl-item="2" data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="3"
+                      data-owl-item-lg="3" data-owl-duration="1000" data-owl-mousedrag="on">
                       <?php foreach ($testimonials as $test) { ?>
                       <div class="ps-block--testimonial pt-3 pb-3 pl-5 pr-5">
                         <div class="ps-block__header"><img data-src="<?php echo $test->image != null ? asset($test->image) : asset('front/user-tesimonial-photo.jpg'); ?>"
