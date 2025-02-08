@@ -37,6 +37,12 @@
   </script>
 @endpush
 @section('main-section')
+  <style>
+    .child-heading {
+      margin-left: 20px;
+      /* Adjust the value to set the desired indentation */
+    }
+  </style>
   <div class="ps-breadcrumb">
     <div class="ps-container">
       <ul class="breadcrumb bread-scrollbar">
