@@ -115,6 +115,19 @@ class UniversityC extends Controller
     } else {
       $field->brochure_path = $request['brochure_path'];
     }
+    if ($request->hasFile('overview_image')) {
+      $fileOriginalName = $request->file('overview_image')->getClientOriginalName();
+      $fileNameWithoutExtention = pathinfo($fileOriginalName, PATHINFO_FILENAME);
+      $file_name_slug = slugify($fileNameWithoutExtention);
+      $fileExtention = $request->file('overview_image')->getClientOriginalExtension();
+      $file_name = $file_name_slug . '_' . time() . '.' . $fileExtention;
+      $move = $request->file('overview_image')->move('uploads/university/', $file_name);
+      if ($move) {
+        $field->overview_image = 'uploads/university/' . $file_name;
+      } else {
+        session()->flash('emsg', 'Some problem occured. Overview Image not uploaded.');
+      }
+    }
     $field->name = $request['name'];
     $field->uname = slugify($request['uname']);
     $field->university_name = $request['university_name'];
@@ -127,6 +140,7 @@ class UniversityC extends Controller
     $field->country_slug = slugify($request['country']);
     $field->rank = $request['rank'];
     $field->institute_type = $request['institute_type'];
+    $field->overview = $request['overview'];
     $field->meta_title = $request['meta_title'];
     $field->meta_keyword = $request['meta_keyword'];
     $field->meta_description = $request['meta_description'];
@@ -198,6 +212,19 @@ class UniversityC extends Controller
     } else {
       $field->brochure_path = $request['brochure_path'];
     }
+    if ($request->hasFile('overview_image')) {
+      $fileOriginalName = $request->file('overview_image')->getClientOriginalName();
+      $fileNameWithoutExtention = pathinfo($fileOriginalName, PATHINFO_FILENAME);
+      $file_name_slug = slugify($fileNameWithoutExtention);
+      $fileExtention = $request->file('overview_image')->getClientOriginalExtension();
+      $file_name = $file_name_slug . '_' . time() . '.' . $fileExtention;
+      $move = $request->file('overview_image')->move('uploads/university/', $file_name);
+      if ($move) {
+        $field->overview_image = 'uploads/university/' . $file_name;
+      } else {
+        session()->flash('emsg', 'Some problem occured. Overview Image not uploaded.');
+      }
+    }
     $field->name = $request['name'];
     $field->uname = slugify($request['uname']);
     $field->university_name = $request['university_name'];
@@ -210,6 +237,7 @@ class UniversityC extends Controller
     $field->country_slug = slugify($request['country']);
     $field->rank = $request['rank'];
     $field->institute_type = $request['institute_type'];
+    $field->overview = $request['overview'];
     $field->meta_title = $request['meta_title'];
     $field->meta_keyword = $request['meta_keyword'];
     $field->meta_description = $request['meta_description'];
