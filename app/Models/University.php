@@ -30,4 +30,9 @@ class University extends Model
   {
     return $this->hasMany(UniversityOverview::class, 'university_id', 'id')->orderBy('position', 'asc')->where('parent_id', null);
   }
+
+  public function faqs()
+  {
+    return $this->hasMany(UniversityFaq::class, 'university_id', 'id');
+  }
 }

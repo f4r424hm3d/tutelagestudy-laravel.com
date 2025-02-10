@@ -117,9 +117,9 @@
                               </span>
                               @php $mh++; @endphp
                             @endforeach
-                            {{-- @if ($university->faqs->count() > 0)
+                            @if ($university->faqs->count() > 0)
                               <span class="main-heading"><a href="#faqs"><b>{{ $mh }}. Faqs</b></a></span>
-                            @endif --}}
+                            @endif
                           </div>
                         </div>
                       </div>
@@ -161,14 +161,44 @@
                         </div>
                       </div>
                       {{-- Main CONTENT end HERE --}}
+                      @if ($cmh == 1)
+                        <div class="pb-0 get-detail mb-20">
+                          <h4 class="mb-0">Get details on Fee, Admission, Intake.</h4>
+                          <a class="ps-btn" href="{{ url('mbbs-abroad-counselling') }}/">Get Free Counselling</a>
+                        </div>
+                      @endif
                       @php $cmh++; @endphp
                     @endforeach
                   @endif
 
-                  <div class="pb-0 get-detail mb-20">
-                    <h4 class="mb-0">Get details on Fee, Admission, Intake.</h4>
-                    <a class="ps-btn" href="{{ url('mbbs-abroad-counselling') }}/">Get Free Counselling</a>
-                  </div>
+                  @if ($university->faqs->count() > 0)
+                    <div class="accordion faq-accordian " id="accordionExample">
+                      <h2 id="faqs">FAQ </h2>
+                      @foreach ($university->faqs as $row)
+                        <div class="card">
+                          <div class="card-header" id="headingTwo{{ $row->id }}">
+                            <h5 class="mb-0">
+                              <button
+                                class="btn btn-link collapsed w-100 d-flex align-items-center justify-content-between"
+                                type="button" data-toggle="collapse" data-target="#collapseTwo{{ $row->id }}"
+                                aria-expanded="false" aria-controls="collapseTwo{{ $row->id }}">
+                                {{ $row->question }}
+                                {{-- <img src="/front/img/down.png" class="img-down" alt=""> --}}
+                                <i style="font-size:24px" class="fa">&#xf107;</i>
+                              </button>
+                            </h5>
+                          </div>
+                          <div id="collapseTwo{{ $row->id }}" class="collapse"
+                            aria-labelledby="headingTwo{{ $row->id }}" data-parent="#accordionExample">
+                            <div class="card-body">
+                              {!! $row->answer !!}
+                            </div>
+                          </div>
+                        </div>
+                      @endforeach
+                    </div>
+                  @endif
+                  <br>
 
                   @if (count($destinations))
                     <div class="ps-product__box mb-20" id="2">

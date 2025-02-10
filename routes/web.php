@@ -31,6 +31,7 @@ use App\Http\Controllers\admin\StudentC;
 use App\Http\Controllers\admin\StudyModeC;
 use App\Http\Controllers\admin\TestimonialC;
 use App\Http\Controllers\admin\UniversityC;
+use App\Http\Controllers\admin\UniversityFaqC;
 use App\Http\Controllers\admin\UniversityGalleryC;
 use App\Http\Controllers\admin\UniversityOverviewC;
 use App\Http\Controllers\admin\UniversityVideoGalleryC;
@@ -323,6 +324,14 @@ Route::middleware(['adminLoggedIn'])->group(function () {
       Route::get('/{university_id}/', [UniversityOverviewC::class, 'index']);
       Route::get('{university_id}/update/{id}', [UniversityOverviewC::class, 'index']);
       Route::post('{university_id}/update/{id}', [UniversityOverviewC::class, 'update']);
+    });
+    Route::prefix('/university-faqs/')->group(function () {
+      Route::get('/get-data', [UniversityFaqC::class, 'getData']);
+      Route::get('/delete/{id}', [UniversityFaqC::class, 'delete']);
+      Route::post('/store', [UniversityFaqC::class, 'store']);
+      Route::get('/{university_id}/', [UniversityFaqC::class, 'index']);
+      Route::get('{university_id}/update/{id}', [UniversityFaqC::class, 'index']);
+      Route::post('{university_id}/update/{id}', [UniversityFaqC::class, 'update']);
     });
     Route::prefix('/university-gallery')->group(function () {
       Route::get('/{university_id}', [UniversityGalleryC::class, 'index']);
