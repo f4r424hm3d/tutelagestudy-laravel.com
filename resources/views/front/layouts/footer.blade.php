@@ -4,7 +4,7 @@
       <aside class="widget_footer widget_contact-us col-md-3">
         <span class="widget-title">Contact us</span>
         <div class="widget_content" style="margin-bottom:25px">
-          <span class="whitec" style="font-size:20px;"><a href="tel:+919818560331">+91-9818 560 331</a></span>
+          <span class="whitec" style="font-size:20px;"><a href="tel:+919667667331">+91-9667 667 331</a></span>
           <p class="whitec mb-0">Email : studytutelage@gmail.com</p>
           <p class="whitec">B-16 Ground Floor, Mayfield Garden,<br>
             Sector 50, Gurugram, <br>
