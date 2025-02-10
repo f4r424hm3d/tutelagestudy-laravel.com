@@ -1,6 +1,7 @@
 @extends('admin.layouts.main')
 @push('title')
   <title>{{ $page_title }}</title>
+  <meta name="csrf-token" content="{{ csrf_token() }}">
 @endpush
 @section('main-section')
   <div class="page-content">
@@ -8,8 +9,8 @@
       <div class="row">
         <div class="col-12">
           <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-            <h4 class="mb-sm-0 font-size-18">{{ $page_title }} <span class="text-danger">({{ $university->name }})</span>
-            </h4>
+            <h4 class="mb-sm-0 font-size-18">{{ $page_title }}</h4>
+
             <div class="page-title-right">
               <ol class="breadcrumb m-0">
                 <li class="breadcrumb-item"><a href="{{ url('/admin/') }}"><i class="mdi mdi-home-outline"></i></a></li>
@@ -17,6 +18,7 @@
                 <li class="breadcrumb-item active" aria-current="page">{{ $page_title }}</li>
               </ol>
             </div>
+
           </div>
         </div>
       </div>
@@ -40,26 +42,41 @@
                 </span>
               </h4>
             </div>
-            <div class="card-body {{ $ft == 'edit' ? '' : 'hide-this' }}" id="tblCDiv">
-              <form action="{{ $url }}/" class="needs-validation" method="post" enctype="multipart/form-data"
-                novalidate>
+            <div class="card-body" id="tblCDiv">
+              <form id="{{ $ft == 'add' ? 'dataForm' : 'editForm' }}" {{ $ft == 'edit' ? 'action=' . $url . '/' : '' }}
+                class="needs-validation" method="post" enctype="multipart/form-data" novalidate>
                 @csrf
+                <input type="hidden" name="university_id" value="{{ $university_id }}">
                 <div class="row">
                   <div class="col-md-9 col-sm-12 mb-3">
-                    <x-InputField type="text" label="Title" name="h" id="h" :ft="$ft"
-                      :sd="$sd"></x-InputField>
+                    <x-input-field type="text" label="Enter Heading" name="title" id="title" :ft="$ft"
+                      :sd="$sd">
+                    </x-input-field>
                   </div>
                   <div class="col-md-3 col-sm-12 mb-3">
-                    <x-InputField type="file" label="Thumbnail" name="thumbnail" id="thumbnail" :ft="$ft"
-                      :sd="$sd"></x-InputField>
+                    <x-input-field type="file" label="Upload Image" name="thumbnail" id="thumbnail" :ft="$ft"
+                      :sd="$sd">
+                    </x-input-field>
                   </div>
                   <div class="col-md-12 col-sm-12 mb-3">
-                    <x-TextareaField label="Decription" name="p" id="p" :ft="$ft"
-                      :sd="$sd"></x-TextareaField>
+                    <x-textarea-field label="Enter Description" name="description" id="description" :ft="$ft"
+                      :sd="$sd">
+                    </x-textarea-field>
+                  </div>
+                  <div class="col-md-6 col-sm-12 mb-3">
+                    <x-select-field type="text" label="Select Parent Title" name="parent_id" id="parent_id"
+                      :ft="$ft" :sd="$sd" :list="$parentContents" showv="title" savev="id">
+                    </x-select-field>
+                  </div>
+                  <div class="col-md-2 col-sm-12 mb-3">
+                    <x-number-input type="number" label="Position" name="position" id="position" :ft="$ft"
+                      :sd="$sd">
+                    </x-number-input>
                   </div>
                 </div>
                 @if ($ft == 'add')
-                  <button type="reset" class="btn btn-sm btn-warning  mr-1"><i class="ti-trash"></i> Reset</button>
+                  <button type="reset" class="btn btn-sm btn-warning  mr-1"><i class="ti-trash"></i>
+                    Reset</button>
                 @endif
                 @if ($ft == 'edit')
                   <a href="{{ aurl($page_route) }}" class="btn btn-sm btn-info "><i class="ti-trash"></i> Cancel</a>
@@ -74,86 +91,8 @@
       <div class="row">
         <div class="col-12">
           <div class="card">
-            <div class="card-header">
-              <h4 class="card-title">
-                {{ $page_title }} List
-                {{--  <span style="float:right;">
-                <button class="btn btn-xs btn-success">Export</button>
-              </span>  --}}
-              </h4>
-            </div>
-            <div class="card-body">
-              <table id="datatable" class="table table-bordered dt-responsive nowrap w-100">
-                <thead>
-                  <tr>
-                    <th>Sr. No.</th>
-                    <th>Title</th>
-                    <th>Description</th>
-                    <th>Thumbnail</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  @php
-                    $i = 1;
-                  @endphp
-                  @foreach ($rows as $row)
-                    <tr id="row{{ $row->id }}">
-                      <td>{{ $i }}</td>
-                      <td>{{ $row->h }}</td>
-                      <td>
-                        @if ($row->p != null)
-                          <button type="button" class="btn btn-xs btn-outline-info waves-effect waves-light"
-                            data-bs-toggle="modal" data-bs-target="#SeoModalScrollable{{ $row->id }}">View</button>
-                          <div class="modal fade" id="SeoModalScrollable{{ $row->id }}" tabindex="-1"
-                            role="dialog" aria-labelledby="SeoModalScrollableTitle{{ $row->id }}"
-                            aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-scrollable">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <h5 class="modal-title" id="SeoModalScrollableTitle{{ $row->id }}">
-                                    SEO
-                                  </h5>
-                                  <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                  {!! $row->p !!}
-                                </div>
-                                <div class="modal-footer">
-                                  <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        @else
-                          Null
-                        @endif
-                      </td>
-                      <td>
-                        @if ($row->imgpath != null)
-                          <img src="{{ asset($row->imgpath) }}" alt="" height="80" width="80">
-                        @else
-                          N/A
-                        @endif
-                      </td>
-                      <td>
-                        <a href="javascript:void()" onclick="DeleteAjax('{{ $row->id }}')"
-                          class="waves-effect waves-light btn btn-xs btn-outline btn-danger">
-                          <i class="fa fa-trash" aria-hidden="true"></i>
-                        </a>
-                        <a href="{{ url('admin/' . $page_route . '/' . $university->id . '/update/' . $row->id) }}"
-                          class="waves-effect waves-light btn btn-xs btn-outline btn-info">
-                          <i class="fa fa-edit" aria-hidden="true"></i>
-                        </a>
-                      </td>
-                    </tr>
-                    @php
-                      $i++;
-                    @endphp
-                  @endforeach
-                </tbody>
-              </table>
+            <div class="card-body" id="trdata">
+
             </div>
           </div>
         </div>
@@ -161,27 +100,69 @@
     </div>
   </div>
   <script>
-    function DeleteAjax(id) {
-      //alert(id);
-      var cd = confirm("Are you sure ?");
-      if (cd == true) {
-        $.ajax({
-          url: "{{ url('admin/' . $page_route . '/delete') }}" + "/" + id,
-          success: function(data) {
-            if (data == '1') {
-              var h = 'Success';
-              var msg = 'Record deleted successfully';
-              var type = 'success';
-              $('#row' + id).remove();
-              $('#toastMsg').text(msg);
-              $('#liveToast').show();
-              showToastr(h, msg, type);
-            }
-          }
-        });
+    getData();
+
+    function getData(page) {
+      if (page) {
+        page = page;
+      } else {
+        var page = '{{ $page_no }}';
       }
+      var university_id = '{{ $university_id }}';
+      var ft = '{{ $ft }}';
+      return new Promise(function(resolve, reject) {
+        //$("#migrateBtn").text('Migrating...');
+        setTimeout(() => {
+          $.ajax({
+            url: "{{ aurl($page_route . '/get-data') }}/",
+            method: "GET",
+            data: {
+              page: page,
+              university_id: university_id,
+            },
+            success: function(data) {
+              $("#trdata").html(data);
+              if (ft == 'add') {
+                setPosition();
+              }
+            }
+          });
+        });
+      });
     }
 
-    CKEDITOR.replace("p");
+    function setPosition() {
+      //alert('Hello');
+      var university_id = '{{ $university_id }}';
+      return new Promise(function(resolve, reject) {
+        setTimeout(() => {
+          $.ajax({
+            url: "{{ aurl($page_route . '/get-position') }}/",
+            method: "GET",
+            data: {
+              university_id: university_id,
+            },
+            success: function(data) {
+              //alert(data);
+              $("#position").val(data);
+            }
+          });
+        });
+      });
+    }
+
+    function setEditorBlank() {
+      CKEDITOR.instances.description.setData('');
+    }
+
+    $(function() {
+      var $description = CKEDITOR.replace('description');
+
+      $description.on('change', function() {
+        $description.updateElement();
+      });
+    });
   </script>
+  @include('admin.js.common-form-submit')
+  @include('admin.js.common-delete-data')
 @endsection

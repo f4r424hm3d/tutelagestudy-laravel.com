@@ -21,13 +21,9 @@ class UniversityProfileFc extends Controller
   {
     $uname = $request->segment(2);
     $university = University::with('getInstType', 'getAuthor', 'getDestination')->where(['uname' => $uname])->first();
-    $tbl2 = 'university_overviews';
-    $overview = UniversityOverview::where(['u_id' => $university->id])->get();
-    $oschema = UniversityOverview::where(['u_id' => $university->id])->get()->last();
+    $oschema = UniversityOverview::where(['university_id' => $university->id])->get()->last();
     // printArray($oschema);
     // die;
-
-    $allcont = UniversityContent::where(['u_id' => $university->id])->get();
 
     $toptenuni = University::where(['status' => 1])->limit(10)->get();
 
@@ -72,7 +68,7 @@ class UniversityProfileFc extends Controller
     $destinations = Destination::where(['status' => 1])->get();
     $categories = BlogCategory::all();
 
-    $data = compact('university', 'overview', 'page_url', 'uri3', 'title', 'site', 'meta_title', 'meta_keyword', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'destinations', 'toptenuni', 'gc', 'allcont', 'countries', 'phonecodes', 'categories', 'oschema');
+    $data = compact('university', 'page_url', 'uri3', 'title', 'site', 'meta_title', 'meta_keyword', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'destinations', 'toptenuni', 'gc', 'countries', 'phonecodes', 'categories', 'oschema');
     return view('front.university-overview')->with($data);
   }
 }

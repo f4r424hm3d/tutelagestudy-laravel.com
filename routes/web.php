@@ -316,11 +316,13 @@ Route::middleware(['adminLoggedIn'])->group(function () {
       Route::post('/import/', [UniversityC::class, 'import']);
     });
     Route::prefix('/university-overview')->group(function () {
-      Route::get('/{university_id}', [UniversityOverviewC::class, 'index']);
-      Route::post('/{university_id}/store', [UniversityOverviewC::class, 'store']);
-      Route::get('/delete/{id}/', [UniversityOverviewC::class, 'delete']);
-      Route::get('/{university_id}/update/{id}/', [UniversityOverviewC::class, 'index']);
-      Route::post('/{university_id}/update/{id}/', [UniversityOverviewC::class, 'update']);
+      Route::get('/get-data', [UniversityOverviewC::class, 'getData']);
+      Route::get('/get-position', [UniversityOverviewC::class, 'getPosition']);
+      Route::get('/delete/{id}', [UniversityOverviewC::class, 'delete']);
+      Route::post('/store', [UniversityOverviewC::class, 'store']);
+      Route::get('/{university_id}/', [UniversityOverviewC::class, 'index']);
+      Route::get('{university_id}/update/{id}', [UniversityOverviewC::class, 'index']);
+      Route::post('{university_id}/update/{id}', [UniversityOverviewC::class, 'update']);
     });
     Route::prefix('/university-gallery')->group(function () {
       Route::get('/{university_id}', [UniversityGalleryC::class, 'index']);

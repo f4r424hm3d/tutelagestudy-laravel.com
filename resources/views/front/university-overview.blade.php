@@ -84,77 +84,120 @@
             <div class="ps-tab-root" style=" margin-top:10px">
               <div class="row">
                 <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
-                  @foreach ($overview as $row)
-                    <div class="ps-product__box mb-20">
-                      <div class="show-more-box">
-                        <div class="text show-more-heigh">
-                          <div class="ps-document">
-                            <h2>
-                              <?php echo $row->h; ?>
-                            </h2>
-                            <?php if ($row->imgpath != null) { ?>
-                            <center>
-                              <img data-src="<?php echo asset($row->imgpath); ?>" alt="<?php echo $row->h; ?>" class="img-responsive"
-                                loading="lazy" style="padding: 10px">
-                            </center>
-                            <?php } ?>
-                            <?php echo $row->p; ?>
+                  @if ($university->contents->count() > 0)
+                    {{-- TABLE OF CONTENT START HERE --}}
+                    <div class="card">
+                      <div class="card-header">
+                        <h3>Table of Content</h3>
+                      </div>
+                      <div class="card-body pl-4 pr-4 bg-light">
+                        <div class="table-of-content">
+                          <div class="top-level">
+                            @php
+                              $mh = 1;
+                            @endphp
+                            @foreach ($university->parentContents as $row)
+                              <span class="main-heading">
+                                <a href="#{{ $row->slug }}"><b>{{ $mh }}. {{ $row->title }}</b></a><br>
+                                @if ($row->childContents->count() > 0)
+                                  <div class="child-heading">
+                                    @php
+                                      $sh = 1;
+                                    @endphp
+                                    @foreach ($row->childContents as $child)
+                                      <span>
+                                        <a href="#{{ $child->slug }}">
+                                          {{ $mh }}.{{ $sh }} {{ $child->title }}
+                                        </a>
+                                      </span> <br>
+                                      @php $sh++; @endphp
+                                    @endforeach
+                                  </div>
+                                @endif
+                              </span>
+                              @php $mh++; @endphp
+                            @endforeach
+                            {{-- @if ($university->faqs->count() > 0)
+                              <span class="main-heading"><a href="#faqs"><b>{{ $mh }}. Faqs</b></a></span>
+                            @endif --}}
                           </div>
                         </div>
                       </div>
                     </div>
-                  @endforeach
+                    <hr>
+                    {{-- TABLE OF CONTENT END HERE --}}
+                    @php
+                      $cmh = 1;
+                    @endphp
+                    @foreach ($university->parentContents as $row)
+                      {{-- Main CONTENT START HERE --}}
+                      <div class="ps-product__box mb-20">
+                        <div class="show-more-box">
+                          <div class="text show-more-heigh">
+                            <div class="ps-document">
+                              <h2 id="{{ $row->slug }}">{{ $row->title }}</h2>
+                              @if ($row->imgpath != null)
+                                <center>
+                                  <img data-src="{{ asset($row->image_path) }}" alt="<?php echo $row->h; ?>"
+                                    class="img-responsive" loading="lazy" style="padding: 10px">
+                                </center>
+                              @endif
+                              <p>{!! $row->description !!}</p>
+
+                              @if ($row->childContents->count() > 0)
+                                @php
+                                  $csh = 1;
+                                @endphp
+                                @foreach ($row->childContents as $child)
+                                  {{-- CHILD CONTENT START HERE --}}
+                                  <h2 id="{{ $child->slug }}">{{ $csh }}. {{ $child->title }}</h2>
+                                  <p>{!! $child->description !!}</p>
+                                  {{-- CHILD CONTENT END HERE --}}
+                                  @php $csh++; @endphp
+                                @endforeach
+                              @endif
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      {{-- Main CONTENT end HERE --}}
+                      @php $cmh++; @endphp
+                    @endforeach
+                  @endif
+
                   <div class="pb-0 get-detail mb-20">
                     <h4 class="mb-0">Get details on Fee, Admission, Intake.</h4>
                     <a class="ps-btn" href="{{ url('mbbs-abroad-counselling') }}/">Get Free Counselling</a>
                   </div>
-                  @if ($allcont->count())
-                    @foreach ($allcont as $row)
-                      <div class="ps-product__box mb-20">
-                        <div class="show-more-box">
-                          <div class="text">
-                            <?php echo mb_strimwidth($row->p, 0, 400, '...'); ?>
-                          </div>
-                          <div><a href="<?php echo url(Request::segment(1) . '/' . Request::segment(2) . '/' . $row->tab_slug); ?>" class="read-more">Read More <i
-                                class="fa fa-external-link"></i></a></div>
-                        </div>
-                      </div>
-                    @endforeach
-                    <div class="pt-20 pb-0 get-detail">
-                      <h4 class="mb-0">Get details on Fee, Admission, Intake.</h4>
-                      <a class="ps-btn" href="#contact">Get Free Counselling</a>
-                    </div>
-                    <br>
-                  @endif
 
-                  <?php if (count($destinations)) { ?>
-                  <div class="ps-product__box mb-20" id="2">
-                    <aside class="widget widget_best-sale" data-mh="dealhot">
-                      <h3 class="widget-title">You might be interested in related destination</h3>
-                      <div class="widget__content">
-                        <div class="owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000"
-                          data-owl-gap="0" data-owl-nav="false" data-owl-dots="false" data-owl-item="4"
-                          data-owl-item-xs="2" data-owl-item-sm="2" data-owl-item-md="4" data-owl-item-lg="4"
-                          data-owl-duration="1000" data-owl-mousedrag="on">
-                          <?php foreach ($destinations as $oe) { ?>
-                          <div class="ps-product-group">
-                            <div class="ps-product--horizontal">
-                              <div class="ps-product__thumbnail ml-10" style="background:#fff">
-                                <img data-src="<?php echo asset($oe->thumbnail); ?>" alt="<?php echo $oe->page_name; ?>" loading="lazy">
-                              </div>
-                              <div class="ps-product__content">
-                                <a class="ps-product__title" href="<?php echo url($oe->slug); ?>/">
-                                  <?php echo $oe->page_name; ?>
-                                </a>
+                  @if (count($destinations))
+                    <div class="ps-product__box mb-20" id="2">
+                      <aside class="widget widget_best-sale" data-mh="dealhot">
+                        <h3 class="widget-title">You might be interested in related destination</h3>
+                        <div class="widget__content">
+                          <div class="owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000"
+                            data-owl-gap="0" data-owl-nav="false" data-owl-dots="false" data-owl-item="4"
+                            data-owl-item-xs="2" data-owl-item-sm="2" data-owl-item-md="4" data-owl-item-lg="4"
+                            data-owl-duration="1000" data-owl-mousedrag="on">
+                            <?php foreach ($destinations as $oe) { ?>
+                            <div class="ps-product-group">
+                              <div class="ps-product--horizontal">
+                                <div class="ps-product__thumbnail ml-10" style="background:#fff">
+                                  <img data-src="<?php echo asset($oe->thumbnail); ?>" alt="<?php echo $oe->page_name; ?>" loading="lazy">
+                                </div>
+                                <div class="ps-product__content">
+                                  <a class="ps-product__title" href="<?php echo url($oe->slug); ?>/">
+                                    <?php echo $oe->page_name; ?>
+                                  </a>
+                                </div>
                               </div>
                             </div>
+                            <?php } ?>
                           </div>
-                          <?php } ?>
                         </div>
-                      </div>
-                    </aside>
-                  </div>
-                  <?php } ?>
+                      </aside>
+                    </div>
+                  @endif
 
                   <style>
                     .author {
@@ -260,40 +303,40 @@
                       }
                     }
                   </style>
-                  <?php if($university->author_id != null){ ?>
-                  <div class="ps-page--product" style="background-color:white;">
-                    <div class="ps-container pt-10" id="topuniversities">
-                      <div class="ps-section--default pb-2" style="margin-bottom:0px">
-                        <div class="ps-section__header" style="margin-bottom:0px; padding-bottom:0px; border:0px">
-                          <div class="row author">
-                            <div class="col-md-2">
-                              <div class="img-div"> <img data-src="<?php echo asset($university->getAuthor->profile_pic_path); ?>" alt="<?php echo $university->getAuthor->name; ?>"><i
-                                  class="fa fa-check-circle"></i>
+                  @if ($university->author_id != null)
+                    <div class="ps-page--product" style="background-color:white;">
+                      <div class="ps-container pt-10" id="topuniversities">
+                        <div class="ps-section--default pb-2" style="margin-bottom:0px">
+                          <div class="ps-section__header" style="margin-bottom:0px; padding-bottom:0px; border:0px">
+                            <div class="row author">
+                              <div class="col-md-2">
+                                <div class="img-div"> <img data-src="<?php echo asset($university->getAuthor->profile_pic_path); ?>" alt="<?php echo $university->getAuthor->name; ?>"><i
+                                    class="fa fa-check-circle"></i>
+                                </div>
                               </div>
-                            </div>
-                            <div class="col-md-10">
-                              <div class="cont-div">
-                                <h6>
-                                  <?php echo $university->getAuthor->name; ?>
-                                </h6>
-                                <span>Content Curator | Updated on -
-                                  <?php echo getFormattedDate($university->updated_at, 'M d, Y'); ?>
-                                </span>
-                                <?php if($university->getAuthor->shortnote!=null){ ?>
-                                <p>
-                                  <?php echo $university->getAuthor->shortnote; ?>
-                                </p>
-                                <br>
-                                <?php } ?>
-                                <a style="float:right" href="<?php echo url('author/' . $university->getAuthor->slug); ?>/" class="bio-btn">Read Full Bio</a>
+                              <div class="col-md-10">
+                                <div class="cont-div">
+                                  <h6>
+                                    <?php echo $university->getAuthor->name; ?>
+                                  </h6>
+                                  <span>Content Curator | Updated on -
+                                    <?php echo getFormattedDate($university->updated_at, 'M d, Y'); ?>
+                                  </span>
+                                  <?php if($university->getAuthor->shortnote!=null){ ?>
+                                  <p>
+                                    <?php echo $university->getAuthor->shortnote; ?>
+                                  </p>
+                                  <br>
+                                  <?php } ?>
+                                  <a style="float:right" href="<?php echo url('author/' . $university->getAuthor->slug); ?>/" class="bio-btn">Read Full Bio</a>
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <?php } ?>
+                  @endif
                 </div>
                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                   <!-- Sidebar ads -->
@@ -302,7 +345,8 @@
                     <div class="ps-widget__content" style="background:#fff">
                       <ul>
                         @foreach ($categories as $cat)
-                          <li><a href="<?php echo url('blog/' . $cat->slug); ?>/"><i class="icon-arrow-right"></i> {{ $cat->cate_name }}</a>
+                          <li><a href="<?php echo url('blog/' . $cat->slug); ?>/"><i class="icon-arrow-right"></i>
+                              {{ $cat->cate_name }}</a>
                           </li>
                         @endforeach
                       </ul>
