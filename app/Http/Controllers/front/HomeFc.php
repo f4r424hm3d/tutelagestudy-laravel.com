@@ -19,7 +19,7 @@ class HomeFc extends Controller
     $universities3 = University::where(['homeview' => 1, 'status' => 1])->orderBy('id', 'ASC')->offset('8')->limit('4')->get();
     $news = Blog::orderBy('id', 'DESC')->limit('20')->get();
     $country = Currency::all();
-    $destinations = Destination::inRandomOrder()->limit(8)->get();
+    $destinations = Destination::inRandomOrder()->limit(8)->active()->get();
     $data = compact('universities1', 'country', 'news', 'universities2', 'universities3', 'destinations');
     return view('front.index')->with($data);
   }
