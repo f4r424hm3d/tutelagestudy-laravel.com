@@ -270,8 +270,9 @@
           <div class="ps-block--category customcard">
             <div class="servicebox">
               <div class="service-icon"><span><i class="fa fa-check-square-o"></i></span></div>
-              <h3 class="title">NMC/WHO Approved</h3>
-              <p>When you opt for higher studies abroad, try to get admitted to universities approved by WHO or NMC. You
+              <h3 class="title">NMC/WHO Guidelines Approved</h3>
+              <p>When you opt for higher studies abroad, try to get enrolled to WHO/NMC Guidelines approved universities.
+                You
                 need to complete your course from any authorized university.</p>
             </div>
           </div>
@@ -290,8 +291,8 @@
           <div class="ps-block--category customcard">
             <div class="servicebox">
               <div class="service-icon"><span><i class="fa fa-dollar"></i></span></div>
-              <h3 class="title">There is no donation</h3>
-              <p>There will be no donation or hidden charges except for the fee structure when you apply for MBBS courses
+              <h3 class="title">No Hidden Charges</h3>
+              <p>There will be no hidden charges or donation except for the fee structure when you apply for MBBS courses
                 abroad</p>
             </div>
           </div>
@@ -301,9 +302,11 @@
             <div class="servicebox">
               <div class="service-icon"><span><i class="fa fa-language"></i></span></div>
               <h3 class="title">Study in English medium</h3>
-              <p>Studying <a href="https://www.tutelagestudy.com/mbbs-in-uzbekistan/">MBBS</a> abroad doesn't require
+              <p>
+                Studying MBBS abroad doesn't require
                 paying a huge amount of fees. When you apply via Tutelage, you can
-                experience a low tuition fee structure and minimal living cost</p>
+                experience a low tuition fee structure and minimal living cost
+              </p>
             </div>
           </div>
         </div>
