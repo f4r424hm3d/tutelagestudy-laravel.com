@@ -75,19 +75,23 @@
     <div class="container">
       <div class="row">
         <div class="col-xl-5 col-lg-5 col-md-5 col-sm-6 col-12"><img data-src="{{ asset('/front/') }}/img/who-we-are.jpg"
-            alt="Who we are ?" border="0" width="w-100"></div>
+            alt="Best MBBS Abroad Consultants – Secure Your Medical Future Today!" border="0" width="w-100"></div>
         <div class="col-xl-7 col-lg-7 col-md-7 col-sm-6 col-12">
-          <h2 class="main-h1">Who we are ?</h2>
-          <p class="onlinePrepare">We're #1 MBBS Abroad Consultants in India</p>
-          <p>Tutelage Study is currently dealing with study MBBS
-            Abroad Education for Indian Students.</p>
-          <p class="jsfy">You will be able to enroll in the best medical colleges in the world thanks to Tutelage Study.
-            The desire of
-            many students is to join MBBS Abroad in top countries like Cyprus, Belarus, Vietnam, Georgia, Russia, and
-            more. If you belong to such a group, we can direct you in the correct direction. Your future visions will be
-            built by your international education, so start laying the groundwork today for bigger accomplishments. You
-            can get in touch with us to talk about the next steps because we have partnerships with many schools,
-            universities, and medical facilities throughout the world.</p>
+          <h2 class="main-h1">Best MBBS Abroad Consultants – Secure Your Medical Future Today!</h2>
+          <p class="jsfy">
+            Want to Study MBBS Abroad? Get expert guidance from Tutelage Study, India’s #1 MBBS Abroad Consultant, helping
+            Indian students get admission to top NMC-Guidelines approved medical universities worldwide.
+          </p>
+          <p class="jsfy">
+            Choosing to study MBBS abroad with us means accessing top-ranked universities in countries like Russia,
+            Georgia, Kazakhstan, and Kyrgyzstan, offering globally recognized medical degrees. Our affordable fees and
+            budget-friendly options make medical education accessible, while our 100% admission support covers everything
+            from university selection to visa and travel assistance. With English-medium MBBS courses, you’ll experience a
+            fully English-taught curriculum. Our partner colleges are NMC and WHO-Guidelines approved, ensuring you
+            graduate with a degree recognized worldwide. Let India’s best consultants guide you through a hassle-free
+            admission process and start your journey toward becoming a doctor today! Apply now for a smooth and successful
+            path to your medical career.
+          </p>
           <br />
           <a href="<?php echo url('mbbs-in-abroad'); ?>/" class="button home-btn">Know More</a>
         </div>
@@ -96,14 +100,14 @@
   </section>
   <section style="background:#e5e6eb">
     <div class="container" style="padding:30px 15px">
-      <h3 class="text-center">EXPLORE ALMOST EVERYTHING</h3>
-      <p class="text-center">Tutelage Study is an extensive search engine for the students, parents, <br>
-        and education industry players who are seeking information
+      <h3 class="text-center">Discover the Best Global Medical Education Opportunities</h3>
+      <p class="text-center">
+        Tutelage Study is a comprehensive platform for students, parents, and education industry professionals seeking
+        trusted information on MBBS abroad, top universities, admission processes, and career prospects.
       </p>
       <div class="row pt-10">
         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
           <div class="ps-block--category">
-            <br>
             <a class="ps-block__overlay" href="<?php echo url('medical-universities'); ?>/" target="_blank" rel="noopener noreferrer">All
               Universities</a>
             <img data-src="<?php echo url('front'); ?>/img/find-university.jpg" alt="All Universities"
@@ -337,11 +341,15 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6">
-          <h2 class="main-h1">Why should you contact us?</h2>
-          <p class="jsfy">When you come to Tutelage, we’ll give you multiple reasons to consult our counsellors for
-            Study MBBS abroad. Leverage our expert guidance to navigate the complex world of MBBS education seamlessly.
-            Our experienced faculty members are here to illuminate your path toward a successful future. Trust in our
-            expertise to steer you towards your academic and professional aspirations with clarity and confidence.</p>
+          <h2 class="main-h1">Why Contact Us?</h2>
+          <p class="jsfy">
+            At Tutelage Study, we guide students and parents through the MBBS abroad journey with expert advice and
+            reliable support. Our experienced counselors help you choose the best medical universities, understand
+            admission processes, and plan your budget effectively. With our trusted guidance, you can make informed
+            decisions for a bright medical career.At Tutelage Study, we understand that choosing to study MBBS abroad is a
+            big decision for both students and parents. That’s why our expert counselors provide personalized guidance to
+            help you every step of the way. How we help:
+          </p>
           <div class="counselling-content">
             <ul>
               <li>
@@ -368,14 +376,12 @@
         </div>
         <div class="col-md-6">
           <div class="cur-conver">
-            <h2>Time & Currency Converter</h2>
-            <p class="jsfy">Tutelage Study currency converter is an excellent tool to convert currency from one
-              exchange to another.
+            <h2>Real-Time Currency Converter for Study Abroad Aspirants</h2>
+            <p class="jsfy">
+              A simple currency converter to help aspiring students calculate their study abroad budget. Check real-time
+              exchange rates and estimate expenses easily to plan your finances effectively. Students can estimate their
+              study abroad expenses, including food, travel, and living costs using the converter.
             </p>
-            <p class="jsfy">Check the currency rates against all the world currencies here. The currency converter
-              below is
-              easy to use and the currency rates are updated frequently. This is very much needed given the extreme
-              volatility in global currencies lately.</p>
             <form id="currencyConvertForm" class="cur-conver-form customcard" method="post">
 
               <div class="row">
