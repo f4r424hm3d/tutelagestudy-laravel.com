@@ -75,6 +75,19 @@ class DestinationC extends Controller
         session()->flash('emsg', 'Some problem occured. File not uploaded.');
       }
     }
+    if ($request->hasFile('destination_image')) {
+      $fileOriginalName = $request->file('destination_image')->getClientOriginalName();
+      $fileNameWithoutExtention = pathinfo($fileOriginalName, PATHINFO_FILENAME);
+      $file_name_slug = slugify($fileNameWithoutExtention);
+      $fileExtention = $request->file('destination_image')->getClientOriginalExtension();
+      $file_name = $file_name_slug . '_' . time() . '.' . $fileExtention;
+      $move = $request->file('destination_image')->move('uploads/destinations/', $file_name);
+      if ($move) {
+        $field->destination_image = 'uploads/destinations/' . $file_name;
+      } else {
+        session()->flash('emsg', 'Some problem occured. File not uploaded.');
+      }
+    }
     $field->page_name = $request['page_name'];
     $field->slug = slugify($request['slug']);
     $field->country = $request['country'];
@@ -133,6 +146,19 @@ class DestinationC extends Controller
       if ($move) {
         $field->image_name = $file_name;
         $field->image_path = 'uploads/destinations/' . $file_name;
+      } else {
+        session()->flash('emsg', 'Some problem occured. File not uploaded.');
+      }
+    }
+    if ($request->hasFile('destination_image')) {
+      $fileOriginalName = $request->file('destination_image')->getClientOriginalName();
+      $fileNameWithoutExtention = pathinfo($fileOriginalName, PATHINFO_FILENAME);
+      $file_name_slug = slugify($fileNameWithoutExtention);
+      $fileExtention = $request->file('destination_image')->getClientOriginalExtension();
+      $file_name = $file_name_slug . '_' . time() . '.' . $fileExtention;
+      $move = $request->file('destination_image')->move('uploads/destinations/', $file_name);
+      if ($move) {
+        $field->destination_image = 'uploads/destinations/' . $file_name;
       } else {
         session()->flash('emsg', 'Some problem occured. File not uploaded.');
       }
