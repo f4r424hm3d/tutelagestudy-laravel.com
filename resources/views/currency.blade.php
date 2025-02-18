@@ -32,15 +32,14 @@
 
   <script>
     $(document).ready(function() {
-      // Fetch currency list dynamically
+      // Fetch Google-supported currencies dynamically
       $.ajax({
         url: "/currencies",
         type: "GET",
         success: function(response) {
           let options = '<option value="">Select Currency</option>';
           response.forEach(currency => {
-            options +=
-              `<option value="${currency.code}">${currency.country} - ${currency.name} (${currency.code})</option>`;
+            options += `<option value="${currency.code}">${currency.name} (${currency.code})</option>`;
           });
 
           $("#from, #to").html(options);
