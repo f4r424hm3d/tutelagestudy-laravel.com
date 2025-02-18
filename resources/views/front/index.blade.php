@@ -244,15 +244,17 @@
   <section class="onlineCoaching" style="background-color:#e5e6eb">
     <div class="container" style="padding:30px 15px">
       <h1 class="main-h1 text-center mb-2">Why Study MBBS Abroad?</h1>
-      <p class="text-center">Tutelage Studies gives you several reasons to Study MBBS Abroad</p>
+      <p class="text-center">MBBS abroad offers access to top-ranked Medical Universities, affordable tuition fee,
+        globally recognized degrees, for a successful medical career.</p>
       <div class="row pt-10">
         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
           <div class="ps-block--category customcard">
             <div class="servicebox">
               <div class="service-icon"><span><i class="fa fa-money"></i></span></div>
-              <h3 class="title">Low Tuition Fees</h3>
-              <p>Studying MBBS abroad doesn't require paying a huge amount of fees. When you apply via Tutelage, you can
-                experience a low tuition fee structure and minimal living cost.</p>
+              <h3 class="title">Affordable Tuition Fees
+              </h3>
+              <p>Studying MBBS abroad can benefit paying a low tuition fee, less living expenses, making quality medical
+                education more accessible</p>
             </div>
           </div>
         </div>
@@ -260,9 +262,9 @@
           <div class="ps-block--category customcard">
             <div class="servicebox">
               <div class="service-icon"><span><i class="fa fa-stethoscope"></i></span></div>
-              <h3 class="title">Top Medical Universities</h3>
-              <p>Our mentors get you seats in the high-ranked international universities for higher studies. Just connect
-                with our expert faculty, and we will help you chase your dreams.</p>
+              <h3 class="title">Top-Ranked Medical Universities</h3>
+              <p>Secure your admission to world ranked, globally recognized universities, with high education quality and
+                modern facilities.</p>
             </div>
           </div>
         </div>
@@ -270,10 +272,10 @@
           <div class="ps-block--category customcard">
             <div class="servicebox">
               <div class="service-icon"><span><i class="fa fa-check-square-o"></i></span></div>
-              <h3 class="title">NMC/WHO Guidelines Approved</h3>
-              <p>When you opt for higher studies abroad, try to get enrolled to WHO/NMC Guidelines approved universities.
-                You
-                need to complete your course from any authorized university.</p>
+              <h3 class="title">NMC & WHO-Approved Universities </h3>
+              <p>Institutions comply with NMC & WHO guidelines, ensuring your degree is valid for practice in India and
+                worldwide.
+              </p>
             </div>
           </div>
         </div>
@@ -281,9 +283,9 @@
           <div class="ps-block--category customcard">
             <div class="servicebox">
               <div class="service-icon"><span><i class="fa fa-check-square-o"></i></span></div>
-              <h3 class="title">No Entrance Exam</h3>
-              <p>You don't have to worry about entrance examinations while applying for further studies abroad. If you
-                meet the eligibility criteria, you can apply for the course.</p>
+              <h3 class="title">No Entrance Exam </h3>
+              <p>Meet the eligibility criteria, and Get direct admission without additional entrance tests.
+              </p>
             </div>
           </div>
         </div>
@@ -291,9 +293,10 @@
           <div class="ps-block--category customcard">
             <div class="servicebox">
               <div class="service-icon"><span><i class="fa fa-dollar"></i></span></div>
-              <h3 class="title">No Hidden Charges</h3>
-              <p>There will be no hidden charges or donation except for the fee structure when you apply for MBBS courses
-                abroad</p>
+              <h3 class="title">100% English-Medium Programs
+              </h3>
+              <p>Study in a fully English-taught curriculum, as per NMC Guidelines for Indian Students
+              </p>
             </div>
           </div>
         </div>
@@ -301,12 +304,10 @@
           <div class="ps-block--category customcard">
             <div class="servicebox">
               <div class="service-icon"><span><i class="fa fa-language"></i></span></div>
-              <h3 class="title">Study in English medium</h3>
-              <p>
-                Studying MBBS abroad doesn't require
-                paying a huge amount of fees. When you apply via Tutelage, you can
-                experience a low tuition fee structure and minimal living cost
-              </p>
+              <h3 class="title">No Donations
+              </h3>
+              <p>We guarantee a transparent admission process, with no capitation fees, hidden costs, or
+                unexpected expenses.</p>
             </div>
           </div>
         </div>
@@ -317,8 +318,10 @@
     <div class="container">
       <div class="ps-section__header text-center">
         <h3 style="color:white">Most Popular Countries for MBBS Abroad</h3>
-        <small style="color:white">With Tutelage Study you can get MBBS Abroad Admission in world top Medical
-          Universities</small>
+        <small style="color:white">
+          Secure admission to NMC & WHO-approved universities in Russia, Georgia, Kazakhstan, Kyrgyzstan, Uzbekistan, and
+          more with affordable fees, an English-medium curriculum, and no entrance exams
+        </small>
       </div>
       <div class="row">
         @foreach ($destinations as $row)
@@ -346,12 +349,11 @@
         <div class="col-md-6">
           <h2 class="main-h1">Why Contact Us?</h2>
           <p class="jsfy">
-            At Tutelage Study, we guide students and parents through the MBBS abroad journey with expert advice and
-            reliable support. Our experienced counselors help you choose the best medical universities, understand
-            admission processes, and plan your budget effectively. With our trusted guidance, you can make informed
-            decisions for a bright medical career.At Tutelage Study, we understand that choosing to study MBBS abroad is a
-            big decision for both students and parents. That’s why our expert counselors provide personalized guidance to
-            help you every step of the way. How we help:
+            At Tutelage Study, we provide guidance to students and parents for MBBS abroad journey with expert advice,
+            ensuring compliance with NMC guidelines and embassies advisory. Our qualified counsellors support you select
+            top-ranked medical universities, navigate the admission procedure, and plan your budget efficiently. We also
+            deliver support in understanding post-MBBS pathways, including revalidation and career progression. With our
+            personalized guidance, you can make decision for a successful medical career abroad.
           </p>
           <div class="counselling-content">
             <ul>
@@ -538,7 +540,7 @@
                 <div>
                   <span class="counselling-right-image"><img data-src="{{ asset('front/') }}/img/Cicon2.png"
                       alt="Conselling Icon"></span>
-                  <p>7+ <br>
+                  <p>Expert <br>
                     Career Counsellors
                   </p>
                 </div>
@@ -556,8 +558,8 @@
                 <div>
                   <span class="counselling-right-image"><img data-src="{{ asset('front/') }}/img/Cicon4.png"
                       alt="Conselling Icon"></span>
-                  <p>Counselling by<br />
-                    Experts
+                  <p>Visa<br />
+                    Assistance
                   </p>
                 </div>
               </li>
@@ -565,8 +567,8 @@
                 <div>
                   <span class="counselling-right-image"><img data-src="{{ asset('front/') }}/img/Cicon5.png"
                       alt="Conselling Icon"></span>
-                  <p>No need to step <br>
-                    out of home
+                  <p>Forex <br>
+                    Assistance
                   </p>
                 </div>
               </li>
@@ -574,8 +576,7 @@
                 <div>
                   <span class="counselling-right-image"><img data-src="{{ asset('front/') }}/img/Cicon6.png"
                       alt="Conselling Icon"></span>
-                  <p>Loan Support @ <br>
-                    0% Interest
+                  <p>Affordable Loan assistance
                   </p>
                 </div>
               </li>
