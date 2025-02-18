@@ -75,23 +75,24 @@
     <div class="container">
       <div class="row">
         <div class="col-xl-5 col-lg-5 col-md-5 col-sm-6 col-12"><img data-src="{{ asset('/front/') }}/img/who-we-are.jpg"
-            alt="Best MBBS Abroad Consultants – Secure Your Medical Future Today!" border="0" width="w-100"></div>
+            alt="Best MBBS Abroad Consultants – Secure Your Medical Seat Today!" border="0" width="w-100"></div>
         <div class="col-xl-7 col-lg-7 col-md-7 col-sm-6 col-12">
-          <h2 class="main-h1">Best MBBS Abroad Consultants – Secure Your Medical Future Today!</h2>
+          <h2 class="main-h1">Best MBBS Abroad Consultants – Secure Your Medical Seat Today!</h2>
           <p class="jsfy">
-            Want to Study MBBS Abroad? Get expert guidance from Tutelage Study, India’s #1 MBBS Abroad Consultant, helping
-            Indian students get admission to top NMC-Guidelines approved medical universities worldwide.
+            Dreaming of pursuing MBBS abroad? We at Tutelage Study, MBBS Abroad Consultant, help Indian students to secure
+            medical seat in top NMC-approved medical universities worldwide. We deliver expert guidance and end-to-end
+            support with smooth and hassle-free admission process.
           </p>
           <p class="jsfy">
-            Choosing to study MBBS abroad with us means accessing top-ranked universities in countries like Russia,
-            Georgia, Kazakhstan, and Kyrgyzstan, offering globally recognized medical degrees. Our affordable fees and
-            budget-friendly options make medical education accessible, while our 100% admission support covers everything
-            from university selection to visa and travel assistance. With English-medium MBBS courses, you’ll experience a
-            fully English-taught curriculum. Our partner colleges are NMC and WHO-Guidelines approved, ensuring you
-            graduate with a degree recognized worldwide. Let India’s best consultants guide you through a hassle-free
-            admission process and start your journey toward becoming a doctor today! Apply now for a smooth and successful
-            path to your medical career.
+            We are partner of medical Universities in Russia, Georgia, Kazakhstan, Kyrgyzstan, Uzbekistan, and in European
+            countries, where medical students will get globally recognized medical degree with high-quality education at
+            affordable tuition fees. MBBS curriculum is taught fully in English-medium for international students. Our
+            100% admission support covers university selection, documentation, visa processing, and travel assistance, so
+            you can focus entirely on your medical journey.
           </p>
+          <p class="jsfy">At Tutelage Study, we ensure you enrol in NMC & WHO-approved universities, giving you a
+            medical degree that is recognized worldwide. If you're ready to take the next step toward becoming a doctor,
+            apply now and let Tutelage Study MBBS abroad consultants guide you to success!</p>
           <br />
           <a href="<?php echo url('mbbs-in-abroad'); ?>/" class="button home-btn">Know More</a>
         </div>
@@ -101,10 +102,9 @@
   <section style="background:#e5e6eb">
     <div class="container" style="padding:30px 15px">
       <h3 class="text-center">Discover the Best Global Medical Education Opportunities</h3>
-      <p class="text-center">
-        Tutelage Study is a comprehensive platform for students, parents, and education industry professionals seeking
-        trusted information on MBBS abroad, top universities, admission processes, and career prospects.
-      </p>
+      <p class="text-center">Tutelage Study is your trusted resource for MBBS abroad, providing students, parents, and
+        professionals with expert guidance on top medical universities, admission procedures, and career pathways post
+        medical degree. Get accurate, up-to-date information to book your MBBS seat in Abroad.</p>
       <div class="row pt-10">
         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
           <div class="ps-block--category">

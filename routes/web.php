@@ -38,6 +38,7 @@ use App\Http\Controllers\admin\UniversityVideoGalleryC;
 use App\Http\Controllers\admin\UploadFilesC;
 use App\Http\Controllers\admin\UserC;
 use App\Http\Controllers\CommonController;
+use App\Http\Controllers\CurrencyConverterController;
 use App\Http\Controllers\front\AboutFc;
 use App\Http\Controllers\front\AuthorFc;
 use App\Http\Controllers\front\BlogFc;
@@ -47,6 +48,7 @@ use App\Http\Controllers\front\ExamFc;
 use App\Http\Controllers\front\HomeFc;
 use App\Http\Controllers\front\InquiryController;
 use App\Http\Controllers\front\ServiceFc;
+use App\Http\Controllers\front\TestFc;
 use App\Http\Controllers\front\UniversityFc;
 use App\Http\Controllers\front\UniversityProfileFc;
 use App\Http\Controllers\sitemap\SitemapController;
@@ -96,6 +98,13 @@ Route::get('/about-us/', [AboutFc::class, 'index']);
 Route::get('/contact-us/', [ContactFc::class, 'index']);
 Route::get('/term-and-condition/', [HomeFc::class, 'termsConditions']);
 Route::get('/privacy-policy/', [HomeFc::class, 'privacyPolicy']);
+
+Route::get('/currency-converter/', [TestFc::class, 'index']);
+Route::get('/convert-currency', [CurrencyConverterController::class, 'convert']);
+Route::get('/currency', function () {
+  return view('currency'); // Ensure the Blade file exists
+});
+Route::get('/currencies', [CurrencyConverterController::class, 'getCurrencies']);
 
 $blogs = Blog::all();
 foreach ($blogs as $row) {
