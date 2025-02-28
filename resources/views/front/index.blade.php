@@ -414,10 +414,10 @@
                 <div class="col-12 col-sm-12 mb-3 px-2">
                   <div class="d-flex justify-content-between align-items-center ">
                     <div class="text-pricelist">
-                      <p class="font-dollar"><span id="amountResult">1.00</span> <span id="fromResult">US Dollar</span>
+                      <p class="font-dollar"><span id="amountResult"></span> <span id="fromResult"></span>
                         =</p>
-                      <p class="price-numbers" id="convertedAmount">149.87719 <span class="title-bolds"
-                          id="toResult">Japanese Yen</span></p>
+                      <p class="price-numbers" id="convertedAmount"> <span class="title-bolds" id="toResult"></span>
+                      </p>
                       {{-- <p class="usd-texts">1 JPY = 0.00667183 USD</p> --}}
                     </div>
                     <button type="submit" class="ps-btn w-25">Convert</button>
