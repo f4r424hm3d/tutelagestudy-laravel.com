@@ -11,7 +11,7 @@
   }
 
   .ps-list--categories li a {
-    background: #eeeeee;
+    background: #fff;
     font-weight: 500;
     padding: 7px 15px
   }
@@ -86,7 +86,7 @@
     margin-top: 2px;
     margin-bottom: 0px;
     cursor: pointer;
-    font-size: 12px;
+    font-size: 14px;
     letter-spacing: 0;
     text-transform: uppercase;
     color: #1c1b1b;
@@ -153,7 +153,7 @@
     transform: rotate(45deg)
   }
 </style>
-<div class="ps-layout__left">
+<div class="ps-layout__left medicaal-left">
   <aside class="widget widget_shop">
     <ul class="ps-list--categories">
       <li class="current-menu-item menu-item-has-children">

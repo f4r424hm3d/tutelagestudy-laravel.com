@@ -3,8 +3,8 @@
     <div class="ps-footer__widgets mt-5 container">
       <aside class="widget_footer widget_contact-us col-md-3">
         <span class="widget-title">Contact us</span>
-        <div class="widget_content" style="margin-bottom:25px">
-          <span class="whitec" style="font-size:20px;"><a href="tel:+919667667331">+91-9667 667 331</a></span>
+        <div class="widget_content">
+          <span class="whitec" ><a href="tel:+919667667331">+91-9667 667 331</a></span>
           <p class="whitec mb-0">Email : studytutelage@gmail.com</p>
           <p class="whitec">B-16 Ground Floor, Mayfield Garden,<br>
             Sector 50, Gurugram, <br>
@@ -67,11 +67,11 @@
       <div class="col-md-12">
         <div class="ps-footer__copyright">
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-12 col-sm-12 col-md-4">
               <p class="whitec">© 2024 <a href="{{ url('/') }}">Tutelage Study</a>. All Rights Reserved
               </p>
             </div>
-            <div class="col-md-6">
+            <div class="col-12 col-sm-12 col-md-8">
               <p class="whitec text-right">
                 <span class="b1" style="color:#fff"><a
                     href="{{ url('/') }}/services/mbbs-abroad-consultant-in-gurgaon/"

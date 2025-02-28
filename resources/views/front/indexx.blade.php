@@ -10,7 +10,7 @@
     <div class="ps-home-banner ps-home-banner--1">
       <div class="ps-container" style="padding:0px!important">
         <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12">
-          <h1 class="widget-title text-center td-uppercase">Most Trusted Study MBBS Abroad Consultants in India</h1>
+          <h1 class="widget-title text-center">Most Trusted Study MBBS Abroad Consultants in India</h1>
           <!--div class="ps-section__left"-->
           <div class="ps-carousel--nav-inside owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000"
             data-owl-gap="0" data-owl-nav="true" data-owl-dots="true" data-owl-item="1" data-owl-item-xs="1"
@@ -100,64 +100,65 @@
     </div>
   </section>
   <section style="background:#e5e6eb">
-    <div class="container" style="padding:30px 15px 0px">
-      <h3 class="text-center global-size">Discover the Best Global Medical Education Opportunities</h3>
+    <div class="container" style="padding:30px 15px">
+      <h3 class="text-center">Discover the Best Global Medical Education Opportunities</h3>
       <p class="text-center">Tutelage Study is your trusted resource for MBBS abroad, providing students, parents, and
         professionals with expert guidance on top medical universities, admission procedures, and career pathways post
         medical degree. Get accurate, up-to-date information to book your MBBS seat in Abroad.</p>
       <div class="row pt-10">
         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
-          <a href="<?php echo url('medical-universities'); ?>/">
-            <div class="ps-block--category">
-
-              <img data-src="<?php echo url('front'); ?>/img/find-university.jpg" alt="All Universities"
-                style="width:100%!important">
-              <h4 class="pt-10 mb-0 button cur-conver-btn">Find All Universities</h4>
-            </div>
-          </a>
-
+          <div class="ps-block--category">
+            <a class="ps-block__overlay" href="<?php echo url('medical-universities'); ?>/" target="_blank" rel="noopener noreferrer">All
+              Universities</a>
+            <img data-src="<?php echo url('front'); ?>/img/find-university.jpg" alt="All Universities"
+              style="width:100%!important">
+            <h4 class="pt-10 mb-0 button cur-conver-btn">Find All Universities</h4>
+          </div>
         </div>
         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 ">
-          <a href="<?php echo url('services'); ?>/">
-            <div class="ps-block--category">
-
-              <img data-src="<?php echo url('front'); ?>/img/top-courses.jpg" alt="Services" style="width:100%!important">
-              <h4 class="pt-10 mb-0 button cur-conver-btn">Our Services</h4>
-            </div>
-          </a>
+          <div class="ps-block--category">
+            <br>
+            <a class="ps-block__overlay" href="<?php echo url('services'); ?>/" target="_blank"
+              rel="noopener noreferrer">Services</a>
+            <img data-src="<?php echo url('front'); ?>/img/top-courses.jpg" alt="Services" style="width:100%!important">
+            <h4 class="pt-10 mb-0 button cur-conver-btn">Our Services</h4>
+          </div>
         </div>
         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 ">
-          <a href="<?php echo url('destinations'); ?>/">
-            <div class="ps-block--category">
-
-              <img data-src="<?php echo url('front'); ?>/img/exams.jpg" alt="All Destinations" style="width:100%!important">
-              <h4 class="pt-10 mb-0 button cur-conver-btn">All Destinations</h4>
-            </div>
-          </a>
+          <div class="ps-block--category">
+            <br>
+            <a class="ps-block__overlay" href="<?php echo url('destinations'); ?>/" target="_blank" rel="noopener noreferrer">MBBS
+              Countries</a>
+            <img data-src="<?php echo url('front'); ?>/img/exams.jpg" alt="All Destinations" style="width:100%!important">
+            <h4 class="pt-10 mb-0 button cur-conver-btn">All Destinations</h4>
+          </div>
         </div>
         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 ">
-          <a href="{{ url('blog') }}/">
-            <div class="ps-block--category">
-              <img data-src="<?php echo url('front'); ?>/img/news.jpg" alt="latest news" style="width:100%!important">
-              <h4 class="pt-10 mb-0 button cur-conver-btn">Blog & Article</h4>
-            </div>
-          </a>
+          <div class="ps-block--category">
+            <br>
+            <a class="ps-block__overlay" href="{{ url('blog') }}/" target="_blank"
+              rel="noopener noreferrer">Blog</a> <img data-src="<?php echo url('front'); ?>/img/news.jpg" alt="latest news"
+              style="width:100%!important">
+            <h4 class="pt-10 mb-0 button cur-conver-btn">Blog & Article</h4>
+          </div>
         </div>
         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 ">
-          <a href="<?php echo url('mbbs-abroad-counselling'); ?>/">
-            <div class="ps-block--category">
-              <img data-src="<?php echo url('front'); ?>/img/scholarship.jpg" alt="Enquire Now" style="width:100%!important">
-              <h4 class="pt-10 mb-0 button cur-conver-btn">Free Counselling</h4>
-            </div>
-          </a>
+          <div class="ps-block--category">
+            <br>
+            <a class="ps-block__overlay" href="<?php echo url('mbbs-abroad-counselling'); ?>/" target="_blank"
+              rel="noopener noreferrer">Inquiry
+              Now</a> <img data-src="<?php echo url('front'); ?>/img/scholarship.jpg" alt="Enquire Now"
+              style="width:100%!important">
+            <h4 class="pt-10 mb-0 button cur-conver-btn">Free Counselling</h4>
+          </div>
         </div>
         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 ">
-          <a href="<?php echo url('neet-ug'); ?>/">
-            <div class="ps-block--category">
-              <img src="<?php echo url('front'); ?>/img/compare.jpg" alt="compare universities" style="width:100%!important">
-              <h4 class="pt-10 mb-0 button cur-conver-btn">NEET UG</h4>
-            </div>
-          </a>
+          <div class="ps-block--category">
+            <br>
+            <a class="ps-block__overlay" href="<?php echo url('neet-ug'); ?>/">Explore Neet Exam</a><img
+              src="<?php echo url('front'); ?>/img/compare.jpg" alt="compare universities" style="width:100%!important">
+            <h4 class="pt-10 mb-0 button cur-conver-btn">NEET UG</h4>
+          </div>
         </div>
       </div>
     </div>
@@ -240,13 +241,13 @@
       }
     }
   </style>
-  <section class="onlineCoaching py-0" style="background-color:#e5e6eb">
+  <section class="onlineCoaching" style="background-color:#e5e6eb">
     <div class="container" style="padding:30px 15px">
-      <h1 class="main-h1 text-center mb-2 global-size">Why Study MBBS Abroad?</h1>
+      <h1 class="main-h1 text-center mb-2">Why Study MBBS Abroad?</h1>
       <p class="text-center">MBBS abroad offers access to top-ranked Medical Universities, affordable tuition fee,
         globally recognized degrees, for a successful medical career.</p>
       <div class="row pt-10">
-        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 mb-4">
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
           <div class="ps-block--category customcard">
             <div class="servicebox">
               <div class="service-icon"><span><i class="fa fa-money"></i></span></div>
@@ -257,7 +258,7 @@
             </div>
           </div>
         </div>
-        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 mb-4">
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
           <div class="ps-block--category customcard">
             <div class="servicebox">
               <div class="service-icon"><span><i class="fa fa-stethoscope"></i></span></div>
@@ -267,7 +268,7 @@
             </div>
           </div>
         </div>
-        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 mb-4">
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
           <div class="ps-block--category customcard">
             <div class="servicebox">
               <div class="service-icon"><span><i class="fa fa-check-square-o"></i></span></div>
@@ -278,7 +279,7 @@
             </div>
           </div>
         </div>
-        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 mb-4">
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
           <div class="ps-block--category customcard">
             <div class="servicebox">
               <div class="service-icon"><span><i class="fa fa-check-square-o"></i></span></div>
@@ -288,7 +289,7 @@
             </div>
           </div>
         </div>
-        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 mb-4">
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
           <div class="ps-block--category customcard">
             <div class="servicebox">
               <div class="service-icon"><span><i class="fa fa-dollar"></i></span></div>
@@ -299,7 +300,7 @@
             </div>
           </div>
         </div>
-        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 mb-4">
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
           <div class="ps-block--category customcard">
             <div class="servicebox">
               <div class="service-icon"><span><i class="fa fa-language"></i></span></div>
@@ -313,18 +314,18 @@
       </div>
     </div>
   </section>
-  <div class="ps-search-trending m-education ">
+  <div class="ps-search-trending">
     <div class="container">
       <div class="ps-section__header text-center">
-        <h3 style="color:white" class="global-size">Most Popular Countries for MBBS Abroad</h3>
-        <p style="color:white">
+        <h3 style="color:white">Most Popular Countries for MBBS Abroad</h3>
+        <small style="color:white">
           Secure admission to NMC & WHO-approved universities in Russia, Georgia, Kazakhstan, Kyrgyzstan, Uzbekistan, and
           more with affordable fees, an English-medium curriculum, and no entrance exams
-        </p>
+        </small>
       </div>
       <div class="row">
         @foreach ($destinations as $row)
-          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 mb-4">
+          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
             <div class="ps-post ps-product shadow">
               <div class="ps-post__thumbnail"><img data-src="{{ asset($row->destination_image ?? $row->thumbnail) }}"
                   alt="MBBS in Malaysia"></div>
@@ -386,60 +387,65 @@
               exchange rates and estimate expenses easily to plan your finances effectively. Students can estimate their
               study abroad expenses, including food, travel, and living costs using the converter.
             </p>
-            <form id="currencyForm" class="cur-conver-form customcard" method="post">
+            <form id="currencyConvertForm" class="cur-conver-form customcard" method="post">
+
               <div class="row">
-                <div class="col-12 col-sm-4 mb-3 px-2 ">
-                  <div class="main-labels">
-                    <label for="exampleFormControlInput1" class="form-label labels-s">Amount</label>
-                    <input type="number" id="amount" name="amount" class="form-control"
-                      id="exampleFormControlInput1" placeholder="$1.00">
-                  </div>
-                </div>
-                <div class="col-12 col-sm-4 mb-3 px-2 ">
-                  <div class="main-labels">
-                    <label for="exampleFormControlInput1" class="form-label labels-s">From</label>
-                    <select id="from" name="from" class="form-select" aria-label="Default select example">
-                      <option value="">Loading...</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-12 col-sm-4 mb-3 px-2 ">
-                  <div class="main-labels">
-                    <label for="exampleFormControlInput1" class="form-label labels-s">To</label>
-                    <select id="to" name="to" class="form-select" aria-label="Default select example">
-                      <option value="">Loading...</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-12 col-sm-12 mb-3 px-2">
-                  <div class="d-flex justify-content-between align-items-center ">
-                    <div class="text-pricelist">
-                      <p class="font-dollar"><span id="amountResult">1.00</span> <span id="fromResult">US Dollar</span>
-                        =</p>
-                      <p class="price-numbers" id="convertedAmount">149.87719 <span class="title-bolds"
-                          id="toResult">Japanese Yen</span></p>
-                      {{-- <p class="usd-texts">1 JPY = 0.00667183 USD</p> --}}
+                <div class="col-md-6">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <select name="from" id="from" required>
+                        <option value="">-Select Country-</option>
+                        @foreach ($country as $c)
+                          <option value="{{ $c->code }}">{{ $c->country }}</option>
+                        @endforeach
+                      </select>
                     </div>
-                    <button type="submit" class="ps-btn w-25">Convert</button>
+                    <div class="col-md-5">
+                      <input name="from_code" id="from_code" placeholder="" readonly>
+                    </div>
+                    <div class="col-md-7">
+                      <input name="amount" id="from_amount" placeholder="Enter Amount">
+                    </div>
                   </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <select name="to" id="to" required>
+                        <option value="">-Select Country-</option>
+                        @foreach ($country as $c)
+                          <option value="{{ $c->code }}">{{ $c->country }}</option>
+                        @endforeach
+                      </select>
+                    </div>
+                    <div class="col-md-5">
+                      <input id="to_code" readonly>
+                    </div>
+                    <div class="col-md-7">
+                      <input id="to_amount" readonly>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <input onclick="convert()" id="submitBtnCC" type="button" class="button cur-conver-btn"
+                    value="Convert">
                 </div>
               </div>
             </form>
-
           </div>
         </div>
       </div>
   </section>
-  <div class="ps-page--product  pb-40" style="background:#e5e6eb;">
+  <div class="ps-page--product pt-70 pb-40" style="background:#e5e6eb;">
     <div class="ps-container">
-      <div class="ps-section--default customcard">
+      <div class="ps-section--default customcard"
+        style="pad customcardding:15px 20px;background: #fff; border-radius:5px">
         <aside class="widget widget_best-sale " data-mh="dealhot">
           <h2 class="widget-title">Top Medical Universities of MBBS Abroad</h2>
           <div class="widget__content">
             <div class="owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="0"
               data-owl-nav="false" data-owl-dots="false" data-owl-item="1" data-owl-item-xs="1" data-owl-item-sm="1"
-              data-owl-item-md="1" data-owl-item-lg="2" data-owl-item-xl="2" data-owl-duration="1000"
-              data-owl-mousedrag="on">
+              data-owl-item-md="1" data-owl-item-lg="1" data-owl-duration="1000" data-owl-mousedrag="on">
               <div class="ps-product-group">
                 @foreach ($universities1 as $tu)
                   <div class="ps-product--horizontal">
@@ -580,7 +586,7 @@
       </div>
     </div>
   </section>
-  <div class="ps-page--product pt-30 pb-20 all-ol-items" style="background:#eee;">
+  <div class="ps-page--product pt-30 pb-20" style="background:#eee;">
     <div class="ps-container">
       <div class="ps-section--default" style="padding:15px 20px;background: #fff; border-radius:5px">
         <div class="ps-section__header" style="margin-bottom:10px; padding-bottom:0px; border:0px!important">
@@ -593,7 +599,7 @@
             data-owl-duration="1000" data-owl-mousedrag="on" style="margin-bottom:0px!important">
             @foreach ($news as $row)
               <div class="ps-post ps-product">
-                <div class="ps-post__thumbnail ">
+                <div class="ps-post__thumbnail">
                   <img data-src="{{ asset($row->imgpath) }}" alt="<?php echo $row->headline; ?>"
                     style="width:100%; height: 150px;!important">
                 </div>
@@ -637,53 +643,5 @@
         $('#submitBtnCC').val('Convert');
       });
     }
-  </script>
-  <script>
-    $(document).ready(function() {
-      // Fetch Google-supported currencies dynamically
-      $.ajax({
-        url: "{{ url('currencies') }}",
-        type: "GET",
-        success: function(response) {
-          let options = '<option value="">Select Currency</option>';
-          response.forEach(currency => {
-            options += `<option value="${currency.code}">${currency.name} (${currency.code})</option>`;
-          });
-
-          $("#from, #to").html(options);
-        },
-        error: function() {
-          alert("Failed to load currency list.");
-        }
-      });
-
-      // Handle conversion form submission
-      $("#currencyForm").submit(function(event) {
-        event.preventDefault();
-        var fromCurrency = $("#from").val(); // Assuming 'from' has an ID 'from'
-        var amount = $("#amount").val(); // Assuming 'amount' has an ID 'amount'
-        var toCurrency = $("#to").val();
-        $.ajax({
-          url: "{{ url('convert-currency') }}",
-          type: "GET",
-          data: $(this).serialize(),
-          success: function(response) {
-            if (response.success) {
-              // console.log(response); // Logs the full response in the browser console
-              // alert(JSON.stringify(response, null, 2));
-              $("#convertedAmount").text(response.converted_amount + " " + $("#to").val().toUpperCase());
-              $("#fromResult").text(fromCurrency);
-              $("#toResult").text(toCurrency);
-              $("#amountResult").text(amount);
-            } else {
-              // alert(response.message);
-            }
-          },
-          error: function() {
-            alert("Conversion failed. Please check your input.");
-          }
-        });
-      });
-    });
   </script>
 @endsection

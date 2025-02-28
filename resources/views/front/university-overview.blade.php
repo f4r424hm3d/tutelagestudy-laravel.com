@@ -303,7 +303,7 @@
 
                     .author span {
                       display: block;
-                      font-size: 13px;
+                      font-size: 16px;
                       padding-bottom: 10px;
                       margin-bottom: 10px;
                       border-bottom: 1px dashed #e2e2e2

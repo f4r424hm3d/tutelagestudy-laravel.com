@@ -20,7 +20,7 @@
     }
 
     .blog-tabs .btn-lg {
-      font-size: 14px;
+      font-size: 16px;
       color: #fff;
       border: 1px solid #fff;
     }

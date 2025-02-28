@@ -86,8 +86,8 @@
                   <div class="ps-product__box mb-20">
                     <aside class="widget widget_best-sale">
                       <p class="widget-title"> Table of Contents <span style="float:right;">
-                          <button class="btn btn-outline-info tglBtn hide-this">+</button>
-                          <button class="btn btn-outline-info tglBtn">-</button>
+                          <button class="btn btn-outline-info tglBtn hide-this"><i class="fa-solid fa-plus"></i></button>
+                          <button class="btn btn-outline-info tglBtn"><i class="fa-solid fa-minus"></i></button>
                         </span>
                       </p>
                       <div class="widget__content tbl-cntnt " id="tblCDiv">
@@ -424,7 +424,7 @@
 
     .author span {
       display: block;
-      font-size: 13px;
+      font-size: 16px;
       padding-bottom: 10px;
       margin-bottom: 10px;
       border-bottom: 1px dashed #e2e2e2

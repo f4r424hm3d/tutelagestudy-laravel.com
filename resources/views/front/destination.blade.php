@@ -86,12 +86,16 @@
         <div class="row">
           <?php foreach ($destinations as $row) { ?>
           <div class="col-md-3 mt-3 mb30">
-            <div class="img-content">
+            <div class="img-content content-destination">
               <a href="{{ url('destinations/' . $row->slug) }}/">
+                <div class="image-shows" >
                 <img data-src="{{ asset($row->thumbnail) }}" alt="{{ $row->page_name }}" style="width:100%">
-                <span class="detail-link">
+                </div>
+               <div  class="full-links" >
+               <span class="detail-link">
                   {{ $row->page_name }} <i class="icon-arrow-right"></i>
                 </span>
+               </div>
               </a>
             </div>
           </div>

@@ -14,7 +14,7 @@
   }
 
   .ps-post .ps-post__title {
-    font-size: 20px !important;
+    font-size: 18px !important;
     margin-bottom: 10px !important;
   }
 
@@ -43,8 +43,8 @@
             <div class="ps-blog__content mt-30">
               <div class="row">
                 <?php foreach ($services as $row) { ?>
-                  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
-                    <div class="ps-post ps-product shadow">
+                  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 mb-4">
+                    <div class="ps-post ps-product shadow mb-0 h-100 ">
                       <div class="ps-post__thumbnail">
                         <img data-src="<?php echo asset($row->imgpath); ?>" alt="<?php echo $row->headline; ?>">
                       </div>

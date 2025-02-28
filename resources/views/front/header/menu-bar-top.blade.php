@@ -23,7 +23,7 @@
       style="display:none;visibility:hidden"></iframe>
   </noscript>
   <!-- End Google Tag Manager (noscript) -->
-  <header class="header header--1">
+  <header class="header header--1 sticky-head">
     <div class="header__top">
       <div class="ps-container">
         <div class="header__left">
