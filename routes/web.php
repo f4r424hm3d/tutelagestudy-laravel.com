@@ -23,6 +23,7 @@ use App\Http\Controllers\admin\BlogC;
 use App\Http\Controllers\admin\BlogCategoryC;
 use App\Http\Controllers\admin\BlogContentC;
 use App\Http\Controllers\admin\BlogFaqC;
+use App\Http\Controllers\admin\ExamTypeC;
 use App\Http\Controllers\admin\ProgramC;
 use App\Http\Controllers\admin\SeoC;
 use App\Http\Controllers\admin\ServiceC;
@@ -502,6 +503,15 @@ Route::middleware(['adminLoggedIn'])->group(function () {
       Route::post('/store-ajax', [UploadFilesC::class, 'storeAjax']);
       Route::get('/update/{id}', [UploadFilesC::class, 'index']);
       Route::post('/update/{id}', [UploadFilesC::class, 'update']);
+    });
+    Route::prefix('/exam-types')->group(function () {
+      Route::get('', [ExamTypeC::class, 'index']);
+      Route::get('get-data', [ExamTypeC::class, 'getData']);
+      Route::get('/delete/{id}', [ExamTypeC::class, 'delete']);
+      Route::get('/update/{id}', [ExamTypeC::class, 'index']);
+      Route::post('/update/{id}', [ExamTypeC::class, 'update']);
+      Route::post('/store', [ExamTypeC::class, 'store']);
+      Route::post('/import', [ExamTypeC::class, 'import']);
     });
   });
 });

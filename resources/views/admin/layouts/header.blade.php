@@ -216,12 +216,6 @@
           <div class="collapse navbar-collapse" id="topnav-menu-content">
             <ul class="navbar-nav">
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle arrow-none" href="{{ url('admin') }}" id="topnav-dashboard"
-                  role="button">
-                  <i data-feather="home"></i><span data-key="t-dashboards">Dashboard</span>
-                </a>
-              </li>
-              <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-more" role="button">
                   <i data-feather="file-text"></i>
                   <span data-key="t-extra-pages">
@@ -299,18 +293,7 @@
                   </div>
                 </div>
               </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle arrow-none" href="{{ aurl('exams') }}" id="topnav-dashboard"
-                  role="button">
-                  <i data-feather="home"></i><span data-key="t-dashboards">Exams</span>
-                </a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle arrow-none" href="{{ aurl('Authors') }}" id="topnav-dashboard"
-                  role="button">
-                  <i data-feather="home"></i><span data-key="t-dashboards">Authors</span>
-                </a>
-              </li>
+
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-more" role="button">
                   <i data-feather="file-text"></i>
@@ -333,11 +316,38 @@
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-more" role="button">
                   <i data-feather="file-text"></i>
+                  <span data-key="t-extra-pages">Exam Papers</span>
+                  <div class="arrow-down"></div>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="topnav-more">
+                  <div class="dropdown">
+                    <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('exam-types') }}"
+                      id="topnav-auth" role="button">
+                      <span data-key="t-authentication">Exam Types</span>
+                    </a>
+                    <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('exam-papers') }}"
+                      id="topnav-auth" role="button">
+                      <span data-key="t-authentication">Exam Papers</span>
+                    </a>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-more" role="button">
+                  <i data-feather="file-text"></i>
                   <span data-key="t-extra-pages">More</span>
                   <div class="arrow-down"></div>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="topnav-more">
                   <div class="dropdown">
+                    <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('exams') }}" id="topnav-auth"
+                      role="button">
+                      <span data-key="t-authentication">Exams</span>
+                    </a>
+                    <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('authors') }}"
+                      id="topnav-auth" role="button">
+                      <span data-key="t-authentication">Authors</span>
+                    </a>
                     <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('addresses') }}"
                       id="topnav-auth" role="button">
                       <span data-key="t-authentication">Addresses</span>
