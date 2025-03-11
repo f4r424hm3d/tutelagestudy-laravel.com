@@ -210,8 +210,6 @@
       font-weight: 400
     }
 
-   
-
     .ps-product__box h3 {
       margin: 12px 0px 0px 0px;
       font-size: 18px;
@@ -232,7 +230,6 @@
       width: 1.3em;
     }
 
-    
     .ps-product__box p:last-child {
       margin-bottom: 0px;
     }
@@ -240,7 +237,6 @@
     .ps-product__box table {
       margin: 5px 0px;
     }
-
 
     .ps-block--categories-tabs .ps-block__header {
       padding: 0 30px;
@@ -325,14 +321,16 @@
         <div class="ps-tab-root container-fluid">
           <div class="row">
             <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12 mb-20">
-              <div class="ps-product__box">
-                <div class="ps-document">
-                  <center>
-                    <img data-src="{{ url($exam_page->image_path) }}" alt="{{ $exam_page->page_name }}"
-                      class="img-responsive">
-                  </center>
+              @if ($exam_page->image_path != null)
+                <div class="ps-product__box">
+                  <div class="ps-document">
+                    <center>
+                      <img data-src="{{ url($exam_page->image_path) }}" alt="{{ $exam_page->page_name }}"
+                        class="img-responsive">
+                    </center>
+                  </div>
                 </div>
-              </div>
+              @endif
               <br>
               <div class="pt-0 pb-20 get-detail">
                 <span style="font-size:18px; color:#cd2122;">Get Free NEET Counselling from Experts</span>
