@@ -23,6 +23,7 @@ use App\Http\Controllers\admin\BlogC;
 use App\Http\Controllers\admin\BlogCategoryC;
 use App\Http\Controllers\admin\BlogContentC;
 use App\Http\Controllers\admin\BlogFaqC;
+use App\Http\Controllers\admin\ExamPaperC;
 use App\Http\Controllers\admin\ExamTypeC;
 use App\Http\Controllers\admin\ProgramC;
 use App\Http\Controllers\admin\SeoC;
@@ -512,6 +513,14 @@ Route::middleware(['adminLoggedIn'])->group(function () {
       Route::post('/update/{id}/', [ExamTypeC::class, 'update']);
       Route::post('/store/', [ExamTypeC::class, 'store']);
       Route::post('/import/', [ExamTypeC::class, 'import']);
+    });
+    Route::prefix('/exam-papers')->group(function () {
+      Route::get('/', [ExamPaperC::class, 'index']);
+      Route::get('/delete/{id}/', [ExamPaperC::class, 'delete']);
+      Route::get('/update/{id}/', [ExamPaperC::class, 'index']);
+      Route::post('/update/{id}/', [ExamPaperC::class, 'update']);
+      Route::post('/store/', [ExamPaperC::class, 'store']);
+      Route::post('/import/', [ExamPaperC::class, 'import']);
     });
   });
 });
