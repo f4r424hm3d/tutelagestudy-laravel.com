@@ -189,6 +189,9 @@ Route::get('/medical-universities/', [UniversityFc::class, 'index']);
 Route::get('/medical-universities/{destination_slug}', [UniversityFc::class, 'universitybyCountry']);
 
 Route::get('/university/remove-filter/', [UniversityFc::class, 'removeFilter']);
+Route::get('/downloads/', function () {
+  return view('front.downloads');
+});
 
 // $universities = University::select('country_slug')->groupBy('country_slug')->get();
 // foreach ($universities as $row) {
