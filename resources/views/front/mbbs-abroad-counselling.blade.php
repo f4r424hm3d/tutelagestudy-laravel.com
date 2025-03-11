@@ -16,12 +16,14 @@
       margin-bottom: 15px
     }
 
-    .mbbs-abroad-counselling h1 {
+    .main-appply h1 {
       padding: 0px 0px 10px 0px;
-      margin-top: 0px;
-      margin-bottom: 15px;
-      border-bottom: 1px dashed #cd2122;
-      font-weight: 600
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-bottom: 0px;
+    font-size: 20px;
     }
 
     .mbbs-abroad-counselling select {
@@ -58,7 +60,7 @@
       font-weight: 600
     }
 
-    @media (max-width:767px) {
+    @media(max-width:767px) {
       .mbbs-abroad-counselling {
         background: #eee;
         padding: 30px 15px
@@ -109,7 +111,7 @@
         @error('captcha')
           <span class="text-danger">{{ $message }}</span>
         @enderror
-          <div class="applyfroms">
+          <div class="applyfroms main-appply">
             <h1>Apply Now for MBBS Upcoming Intake & Free Couselling Session</h1>
             <form class="ps-form--visa" action="{{ url('inquiry/submit-mbbs-inquiry') }}/" method="post">
               @csrf
@@ -180,13 +182,13 @@
                     @enderror
                   </div>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                  <div class="d-flex align-items-center full-captcha  form-group">
                  <label class="mr-2 mb-0" for="captcha">CAPTCHA:</label>
                  <img  class="mb-0" src="{{ Captcha::src('math/') }}" alt="CAPTCHA">
                  </div>
                 </div>
-                <div class="col-lg-8 col-md-8 col-sm-6 col-12">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                   <div class="form-group">
                     <input type="text" id="captcha" placeholder="Enter the captcha" name="captcha"
                       class="form-control">

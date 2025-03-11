@@ -69,7 +69,7 @@
               <a href="{{ url('destinations') }}/">Destinations</a>
               <span class="sub-toggle"></span>
               <div class="mega-menu">
-                <div class="mega-menu__column">
+                <div class="mega-menu__column p-0">
                   <ul class="mega-menu__list">
                     @php
                       $destinations = Destination::where(['status' => 1])
