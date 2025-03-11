@@ -22,13 +22,13 @@
 
     .static p {
 
-    font-size: 15px;
+    font-size: 16px;
 
     line-height: 1.6;
 
     margin-bottom: 15px;
 
-    text-align: justify;
+ 
 
     }
 

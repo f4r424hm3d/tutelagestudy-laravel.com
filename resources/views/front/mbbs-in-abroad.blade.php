@@ -71,8 +71,12 @@
               So, these features help most of the students to choose MBBS in abroad.</p>
           </div>
         </div>
-        <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12"><img data-src="{{ asset('/front/') }}/img/mbbs-in-abroad.png"
-            alt="MBBS Abroad for indian students" class="img-fluid"></div>
+        <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+          <div class="profilesabout">
+          <img data-src="{{ asset('/front/') }}/img/mbbs-in-abroad.png"
+          alt="MBBS Abroad for indian students" class="img-fluid">
+          </div>
+        </div>
         <!--<div class="col-lg-12">-->
         <!--<div class="ps-section__header" style="max-width:100%; margin:0px">-->
         <!--<p class="jsfy">This issue could be resolved while studying MBBS in abroad as there is no capitation is received for the admission. The foreign medical universities stand as salvage to Indian medical students and also for the other students who seek good education in abroad countries.</p>-->
@@ -99,9 +103,13 @@
               economy and have the best destination for MBBS in abroad.</p>
           </div>
         </div>
-        <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12"><img
+        <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+        <div class="profilesabout">
+        <img
             data-src="{{ asset('/front/') }}/img/choose-best-country.jpg" class="img-fluid"
-            alt="mbbs in abroad for indian students"></div>
+            alt="mbbs in abroad for indian students">
+        </div>  
+        </div>
       </div>
     </div>
   </div>
@@ -114,7 +122,7 @@
             <p class="jsfy">Most of the abroad countries offer the best environment and high-quality education for the
               students at an affordable cost. The best countries for study abroad known for such medical education are
               Malaysia, Ukraine, Kazakhstan, Russia, Germany, Nepal, Bangladesh, China, and many other countries.</p>
-            <p class="jsfy mb30">The medical universities in these countries are approved and accredited by the World
+            <p class="jsfy">The medical universities in these countries are approved and accredited by the World
               Health Organisation(WHO) and enlisted with the Medical Councils of India(MCI). They follow the international
               and advanced curriculum for the student to make them more skilled in the medical field. So, the
               above-mentioned countries are best for <a href="https://www.mymbbsadmission.com/mbbs-abroad/">MBBS in
@@ -187,8 +195,8 @@
       <div class="row text-center">
         <div class="col-lg-12 col-md-6 col-sm-12 col-xs-12">
           <div class="ps-section__header" style="max-width:100%; margin:0px">
-            <h2>Choice of Countries to Study MBBS in Abroad</h2>
-            <p class="jsfy">Nowadays, Indian students have many options to take and pursue MBBS admission in abroad at a
+            <h2 class="global-size" >Choice of Countries to Study MBBS in Abroad</h2>
+            <p class="text-center">Nowadays, Indian students have many options to take and pursue MBBS admission in abroad at a
               very low cost. Following are the few countries where students can study MBBS in abroad:</p>
           </div>
         </div>
@@ -236,7 +244,7 @@
       <div class="row text-center">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <div class="ps-section__header" style="max-width:100%; margin:0px">
-            <h2>Country List of Top Medical Universities for MBBS Abroad</h2>
+            <h2 class="global-size"  >Country List of Top Medical Universities for MBBS Abroad</h2>
             <p class="jsfy">There are a number of best quality education universities in foreign countries. The MCI
               approved medical universities have their ranks. Here are some of the universities from different countries:
             </p>

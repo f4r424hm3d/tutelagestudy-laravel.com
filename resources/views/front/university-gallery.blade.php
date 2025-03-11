@@ -152,13 +152,11 @@
   }
 
   .show-more-box p {
-    font-size: 15px;
-    text-align: justify
+    font-size: 16px;
   }
 
   .show-more-box li {
-    font-size: 15px;
-    text-align: justify
+    font-size: 16px;
   }
 
   .fancy-btn {
@@ -266,9 +264,7 @@
     font-weight: 400
   }
 
-  .ps-product__content p {
-    text-align: justify
-  }
+ 
 
   .ps-block--categories-tabs .ps-block__header {
     padding: 0 30px;

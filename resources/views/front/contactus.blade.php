@@ -71,7 +71,6 @@
       font-size: 13px;
       line-height: 18px;
       padding: 0px 0px 15px 0px;
-      text-align: justify;
       margin: 0;
       color: #5c5c5c;
       font-weight: 400;

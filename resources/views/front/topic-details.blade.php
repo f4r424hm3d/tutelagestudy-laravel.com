@@ -141,10 +141,6 @@ $chk = $this->session->flashdata('chk');
       font-weight: 400
     }
 
-    .ps-document p {
-      text-align: justify
-    }
-
     .ps-product__box h3 {
       margin: 12px 0px 0px 0px;
       font-size: 18px;
@@ -165,9 +161,7 @@ $chk = $this->session->flashdata('chk');
       width: 1.3em;
     }
 
-    .ps-product__box p {
-      text-align: justify
-    }
+   
 
     .ps-product__box p:last-child {
       margin-bottom: 0px;
@@ -177,9 +171,7 @@ $chk = $this->session->flashdata('chk');
       margin: 5px 0px;
     }
 
-    .ps-product__box td {
-      padding-left: 10px !important;
-    }
+  
 
     .ps-block--categories-tabs .ps-block__header {
       padding: 0 30px;

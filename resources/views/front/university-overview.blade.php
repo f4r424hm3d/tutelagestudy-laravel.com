@@ -445,11 +445,7 @@
       position: relative
     }
 
-    .ps-product__content p,
-    .show-more-box li,
-    .show-more-box p {
-      text-align: justify
-    }
+  
 
     .info-box {
       padding: 20px 5px;

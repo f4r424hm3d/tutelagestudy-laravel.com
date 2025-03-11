@@ -61,9 +61,7 @@
     /* same as padding-left set on li */
   }
 
-  .ps-product__box p {
-    text-align: justify
-  }
+
 
   .ps-product__box p:last-child {
     margin-bottom: 0px;
@@ -73,9 +71,7 @@
     margin: 5px 0px 10px 0px;
   }
 
-  .ps-product__box td {
-    padding-left: 10px !important;
-  }
+
 </style>
 
 <div class="ps-breadcrumb">

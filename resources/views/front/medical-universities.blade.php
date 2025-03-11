@@ -250,7 +250,7 @@
                     </div>
 
                     <div class="row">
-                      <div class="col-md-8">
+                      <div class="col-md-12">
                         <div class="header__center">
                           <form class="ps-form--quick-search" method="get">
                             <input class="form-control" name="search" type="text" placeholder="Search Universities"
@@ -290,7 +290,7 @@
                                     </p>
                                   </div>
                                 </div>
-                                <div class="ps-product__container col-md-3 col-sm-12 col-xs-12 text-center">
+                                <div class="ps-product__container col-md-3 col-sm-12 col-xs-12 text-center  justify-content-end ">
                                   <p style="margin:0px">
                                     <a class="ps-btn mt-2 w-100" href="{{ url('mbbs-abroad-counselling') }}/"><i
                                         class="icon-question-circle"></i> Request Info</a>

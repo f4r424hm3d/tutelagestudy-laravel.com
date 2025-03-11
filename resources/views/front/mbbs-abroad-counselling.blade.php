@@ -34,12 +34,12 @@
       background-color: #fff
     }
 
-    .form-control {
+    /* .form-control {
       background: #fff;
       padding: 5px 15px;
       height: 45px;
       border-radius: 4px
-    }
+    } */
 
     .pr7 {
       padding-right: 7px
@@ -84,7 +84,7 @@
   </style>
   <div class="mbbs-abroad-counselling">
     <div class="row justify-content-center align-items-center">
-      <div class="col-md-8">
+      <div class="col-12 col-sm-12  col-md-10 col-lg-8 mx-auto">
         <?php if (session()->has('smsg')) { ?>
         <div class="alert alert-success alert-outline-coloured alert-dismissible" role="alert">
           <div class="alert-message">
@@ -109,8 +109,7 @@
         @error('captcha')
           <span class="text-danger">{{ $message }}</span>
         @enderror
-        <div class="row">
-          <div class="col-md-11">
+          <div class="applyfroms">
             <h1>Apply Now for MBBS Upcoming Intake & Free Couselling Session</h1>
             <form class="ps-form--visa" action="{{ url('inquiry/submit-mbbs-inquiry') }}/" method="post">
               @csrf
@@ -118,7 +117,7 @@
               <input type="hidden" name="source" value="MBBS Abroad Counselling">
               <input type="hidden" name="source_path" value="{{ url()->previous() }}">
               <div class="row">
-                <div class="col-lg-6 col-md-5 col-sm-12 col-xs-12 pr7">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-12 ">
                   <div class="form-group">
                     <input type="text" name="name" id="name" class="form-control" placeholder="Enter Name"
                       value="{{ old('name') ?? '' }}" required>
@@ -127,7 +126,7 @@
                     @enderror
                   </div>
                 </div>
-                <div class="col-lg-6 col-md-7 col-sm-12 col-xs-12 pl7">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                   <div class="form-group">
                     <input type="email" class="form-control" name="email" id="email"
                       value="{{ old('email') ?? '' }}" placeholder="Enter Email" required>
@@ -136,7 +135,7 @@
                     @enderror
                   </div>
                 </div>
-                <div class="col-4 col-lg-4 col-md-4 col-sm-4 col-xs-6 pr7">
+                <div class="col-12 col-sm-2 col-md-2  col-lg-2">
                   <div class="form-group">
                     <input type="c_code" class="form-control" name="c_code" id="c_code"
                       value="{{ old('c_code') ?? '91' }}" placeholder="Enter Country Code" required>
@@ -145,7 +144,7 @@
                     @enderror
                   </div>
                 </div>
-                <div class="col-8 col-lg-8 col-md-8 col-sm-8 col-xs-6 pl7">
+                <div class="col-12 col-sm-10 col-md-10  col-lg-10">
                   <div class="form-group">
                     <input type="text" class="form-control u-ltr" placeholder="Enter Mobile Number"
                       data-error="Please enter a valid phone number" name="mobile" id="mobile"
@@ -155,7 +154,7 @@
                     @enderror
                   </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr7">
+                <div class="col-lg-6 col-md-6 col-sm-6  ">
                   <div class="form-group">
                     <input type="nationality" class="form-control" name="nationality" id="nationality"
                       value="{{ old('nationality') ?? 'India' }}" placeholder="Enter Nationality" required>
@@ -164,7 +163,7 @@
                     @enderror
                   </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl7">
+                <div class="col-lg-6 col-md-6 col-sm-6">
                   <div class="form-group">
                     <select class="form-control" name="destination" id="destination" required>
                       <option value="">Preferred MBBS Country</option>
@@ -181,21 +180,24 @@
                     @enderror
                   </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-6 pl7">
-                  <label for="captcha">CAPTCHA:</label>
-                  <img src="{{ Captcha::src('math/') }}" alt="CAPTCHA">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                 <div class="d-flex align-items-center full-captcha  form-group">
+                 <label class="mr-2 mb-0" for="captcha">CAPTCHA:</label>
+                 <img  class="mb-0" src="{{ Captcha::src('math/') }}" alt="CAPTCHA">
+                 </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-6 pl7">
+                <div class="col-lg-8 col-md-8 col-sm-6 col-12">
                   <div class="form-group">
-                    <input type="text" id="captcha" placeholder="enter the captcha" name="captcha"
+                    <input type="text" id="captcha" placeholder="Enter the captcha" name="captcha"
                       class="form-control">
                   </div>
                   @error('captcha')
                     {!! '<span class="text-danger">' . $message . '</span>' !!}
                   @enderror
                 </div>
+                <div class="col-12">
                 <div class="form-group">
-                  <div class="ps-checkbox pl-20">
+                  <div class="ps-checkbox">
                     <input class="form-control " type="checkbox" name="terms" id="terms" checked>
                     <label for="terms">I agree to the <a href="https://www.tutelagestudy.com/term-and-condition/"
                         style="color: blue;" target="_blank" rel="noopener noreferrer">terms & conditions</a>
@@ -205,8 +207,10 @@
                     @enderror
                   </div>
                 </div>
+                </div>
+                <div class="col-12">
                 <div class="form-group">
-                  <div class="ps-checkbox pl-20">
+                  <div class="ps-checkbox ">
                     <input class="form-control " type="checkbox" name="contact_me" id="contact_me" checked>
                     <label for="contact_me">Contact me by phone, email or SMS to assist me .*</label>
                     @error('contact_me')
@@ -214,19 +218,22 @@
                     @enderror
                   </div>
                 </div>
+                </div>
+                <div class="col-12">
                 <div class="form-group">
-                  <div class="ps-checkbox pl-20">
+                  <div class="ps-checkbox ">
                     <input class="form-control" type="checkbox" name="update" id="update" checked>
                     <label for="update">I would like to receive updates and offers from Tutelage Study.*</label>
                   </div>
                 </div>
+                </div> 
+             
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                   <button type="submit" class="ps-btn ps-btn--fullwidth">Submit</button>
                 </div>
               </div>
             </form>
           </div>
-        </div>
       </div>
     </div>
   </div>

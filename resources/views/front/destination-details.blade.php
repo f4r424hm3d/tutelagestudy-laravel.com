@@ -398,8 +398,7 @@
     }
 
     .author .cont-div p {
-      font-size: 14px;
-      text-align: justify;
+      font-size: 16px;
       margin-bottom: 3px !important
     }
 
@@ -581,10 +580,7 @@
       font-weight: 400
     }
 
-    .ps-document p,
-    .ps-product__box p {
-      text-align: justify
-    }
+    
 
     .ps-product__box h3 {
       margin: 12px 0 0;
@@ -639,9 +635,7 @@
       margin: 5px 0
     }
 
-    .ps-product__box td {
-      padding-left: 10px !important
-    }
+  
 
     .ps-block--categories-tabs .ps-block__header {
       padding: 0 30px;

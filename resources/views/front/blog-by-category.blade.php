@@ -4,20 +4,7 @@
 @endpush
 @section('main-section')
   <style>
-    .blog-tabs {
-      background-color: #0058ab;
-      margin: 10px 0px 0px;
-      border-radius: 4px;
-      padding: 12px;
-      justify-content: center;
-      align-items: center;
-      display: flex;
-      position: relative;
-      z-index: 6;
-      gap: 12px;
-      border-bottom-left-radius: 0px;
-      border-bottom-right-radius: 0px;
-    }
+  
 
     .blog-tabs .btn-lg {
       font-size: 16px;
@@ -78,10 +65,11 @@
     </div>
     <section class="ps-store-list" style="background:#eeeeee">
       <div class="container">
-        <div class="ps-section__wrapper">
+        <div class="ps-section__wrapper blog-section">
           <div class="">
             <section class="ps-store-box">
               <div class="ps-blog__content">
+                <div class="main-blog-ul">
                 <div class="blog-tabs">
                   <a href="{{ route('blog') }}" class="btn btn-lg btn-outline-info">All Blog
                     <span>({{ $total }})</span></a>
@@ -90,6 +78,7 @@
                       class="btn btn-lg {{ $row->id == $category->id ? 'btn-info' : 'btn-outline-info' }}">{{ $row->cate_name }}
                       <span>{{ $row->blogs->count() }}</span></a>
                   @endforeach
+                </div>
                 </div>
                 <div class="btn-info-show btn-info-hide">
                   <h1 class="text-center">Our Latest Blog for MBBS {{ $category->cate_name }}</h1>

@@ -11,17 +11,15 @@
             Haryana, India 122002.</p>
           <ul class="ps-list--social">
             <li><a class="facebook" href="https://www.facebook.com/tutelagestudyabroad/" target="_blank"
-                aria-label="Facebook"><i class="fa fa-facebook"></i></a></li>
-            <li><a class="twitter" href="https://twitter.com/tutelagestudy" aria-label="Twitter"><i
-                  class="fa fa-twitter"></i></a></li>
+                aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a></li>
+            <li><a class="twitter" href="https://twitter.com/tutelagestudy" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a></li>
             <li><a class="instagram" href="https://www.instagram.com/tutelagestudy/" rel="noopener noreferrer nofollow"
-                aria-label="Instagram"><i class="fa fa-instagram"></i></a></li>
+                aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
             <li><a style="color:#0A66C2" href="https://in.linkedin.com/in/tutelage-study-4085a51ab"
-                aria-label="linkedin"><i class="fa fa-linkedin"></i></a></li>
-            <li><a style="color:#E60023" href="https://in.pinterest.com/tutelagestudy/" aria-label="pinterest"><i
-                  class="fa fa-pinterest"></i></a></li>
+                aria-label="linkedin"><i class="fa-brands fa-linkedin-in"></i></a></li>
+            <li><a style="color:#E60023" href="https://in.pinterest.com/tutelagestudy/" aria-label="pinterest"><i class="fa-brands fa-pinterest-p"></i></a></li>
             <li><a style="color:#FF0000" href="https://www.youtube.com/channel/UCK2eeC1CkS3YkYrGnnzBUEQ"
-                aria-label="youtube"><i class="fa fa-youtube"></i></a></li>
+                aria-label="youtube"><i class="fa-brands fa-youtube"></i></a></li>
           </ul>
         </div>
       </aside>
@@ -395,6 +393,19 @@ $finalUrl = url($form_url);
     </li>
   </ul>
 </div>
+<!-- table javscript added in all pages start -->
+ <script>
+  $(document).ready(function() {
+    $("table").each(function() {
+        if (!$(this).parent().hasClass("table-responsive")) {
+            $(this).wrap("<div class='table-responsive'></div>");
+        }
+    });
+});
+ </script>
+<!-- table javscript added in all pages end -->
+
+
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     var lazyImages = document.querySelectorAll('[data-src]');
@@ -428,6 +439,7 @@ $finalUrl = url($form_url);
     s0.parentNode.insertBefore(s1, s0);
   })();
 </script>
+
 <!--End of Tawk.to Script-->
 </body>
 
