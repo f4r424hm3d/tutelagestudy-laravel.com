@@ -23,14 +23,14 @@ class ExamTypeC extends Controller
       $sd = ExamType::find($id);
       if (!is_null($sd)) {
         $ft = 'edit';
-        $url = url('admin/' . $this->page_route . '/update/' . $id);
+        $url = url('admin/' . $this->page_route . '/update/' . $id . '/');
         $title = 'Update';
       } else {
         return redirect('admin/' . $this->page_route . '');
       }
     } else {
       $ft = 'add';
-      $url = url('admin/' . $this->page_route . '/store');
+      $url = url('admin/' . $this->page_route . '/store/');
       $title = 'Add New';
       $sd = '';
     }

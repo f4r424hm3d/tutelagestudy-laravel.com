@@ -5,13 +5,13 @@
     if (page) {
       page = page;
     } else {
-      var page = '{{ $page_no??1 }}';
+      var page = '{{ $page_no ?? 1 }}';
     }
     return new Promise(function(resolve, reject) {
       //$("#migrateBtn").text('Migrating...');
       setTimeout(() => {
         $.ajax({
-          url: "{{ aurl($page_route . '/get-data') }}",
+          url: "{{ aurl($page_route . '/get-data') }}/",
           method: "GET",
           data: {
             page: page,
@@ -36,11 +36,11 @@
     }).then((result) => {
       if (result.isConfirmed) {
         $.ajax({
-          url: "{{ url('admin/' . $page_route . '/delete') }}" + "/" + id,
+          url: "{{ url('admin/' . $page_route . '/delete') }}" + "/" + id + "/",
           success: function(data) {
             if (data.success == true) {
               getData();
-              Swal.fire('Deleted!','Your record has been deleted.','success');
+              Swal.fire('Deleted!', 'Your record has been deleted.', 'success');
             }
           }
         });
@@ -65,7 +65,7 @@
       event.preventDefault();
       $(".errSpan").text('');
       $.ajax({
-        url: "{{ aurl($page_route . '/store/') }}",
+        url: "{{ aurl($page_route . '/store/') }}/",
         method: "POST",
         data: new FormData(this),
         contentType: false,

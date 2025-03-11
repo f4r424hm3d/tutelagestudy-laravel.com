@@ -505,13 +505,13 @@ Route::middleware(['adminLoggedIn'])->group(function () {
       Route::post('/update/{id}', [UploadFilesC::class, 'update']);
     });
     Route::prefix('/exam-types')->group(function () {
-      Route::get('', [ExamTypeC::class, 'index']);
-      Route::get('get-data', [ExamTypeC::class, 'getData']);
-      Route::get('/delete/{id}', [ExamTypeC::class, 'delete']);
-      Route::get('/update/{id}', [ExamTypeC::class, 'index']);
-      Route::post('/update/{id}', [ExamTypeC::class, 'update']);
-      Route::post('/store', [ExamTypeC::class, 'store']);
-      Route::post('/import', [ExamTypeC::class, 'import']);
+      Route::get('/', [ExamTypeC::class, 'index']);
+      Route::get('get-data/', [ExamTypeC::class, 'getData']);
+      Route::get('/delete/{id}/', [ExamTypeC::class, 'delete']);
+      Route::get('/update/{id}/', [ExamTypeC::class, 'index']);
+      Route::post('/update/{id}/', [ExamTypeC::class, 'update']);
+      Route::post('/store/', [ExamTypeC::class, 'store']);
+      Route::post('/import/', [ExamTypeC::class, 'import']);
     });
   });
 });
