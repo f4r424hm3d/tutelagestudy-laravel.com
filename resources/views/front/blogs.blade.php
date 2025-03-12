@@ -4,8 +4,6 @@
 @endpush
 @section('main-section')
   <style>
-
-
     .blog-tabs .btn-lg {
       font-size: 16px;
       color: #fff;
@@ -68,16 +66,17 @@
           <section class="ps-store-box">
             <div class="ps-blog__content">
               <div class="main-blog-ul">
-              <div class="blog-tabs">
-                <a href="{{ route('blog') }}" class="btn btn-lg btn-info">All Blog <span>({{ $total }})</span></a>
-                @foreach ($categories as $row)
-                  <a href="{{ route('blog.category', ['category_slug' => $row->slug]) }}"
-                    class="btn btn-lg btn-outline-info">{{ $row->cate_name }}
-                    <span>({{ $row->blogs->count() }})</span></a>
-                @endforeach
+                <div class="blog-tabs">
+                  <a href="{{ route('blog') }}" class="btn btn-lg btn-info">All Blog
+                    <span>({{ $total }})</span></a>
+                  @foreach ($categories as $row)
+                    <a href="{{ route('blog.category', ['category_slug' => $row->slug]) }}"
+                      class="btn btn-lg btn-outline-info">{{ $row->cate_name }}
+                      <span>({{ $row->blogs->count() }})</span></a>
+                  @endforeach
+                </div>
               </div>
-              </div>
-             
+
               <div class="btn-info-show btn-info-hide">
                 <div class="row">
                   @foreach ($blogs as $row)
@@ -106,7 +105,7 @@
                     </div>
                   @endforeach
                   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
-                    {!! $blogs->links('pagination::bootstrap-5') !!}
+                    {!! $blogs->links('pagination::front') !!}
                   </div>
                 </div>
               </div>

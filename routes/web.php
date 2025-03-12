@@ -47,6 +47,7 @@ use App\Http\Controllers\front\BlogFc;
 use App\Http\Controllers\front\ContactFc;
 use App\Http\Controllers\front\DestinationFc;
 use App\Http\Controllers\front\ExamFc;
+use App\Http\Controllers\front\ExamPaperFc;
 use App\Http\Controllers\front\HomeFc;
 use App\Http\Controllers\front\InquiryController;
 use App\Http\Controllers\front\ServiceFc;
@@ -191,9 +192,13 @@ Route::get('/medical-universities/', [UniversityFc::class, 'index']);
 Route::get('/medical-universities/{destination_slug}', [UniversityFc::class, 'universitybyCountry']);
 
 Route::get('/university/remove-filter/', [UniversityFc::class, 'removeFilter']);
-Route::get('/downloads/', function () {
-  return view('front.downloads');
-});
+Route::get('/downloads/', [ExamPaperFc::class, 'index']);
+Route::get('/get-exam-types/', [ExamPaperFc::class, 'getExamTypes']);
+Route::get('/get-papers/', [ExamPaperFc::class, 'getPapers']);
+
+// Route::get('/downloads/', function () {
+//   return view('front.downloads');
+// });
 
 // $universities = University::select('country_slug')->groupBy('country_slug')->get();
 // foreach ($universities as $row) {

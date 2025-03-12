@@ -290,7 +290,8 @@
                                     </p>
                                   </div>
                                 </div>
-                                <div class="ps-product__container col-md-3 col-sm-12 col-xs-12 text-center  justify-content-end ">
+                                <div
+                                  class="ps-product__container col-md-3 col-sm-12 col-xs-12 text-center  justify-content-end ">
                                   <p style="margin:0px">
                                     <a class="ps-btn mt-2 w-100" href="{{ url('mbbs-abroad-counselling') }}/"><i
                                         class="icon-question-circle"></i> Request Info</a>
@@ -311,7 +312,7 @@
                       @endif
 
                       <div class="ps-pagination">
-                        {!! $rows->links('pagination::bootstrap-4') !!}
+                        {!! $rows->links('pagination::front') !!}
                       </div>
 
                     </div>
