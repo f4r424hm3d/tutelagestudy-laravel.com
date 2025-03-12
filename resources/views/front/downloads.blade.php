@@ -105,7 +105,8 @@
                       <td>{{ getFormattedDate($exam->date_of_exam, 'd-m-Y') }}</td>
                       <td>{{ $exam->shift }}</td>
                       <td class="text-center">
-                        <a href="{{ url($exam->question_paper) }}" class="btn btn-success download-ar">
+                        <a href="{{ url($exam->question_paper) }}" class="btn btn-success download-ar" data-toggle="modal"
+                          data-target="#exampleModal">
                           <i class="fa-solid fa-download mx-1"></i>DOWNLOAD
                         </a>
                       </td>
@@ -130,6 +131,41 @@
     </div>
     </div>
   </section>
+  <div class="modal Downloadfiles fade" id="exampleModal" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+
+        <div class="modal-body p-5 bg-white">
+          <h5 class="modal-title fulloptions" id="exampleModalLabel">
+            <div><img src="image/neet-arrow.png" class="neet-uers" alt=""> NEET</div> Previous Year Question paper
+          </h5>
+
+          <img src="image/close.png" class="close" data-dismiss="modal" aria-label="Close" alt="">
+
+          <form class="forms-download text-center">
+            <div class="form-group position-relative">
+              <img src="image/neet-user.png" class="users-neet" alt="">
+              <input type="email" placeholder="Full Name...." class="form-control mb-4 " id="exampleInputfullname"
+                aria-describedby="emailHelp">
+            </div>
+            <div class="form-group position-relative">
+              <img src="image/neet-email.png" class="users-neet" alt="">
+              <input type="email" placeholder="Email address" class="form-control mb-4 " id="exampleInputEmail1"
+                aria-describedby="emailHelp">
+            </div>
+            <div class="form-group  position-relative">
+              <img src="image/neet-telephone.png" class="users-neet" alt="">
+              <input type="text" placeholder="Mobile Number" class="form-control mb-4 " id="exampleInputmobilenumber">
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100" data-dismiss="modal">Confirm</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
   <script>
     $(document).ready(function() {
       // Fetch Exam Types based on selected Year
