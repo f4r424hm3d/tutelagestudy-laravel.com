@@ -14616,9 +14616,10 @@ table {
 /* gourav css start  */
 
 .sticky-head{
-  position: sticky;
-  top: 0;
+  position: fixed;
   z-index: 9999;
+  width: 100%;
+  transition: top 0.3s ease-in-out;
 }
 .td-uppercase {
   text-transform: uppercase;
@@ -14655,6 +14656,7 @@ html{
   box-shadow: 3px 3px 6px #bfc3cf00, -3px -3px 6px #ffffff00 !important ;
   margin-bottom: 0px;
   height: 100%;
+  text-align: center;
 
 }
 .ps-block--category:hover {
@@ -14964,11 +14966,12 @@ th, td, tr {
 }
 
 .tables-detailss h4 {
-  color: black;
-  border-bottom: 2px solid black;
-  padding-bottom: 6px;
-  margin-bottom: 29px;
-  max-width: 274px;
+     color: #1d4d7a;
+    border-bottom: 2px solid #1d4d7a;
+    padding-bottom: 6px;
+    margin-bottom: 29px;
+    font-weight: 500;
+    text-transform: uppercase;
 }
 .all-tables {
   background-color: #fff;
@@ -15002,4 +15005,63 @@ th, td, tr {
   list-style: none;
   align-items: center;
   gap: 12px;
+}
+
+.Downloadfiles .modal-body .close {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+}
+
+.Downloadfiles .modal-body {
+  position: relative;
+}
+.Downloadfiles {
+  z-index: 99999;
+}
+.Downloadfiles .modal-body .close {
+  position: absolute;
+  top: 19px;
+  right: 19px;
+  width: 25px;
+}
+.fulloptions {
+  margin: 1px auto 22px;
+  text-align: center;
+  color: black;
+  font-size: 20px;
+}
+.forms-download input {
+  padding-left: 40px;
+}
+.fulloptions div {
+  font-weight: 700;
+  color: #1d4d7a;
+  font-size: 25px;
+  margin-bottom: 4px;
+}
+
+.forms-download .btn-primary {
+  background-color: #1d4d7a;
+  border: 1px solid #1d4d7a;
+  font-weight: 600;
+  padding: 12px 6px;
+}
+
+.forms-download .btn-primary:hover, .forms-download .btn-primary:active{
+  background-color: #1d4d7a;
+}
+
+img.users-neet {
+  position: absolute;
+  top: 13px;
+  left: 12px;
+  width: 16px;
+}
+img.neet-uers {
+  width: 33px;
+}
+a.ps-logo img {
+  width: 245px;
+  object-fit: cover;
 }

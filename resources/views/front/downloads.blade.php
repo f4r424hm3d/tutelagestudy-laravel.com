@@ -1,5 +1,6 @@
 @extends('front.layouts.main')
 @push('seo_meta_tag')
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   @include('front.layouts.static_page_meta_tag')
 @endpush
 @section('main-section')
@@ -17,9 +18,9 @@
     <div class="container">
 
       <div class="tables-detailss">
-        <h4><i class="fa-solid fa-magnifying-glass-plus"></i> Previous years Exam Papers</h4>
+        <h4><i class="fa-solid fa-magnifying-glass-plus"></i> Previous Years NEET Exam Question Papers</h4>
         <div class="all-tables">
-          <form method="get">
+          <form method="get" id="exapPaperForm">
             <div class="row align-items-end ">
               <div class="col-12 col-sm-6 col-md-4 col-lg-3 ">
                 <div class="form-group">
@@ -105,14 +106,15 @@
                       <td>{{ getFormattedDate($exam->date_of_exam, 'd-m-Y') }}</td>
                       <td>{{ $exam->shift }}</td>
                       <td class="text-center">
-                        <a href="{{ url($exam->question_paper) }}" class="btn btn-success download-ar" data-toggle="modal"
-                          data-target="#exampleModal">
+                        <a onclick="setFilePath($exam->question_paper)" data-qp="{{ url($exam->question_paper) }}"
+                          class="btn btn-success download-ar" data-toggle="modal" data-target="#exampleModal">
                           <i class="fa-solid fa-download mx-1"></i>DOWNLOAD
                         </a>
                       </td>
                       <td class="text-center">
                         @if ($exam->answer_key != null)
-                          <a href="{{ url($exam->answer_key) }}" class="btn btn-success download-ar">
+                          <a onclick="setFilePath($exam->answer_key)" data-ak="{{ url($exam->question_paper) }}"
+                            href="{{ url($exam->answer_key) }}" class="btn btn-success download-ar">
                             <i class="fa-solid fa-download mx-1"></i>DOWNLOAD
                           </a>
                         @else
@@ -131,35 +133,47 @@
     </div>
     </div>
   </section>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    DOWNLOAD
+  </button>
   <div class="modal Downloadfiles fade" id="exampleModal" tabindex="-1" role="dialog"
     aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
 
         <div class="modal-body p-5 bg-white">
           <h5 class="modal-title fulloptions" id="exampleModalLabel">
-            <div><img src="image/neet-arrow.png" class="neet-uers" alt=""> NEET</div> Previous Year Question paper
+            <div><img src="/front/img/neet-arrow.png" class="neet-uers" alt=""> NEET</div> Previous Year Question
+            paper
           </h5>
 
-          <img src="image/close.png" class="close" data-dismiss="modal" aria-label="Close" alt="">
+          <img src="/front/img/close.png" class="close" data-dismiss="modal" aria-label="Close" alt="">
 
-          <form class="forms-download text-center">
+          <form class="forms-download text-center" id="dataForm">
+            @csrf
+            <input type="hidden" name="source" value="Download Exam Paper">
+            <input type="hidden" name="source_url" value="{{ url()->current() }}">
+            <input type="hidden" name="file_path" value="">
             <div class="form-group position-relative">
-              <img src="image/neet-user.png" class="users-neet" alt="">
-              <input type="email" placeholder="Full Name...." class="form-control mb-4 " id="exampleInputfullname"
-                aria-describedby="emailHelp">
+              <img src="/front/img/neet-user.png" class="users-neet" alt="">
+              <input type="text" name="name" id="userName" placeholder="Full Name...."
+                class="form-control mb-4 " aria-describedby="emailHelp">
+              <span class="text-danger" id="name-err"></span>
             </div>
             <div class="form-group position-relative">
-              <img src="image/neet-email.png" class="users-neet" alt="">
-              <input type="email" placeholder="Email address" class="form-control mb-4 " id="exampleInputEmail1"
-                aria-describedby="emailHelp">
+              <img src="/front/img/neet-email.png" class="users-neet" alt="">
+              <input type="email" name="email" id="userEmail" placeholder="Email address"
+                class="form-control mb-4 " aria-describedby="emailHelp">
+              <span class="text-danger" id="email-err"></span>
             </div>
             <div class="form-group  position-relative">
-              <img src="image/neet-telephone.png" class="users-neet" alt="">
-              <input type="text" placeholder="Mobile Number" class="form-control mb-4 " id="exampleInputmobilenumber">
+              <img src="/front/img/neet-telephone.png" class="users-neet" alt="">
+              <input type="text" name="mobile" id="userMobile" placeholder="Mobile Number"
+                class="form-control mb-4 ">
+              <span class="text-danger" id="mobile-err"></span>
             </div>
 
-            <button type="submit" class="btn btn-primary w-100" data-dismiss="modal">Confirm</button>
+            <button type="submit" class="btn btn-primary w-100">Confirm</button>
           </form>
         </div>
 
@@ -169,6 +183,7 @@
   <script>
     $(document).ready(function() {
       // Fetch Exam Types based on selected Year
+      // alert('Hello');
       $('#exam_year').change(function() {
         var year = $(this).val();
         if (year) {
@@ -218,10 +233,8 @@
         }
       });
     });
-
-
     $(document).ready(function() {
-      $("form").submit(function(e) {
+      $("#exapPaperForm").submit(function(e) {
         let year = $("#exam_year").val();
         let examType = $("#exam_type").val();
         let paper = $("#paper").val();
@@ -249,6 +262,56 @@
           e.preventDefault(); // Prevent form submission if validation fails
         }
       });
+    });
+  </script>
+  <script>
+    function setFilePath(path) {
+      //alert(path);
+      $("#file_path").value(path);
+    }
+
+    function printErrorMsg(msg) {
+      $.each(msg, function(key, value) {
+        //alert(key + value);
+        $("#" + key + "-err").text(value);
+      });
+    }
+
+    $(document).ready(function() {
+      $('#dataForm').on('submit', function(event) {
+        alert("Hello");
+        event.preventDefault();
+        $(".errSpan").text('');
+        $.ajax({
+          url: "{{ route('inquiry.download.paper') }}/",
+          method: "POST",
+          data: new FormData(this),
+          contentType: false,
+          cache: false,
+          processData: false,
+          success: function(data) {
+            //alert(data);
+            if ($.isEmptyObject(data.error)) {
+              //alert(data.success);
+              if (data.hasOwnProperty('success')) {
+                var h = 'Success';
+                var msg = data.success;
+                var type = 'success';
+                $('#dataForm')[0].reset();
+              }
+            } else {
+              //alert(data.error);
+              printErrorMsg(data.error);
+              var h = 'Failed';
+              var msg = 'Some error occured';
+              var type = 'danger';
+            }
+            showToastr(h, msg, type);
+          }
+        })
+      });
+
+
     });
   </script>
 @endsection

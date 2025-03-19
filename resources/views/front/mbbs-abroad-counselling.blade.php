@@ -200,7 +200,7 @@
                 <div class="col-12">
                 <div class="form-group">
                   <div class="ps-checkbox">
-                    <input class="form-control " type="checkbox" name="terms" id="terms" checked>
+                    <input class="form-control " type="checkbox" name="terms" id="terms" required>
                     <label for="terms">I agree to the <a href="https://www.tutelagestudy.com/term-and-condition/"
                         style="color: blue;" target="_blank" rel="noopener noreferrer">terms & conditions</a>
                       .*</label>
@@ -213,7 +213,7 @@
                 <div class="col-12">
                 <div class="form-group">
                   <div class="ps-checkbox ">
-                    <input class="form-control " type="checkbox" name="contact_me" id="contact_me" checked>
+                    <input class="form-control " type="checkbox" name="contact_me" id="contact_me" required>
                     <label for="contact_me">Contact me by phone, email or SMS to assist me .*</label>
                     @error('contact_me')
                       {!! '<span class="text-danger">' . $message . '</span>' !!}
@@ -224,7 +224,7 @@
                 <div class="col-12">
                 <div class="form-group">
                   <div class="ps-checkbox ">
-                    <input class="form-control" type="checkbox" name="update" id="update" checked>
+                    <input class="form-control" type="checkbox" name="update" id="update" required>
                     <label for="update">I would like to receive updates and offers from Tutelage Study.*</label>
                   </div>
                 </div>

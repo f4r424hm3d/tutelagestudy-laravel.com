@@ -23,7 +23,7 @@
       style="display:none;visibility:hidden"></iframe>
   </noscript>
   <!-- End Google Tag Manager (noscript) -->
-  <header class="header header--1 sticky-head">
+  <header class="header header--1 ">
     <div class="header__top">
       <div class="ps-container">
         <div class="header__left">
@@ -50,7 +50,7 @@
         </div>
       </div>
     </div>
-    <nav class="navigation">
+    <nav class="navigation sticky-head">
       <div class="ps-container">
         <div class="navigation__left">
           <ul class="menu">
@@ -96,10 +96,11 @@
               <a href="javascript:void()">Exams</a>
               <span class="sub-toggle"></span>
               <div class="mega-menu">
-                <div class="mega-menu__column">
+                <div class="mega-menu__column p-0">
                   <ul class="mega-menu__list">
                     <li class="current-menu-item"><a href="{{ url('neet-ug') }}/">NEET UG</a></li>
                     <li class="current-menu-item"><a href="{{ url('plab-exam') }}/">PLAB Exam</a></li>
+                  <li class="current-menu-item"><a href="https://www.tutelagestudy.com/downloads/">NEET Question Paper</a> </li>
                   </ul>
                 </div>
               </div>
@@ -280,10 +281,11 @@
           <a href="javascript:void()">Exams</a>
           <span class="sub-toggle"></span>
           <div class="mega-menu">
-            <div class="mega-menu__column">
+            <div class="mega-menu__column p-0">
               <ul class="mega-menu__list" style="display:block">
                 <li class="current-menu-item"><a href="<?php echo url('neet-ug'); ?>/">NEET UG</a> </li>
                 <li class="current-menu-item"><a href="<?php echo url('plab-exam'); ?>/">PLAB Exam</a> </li>
+              <li class="current-menu-item"><a href="#">NEET Question Paper</a> </li>
               </ul>
             </div>
           </div>
@@ -343,3 +345,17 @@
         });
     });
   </script>
+
+<!-- gourav jquery added -->
+<script>
+$(document).ready(function () {
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 90) {
+            $(".sticky-head").css("top", "0px");
+        } else {
+            $(".sticky-head").css("top", "90px");
+        }
+    });
+});
+
+</script>

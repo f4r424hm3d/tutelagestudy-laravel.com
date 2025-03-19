@@ -192,9 +192,11 @@ Route::get('/medical-universities/', [UniversityFc::class, 'index']);
 Route::get('/medical-universities/{destination_slug}', [UniversityFc::class, 'universitybyCountry']);
 
 Route::get('/university/remove-filter/', [UniversityFc::class, 'removeFilter']);
+
 Route::get('/downloads/', [ExamPaperFc::class, 'index']);
 Route::get('/get-exam-types/', [ExamPaperFc::class, 'getExamTypes']);
 Route::get('/get-papers/', [ExamPaperFc::class, 'getPapers']);
+Route::post('/download/submit-form/', [ExamPaperFc::class, 'submitForm'])->name('inquiry.download.paper');
 
 // Route::get('/downloads/', function () {
 //   return view('front.downloads');
