@@ -7,6 +7,7 @@ use App\Models\ExamType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class ExamTypeC extends Controller
 {
@@ -52,6 +53,7 @@ class ExamTypeC extends Controller
         <th>Sr. No.</th>
         <th>Id</th>
         <th>Exam Type</th>
+        <th>Slug</th>
         <th>Contents</th>
         <th>Faqs</th>
         <th>Years</th>
@@ -65,6 +67,7 @@ class ExamTypeC extends Controller
       <td>' . $i . '</td>
       <td>' . $row->id . '</td>
       <td>' . $row->exam_type . '</td>
+      <td><a href="' . url($row->slug) . '" target="_blank">' . $row->slug . '</a></td>
       <td>
         ' . Blade::render('<x-custom-button :url="$url" label="Contents" :count="$count" />', ['url' => url('admin/exam-type-contents/' . $row->id), 'count' => $row->contents->count()]) . '
       </td>
@@ -90,8 +93,13 @@ class ExamTypeC extends Controller
   }
   public function store(Request $request)
   {
+    // Apply slugify before validation
+    $request->merge([
+      'slug' => Str::slug($request->input('slug'))
+    ]);
     $validator = Validator::make($request->all(), [
       'exam_type' => 'required|unique:exam_types,exam_type',
+      'slug' => 'required|unique:exam_types,slug',
     ]);
 
     if ($validator->fails()) {
@@ -102,21 +110,26 @@ class ExamTypeC extends Controller
 
     $field = new ExamType;
     $field->exam_type = $request['exam_type'];
-    $field->slug = slugify($request['exam_type']);
+    $field->slug = slugify($request['slug']);
     // $field->business_category = $request['business_category'];
     $field->save();
     return response()->json(['success' => 'Record hase been added succesfully.']);
   }
   public function update($id, Request $request)
   {
+    // Apply slugify before validation
+    $request->merge([
+      'slug' => Str::slug($request->input('slug'))
+    ]);
     $request->validate(
       [
         'exam_type' => 'required|unique:exam_types,exam_type,' . $id,
+        'slug' => 'required|unique:exam_types,slug,' . $id,
       ]
     );
     $field = ExamType::find($id);
     $field->exam_type = $request['exam_type'];
-    $field->slug = slugify($request['exam_type']);
+    $field->slug = slugify($request['slug']);
     // $field->business_category = $request['business_category'];
     $field->save();
     session()->flash('smsg', 'Record has been updated successfully.');
