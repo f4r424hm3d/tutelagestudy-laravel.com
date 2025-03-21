@@ -30,6 +30,9 @@ use App\Http\Controllers\admin\ExamTypeFaqC;
 use App\Http\Controllers\admin\ExamTypeYearC;
 use App\Http\Controllers\admin\ExamTypeYearContentC;
 use App\Http\Controllers\admin\ExamTypeYearFaqC;
+use App\Http\Controllers\admin\ExamTypeYearPaperC;
+use App\Http\Controllers\admin\PaperContentC;
+use App\Http\Controllers\admin\PaperFaqC;
 use App\Http\Controllers\admin\ProgramC;
 use App\Http\Controllers\admin\SeoC;
 use App\Http\Controllers\admin\ServiceC;
@@ -579,6 +582,33 @@ Route::middleware(['adminLoggedIn'])->group(function () {
       Route::get('/{exam_type_year_id}/', [ExamTypeYearFaqC::class, 'index']);
       Route::get('{exam_type_year_id}/update/{id}', [ExamTypeYearFaqC::class, 'index']);
       Route::post('{exam_type_year_id}/update/{id}', [ExamTypeYearFaqC::class, 'update']);
+    });
+
+    Route::prefix('/exam-type-year-papers/')->group(function () {
+      Route::get('/get-data', [ExamTypeYearPaperC::class, 'getData']);
+      Route::get('/delete/{id}', [ExamTypeYearPaperC::class, 'delete']);
+      Route::post('/store', [ExamTypeYearPaperC::class, 'store']);
+      Route::get('/{exam_type_year_id}/', [ExamTypeYearPaperC::class, 'index']);
+      Route::get('{exam_type_year_id}/update/{id}', [ExamTypeYearPaperC::class, 'index']);
+      Route::post('{exam_type_year_id}/update/{id}', [ExamTypeYearPaperC::class, 'update']);
+    });
+    Route::prefix('/paper-contents/')->group(function () {
+      Route::get('/get-data', [PaperContentC::class, 'getData']);
+      Route::get('/get-position', [PaperContentC::class, 'getPosition']);
+      Route::get('/get-parent-headings', [PaperContentC::class, 'getParentHeadings']);
+      Route::get('/delete/{id}', [PaperContentC::class, 'delete']);
+      Route::post('/store', [PaperContentC::class, 'store']);
+      Route::get('/{paper_id}/', [PaperContentC::class, 'index']);
+      Route::get('{paper_id}/update/{id}', [PaperContentC::class, 'index']);
+      Route::post('{paper_id}/update/{id}', [PaperContentC::class, 'update']);
+    });
+    Route::prefix('/paper-faqs/')->group(function () {
+      Route::get('/get-data', [PaperFaqC::class, 'getData']);
+      Route::get('/delete/{id}', [PaperFaqC::class, 'delete']);
+      Route::post('/store', [PaperFaqC::class, 'store']);
+      Route::get('/{paper_id}/', [PaperFaqC::class, 'index']);
+      Route::get('{paper_id}/update/{id}', [PaperFaqC::class, 'index']);
+      Route::post('{paper_id}/update/{id}', [PaperFaqC::class, 'update']);
     });
   });
 });

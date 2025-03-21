@@ -14,12 +14,13 @@
             <div class="page-title-right">
               <ol class="breadcrumb m-0">
                 <li class="breadcrumb-item"><a href="{{ url('/admin/') }}"><i class="mdi mdi-home-outline"></i></a></li>
-                <li class="breadcrumb-item"><a href="{{ url('/admin/exam-types/' . $examTypeYear->examType->id) }}">Exam
-                    Types</a>
+                <li class="breadcrumb-item"><a href="{{ url('/admin/exam-types') }}">Exam Types</a></li>
+                <li class="breadcrumb-item"><a
+                    href="{{ url('/admin/exam-type-years/' . $paper->examTypeYear->id) }}">Years</a>
                 </li>
-                <li class="breadcrumb-item"><a href="{{ url('/admin/exam-type-years/' . $exam_type_year_id) }}">Years</a>
+                <li class="breadcrumb-item"><a href="{{ url('/admin/exam-type-year-papers/' . $paper->id) }}">Papers</a>
                 </li>
-                <li class="breadcrumb-item active" aria-current="page">{{ $page_title }}</li>
+                <li class="breadcrumb-item active" aria-current="page">Faqs</li>
               </ol>
             </div>
 
@@ -49,24 +50,17 @@
               <form id="{{ $ft == 'add' ? 'dataForm' : 'editForm' }}" {{ $ft == 'edit' ? 'action=' . $url . '/' : '' }}
                 class="needs-validation" method="post" enctype="multipart/form-data" novalidate>
                 @csrf
-                <input type="hidden" name="exam_type_year_id" value="{{ $exam_type_year_id }}">
+                <input type="hidden" name="paper_id" value="{{ $paper_id }}">
                 <div class="row">
-                  <div class="col-md-3 col-sm-12 mb-3">
-                    <x-datalist-field type="text" label="Enter Paper Name" name="paper_name" id="paper_name"
-                      :ft="$ft" :sd="$sd" :list="$papers" showv="paper_name" savev="paper_name" />
-                  </div>
-                  <div class="col-md-4 col-sm-12 mb-3">
-                    <x-input-field type="text" label="Enter Slug" name="slug" id="slug" :ft="$ft"
+                  <div class="col-md-12 col-sm-12 mb-3">
+                    <x-input-field type="text" label="Enter Question" name="question" id="question" :ft="$ft"
                       :sd="$sd">
                     </x-input-field>
                   </div>
-                  <div class="col-md-3 col-sm-12 mb-3">
-                    <x-input-field type="file" label="Upload Question Paper" name="question_paper" id="question_paper"
-                      :ft="$ft" :sd="$sd" />
-                  </div>
-                  <div class="col-md-3 col-sm-12 mb-3 hide-this">
-                    <x-input-field type="file" label="Upload Answer Key" name="answer_key" id="answer_key"
-                      :ft="$ft" :sd="$sd" />
+                  <div class="col-md-12 col-sm-12 mb-3">
+                    <x-textarea-field label="Enter Answer" name="answer" id="answer" :ft="$ft"
+                      :sd="$sd">
+                    </x-textarea-field>
                   </div>
                 </div>
                 @if ($ft == 'add')
@@ -103,7 +97,7 @@
       } else {
         var page = '{{ $page_no }}';
       }
-      var exam_type_year_id = '{{ $exam_type_year_id }}';
+      var paper_id = '{{ $paper_id }}';
       return new Promise(function(resolve, reject) {
         //$("#migrateBtn").text('Migrating...');
         setTimeout(() => {
@@ -112,7 +106,7 @@
             method: "GET",
             data: {
               page: page,
-              exam_type_year_id: exam_type_year_id,
+              paper_id: paper_id,
             },
             success: function(data) {
               $("#trdata").html(data);

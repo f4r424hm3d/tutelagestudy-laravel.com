@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class ExamTypeYear extends Model
 {
   use HasFactory;
+  public function examType()
+  {
+    return $this->hasOne(ExamType::class, 'id', 'exam_type_id');
+  }
   public function papers()
   {
     return $this->hasMany(ExamTypeYearPaper::class, 'exam_type_year_id');
