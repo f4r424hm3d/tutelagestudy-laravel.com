@@ -52,6 +52,9 @@ class ExamTypeC extends Controller
         <th>Sr. No.</th>
         <th>Id</th>
         <th>Exam Type</th>
+        <th>Contents</th>
+        <th>Faqs</th>
+        <th>Years</th>
         <th>Action</th>
       </tr>
     </thead>
@@ -62,6 +65,15 @@ class ExamTypeC extends Controller
       <td>' . $i . '</td>
       <td>' . $row->id . '</td>
       <td>' . $row->exam_type . '</td>
+      <td>
+        ' . Blade::render('<x-custom-button :url="$url" label="Contents" :count="$count" />', ['url' => url('admin/exam-type-contents/' . $row->id), 'count' => $row->contents->count()]) . '
+      </td>
+      <td>
+      ' . Blade::render('<x-custom-button :url="$url" label="Faqs" :count="$count" />', ['url' => url('admin/exam-type-faqs/' . $row->id), 'count' => $row->faqs->count()]) . '
+      </td>
+      <td>
+      ' . Blade::render('<x-custom-button :url="$url" label="Years" :count="$count" />', ['url' => url('admin/exam-type-years/' . $row->id), 'count' => $row->years->count()]) . '
+      </td>
       <td>
         ' . Blade::render('<x-delete-button :id="$id" />', ['id' => $row->id]) . '
         ' . Blade::render('<x-edit-button :url="$url" />', ['url' => url("admin/" . $this->page_route . "/update/" . $row->id)]) . '

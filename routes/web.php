@@ -25,6 +25,11 @@ use App\Http\Controllers\admin\BlogContentC;
 use App\Http\Controllers\admin\BlogFaqC;
 use App\Http\Controllers\admin\ExamPaperC;
 use App\Http\Controllers\admin\ExamTypeC;
+use App\Http\Controllers\admin\ExamTypeContentC;
+use App\Http\Controllers\admin\ExamTypeFaqC;
+use App\Http\Controllers\admin\ExamTypeYearC;
+use App\Http\Controllers\admin\ExamTypeYearContentC;
+use App\Http\Controllers\admin\ExamTypeYearFaqC;
 use App\Http\Controllers\admin\ProgramC;
 use App\Http\Controllers\admin\SeoC;
 use App\Http\Controllers\admin\ServiceC;
@@ -528,6 +533,52 @@ Route::middleware(['adminLoggedIn'])->group(function () {
       Route::post('/update/{id}/', [ExamPaperC::class, 'update']);
       Route::post('/store/', [ExamPaperC::class, 'store']);
       Route::post('/import/', [ExamPaperC::class, 'import']);
+    });
+
+    Route::prefix('/exam-type-contents/')->group(function () {
+      Route::get('/get-data', [ExamTypeContentC::class, 'getData']);
+      Route::get('/get-position', [ExamTypeContentC::class, 'getPosition']);
+      Route::get('/get-parent-headings', [ExamTypeContentC::class, 'getParentHeadings']);
+      Route::get('/delete/{id}', [ExamTypeContentC::class, 'delete']);
+      Route::post('/store', [ExamTypeContentC::class, 'store']);
+      Route::get('/{exam_type_id}/', [ExamTypeContentC::class, 'index']);
+      Route::get('{exam_type_id}/update/{id}', [ExamTypeContentC::class, 'index']);
+      Route::post('{exam_type_id}/update/{id}', [ExamTypeContentC::class, 'update']);
+    });
+    Route::prefix('/exam-type-faqs/')->group(function () {
+      Route::get('/get-data', [ExamTypeFaqC::class, 'getData']);
+      Route::get('/delete/{id}', [ExamTypeFaqC::class, 'delete']);
+      Route::post('/store', [ExamTypeFaqC::class, 'store']);
+      Route::get('/{exam_type_id}/', [ExamTypeFaqC::class, 'index']);
+      Route::get('{exam_type_id}/update/{id}', [ExamTypeFaqC::class, 'index']);
+      Route::post('{exam_type_id}/update/{id}', [ExamTypeFaqC::class, 'update']);
+    });
+    Route::prefix('/exam-type-years/')->group(function () {
+      Route::get('/get-data', [ExamTypeYearC::class, 'getData']);
+      Route::get('/delete/{id}', [ExamTypeYearC::class, 'delete']);
+      Route::post('/store', [ExamTypeYearC::class, 'store']);
+      Route::get('/{exam_type_id}/', [ExamTypeYearC::class, 'index']);
+      Route::get('{exam_type_id}/update/{id}', [ExamTypeYearC::class, 'index']);
+      Route::post('{exam_type_id}/update/{id}', [ExamTypeYearC::class, 'update']);
+    });
+
+    Route::prefix('/exam-type-year-contents/')->group(function () {
+      Route::get('/get-data', [ExamTypeYearContentC::class, 'getData']);
+      Route::get('/get-position', [ExamTypeYearContentC::class, 'getPosition']);
+      Route::get('/get-parent-headings', [ExamTypeYearContentC::class, 'getParentHeadings']);
+      Route::get('/delete/{id}', [ExamTypeYearContentC::class, 'delete']);
+      Route::post('/store', [ExamTypeYearContentC::class, 'store']);
+      Route::get('/{exam_type_year_id}/', [ExamTypeYearContentC::class, 'index']);
+      Route::get('{exam_type_year_id}/update/{id}', [ExamTypeYearContentC::class, 'index']);
+      Route::post('{exam_type_year_id}/update/{id}', [ExamTypeYearContentC::class, 'update']);
+    });
+    Route::prefix('/exam-type-year-faqs/')->group(function () {
+      Route::get('/get-data', [ExamTypeYearFaqC::class, 'getData']);
+      Route::get('/delete/{id}', [ExamTypeYearFaqC::class, 'delete']);
+      Route::post('/store', [ExamTypeYearFaqC::class, 'store']);
+      Route::get('/{exam_type_year_id}/', [ExamTypeYearFaqC::class, 'index']);
+      Route::get('{exam_type_year_id}/update/{id}', [ExamTypeYearFaqC::class, 'index']);
+      Route::post('{exam_type_year_id}/update/{id}', [ExamTypeYearFaqC::class, 'update']);
     });
   });
 });
