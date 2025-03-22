@@ -20,7 +20,7 @@ class ExamPaperDownloadFc extends Controller
     $wrdseo = ['url' => 'exam-type-page'];
     $dseo = DefaultSeo::where($wrdseo)->first();
     $page_url = url()->current();
-    $title = $examType->exam_type;
+    $title = $examType->title;
     $site =  'tutelagestudy.com';
     $tagArray = ['title' => $title, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
 
@@ -50,9 +50,10 @@ class ExamPaperDownloadFc extends Controller
     $wrdseo = ['url' => 'exam-type-year-page'];
     $dseo = DefaultSeo::where($wrdseo)->first();
     $page_url = url()->current();
-    $title = $examType->exam_type;
+    $exam_type = $examType->exam_type;
+    $title = $year->year;
     $site =  'tutelagestudy.com';
-    $tagArray = ['title' => $title, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
+    $tagArray = ['title' => $title, 'exam_type' => $exam_type, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
 
     $meta_title = $examType->meta_title == '' ? $dseo->title : $examType->meta_title;
     $meta_title = replaceTag($meta_title, $tagArray);
@@ -81,9 +82,11 @@ class ExamPaperDownloadFc extends Controller
     $wrdseo = ['url' => 'exam-type-year-paper-page'];
     $dseo = DefaultSeo::where($wrdseo)->first();
     $page_url = url()->current();
-    $title = $examType->exam_type;
+    $title = $paper->paper_name;
+    $exam_type = $examType->exam_type;
+    $examYear = $year->year;
     $site =  'tutelagestudy.com';
-    $tagArray = ['title' => $title, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
+    $tagArray = ['title' => $title, 'exam_type' => $exam_type, 'exam_year' => $examYear, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
 
     $meta_title = $examType->meta_title == '' ? $dseo->title : $examType->meta_title;
     $meta_title = replaceTag($meta_title, $tagArray);
