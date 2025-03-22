@@ -60,7 +60,11 @@
                       :sd="$sd">
                     </x-input-field>
                   </div>
-                  <div class="col-md-3 col-sm-12 mb-3">
+                  <div class="col-md-4 col-sm-12 mb-3">
+                    <x-input-field type="text" label="Enter Title" name="title" id="title" :ft="$ft"
+                      :sd="$sd" />
+                  </div>
+                  <div class="col-md-4 col-sm-12 mb-3">
                     <x-input-field type="file" label="Upload Question Paper" name="question_paper" id="question_paper"
                       :ft="$ft" :sd="$sd" />
                   </div>

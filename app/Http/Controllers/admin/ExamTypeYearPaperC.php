@@ -68,6 +68,7 @@ class ExamTypeYearPaperC extends Controller
       ],
       'question_paper' => 'required|max:12000|mimes:jpg,jpeg,webp,pdf',
       'answer_key' => 'nullable|max:12000|mimes:jpg,jpeg,webp,pdf',
+      'title' => 'required',
     ]);
 
     if ($validator->fails()) {
@@ -83,6 +84,7 @@ class ExamTypeYearPaperC extends Controller
     $field->exam_type_year_id = $request['exam_type_year_id'];
     $field->paper_name = $request['paper_name'];
     $field->slug = slugify($request['slug']);
+    $field->title = $request['title'];
     if ($request->hasFile('question_paper')) {
       $fileOriginalName = $request->file('question_paper')->getClientOriginalName();
       $fileNameWithoutExtention = pathinfo($fileOriginalName, PATHINFO_FILENAME);
@@ -122,6 +124,7 @@ class ExamTypeYearPaperC extends Controller
     $request->validate(
       [
         'exam_type_year_id' => 'required',
+        'title' => 'required',
         'paper_name' => [
           'required',
           Rule::unique('exam_type_year_papers')->ignore($id)->where(function ($query) use ($request) {
@@ -147,6 +150,7 @@ class ExamTypeYearPaperC extends Controller
     $field->exam_type_year_id = $request['exam_type_year_id'];
     $field->paper_name = $request['paper_name'];
     $field->slug = slugify($request['slug']);
+    $field->title = $request['title'];
     if ($request->hasFile('question_paper')) {
       $fileOriginalName = $request->file('question_paper')->getClientOriginalName();
       $fileNameWithoutExtention = pathinfo($fileOriginalName, PATHINFO_FILENAME);
@@ -189,6 +193,7 @@ class ExamTypeYearPaperC extends Controller
       <tr>
         <th>Sr. No.</th>
         <th>Paper Name</th>
+        <th>Title</th>
         <th>QP</th>
         <th>Contents</th>
         <th>Faqs</th>
@@ -200,7 +205,8 @@ class ExamTypeYearPaperC extends Controller
     foreach ($rows as $row) {
       $output .= '<tr id="row' . $row->id . '">
             <td>' . $i . '</td>
-            <td>' . $row->paper_name . '</td>
+            <td><a href="' . url($row->examTypeYear->examType->slug . '/' . $row->examTypeYear->slug . '/' . $row->slug) . '" target="_blank">' . $row->paper_name . '</a></td>
+            <td>' . $row->title . '</td>
             <td>';
       if ($row->question_paper != null && file_exists($row->question_paper)) {
         $output .= '<a href="' . url($row->question_paper) . '" class="btn btn-xs btn-info"

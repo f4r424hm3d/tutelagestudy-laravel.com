@@ -57,6 +57,10 @@
                       :sd="$sd">
                     </x-input-field>
                   </div>
+                  <div class="col-md-4 col-sm-12 mb-3">
+                    <x-input-field type="text" label="Enter Title" name="title" id="title" :ft="$ft"
+                      :sd="$sd" />
+                  </div>
                 </div>
                 <!--  SEO INPUT FILED COMPONENT  -->
                 <x-SeoField :ft="$ft" :sd="$sd" />

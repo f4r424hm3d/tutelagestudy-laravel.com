@@ -8,6 +8,8 @@ use App\Models\ExamTypeYear;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
+use Illuminate\Support\Str;
 
 class ExamTypeYearC extends Controller
 {
@@ -43,10 +45,27 @@ class ExamTypeYearC extends Controller
   }
   public function store(Request $request)
   {
+    // Apply slugify before validation
+    $request->merge([
+      'slug' => Str::slug($request->input('slug'))
+    ]);
+
     $validator = Validator::make($request->all(), [
       'exam_type_id' => 'required',
-      'year' => 'required',
-      'slug' => 'required',
+      'year' => [
+        'required',
+        Rule::unique('exam_type_years')->where(function ($query) use ($request) {
+          return $query->where('exam_type_id', $request->exam_type_id);
+        }),
+      ],
+
+      'slug' => [
+        'required',
+        Rule::unique('exam_type_years')->where(function ($query) use ($request) {
+          return $query->where('exam_type_id', $request->exam_type_id);
+        }),
+      ],
+      'title' => 'required',
     ]);
 
     if ($validator->fails()) {
@@ -59,6 +78,7 @@ class ExamTypeYearC extends Controller
     $field->exam_type_id = $request['exam_type_id'];
     $field->year = $request['year'];
     $field->slug = slugify($request['slug']);
+    $field->title = $request['title'];
     $field->meta_title = $request['meta_title'];
     $field->meta_keyword = $request['meta_keyword'];
     $field->meta_description = $request['meta_description'];
@@ -67,17 +87,34 @@ class ExamTypeYearC extends Controller
   }
   public function update($exam_type_id, $id, Request $request)
   {
+    // Apply slugify before validation
+    $request->merge([
+      'slug' => Str::slug($request->input('slug'))
+    ]);
     $request->validate(
       [
         'exam_type_id' => 'required',
-        'year' => 'required',
-        'slug' => 'required',
+        'year' => [
+          'required',
+          Rule::unique('exam_type_years')->ignore($id)->where(function ($query) use ($request) {
+            return $query->where('exam_type_id', $request->exam_type_id);
+          }),
+        ],
+
+        'slug' => [
+          'required',
+          Rule::unique('exam_type_years')->ignore($id)->where(function ($query) use ($request) {
+            return $query->where('exam_type_id', $request->exam_type_id);
+          }),
+        ],
+        'title' => 'required',
       ]
     );
     $field = ExamTypeYear::find($id);
     $field->exam_type_id = $request['exam_type_id'];
     $field->year = $request['year'];
     $field->slug = slugify($request['slug']);
+    $field->title = $request['title'];
     $field->meta_title = $request['meta_title'];
     $field->meta_keyword = $request['meta_keyword'];
     $field->meta_description = $request['meta_description'];
@@ -96,6 +133,7 @@ class ExamTypeYearC extends Controller
       <tr>
         <th>Sr. No.</th>
         <th>Year</th>
+        <th>Title</th>
         <th>Contents</th>
         <th>Faqs</th>
         <th>Papers</th>
@@ -108,7 +146,8 @@ class ExamTypeYearC extends Controller
       $output .= '<tr id="row'
         . $row->id . '">
             <td>' . $i . '</td>
-            <td>' . $row->year . '</td>
+            <td><a href="' . url($row->examType->slug . '/' . $row->slug) . '" target="_blank">' . $row->year . '</a></td>
+            <td>' . $row->title . '</td>
             <td>
         ' . Blade::render('<x-custom-button :url="$url" label="Contents" :count="$count" />', ['url' => url('admin/exam-type-year-contents/' . $row->id), 'count' => $row->contents->count()]) . '
       </td>
