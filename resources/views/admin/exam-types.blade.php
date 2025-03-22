@@ -46,11 +46,15 @@
                 class="needs-validation" method="post" enctype="multipart/form-data" novalidate>
                 @csrf
                 <div class="row">
-                  <div class="col-md-6 col-sm-12 mb-3">
+                  <div class="col-md-4 col-sm-12 mb-3">
                     <x-input-field type="text" label="Enter Exam Type" name="exam_type" id="exam_type"
                       :ft="$ft" :sd="$sd" />
                   </div>
-                  <div class="col-md-6 col-sm-12 mb-3">
+                  <div class="col-md-4 col-sm-12 mb-3">
+                    <x-input-field type="text" label="Enter Title" name="title" id="title" :ft="$ft"
+                      :sd="$sd" />
+                  </div>
+                  <div class="col-md-4 col-sm-12 mb-3">
                     <x-input-field type="text" label="Enter Slug" name="slug" id="slug" :ft="$ft"
                       :sd="$sd" />
                   </div>

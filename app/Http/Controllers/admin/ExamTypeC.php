@@ -53,7 +53,7 @@ class ExamTypeC extends Controller
         <th>Sr. No.</th>
         <th>Id</th>
         <th>Exam Type</th>
-        <th>Slug</th>
+        <th>Title</th>
         <th>Contents</th>
         <th>Faqs</th>
         <th>Years</th>
@@ -68,7 +68,7 @@ class ExamTypeC extends Controller
       <td>' . $i . '</td>
       <td>' . $row->id . '</td>
       <td>' . $row->exam_type . '</td>
-      <td><a href="' . url($row->slug) . '" target="_blank">' . $row->slug . '</a></td>
+      <td><a href="' . url($row->slug) . '" target="_blank">' . $row->title . '</a></td>
       <td>
         ' . Blade::render('<x-custom-button :url="$url" label="Contents" :count="$count" />', ['url' => url('admin/exam-type-contents/' . $row->id), 'count' => $row->contents->count()]) . '
       </td>
@@ -103,6 +103,7 @@ class ExamTypeC extends Controller
     ]);
     $validator = Validator::make($request->all(), [
       'exam_type' => 'required|unique:exam_types,exam_type',
+      'title' => 'required|unique:exam_types,title',
       'slug' => 'required|unique:exam_types,slug',
     ]);
 
@@ -114,6 +115,7 @@ class ExamTypeC extends Controller
 
     $field = new ExamType;
     $field->exam_type = $request['exam_type'];
+    $field->title = $request['title'];
     $field->slug = slugify($request['slug']);
     $field->meta_title = $request['meta_title'];
     $field->meta_keyword = $request['meta_keyword'];
@@ -130,11 +132,13 @@ class ExamTypeC extends Controller
     $request->validate(
       [
         'exam_type' => 'required|unique:exam_types,exam_type,' . $id,
+        'title' => 'required|unique:exam_types,title,' . $id,
         'slug' => 'required|unique:exam_types,slug,' . $id,
       ]
     );
     $field = ExamType::find($id);
     $field->exam_type = $request['exam_type'];
+    $field->title = $request['title'];
     $field->slug = slugify($request['slug']);
     $field->meta_title = $request['meta_title'];
     $field->meta_keyword = $request['meta_keyword'];
