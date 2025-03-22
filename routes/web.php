@@ -55,6 +55,7 @@ use App\Http\Controllers\front\BlogFc;
 use App\Http\Controllers\front\ContactFc;
 use App\Http\Controllers\front\DestinationFc;
 use App\Http\Controllers\front\ExamFc;
+use App\Http\Controllers\front\ExamPaperDownloadFc;
 use App\Http\Controllers\front\ExamPaperFc;
 use App\Http\Controllers\front\HomeFc;
 use App\Http\Controllers\front\InquiryController;
@@ -67,6 +68,7 @@ use App\Models\Destination;
 use App\Models\Exam;
 use App\Models\Blog;
 use App\Models\BlogCategory;
+use App\Models\ExamType;
 use App\Models\University;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
@@ -630,3 +632,7 @@ Route::get('sitemap-destinations.xml', [SitemapController::class, 'destination']
 Route::get('sitemap-services.xml', [SitemapController::class, 'services']);
 Route::get('sitemap-exams.xml', [SitemapController::class, 'exam']);
 Route::get('sitemap-university.xml', [SitemapController::class, 'university']);
+
+Route::get('/{exam_type_slug}/', [ExamPaperDownloadFc::class, 'index']);
+Route::get('/{exam_type_slug}/{year_slug}', [ExamPaperDownloadFc::class, 'yearDetail']);
+Route::get('/{exam_type_slug}/{year_slug}/{paper_slug}', [ExamPaperDownloadFc::class, 'paperDetail']);

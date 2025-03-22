@@ -7,5 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class ExamTypeYearContent extends Model
 {
-    use HasFactory;
+  use HasFactory;
+  public function childs()
+  {
+    return $this->hasMany(ExamTypeYearContent::class, 'parent_id', 'id');
+  }
+  public function parent()
+  {
+    return $this->hasOne(ExamTypeYearContent::class, 'id', 'parent_id');
+  }
+  public function childContents()
+  {
+    return $this->hasMany(ExamTypeYearContent::class, 'parent_id', 'id')->orderBy('position', 'asc')->where('parent_id', '!=', null);
+  }
 }
