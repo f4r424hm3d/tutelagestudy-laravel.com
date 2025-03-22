@@ -6,7 +6,7 @@
         value="{{ $ft == 'edit' ? $sd->meta_title : old('meta_title') }}">
       <span class="text-danger">
         @error('meta_title')
-        {{ $message }}
+          {{ $message }}
         @enderror
       </span>
     </div>
@@ -18,7 +18,7 @@
         value="{{ $ft == 'edit' ? $sd->meta_keyword : old('meta_keyword') }}">
       <span class="text-danger">
         @error('meta_keyword')
-        {{ $message }}
+          {{ $message }}
         @enderror
       </span>
     </div>
@@ -29,12 +29,12 @@
       <textarea name="meta_description" id="meta_description" class="form-control" cols="30" rows="5">{{ $ft == 'edit' ? $sd->meta_description : old('meta_description') }}</textarea>
       <span class="text-danger">
         @error('meta_description')
-        {{ $message }}
+          {{ $message }}
         @enderror
       </span>
     </div>
   </div>
-  <div class="col-md-12 col-sm-12">
+  {{-- <div class="col-md-12 col-sm-12">
     <div class="form-group mb-3">
       <label>Page Content</label>
       <input name="page_content" type="text" class="form-control" placeholder="Page Content"
@@ -45,7 +45,7 @@
         @enderror
       </span>
     </div>
-  </div>
+  </div> --}}
   {{-- <div class="col-md-4 col-sm-12">
     <div class="form-group mb-3">
       <label>Seo Rating</label>

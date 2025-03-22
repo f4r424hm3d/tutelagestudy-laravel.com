@@ -59,6 +59,9 @@ class ExamTypeYearC extends Controller
     $field->exam_type_id = $request['exam_type_id'];
     $field->year = $request['year'];
     $field->slug = slugify($request['slug']);
+    $field->meta_title = $request['meta_title'];
+    $field->meta_keyword = $request['meta_keyword'];
+    $field->meta_description = $request['meta_description'];
     $field->save();
     return response()->json(['success' => 'Records inserted succesfully.']);
   }
@@ -75,6 +78,9 @@ class ExamTypeYearC extends Controller
     $field->exam_type_id = $request['exam_type_id'];
     $field->year = $request['year'];
     $field->slug = slugify($request['slug']);
+    $field->meta_title = $request['meta_title'];
+    $field->meta_keyword = $request['meta_keyword'];
+    $field->meta_description = $request['meta_description'];
     $field->save();
     session()->flash('smsg', 'Record has been updated successfully.');
     return redirect('admin/' . $this->page_route . '/' . $exam_type_id);
@@ -93,6 +99,7 @@ class ExamTypeYearC extends Controller
         <th>Contents</th>
         <th>Faqs</th>
         <th>Papers</th>
+        <th>SEO</th>
         <th>Action</th>
       </tr>
     </thead>
@@ -110,6 +117,9 @@ class ExamTypeYearC extends Controller
       </td>
       <td>
       ' . Blade::render('<x-custom-button :url="$url" label="Papers" :count="$count" />', ['url' => url('admin/exam-type-year-papers/' . $row->id), 'count' => $row->papers->count()]) . '
+      </td>
+        <td>
+          ' . Blade::render('<x-seo-view-model :row="$row" />', ['row' => $row]) . '
       </td>
             <td>
              ' . Blade::render('<x-delete-button :id="$id" />', ['id' => $row->id]) . '

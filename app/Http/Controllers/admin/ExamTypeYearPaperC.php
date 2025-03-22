@@ -105,6 +105,10 @@ class ExamTypeYearPaperC extends Controller
         $field->answer_key = 'uploads/paper/' . $path . '/' . $file_name;
       }
     }
+
+    $field->meta_title = $request['meta_title'];
+    $field->meta_keyword = $request['meta_keyword'];
+    $field->meta_description = $request['meta_description'];
     $field->save();
     return response()->json(['success' => 'Records inserted succesfully.']);
   }
@@ -131,7 +135,7 @@ class ExamTypeYearPaperC extends Controller
             return $query->where('exam_type_year_id', $request->exam_type_year_id);
           }),
         ],
-        'question_paper' => 'required|max:12000|mimes:jpg,jpeg,webp,pdf',
+        'question_paper' => 'nullable|max:12000|mimes:jpg,jpeg,webp,pdf',
         'answer_key' => 'nullable|max:12000|mimes:jpg,jpeg,webp,pdf',
       ]
     );
@@ -141,7 +145,7 @@ class ExamTypeYearPaperC extends Controller
 
     $field = ExamTypeYearPaper::find($id);
     $field->exam_type_year_id = $request['exam_type_year_id'];
-    $field->year = $request['year'];
+    $field->paper_name = $request['paper_name'];
     $field->slug = slugify($request['slug']);
     if ($request->hasFile('question_paper')) {
       $fileOriginalName = $request->file('question_paper')->getClientOriginalName();
@@ -165,6 +169,11 @@ class ExamTypeYearPaperC extends Controller
         $field->answer_key = 'uploads/paper/' . $path . '/' . $file_name;
       }
     }
+
+    $field->meta_title = $request['meta_title'];
+    $field->meta_keyword = $request['meta_keyword'];
+    $field->meta_description = $request['meta_description'];
+
     $field->save();
     session()->flash('smsg', 'Record has been updated successfully.');
     return redirect('admin/' . $this->page_route . '/' . $exam_type_year_id);
@@ -183,6 +192,7 @@ class ExamTypeYearPaperC extends Controller
         <th>QP</th>
         <th>Contents</th>
         <th>Faqs</th>
+        <th>SEO</th>
         <th>Action</th>
       </tr>
     </thead>
@@ -204,6 +214,9 @@ class ExamTypeYearPaperC extends Controller
       </td>
       <td>
       ' . Blade::render('<x-custom-button :url="$url" label="Faqs" :count="$count" />', ['url' => url('admin/paper-faqs/' . $row->id), 'count' => $row->faqs->count()]) . '
+      </td>
+        <td>
+          ' . Blade::render('<x-seo-view-model :row="$row" />', ['row' => $row]) . '
       </td>
             <td>
              ' . Blade::render('<x-delete-button :id="$id" />', ['id' => $row->id]) . '

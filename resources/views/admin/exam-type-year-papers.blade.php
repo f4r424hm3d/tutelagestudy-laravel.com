@@ -69,6 +69,9 @@
                       :ft="$ft" :sd="$sd" />
                   </div>
                 </div>
+                <!--  SEO INPUT FILED COMPONENT  -->
+                <x-SeoField :ft="$ft" :sd="$sd" />
+                <!--  SEO INPUT FILED COMPONENT END  -->
                 @if ($ft == 'add')
                   <button type="reset" class="btn btn-sm btn-warning  mr-1"><i class="ti-trash"></i>
                     Reset</button>

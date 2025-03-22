@@ -57,6 +57,7 @@ class ExamTypeC extends Controller
         <th>Contents</th>
         <th>Faqs</th>
         <th>Years</th>
+        <th>SEO</th>
         <th>Action</th>
       </tr>
     </thead>
@@ -76,6 +77,9 @@ class ExamTypeC extends Controller
       </td>
       <td>
       ' . Blade::render('<x-custom-button :url="$url" label="Years" :count="$count" />', ['url' => url('admin/exam-type-years/' . $row->id), 'count' => $row->years->count()]) . '
+      </td>
+      <td>
+          ' . Blade::render('<x-seo-view-model :row="$row" />', ['row' => $row]) . '
       </td>
       <td>
         ' . Blade::render('<x-delete-button :id="$id" />', ['id' => $row->id]) . '
@@ -111,7 +115,9 @@ class ExamTypeC extends Controller
     $field = new ExamType;
     $field->exam_type = $request['exam_type'];
     $field->slug = slugify($request['slug']);
-    // $field->business_category = $request['business_category'];
+    $field->meta_title = $request['meta_title'];
+    $field->meta_keyword = $request['meta_keyword'];
+    $field->meta_description = $request['meta_description'];
     $field->save();
     return response()->json(['success' => 'Record hase been added succesfully.']);
   }
@@ -130,7 +136,9 @@ class ExamTypeC extends Controller
     $field = ExamType::find($id);
     $field->exam_type = $request['exam_type'];
     $field->slug = slugify($request['slug']);
-    // $field->business_category = $request['business_category'];
+    $field->meta_title = $request['meta_title'];
+    $field->meta_keyword = $request['meta_keyword'];
+    $field->meta_description = $request['meta_description'];
     $field->save();
     session()->flash('smsg', 'Record has been updated successfully.');
     return redirect('admin/' . $this->page_route);
