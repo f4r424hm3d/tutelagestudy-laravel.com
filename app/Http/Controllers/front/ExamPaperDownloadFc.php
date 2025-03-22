@@ -17,7 +17,7 @@ class ExamPaperDownloadFc extends Controller
     $examType = ExamType::where(['slug' => $exam_type_slug])->firstOrFail();
 
 
-    $wrdseo = ['url' => 'exam-page-detail'];
+    $wrdseo = ['url' => 'exam-type-page'];
     $dseo = DefaultSeo::where($wrdseo)->first();
     $page_url = url()->current();
     $title = $examType->exam_type;
@@ -47,7 +47,7 @@ class ExamPaperDownloadFc extends Controller
     $year = ExamTypeYear::where('exam_type_id', $examType->id)->where('slug', $year_slug)->firstOrFail();
 
 
-    $wrdseo = ['url' => 'exam-page-detail'];
+    $wrdseo = ['url' => 'exam-type-year-page'];
     $dseo = DefaultSeo::where($wrdseo)->first();
     $page_url = url()->current();
     $title = $examType->exam_type;
@@ -78,7 +78,7 @@ class ExamPaperDownloadFc extends Controller
     $paper = ExamTypeYearPaper::where('exam_type_year_id', $year->id)->where('slug', $paper_slug)->firstOrFail();
 
 
-    $wrdseo = ['url' => 'exam-page-detail'];
+    $wrdseo = ['url' => 'exam-type-year-paper-page'];
     $dseo = DefaultSeo::where($wrdseo)->first();
     $page_url = url()->current();
     $title = $examType->exam_type;
