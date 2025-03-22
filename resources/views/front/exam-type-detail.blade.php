@@ -95,13 +95,8 @@
           <div class="mb-20 col-md-9">
             <div class="ps-post--detail sidebar">
               <div class="ps-post__content card">
-                {{-- <div class="ps-post__header">
-                  <h1 class="mb-1" style="font-size: 20px">{{ ucfirst($examType->headline) }}</h1>
-                  <p style="font-size:12px">
-                    {{ getFormattedDate($examType->updated_at, 'd M, Y') }}, <b>{{ $examType->getAuthor->name }}</b>,
-                    <a href="{{ url('blog/' . $examType->getCategory->slug) }}/">{{ $examType->getCategory->cate_name }}</a>
-                  </p>
-                </div> --}}
+                <h1 class="mb-1" style="font-size: 20px">{{ ucfirst($examType->title) }}</h1>
+
                 {{-- <div>
                   <img data-src="{{ asset($examType->imgpath) }}" alt="{{ ucfirst($examType->headline) }}" class="mb-20"
                     width="1000">

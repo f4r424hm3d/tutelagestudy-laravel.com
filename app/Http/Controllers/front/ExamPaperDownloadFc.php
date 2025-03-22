@@ -21,8 +21,9 @@ class ExamPaperDownloadFc extends Controller
     $dseo = DefaultSeo::where($wrdseo)->first();
     $page_url = url()->current();
     $title = $examType->title;
+    $exam_type = $examType->exam_type;
     $site =  'tutelagestudy.com';
-    $tagArray = ['title' => $title, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
+    $tagArray = ['title' => $title, 'exam_type' => $exam_type, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
 
     $meta_title = $examType->meta_title == '' ? $dseo->title : $examType->meta_title;
     $meta_title = replaceTag($meta_title, $tagArray);
@@ -51,9 +52,10 @@ class ExamPaperDownloadFc extends Controller
     $dseo = DefaultSeo::where($wrdseo)->first();
     $page_url = url()->current();
     $exam_type = $examType->exam_type;
-    $title = $year->year;
+    $exam_year = $year->year;
+    $title = $year->title;
     $site =  'tutelagestudy.com';
-    $tagArray = ['title' => $title, 'exam_type' => $exam_type, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
+    $tagArray = ['title' => $title, 'exam_type' => $exam_type, 'exam_year' => $exam_year, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
 
     $meta_title = $examType->meta_title == '' ? $dseo->title : $examType->meta_title;
     $meta_title = replaceTag($meta_title, $tagArray);
@@ -82,11 +84,12 @@ class ExamPaperDownloadFc extends Controller
     $wrdseo = ['url' => 'exam-type-year-paper-page'];
     $dseo = DefaultSeo::where($wrdseo)->first();
     $page_url = url()->current();
-    $title = $paper->paper_name;
+    $title = $paper->title;
+    $paper_name = $paper->paper_name;
     $exam_type = $examType->exam_type;
-    $examYear = $year->year;
+    $exam_year = $year->year;
     $site =  'tutelagestudy.com';
-    $tagArray = ['title' => $title, 'exam_type' => $exam_type, 'exam_year' => $examYear, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
+    $tagArray = ['title' => $title, 'exam_type' => $exam_type, 'exam_year' => $exam_year, 'paper_name' => $paper_name, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
 
     $meta_title = $examType->meta_title == '' ? $dseo->title : $examType->meta_title;
     $meta_title = replaceTag($meta_title, $tagArray);
