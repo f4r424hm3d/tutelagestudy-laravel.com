@@ -84,6 +84,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/run-storage-link', function () {
+  \Illuminate\Support\Facades\Artisan::call('storage:link');
+  return 'Storage link created!';
+});
+
 //Reoptimized class loader:
 Route::get('/optimize/', function () {
   $exitCode = Artisan::call('optimize:clear');
