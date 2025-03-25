@@ -101,7 +101,7 @@
           <div class="mb-20 col-md-9">
             <div class="ps-post--detail sidebar">
               <div class="ps-post__content card">
-                <h1 class="mb-1" style="font-size: 20px">{{ ucfirst($year->title) }}</h1>
+              <h2 class="title-neet">{{ ucfirst($year->title) }}</h2>
 
                 {{-- <div>
                   <img data-src="{{ asset($examType->imgpath) }}" alt="{{ ucfirst($examType->headline) }}" class="mb-20"
@@ -116,12 +116,17 @@
                 <div class="row">
                   @if ($year->papers->count() > 0)
                     @foreach ($year->papers as $row)
-                      <div class="col-md-3">
-                        <div class="card">
-                          <a href="{{ url($examType->slug . '/' . $year->slug . '/' . $row->slug) }}" target="_blank">
+                      <div class="col-md-12">
+                      
+                         <div class="all-pdf">
+                         <a class="d-flex justify-content-between align-items-center set-keys" href="{{ url($examType->slug . '/' . $year->slug . '/' . $row->slug) }}" target="_blank">
                             {{ $row->paper_name }}
+                           <div>
+                           <img src="/front/img/downloads.png" class="imag-download" alt="">
+                           </div>
                           </a>
-                        </div>
+                         </div>
+                        
                       </div>
                     @endforeach
                   @endif

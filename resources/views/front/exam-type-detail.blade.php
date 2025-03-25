@@ -95,7 +95,7 @@
           <div class="mb-20 col-md-9">
             <div class="ps-post--detail sidebar">
               <div class="ps-post__content card">
-                <h1 class="mb-1" style="font-size: 20px">{{ ucfirst($examType->title) }}</h1>
+                <h2 class="title-neet">{{ ucfirst($examType->title) }}</h2>
 
                 {{-- <div>
                   <img data-src="{{ asset($examType->imgpath) }}" alt="{{ ucfirst($examType->headline) }}" class="mb-20"
@@ -107,15 +107,19 @@
                   <a class="ps-btn" onclick="window.location.href='{{ url('mbbs-abroad-counselling/') }}/'"
                     href="javascript:void()">Enquire Now</a>
                 </div> --}}
-                <div class="row">
+                <div class="row flex-wrap align-items">
                   @if ($examType->years->count() > 0)
                     @foreach ($examType->years as $row)
-                      <div class="col-md-3">
-                        <div class="card">
-                          <a href="{{ url($examType->slug . '/' . $row->slug) }}" target="_blank">
-                            {{ $row->year }}
+                      <div class="col-12 col-sm-3 col-md-3 col-lg-3 mb-4">
+                        
+                          <a class="all-years"  href="{{ url($examType->slug . '/' . $row->slug) }}" target="_blank">
+                           
+                            <h4 class="date-sets" ><i class="fa-solid fa-calendar-days"></i>
+                            {{ $row->year }}</h4>
+                <p>Previous-Year-Paper</p>
+            </a>
                           </a>
-                        </div>
+                   
                       </div>
                     @endforeach
                   @endif

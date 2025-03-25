@@ -107,8 +107,17 @@
           <div class="mb-20 col-md-9">
             <div class="ps-post--detail sidebar">
               <div class="ps-post__content card">
-                <h1 class="mb-1" style="font-size: 20px">{{ ucfirst($paper->title) }}</h1>
-
+                <h2 class="title-neet">{{ ucfirst($paper->title) }}</h2>
+<div class="row">
+  <div class="col-12">
+    <div class="year-downloadfiles">
+      <div class="year-downloads">
+        <input type="file" class="form-control">
+        <a href="#" ><i class="fa-solid fa-down-long mr-2"></i> DOWNLOAD </a>
+      </div>
+    </div>
+  </div>
+</div>
                 {{-- <div>
                   <img data-src="{{ asset($examType->imgpath) }}" alt="{{ ucfirst($examType->headline) }}" class="mb-20"
                     width="1000">

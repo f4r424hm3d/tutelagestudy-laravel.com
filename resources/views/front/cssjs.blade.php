@@ -5,7 +5,7 @@
 <link rel="preload" href="{{ cdn('front') }}/plugins/bootstrap/css/bootstrap.min.css" as="style"
   onload="this.onload=null;this.rel='stylesheet'">
 <link rel="stylesheet" href="{{ cdn('front') }}/plugins/owl-carousel/assets/owl.carousel.min.css">
-<link rel="stylesheet" href="{{ cdn('front/css/style.css') }}">
+<link rel="stylesheet" href="{{ asset('front/css/style.css') }}">
 <script src="{{ cdn('front') }}/js/jquery.min.js"></script>
 <style>
   .pointer {
