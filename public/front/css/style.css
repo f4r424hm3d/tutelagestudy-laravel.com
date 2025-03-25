@@ -15065,3 +15065,130 @@ a.ps-logo img {
   width: 245px;
   object-fit: cover;
 }
+.ps-breadcrumb {
+  margin-top: 47px;
+  border-top: 1px solid #f1f1f1;
+}
+
+.all-years {
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  height: 106px;
+
+  gap: 7px;
+  border-radius: 7px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.all-years:hover {
+  text-decoration: none;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+
+}
+.all-neets {
+  padding: 20px;
+  background-color: aliceblue;
+  border-radius: 12px;
+  border: 1px solid #8080805e;
+}
+
+.all-years p {
+  margin: 0px !important;
+  font-size: 16px  !important;
+  font-weight: 500;
+  color: #004e7a;;
+}
+
+.all-years .date-sets {
+  margin-bottom: 0px !important;
+  font-size: 18px !important;
+  color: #004e7a;
+}
+
+
+.fa-calendar-days {
+  margin-right: 9px;
+  color: #af0000;
+}
+
+.title-neet {
+  font-size: 20px;
+  margin-bottom: 22px !important;
+}
+.set-keys {
+  background-color: #fff;
+  padding: 6px 12px;
+  font-size: 20px;
+  border-left: 5px solid;
+  border-radius: 15px;
+  overflow: hidden;
+
+}
+.set-keys .imag-download {
+  width: 50px;
+  height: 50px;
+}
+
+.all-pdf {
+  border: 1px solid #c9c9c9;
+  border-radius: 16px;
+  margin: 15px 0px;
+
+}
+.year-downloads a {
+  width: 30%;
+  display: block;
+  margin: 0px auto;
+  padding: 9px;
+  font-size: 20px;
+  background-color: #ffffff00;
+  border: 0px solid #af0000;
+  position: relative;
+  font-weight: 700;
+  color: #af0000 !important;
+  border-radius: 7px;
+  box-shadow: #af000052 0px 2px 8px 0px;
+  cursor: pointer;
+}
+
+.ps-post__content.card .year-downloads a {
+  color: #af0000 !important;
+}
+
+.year-downloads a .fa-solid {
+  position: absolute;
+  top: 5px;
+  left: 6px;
+  width: 44px;
+  padding: 9px;
+  border-radius: 7px;
+  background-color: #af0000;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.year-downloads {
+  margin: 30px 0px;
+  position: relative;
+  text-align: center;
+}
+
+.year-downloads input {
+  position: absolute;
+  width: 30%;
+  height: 50px;
+  border-radius: 7px;
+  z-index: 9;
+  left: 50%;
+  top: 50%;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+}
