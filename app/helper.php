@@ -153,3 +153,19 @@ function cdn($asset)
   end($cdns);
   return cdnPath(key($cdns), $asset);
 }
+if (!function_exists('generateMathQuestion')) {
+  function generateMathQuestion()
+  {
+    $num1 = rand(1, 10);
+    $num2 = rand(1, 10);
+    $operator = ['+', '-', '*'][rand(0, 2)];
+
+    $questionText = "$num1 $operator $num2";
+    $answer = eval("return $num1 $operator $num2;");
+
+    return [
+      'text' => $questionText,
+      'answer' => $answer,
+    ];
+  }
+}

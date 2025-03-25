@@ -64,6 +64,8 @@ use App\Http\Controllers\front\TestFc;
 use App\Http\Controllers\front\UniversityFc;
 use App\Http\Controllers\front\UniversityProfileFc;
 use App\Http\Controllers\sitemap\SitemapController;
+use App\Http\Controllers\student\StudentFc;
+use App\Http\Controllers\student\StudentLoginFc;
 use App\Models\Destination;
 use App\Models\Exam;
 use App\Models\Blog;
@@ -222,7 +224,38 @@ Route::post('/download/submit-form/', [ExamPaperFc::class, 'submitForm'])->name(
 //   Route::get('/medical-universities-in-' . $row->country_slug . '/', [UniversityFc::class, 'universitybyCountry']);
 // }
 
-
+/* STUDENT ROUTES BEFORE LOGIN */
+Route::middleware(['studentLoggedOut'])->group(function () {
+  Route::get('/sign-up', [StudentLoginFc::class, 'signup']);
+  Route::post('/sign-up', [StudentLoginFc::class, 'register']);
+  Route::get('/sign-in', [StudentLoginFc::class, 'login']);
+  Route::post('/login', [StudentLoginFc::class, 'signin']);
+  Route::get('/confirmed-email', [StudentLoginFc::class, 'confirmedEmail']);
+  Route::post('/submit-email-otp', [StudentLoginFc::class, 'submitOtp']);
+  Route::get('/account/password/reset', [StudentLoginFc::class, 'viewForgetPassword']);
+  Route::post('/forget-password', [StudentLoginFc::class, 'forgetPassword']);
+  Route::get('/forget-password/email-sent', [StudentLoginFc::class, 'emailSent']);
+  Route::get('/email-login', [StudentLoginFc::class, 'emailLogin']);
+  Route::get('/password/reset', [StudentLoginFc::class, 'viewResetPassword']);
+  Route::post('/reset-password', [StudentLoginFc::class, 'resetPassword']);
+  Route::get('/account/invalid_link', [StudentLoginFc::class, 'invalidLink']);
+});
+/* STUDENT ROUTES AFTER LOGIN */
+Route::middleware(['studentLoggedIn'])->group(function () {
+  Route::prefix('/student')->group(function () {
+    Route::prefix('profile')->group(function () {
+      Route::get('', [StudentFc::class, 'profile']);
+      Route::post('/update', [StudentFc::class, 'updateProfile']);
+    });
+    Route::get('/change-password', [StudentFc::class, 'viewChangePassword']);
+    Route::post('/change-password', [StudentFc::class, 'changePassword']);
+    Route::get('/logout', function () {
+      session()->forget('studentLoggedIn');
+      session()->forget('student_id');
+      return redirect('sign-in');
+    });
+  });
+});
 
 /* ADMIN ROUTES BEFORE LOGIN */
 Route::middleware(['adminLoggedOut'])->group(function () {
