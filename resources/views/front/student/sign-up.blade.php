@@ -26,7 +26,7 @@
                     {{ session()->get('emsg') }}
                   </div>
                 @endif
-                <form action="{{ $url }}" method="post" enctype="multipart/form-data">
+                <form action="{{ $url }}/" method="post" enctype="multipart/form-data">
                   @csrf
                   <input type="hidden" name="return_to" value="{{ $_GET['return_to'] ?? null }}">
                   <input type="hidden" name="paper_id" value="{{ $_GET['paper_id'] ?? null }}">

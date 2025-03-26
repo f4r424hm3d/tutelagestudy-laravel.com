@@ -27,7 +27,7 @@
                     {{ session()->get('emsg') }}
                   </div>
                 @endif
-                <form action="{{ url('login') }}" method="post">
+                <form action="{{ url('login') }}/" method="post">
                   @csrf
                   <input type="hidden" name="return_to" value="{{ $_GET['return_to'] ?? null }}">
                   <input type="hidden" name="paper_id" value="{{ $_GET['paper_id'] ?? null }}">

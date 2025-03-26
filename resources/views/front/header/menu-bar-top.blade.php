@@ -1,6 +1,7 @@
 @php
   use App\Models\Destination;
   use App\Models\Country;
+  use App\Models\ExamType;
 
   $destinationsSF = Destination::where(['status' => 1])->get();
   $phonecodesSF = Country::select('phonecode', 'name')
@@ -8,6 +9,7 @@
       ->orderBy('phonecode', 'asc')
       ->get();
   $countriesSF = Country::orderBy('name', 'asc')->get();
+  $examTypes = ExamType::all();
 
 @endphp
 <style>
@@ -100,7 +102,19 @@
                   <ul class="mega-menu__list">
                     <li class="current-menu-item"><a href="{{ url('neet-ug') }}/">NEET UG</a></li>
                     <li class="current-menu-item"><a href="{{ url('plab-exam') }}/">PLAB Exam</a></li>
-                  <li class="current-menu-item"><a href="https://www.tutelagestudy.com/downloads/">NEET Question Paper</a> </li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li class="menu-item-has-children has-mega-menu">
+              <a href="javascript:void()">Downloads</a>
+              <span class="sub-toggle"></span>
+              <div class="mega-menu">
+                <div class="mega-menu__column p-0">
+                  <ul class="mega-menu__list">
+                    @foreach ($examTypes as $row)
+                      <li class="current-menu-item"><a href="{{ url($row->slug) }}/">{{ $row->title }}</a></li>
+                    @endforeach
                   </ul>
                 </div>
               </div>
@@ -285,7 +299,19 @@
               <ul class="mega-menu__list" style="display:block">
                 <li class="current-menu-item"><a href="<?php echo url('neet-ug'); ?>/">NEET UG</a> </li>
                 <li class="current-menu-item"><a href="<?php echo url('plab-exam'); ?>/">PLAB Exam</a> </li>
-              <li class="current-menu-item"><a href="#">NEET Question Paper</a> </li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li class="menu-item-has-children has-mega-menu">
+          <a href="javascript:void()">Downloads</a>
+          <span class="sub-toggle"></span>
+          <div class="mega-menu">
+            <div class="mega-menu__column p-0">
+              <ul class="mega-menu__list">
+                @foreach ($examTypes as $row)
+                  <li class="current-menu-item"><a href="{{ url($row->slug) }}/">{{ $row->title }}</a></li>
+                @endforeach
               </ul>
             </div>
           </div>
@@ -346,16 +372,15 @@
     });
   </script>
 
-<!-- gourav jquery added -->
-<script>
-$(document).ready(function () {
-    $(window).scroll(function () {
+  <!-- gourav jquery added -->
+  <script>
+    $(document).ready(function() {
+      $(window).scroll(function() {
         if ($(this).scrollTop() > 90) {
-            $(".sticky-head").css("top", "0px");
+          $(".sticky-head").css("top", "0px");
         } else {
-            $(".sticky-head").css("top", "90px");
+          $(".sticky-head").css("top", "90px");
         }
+      });
     });
-});
-
-</script>
+  </script>
