@@ -108,6 +108,7 @@
             <div class="ps-post--detail sidebar">
               <div class="ps-post__content card">
                 <h2 class="title-neet">{{ ucfirst($paper->title) }}</h2>
+                <x-front-notification />
                 <div class="row">
                   <div class="col-12">
                     <div class="year-downloadfiles">

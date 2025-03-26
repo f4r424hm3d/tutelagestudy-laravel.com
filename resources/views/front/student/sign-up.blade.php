@@ -138,8 +138,9 @@
                       <button type="submit" class="btn btn-theme-2 rounded w-100">Sign Up</button>
                     </div>
                     <div class="form-group text-center mb-0">
-                      Are you a already member? &nbsp;&nbsp; <a href="{{ url('sign-in') }}" class="theme-cl1">Sign
-                        In</a>
+                      Are you a already member? &nbsp;&nbsp;
+                      <a href="{{ url('/sign-in/?') }}{{ isset($_GET['return_to']) && $_GET['return_to'] != null ? 'return_to=' . $_GET['return_to'] : '' }}{{ isset($_GET['paper_id']) && $_GET['paper_id'] != null ? '&paper_id=' . $_GET['paper_id'] : '' }}"
+                        class="theme-cl1">Sign In</a>
                     </div>
                   </div>
                 </form>

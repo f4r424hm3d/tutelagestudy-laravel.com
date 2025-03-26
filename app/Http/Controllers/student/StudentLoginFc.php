@@ -82,12 +82,11 @@ class StudentLoginFc extends Controller
         'c_code' => $request['c_code'],
         'mobile' => $request['mobile'],
         'source' => 'SignUP',
+        'source_url' => $request['return_to'] ?? null,
       ];
 
 
-      $api_url = "https://www.crm.tutelagestudy.com/Api/submitBrochureInquiryFromTutelageWeb2";
-      $form_data = $emaildata;
-      //echo json_encode($form_data, true);
+      $api_url = "https://www.crm.tutelagestudy.com/Api/signup";
       $client = curl_init($api_url);
       curl_setopt($client, CURLOPT_POST, true);
       curl_setopt($client, CURLOPT_POSTFIELDS, $form_data);
@@ -166,6 +165,7 @@ class StudentLoginFc extends Controller
     $seg1 = $request['return_to'] != null ? 'return_to=' . $request['return_to'] : null;
     $seg2 = $request['paper_id'] != null ? 'paper_id=' . $request['paper_id'] : null;
     $return_url = 'sign-in?' . $seg1 . ($seg2 != null ? '&' . $seg2 : '');
+    $return_url2 = 'confirmed-email?' . $seg1 . ($seg2 != null ? '&' . $seg2 : '');
     //die;
     $field = Student::whereEmail($request['email'])->first();
     if (is_null($field)) {
@@ -174,10 +174,10 @@ class StudentLoginFc extends Controller
     } else {
       if ($field->status == 1) {
         if ($field->password == $request['password']) {
-          $lc = $field->login_count == '' ? 0 : $field->login_count + 1;
-          $field->login_count = $lc;
-          $field->last_login = date("Y-m-d H:i:s");
-          $field->save();
+          // $lc = $field->login_count == '' ? 0 : $field->login_count + 1;
+          // $field->login_count = $lc;
+          //$field->last_login = date("Y-m-d H:i:s");
+          //$field->save();
           session()->flash('smsg', 'Succesfully logged in');
           $request->session()->put('studentLoggedIn', true);
           $request->session()->put('student_id', $field->id);
@@ -213,7 +213,7 @@ class StudentLoginFc extends Controller
           $field->save();
           session()->flash('smsg', 'An OTP has been send to your registered email address.');
           session()->put('last_id', $field->id);
-          return redirect('confirmed-email');
+          return redirect($return_url2);
         }
       }
     }

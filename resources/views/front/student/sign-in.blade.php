@@ -30,7 +30,7 @@
                 <form action="{{ url('login') }}" method="post">
                   @csrf
                   <input type="hidden" name="return_to" value="{{ $_GET['return_to'] ?? null }}">
-                  <input type="hidden" name="program_id" value="{{ $_GET['program_id'] ?? null }}">
+                  <input type="hidden" name="paper_id" value="{{ $_GET['paper_id'] ?? null }}">
                   <div class="log_wraps">
                     <div class="log__heads">
                       <h4 class="mt-0 logs_title">Sign <span class="theme-cl1">In</span></h4>
@@ -70,7 +70,7 @@
 
                     <div class="form-group text-center mb-0">
                       Don't have an account?&nbsp;&nbsp;
-                      <a href="{{ url('/sign-up/?') }}{{ isset($_GET['return_to']) && $_GET['return_to'] != null ? 'return_to=' . $_GET['return_to'] : '' }}{{ isset($_GET['program_id']) && $_GET['program_id'] != null ? '&program_id=' . $_GET['program_id'] : '' }}"
+                      <a href="{{ url('/sign-up/?') }}{{ isset($_GET['return_to']) && $_GET['return_to'] != null ? 'return_to=' . $_GET['return_to'] : '' }}{{ isset($_GET['paper_id']) && $_GET['paper_id'] != null ? '&paper_id=' . $_GET['paper_id'] : '' }}"
                         class="theme-cl1">Sign Up</a>
                     </div>
 
