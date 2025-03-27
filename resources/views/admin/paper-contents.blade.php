@@ -47,7 +47,7 @@
               </h4>
             </div>
             <div class="card-body" id="tblCDiv">
-              <form id="{{ $ft == 'add' ? 'dataForm' : 'editForm' }}" {{ $ft == 'edit' ? 'action=' . $url : '' }}
+              <form id="{{ $ft == 'add' ? 'dataForm' : 'editForm' }}" {{ $ft == 'edit' ? 'action=' . $url . '/' : '' }}
                 class="needs-validation" method="post" enctype="multipart/form-data" novalidate>
                 @csrf
                 <input type="hidden" name="paper_id" value="{{ $paper_id }}">
