@@ -5964,7 +5964,8 @@ textarea.form-control {
 }
 .widget_features {
   background-color: #f1f1f1;
-  padding: 0 0 20px;
+  /* padding: 0 0 20px; */
+  padding: 20px;
 }
 .widget_features p {
   position: relative;
@@ -13990,7 +13991,7 @@ section.image-bg h3.sub-h1 {
   border: 1px solid #fff;
 }
 .endCounselling {
-  background-image: url("https://www.indianuniversities.net/assets/web/img/counselling-bg-front.webp");
+  background-image: url("/front/img/counselling-bg-front.webp");
   height: 100%;
   background-attachment: fixed;
   background-position: center;
@@ -15192,3 +15193,163 @@ a.ps-logo img {
   opacity: 0;
   transform: translate(-50%, -50%);
 }
+.all-otps {
+  background-color: #fff;
+  border: 20px;
+  padding: 30px;
+  text-align: center;
+  border-radius: 22px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.all-otps .mails {
+  font-size: 28px;
+  margin-bottom: 15px;
+  color: #004e7a;
+  border: 1px solid #004e7a5e;
+  padding: 14px;
+  border-radius: 50px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.all-otps .log__heads h4 {
+  font-size: 20px;
+  margin: 0px auto;
+  max-width: 359px;
+}
+
+.all-otps .log__heads .theme-cl {
+  margin-left: 5px;
+}
+.all-otps .log_wraps {
+  border: 1px solid #80808047;
+  padding: 20px 30px;
+  border-radius: 12px;
+  background-color: #004e7a08;
+  margin-top: 14px;
+}
+
+.set-neets {
+  position: relative;
+}
+
+.set-neets .dropdown-toggle::after {
+  content: "\e93a";
+  font: 12px/1 linearicons;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+}
+
+/* .mega-menu__list .nav-item.dropdown:hover .dropdown-menu {
+  display: block !important;
+} */
+
+.all-signsin {
+  background-color: #fff;
+  border: 20px;
+  padding: 30px;
+  text-align: center;
+  border-radius: 22px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.all-signsin .logs_title {
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 25px;
+}
+
+.all-signsin .input-group input {
+  padding-left: 40px;
+}
+
+.main-rel .input-icon {
+  position: absolute;
+  top: 0;
+  z-index: 5;
+  width: 39px;
+  height: 100%;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #af0000;
+}
+.main-socials {
+  padding: 0px;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main-labels {
+  margin-top: 9px;
+  font-size: 16px;
+}
+
+.all-captcha input {
+  padding-left: 70px !important;
+}
+
+.all-captcha .input-icon {
+  position: absolute;
+  top: 8px;
+  left: 11px;
+}
+
+.all-captcha {
+  position: relative;
+}
+
+
+
+
+.menu > li.exam-mega:hover .mega-menu{
+  transform: translate(-88%, 0px) !important;
+}
+
+.exam-mega .mega-menu .mega-menu__column {
+  min-width: 832px !important;
+}
+
+ul.meet-us p {
+  color: #004e7a;
+  font-weight: 600;
+  padding: 3px 15px 3px 0px;
+  margin-bottom: 7px;
+  border-bottom: 1px solid #004e7a;
+  position: relative;
+}
+
+ul.meet-us p:after {
+  content: "\e93a";
+  font: 12px/1 linearicons;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 7%;
+  color: #004e7a;
+  font-weight: bold;
+}
+
+
+ul.meet-us {
+  height: 100%;
+}
+
+.exam-mega .mega-menu .mega-menu__list li a {
+  padding: 3px 12px;
+}
+
+.exam-mega .mega-menu .mega-menu__list li a:hover {
+  padding: 3px 12px;
+}
+@media (max-width:1200px){
+  .ps-breadcrumb{
+    margin-top: 0px;
+  }
+}
+/* // gourav css fixed  */

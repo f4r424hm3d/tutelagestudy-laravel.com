@@ -94,14 +94,68 @@
 
             <li><a href="<?php echo url('services'); ?>/">Services</a><span class="sub-toggle"></span></li>
 
-            <li class="menu-item-has-children has-mega-menu">
+            <li class="menu-item-has-children has-mega-menu exam-mega">
               <a href="javascript:void()">Exams</a>
               <span class="sub-toggle"></span>
               <div class="mega-menu">
                 <div class="mega-menu__column p-0">
                   <ul class="mega-menu__list">
-                    <li class="current-menu-item"><a href="{{ url('neet-ug') }}/">NEET UG</a></li>
-                    <li class="current-menu-item"><a href="{{ url('plab-exam') }}/">PLAB Exam</a></li>
+                    <!-- <li class="current-menu-item"><a href="">NEET UG</a></li> -->
+                    <!-- <li class="dropleft dropdown">
+  <a class="nav-link dropdown-toggle" href="{{ url('neet-ug') }}/" id="neetDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    NEET UG 
+  </a>
+  <div class="dropdown-menu" aria-labelledby="neetDropdown">
+  @foreach ($examTypes as $row)
+  <a class="dropdown-item" href="{{ url($row->slug) }}/">NEET Previous Year Question Paper</a>
+  @endforeach
+    <a class="dropdown-item" href="#">NEET Mock Test</a>
+    <a class="dropdown-item"  href="#">NEET 2025 exam date</a>
+    <a class="dropdown-item"  href="#">NEET Admit Card</a>  
+    <a class="dropdown-item"  href="#">NEET Result</a>
+    
+  </div>
+</li> -->
+
+
+                    <!-- <li class="current-menu-item"><a href="{{ url('plab-exam') }}/">PLAB Exam</a></li> -->
+<div class="row">
+  <div class="col-12 col-sm-6 col-md-3 col-lg-4 col-xl-4 mb-3">
+  <ul class="meet-us" >
+  <p>NEET UG</p>
+  @foreach ($examTypes as $row)
+    <li><a href="{{ url($row->slug) }}/">NEET Previous Year Question Paper</a></li>
+  @endforeach
+  <li><a href="#">NEET Mock Test</a></li>
+  <li><a href="#">NEET 2025 Exam Date</a></li>
+  <li><a href="#">NEET Admit Card</a></li>
+  <li><a href="#">NEET Result</a></li>
+</ul>
+
+  </div>
+  <div class="col-12 col-sm-6 col-md-3 col-lg-4 col-xl-4 mb-3">
+  <ul class="meet-us" >
+  <p>NEET PG</p>
+  <li><a href="#">NEET PG Question Paper</a></li>
+  <li><a href="#">NEET PG Exam</a></li>
+  <li><a href="#">NEET PG 2025 Exam Date</a></li>
+  <li><a href="#">NEET PG Result</a></li>
+</ul>
+
+  </div>
+  <div class="col-12 col-sm-6 col-md-3 col-lg-4 col-xl-4 mb-3">
+  <ul class="meet-us">
+    <p>Medical Licensing Exams</p>
+    <li><a href="#">NEXT Exam</a></li>
+    <li><a href="#">FMGE Exam</a></li>
+    <li><a href="{{ url('plab-exam') }}/">PLAB Exam</a></li>
+    <li><a href="#">PLAB Exam 2025</a></li>
+    <li><a href="#">PLAB Exam Syllabus</a></li>
+  </ul>
+</div>
+
+</div>
+
                   </ul>
                 </div>
               </div>
@@ -111,11 +165,11 @@
               <span class="sub-toggle"></span>
               <div class="mega-menu">
                 <div class="mega-menu__column p-0">
-                  <ul class="mega-menu__list">
+                  <!-- <ul class="mega-menu__list">
                     @foreach ($examTypes as $row)
                       <li class="current-menu-item"><a href="{{ url($row->slug) }}/">{{ $row->title }}</a></li>
                     @endforeach
-                  </ul>
+                  </ul> -->
                 </div>
               </div>
             </li>

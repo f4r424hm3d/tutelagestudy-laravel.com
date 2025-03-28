@@ -3,17 +3,14 @@
   @include('front.layouts.static_page_meta_tag')
 @endpush
 @section('main-section')
-  <br><br>
-  <section class="bg-light">
+ 
+  <section class="bg-light pt-5 my-5">
     <div class="log-space">
       <div class="container">
         <div class="row justify-content-center">
-          <div class="col-lg-12 col-md-12">
-            <div class="row no-gutters position-relative log_rads">
-              <div class="d-none d-md-block col-lg-3 col-md-5 bg-cover">
-
-              </div>
-              <div class="col-lg-6 col-md-7 position-static p-2">
+        <div class="col-lg-6 col-md-5 col-12 mx-auto">
+              <div class="all-signsin">
+             
                 @if (session()->has('smsg'))
                   <div class="alert alert-success alert-dismissable">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -35,9 +32,9 @@
                       <h4 class="mt-0 logs_title">Sign <span class="theme-cl1">Up</span></h4>
                     </div>
                     <div class="form-group">
-                      <div class="input-group">
-                        <div class="input-icon"><span class="ti-user"></span></div>
-                        <input name="name" type="text" class="form-control b-0 bg-white pl-0"
+                      <div class="input-group  main-rel">
+                        <div class="input-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <input name="name" type="text" class="form-control"
                           placeholder="Ex. Peter Parker" value="{{ old('name') }}" required="">
                       </div>
                       <span class="text-danger">
@@ -47,9 +44,9 @@
                       </span>
                     </div>
                     <div class="form-group">
-                      <div class="input-group">
-                        <div class="input-icon"><span class="ti-email"></span></div>
-                        <input name="email" type="email" class="form-control b-0 bg-white pl-0"
+                      <div class="input-group  main-rel">
+                        <div class="input-icon"> <i class="fa-solid fa-envelope"></i></div>
+                        <input name="email" type="email" class="form-control"
                           placeholder="Ex. mohdrafay@gmail.com" value="{{ old('email') }}" required="">
                       </div>
                       <span class="text-danger">
@@ -59,8 +56,8 @@
                       </span>
                     </div>
                     <div class="row">
-                      <div class="col-3 pr-0">
-                        <select name="c_code" id="c_code" class="form-control bg-white">
+                      <div class="col-3 ">
+                        <select name="c_code" id="c_code" class="form-control">
                           <option value="">Select</option>
                           @foreach ($phonecodes as $row)
                             <option value="{{ $row->phonecode }}"
@@ -75,11 +72,11 @@
                           @enderror
                         </span>
                       </div>
-                      <div class="col-9 pl-1">
-                        <div class="form-group">
+                      <div class="col-9 ">
+                        <div class="form-group  main-rel">
                           <div class="input-group">
-                            <div class="input-icon"><span class="ti-mobile"></span></div>
-                            <input name="mobile" type="number" class="form-control b-0 bg-white pl-0"
+                            <div class="input-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+                            <input name="mobile" type="number" class="form-control"
                               placeholder="Ex. 9634575238" value="{{ old('mobile') }}" required="">
                           </div>
                           <span class="text-danger">
@@ -91,13 +88,15 @@
                       </div>
                     </div>
                     <div class="form-group">
-                      <div class="input-group">
-                        <div class="input-icon">
-                          <span id="password_icon_show" class="ti-eye" onclick="showPassword('password')"></span>
+                      <div class="input-group main-rel">
+                        <div class="input-icon  main-rel">
+                        <i  id="password_icon_hide"  class="fa-solid fa-lock hide-this " onclick="hidePassword('confirm_password')"></i>
+                        <i  id="password_icon_show"  class="fa-solid fa-lock-open  " onclick="showPassword('confirm_password')"></i>
+                          <!-- <span id="password_icon_show" class="ti-eye" onclick="showPassword('password')"></span>
                           <span id="password_icon_hide" class="ti-eye hide-this"
-                            onclick="hidePassword('password')"></span>
+                            onclick="hidePassword('password')"></span> -->  
                         </div>
-                        <input name="password" id="password" type="password" class="form-control bg-white b-0 b-l"
+                        <input name="password" id="password" type="password" class="form-control"
                           placeholder="Password">
                       </div>
                       <span class="text-danger">
@@ -107,15 +106,18 @@
                       </span>
                     </div>
                     <div class="form-group">
-                      <div class="input-group">
+                      <div class="input-group main-rel">
                         <div class="input-icon">
-                          <span id="confirm_password_icon_show" class="ti-eye"
+                        <i  id="confirm_password_icon_hide"  class="fa-solid fa-lock hide-this " onclick="hidePassword('confirm_password')"></i>
+                        <i  id="confirm_password_icon_show"  class="fa-solid fa-lock-open  " onclick="showPassword('confirm_password')"></i>
+
+                          <!-- <span id="confirm_password_icon_show" class="ti-eye"
                             onclick="showPassword('confirm_password')"></span>
                           <span id="confirm_password_icon_hide" class="ti-eye hide-this"
-                            onclick="hidePassword('confirm_password')"></span>
+                            onclick="hidePassword('confirm_password')"></span> -->
                         </div>
                         <input name="confirm_password" id="confirm_password" type="password"
-                          class="form-control bg-white b-0 b-l" placeholder="Confirm Password">
+                          class="form-control" placeholder="Confirm Password">
                       </div>
                       <span class="text-danger">
                         @error('confirm_password')
@@ -123,11 +125,14 @@
                         @enderror
                       </span>
                     </div>
-                    <div class="form-group">
-                      <label for="captcha_question">{{ $question['text'] }}</label>
+                    <div class="form-group all-captcha">
+                      
                       <div class="input-group">
-                        <div class="input-icon"><span class="ti-captcha_answer"></span></div>
-                        <input type="number" name="captcha_answer" class="form-control b-0 pl-0"
+                        <div class="input-icon">
+                          <!-- <span class="ti-captcha_answer"></span> -->
+                          <label for="captcha_question">{{ $question['text'] }}</label>
+                        </div>
+                        <input type="number" name="captcha_answer" class="form-control"
                           placeholder="Enter Captcha Value" required="">
                       </div>
                       @error('captcha_answer')
@@ -135,7 +140,7 @@
                       @enderror
                     </div>
                     <div class="form-group">
-                      <button type="submit" class="btn btn-theme-2 rounded w-100">Sign Up</button>
+                      <button type="submit" class="button home-btn py-2 w-100">Sign Up</button>
                     </div>
                     <div class="form-group text-center mb-0">
                       Are you a already member? &nbsp;&nbsp;
@@ -145,8 +150,9 @@
                   </div>
                 </form>
               </div>
-            </div>
-          </div>
+              </div>
+              
+           
         </div>
       </div>
     </div>

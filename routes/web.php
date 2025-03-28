@@ -191,6 +191,7 @@ Route::get('/form/getCountry/', [InquiryController::class, 'getCountry']);
 $universities2 = University::all();
 foreach ($universities2 as $row) {
   Route::get('medical-universities/' . $row->uname . '/', [UniversityProfileFc::class, 'index']);
+  Route::get('medical-universities/' . $row->uname . '/gallery', [UniversityProfileFc::class, 'gallery']);
   Route::get($row->country_slug . '/' . $row->uname . '/', function () use ($row) {
     return redirect('medical-universities/' . $row->uname . '/', 301);
   });
