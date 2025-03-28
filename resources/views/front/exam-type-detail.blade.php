@@ -22,7 +22,19 @@
       {
         "@type": "ListItem",
         "position": 2,
+        "name": "Exams",
+        "item": "{{ url()->current() }}/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
         "name": "{{ ucfirst($examType->exam_type) }}",
+        "item": "{{ url()->current() }}/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "{{ ucfirst($examType->title) }}",
         "item": "{{ url()->current() }}/"
       }
     ]
@@ -83,7 +95,9 @@
         <div class="col-md-12">
           <ul class="breadcrumb bread-scrollbar">
             <li><a href="{{ url('/') }}">Home</a></li>
+            <li><span>Exams</span></li>
             <li><span>{{ ucfirst($examType->exam_type) }}</span></li>
+            <li><span>{{ ucfirst($examType->title) }}</span></li>
           </ul>
         </div>
       </div>
@@ -111,15 +125,17 @@
                   @if ($examType->years->count() > 0)
                     @foreach ($examType->years as $row)
                       <div class="col-12 col-sm-3 col-md-3 col-lg-3 mb-4">
-                        
-                          <a class="all-years"  href="{{ url($examType->slug . '/' . $row->slug) }}" target="_blank">
-                           
-                            <h4 class="date-sets" ><i class="fa-solid fa-calendar-days"></i>
+
+                        <a class="all-years"
+                          href="{{ route('paper2', ['exam_type_slug' => $row->examType->exam_type_slug, 'exam_type_title_slug' => $row->examType->slug, 'year_slug' => $row->slug]) }}"
+                          target="_blank">
+
+                          <h4 class="date-sets"><i class="fa-solid fa-calendar-days"></i>
                             {{ $row->year }}</h4>
-                <p>Previous-Year-Paper</p>
-            </a>
-                          </a>
-                   
+                          <p>Previous-Year-Paper</p>
+                        </a>
+                        </a>
+
                       </div>
                     @endforeach
                   @endif

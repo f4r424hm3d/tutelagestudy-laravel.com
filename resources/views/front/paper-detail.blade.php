@@ -18,21 +18,35 @@
         "position": 1,
         "name": "Home",
         "item": "{{ url('/') }}/"
-      },{
+      },
+      {
         "@type": "ListItem",
         "position": 2,
-        "name": "{{ $examType->exam_type }}",
-        "item": "{{ url($examType->slug) }}/"
-      },{
-        "@type": "ListItem",
-        "position": 2,
-        "name": "{{ $year->year }}",
-        "item": "{{ url($examType->slug.'/'.$year->slug) }}/"
+        "name": "Exams",
+        "item": ""
       },
       {
         "@type": "ListItem",
         "position": 3,
-        "name": "{{ ucfirst($year->year) }}",
+        "name": "{{ ucfirst($examType->exam_type) }}",
+        "item": ""
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "{{ ucfirst($examType->title) }}",
+        "item": "{{ route('paper1', ['exam_type_slug' => $examType->exam_type_slug, 'exam_type_title_slug' => $examType->slug]) }}/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "name": "{{ $year->year }}",
+        "item": "{{ route('paper2', ['exam_type_slug' => $examType->exam_type_slug, 'exam_type_title_slug' => $examType->slug, 'year_slug' => $year->slug]) }}/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 6,
+        "name": "{{ ucfirst($paper->paper_name) }}",
         "item": "{{ url()->current() }}/"
       }
     ]
@@ -93,8 +107,14 @@
         <div class="col-md-12">
           <ul class="breadcrumb bread-scrollbar">
             <li><a href="{{ url('/') }}">Home</a></li>
-            <li><a href="{{ url($examType->slug) }}">{{ ucfirst($examType->exam_type) }}</a></li>
-            <li><a href="{{ url($examType->slug . '/' . $year->slug) }}">{{ ucfirst($year->year) }}</a></li>
+            <li><span>Exams</span></li>
+            <li><span>{{ ucfirst($examType->exam_type) }}</span></li>
+            <li><a
+                href="{{ route('paper1', ['exam_type_slug' => $examType->exam_type_slug, 'exam_type_title_slug' => $examType->slug]) }}">{{ ucfirst($examType->title) }}</a>
+            </li>
+            <li><a
+                href="{{ route('paper2', ['exam_type_slug' => $examType->exam_type_slug, 'exam_type_title_slug' => $examType->slug, 'year_slug' => $year->slug]) }}">{{ ucfirst($year->year) }}</a>
+            </li>
             <li><span>{{ ucfirst($paper->paper_name) }}</span></li>
           </ul>
         </div>

@@ -205,7 +205,7 @@ class ExamTypeYearPaperC extends Controller
     foreach ($rows as $row) {
       $output .= '<tr id="row' . $row->id . '">
             <td>' . $i . '</td>
-            <td><a href="' . url($row->examTypeYear->examType->slug . '/' . $row->examTypeYear->slug . '/' . $row->slug) . '" target="_blank">' . $row->paper_name . '</a></td>
+            <td><a href="' . route('paper3', ['exam_type_slug' => $row->examTypeYear->examType->exam_type_slug, 'exam_type_title_slug' => $row->examTypeYear->examType->slug, 'year_slug' => $row->examTypeYear->slug, 'paper_slug' => $row->slug]) . '" target="_blank">' . $row->paper_name . '</a></td>
             <td>' . $row->title . '</td>
             <td>';
       if ($row->question_paper != null && file_exists($row->question_paper)) {

@@ -672,6 +672,6 @@ Route::get('sitemap-services.xml', [SitemapController::class, 'services']);
 Route::get('sitemap-exams.xml', [SitemapController::class, 'exam']);
 Route::get('sitemap-university.xml', [SitemapController::class, 'university']);
 
-Route::get('/{exam_type_slug}/', [ExamPaperDownloadFc::class, 'index']);
-Route::get('/{exam_type_slug}/{year_slug}', [ExamPaperDownloadFc::class, 'yearDetail']);
-Route::get('/{exam_type_slug}/{year_slug}/{paper_slug}', [ExamPaperDownloadFc::class, 'paperDetail']);
+Route::get('exams/{exam_type_slug}/{exam_type_title_slug}/', [ExamPaperDownloadFc::class, 'index'])->name('paper1');
+Route::get('exams/{exam_type_slug}/{exam_type_title_slug}/{year_slug}', [ExamPaperDownloadFc::class, 'yearDetail'])->name('paper2');
+Route::get('exams/{exam_type_slug}/{exam_type_title_slug}/{year_slug}/{paper_slug}', [ExamPaperDownloadFc::class, 'paperDetail'])->name('paper3');

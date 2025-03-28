@@ -146,7 +146,7 @@ class ExamTypeYearC extends Controller
       $output .= '<tr id="row'
         . $row->id . '">
             <td>' . $i . '</td>
-            <td><a href="' . url($row->examType->slug . '/' . $row->slug) . '" target="_blank">' . $row->year . '</a></td>
+            <td><a href="' . route('paper2', ['exam_type_slug' => $row->examType->exam_type_slug, 'exam_type_title_slug' => $row->examType->slug, 'year_slug' => $row->slug]) . '" target="_blank">' . $row->year . '</a></td>
             <td>' . $row->title . '</td>
             <td>
         ' . Blade::render('<x-custom-button :url="$url" label="Contents" :count="$count" />', ['url' => url('admin/exam-type-year-contents/' . $row->id), 'count' => $row->contents->count()]) . '

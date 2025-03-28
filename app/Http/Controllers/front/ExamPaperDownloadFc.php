@@ -11,11 +11,10 @@ use Illuminate\Http\Request;
 
 class ExamPaperDownloadFc extends Controller
 {
-  public function index($exam_type_slug, Request $request)
+  public function index($exam_type_slug, $exam_type_title_slug, Request $request)
   {
-    $examTypes = ExamType::where('slug', '!=', $exam_type_slug)->get();
-    $examType = ExamType::where(['slug' => $exam_type_slug])->firstOrFail();
-
+    $examType = ExamType::where(['exam_type_slug' => $exam_type_slug, 'slug' => $exam_type_title_slug])->firstOrFail();
+    $examTypes = ExamType::where('slug', '!=', $exam_type_title_slug)->get();
 
     $wrdseo = ['url' => 'exam-type-page'];
     $dseo = DefaultSeo::where($wrdseo)->first();
@@ -42,9 +41,9 @@ class ExamPaperDownloadFc extends Controller
     $data = compact('examType', 'examTypes', 'dseo', 'page_url', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path');
     return view('front.exam-type-detail')->with($data);
   }
-  public function yearDetail($exam_type_slug, $year_slug, Request $request)
+  public function yearDetail($exam_type_slug, $exam_type_title_slug, $year_slug, Request $request)
   {
-    $examType = ExamType::where(['slug' => $exam_type_slug])->firstOrFail();
+    $examType = ExamType::where(['exam_type_slug' => $exam_type_slug, 'slug' => $exam_type_title_slug])->firstOrFail();
     $year = ExamTypeYear::where('exam_type_id', $examType->id)->where('slug', $year_slug)->firstOrFail();
 
 
@@ -74,9 +73,9 @@ class ExamPaperDownloadFc extends Controller
     $data = compact('examType', 'year', 'dseo', 'page_url', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path');
     return view('front.exam-type-year-detail')->with($data);
   }
-  public function paperDetail($exam_type_slug, $year_slug, $paper_slug, Request $request)
+  public function paperDetail($exam_type_slug, $exam_type_title_slug, $year_slug, $paper_slug, Request $request)
   {
-    $examType = ExamType::where(['slug' => $exam_type_slug])->firstOrFail();
+    $examType = ExamType::where(['exam_type_slug' => $exam_type_slug, 'slug' => $exam_type_title_slug])->firstOrFail();
     $year = ExamTypeYear::where('exam_type_id', $examType->id)->where('slug', $year_slug)->firstOrFail();
     $paper = ExamTypeYearPaper::where('exam_type_year_id', $year->id)->where('slug', $paper_slug)->firstOrFail();
 

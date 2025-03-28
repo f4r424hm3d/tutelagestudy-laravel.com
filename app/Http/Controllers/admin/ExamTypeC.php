@@ -68,7 +68,7 @@ class ExamTypeC extends Controller
       <td>' . $i . '</td>
       <td>' . $row->id . '</td>
       <td>' . $row->exam_type . '</td>
-      <td><a href="' . url($row->slug) . '" target="_blank">' . $row->title . '</a></td>
+      <td><a href="' . route('paper1', ['exam_type_slug' => $row->exam_type_slug, 'exam_type_title_slug' => $row->slug]) . '" target="_blank">' . $row->title . '</a></td>
       <td>
         ' . Blade::render('<x-custom-button :url="$url" label="Contents" :count="$count" />', ['url' => url('admin/exam-type-contents/' . $row->id), 'count' => $row->contents->count()]) . '
       </td>
@@ -115,6 +115,7 @@ class ExamTypeC extends Controller
 
     $field = new ExamType;
     $field->exam_type = $request['exam_type'];
+    $field->exam_type_slug = slugify($request['exam_type']);
     $field->title = $request['title'];
     $field->slug = slugify($request['slug']);
     $field->meta_title = $request['meta_title'];
@@ -138,6 +139,7 @@ class ExamTypeC extends Controller
     );
     $field = ExamType::find($id);
     $field->exam_type = $request['exam_type'];
+    $field->exam_type_slug = slugify($request['exam_type']);
     $field->title = $request['title'];
     $field->slug = slugify($request['slug']);
     $field->meta_title = $request['meta_title'];

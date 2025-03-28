@@ -18,15 +18,28 @@
         "position": 1,
         "name": "Home",
         "item": "{{ url('/') }}/"
-      },{
+      },
+      {
         "@type": "ListItem",
         "position": 2,
-        "name": "{{ $examType->exam_type }}",
-        "item": "{{ url($examType->slug) }}/"
+        "name": "Exams",
+        "item": ""
       },
       {
         "@type": "ListItem",
         "position": 3,
+        "name": "{{ ucfirst($examType->exam_type) }}",
+        "item": ""
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "{{ ucfirst($examType->title) }}",
+        "item": "{{ route('paper1', ['exam_type_slug' => $examType->exam_type_slug, 'exam_type_title_slug' => $examType->slug]) }}/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
         "name": "{{ ucfirst($year->year) }}",
         "item": "{{ url()->current() }}/"
       }
@@ -88,7 +101,11 @@
         <div class="col-md-12">
           <ul class="breadcrumb bread-scrollbar">
             <li><a href="{{ url('/') }}">Home</a></li>
-            <li><a href="{{ url($examType->slug) }}">{{ ucfirst($examType->exam_type) }}</a></li>
+            <li><span>Exams</span></li>
+            <li><span>{{ ucfirst($examType->exam_type) }}</span></li>
+            <li><a
+                href="{{ route('paper1', ['exam_type_slug' => $examType->exam_type_slug, 'exam_type_title_slug' => $examType->slug]) }}">{{ ucfirst($examType->title) }}</a>
+            </li>
             <li><span>{{ ucfirst($year->year) }}</span></li>
           </ul>
         </div>
@@ -101,7 +118,7 @@
           <div class="mb-20 col-md-9">
             <div class="ps-post--detail sidebar">
               <div class="ps-post__content card">
-              <h2 class="title-neet">{{ ucfirst($year->title) }}</h2>
+                <h2 class="title-neet">{{ ucfirst($year->title) }}</h2>
 
                 {{-- <div>
                   <img data-src="{{ asset($examType->imgpath) }}" alt="{{ ucfirst($examType->headline) }}" class="mb-20"
@@ -117,16 +134,18 @@
                   @if ($year->papers->count() > 0)
                     @foreach ($year->papers as $row)
                       <div class="col-md-12">
-                      
-                         <div class="all-pdf">
-                         <a class="d-flex justify-content-between align-items-center set-keys" href="{{ url($examType->slug . '/' . $year->slug . '/' . $row->slug) }}" target="_blank">
+
+                        <div class="all-pdf">
+                          <a class="d-flex justify-content-between align-items-center set-keys"
+                            href="{{ route('paper3', ['exam_type_slug' => $row->examTypeYear->examType->exam_type_slug, 'exam_type_title_slug' => $row->examTypeYear->examType->slug, 'year_slug' => $row->examTypeYear->slug, 'paper_slug' => $row->slug]) }}"
+                            target="_blank">
                             {{ $row->paper_name }}
-                           <div>
-                           <img src="/front/img/downloads.png" class="imag-download" alt="">
-                           </div>
+                            <div>
+                              <img src="/front/img/downloads.png" class="imag-download" alt="">
+                            </div>
                           </a>
-                         </div>
-                        
+                        </div>
+
                       </div>
                     @endforeach
                   @endif
