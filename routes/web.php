@@ -670,6 +670,7 @@ Route::get('sitemap-medical-universities.xml', [SitemapController::class, 'medic
 Route::get('sitemap-destinations.xml', [SitemapController::class, 'destination']);
 Route::get('sitemap-services.xml', [SitemapController::class, 'services']);
 Route::get('sitemap-exams.xml', [SitemapController::class, 'exam']);
+Route::get('sitemap-exam-papers.xml', [SitemapController::class, 'examPapers']);
 Route::get('sitemap-university.xml', [SitemapController::class, 'university']);
 
 Route::get('exams/{exam_type_slug}/{exam_type_title_slug}/', [ExamPaperDownloadFc::class, 'index'])->name('paper1');

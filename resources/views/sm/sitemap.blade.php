@@ -35,6 +35,11 @@
   </sitemap>
   <sitemap>
     <loc>
+      <?php echo url('/'); ?>/sitemap-exam-papers.xml/
+    </loc>
+  </sitemap>
+  <sitemap>
+    <loc>
       <?php echo url('/'); ?>/sitemap-university.xml/
     </loc>
   </sitemap>

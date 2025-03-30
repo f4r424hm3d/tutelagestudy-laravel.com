@@ -8,6 +8,7 @@ use App\Models\Exam;
 use App\Models\ExamPage;
 use App\Models\Blog;
 use App\Models\BlogCategory;
+use App\Models\ExamType;
 use App\Models\Service;
 use App\Models\University;
 use Illuminate\Http\Request;
@@ -64,8 +65,17 @@ class SitemapController extends Controller
     $utf = '<?xml version="1.0" encoding="UTF-8"?>';
     $exams = Exam::all();
     $exampages = ExamPage::all();
+
     $data = compact('exams', 'exampages', 'utf');
     return response()->view('sm.exam', $data)->header('Content-Type', 'application/xml; charset=utf-8');
+  }
+  public function examPapers(Request $request)
+  {
+    $utf = '<?xml version="1.0" encoding="UTF-8"?>';
+
+    $examTypes = ExamType::all();
+    $data = compact('examTypes', 'utf');
+    return response()->view('sm.exam-papers', $data)->header('Content-Type', 'application/xml; charset=utf-8');
   }
 
   public function university(Request $request)
