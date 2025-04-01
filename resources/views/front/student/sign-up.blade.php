@@ -35,7 +35,7 @@
                       <div class="input-group  main-rel">
                         <div class="input-icon"><i class="fa-solid fa-envelope"></i></div>
                         <input name="name" type="text" class="form-control"
-                          placeholder="Ex. Peter Parker" value="{{ old('name') }}" required="">
+                          placeholder="Full Name" value="{{ old('name') }}" required="">
                       </div>
                       <span class="text-danger">
                         @error('name')
@@ -47,7 +47,7 @@
                       <div class="input-group  main-rel">
                         <div class="input-icon"> <i class="fa-solid fa-envelope"></i></div>
                         <input name="email" type="email" class="form-control"
-                          placeholder="Ex. mohdrafay@gmail.com" value="{{ old('email') }}" required="">
+                          placeholder="abc@gmail.com" value="{{ old('email') }}" required="">
                       </div>
                       <span class="text-danger">
                         @error('email')
@@ -77,7 +77,7 @@
                           <div class="input-group">
                             <div class="input-icon"><i class="fa-solid fa-mobile-screen"></i></div>
                             <input name="mobile" type="number" class="form-control"
-                              placeholder="Ex. 9634575238" value="{{ old('mobile') }}" required="">
+                              placeholder="998866XXXX" value="{{ old('mobile') }}" required="">
                           </div>
                           <span class="text-danger">
                             @error('mobile')

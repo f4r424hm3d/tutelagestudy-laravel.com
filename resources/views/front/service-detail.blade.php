@@ -148,7 +148,7 @@
         <div class="ps-section__left shadow" style="position:sticky; top:20px; background:#fff">
           <aside class="ps-widget--account-dashboard">
             <div class="ps-widget__content">
-              <div style=" font-size:18px; color:#fff; background:#cd2122; padding:10px; text-align:center">Quick links
+              <div style=" font-size:18px; color:#fff; background:#af0000; padding:10px; text-align:center">Quick links
               </div>
               <ul style="max-height:480px; overflow:auto">
                 <?php foreach ($services as $s) { ?>

@@ -345,7 +345,7 @@
                       Table of Contents
                       <span style="float:right;">
                         <button class="btn btn-outline-info tglBtn hide-this"><i class="fa-solid fa-plus"></i></button>
-                        <button class="btn btn-outline-info tglBtn"><i class="fa-solid minus"></i></button>
+                        <button class="btn btn-outline-info tglBtn"><i class="fa-solid fa-minus"></i></button>
                       </span>
                     </h3>
                     <div class="widget__content tbl-cntnt" id="tblCDiv">

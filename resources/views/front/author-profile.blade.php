@@ -182,9 +182,13 @@
   <div class="ps-page--product" style="background-color:#eee; padding:25px 0px">
     <div class="container">
       <div class="card mb-3 p-4">
-        <div class="row align-items-center">
-          <div class="col-md-3"><img data-src="{{ asset($author->profile_pic_path) }}" alt="{{ $author->name }}"
-              class="rounded img-fluid mb-4"></div>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="ufull-div">
+            <img data-src="{{ asset($author->profile_pic_path) }}" alt="{{ $author->name }}"
+            class="rounded img-fluid">
+            </div>
+          </div>
           <div class="col-md-9">
             <h1><?php echo $author->name; ?> <small>(Content Curator)</small></h1>
             <hr>

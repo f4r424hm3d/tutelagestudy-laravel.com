@@ -149,7 +149,7 @@
                   <img data-src="{{ asset($examType->imgpath) }}" alt="{{ ucfirst($examType->headline) }}" class="mb-20"
                     width="1000">
                 </div> --}}
-                {{-- <br>
+                {{--
                 <div class="pt-0 pb-20 get-detail text-center">
                   <h4 class="mb-0">Get Free Counselling</h4>
                   <a class="ps-btn" onclick="window.location.href='{{ url('mbbs-abroad-counselling/') }}/'"

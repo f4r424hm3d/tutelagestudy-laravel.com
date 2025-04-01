@@ -4,20 +4,20 @@
 @endpush
 @section('main-section')
   <!-- Content -->
-  <section class="bg-light">
+  <section class="bg-light pt-5 pb-5 my-5">
     <div class="log-space">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-12 col-md-12">
 
             <div class="row no-gutters position-relative log_rads">
-              <div class="d-none d-md-block col-lg-6 col-md-5 bg-cover"
-                style="background:#1f2431 url({{ url('/front/') }}/assets/img/log.png)no-repeat;">
+               <!-- <div class="d-none d-md-block col-lg-6 col-md-5 bg-cover"
+                style="background:#1f2431 url({{ url('/front/') }}/img/log.png)no-repeat;">
                 <div class="lui_9okt6">
                   <div class="_loh_revu97">
                     <div id="reviews-login">
 
-                      <!-- Single Reviews -->
+                     
                       <div class="_loh_r96">
                         <div class="_bloi_quote"><i class="fa fa-quote-left"></i></div>
                         <div class="_loh_r92">
@@ -33,7 +33,6 @@
                         </div>
                       </div>
 
-                      <!-- Single Reviews -->
                       <div class="_loh_r96">
                         <div class="_bloi_quote"><i class="fa fa-quote-left"></i></div>
                         <div class="_loh_r92">
@@ -52,9 +51,10 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div>  -->
 
-              <div class="col-lg-6 col-md-7 position-static p-2">
+              <div class="col-lg-6 col-md-7 mx-auto">
+                <div class="all-signsin">
                 @if (session()->has('smsg'))
                   <div class="alert alert-success alert-dismissable">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -76,9 +76,9 @@
 
                     <div class="form-group">
                       <label>Enter your email we'll send you a link to reset your password.</label>
-                      <div class="input-group">
-                        <div class="input-icon"><span class="ti-email"></span></div>
-                        <input name="email" type="email" class="form-control bg-white b-0 b-l"
+                      <div class="input-group main-rel">
+                        <div class="input-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <input name="email" type="email" class="form-control"
                           placeholder="Enter your registered email address" value="{{ old('email') }}" required>
                         <span class="text-danger">
                           @error('email')
@@ -89,7 +89,7 @@
                     </div>
 
                     <div class="form-group">
-                      <button type="submit" class="btn btn-theme-2 rounded w-100">Reset Password</button>
+                      <button type="submit" class="button home-btn py-2 w-100">Reset Password</button>
                     </div>
 
                     <div class="form-group text-center mb-0">
@@ -98,6 +98,8 @@
 
                   </div>
                 </form>
+                </div>
+               
               </div>
             </div>
 

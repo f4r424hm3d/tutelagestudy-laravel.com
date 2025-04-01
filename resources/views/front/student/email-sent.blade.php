@@ -4,26 +4,30 @@
 @endpush
 @section('main-section')
 <!-- Content -->
-<section class="bg-light">
+<section class="bg-light pt-5 pb-5 mt-5">
   <div class="log-space">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-lg-6 col-md-6 col-12">
-
-          <div class="no-gutters position-relative log_rads">
+        <div class="col-lg-5 col-md-5 col-12 mx-auto">
+<div class="all-signsin">
+<div class="no-gutters position-relative log_rads">
             <div class="log_wraps">
-              <h5>
-                <center>Email Sent</center>
-              </h5>
+              <img class="set-mails"  src="/front/img/send-mail.png" alt="">
+            <div class="log__heads">
+                      <h4 class="mt-0 logs_title mb-1">Email Sent</h4>
+                    </div>
+             
               <p class="mb-3">
                 We sent an email to <b>{{ session()->get('forget_password_email') }}</b> with a link to get back into
                 your
                 account.
               </p>
-              <center><a href="{{ url('account/password/reset') }}">Ok</a></center>
+              <a class="button home-btn py-2 w-100" href="{{ url('account/password/reset') }}">Ok</a>
 
             </div>
           </div>
+</div>
+          
 
         </div>
       </div>
