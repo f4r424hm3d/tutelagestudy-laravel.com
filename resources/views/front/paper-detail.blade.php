@@ -138,7 +138,7 @@
                               class="fa-solid fa-down-long mr-2"></i>
                             DOWNLOAD </a>
                         @else
-                          <a href="{{ url('sign-in?return_to=' . request()->path()) }}"><i
+                          <a href="{{ url('sign-up?return_to=' . request()->path()) }}"><i
                               class="fa-solid fa-down-long mr-2"></i> DOWNLOAD </a>
                         @endif
                       </div>

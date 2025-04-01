@@ -295,9 +295,6 @@ class StudentLoginFc extends Controller
       if ($current_time > $field->otp_expire_at) {
         return redirect('account/invalid_link');
       } else {
-        $lc = $field->login_count == '' ? 0 : $field->login_count + 1;
-        $field->login_count = $lc;
-        $field->last_login = date("Y-m-d H:i:s");
         $field->remember_token = null;
         $field->otp_expire_at = null;
         $field->save();
@@ -351,9 +348,6 @@ class StudentLoginFc extends Controller
       if ($current_time > $field->otp_expire_at) {
         return redirect('account/invalid_link');
       } else {
-        $lc = $field->login_count == '' ? 0 : $field->login_count + 1;
-        $field->login_count = $lc;
-        $field->last_login = date("Y-m-d H:i:s");
         $field->remember_token = null;
         $field->otp_expire_at = null;
         $field->password = $request['new_password'];
