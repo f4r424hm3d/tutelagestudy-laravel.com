@@ -4,11 +4,16 @@
 @endpush
 @section('main-section')
   <!-- Content -->
-  <section class="bg-light">
+  <section class="bg-light pt-5 my-5">
     <div class="log-space">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-6 col-md-6 col-12">
+            <div class="all-signsin confirmssp" >
+            <div class="log__heads">
+                      <h4 class="mt-0 logs_title">Reset Your Password</h4>
+                    </div>
+
             @if (session()->has('smsg'))
               <div class="alert alert-success alert-dismissable">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -47,13 +52,16 @@
                       @enderror
                     </span>
                   </div>
-                  <div class="form-group text-center add_top_20 mb-0">
+                  <div class="form-group reset-btnss">
                     <input class="btn btn-theme-2 rounded w-100" type="submit" value="Submit">
+                    <button type="button" class="ps-btn w-100 py-2">Submit</button>
                   </div>
                 </form>
               </div>
 
             </div>
+            </div>
+           
           </div>
 
         </div>

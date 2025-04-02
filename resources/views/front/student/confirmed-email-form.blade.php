@@ -32,10 +32,15 @@
                   <div class="log__heads text-center">
                     <h4 class="mb-0">An OTP has been send to<span class="theme-cl">your registerd email
                         address</span>
+                        
                     </h4>
+                    
                   </div>
+                  <span class="span-smalls">
+                      (If you don’t see the OTP in your inbox, check your spam folder.)
+                        </span>
                   <div class="form-group text-center">
-                    <label class="my-3" >OTP will expire in 5 minutes</label>
+                    <label class="mb-3 mt-1" >OTP will expire in 5 minutes</label>
                     <div class="row">
                       <div class="col-md-8 mx-auto">
                         <div class="form-group mb-1">

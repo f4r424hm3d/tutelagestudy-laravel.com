@@ -3,7 +3,7 @@
   @include('front.layouts.form_page_meta_tag')
 @endpush
 @section('main-section')
-  <style>
+  <!-- <style>
     .mbbs-abroad-counselling {
       background: #eee;
       padding: 60px 15px
@@ -83,8 +83,9 @@
         font-size: 23px;
       }
     }
-  </style>
-  <div class="mbbs-abroad-counselling">
+  </style> -->
+<div class="abroad-counsellings">
+<div class="mbbs-abroad-counselling">
     <div class="row justify-content-center align-items-center">
       <div class="col-12 col-sm-12  col-md-10 col-lg-8 mx-auto">
         <?php if (session()->has('smsg')) { ?>
@@ -321,6 +322,7 @@
       </aside>
     </div>
   </div>
+</div>
   <script>
     grecaptcha.ready(function() {
       grecaptcha.execute('{{ gr_site_key() }}', {

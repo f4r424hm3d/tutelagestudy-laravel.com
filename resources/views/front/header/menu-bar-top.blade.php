@@ -32,11 +32,12 @@
           <a class="ps-logo" href="<?php echo url('/'); ?>"><img src="{{ url('front/') }}/img/logo_light.png"
               alt="Tutelage Study logo"></a>
         </div>
+        <div class="d-flex main-headcenter ">
         <div class="header__center">
           <form class="ps-form--quick-search" action="{{ url('medical-universities/') }}" method="get">
             <input class="form-control" name="search" type="text" placeholder="Search Universities"
               id="input-search" value="{{ request('search', '') }}">
-            <button>Search</button>
+            <button><i class="fa-solid fa-magnifying-glass search-iconss"></i></button>
           </form>
         </div>
         <div class="header__right">
@@ -50,6 +51,24 @@
             </div>
           </div>
         </div>
+<!-- <div class="d-flex btn-profiles">
+  <button type="button"  class="ps-btn" >Sign in</button>
+  <button type="button" class="btn btn-outline-primary" >Sign up</button>
+
+<div class="dropdown profile-show">
+  <button class="ps-btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <i class="fa-solid fa-user mr-2"></i> Gourav Britannica
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#"><i class="fa-solid fa-user mr-2"></i> Profile</a>
+    <a class="dropdown-item" href="#"><i class="fa fa-sign-out mr-2" aria-hidden="true"></i>
+    Sign Out</a>
+  </div>
+</div>
+</div> -->
+
+        </div>
+        
       </div>
     </div>
     <nav class="navigation sticky-head">

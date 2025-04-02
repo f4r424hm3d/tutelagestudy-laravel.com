@@ -62,8 +62,8 @@
                       <ul class="main-socials" >
                         <li>
                         <div class="form-group form-check mb-0">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label mb-0 main-labels" for="exampleCheck1">Check me out</label>
+    <input type="checkbox" class="form-check-input all-boxss" id="exampleCheck1">
+    <label class="form-check-label mb-0 main-labels mt-0" for="exampleCheck1">Check me out</label>
   </div>
                         </li>
                         <li class="right"><a href="{{ url('account/password/reset') }}" class="theme-cl1">Forgot

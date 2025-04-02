@@ -2973,8 +2973,11 @@ textarea.form-control {
   z-index: 10;
 }
 .ps-block--testimonial .ps-block__header img {
+  background-color: #004e7a;
   position: relative;
   max-height: 90px;
+  border: 4px solid #004e7a;
+  width: 90px;
   border-radius: 50%;
   z-index: 10;
 }
@@ -5658,9 +5661,9 @@ textarea.form-control {
 }
 .ps-panel--sidebar .ps-panel__header h3 {
   margin-bottom: 0;
-  font-weight: 600;
+  font-weight: 500;
   color: #fff;
-  font-size: 1.6rem;
+  font-size: 20px;
   line-height: 20px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -6023,7 +6026,7 @@ textarea.form-control {
   padding: 15px;
   border: 1px solid #d9d9d9;
   /* border-bottom: 5px solid #1d4d7a; */
-  margin-top: 34px;
+  /* margin-top: 34px; */
 }
 .widget_best-sale .widget-title {
   font-weight: 600;
@@ -9968,7 +9971,7 @@ ul.links li a {
   }
 }
 .ps-section--vendor {
-  padding: 100px 0;
+  padding: 50px 0;
 }
 .ps-section--vendor .ps-section__header {
   text-align: center;
@@ -11886,7 +11889,7 @@ ul.links li {
 }
 .mega-menu .mega-menu__list li a:hover {
   background-color: #1d4d7a;
-  color: #fff;
+  color: #fff !important;
   padding: 6px 12px;
 }
 
@@ -14405,7 +14408,7 @@ section.image-bg h3.sub-h1 {
   width: 100%;
   bottom: 0;
   position: fixed;
-  background: rgb(255, 255, 255, 0.9);
+  background: rgb(255 255 255);
   z-index: 99;
   padding: 7px 10%;
   box-shadow: 0 0 5px rgb(50 50 50 / 75%);
@@ -14620,7 +14623,7 @@ table {
   position: fixed;
   z-index: 9999;
   width: 100%;
-  transition: top 0.3s ease-in-out;
+  transition: top 0.1s ease-in-out;
 }
 .td-uppercase {
   text-transform: uppercase;
@@ -14897,7 +14900,8 @@ th, td, tr {
   text-align: left;
 }
 .ps-block__content p {
-  color: #9d0e0e;
+  /* color: #9d0e0e; */
+  color: #004e7a;
   margin-bottom: 0px;
 }
 .title-names {
@@ -15298,6 +15302,7 @@ a.ps-logo img {
   position: absolute;
   top: 8px;
   left: 11px;
+  z-index: 1000;
 }
 
 .all-captcha {
@@ -15335,6 +15340,27 @@ ul.meet-us p:after {
   font-weight: bold;
 }
 
+ul.meet-us .ug-link {
+  color: #004e7a;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 3px 15px 3px 0px;
+  margin-bottom: 7px;
+  border-bottom: 1px solid #004e7a;
+  position: relative;
+}
+
+ul.meet-us .ug-link:after {
+  content: "\e93a";
+  font: 12px/1 linearicons;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 7%;
+  color: #004e7a;
+  font-weight: bold;
+}
+
 
 ul.meet-us {
   height: 100%;
@@ -15347,9 +15373,105 @@ ul.meet-us {
 .exam-mega .mega-menu .mega-menu__list li a:hover {
   padding: 3px 12px;
 }
+
+.previous-year {
+  display: flex;
+  justify-content: space-between;
+  padding: 32px;
+  margin: 20px 0px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 10px;
+  overflow: hidden;
+  align-items: center;
+}
+
+.ps-post__content.card a.home-btn {
+  color: #fff !important;
+  cursor: pointer;
+}
+img.set-mails {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 9px;
+}
+.ufull-div img {
+  width: 81%;
+  margin: 0px auto;
+}
+
+.ufull-div {
+  text-align: center;
+}
+
 @media (max-width:1200px){
   .ps-breadcrumb{
     margin-top: 0px;
   }
 }
+@media (max-width:576px) {
+  ul.meet-us .ug-link{
+    display: block;
+  }
+  .menu-lists {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    max-height: 200px;
+}
+.previous-year {
+  flex-direction: column;
+  gap: 18px;
+  padding: 21px 20px;
+  text-align: center;
+}
+
+.ps-post__content.card a.home-btn {
+  font-size: 14px;
+  padding: 12px 18px;
+}
+.widget_features{
+  padding: 0px;
+}
+.set-keys {flex-direction: column;padding: 12px;font-size: 16px;gap: 13px;text-align: center;}
+
+.set-keys .imag-download {
+    width: 40px;
+    height: 40px;
+}
+
+.year-downloads {
+  margin: 10px 0px 0px;
+}
+
+.title-neet {
+  font-size: 16px;
+  margin-bottom: 18px !important;
+  text-align: center;
+}
+
+.year-downloads a .fa-solid {
+  width: 36px;
+}
+.year-downloads a{
+  width: 100%;
+  font-size: 16px;
+}
+.all-signsin{
+  border-radius: 17px;
+  padding: 30px 20px;
+}
+
+.main-socials .main-labels {
+  font-size: 14px;
+}
+
+.main-socials li.right {
+  font-size: 14px;
+}
+
+a.theme-cl1 {
+  display: block;
+}
+}
+
+
 /* // gourav css fixed  */

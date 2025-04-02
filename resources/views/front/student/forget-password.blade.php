@@ -74,7 +74,7 @@
                       <h4 class="mt-0 logs_title">Forgot <span class="theme-cl1">Password</span></h4>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group text-left">
                       <label>Enter your email we'll send you a link to reset your password.</label>
                       <div class="input-group main-rel">
                         <div class="input-icon"><i class="fa-solid fa-envelope"></i></div>

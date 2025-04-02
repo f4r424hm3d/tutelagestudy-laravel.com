@@ -14,7 +14,7 @@
             <div class="log_wraps">
               <img class="set-mails"  src="/front/img/send-mail.png" alt="">
             <div class="log__heads">
-                      <h4 class="mt-0 logs_title mb-1">Email Sent</h4>
+                      <h4 class="mt-0 logs_title ">Email Sent</h4>
                     </div>
              
               <p class="mb-3">
@@ -34,5 +34,7 @@
     </div>
   </div>
 </section>
+
+
 <!-- Content -->
 @endsection
