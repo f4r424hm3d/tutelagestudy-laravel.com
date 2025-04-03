@@ -33,25 +33,25 @@
               alt="Tutelage Study logo"></a>
         </div>
         <div class="d-flex main-headcenter ">
-        <div class="header__center">
-          <form class="ps-form--quick-search" action="{{ url('medical-universities/') }}" method="get">
-            <input class="form-control" name="search" type="text" placeholder="Search Universities"
-              id="input-search" value="{{ request('search', '') }}">
-            <button><i class="fa-solid fa-magnifying-glass search-iconss"></i></button>
-          </form>
-        </div>
-        <div class="header__right">
-          <div class="header__actions">
-            <div class="ps-block--user-header">
-              <!-- <div class="ps-block__left"><i class="icon-envelope-open"></i></div>&nbsp;&nbsp; -->
-              <div class="ps-block__right">
-                <a class="ps-btn" href="https://www.tutelagestudy.com/mbbs-abroad-counselling/">Free MBBS Counselling
-                </a>
+          <div class="header__center">
+            <form class="ps-form--quick-search" action="{{ url('medical-universities/') }}" method="get">
+              <input class="form-control" name="search" type="text" placeholder="Search Universities"
+                id="input-search" value="{{ request('search', '') }}">
+              <button><i class="fa-solid fa-magnifying-glass search-iconss"></i></button>
+            </form>
+          </div>
+          <div class="header__right">
+            <div class="header__actions">
+              <div class="ps-block--user-header">
+                <!-- <div class="ps-block__left"><i class="icon-envelope-open"></i></div>&nbsp;&nbsp; -->
+                <div class="ps-block__right">
+                  <a class="ps-btn" href="https://www.tutelagestudy.com/mbbs-abroad-counselling/">Free MBBS Counselling
+                  </a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-<!-- <div class="d-flex btn-profiles">
+          <!-- <div class="d-flex btn-profiles">
   <button type="button"  class="ps-btn" >Sign in</button>
   <button type="button" class="btn btn-outline-primary" >Sign up</button>
 
@@ -68,7 +68,7 @@
 </div> -->
 
         </div>
-        
+
       </div>
     </div>
     <nav class="navigation sticky-head">
@@ -123,13 +123,12 @@
                     <div class="row">
                       <div class="col-12 col-sm-6 col-md-3 col-lg-4 col-xl-4 mb-3">
                         <ul class="meet-us">
-                          <a class="ug-link" href=" https://www.tutelagestudy.com/neet-ug/" >NEET UG</a>
+                          <a class="ug-link" href=" https://www.tutelagestudy.com/neet-ug/">NEET UG</a>
                           @foreach ($examTypes as $row)
                             <li><a
-                                href="{{ route('paper1', ['exam_type_slug' => $row->exam_type_slug, 'exam_type_title_slug' => $row->slug]) }}/">NEET
-                                Previous Year Question Paper</a></li>
+                                href="{{ route('paper1', ['exam_type_slug' => $row->exam_type_slug, 'exam_type_title_slug' => $row->slug]) }}/">
+                                {{ $row->title }}</a></li>
                           @endforeach
-                          <li><a href="#">NEET Mock Test</a></li>
                           <li><a href="#">NEET 2025 Exam Date</a></li>
                           <li><a href="#">NEET Admit Card</a></li>
                           <li><a href="#">NEET Result</a></li>
@@ -340,47 +339,50 @@
           <span class="sub-toggle"></span>
           <div class="mega-menu">
             <div class="mega-menu__column p-0">
-             
+
               <ul class="mega-menu__list menu-lists " style="display:block">
-               
+
                 <div class="row">
-                      <div class="col-12 col-sm-6 col-md-3 col-lg-4 col-xl-4 mb-3">
-                        <ul class="meet-us">
-                          <a class="ug-link  " href=" https://www.tutelagestudy.com/neet-ug/" >NEET UG</a>
-                          @foreach ($examTypes as $row)
-                            <li><a
-                                href="{{ route('paper1', ['exam_type_slug' => $row->exam_type_slug, 'exam_type_title_slug' => $row->slug]) }}/">NEET
-                                Previous Year Question Paper</a></li>
-                          @endforeach
-                          <li><a href="#">NEET Mock Test</a></li>
-                          <li><a href="#">NEET 2025 Exam Date</a></li>
-                          <li><a href="#">NEET Admit Card</a></li>
-                          <li><a href="#">NEET Result</a></li>
-                        </ul>
+                  <div class="col-12 col-sm-6 col-md-3 col-lg-4 col-xl-4 mb-3">
+                    <ul class="meet-us">
+                      <a class="ug-link  " href=" https://www.tutelagestudy.com/neet-ug/">NEET UG</a>
+                      @foreach ($examTypes as $row)
+                        <li>
+                          <a
+                            href="{{ route('paper1', ['exam_type_slug' => $row->exam_type_slug, 'exam_type_title_slug' => $row->slug]) }}/">
+                            {{ $row->title }}
+                          </a>
+                        </li>
+                      @endforeach
 
-                      </div>
-                      <div class="col-12 col-sm-6 col-md-3 col-lg-4 col-xl-4 mb-3">
-                        <ul class="meet-us">
-                          <p>NEET PG</p>
-                          <li><a href="#">NEET PG Question Paper</a></li>
-                          <li><a href="#">NEET PG Exam</a></li>
-                          <li><a href="#">NEET PG 2025 Exam Date</a></li>
-                          <li><a href="#">NEET PG Result</a></li>
-                        </ul>
+                      <li><a href="#">NEET 2025 Exam Date</a></li>
+                      <li><a href="#">NEET Admit Card</a></li>
+                      <li><a href="#">NEET Result</a></li>
+                    </ul>
 
-                      </div>
-                      <div class="col-12 col-sm-6 col-md-3 col-lg-4 col-xl-4 mb-3">
-                        <ul class="meet-us">
-                          <p>Medical Licensing Exams</p>
-                          <li><a href="#">NEXT Exam</a></li>
-                          <li><a href="#">FMGE Exam</a></li>
-                          <li><a href="{{ url('plab-exam') }}/">PLAB Exam</a></li>
-                          <li><a href="#">PLAB Exam 2025</a></li>
-                          <li><a href="#">PLAB Exam Syllabus</a></li>
-                        </ul>
-                      </div>
+                  </div>
+                  <div class="col-12 col-sm-6 col-md-3 col-lg-4 col-xl-4 mb-3">
+                    <ul class="meet-us">
+                      <p>NEET PG</p>
+                      <li><a href="#">NEET PG Question Paper</a></li>
+                      <li><a href="#">NEET PG Exam</a></li>
+                      <li><a href="#">NEET PG 2025 Exam Date</a></li>
+                      <li><a href="#">NEET PG Result</a></li>
+                    </ul>
 
-                    </div>
+                  </div>
+                  <div class="col-12 col-sm-6 col-md-3 col-lg-4 col-xl-4 mb-3">
+                    <ul class="meet-us">
+                      <p>Medical Licensing Exams</p>
+                      <li><a href="#">NEXT Exam</a></li>
+                      <li><a href="#">FMGE Exam</a></li>
+                      <li><a href="{{ url('plab-exam') }}/">PLAB Exam</a></li>
+                      <li><a href="#">PLAB Exam 2025</a></li>
+                      <li><a href="#">PLAB Exam Syllabus</a></li>
+                    </ul>
+                  </div>
+
+                </div>
               </ul>
             </div>
           </div>
