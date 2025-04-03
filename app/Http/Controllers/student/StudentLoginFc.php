@@ -181,6 +181,7 @@ class StudentLoginFc extends Controller
           session()->flash('smsg', 'Succesfully logged in');
           $request->session()->put('studentLoggedIn', true);
           $request->session()->put('student_id', $field->id);
+          $request->session()->put('student_name', $field->name);
 
           return redirect($request['return_to'] ?? 'student/profile');
         } else {

@@ -25,6 +25,83 @@
       style="display:none;visibility:hidden"></iframe>
   </noscript>
   <!-- End Google Tag Manager (noscript) -->
+
+  <!-- Button trigger modal -->
+  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+  free Counselling
+</button> -->
+
+  <!-- Modal -->
+  <!-- <div class="modal counselling-main fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+
+    <div class="modal-content">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+    <div class="counselling-impt">
+          <img src="/front/img/free-counselling.png"  alt="">
+        </div>
+      <div class="modal-header">
+        <h5 class="modal-title">CALL US FOR SCHOLORSHIP & FREE COUNSELLING</h5>
+
+      </div>
+      <div class="modal-body pb-0">
+
+      <form class="row" >
+        <div class="col-12 col-sm-12">
+        <div class="form-group">
+    <input type="text" class="form-control" placeholder="Full Name">
+  </div>
+        </div>
+        <div class="col-12 col-sm-12">
+        <div class="form-group">
+    <input type="email" class="form-control" placeholder="Enter Mail">
+  </div>
+        </div>
+        <div class="col-12 col-sm-12">
+        <div class="form-group">
+    <div class="d-flex set-counsell">
+    <select class="form-control mobiles">
+        <option value="">Country Code</option>
+         <option value="1">+91 (INDIA)</option>
+         <option value="1">+1 (CANADA)</option>
+         <option value="1">+1 (UNITED STATES)</option>
+        </select>
+    <input type="text" class="form-control" placeholder="Mobile Number">
+    </div>
+
+  </div>
+        </div>
+        <div class="col-12 col-sm-4 pr-0">
+        <div class="form-group">
+    <select class="form-control" id="exampleFormControlSelect1" placeholder="Select Your State">
+      <option>Your County</option>
+    </select>
+  </div>
+        </div>
+  <div class="col-12 col-sm-8">
+  <div class="form-group">
+    <select class="form-control" id="exampleFormControlSelect1"  placeholder="Select MBBS Country">
+      <option>Select MBBS Country</option>
+    </select>
+  </div>
+
+  </div>
+
+
+
+
+
+</form>
+      </div>
+      <div class="modal-footer justify-content-center border-0">
+        <button type="button" class="btn btn-primary w-25" data-dismiss="modal">Submit</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
   <header class="header header--1 ">
     <div class="header__top">
       <div class="ps-container">
@@ -51,21 +128,27 @@
               </div>
             </div>
           </div>
-          <!-- <div class="d-flex btn-profiles">
-  <button type="button"  class="ps-btn" >Sign in</button>
-  <button type="button" class="btn btn-outline-primary" >Sign up</button>
+          <div class="d-flex btn-profiles">
+            @if (session()->has('studentLoggedIn'))
+              <div class="dropdown profile-show">
+                <button class="ps-btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  <i class="fa-solid fa-user mr-2"></i> {{ session('student_name') }}
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="{{ url('student/profile') }}"><i class="fa-solid fa-user mr-2"></i>
+                    Profile</a>
+                  <a class="dropdown-item" href="{{ url('student/logout') }}"><i class="fa fa-sign-out mr-2"
+                      aria-hidden="true"></i>
+                    Sign Out</a>
+                </div>
+              </div>
+            @else
+              <a href="{{ url('sign-in') }}" class="ps-btn">Sign in</a>
+              <a href="{{ url('sign-up') }}" class="btn btn-outline-primary">Sign up</a>
+            @endif
 
-<div class="dropdown profile-show">
-  <button class="ps-btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-  <i class="fa-solid fa-user mr-2"></i> Gourav Britannica
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="#"><i class="fa-solid fa-user mr-2"></i> Profile</a>
-    <a class="dropdown-item" href="#"><i class="fa fa-sign-out mr-2" aria-hidden="true"></i>
-    Sign Out</a>
-  </div>
-</div>
-</div> -->
+          </div>
 
         </div>
 
@@ -75,7 +158,8 @@
       <div class="ps-container">
         <div class="navigation__left">
           <ul class="menu">
-            <li><a href="<?php echo url('blog'); ?>"><i class="icon-menu"></i> Blog</a><span class="sub-toggle"></span> </li>
+            <li><a href="<?php echo url('blog'); ?>"><i class="icon-menu"></i> Blog</a><span class="sub-toggle"></span>
+            </li>
           </ul>
 
         </div>
@@ -126,9 +210,10 @@
                           <a class="ug-link" href=" https://www.tutelagestudy.com/neet-ug/">NEET UG</a>
                           @foreach ($examTypes as $row)
                             <li><a
-                                href="{{ route('paper1', ['exam_type_slug' => $row->exam_type_slug, 'exam_type_title_slug' => $row->slug]) }}/">
-                                {{ $row->title }}</a></li>
+                                href="{{ route('paper1', ['exam_type_slug' => $row->exam_type_slug, 'exam_type_title_slug' => $row->slug]) }}/">NEET
+                                Previous Year Question Paper</a></li>
                           @endforeach
+                          <li><a href="#">NEET Mock Test</a></li>
                           <li><a href="#">NEET 2025 Exam Date</a></li>
                           <li><a href="#">NEET Admit Card</a></li>
                           <li><a href="#">NEET Result</a></li>
@@ -334,7 +419,7 @@
         <li>
           <a href="<?php echo url('services'); ?>/">Our Services</a><span class="sub-toggle"></span>
         </li>
-        <li class="menu-item-has-children has-mega-menu xx">
+        <li class="menu-item-has-children has-mega-menu">
           <a href="javascript:void()">Exams</a>
           <span class="sub-toggle"></span>
           <div class="mega-menu">
@@ -347,14 +432,11 @@
                     <ul class="meet-us">
                       <a class="ug-link  " href=" https://www.tutelagestudy.com/neet-ug/">NEET UG</a>
                       @foreach ($examTypes as $row)
-                        <li>
-                          <a
-                            href="{{ route('paper1', ['exam_type_slug' => $row->exam_type_slug, 'exam_type_title_slug' => $row->slug]) }}/">
-                            {{ $row->title }}
-                          </a>
-                        </li>
+                        <li><a
+                            href="{{ route('paper1', ['exam_type_slug' => $row->exam_type_slug, 'exam_type_title_slug' => $row->slug]) }}/">NEET
+                            Previous Year Question Paper</a></li>
                       @endforeach
-
+                      <li><a href="#">NEET Mock Test</a></li>
                       <li><a href="#">NEET 2025 Exam Date</a></li>
                       <li><a href="#">NEET Admit Card</a></li>
                       <li><a href="#">NEET Result</a></li>
