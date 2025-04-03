@@ -23,13 +23,13 @@
         "@type": "ListItem",
         "position": 2,
         "name": "Exams",
-        "item": "{{ url()->current() }}/"
+        "item": "{{ url('exams') }}/"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "{{ ucfirst($examType->exam_type) }}",
-        "item": "{{ url()->current() }}/"
+        "item": "{{ url($examType->exam_type_slug) }}/"
       },
       {
         "@type": "ListItem",
@@ -94,9 +94,9 @@
       <div class="container">
         <div class="col-md-12">
           <ul class="breadcrumb bread-scrollbar">
-            <li><a href="{{ url('/') }}">Home</a></li>
-            <li><span>Exams</span></li>
-            <li><span>{{ ucfirst($examType->exam_type) }}</span></li>
+            <li><a href="{{ url('/') }}/">Home</a></li>
+            <li><a href="{{ url('exams') }}/">Exams</a></li>
+            <li><a href="{{ url($examType->exam_type_slug) }}/">{{ ucfirst($examType->exam_type) }}</a></li>
             <li><span>{{ ucfirst($examType->title) }}</span></li>
           </ul>
         </div>
@@ -251,17 +251,14 @@
                 </h3>
                 <div class="ps-widget__content" style="background:#fff">
                   <ul>
-
-                  </ul>
-                </div>
-              </aside>
-
-              <aside class="ps-widget--account-dashboard">
-                <h3 style="background:#cd2122; color:#fff; font-size:16px; padding:10px 20px; margin:0px">Recent Posts
-                </h3>
-                <div class="ps-widget__content" style="background:#fff">
-                  <ul>
-
+                    @foreach ($examTypes as $row)
+                      <li>
+                        <a
+                          href="{{ route('paper1', ['exam_type_slug' => $row->exam_type_slug, 'exam_type_title_slug' => $row->slug]) }}/">
+                          <i class="icon-arrow-right"></i> {{ $row->title }}
+                        </a>
+                      </li>
+                    @endforeach
                   </ul>
                 </div>
               </aside>

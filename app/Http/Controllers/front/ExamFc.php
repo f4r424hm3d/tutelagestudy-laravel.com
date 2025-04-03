@@ -17,7 +17,7 @@ class ExamFc extends Controller
   {
     $exams = Exam::where(['status' => 1])->get();
     $data = compact('exams');
-    return view('front.exams')->with($data);
+    return view('front.all-exams')->with($data);
   }
   public function examPage(Request $request)
   {

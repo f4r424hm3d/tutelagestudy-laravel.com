@@ -27,80 +27,77 @@
   <!-- End Google Tag Manager (noscript) -->
 
   <!-- Button trigger modal -->
-  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-  free Counselling
-</button> -->
+  {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+    free Counselling
+  </button> --}}
 
   <!-- Modal -->
-  <!-- <div class="modal counselling-main fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal counselling-main fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
 
-    <div class="modal-content">
-    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <div class="modal-content">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-    <div class="counselling-impt">
-          <img src="/front/img/free-counselling.png"  alt="">
+        <div class="counselling-impt">
+          <img src="/front/img/free-counselling.png" alt="">
         </div>
-      <div class="modal-header">
-        <h5 class="modal-title">CALL US FOR SCHOLORSHIP & FREE COUNSELLING</h5>
+        <div class="modal-header">
+          <h5 class="modal-title">CALL US FOR SCHOLORSHIP & FREE COUNSELLING</h5>
 
-      </div>
-      <div class="modal-body pb-0">
-
-      <form class="row" >
-        <div class="col-12 col-sm-12">
-        <div class="form-group">
-    <input type="text" class="form-control" placeholder="Full Name">
-  </div>
         </div>
-        <div class="col-12 col-sm-12">
-        <div class="form-group">
-    <input type="email" class="form-control" placeholder="Enter Mail">
-  </div>
+        <div class="modal-body pb-0">
+
+          <form class="row">
+            <div class="col-12 col-sm-12">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Full Name">
+              </div>
+            </div>
+            <div class="col-12 col-sm-12">
+              <div class="form-group">
+                <input type="email" class="form-control" placeholder="Enter Mail">
+              </div>
+            </div>
+            <div class="col-12 col-sm-12">
+              <div class="form-group">
+                <div class="d-flex set-counsell">
+                  <select class="form-control mobiles">
+                    <option value="">Country Code</option>
+                    <option value="1">+91 (INDIA)</option>
+                    <option value="1">+1 (CANADA)</option>
+                    <option value="1">+1 (UNITED STATES)</option>
+                  </select>
+                  <input type="text" class="form-control" placeholder="Mobile Number">
+                </div>
+
+              </div>
+            </div>
+            <div class="col-12 col-sm-4 pr-0">
+              <div class="form-group">
+                <select class="form-control" id="exampleFormControlSelect1" placeholder="Select Your State">
+                  <option>Your County</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-12 col-sm-8">
+              <div class="form-group">
+                <select class="form-control" id="exampleFormControlSelect1" placeholder="Select MBBS Country">
+                  <option>Select MBBS Country</option>
+                </select>
+              </div>
+
+            </div>
+
+          </form>
         </div>
-        <div class="col-12 col-sm-12">
-        <div class="form-group">
-    <div class="d-flex set-counsell">
-    <select class="form-control mobiles">
-        <option value="">Country Code</option>
-         <option value="1">+91 (INDIA)</option>
-         <option value="1">+1 (CANADA)</option>
-         <option value="1">+1 (UNITED STATES)</option>
-        </select>
-    <input type="text" class="form-control" placeholder="Mobile Number">
-    </div>
-
-  </div>
+        <div class="modal-footer justify-content-center border-0">
+          <button type="button" class="btn btn-primary w-25" data-dismiss="modal">Submit</button>
         </div>
-        <div class="col-12 col-sm-4 pr-0">
-        <div class="form-group">
-    <select class="form-control" id="exampleFormControlSelect1" placeholder="Select Your State">
-      <option>Your County</option>
-    </select>
-  </div>
-        </div>
-  <div class="col-12 col-sm-8">
-  <div class="form-group">
-    <select class="form-control" id="exampleFormControlSelect1"  placeholder="Select MBBS Country">
-      <option>Select MBBS Country</option>
-    </select>
-  </div>
-
-  </div>
-
-
-
-
-
-</form>
-      </div>
-      <div class="modal-footer justify-content-center border-0">
-        <button type="button" class="btn btn-primary w-25" data-dismiss="modal">Submit</button>
       </div>
     </div>
   </div>
-</div> -->
 
   <header class="header header--1 ">
     <div class="header__top">
@@ -210,10 +207,9 @@
                           <a class="ug-link" href=" https://www.tutelagestudy.com/neet-ug/">NEET UG</a>
                           @foreach ($examTypes as $row)
                             <li><a
-                                href="{{ route('paper1', ['exam_type_slug' => $row->exam_type_slug, 'exam_type_title_slug' => $row->slug]) }}/">NEET
-                                Previous Year Question Paper</a></li>
+                                href="{{ route('paper1', ['exam_type_slug' => $row->exam_type_slug, 'exam_type_title_slug' => $row->slug]) }}/">{{ $row->title }}</a>
+                            </li>
                           @endforeach
-                          <li><a href="#">NEET Mock Test</a></li>
                           <li><a href="#">NEET 2025 Exam Date</a></li>
                           <li><a href="#">NEET Admit Card</a></li>
                           <li><a href="#">NEET Result</a></li>
@@ -433,10 +429,9 @@
                       <a class="ug-link  " href=" https://www.tutelagestudy.com/neet-ug/">NEET UG</a>
                       @foreach ($examTypes as $row)
                         <li><a
-                            href="{{ route('paper1', ['exam_type_slug' => $row->exam_type_slug, 'exam_type_title_slug' => $row->slug]) }}/">NEET
-                            Previous Year Question Paper</a></li>
+                            href="{{ route('paper1', ['exam_type_slug' => $row->exam_type_slug, 'exam_type_title_slug' => $row->slug]) }}/">{{ $row->title }}</a>
+                        </li>
                       @endforeach
-                      <li><a href="#">NEET Mock Test</a></li>
                       <li><a href="#">NEET 2025 Exam Date</a></li>
                       <li><a href="#">NEET Admit Card</a></li>
                       <li><a href="#">NEET Result</a></li>

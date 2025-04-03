@@ -23,13 +23,13 @@
         "@type": "ListItem",
         "position": 2,
         "name": "Exams",
-        "item": ""
+        "item": "{{ url('exams') }}/"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "{{ ucfirst($examType->exam_type) }}",
-        "item": ""
+        "item": "{{ url($examType->exam_type_slug) }}/"
       },
       {
         "@type": "ListItem",
@@ -107,8 +107,8 @@
         <div class="col-md-12">
           <ul class="breadcrumb bread-scrollbar">
             <li><a href="{{ url('/') }}">Home</a></li>
-            <li><span>Exams</span></li>
-            <li><span>{{ ucfirst($examType->exam_type) }}</span></li>
+            <li><a href="{{ url('exams') }}/">Exams</a></li>
+            <li><a href="{{ url($examType->exam_type_slug) }}/">{{ ucfirst($examType->exam_type) }}</a></li>
             <li><a
                 href="{{ route('paper1', ['exam_type_slug' => $examType->exam_type_slug, 'exam_type_title_slug' => $examType->slug]) }}">{{ ucfirst($examType->title) }}</a>
             </li>
@@ -262,21 +262,18 @@
           <div class="col-md-3">
             <div class="ps-section__left">
               <aside class="ps-widget--account-dashboard">
-                <h3 style="background:#cd2122; color:#fff; font-size:16px; padding:10px 20px; margin:0px">More Categories
+                <h3 style="background:#cd2122; color:#fff; font-size:16px; padding:10px 20px; margin:0px">Download Papers
                 </h3>
                 <div class="ps-widget__content" style="background:#fff">
                   <ul>
-
-                  </ul>
-                </div>
-              </aside>
-
-              <aside class="ps-widget--account-dashboard">
-                <h3 style="background:#cd2122; color:#fff; font-size:16px; padding:10px 20px; margin:0px">Recent Posts
-                </h3>
-                <div class="ps-widget__content" style="background:#fff">
-                  <ul>
-
+                    @foreach ($papers as $row)
+                      <li>
+                        <a
+                          href="{{ route('paper3', ['exam_type_slug' => $row->examTypeYear->examType->exam_type_slug, 'exam_type_title_slug' => $row->examTypeYear->examType->slug, 'year_slug' => $row->examTypeYear->slug, 'paper_slug' => $row->slug]) }}/">
+                          <i class="icon-arrow-right"></i> {{ $row->paper_name }}
+                        </a>
+                      </li>
+                    @endforeach
                   </ul>
                 </div>
               </aside>

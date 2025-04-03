@@ -15130,7 +15130,7 @@ a.ps-logo img {
   background-color: #fff;
   padding: 6px 12px;
   font-size: 20px;
-  border-left: 5px solid;
+  border-left: 5px solid #004e7a;
   border-radius: 15px;
   overflow: hidden;
 
@@ -15415,6 +15415,7 @@ img.set-mails {
   color: #af0000;
   border-color: #af0000;
   font-weight: 600 !important;
+  padding: 11px 20px;
 }
 
 .btn-outline-primary:hover {
@@ -15691,8 +15692,146 @@ b.usrer-addeds {
   padding: 10px;
   height: 37px;
 }
+.counselling-main {
+  z-index: 99999 !important;
+  position: relative;
+  background-color: #00000052;
+}
 
+.counselling-impt img {
+  width: 100%;
+  height: 100%;
+}
+.counselling-main .btn-primary:hover {
+  color: #fff;
+  background-color: #004e7a;
+  border-color: #0062cc;
+}  
+.counselling-main .btn-primary {
+  color: #fff;
+  background-color: #004f7a;
+  border-color: #004f7a;
+  border-radius: 50px;
+}
 
+.counselling-impt {
+  width: 94px;
+  height: 94px;
+  object-fit: cover;
+  margin: 27px auto;
+  border-radius: 63px;
+  overflow: hidden;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+}
+button.close {
+  position: absolute;
+  top: 9px;
+  right: 15px;
+  font-size: 32px;
+  display: flex;
+}
+
+.counselling-main .modal-content {   
+   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  border-radius: 22px;
+  border: 5px solid #004e7a;
+  padding: 0px 20px 20px;
+}
+
+  .counselling-main button.close {
+    position: absolute;
+    top: 9px;
+    right: 15px;
+    font-size: 32px;
+    display: flex;
+}
+
+.counselling-main .modal-title {   
+  font-size: 18px;
+  font-weight: 600;
+  max-width: 290px;
+  line-height: unset;
+  margin: 0px auto;
+  color: #004f7a;
+}
+.counselling-main .modal-body input, .counselling-main .modal-body select {
+  /* box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset; */
+  border-radius: 6px;
+  box-shadow: inset 0px 0px 4px 0px #004e7a69;
+}
+
+.counselling-main .modal-body input:hover, .counselling-main .modal-body select:hover {
+  box-shadow: rgb(50 50 93 / 9%) 0px 30px 60px -12px inset, rgb(0 0 0 / 11%) 0px 18px 36px -18px inset;
+}
+
+.counselling-main .modal-body .mobiles {
+  width: 120px;
+}
+
+.set-counsell {
+  gap: 15px;
+}
+.counselling-main .modal-dialog {
+  max-width: 500px !important;
+}
+.counselling-main .modal-header {
+  position: relative;
+  text-align: center;
+  margin-top: 49px;
+  padding-bottom: 0px;
+}
+.set-spacebx .form-group {
+  width: 100%;
+}
+
+.set-spacebx {
+  gap: 12px;
+}
+
+.tooltips {
+  position: relative;
+  display: block;
+}
+
+.tooltips .tooltiptext {
+  visibility: hidden;
+  width: 100%;
+  max-width: 350px;
+  background-color: #004e7a;
+  color: #004e7a;
+  border: 1px solid #004e7a;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px 0;
+  font-weight: 700;
+  top: -33px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltips .tooltiptext .fa-caret-down {
+  position: absolute;
+  bottom: -19px;
+  font-size: 31px;
+}
+
+.tooltips .tooltiptext h6 {
+  font-size: 16px;
+  color: #fff;
+  padding: 6px;
+}
+
+.tooltips:hover .tooltiptext {
+  visibility: visible;
+}
 
 @media (max-width:1200px){
   .ps-breadcrumb{

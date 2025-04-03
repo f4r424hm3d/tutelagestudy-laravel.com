@@ -45,6 +45,7 @@ class ExamPaperDownloadFc extends Controller
   {
     $examType = ExamType::where(['exam_type_slug' => $exam_type_slug, 'slug' => $exam_type_title_slug])->firstOrFail();
     $year = ExamTypeYear::where('exam_type_id', $examType->id)->where('slug', $year_slug)->firstOrFail();
+    $years = ExamTypeYear::where('exam_type_id', $examType->id)->where('slug', '!=', $year_slug)->get();
 
 
     $wrdseo = ['url' => 'exam-type-year-page'];
@@ -70,7 +71,7 @@ class ExamPaperDownloadFc extends Controller
 
     $og_image_path = $examType->image_path == '' ? $dseo->ogimgpath : $examType->image_path;
 
-    $data = compact('examType', 'year', 'dseo', 'page_url', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path');
+    $data = compact('examType', 'year', 'years', 'dseo', 'page_url', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path');
     return view('front.exam-type-year-detail')->with($data);
   }
   public function paperDetail($exam_type_slug, $exam_type_title_slug, $year_slug, $paper_slug, Request $request)
@@ -78,6 +79,7 @@ class ExamPaperDownloadFc extends Controller
     $examType = ExamType::where(['exam_type_slug' => $exam_type_slug, 'slug' => $exam_type_title_slug])->firstOrFail();
     $year = ExamTypeYear::where('exam_type_id', $examType->id)->where('slug', $year_slug)->firstOrFail();
     $paper = ExamTypeYearPaper::where('exam_type_year_id', $year->id)->where('slug', $paper_slug)->firstOrFail();
+    $papers = ExamTypeYearPaper::where('exam_type_year_id', $year->id)->where('slug', '!=', $paper_slug)->get();
 
 
     $wrdseo = ['url' => 'exam-type-year-paper-page'];
@@ -104,7 +106,7 @@ class ExamPaperDownloadFc extends Controller
 
     $og_image_path = $examType->image_path == '' ? $dseo->ogimgpath : $examType->image_path;
 
-    $data = compact('examType', 'year', 'paper', 'dseo', 'page_url', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path');
+    $data = compact('examType', 'year', 'paper', 'papers', 'dseo', 'page_url', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path');
     return view('front.paper-detail')->with($data);
   }
 }

@@ -163,6 +163,7 @@ Route::get('/remove-filter/', [UniversityFc::class, 'removeFilter']);
 Route::get('/services/', [ServiceFc::class, 'index']);
 Route::get('/services/{slug}/', [ServiceFc::class, 'serviceDetail']);
 
+Route::get('/exams/', [ExamFc::class, 'index']);
 $exams = Exam::all();
 foreach ($exams as $row) {
   Route::get('/' . $row->exam_slug . '/', [ExamFc::class, 'examPage']);
