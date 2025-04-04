@@ -135,7 +135,13 @@
                     @foreach ($year->papers as $row)
                       <div class="col-md-12">
 
-                        <div class="all-pdf">
+                        <div class="all-pdf tooltips">
+                          <span class="tooltiptext">
+                            <h6>Question Paper with Answer Key</h6>
+                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+
+                          </span>
+
                           <a class="d-flex justify-content-between align-items-center set-keys"
                             href="{{ route('paper3', ['exam_type_slug' => $row->examTypeYear->examType->exam_type_slug, 'exam_type_title_slug' => $row->examTypeYear->examType->slug, 'year_slug' => $row->examTypeYear->slug, 'paper_slug' => $row->slug]) }}"
                             target="_blank">
