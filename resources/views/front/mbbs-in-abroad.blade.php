@@ -73,7 +73,7 @@
         </div>
         <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
           <div class="profilesabout">
-          <img data-src="{{ asset('/front/') }}/img/mbbs-in-abroad.png"
+          <img data-src="{{ asset('/front/') }}/img/mbbs-in-abroad.webp"
           alt="MBBS Abroad for indian students" class="img-fluid">
           </div>
         </div>

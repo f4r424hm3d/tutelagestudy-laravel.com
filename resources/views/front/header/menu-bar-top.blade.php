@@ -44,7 +44,7 @@
           <img src="/front/img/free-counselling.png" alt="">
         </div>
         <div class="modal-header">
-          <h5 class="modal-title">CALL US FOR SCHOLORSHIP & FREE COUNSELLING</h5>
+          <h5 class="modal-title">Signup for free MBBS Counselling <span>Scholorship Available</span></h5>
         </div>
         <div class="modal-body pb-0">
           <form id="counsellingForm" class="row">
@@ -58,14 +58,14 @@
             </div>
             <div class="col-12 col-sm-12">
               <div class="form-group">
-                <input type="email" name="email" class="form-control" placeholder="Enter Mail">
+                <input type="email" name="email" class="form-control" placeholder="Email">
                 <span class="text-danger error-email"></span>
               </div>
             </div>
             <div class="col-12 col-sm-12">
               <div class="form-group">
                 <div class="d-flex set-counsell">
-                  <input type="text" name="c_code" class="form-control" placeholder="Country Code" value="91">
+                  <input type="text" name="c_code" class="form-control mobiles" placeholder="Country Code" >
                   <input type="text" name="mobile" class="form-control" placeholder="Mobile Number">
                 </div>
                 <span class="text-danger error-c_code"></span>
@@ -74,7 +74,7 @@
             </div>
             <div class="col-12 col-sm-4 pr-0">
               <div class="form-group">
-                <input type="text" name="nationality" class="form-control" placeholder="Nationality" value="India">
+                <input type="text" name="nationality" class="form-control" placeholder="Nationality">
                 <span class="text-danger error-nationality"></span>
               </div>
             </div>
@@ -123,7 +123,7 @@
             <div class="header__actions">
               <div class="ps-block--user-header">
                 <!-- <div class="ps-block__left"><i class="icon-envelope-open"></i></div>&nbsp;&nbsp; -->
-                <div class="ps-block__right">
+                <div class="ps-block__right btns-block">
                   <a class="ps-btn" href="https://www.tutelagestudy.com/mbbs-abroad-counselling/">Free MBBS
                     Counselling
                   </a>
