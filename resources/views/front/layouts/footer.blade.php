@@ -4,7 +4,7 @@
       <aside class="widget_footer widget_contact-us col-md-3">
         <span class="widget-title">Contact us</span>
         <div class="widget_content">
-          <span class="whitec" ><a href="tel:+919667667331">+91-9667 667 331</a></span>
+          <span class="whitec"><a href="tel:+919667667331">+91-9667 667 331</a></span>
           <p class="whitec mb-0">Email : studytutelage@gmail.com</p>
           <p class="whitec">B-16 Ground Floor, Mayfield Garden,<br>
             Sector 50, Gurugram, <br>
@@ -12,12 +12,14 @@
           <ul class="ps-list--social">
             <li><a class="facebook" href="https://www.facebook.com/tutelagestudyabroad/" target="_blank"
                 aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a></li>
-            <li><a class="twitter" href="https://twitter.com/tutelagestudy" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a></li>
+            <li><a class="twitter" href="https://twitter.com/tutelagestudy" aria-label="Twitter"><i
+                  class="fa-brands fa-twitter"></i></a></li>
             <li><a class="instagram" href="https://www.instagram.com/tutelagestudy/" rel="noopener noreferrer nofollow"
                 aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
             <li><a style="color:#0A66C2" href="https://in.linkedin.com/in/tutelage-study-4085a51ab"
                 aria-label="linkedin"><i class="fa-brands fa-linkedin-in"></i></a></li>
-            <li><a style="color:#E60023" href="https://in.pinterest.com/tutelagestudy/" aria-label="pinterest"><i class="fa-brands fa-pinterest-p"></i></a></li>
+            <li><a style="color:#E60023" href="https://in.pinterest.com/tutelagestudy/" aria-label="pinterest"><i
+                  class="fa-brands fa-pinterest-p"></i></a></li>
             <li><a style="color:#FF0000" href="https://www.youtube.com/channel/UCK2eeC1CkS3YkYrGnnzBUEQ"
                 aria-label="youtube"><i class="fa-brands fa-youtube"></i></a></li>
           </ul>
@@ -128,16 +130,7 @@
 
 <!--End of Tawk.to Script-->
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script src="https://www.googletagmanager.com/gtag/js?id=UA-169815601-1" defer></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
 
-  function gtag() {
-    dataLayer.push(arguments);
-  }
-  gtag('js', new Date());
-  gtag('config', 'UA-169815601-1');
-</script>
 <script>
   $(".show-more").click(function() {
     if ($(".text").hasClass("show-more-height")) {
@@ -361,17 +354,16 @@
 
 @php
   use App\Models\Exam;
+  $pageArray = [];
+  $pageUrl = Request::segment(1);
+  $allpages = Exam::all();
+  foreach ($allpages as $exm) {
+      $pageArray[] = $exm->exam_slug;
+  }
+  $form_url = in_array($pageUrl, $pageArray) ? 'neet-counselling' : 'mbbs-abroad-counselling';
+  $finalUrl = url($form_url);
 @endphp
-<?php
-$pageArray = [];
-$pageUrl = Request::segment(1);
-$allpages = Exam::all();
-foreach ($allpages as $exm) {
-    $pageArray[] = $exm->exam_slug;
-}
-$form_url = in_array($pageUrl, $pageArray) ? 'neet-counselling' : 'mbbs-abroad-counselling';
-$finalUrl = url($form_url);
-?>
+
 <div class="new-footer-fixed">
   <ul>
     <li>
@@ -394,17 +386,16 @@ $finalUrl = url($form_url);
   </ul>
 </div>
 <!-- table javscript added in all pages start -->
- <script>
+<script>
   $(document).ready(function() {
     $("table").each(function() {
-        if (!$(this).parent().hasClass("table-responsive")) {
-            $(this).wrap("<div class='table-responsive'></div>");
-        }
+      if (!$(this).parent().hasClass("table-responsive")) {
+        $(this).wrap("<div class='table-responsive'></div>");
+      }
     });
-});
- </script>
+  });
+</script>
 <!-- table javscript added in all pages end -->
-
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
