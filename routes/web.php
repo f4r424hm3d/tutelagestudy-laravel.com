@@ -184,6 +184,9 @@ Route::post('/inquiry/get-brochure/', [InquiryController::class, 'submitBrochure
 
 Route::post('/inquiry/download-brochure/', [InquiryController::class, 'submitDownloadBrochureInquiry']);
 
+Route::post('/submit-counselling', [InquiryController::class, 'submitCounselling'])->name('counselling.submit');
+
+
 Route::get('/thank-you/', [InquiryController::class, 'thankyou']);
 
 Route::get('/form/getCountryCode/', [InquiryController::class, 'getCountryCode']);

@@ -45,55 +45,60 @@
         </div>
         <div class="modal-header">
           <h5 class="modal-title">CALL US FOR SCHOLORSHIP & FREE COUNSELLING</h5>
-
         </div>
         <div class="modal-body pb-0">
-
-          <form class="row">
+          <form id="counsellingForm" class="row">
+            <input type="hidden" name="source" value="Modal Form">
+            <input type="hidden" name="source_path" value="{{ url()->current() }}">
             <div class="col-12 col-sm-12">
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Full Name">
+                <input type="text" name="name" class="form-control" placeholder="Full Name">
+                <span class="text-danger error-name"></span>
               </div>
             </div>
             <div class="col-12 col-sm-12">
               <div class="form-group">
-                <input type="email" class="form-control" placeholder="Enter Mail">
+                <input type="email" name="email" class="form-control" placeholder="Enter Mail">
+                <span class="text-danger error-email"></span>
               </div>
             </div>
             <div class="col-12 col-sm-12">
               <div class="form-group">
                 <div class="d-flex set-counsell">
-                  <select class="form-control mobiles">
-                    <option value="">Country Code</option>
-                    <option value="1">+91 (INDIA)</option>
-                    <option value="1">+1 (CANADA)</option>
-                    <option value="1">+1 (UNITED STATES)</option>
-                  </select>
-                  <input type="text" class="form-control" placeholder="Mobile Number">
+                  <input type="text" name="c_code" class="form-control" placeholder="Country Code" value="91">
+                  <input type="text" name="mobile" class="form-control" placeholder="Mobile Number">
                 </div>
-
+                <span class="text-danger error-c_code"></span>
+                <span class="text-danger error-mobile"></span>
               </div>
             </div>
             <div class="col-12 col-sm-4 pr-0">
               <div class="form-group">
-                <select class="form-control" id="exampleFormControlSelect1" placeholder="Select Your State">
-                  <option>Your County</option>
-                </select>
+                <input type="text" name="nationality" class="form-control" placeholder="Nationality" value="India">
+                <span class="text-danger error-nationality"></span>
               </div>
             </div>
             <div class="col-12 col-sm-8">
               <div class="form-group">
-                <select class="form-control" id="exampleFormControlSelect1" placeholder="Select MBBS Country">
-                  <option>Select MBBS Country</option>
+                <select class="form-control" name="destination">
+                  <option value="">Preferred MBBS Country</option>
+                  @php
+                    $destinations = Destination::where(['status' => 1])->get();
+                  @endphp
+                  @foreach ($destinations as $row)
+                    <option value="{{ $row->page_name }}" {{ old('destination') == $row->page_name ? 'Selected' : '' }}>
+                      {{ $row->page_name }}
+                    </option>
+                  @endforeach
                 </select>
+                <span class="text-danger error-destination"></span>
               </div>
-
             </div>
-
+            <div class="col-12 text-center">
+              <button type="submit" class="btn btn-primary w-25">Submit</button>
+            </div>
           </form>
-        </div>
-        <div class="modal-footer justify-content-center border-0">
-          <button type="button" class="btn btn-primary w-25" data-dismiss="modal">Submit</button>
+
         </div>
       </div>
     </div>
@@ -119,7 +124,8 @@
               <div class="ps-block--user-header">
                 <!-- <div class="ps-block__left"><i class="icon-envelope-open"></i></div>&nbsp;&nbsp; -->
                 <div class="ps-block__right">
-                  <a class="ps-btn" href="https://www.tutelagestudy.com/mbbs-abroad-counselling/">Free MBBS Counselling
+                  <a class="ps-btn" href="https://www.tutelagestudy.com/mbbs-abroad-counselling/">Free MBBS
+                    Counselling
                   </a>
                 </div>
               </div>
@@ -542,6 +548,69 @@
         } else {
           $(".sticky-head").css("top", "90px");
         }
+      });
+    });
+  </script>
+  <script>
+    $(document).ready(function() {
+      const modalKey = 'counselling_modal_status';
+
+      function openModal() {
+        $('#exampleModalCenter').modal('show');
+      }
+
+      let modalStatus = localStorage.getItem(modalKey);
+
+      if (modalStatus !== 'submitted') {
+        if (modalStatus !== 'closed') {
+          openModal();
+        } else {
+          const lastClosed = localStorage.getItem('counselling_modal_closed_time');
+          if (lastClosed) {
+            const diff = Date.now() - parseInt(lastClosed);
+            if (diff > 5 * 60 * 1000) {
+              openModal();
+            }
+          }
+        }
+      }
+
+      $('#exampleModalCenter').on('hidden.bs.modal', function() {
+        if (localStorage.getItem(modalKey) !== 'submitted') {
+          localStorage.setItem(modalKey, 'closed');
+          localStorage.setItem('counselling_modal_closed_time', Date.now().toString());
+        }
+      });
+
+      $('#counsellingForm').on('submit', function(e) {
+        e.preventDefault();
+
+        $('.text-danger').text(''); // Clear previous errors
+
+        $.ajax({
+          url: "{{ route('counselling.submit') }}/",
+          method: 'POST',
+          data: $(this).serialize(),
+          headers: {
+            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+          },
+          success: function(res) {
+            if (res.success) {
+              localStorage.setItem(modalKey, 'submitted');
+              $('#exampleModalCenter').modal('hide');
+              //alert('Form submitted successfully!');
+              window.location.href = "{{ url('thank-you') }}";
+            }
+          },
+          error: function(xhr) {
+            if (xhr.status === 422) {
+              let errors = xhr.responseJSON.errors;
+              $.each(errors, function(key, val) {
+                $('.error-' + key).text(val[0]);
+              });
+            }
+          }
+        });
       });
     });
   </script>

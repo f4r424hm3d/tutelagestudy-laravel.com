@@ -591,6 +591,96 @@ class InquiryController extends Controller
 
     return redirect(url('thank-you/'));
   }
+  public function submitCounselling(Request $request)
+  {
+    // Validate and store data
+    $data = $request->validate([
+      'name' => 'required|regex:/^[a-zA-Z ]*$/',
+      'email' => 'required|email:rfc,dns',
+      'c_code' => 'required|numeric|digits_between:1,5',
+      'mobile' => 'required|numeric|digits_between:9,12',
+      'nationality' => 'required',
+      'destination' => 'required',
+    ]);
+
+    $field = new Student();
+    $field->name = $request['name'];
+    $field->email = $request['email'];
+    $field->c_code = $request['c_code'];
+    $field->mobile = $request['mobile'];
+    $field->nationality = $request['nationality'];
+    $field->destination = $request['destination'];
+    $field->source = $request['source'];
+    $field->page_url = $request['source_path'];
+    $field->save();
+
+    session()->flash('smsg', ' Your inquiry has been submitted. we will contact you soon..');
+
+    $emaildata = [
+      'name' => $request['name'],
+      'email' => $request['email'],
+      'c_code' => $request['c_code'],
+      'mobile' => $request['mobile'],
+      'nationality' => $request['nationality'],
+      'destination' => $request['destination'],
+      'source' => $request['source'],
+      'source_path' => $request['source_path'],
+    ];
+
+    $api_url = "https://www.crm.tutelagestudy.com/Api/submitDestinationInquiryFromTutelageWeb";
+    $form_data = $emaildata;
+    //echo json_encode($form_data, true);
+    $client = curl_init($api_url);
+    curl_setopt($client, CURLOPT_POST, true);
+    curl_setopt($client, CURLOPT_POSTFIELDS, $form_data);
+    curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
+    $response = curl_exec($client);
+    curl_close($client);
+
+    $dd = ['to' => $request['email'], 'to_name' => $request['name'], 'subject' => 'Inquiry'];
+
+    Mail::send(
+      'mails.inquiry-reply',
+      $emaildata,
+      function ($message) use ($dd) {
+        $message->to($dd['to'], $dd['to_name']);
+        $message->subject($dd['subject']);
+        $message->priority(1);
+      }
+    );
+
+    $emaildata2 = [
+      'name' => $request['name'],
+      'email' => $request['email'],
+      'c_code' => $request['c_code'],
+      'mobile' => $request['mobile'],
+      'nationality' => $request['nationality'],
+      'destination' => $request['destination'],
+      'source' => $request['source'],
+      'source_path' => $request['source_path'],
+      'neet_qualified' => false,
+      'question' => false,
+    ];
+
+    $dd2 = ['to' => TO_EMAIL, 'cc' => CC_EMAIL, 'to_name' => TO_NAME, 'cc_name' => CC_NAME, 'subject' => 'New Inquiry', 'bcc' => BCC_EMAIL, 'bcc_name' => BCC_NAME];
+
+    Mail::send(
+      'mails.get-quote-mail-to-admin',
+      $emaildata2,
+      function ($message) use ($dd2) {
+        $message->to($dd2['to'], $dd2['to_name']);
+        $message->cc($dd2['cc'], $dd2['cc_name']);
+        $message->bcc($dd2['bcc'], $dd2['bcc_name']);
+        $message->subject($dd2['subject']);
+        $message->priority(1);
+      }
+    );
+
+    //return redirect(url('thank-you/'));
+
+    return response()->json(['success' => true]);
+  }
+
 
   public function thankyou(Request $request)
   {
