@@ -102,7 +102,7 @@ class ExamTypeC extends Controller
       'slug' => Str::slug($request->input('slug'))
     ]);
     $validator = Validator::make($request->all(), [
-      'exam_type' => 'required|unique:exam_types,exam_type',
+      'exam_type' => 'required',
       'title' => 'required|unique:exam_types,title',
       'slug' => 'required|unique:exam_types,slug',
     ]);
@@ -132,7 +132,7 @@ class ExamTypeC extends Controller
     ]);
     $request->validate(
       [
-        'exam_type' => 'required|unique:exam_types,exam_type,' . $id,
+        'exam_type' => 'required',
         'title' => 'required|unique:exam_types,title,' . $id,
         'slug' => 'required|unique:exam_types,slug,' . $id,
       ]
