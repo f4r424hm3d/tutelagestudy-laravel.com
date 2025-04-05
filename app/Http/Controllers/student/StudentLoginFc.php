@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\AppliedProgram;
 use App\Models\Country;
 use App\Models\CourseCategory;
+use App\Models\Destination;
 use App\Models\Level;
 use App\Models\Student;
 use App\Models\UniversityProgram;
@@ -22,11 +23,12 @@ class StudentLoginFc extends Controller
   {
     $url = url('sign-up');
     $phonecodes = Country::orderBy('phonecode', 'ASC')->where('phonecode', '!=', 0)->get();
+    $destinations = Destination::all();
 
     $question = generateMathQuestion();
     session(['captcha_answer' => $question['answer']]);
 
-    $data = compact('url', 'phonecodes', 'question');
+    $data = compact('url', 'phonecodes', 'question', 'destinations');
     return view('front.student.sign-up')->with($data);
   }
   public function register(Request $request)
@@ -44,6 +46,7 @@ class StudentLoginFc extends Controller
         'email' => 'required|email|unique:students,email',
         'c_code' => 'required|numeric',
         'mobile' => 'required|numeric',
+        'destination' => 'required',
         'password' => ['required', 'string', Password::min(8)->mixedCase()->numbers()->symbols()],
         'confirm_password' => 'required|same:password',
       ]
@@ -54,6 +57,7 @@ class StudentLoginFc extends Controller
     $field->c_code = $request['c_code'];
     $field->mobile = $request['mobile'];
     $field->password = $request['password'];
+    $field->destination = $request['destination'];
     $field->otp = $otp;
     $field->otp_expire_at = $otp_expire_at;
     $field->status = 0;
@@ -84,6 +88,7 @@ class StudentLoginFc extends Controller
         'mobile' => $request['mobile'],
         'source' => 'SignUP',
         'source_url' => $request['return_to'] ?? null,
+        'destination' => $request['destination'],
       ];
 
 

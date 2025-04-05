@@ -87,6 +87,20 @@
                     </div>
                   </div>
                   <div class="form-group">
+                    <select class="form-control" name="destination" id="destination" required>
+                      <option value="">Preferred MBBS Country</option>
+
+                      @foreach ($destinations as $row)
+                        <option value="<?php echo $row->page_name; ?>" <?php echo old('destination') == $row->page_name ? 'Selected' : ''; ?>>
+                          <?php echo $row->page_name; ?>
+                        </option>
+                      @endforeach
+                    </select>
+                    @error('destination')
+                      {!! '<span class="text-danger">' . $message . '</span>' !!}
+                    @enderror
+                  </div>
+                  <div class="form-group">
                     <div class="input-group main-rel">
                       <div class="input-icon  main-rel">
                         <i id="password_icon_hide" class="fa-solid fa-lock hide-this "
@@ -94,8 +108,8 @@
                         <i id="password_icon_show" class="fa-solid fa-lock-open  "
                           onclick="showPassword('confirm_password')"></i>
                         <!-- <span id="password_icon_show" class="ti-eye" onclick="showPassword('password')"></span>
-                                <span id="password_icon_hide" class="ti-eye hide-this"
-                                  onclick="hidePassword('password')"></span> -->
+                                  <span id="password_icon_hide" class="ti-eye hide-this"
+                                    onclick="hidePassword('password')"></span> -->
                       </div>
                       <input name="password" id="password" type="password" class="form-control" placeholder="Password">
                     </div>
@@ -114,9 +128,9 @@
                           onclick="showPassword('confirm_password')"></i>
 
                         <!-- <span id="confirm_password_icon_show" class="ti-eye"
-                                  onclick="showPassword('confirm_password')"></span>
-                                <span id="confirm_password_icon_hide" class="ti-eye hide-this"
-                                  onclick="hidePassword('confirm_password')"></span> -->
+                                    onclick="showPassword('confirm_password')"></span>
+                                  <span id="confirm_password_icon_hide" class="ti-eye hide-this"
+                                    onclick="hidePassword('confirm_password')"></span> -->
                       </div>
                       <input name="confirm_password" id="confirm_password" type="password" class="form-control"
                         placeholder="Confirm Password">
