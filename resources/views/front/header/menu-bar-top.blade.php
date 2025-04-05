@@ -65,7 +65,7 @@
             <div class="col-12 col-sm-12">
               <div class="form-group">
                 <div class="d-flex set-counsell">
-                  <input type="text" name="c_code" class="form-control mobiles" placeholder="Country Code" >
+                  <input type="text" name="c_code" class="form-control mobiles" placeholder="Country Code">
                   <input type="text" name="mobile" class="form-control" placeholder="Mobile Number">
                 </div>
                 <span class="text-danger error-c_code"></span>
@@ -216,9 +216,6 @@
                                 href="{{ route('paper1', ['exam_type_slug' => $row->exam_type_slug, 'exam_type_title_slug' => $row->slug]) }}/">{{ $row->title }}</a>
                             </li>
                           @endforeach
-                          <li><a href="#">NEET 2025 Exam Date</a></li>
-                          <li><a href="#">NEET Admit Card</a></li>
-                          <li><a href="#">NEET Result</a></li>
                         </ul>
 
                       </div>

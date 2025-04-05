@@ -11,6 +11,7 @@ use App\Models\Student;
 use App\Models\UniversityProgram;
 use App\Rules\MathCaptchaValidationRule;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rules\Password;
@@ -173,7 +174,7 @@ class StudentLoginFc extends Controller
       return redirect($return_url);
     } else {
       if ($field->status == 1) {
-        if ($field->password == $request['password']) {
+        if (Hash::check($request['password'], $field->password)) {
           // $lc = $field->login_count == '' ? 0 : $field->login_count + 1;
           // $field->login_count = $lc;
           //$field->last_login = date("Y-m-d H:i:s");

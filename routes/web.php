@@ -47,6 +47,7 @@ use App\Http\Controllers\admin\UniversityOverviewC;
 use App\Http\Controllers\admin\UniversityVideoGalleryC;
 use App\Http\Controllers\admin\UploadFilesC;
 use App\Http\Controllers\admin\UserC;
+use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\CommonController;
 use App\Http\Controllers\CurrencyConverterController;
 use App\Http\Controllers\front\AboutFc;
@@ -244,6 +245,9 @@ Route::middleware(['studentLoggedOut'])->group(function () {
   Route::get('/password/reset', [StudentLoginFc::class, 'viewResetPassword']);
   Route::post('/reset-password', [StudentLoginFc::class, 'resetPassword']);
   Route::get('/account/invalid_link', [StudentLoginFc::class, 'invalidLink']);
+
+  Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
+  Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
 });
 /* STUDENT ROUTES AFTER LOGIN */
 Route::middleware(['studentLoggedIn'])->group(function () {

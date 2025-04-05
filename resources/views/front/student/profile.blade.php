@@ -31,7 +31,8 @@
                   <div class="row no-gutters">
                     <div class=" col-12 col-sm-12 col-md-12 col-lg-12 mx-auto">
                       <div class="profile-mains">
-                        <img src="{{ asset('/front/img/user-profile.png') }}" class="card-img" alt="...">
+                        <img src="{{ asset($student->avatar ?? '/front/img/user-profile.png') }}" class="card-img"
+                          alt="...">
                       </div>
                     </div>
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 ">
