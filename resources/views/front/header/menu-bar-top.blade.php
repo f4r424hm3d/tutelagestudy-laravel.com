@@ -95,7 +95,7 @@
               </div>
             </div>
             <div class="col-12 text-center">
-              <button type="submit" class="btn btn-primary w-25">Submit</button>
+              <button type="submit" class="btn btn-primary w-25  popup-submit">Submit</button>
             </div>
           </form>
 

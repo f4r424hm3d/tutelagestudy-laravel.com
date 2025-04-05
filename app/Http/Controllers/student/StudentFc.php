@@ -5,6 +5,7 @@ namespace App\Http\Controllers\student;
 use App\Http\Controllers\Controller;
 use App\Models\AppliedProgram;
 use App\Models\Country;
+use App\Models\Destination;
 use App\Models\Gender;
 use App\Models\Level;
 use App\Models\MaritalStatus;
@@ -23,6 +24,7 @@ class StudentFc extends Controller
 
     $phonecodes = Country::orderBy('phonecode')->groupBy('phonecode')->where('phonecode', '!=', '0')->get();
     $countries = Country::orderBy('name')->get();
+    $destinations = Destination::all();
     // $genders = Gender::all();
     // $marital_statuses = MaritalStatus::all();
     // $levels = Level::all();
@@ -34,7 +36,7 @@ class StudentFc extends Controller
     $schoolurl = url('student/add-school');
     $editschoolurl = url('student/update-school');
 
-    $data = compact('student', 'countries', 'phonecodes');
+    $data = compact('student', 'countries', 'phonecodes', 'destinations');
     return view('front.student.profile')->with($data);
   }
   public function editProfile()
@@ -46,32 +48,29 @@ class StudentFc extends Controller
   }
   public function updateProfile(Request $request)
   {
+    // printArray($request->all());
+    // die;
     $request->validate(
       [
-        'name' => 'required|regex:/^[a-zA-Z ]*$/',
         'gender' => 'required|in:Male,Female,Other',
-        'c_code' => 'required|numeric',
-        'mobile' => 'required|numeric',
         'dob' => 'required|date',
+        'destination' => 'required',
         'nationality' => 'required',
         'city' => 'regex:/^[a-zA-Z ]*$/',
         'state' => 'regex:/^[a-zA-Z ]*$/',
-        'country' => 'regex:/^[a-zA-Z ]*$/',
+        // 'country' => 'regex:/^[a-zA-Z ]*$/',
       ]
     );
-    $field = Student::find($request['id']);
-    $field->name = $request['name'];
+    $field = Student::find(session('student_id'));
     $field->gender = $request['gender'];
     $field->dob = $request['dob'];
     $field->nationality = $request['nationality'];
-    $field->c_code = $request['c_code'];
-    $field->mobile = $request['mobile'];
+    $field->destination = $request['destination'];
     $field->city = $request['city'];
     $field->state = $request['state'];
-    $field->country = $request['country'];
     $field->save();
     session()->flash('smsg', 'Record has been updated successfully.');
-    return redirect('profile');
+    return redirect('student/profile');
   }
   public function viewChangePassword()
   {

@@ -250,7 +250,7 @@ Route::middleware(['studentLoggedIn'])->group(function () {
   Route::prefix('/student')->group(function () {
     Route::prefix('profile')->group(function () {
       Route::get('', [StudentFc::class, 'profile']);
-      Route::post('/update', [StudentFc::class, 'updateProfile']);
+      Route::post('/update', [StudentFc::class, 'updateProfile'])->name('student.profile.update');
     });
     Route::get('/change-password', [StudentFc::class, 'viewChangePassword']);
     Route::post('/change-password', [StudentFc::class, 'changePassword']);

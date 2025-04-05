@@ -31,7 +31,7 @@
                   <div class="row no-gutters">
                     <div class=" col-12 col-sm-12 col-md-12 col-lg-12 mx-auto">
                       <div class="profile-mains">
-                        <img src="/front/img/user-profile.png" class="card-img" alt="...">
+                        <img src="{{ asset('/front/img/user-profile.png') }}" class="card-img" alt="...">
                       </div>
                     </div>
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 ">
@@ -61,32 +61,26 @@
                   <div class="row">
                     <div class="col-12 col-sm-6">
                       <div class="form-group">
-                        <label for="class1">Class</label>
-                        <b class="usrer-addeds"></b>
-                      </div>
-                    </div>
-                    <div class="col-12 col-sm-6">
-                      <div class="form-group">
-                        <label for="class1">Stream</label>
-                        <b class="usrer-addeds"></b>
-                      </div>
-                    </div>
-                    <div class="col-12 col-sm-6">
-                      <div class="form-group">
-                        <label for="class1">Board</label>
-                        <b class="usrer-addeds"></b>
-                      </div>
-                    </div>
-                    <div class="col-12 col-sm-6">
-                      <div class="form-group">
-                        <label for="class1">State</label>
-                        <b class="usrer-addeds"></b>
+                        <label for="class1">Nationality</label>
+                        <b class="usrer-addeds">{{ $student->nationality }}</b>
                       </div>
                     </div>
                     <div class="col-12 col-sm-6">
                       <div class="form-group">
                         <label for="class1">City</label>
-                        <b class="usrer-addeds"></b>
+                        <b class="usrer-addeds">{{ $student->city }}</b>
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                      <div class="form-group">
+                        <label for="class1">State</label>
+                        <b class="usrer-addeds">{{ $student->state }}</b>
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                      <div class="form-group">
+                        <label for="class1">Destination Country</label>
+                        <b class="usrer-addeds">{{ $student->destination }}</b>
                       </div>
                     </div>
 
@@ -97,119 +91,106 @@
           </div>
           <div class="tab-pane fade" id="pills-edit-profile" role="tabpanel" aria-labelledby="pills-edit-profile-tab">
             <div class="main-edit">
-              <div class="row align-items-center">
-                <div class="col-12 col-sm-6 mb-4">
-                  <div class="d-flex main-editables">
-                    <div>
-                      <div class="edit-users">
-                        <img src="/front/img/user-profile.png" class="card-img" alt="...">
+              <form action="{{ route('student.profile.update') }}" method="post" enctype="multipart/form-data">
+                @csrf
+                <div class="row align-items-center">
+                  <div class="col-12 col-sm-6 mb-4">
+                    <div class="d-flex main-editables">
+                      <div>
+                        <div class="edit-users">
+                          <img src="/front/img/user-profile.png" class="card-img" alt="...">
+                        </div>
                       </div>
-                    </div>
-                    <div class="upload-file">
-                      <input type="file" name="" id="">
-                      <button class="ps-btn"> <i class="fa-solid fa-upload mr-2"></i> Upload Image</button>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-sm-6 mb-4">
-                  <div class="form-group">
-                    <label for="exampleInputName1">Name</label>
-                    <input type="text" class="form-control" id="exampleInputName1">
-                  </div>
-                </div>
-                <div class="col-12 col-sm-6 mb-4">
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Email</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1">
-                  </div>
-                </div>
-                <div class="col-12 col-sm-6 mb-4">
-                  <div class="form-group">
-                    <label for="exampleInputMobile1">Mobile Number</label>
-                    <input type="text" class="form-control" id="exampleInputMobile1">
-                  </div>
-                </div>
-                <div class="col-12 col-sm-6 mb-4">
-                  <div class="form-group">
-                    <label for="exampleInputMobile1">Mobile Number</label>
-                    <input type="text" class="form-control" id="exampleInputMobile1">
-                  </div>
-                </div>
-                <div class="col-12 col-sm-6 mb-4">
-                  <div class="form-group">
-                    <label for="exampleInputMobile1">Class</label>
-                    <select class="form-control ">
-                      <option>Large select</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-12 col-sm-6 mb-4">
-                  <div class="form-group">
-                    <label for="exampleInputMobile1">Stream</label>
-                    <select class="form-control ">
-                      <option>Stream select</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-12 col-sm-6 mb-4">
-                  <div class="form-group">
-                    <label for="exampleInputMobile1">Board</label>
-                    <select class="form-control ">
-                      <option>Board select</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-12 col-sm-6 mb-4">
-                  <div class="form-group">
-                    <label for="exampleInputMobile1">State</label>
-                    <select class="form-control ">
-                      <option>State select</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-12 col-sm-6 mb-4">
-                  <div class="form-group">
-                    <label for="exampleInputMobile1">City</label>
-                    <select class="form-control ">
-                      <option>City select</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-12 col-sm-6 mb-4">
-                  <div class="form-group">
-                    <label for="exampleInputMobile1">Gender</label>
-                    <select class="form-control ">
-                      <option>Gender select</option>
-                      <option>Male</option>
-                      <option>Female</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-12 col-sm-6 mb-4">
-                  <div class="form-group">
-                    <label for="exampleInputMobile1">DOB</label>
-                    <div class="set-date">
-                      <input type="date">
+                      {{-- <div class="upload-file">
+                        <input type="file" name="" id="">
+                        <button class="ps-btn"> <i class="fa-solid fa-upload mr-2"></i> Upload Image</button>
+                      </div> --}}
                     </div>
                   </div>
-                </div>
-
-                <div class="col-12 col-sm-6 mb-4 ">
-                  <div class="form-group form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label mt-2" for="exampleCheck1">I agree to the <a href="#">Terms of
-                        Use</a>& <a href="#">Privacy Policy</a></label>
+                  <div class="col-12 col-sm-6 mb-4">
+                    <div class="form-group">
+                      <label for="exampleInputMobile1">Nationality</label>
+                      <input type="text" class="form-control" name="nationality"
+                        value="{{ old('nationality') ?? $student->nationality }}">
+                      @error('nationality')
+                        <span class="text-danger">{{ $message }}</span>
+                      @enderror
+                    </div>
                   </div>
-                </div>
-                <div class="col-12 col-sm-12 mb-4 ">
-
-                  <div class="d-flex set-submit">
-                    <button type="button" class="btn btn-outline-primary">Cancel</button>
-                    <button type="button" class="ps-btn">Submit</button>
+                  <div class="col-12 col-sm-6 mb-4">
+                    <div class="form-group">
+                      <label for="exampleInputMobile1">City</label>
+                      <input type="text" class="form-control" name="city"
+                        value="{{ old('city') ?? $student->city }}">
+                      @error('city')
+                        <span class="text-danger">{{ $message }}</span>
+                      @enderror
+                    </div>
                   </div>
-                </div>
+                  <div class="col-12 col-sm-6 mb-4">
+                    <div class="form-group">
+                      <label for="exampleInputMobile1">State</label>
+                      <input type="text" class="form-control" name="state"
+                        value="{{ old('state') ?? $student->state }}">
+                      @error('state')
+                        <span class="text-danger">{{ $message }}</span>
+                      @enderror
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-6 mb-4">
+                    <div class="form-group">
+                      <label for="exampleInputMobile1">Preferred MBBS Country</label>
+                      <select class="form-control " name="destination">
+                        <option value="">Select</option>
+                        @foreach ($destinations as $row)
+                          <option value="{{ $row->page_name }}"
+                            {{ old('destination') == $row->page_name || $student->destination == $row->page_name ? 'Selected' : '' }}>
+                            {{ $row->page_name }}
+                          </option>
+                        @endforeach
+                      </select>
+                      @error('destination')
+                        <span class="text-danger">{{ $message }}</span>
+                      @enderror
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-6 mb-4">
+                    <div class="form-group">
+                      <label for="exampleInputMobile1">Gender</label>
+                      <select class="form-control " name="gender">
+                        <option value="">select</option>
+                        <option value="Male"
+                          {{ old('gender') == 'Male' || $student->gender == 'Male' ? 'Selected' : '' }}>Male</option>
+                        <option value="Female"
+                          {{ old('gender') == 'Female' || $student->gender == 'Female' ? 'Selected' : '' }}>Female
+                        </option>
+                      </select>
+                      @error('gender')
+                        <span class="text-danger">{{ $message }}</span>
+                      @enderror
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-6 mb-4">
+                    <div class="form-group">
+                      <label for="exampleInputMobile1">DOB</label>
+                      <div class="set-date">
+                        <input type="date" name="dob" value="{{ old('dob') ?? $student->dob }}">
+                      </div>
+                      @error('dob')
+                        <span class="text-danger">{{ $message }}</span>
+                      @enderror
+                    </div>
+                  </div>
 
-              </div>
+                  <div class="col-12 col-sm-12 mb-4 ">
+                    <div class="d-flex set-submit">
+                      <button type="button" class="btn btn-outline-primary">Cancel</button>
+                      <button type="submit" class="ps-btn">Update</button>
+                    </div>
+                  </div>
+
+                </div>
+              </form>
 
             </div>
           </div>
