@@ -13,6 +13,8 @@ use App\Models\UniversityProgram;
 use App\Rules\MathCaptchaValidationRule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rules\Password;
@@ -81,24 +83,30 @@ class StudentLoginFc extends Controller
     } else {
       $field->save();
 
-      $form_data = [
-        'name' => $request['name'],
-        'email' => $request['email'],
-        'c_code' => $request['c_code'],
-        'mobile' => $request['mobile'],
-        'source' => 'SignUP',
-        'source_url' => $request['return_to'] ?? null,
-        'destination' => $request['destination'],
-      ];
+      try {
+        $response = Http::asForm()->withHeaders([
+          'API-KEY' => env('CRM_API_KEY'),
+        ])->timeout(10)->post('https://www.crm.tutelagestudy.com/Api/signup', [
+          'name' => $request['name'],
+          'email' => $request['email'],
+          'c_code' => $request['c_code'],
+          'mobile' => $request['mobile'],
+          'source' => 'SignUP',
+          'source_url' => $request['return_to'] ?? null,
+          'destination' => $request['destination'],
+        ]);
+
+        if (!$response->successful()) {
+          Log::warning('CRM API failed', [
+            'status' => $response->status(),
+            'body' => $response->body(),
+          ]);
+        }
+      } catch (\Exception $e) {
+        Log::error('CRM API Exception: ' . $e->getMessage());
+      }
 
 
-      $api_url = "https://www.crm.tutelagestudy.com/Api/signup";
-      $client = curl_init($api_url);
-      curl_setopt($client, CURLOPT_POST, true);
-      curl_setopt($client, CURLOPT_POSTFIELDS, $form_data);
-      curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
-      $response = curl_exec($client);
-      curl_close($client);
 
       session()->flash('smsg', 'An OTP has been send to your registered email address.');
       $request->session()->put('last_id', $field->id);
