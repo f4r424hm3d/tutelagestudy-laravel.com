@@ -15416,6 +15416,7 @@ img.set-mails {
   border-color: #af0000;
   font-weight: 600 !important;
   padding: 11px 20px;
+  background-color: #fff;
 }
 
 .btn-outline-primary:hover {
@@ -15693,8 +15694,7 @@ b.usrer-addeds {
   height: 37px;
 }
 .counselling-main {
-  z-index: 99999 !important;
-  position: relative;
+  z-index: 99999999 !important;
   background-color: #00000052;
 }
 
@@ -15742,6 +15742,7 @@ button.close {
   border-radius: 22px;
   border: 5px solid #004e7a;
   padding: 0px 20px 20px;
+  position: relative;
 }
 
   .counselling-main button.close {
@@ -15751,11 +15752,13 @@ button.close {
     font-size: 32px;
     display: flex;
 }
-
+.counselling-main .modal-title span {
+  font-weight: 300;
+}
 .counselling-main .modal-title {   
   font-size: 18px;
   font-weight: 600;
-  max-width: 290px;
+  max-width: 306px;
   line-height: unset;
   margin: 0px auto;
   color: #004f7a;
@@ -15771,7 +15774,7 @@ button.close {
 }
 
 .counselling-main .modal-body .mobiles {
-  width: 120px;
+  width: 134px;
 }
 
 .set-counsell {
@@ -15832,6 +15835,10 @@ button.close {
 .tooltips:hover .tooltiptext {
   visibility: visible;
 }
+/* .btns-block .ps-btn, .btn-profiles .ps-btn, .btn-profiles .btn-outline-primary {
+  padding: 8px 5px !important;
+  height: 37px;
+} */
 
 @media (max-width:1200px){
   .ps-breadcrumb{

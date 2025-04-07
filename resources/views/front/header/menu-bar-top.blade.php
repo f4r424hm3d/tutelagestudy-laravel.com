@@ -65,7 +65,13 @@
             <div class="col-12 col-sm-12">
               <div class="form-group">
                 <div class="d-flex set-counsell">
-                  <input type="text" name="c_code" class="form-control mobiles" placeholder="Country Code">
+                  {{-- <input type="text" name="c_code" class="form-control mobiles" placeholder="Country Code"> --}}
+                  <select name="c_code" id="c_code" class="form-control">
+                    <option value="">Country Code</option>
+                    @foreach ($phonecodesSF as $item)
+                      <option value="{{ $item->phonecode }}">{{ $item->phonecode }} ({{ $item->name }})</option>
+                    @endforeach
+                  </select>
                   <input type="text" name="mobile" class="form-control" placeholder="Mobile Number">
                 </div>
                 <span class="text-danger error-c_code"></span>
@@ -74,7 +80,13 @@
             </div>
             <div class="col-12 col-sm-4 pr-0">
               <div class="form-group">
-                <input type="text" name="nationality" class="form-control" placeholder="Nationality">
+                {{-- <input type="text" name="nationality" class="form-control" placeholder="Nationality"> --}}
+                <select name="nationality" id="nationality" class="form-control">
+                  <option value="">Nationality</option>
+                  @foreach ($countriesSF as $item)
+                    <option value="{{ $item->name }}">{{ $item->name }}</option>
+                  @endforeach
+                </select>
                 <span class="text-danger error-nationality"></span>
               </div>
             </div>
@@ -95,7 +107,7 @@
               </div>
             </div>
             <div class="col-12 text-center">
-              <button type="submit" class="btn btn-primary w-25  popup-submit">Submit</button>
+              <button type="submit" class="btn btn-primary w-25  popup-submit" id="submitBtn">Submit</button>
             </div>
           </form>
 
@@ -549,6 +561,7 @@
     });
   </script>
   <script>
+    const studentLoggedIn = {{ session()->has('studentLoggedIn') ? 'true' : 'false' }};
     $(document).ready(function() {
       const modalKey = 'counselling_modal_status';
 
@@ -558,7 +571,7 @@
 
       let modalStatus = localStorage.getItem(modalKey);
 
-      if (modalStatus !== 'submitted') {
+      if (!studentLoggedIn && modalStatus !== 'submitted') {
         if (modalStatus !== 'closed') {
           openModal();
         } else {
@@ -568,6 +581,9 @@
             if (diff > 5 * 60 * 1000) {
               openModal();
             }
+            // if (diff > 1 * 1000) {
+            //   openModal();
+            // }
           }
         }
       }
@@ -579,13 +595,48 @@
         }
       });
 
+      // $('#counsellingForm').on('submit', function(e) {
+      //   e.preventDefault();
+
+      //   $('.text-danger').text(''); // Clear previous errors
+
+      //   $.ajax({
+      //     url: "{{ route('counselling.submit') }}/",
+      //     method: 'POST',
+      //     data: $(this).serialize(),
+      //     headers: {
+      //       'X-CSRF-TOKEN': '{{ csrf_token() }}'
+      //     },
+      //     success: function(res) {
+      //       if (res.success) {
+      //         localStorage.setItem(modalKey, 'submitted');
+      //         $('#exampleModalCenter').modal('hide');
+      //         //alert('Form submitted successfully!');
+      //         window.location.href = "{{ url('thank-you') }}";
+      //       }
+      //     },
+      //     error: function(xhr) {
+      //       if (xhr.status === 422) {
+      //         let errors = xhr.responseJSON.errors;
+      //         $.each(errors, function(key, val) {
+      //           $('.error-' + key).text(val[0]);
+      //         });
+      //       }
+      //     }
+      //   });
+      // });
+
       $('#counsellingForm').on('submit', function(e) {
         e.preventDefault();
+
+        // Disable the button and show loading
+        let submitBtn = $('#submitBtn');
+        submitBtn.prop('disabled', true).html('Submitting...');
 
         $('.text-danger').text(''); // Clear previous errors
 
         $.ajax({
-          url: "{{ route('counselling.submit') }}/",
+          url: "{{ route('counselling.submit') }}",
           method: 'POST',
           data: $(this).serialize(),
           headers: {
@@ -594,20 +645,24 @@
           success: function(res) {
             if (res.success) {
               localStorage.setItem(modalKey, 'submitted');
-              $('#exampleModalCenter').modal('hide');
-              //alert('Form submitted successfully!');
               window.location.href = "{{ url('thank-you') }}";
             }
           },
           error: function(xhr) {
+            // Re-enable the button
+            submitBtn.prop('disabled', false).html('Submit');
+
             if (xhr.status === 422) {
               let errors = xhr.responseJSON.errors;
               $.each(errors, function(key, val) {
                 $('.error-' + key).text(val[0]);
               });
+            } else {
+              alert('Something went wrong. Please try again.');
             }
           }
         });
       });
+
     });
   </script>

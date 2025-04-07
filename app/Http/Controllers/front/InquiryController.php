@@ -601,6 +601,8 @@ class InquiryController extends Controller
       'mobile' => 'required|numeric|digits_between:9,12',
       'nationality' => 'required',
       'destination' => 'required',
+    ], [
+      'c_code' => 'Country Code is required',
     ]);
 
     $field = new Student();
