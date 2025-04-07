@@ -9,6 +9,7 @@ use App\Models\Student;
 use App\Models\University;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
@@ -17,8 +18,6 @@ class InquiryController extends Controller
 {
   public function universityIniquiry(Request $request)
   {
-    $from_email = 'info@britannicaoverseas.com';
-    $from = 'Tutelage Study';
     // printArray($request->all());
     // die;
     $request->validate(
@@ -92,15 +91,34 @@ class InquiryController extends Controller
       }
     );
 
-    $api_url = "https://www.crm.tutelagestudy.com/Api/submitInquiryFromTutelageWeb";
-    $form_data = $emaildata;
-    //echo json_encode($form_data, true);
-    $client = curl_init($api_url);
-    curl_setopt($client, CURLOPT_POST, true);
-    curl_setopt($client, CURLOPT_POSTFIELDS, $form_data);
-    curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
-    $response = curl_exec($client);
-    curl_close($client);
+    try {
+      $form_data = [
+        'name' => $request['name'],
+        'email' => $request['email'],
+        'c_code' => $request['c_code'],
+        'mobile' => $request['mobile'],
+        'nationality' => $request['nationality'] ?? null,
+        'destination' => $request['destination'],
+        'source' => $request['source'] ?? 'Website',
+        'source_url' => $request['source_path'] ?? null,
+      ];
+
+      $response = Http::asForm()
+        ->withHeaders([
+          'API-KEY' => env('CRM_API_KEY'),
+        ])
+        ->timeout(10)
+        ->post('https://www.crm.tutelagestudy.com/Api/signup', $form_data);
+
+      if (!$response->successful()) {
+        Log::warning('CRM API failed', [
+          'status' => $response->status(),
+          'body' => $response->body(),
+        ]);
+      }
+    } catch (\Exception $e) {
+      Log::error('CRM API Exception: ' . $e->getMessage());
+    }
 
     return redirect($request->page_url);
   }
@@ -118,8 +136,6 @@ class InquiryController extends Controller
   }
   public function submitMbbsInquiry(Request $request)
   {
-    $from_email = 'info@britannicaoverseas.com';
-    $from = 'Tutelage Study';
     // printArray($request->all());
     // die;
     $request->validate(
@@ -151,6 +167,37 @@ class InquiryController extends Controller
 
     session()->flash('smsg', ' Your inquiry has been submitted. we will contact you soon..');
 
+    try {
+      $form_data = [
+        'name' => $request['name'],
+        'email' => $request['email'],
+        'c_code' => $request['c_code'],
+        'mobile' => $request['mobile'],
+        'nationality' => $request['nationality'] ?? null,
+        'destination' => $request['destination'],
+        'source' => $request['source'],
+        'source_url' => $request['source_path'],
+      ];
+
+      $response = Http::asForm()
+        ->withHeaders([
+          'API-KEY' => env('CRM_API_KEY'),
+        ])
+        ->timeout(10)
+        ->post('https://www.crm.tutelagestudy.com/Api/signup', $form_data);
+
+      if (!$response->successful()) {
+        Log::warning('CRM API failed', [
+          'status' => $response->status(),
+          'body' => $response->body(),
+        ]);
+      }
+    } catch (\Exception $e) {
+      Log::error('CRM API Exception: ' . $e->getMessage());
+    }
+
+    $dd = ['to' => $request['email'], 'to_name' => $request['name'], 'subject' => 'Inquiry'];
+
     $emaildata = [
       'name' => $request['name'],
       'email' => $request['email'],
@@ -161,18 +208,6 @@ class InquiryController extends Controller
       'source' => $request['source'],
       'source_path' => $request['source_path'],
     ];
-
-    $api_url = "https://www.crm.tutelagestudy.com/Api/submitDestinationInquiryFromTutelageWeb";
-    $form_data = $emaildata;
-    //echo json_encode($form_data, true);
-    $client = curl_init($api_url);
-    curl_setopt($client, CURLOPT_POST, true);
-    curl_setopt($client, CURLOPT_POSTFIELDS, $form_data);
-    curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
-    $response = curl_exec($client);
-    curl_close($client);
-
-    $dd = ['to' => $request['email'], 'to_name' => $request['name'], 'subject' => 'Inquiry'];
 
     Mail::send(
       'mails.inquiry-reply',
@@ -222,8 +257,6 @@ class InquiryController extends Controller
   }
   public function submitNeetInquiry(Request $request)
   {
-    $from_email = 'info@britannicaoverseas.com';
-    $from = 'Tutelage Study';
     // printArray($request->all());
     // die;
     $request->validate(
@@ -266,16 +299,6 @@ class InquiryController extends Controller
       'source_path' => $request['source_path'],
     ];
 
-    $api_url = "https://www.crm.tutelagestudy.com/Api/submitNeetInquiryFromTutelageWeb";
-    $form_data = $emaildata;
-    //echo json_encode($form_data, true);
-    $client = curl_init($api_url);
-    curl_setopt($client, CURLOPT_POST, true);
-    curl_setopt($client, CURLOPT_POSTFIELDS, $form_data);
-    curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
-    $response = curl_exec($client);
-    curl_close($client);
-
     $dd = ['to' => $request['email'], 'to_name' => $request['name'], 'subject' => 'Inquiry'];
 
     Mail::send(
@@ -314,6 +337,35 @@ class InquiryController extends Controller
         $message->priority(1);
       }
     );
+
+    try {
+      $form_data = [
+        'name' => $request['name'],
+        'email' => $request['email'],
+        'mobile' => $request['mobile'],
+        'source' => $request['source'],
+        'source_url' => $request['source_path'],
+        'state' => $request['state'],
+        'neet_qualified' => $request['neet_qualified'],
+        'question' => $request['question'],
+      ];
+
+      $response = Http::asForm()
+        ->withHeaders([
+          'API-KEY' => env('CRM_API_KEY'),
+        ])
+        ->timeout(10)
+        ->post('https://www.crm.tutelagestudy.com/Api/signup', $form_data);
+
+      if (!$response->successful()) {
+        Log::warning('CRM API failed', [
+          'status' => $response->status(),
+          'body' => $response->body(),
+        ]);
+      }
+    } catch (\Exception $e) {
+      Log::error('CRM API Exception: ' . $e->getMessage());
+    }
 
     return redirect(url('thank-you/'));
   }
@@ -355,16 +407,6 @@ class InquiryController extends Controller
       'source_path' => $request['source_path'],
     ];
 
-    $api_url = "https://www.crm.tutelagestudy.com/Api/submitBrochureInquiryFromTutelageWeb";
-    $form_data = $emaildata;
-    //echo json_encode($form_data, true);
-    $client = curl_init($api_url);
-    curl_setopt($client, CURLOPT_POST, true);
-    curl_setopt($client, CURLOPT_POSTFIELDS, $form_data);
-    curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
-    $response = curl_exec($client);
-    curl_close($client);
-
     $dd = ['to' => $request['email'], 'to_name' => $request['name'], 'subject' => 'Brochure Inquiry', 'brochure_path' => $university->brochure_path,];
 
     Mail::send(
@@ -402,107 +444,39 @@ class InquiryController extends Controller
       }
     );
 
+    try {
+      $form_data = [
+        'name' => $request['name'],
+        'email' => $request['email'],
+        'c_code' => $request['c_code'],
+        'mobile' => $request['mobile'],
+        'nationality' => $request['nationality'] ?? null,
+        'destination' => $request['destination'],
+        'source' => $request['source'] ?? 'Website',
+        'source_url' => $request['source_path'] ?? null,
+        'intrested_university' => $university->university_name ?? $university->name,
+      ];
+
+      $response = Http::asForm()
+        ->withHeaders([
+          'API-KEY' => env('CRM_API_KEY'),
+        ])
+        ->timeout(10)
+        ->post('https://www.crm.tutelagestudy.com/Api/signup', $form_data);
+
+      if (!$response->successful()) {
+        Log::warning('CRM API failed', [
+          'status' => $response->status(),
+          'body' => $response->body(),
+        ]);
+      }
+    } catch (\Exception $e) {
+      Log::error('CRM API Exception: ' . $e->getMessage());
+    }
+
     return redirect(url('thank-you/'));
   }
 
-  public function submitDownloadBrochureInquiry__AJAX(Request $request)
-  {
-    // printArray($request->all());
-    // die;
-    $brochure_path = "tb/MBBS-brochure-table-new-printing.pdf";
-
-    $validator = Validator::make(
-      $request->all(),
-      [
-        'name' => 'required|regex:/^[a-zA-Z ]*$/',
-        'email' => 'required|email:rfc,dns',
-        'c_code' => 'required|numeric|digits_between:1,5',
-        'mobile' => 'required|numeric|digits_between:9,12',
-      ]
-    );
-
-    if ($validator->fails()) {
-      return response()->json([
-        'error' => $validator->errors(),
-      ]);
-    }
-    // if ($validator->fails()) {
-    //   // Debugging: Log validation errors
-    //   Log::debug('Validation Errors: ' . json_encode($validator->errors()->all()));
-
-    //   return response()->json([
-    //     'error' => $validator->errors(),
-    //   ]);
-    // }
-
-    $field = new Student();
-    $field->name = $request['name'];
-    $field->email = $request['email'];
-    $field->c_code = $request['c_code'];
-    $field->mobile = $request['mobile'];
-    $field->page_url = $request['source_url'];
-    $field->save();
-
-    session()->flash('smsg', 'Your inquiry has been submitted. we will contact you soon.');
-
-    $emaildata = [
-      'name' => $request['name'],
-      'email' => $request['email'],
-      'c_code' => $request['c_code'],
-      'mobile' => $request['mobile'],
-      'brochure_path' => $brochure_path,
-      'page_url' => $request['source_url'],
-    ];
-
-    $api_url = "https://www.crm.tutelagestudy.com/Api/submitBrochureInquiryFromTutelageWeb2";
-    $form_data = $emaildata;
-    //echo json_encode($form_data, true);
-    $client = curl_init($api_url);
-    curl_setopt($client, CURLOPT_POST, true);
-    curl_setopt($client, CURLOPT_POSTFIELDS, $form_data);
-    curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
-    $response = curl_exec($client);
-    curl_close($client);
-
-    $dd = ['to' => $request['email'], 'to_name' => $request['name'], 'subject' => 'Brochure Inquiry', 'brochure_path' => $brochure_path,];
-
-    Mail::send(
-      'mails.brochure-inquiry-reply2',
-      $emaildata,
-      function ($message) use ($dd) {
-        $message->to($dd['to'], $dd['to_name']);
-        $message->subject($dd['subject']);
-        $message->attach($dd['brochure_path']);
-        $message->priority(1);
-      }
-    );
-
-    $emaildata2 = [
-      'name' => $request['name'],
-      'email' => $request['email'],
-      'c_code' => $request['c_code'],
-      'mobile' => $request['mobile'],
-      'page_url' => $request['source_url'],
-      'intrested_university' => null,
-      'destination' => null,
-    ];
-
-    $dd2 = ['to' => TO_EMAIL, 'cc' => CC_EMAIL, 'to_name' => TO_NAME, 'cc_name' => CC_NAME, 'subject' => 'Brochure Inquiry', 'bcc' => BCC_EMAIL, 'bcc_name' => BCC_NAME];
-
-    Mail::send(
-      'mails.get-brochure-mail-to-admin',
-      $emaildata2,
-      function ($message) use ($dd2) {
-        $message->to($dd2['to'], $dd2['to_name']);
-        $message->cc($dd2['cc'], $dd2['cc_name']);
-        $message->bcc($dd2['bcc'], $dd2['bcc_name']);
-        $message->subject($dd2['subject']);
-        $message->priority(1);
-      }
-    );
-    return response()->json(['success' => 'Record hase been added succesfully.']);
-    //return redirect(url('thank-you/'));
-  }
   public function submitDownloadBrochureInquiry(Request $request)
   {
     // printArray($request->all());
@@ -542,16 +516,6 @@ class InquiryController extends Controller
       'source_url' => $request['source_url'],
     ];
 
-    $api_url = "https://www.crm.tutelagestudy.com/Api/submitBrochureInquiryFromTutelageWeb2";
-    $form_data = $emaildata;
-    //echo json_encode($form_data, true);
-    $client = curl_init($api_url);
-    curl_setopt($client, CURLOPT_POST, true);
-    curl_setopt($client, CURLOPT_POSTFIELDS, $form_data);
-    curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
-    $response = curl_exec($client);
-    curl_close($client);
-
     $dd = ['to' => $request['user_email'], 'to_name' => $request['user_name'], 'subject' => 'Brochure Inquiry', 'brochure_path' => $brochure_path,];
 
     Mail::send(
@@ -588,6 +552,33 @@ class InquiryController extends Controller
         $message->priority(1);
       }
     );
+
+    try {
+      $form_data = [
+        'name' => $request['user_name'],
+        'email' => $request['user_email'],
+        'c_code' => $request['user_country_code'],
+        'mobile' => $request['user_mobile'],
+        'source' => $request['source'],
+        'source_url' => $request['source_url'],
+      ];
+
+      $response = Http::asForm()
+        ->withHeaders([
+          'API-KEY' => env('CRM_API_KEY'),
+        ])
+        ->timeout(10)
+        ->post('https://www.crm.tutelagestudy.com/Api/signup', $form_data);
+
+      if (!$response->successful()) {
+        Log::warning('CRM API failed', [
+          'status' => $response->status(),
+          'body' => $response->body(),
+        ]);
+      }
+    } catch (\Exception $e) {
+      Log::error('CRM API Exception: ' . $e->getMessage());
+    }
 
     return redirect(url('thank-you/'));
   }
@@ -627,26 +618,34 @@ class InquiryController extends Controller
     session()->flash('smsg', 'An OTP has been send to your registered email address.');
     $request->session()->put('last_id', $field->id);
 
-    $emaildata = [
-      'name' => $request['name'],
-      'email' => $request['email'],
-      'c_code' => $request['c_code'],
-      'mobile' => $request['mobile'],
-      'nationality' => $request['nationality'],
-      'destination' => $request['destination'],
-      'source' => $request['source'],
-      'source_path' => $request['source_path'],
-    ];
+    try {
+      $form_data = [
+        'name' => $request['name'],
+        'email' => $request['email'],
+        'c_code' => $request['c_code'],
+        'mobile' => $request['mobile'],
+        'nationality' => $request['nationality'] ?? null,
+        'destination' => $request['destination'],
+        'source' => $request['source'] ?? 'Website',
+        'source_url' => $request['source_path'] ?? null,
+      ];
 
-    $api_url = "https://www.crm.tutelagestudy.com/Api/submitDestinationInquiryFromTutelageWeb";
-    $form_data = $emaildata;
-    //echo json_encode($form_data, true);
-    $client = curl_init($api_url);
-    curl_setopt($client, CURLOPT_POST, true);
-    curl_setopt($client, CURLOPT_POSTFIELDS, $form_data);
-    curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
-    $response = curl_exec($client);
-    curl_close($client);
+      $response = Http::asForm()
+        ->withHeaders([
+          'API-KEY' => env('CRM_API_KEY'),
+        ])
+        ->timeout(10)
+        ->post('https://www.crm.tutelagestudy.com/Api/signup', $form_data);
+
+      if (!$response->successful()) {
+        Log::warning('CRM API failed', [
+          'status' => $response->status(),
+          'body' => $response->body(),
+        ]);
+      }
+    } catch (\Exception $e) {
+      Log::error('CRM API Exception: ' . $e->getMessage());
+    }
 
     $emaildata = ['name' => $request['name'], 'otp' => $otp];
     $dd = ['to' => $request['email'], 'to_name' => $request['name'], 'subject' => 'OTP'];
