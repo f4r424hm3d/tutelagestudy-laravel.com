@@ -48,6 +48,7 @@
         </div>
         <div class="modal-body pb-0">
           <form id="counsellingForm" class="row">
+            <input type="hidden" name="return_to" value="{{ request()->path() }}">
             <input type="hidden" name="source" value="Modal Form">
             <input type="hidden" name="source_path" value="{{ url()->current() }}">
             <div class="col-12 col-sm-12">
@@ -562,8 +563,19 @@
   </script>
   <script>
     const studentLoggedIn = {{ session()->has('studentLoggedIn') ? 'true' : 'false' }};
+    const excludedPaths = [
+      '/sign-in/',
+      '/sign-up/',
+      '/mbbs-abroad-counselling/',
+      '/neet-counselling/'
+    ];
     $(document).ready(function() {
       const modalKey = 'counselling_modal_status';
+      const currentPath = window.location.pathname;
+      // Do not show modal on excluded pages
+      if (excludedPaths.includes(currentPath)) {
+        return;
+      }
 
       function openModal() {
         $('#exampleModalCenter').modal('show');
@@ -595,36 +607,7 @@
         }
       });
 
-      // $('#counsellingForm').on('submit', function(e) {
-      //   e.preventDefault();
 
-      //   $('.text-danger').text(''); // Clear previous errors
-
-      //   $.ajax({
-      //     url: "{{ route('counselling.submit') }}/",
-      //     method: 'POST',
-      //     data: $(this).serialize(),
-      //     headers: {
-      //       'X-CSRF-TOKEN': '{{ csrf_token() }}'
-      //     },
-      //     success: function(res) {
-      //       if (res.success) {
-      //         localStorage.setItem(modalKey, 'submitted');
-      //         $('#exampleModalCenter').modal('hide');
-      //         //alert('Form submitted successfully!');
-      //         window.location.href = "{{ url('thank-you') }}";
-      //       }
-      //     },
-      //     error: function(xhr) {
-      //       if (xhr.status === 422) {
-      //         let errors = xhr.responseJSON.errors;
-      //         $.each(errors, function(key, val) {
-      //           $('.error-' + key).text(val[0]);
-      //         });
-      //       }
-      //     }
-      //   });
-      // });
 
       $('#counsellingForm').on('submit', function(e) {
         e.preventDefault();
@@ -636,7 +619,7 @@
         $('.text-danger').text(''); // Clear previous errors
 
         $.ajax({
-          url: "{{ route('counselling.submit') }}",
+          url: "{{ route('counselling.submit') }}/",
           method: 'POST',
           data: $(this).serialize(),
           headers: {
@@ -645,7 +628,8 @@
           success: function(res) {
             if (res.success) {
               localStorage.setItem(modalKey, 'submitted');
-              window.location.href = "{{ url('thank-you') }}";
+              // window.location.href = "{{ url('thank-you') }}";
+              window.location.href = "{{ url('confirmed-email') }}" + "?" + res.seg;
             }
           },
           error: function(xhr) {

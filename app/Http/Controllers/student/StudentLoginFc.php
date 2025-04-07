@@ -38,7 +38,7 @@ class StudentLoginFc extends Controller
     $seg1 = $request['return_to'] != null ? 'return_to=' . $request['return_to'] : null;
     $return_url = 'sign-up?' . $seg1;
     $otp = rand(1000, 9999);
-    $otp_expire_at = date("YmdHis", strtotime("+5 minutes"));
+    $otp_expire_at = date("YmdHis", strtotime("+15 minutes"));
     $request->validate(
       [
         'captcha_answer' => ['required', 'numeric', new MathCaptchaValidationRule()],
@@ -144,6 +144,7 @@ class StudentLoginFc extends Controller
         session()->flash('smsg', 'Email verified. Succesfully logged in.');
         $request->session()->put('studentLoggedIn', true);
         $request->session()->put('student_id', $request->session()->get('last_id'));
+        $request->session()->put('student_name', $result->name);
 
         if ($request['return_to'] != null) {
           return redirect($request['return_to']);

@@ -593,10 +593,13 @@ class InquiryController extends Controller
   }
   public function submitCounselling(Request $request)
   {
+    $seg1 = $request['return_to'] != null ? 'return_to=' . $request['return_to'] : null;
+    $otp = rand(1000, 9999);
+    $otp_expire_at = date("YmdHis", strtotime("+15 minutes"));
     // Validate and store data
     $data = $request->validate([
       'name' => 'required|regex:/^[a-zA-Z ]*$/',
-      'email' => 'required|email:rfc,dns',
+      'email' => 'required|email:rfc,dns|unique:students,email',
       'c_code' => 'required|numeric|digits_between:1,5',
       'mobile' => 'required|numeric|digits_between:9,12',
       'nationality' => 'required',
@@ -614,9 +617,15 @@ class InquiryController extends Controller
     $field->destination = $request['destination'];
     $field->source = $request['source'];
     $field->page_url = $request['source_path'];
+    $field->otp = $otp;
+    $field->otp_expire_at = $otp_expire_at;
+    $field->status = 0;
     $field->save();
 
-    session()->flash('smsg', ' Your inquiry has been submitted. we will contact you soon..');
+    //session()->flash('smsg', ' Your inquiry has been submitted. we will contact you soon..');
+
+    session()->flash('smsg', 'An OTP has been send to your registered email address.');
+    $request->session()->put('last_id', $field->id);
 
     $emaildata = [
       'name' => $request['name'],
@@ -639,17 +648,29 @@ class InquiryController extends Controller
     $response = curl_exec($client);
     curl_close($client);
 
-    $dd = ['to' => $request['email'], 'to_name' => $request['name'], 'subject' => 'Inquiry'];
-
+    $emaildata = ['name' => $request['name'], 'otp' => $otp];
+    $dd = ['to' => $request['email'], 'to_name' => $request['name'], 'subject' => 'OTP'];
     Mail::send(
-      'mails.inquiry-reply',
+      'mails.send-otp',
       $emaildata,
       function ($message) use ($dd) {
         $message->to($dd['to'], $dd['to_name']);
-        $message->subject($dd['subject']);
+        $message->subject('OTP');
         $message->priority(1);
       }
     );
+
+    // $dd = ['to' => $request['email'], 'to_name' => $request['name'], 'subject' => 'Inquiry'];
+
+    // Mail::send(
+    //   'mails.inquiry-reply',
+    //   $emaildata,
+    //   function ($message) use ($dd) {
+    //     $message->to($dd['to'], $dd['to_name']);
+    //     $message->subject($dd['subject']);
+    //     $message->priority(1);
+    //   }
+    // );
 
     $emaildata2 = [
       'name' => $request['name'],
@@ -680,7 +701,7 @@ class InquiryController extends Controller
 
     //return redirect(url('thank-you/'));
 
-    return response()->json(['success' => true]);
+    return response()->json(['success' => true, 'seg' => $seg1]);
   }
 
 
