@@ -8,6 +8,8 @@ use App\Models\CourseCategory;
 use App\Models\Level;
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 
 class StudentC extends Controller
 {
@@ -213,6 +215,7 @@ class StudentC extends Controller
     $result = 0;
     $rows = Student::whereIn('id', $request->ids)->get();
     foreach ($rows as $row) {
+
       $form_data = [
         'name' => $row['name'],
         'email' => $row['email'],
@@ -225,14 +228,21 @@ class StudentC extends Controller
         'neet_qualified' => $row['neet_qualified'],
         'question' => $row['question'],
       ];
-      $api_url = "https://www.crm.tutelagestudy.com/Api/fromWeb";
-      //echo json_encode($form_data, true);
-      $client = curl_init($api_url);
-      curl_setopt($client, CURLOPT_POST, true);
-      curl_setopt($client, CURLOPT_POSTFIELDS, $form_data);
-      curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
-      $response = curl_exec($client);
-      curl_close($client);
+
+      $response = Http::asForm()
+        ->withHeaders([
+          'API-KEY' => env('CRM_API_KEY'),
+        ])
+        ->timeout(10)
+        ->post('https://www.crm.tutelagestudy.com/Api/fromWeb', $form_data);
+
+      if (!$response->successful()) {
+        Log::warning('CRM API failed', [
+          'status' => $response->status(),
+          'body' => $response->body(),
+        ]);
+      }
+
       $result++;
     }
     return response()->json(['affected_rows' => $result]);
