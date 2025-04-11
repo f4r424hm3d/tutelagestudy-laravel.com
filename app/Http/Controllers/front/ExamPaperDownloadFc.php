@@ -57,19 +57,19 @@ class ExamPaperDownloadFc extends Controller
     $site =  'tutelagestudy.com';
     $tagArray = ['title' => $title, 'exam_type' => $exam_type, 'exam_year' => $exam_year, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
 
-    $meta_title = $examType->meta_title == '' ? $dseo->title : $examType->meta_title;
+    $meta_title = $year->meta_title == '' ? $dseo->title : $year->meta_title;
     $meta_title = replaceTag($meta_title, $tagArray);
 
-    $meta_keyword = $examType->meta_keyword == '' ? $dseo->keyword : $examType->meta_keyword;
+    $meta_keyword = $year->meta_keyword == '' ? $dseo->keyword : $year->meta_keyword;
     $meta_keyword = replaceTag($meta_keyword, $tagArray);
 
-    $page_content = $examType->page_content == '' ? $dseo->page_content : $examType->page_content;
+    $page_content = $year->page_content == '' ? $dseo->page_content : $year->page_content;
     $page_content = replaceTag($page_content, $tagArray);
 
-    $meta_description = $examType->meta_description == '' ? $dseo->description : $examType->meta_description;
+    $meta_description = $year->meta_description == '' ? $dseo->description : $year->meta_description;
     $meta_description = replaceTag($meta_description, $tagArray);
 
-    $og_image_path = $examType->image_path == '' ? $dseo->ogimgpath : $examType->image_path;
+    $og_image_path = $year->image_path == '' ? $dseo->ogimgpath : $year->image_path;
 
     $data = compact('examType', 'year', 'years', 'dseo', 'page_url', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path');
     return view('front.exam-type-year-detail')->with($data);
@@ -92,19 +92,19 @@ class ExamPaperDownloadFc extends Controller
     $site =  'tutelagestudy.com';
     $tagArray = ['title' => $title, 'exam_type' => $exam_type, 'exam_year' => $exam_year, 'paper_name' => $paper_name, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
 
-    $meta_title = $examType->meta_title == '' ? $dseo->title : $examType->meta_title;
+    $meta_title = $paper->meta_title == '' ? $dseo->title : $paper->meta_title;
     $meta_title = replaceTag($meta_title, $tagArray);
 
-    $meta_keyword = $examType->meta_keyword == '' ? $dseo->keyword : $examType->meta_keyword;
+    $meta_keyword = $paper->meta_keyword == '' ? $dseo->keyword : $paper->meta_keyword;
     $meta_keyword = replaceTag($meta_keyword, $tagArray);
 
-    $page_content = $examType->page_content == '' ? $dseo->page_content : $examType->page_content;
+    $page_content = $paper->page_content == '' ? $dseo->page_content : $paper->page_content;
     $page_content = replaceTag($page_content, $tagArray);
 
-    $meta_description = $examType->meta_description == '' ? $dseo->description : $examType->meta_description;
+    $meta_description = $paper->meta_description == '' ? $dseo->description : $paper->meta_description;
     $meta_description = replaceTag($meta_description, $tagArray);
 
-    $og_image_path = $examType->image_path == '' ? $dseo->ogimgpath : $examType->image_path;
+    $og_image_path = $paper->image_path == '' ? $dseo->ogimgpath : $paper->image_path;
 
     $data = compact('examType', 'year', 'paper', 'papers', 'dseo', 'page_url', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path');
     return view('front.paper-detail')->with($data);
