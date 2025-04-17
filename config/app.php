@@ -220,7 +220,7 @@ return [
   ])->toArray(),
 
   'cdn' => array(
-    "tutelageapril.b-cdn.net" => ""
+    "tutelagestudy02.b-cdn.net" => ""
   ),
 
 ];
