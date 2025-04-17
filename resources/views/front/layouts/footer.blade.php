@@ -68,7 +68,8 @@
         <div class="ps-footer__copyright">
           <div class="row">
             <div class="col-12 col-sm-12 col-md-4">
-              <p class="whitec">© 2024 <a href="{{ url('/') }}">Tutelage Study</a>. All Rights Reserved
+              <p class="whitec">© {{ date('Y') }} <a href="{{ url('/') }}">Tutelage Study</a>. All Rights
+                Reserved
               </p>
             </div>
             <div class="col-12 col-sm-12 col-md-8">
@@ -83,7 +84,8 @@
                     href="{{ url('/') }}/services/mbbs-abroad-consultant-in-nuh-haryana/" target="_blank">Nuh</a>
                   |</span>
                 <span class="b1" style="color:#fff"><a
-                    href="{{ url('/') }}/services/mbbs-abroad-consultant-in-chennai/" target="_blank">Chennai</a>
+                    href="{{ url('/') }}/services/mbbs-abroad-consultant-in-chennai/"
+                    target="_blank">Chennai</a>
                   |</span>
                 <span class="b1" style="color:#fff"><a
                     href="{{ url('/') }}/services/mbbs-abroad-consultant-in-andhra-pradesh/"
