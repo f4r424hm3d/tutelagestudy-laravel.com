@@ -527,27 +527,6 @@
       });
     }
   </script>
-  <script>
-    grecaptcha.ready(function() {
-      grecaptcha.execute('{{ gr_site_key() }}', {
-          action: 'contact_us'
-        })
-        .then(function(token) {
-          // Set the reCAPTCHA token in the hidden input field
-          document.getElementById('g-recaptcha-response-smi').value = token;
-        });
-    });
-
-    grecaptcha.ready(function() {
-      grecaptcha.execute('{{ gr_site_key() }}', {
-          action: 'contact_us'
-        })
-        .then(function(token) {
-          // Set the reCAPTCHA token in the hidden input field
-          document.getElementById('g-recaptcha-response-db').value = token;
-        });
-    });
-  </script>
 
   <!-- gourav jquery added -->
   <script>

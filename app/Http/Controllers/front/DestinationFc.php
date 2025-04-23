@@ -30,7 +30,7 @@ class DestinationFc extends Controller
     $tab_title = $tabTitle == '' ? 'overview' : $tabTitle;
     $tabTitleDet = DestinationPageTabs::where(['slug' => $tab_title])->first();
     $seg1 = $destination_slug;
-    $c_destination = Destination::where(['slug' => $destination_slug])->first();
+    $c_destination = Destination::where(['slug' => $destination_slug])->firstOrFail();
 
     $testimonials = Testimonial::where(['country' => $c_destination->country])->get();
     $photos = DestinationGallery::where(['destination_id' => $c_destination->id])->get();
