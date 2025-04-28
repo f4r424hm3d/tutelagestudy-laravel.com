@@ -1,6 +1,7 @@
 <?php
 
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Config;
 
 define('TO_EMAIL', 'studytutelage@gmail.com');
 define('TO_NAME', 'Team tutelage Study');
@@ -97,11 +98,6 @@ function cdnq($asset)
   return url($asset);
 }
 
-
-function cdnPath($cdn, $asset)
-{
-  return  "//" . rtrim($cdn, "/") . "/" . ltrim($asset, "/");
-}
 if (!function_exists('gr_site_key')) {
   function gr_site_key()
   {
@@ -127,32 +123,7 @@ if (!function_exists('getISOFormatTime')) {
     return $time->format('Y-m-d\TH:i:sP');
   }
 }
-// global CDN link helper function
-function cdn($asset)
-{
 
-  // Verify if KeyCDN URLs are present in the config file
-  if (!Config::get('app.cdn'))
-    return asset($asset);
-
-  // Get file name incl extension and CDN URLs
-  $cdns = Config::get('app.cdn');
-  $assetName = basename($asset);
-
-  // Remove query string
-  $assetName = explode("?", $assetName);
-  $assetName = $assetName[0];
-
-  // Select the CDN URL based on the extension
-  foreach ($cdns as $cdn => $types) {
-    if (preg_match('/^.*\.(' . $types . ')$/i', $assetName))
-      return cdnPath($cdn, $asset);
-  }
-
-  // In case of no match use the last in the array
-  end($cdns);
-  return cdnPath(key($cdns), $asset);
-}
 if (!function_exists('generateMathQuestion')) {
   function generateMathQuestion()
   {
@@ -167,5 +138,38 @@ if (!function_exists('generateMathQuestion')) {
       'text' => $questionText,
       'answer' => $answer,
     ];
+  }
+}
+if (!function_exists('cdn')) {
+  function cdn($asset)
+  {
+
+    // Verify if KeyCDN URLs are present in the config file
+    if (!Config::get('app.cdn'))
+      return asset($asset);
+
+    // Get file name incl extension and CDN URLs
+    $cdns = Config::get('app.cdn');
+    $assetName = basename($asset);
+
+    // Remove query string
+    $assetName = explode("?", $assetName);
+    $assetName = $assetName[0];
+
+    // Select the CDN URL based on the extension
+    foreach ($cdns as $cdn => $types) {
+      if (preg_match('/^.*\.(' . $types . ')$/i', $assetName))
+        return cdnPath($cdn, $asset);
+    }
+
+    // In case of no match use the last in the array
+    end($cdns);
+    return cdnPath(key($cdns), $asset);
+  }
+}
+if (!function_exists('cdnPath')) {
+  function cdnPath($cdn, $asset)
+  {
+    return  "//" . rtrim($cdn, "/") . "/" . ltrim($asset, "/");
   }
 }
