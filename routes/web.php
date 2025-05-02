@@ -46,6 +46,7 @@ use App\Http\Controllers\admin\UniversityGalleryC;
 use App\Http\Controllers\admin\UniversityOverviewC;
 use App\Http\Controllers\admin\UniversityVideoGalleryC;
 use App\Http\Controllers\admin\UploadFilesC;
+use App\Http\Controllers\admin\UrlRedirectionC;
 use App\Http\Controllers\admin\UserC;
 use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\CommonController;
@@ -658,6 +659,14 @@ Route::middleware(['adminLoggedIn'])->group(function () {
       Route::get('/{paper_id}/', [PaperFaqC::class, 'index']);
       Route::get('{paper_id}/update/{id}', [PaperFaqC::class, 'index']);
       Route::post('{paper_id}/update/{id}', [PaperFaqC::class, 'update']);
+    });
+    Route::prefix('/url-redirections')->group(function () {
+      Route::get('/', [UrlRedirectionC::class, 'index']);
+      Route::get('/get-data', [UrlRedirectionC::class, 'getData']);
+      Route::post('/store', [UrlRedirectionC::class, 'store']);
+      Route::get('/update/{id}', [UrlRedirectionC::class, 'index']);
+      Route::post('/update/{id}', [UrlRedirectionC::class, 'update']);
+      Route::get('/delete/{id}', [UrlRedirectionC::class, 'delete']);
     });
   });
 });
