@@ -74,6 +74,7 @@ use App\Models\Blog;
 use App\Models\BlogCategory;
 use App\Models\ExamType;
 use App\Models\University;
+use App\Models\UrlRedirection;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
@@ -693,3 +694,11 @@ Route::get('sitemap-university.xml', [SitemapController::class, 'university']);
 Route::get('exams/{exam_type_slug}/{exam_type_title_slug}/', [ExamPaperDownloadFc::class, 'index'])->name('paper1');
 Route::get('exams/{exam_type_slug}/{exam_type_title_slug}/{year_slug}', [ExamPaperDownloadFc::class, 'yearDetail'])->name('paper2');
 Route::get('exams/{exam_type_slug}/{exam_type_title_slug}/{year_slug}/{paper_slug}', [ExamPaperDownloadFc::class, 'paperDetail'])->name('paper3');
+
+
+$customsRedirections = UrlRedirection::all();
+foreach ($customsRedirections as $row) {
+  Route::get($row->old_url, function () use ($row) {
+    return redirect($row->new_url, 301);
+  });
+}
