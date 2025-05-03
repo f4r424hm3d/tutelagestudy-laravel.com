@@ -132,7 +132,9 @@
 
                           <h4 class="date-sets"><i class="fa-solid fa-calendar-days"></i>
                             {{ $row->year }}</h4>
-                          <p>Previous-Year-Paper</p>
+                          @if ($examType->card_note !== null)
+                            <p>{{ $examType->card_note }}</p>
+                          @endif
                         </a>
                         </a>
 
