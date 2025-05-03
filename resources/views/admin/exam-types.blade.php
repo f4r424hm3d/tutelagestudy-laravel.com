@@ -58,6 +58,10 @@
                     <x-input-field type="text" label="Enter Slug" name="slug" id="slug" :ft="$ft"
                       :sd="$sd" />
                   </div>
+                  <div class="col-md-6 col-sm-12 mb-3">
+                    <x-input-field type="text" label="Enter Card Note" name="card_note" id="card_note"
+                      :ft="$ft" :sd="$sd" />
+                  </div>
                 </div>
                 <hr>
                 <!--  SEO INPUT FILED COMPONENT  -->
