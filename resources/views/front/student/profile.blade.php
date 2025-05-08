@@ -92,7 +92,7 @@
           </div>
           <div class="tab-pane fade" id="pills-edit-profile" role="tabpanel" aria-labelledby="pills-edit-profile-tab">
             <div class="main-edit">
-              <form action="{{ route('student.profile.update') }}" method="post" enctype="multipart/form-data">
+              <form action="{{ route('student.profile.update') }}/" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="row align-items-center">
                   <div class="col-12 col-sm-6 mb-4">
