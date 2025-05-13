@@ -219,8 +219,9 @@ return [
     'Captcha' => Mews\Captcha\Facades\Captcha::class,
   ])->toArray(),
 
+
   'cdn' => array(
-    "tutelagestudy03.b-cdn.net" => ""
+    "tutelagestudy04sachin.b-cdn.net" => ""
   ),
 
 ];

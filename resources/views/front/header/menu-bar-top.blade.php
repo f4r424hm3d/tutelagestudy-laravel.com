@@ -41,10 +41,16 @@
           <span aria-hidden="true">&times;</span>
         </button>
         <div class="counselling-impt">
-          <img src="/front/img/free-counselling.png" alt="">
+          <!-- <img src="/front/img/free-counselling.png" alt=""> -->
+          <img src="{{ url('front/') }}/img/logo_light.png" alt="Tutelage Study logo">
         </div>
         <div class="modal-header">
-          <h5 class="modal-title">Signup for free MBBS Counselling <span>Scholorship Available</span></h5>
+          <h5 class="modal-title">Study MBBS Abroad Most Affordable MBBS Package
+            <p class="goldden"> ( UpTo 100% Scholarship by Gyandeep NGO )
+            </p>
+            <div class="bouncediv"><i class="fa fa-phone mr-2" aria-hidden="true"></i>
+              Free Counseling
+          </h5>
         </div>
         <div class="modal-body pb-0">
           <form id="counsellingForm" class="row">
@@ -79,7 +85,7 @@
                 <span class="text-danger error-mobile"></span>
               </div>
             </div>
-            <div class="col-12 col-sm-4 pr-0">
+            <div class="col-12 col-sm-4">
               <div class="form-group">
                 {{-- <input type="text" name="nationality" class="form-control" placeholder="Nationality"> --}}
                 <select name="nationality" id="nationality" class="form-control">
@@ -108,7 +114,7 @@
               </div>
             </div>
             <div class="col-12 text-center">
-              <button type="submit" class="btn btn-primary w-25  popup-submit" id="submitBtn">Submit</button>
+              <button type="submit" class="btn btn-primary  popup-submit" id="submitBtn">Submit</button>
             </div>
           </form>
 
@@ -569,7 +575,7 @@
           const lastClosed = localStorage.getItem('counselling_modal_closed_time');
           if (lastClosed) {
             const diff = Date.now() - parseInt(lastClosed);
-            if (diff > 5 * 60 * 1000) {
+            if (diff > 3 * 5 * 1000) {
               openModal();
             }
             // if (diff > 1 * 1000) {
