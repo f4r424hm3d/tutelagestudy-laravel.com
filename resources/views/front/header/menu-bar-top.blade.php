@@ -49,7 +49,7 @@
             <p class="goldden"> ( UpTo 100% Scholarship by Gyandeep NGO )
             </p>
             <div class="bouncediv"><i class="fa fa-phone mr-2" aria-hidden="true"></i>
-              Free Counseling
+              Free Counselling
           </h5>
         </div>
         <div class="modal-body pb-0">
@@ -575,12 +575,12 @@
           const lastClosed = localStorage.getItem('counselling_modal_closed_time');
           if (lastClosed) {
             const diff = Date.now() - parseInt(lastClosed);
-            if (diff > 3 * 5 * 1000) {
-              openModal();
-            }
-            // if (diff > 1 * 1000) {
+            // if (diff > 5 * 60 * 1000) {
             //   openModal();
             // }
+            if (diff > 1 * 1000) {
+              openModal();
+            }
           }
         }
       }
