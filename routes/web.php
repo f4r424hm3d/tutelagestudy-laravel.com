@@ -37,6 +37,7 @@ use App\Http\Controllers\admin\ProgramC;
 use App\Http\Controllers\admin\SeoC;
 use App\Http\Controllers\admin\ServiceC;
 use App\Http\Controllers\admin\ServiceContentC;
+use App\Http\Controllers\admin\ServiceFaqC;
 use App\Http\Controllers\admin\StudentC;
 use App\Http\Controllers\admin\StudyModeC;
 use App\Http\Controllers\admin\TestimonialC;
@@ -435,12 +436,22 @@ Route::middleware(['adminLoggedIn'])->group(function () {
       Route::get('/update/{id}/', [ServiceC::class, 'index']);
       Route::post('/update/{id}/', [ServiceC::class, 'update']);
     });
-    Route::prefix('/service-content')->group(function () {
+    Route::prefix('/service-contents/')->group(function () {
+      Route::get('/get-data', [ServiceContentC::class, 'getData']);
+      Route::get('/get-position', [ServiceContentC::class, 'getPosition']);
+      Route::get('/delete/{id}', [ServiceContentC::class, 'delete']);
+      Route::post('/store', [ServiceContentC::class, 'store']);
       Route::get('/{service_id}/', [ServiceContentC::class, 'index']);
-      Route::post('/{service_id}/store/', [ServiceContentC::class, 'store']);
-      Route::get('/delete/{id}/', [ServiceContentC::class, 'delete']);
-      Route::get('/{service_id}/update/{id}/', [ServiceContentC::class, 'index']);
-      Route::post('/{service_id}/update/{id}/', [ServiceContentC::class, 'update']);
+      Route::get('{service_id}/update/{id}', [ServiceContentC::class, 'index']);
+      Route::post('{service_id}/update/{id}', [ServiceContentC::class, 'update']);
+    });
+    Route::prefix('/service-faqs/')->group(function () {
+      Route::get('/get-data', [ServiceFaqC::class, 'getData']);
+      Route::get('/delete/{id}', [ServiceFaqC::class, 'delete']);
+      Route::post('/store', [ServiceFaqC::class, 'store']);
+      Route::get('/{service_id}/', [ServiceFaqC::class, 'index']);
+      Route::get('{service_id}/update/{id}', [ServiceFaqC::class, 'index']);
+      Route::post('{service_id}/update/{id}', [ServiceFaqC::class, 'update']);
     });
     Route::prefix('/exams')->group(function () {
       Route::get('', [ExamC::class, 'index']);

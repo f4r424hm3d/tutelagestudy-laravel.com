@@ -4,26 +4,25 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Service;
-use App\Models\ServiceContent;
+use App\Models\ServiceFaq;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Validator;
 
-class ServiceContentC extends Controller
+class ServiceFaqC extends Controller
 {
   protected $page_route;
   public function __construct()
   {
-    $this->page_route = 'service-contents';
+    $this->page_route = 'service-faqs';
   }
   public function index(Request $request, $service_id, $id = null)
   {
     $service = Service::find($service_id);
     $page_no = $_GET['page'] ?? 1;
-    $rows = ServiceContent::where('service_id', $service_id)->get();
-    $parentContents = ServiceContent::where('service_id', $service_id)->where('parent_id', null)->get();
+    $rows = ServiceFaq::where('service_id', $service_id)->get();
     if ($id != null) {
-      $sd = ServiceContent::find($id);
+      $sd = ServiceFaq::find($id);
       if (!is_null($sd)) {
         $ft = 'edit';
         $url = url('admin/' . $this->page_route . '/' . $service_id . '/update/' . $id . '/');
@@ -37,18 +36,17 @@ class ServiceContentC extends Controller
       $title = 'Add New';
       $sd = '';
     }
-    $page_title = "Service Content";
+    $page_title = "Service Faqs";
     $page_route = $this->page_route;
-    $lastPosition = $rows->count() + 1;
-    $data = compact('rows', 'sd', 'ft', 'title', 'page_title', 'page_route', 'page_no', 'url', 'service_id', 'service', 'parentContents', 'lastPosition');
-    return view('admin.service-content')->with($data);
+    $data = compact('rows', 'sd', 'ft', 'title', 'page_title', 'page_route', 'page_no', 'url', 'service_id', 'service');
+    return view('admin.service-faqs')->with($data);
   }
   public function store(Request $request)
   {
     $validator = Validator::make($request->all(), [
       'service_id' => 'required',
-      'title' => 'required',
-      'description' => 'required',
+      'question' => 'required',
+      'answer' => 'required',
     ]);
 
     if ($validator->fails()) {
@@ -57,13 +55,10 @@ class ServiceContentC extends Controller
       ]);
     }
 
-    $field = new ServiceContent();
+    $field = new ServiceFaq();
     $field->service_id = $request['service_id'];
-    $field->title = $request['title'];
-    $field->slug = slugify($request['title']);
-    $field->description = $request['description'];
-    $field->position = $request['position'];
-    $field->parent_id = $request['parent_id'];
+    $field->question = $request['question'];
+    $field->answer = $request['answer'];
     $field->save();
     return response()->json(['success' => 'Records inserted succesfully.']);
   }
@@ -72,17 +67,14 @@ class ServiceContentC extends Controller
     $request->validate(
       [
         'service_id' => 'required',
-        'title' => 'required',
-        'description' => 'required',
+        'question' => 'required',
+        'answer' => 'required',
       ]
     );
-    $field = ServiceContent::find($id);
+    $field = ServiceFaq::find($id);
     $field->service_id = $request['service_id'];
-    $field->title = $request['title'];
-    $field->slug = slugify($request['title']);
-    $field->description = $request['description'];
-    $field->position = $request['position'];
-    $field->parent_id = $request['parent_id'];
+    $field->question = $request['question'];
+    $field->answer = $request['answer'];
     $field->save();
     session()->flash('smsg', 'Record has been updated successfully.');
     return redirect('admin/' . $this->page_route . '/' . $service_id);
@@ -91,31 +83,26 @@ class ServiceContentC extends Controller
   {
     // return $request;
     // die;
-    $rows = ServiceContent::where('service_id', $request->service_id)->paginate(10)->withPath('/admin/' . $this->page_route . '/' . $request->service_id);
+    $rows = ServiceFaq::where('service_id', $request->service_id)->paginate(10)->withPath('/admin/' . $this->page_route . '/' . $request->service_id);
     $i = 1;
     $output = '<table id="datatable" class="table table-bordered dt-responsive nowrap w-100">
     <thead>
       <tr>
         <th>Sr. No.</th>
-        <th>Position</th>
-        <th>Title</th>
-        <th>Description</th>
-        <th>Parent Title</th>
+        <th>Question</th>
+        <th>Answer</th>
         <th>Action</th>
       </tr>
     </thead>
     <tbody>';
     foreach ($rows as $row) {
-      $parentTitle = $row->parent_id != null ? $row->parent->title : 'N/A';
       $output .= '<tr id="row'
         . $row->id . '">
             <td>' . $i . '</td>
-            <td>' . $row->position . '</td>
-            <td>' . $row->title . '</td>
+            <td>' . $row->question . '</td>
             <td>
-              ' . Blade::render('<x-content-view-modal :row="$row" field="description" title="Description" />', ['row' => $row]) . '
+              ' . Blade::render('<x-content-view-modal :row="$row" field="answer" title="Answer" />', ['row' => $row]) . '
             </td>
-            <td>' . $parentTitle . '</td>
             <td>
              ' . Blade::render('<x-delete-button :id="$id" />', ['id' => $row->id]) . '
               ' . Blade::render('<x-edit-button :url="$url" />', ['url' => url('admin/' . $this->page_route . '/' . $request->service_id . '/update/' . $row->id)]) . '
@@ -130,7 +117,7 @@ class ServiceContentC extends Controller
   public function delete($id)
   {
     if ($id) {
-      $row = ServiceContent::findOrFail($id);
+      $row = ServiceFaq::findOrFail($id);
       //   if ($row->thumbnail_path != null) {
       //     unlink($row->thumbnail_path);
       //   }
@@ -139,11 +126,5 @@ class ServiceContentC extends Controller
     } else {
       return response()->json(['success' => false]);
     }
-  }
-  public function getPosition(Request $request)
-  {
-    $rows = ServiceContent::where('service_id', $request->service_id)->count();
-    $lastPosition = $rows + 1;
-    return $lastPosition;
   }
 }

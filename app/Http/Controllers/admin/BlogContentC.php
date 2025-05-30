@@ -100,7 +100,6 @@ class BlogContentC extends Controller
         <th>Position</th>
         <th>Title</th>
         <th>Description</th>
-        <th>Position</th>
         <th>Parent Title</th>
         <th>Action</th>
       </tr>

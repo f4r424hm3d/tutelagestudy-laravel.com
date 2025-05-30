@@ -48,24 +48,14 @@
                 <input type="hidden" name="service_id" value="{{ $service_id }}">
                 <div class="row">
                   <div class="col-md-12 col-sm-12 mb-3">
-                    <x-input-field type="text" label="Enter Heading" name="title" id="title" :ft="$ft"
+                    <x-input-field type="text" label="Enter Question" name="question" id="question" :ft="$ft"
                       :sd="$sd">
                     </x-input-field>
                   </div>
                   <div class="col-md-12 col-sm-12 mb-3">
-                    <x-textarea-field label="Enter Description" name="description" id="description" :ft="$ft"
+                    <x-textarea-field label="Enter Answer" name="answer" id="answer" :ft="$ft"
                       :sd="$sd">
                     </x-textarea-field>
-                  </div>
-                  <div class="col-md-6 col-sm-12 mb-3">
-                    <x-select-field type="text" label="Select Parent Title" name="parent_id" id="parent_id"
-                      :ft="$ft" :sd="$sd" :list="$parentContents" showv="title" savev="id">
-                    </x-select-field>
-                  </div>
-                  <div class="col-md-2 col-sm-12 mb-3">
-                    <x-number-input type="number" label="Position" name="position" id="position" :ft="$ft"
-                      :sd="$sd">
-                    </x-number-input>
                   </div>
                 </div>
                 @if ($ft == 'add')
@@ -103,7 +93,6 @@
         var page = '{{ $page_no }}';
       }
       var service_id = '{{ $service_id }}';
-      var ft = '{{ $ft }}';
       return new Promise(function(resolve, reject) {
         //$("#migrateBtn").text('Migrating...');
         setTimeout(() => {
@@ -116,29 +105,6 @@
             },
             success: function(data) {
               $("#trdata").html(data);
-              if (ft == 'add') {
-                setPosition();
-              }
-            }
-          });
-        });
-      });
-    }
-
-    function setPosition() {
-      //alert('Hello');
-      var service_id = '{{ $service_id }}';
-      return new Promise(function(resolve, reject) {
-        setTimeout(() => {
-          $.ajax({
-            url: "{{ aurl($page_route . '/get-position') }}/",
-            method: "GET",
-            data: {
-              service_id: service_id,
-            },
-            success: function(data) {
-              //alert(data);
-              $("#position").val(data);
             }
           });
         });
@@ -146,14 +112,14 @@
     }
 
     function setEditorBlank() {
-      CKEDITOR.instances.description.setData('');
+      CKEDITOR.instances.answer.setData('');
     }
 
     $(function() {
-      var $description = CKEDITOR.replace('description');
+      var $answer = CKEDITOR.replace('answer');
 
-      $description.on('change', function() {
-        $description.updateElement();
+      $answer.on('change', function() {
+        $answer.updateElement();
       });
     });
   </script>

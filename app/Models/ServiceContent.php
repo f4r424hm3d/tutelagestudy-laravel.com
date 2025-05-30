@@ -7,5 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class ServiceContent extends Model
 {
-    use HasFactory;
+  use HasFactory;
+  public function childs()
+  {
+    return $this->hasMany(ServiceContent::class, 'parent_id', 'id');
+  }
+  public function parent()
+  {
+    return $this->hasOne(ServiceContent::class, 'id', 'parent_id');
+  }
+  public function childContents()
+  {
+    return $this->hasMany(ServiceContent::class, 'parent_id', 'id')->orderBy('position', 'asc')->where('parent_id', '!=', null);
+  }
 }
