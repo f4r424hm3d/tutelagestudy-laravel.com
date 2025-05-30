@@ -39,7 +39,6 @@ class ServiceC extends Controller
       [
         'headline' => 'required|unique:services,headline',
         'thumbnail' => 'required|max:5000|mimes:jpg,jpeg,png,gif',
-        'description' => 'required',
       ]
     );
     $field = new Service;
@@ -81,7 +80,6 @@ class ServiceC extends Controller
       [
         'headline' => 'required|unique:services,headline,' . $id,
         'thumbnail' => 'nullable|max:5000|mimes:jpg,jpeg,png,gif',
-        'description' => 'required',
       ]
     );
     $field = Service::find($id);
