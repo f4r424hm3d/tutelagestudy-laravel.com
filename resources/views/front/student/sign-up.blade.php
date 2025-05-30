@@ -103,9 +103,9 @@
                   <div class="form-group">
                     <div class="input-group main-rel">
                       <div class="input-icon  main-rel">
-                        <i id="password_icon_hide" class="fa-solid fa-lock hide-this "
+                        <i id="password_icon_hide" class="fa-solid fa-lock-open hide-this "
                           onclick="hidePassword('confirm_password')"></i>
-                        <i id="password_icon_show" class="fa-solid fa-lock-open  "
+                        <i id="password_icon_show" class="fa-solid fa-lock "
                           onclick="showPassword('confirm_password')"></i>
                         <!-- <span id="password_icon_show" class="ti-eye" onclick="showPassword('password')"></span>
                                   <span id="password_icon_hide" class="ti-eye hide-this"
@@ -122,9 +122,9 @@
                   <div class="form-group">
                     <div class="input-group main-rel">
                       <div class="input-icon">
-                        <i id="confirm_password_icon_hide" class="fa-solid fa-lock hide-this "
+                        <i id="confirm_password_icon_hide" class="fa-solid fa-lock-open hide-this "
                           onclick="hidePassword('confirm_password')"></i>
-                        <i id="confirm_password_icon_show" class="fa-solid fa-lock-open  "
+                        <i id="confirm_password_icon_show" class="fa-solid fa-lock  "
                           onclick="showPassword('confirm_password')"></i>
 
                         <!-- <span id="confirm_password_icon_show" class="ti-eye"

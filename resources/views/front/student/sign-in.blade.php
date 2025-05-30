@@ -44,9 +44,9 @@
                   <div class="form-group ">
                     <div class="input-group main-rel">
                       <div class="input-icon">
-                        <i id="password_icon_hide" class="fa-solid fa-lock hide-this "
+                        <i id="password_icon_hide" class="fa-solid fa-lock-open hide-this "
                           onclick="hidePassword('password')"></i>
-                        <i id="password_icon_show" class="fa-solid fa-lock-open  " onclick="showPassword('password')"></i>
+                        <i id="password_icon_show" class="fa-solid fa-lock  " onclick="showPassword('password')"></i>
                         <!-- <span id="password_icon_show" class="ti-eye" onclick="showPassword('password')"></span> -->
                         <!-- <span id="password_icon_hide" class="ti-eye hide-this"
                                     onclick="hidePassword('password')"></span> -->

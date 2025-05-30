@@ -291,7 +291,7 @@
         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 mb-4">
           <div class="ps-block--category customcard">
             <div class="servicebox">
-              <div class="service-icon"><span><i class="fa fa-dollar"></i></span></div>
+              <div class="service-icon"><span><i class="fa fa-language"></i></span></div>
               <h3 class="title">100% English-Medium Programs
               </h3>
               <p>Study in a fully English-taught curriculum, as per NMC Guidelines for Indian Students
@@ -302,7 +302,7 @@
         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 mb-4">
           <div class="ps-block--category customcard">
             <div class="servicebox">
-              <div class="service-icon"><span><i class="fa fa-language"></i></span></div>
+              <div class="service-icon"><span><i class="fa fa-dollar"></i></span></div>
               <h3 class="title">No Donations
               </h3>
               <p>We guarantee a transparent admission process, with no capitation fees, hidden costs, or

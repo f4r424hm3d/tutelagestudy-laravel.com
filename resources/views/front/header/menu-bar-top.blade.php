@@ -385,10 +385,10 @@
         <i class="icon-list4" aria-hidden="true"></i><span> Brochure</span>
       </a>
       <!--<a class="navigation__item ps-toggle--sidebar" href="#search-sidebar" aria-label="Left Align">-->
-      <a class="navigation__item ps-toggle--sidebar" href="https://www.tutelagestudy.com/mbbs-abroad-counselling/">
+      <a class="navigation__item" href="https://www.tutelagestudy.com/mbbs-abroad-counselling/">
         <i class="icon-pencil-line" aria-hidden="true"></i><span> Enquire Now</span>
       </a>
-    </div>
+    </div> 
   </div>
   <div class="ps-panel--sidebar" id="search-sidebar">
     <div class="ps-panel__header">

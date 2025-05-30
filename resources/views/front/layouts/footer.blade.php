@@ -206,14 +206,14 @@
 
   .whats-float:hover img {
     transform: rotate(360deg)
-  }
+  } 
 
   .chat-popup {
     display: none;
     position: fixed;
     bottom: 145px;
     left: 10px;
-    z-index: 999
+    z-index: 99999;
   }
 
   .align-items-center {
