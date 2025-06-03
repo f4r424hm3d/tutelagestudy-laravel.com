@@ -206,7 +206,7 @@
 
   .whats-float:hover img {
     transform: rotate(360deg)
-  } 
+  }
 
   .chat-popup {
     display: none;
@@ -314,29 +314,9 @@
         <div class="row align-items-center">
           <div class="col-2 pr0"><img data-src="{{ asset('/front/') }}/img/flag-india.png" alt="whatsapp now"
               class="img-fluid"></div>
-          <div class="col-8 pr0"> <strong>India Office, Gurgaon</strong><br> Start Chat with Mr. Gaurav </div>
+          <div class="col-8 pr0"> Chat on whatsapp </div>
           <div class="col-2 pl0 text-right"><img data-src="{{ asset('/front/') }}/img/wad.png" alt="whatsapp now"
               width="20"> </div>
-        </div>
-      </a>
-      <a class="country-box chennai-wapp" target="_blank"
-        href="https://api.whatsapp.com/send?phone=919667667331&amp;text=Hello there!! I want to get counseling by experts. Want to know more information about Study MBBS Abroad | www.tutelagestudy.com">
-        <div class="row align-items-center">
-          <div class="col-2 pr0"><img data-src="{{ asset('/front/') }}/img/flag-india.png" alt="whatsapp now"
-              class="img-fluid"></div>
-          <div class="col-8 pr0"> <strong>India Office, Chennai</strong><br> Start Chat with Ms. Anitha </div>
-          <div class="col-2 pl0 text-right"><img data-src="{{ asset('/front/') }}/img/wad.png" alt="whatsapp now"
-              width="20"> </div>
-        </div>
-      </a>
-      <a class="country-box mumbai-wapp" target="_blank"
-        href="https://api.whatsapp.com/send?phone=918448391296&amp;text=Hello there!! I want to get counseling by experts. Want to know more information about Study MBBS Abroad | www.tutelagestudy.com">
-        <div class="row align-items-center">
-          <div class="col-2 pr0"><img data-src="{{ asset('/front/') }}/img/flag-india.png" alt="whatsapp image"
-              class="img-fluid"></div>
-          <div class="col-8 pr0"> <strong>India Office, Mumbai</strong><br> Start Chat with Miss. Yogita </div>
-          <div class="col-2 pl0 text-right"><img data-src="{{ asset('/front/') }}/img/wad.png" alt="whatsapp image"
-              width="20"></div>
         </div>
       </a>
     </div>
