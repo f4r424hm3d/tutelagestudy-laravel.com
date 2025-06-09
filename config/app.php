@@ -221,7 +221,7 @@ return [
 
 
   'cdn' => array(
-    "tutelageamaninnayatcro-26may.b-cdn.net" => ""
+    "tutelagestudy-kartik-09june.b-cdn.net" => ""
   ),
 
 ];
