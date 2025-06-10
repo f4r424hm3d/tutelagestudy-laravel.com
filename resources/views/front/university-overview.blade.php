@@ -371,7 +371,7 @@
                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                   <!-- Sidebar ads -->
                   <aside class="ps-widget--account-dashboard">
-                    <h3 style=" background:#cd2122; color:#fff; font-size:16px; padding:10px 20px; margin:0px">Blog</h3>
+                    <h3 class="main-postss" >Blog</h3>
                     <div class="ps-widget__content" style="background:#fff">
                       <ul>
                         @foreach ($categories as $cat)
@@ -386,7 +386,7 @@
                     <div class="ps-section__left" style="top:60px; background:#fff">
                       <aside class="ps-widget--account-dashboard">
                         <div class="ps-widget__content">
-                          <div style="font-size:18px; color:#fff; background:#045dab; padding:10px; text-align:center">
+                          <div class="main-postss">
                             Other
                             Destination</div>
                           <ul style="max-height:480px; overflow:auto">
@@ -494,9 +494,7 @@
       color: #fff
     }
 
-    .modal-header {
-      border-bottom: 1px solid #dee2e6 !important
-    }
+   
 
     .get-detail {
       display: flex;

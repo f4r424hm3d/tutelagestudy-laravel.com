@@ -268,7 +268,7 @@
           <div class="col-md-3">
             <div class="ps-section__left">
               <aside class="ps-widget--account-dashboard">
-                <h3 style="background:#cd2122; color:#fff; font-size:16px; padding:10px 20px; margin:0px">More Categories
+                <h3 class="main-postss">More Categories
                 </h3>
                 <div class="ps-widget__content" style="background:#fff">
                   <ul>
@@ -284,7 +284,7 @@
               </aside>
 
               <aside class="ps-widget--account-dashboard">
-                <h3 style="background:#cd2122; color:#fff; font-size:16px; padding:10px 20px; margin:0px">Recent Posts
+                <h3 class="main-postss">Recent Posts
                 </h3>
                 <div class="ps-widget__content" style="background:#fff">
                   <ul>

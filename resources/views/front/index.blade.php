@@ -17,11 +17,11 @@
             data-owl-item-sm="1" data-owl-item-md="1" data-owl-item-lg="1" data-owl-duration="1000"
             data-owl-mousedrag="on">
             <div class="ps-banner"><a href="https://www.tutelagestudy.com/mbbs-in-abroad/"><img
-                  src="{{ asset('front/') }}/img/slider/home-1/germany-banner-3.jpg" alt="study mbbs abroad"></a></div>
+                  src="{{ asset('front/') }}/img/slider/home-1/germany-banner-3.webp" alt="study mbbs abroad"></a></div>
             <div class="ps-banner"><a href="https://www.tutelagestudy.com/medical-universities/"><img
-                  src="{{ asset('front/') }}/img/slider/home-1/germany-banner-2.jpg" alt="study mbbs abroad"></a></div>
+                  src="{{ asset('front/') }}/img/slider/home-1/germany-banner-2.webp" alt="study mbbs abroad"></a></div>
             <div class="ps-banner"><a href="/destinations/"><img
-                  src="{{ asset('front/') }}/img/slider/home-1/germany-banner-4.jpg" alt="study mbbs abroad"></a></div>
+                  src="{{ asset('front/') }}/img/slider/home-1/germany-banner-4.webp" alt="study mbbs abroad"></a></div>
           </div>
         </div>
         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
@@ -74,7 +74,7 @@
   <section class="onlineCoaching">
     <div class="container">
       <div class="row">
-        <div class="col-xl-5 col-lg-5 col-md-5 col-sm-6 col-12"><img data-src="{{ asset('/front/') }}/img/who-we-are.jpg"
+        <div class="col-xl-5 col-lg-5 col-md-5 col-sm-6 col-12"><img data-src="{{ asset('/front/') }}/img/who-we-are.webp"
             alt="Best MBBS Abroad Consultants – Secure Your Medical Seat Today!" border="0" width="w-100"></div>
         <div class="col-xl-7 col-lg-7 col-md-7 col-sm-6 col-12">
           <h2 class="main-h1">Best MBBS Abroad Consultants – Secure Your Medical Seat Today!</h2>
@@ -110,8 +110,9 @@
           <a href="<?php echo url('medical-universities'); ?>/">
             <div class="ps-block--category">
 
-              <img data-src="<?php echo url('front'); ?>/img/find-university.jpg" alt="All Universities"
+              <img data-src="<?php echo url('front'); ?>/img/find-university.webp" alt="All Universities"
                 style="width:100%!important">
+
               <h4 class="pt-10 mb-0 button cur-conver-btn">Find All Universities</h4>
             </div>
           </a>
@@ -121,7 +122,7 @@
           <a href="<?php echo url('services'); ?>/">
             <div class="ps-block--category">
 
-              <img data-src="<?php echo url('front'); ?>/img/top-courses.jpg" alt="Services" style="width:100%!important">
+              <img data-src="<?php echo url('front'); ?>/img/top-courses.webp" alt="Services" style="width:100%!important">
               <h4 class="pt-10 mb-0 button cur-conver-btn">Our Services</h4>
             </div>
           </a>
@@ -130,7 +131,7 @@
           <a href="<?php echo url('destinations'); ?>/">
             <div class="ps-block--category">
 
-              <img data-src="<?php echo url('front'); ?>/img/exams.jpg" alt="All Destinations" style="width:100%!important">
+              <img data-src="<?php echo url('front'); ?>/img/exams.webp" alt="All Destinations" style="width:100%!important">
               <h4 class="pt-10 mb-0 button cur-conver-btn">All Destinations</h4>
             </div>
           </a>
@@ -138,7 +139,7 @@
         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 ">
           <a href="{{ url('blog') }}/">
             <div class="ps-block--category">
-              <img data-src="<?php echo url('front'); ?>/img/news.jpg" alt="latest news" style="width:100%!important">
+              <img data-src="<?php echo url('front'); ?>/img/news.webp" alt="latest news" style="width:100%!important">
               <h4 class="pt-10 mb-0 button cur-conver-btn">Blog & Article</h4>
             </div>
           </a>
@@ -146,7 +147,7 @@
         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 ">
           <a href="<?php echo url('mbbs-abroad-counselling'); ?>/">
             <div class="ps-block--category">
-              <img data-src="<?php echo url('front'); ?>/img/scholarship.jpg" alt="Enquire Now" style="width:100%!important">
+              <img data-src="<?php echo url('front'); ?>/img/scholarship.webp" alt="Enquire Now" style="width:100%!important">
               <h4 class="pt-10 mb-0 button cur-conver-btn">Free Counselling</h4>
             </div>
           </a>
@@ -154,7 +155,7 @@
         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 ">
           <a href="<?php echo url('neet-ug'); ?>/">
             <div class="ps-block--category">
-              <img src="<?php echo url('front'); ?>/img/compare.jpg" alt="compare universities" style="width:100%!important">
+              <img src="<?php echo url('front'); ?>/img/compare.webp" alt="compare universities" style="width:100%!important">
               <h4 class="pt-10 mb-0 button cur-conver-btn">NEET UG</h4>
             </div>
           </a>
@@ -523,7 +524,7 @@
             <ul>
               <li>
                 <div>
-                  <span class="counselling-right-image"><img data-src="{{ asset('front/') }}/img/Cicon1.png"
+                  <span class="counselling-right-image"><img data-src="{{ asset('front/') }}/img/Cicon1.webp"
                       alt="Conselling Icon"></span>
                   <p>No Hidden <br>
                     Charges
@@ -532,7 +533,7 @@
               </li>
               <li>
                 <div>
-                  <span class="counselling-right-image"><img data-src="{{ asset('front/') }}/img/Cicon2.png"
+                  <span class="counselling-right-image"><img data-src="{{ asset('front/') }}/img/Cicon2.webp"
                       alt="Conselling Icon"></span>
                   <p>Expert <br>
                     Career Counsellors
@@ -541,7 +542,7 @@
               </li>
               <li>
                 <div>
-                  <span class="counselling-right-image"><img data-src="{{ asset('front/') }}/img/Cicon3.png"
+                  <span class="counselling-right-image"><img data-src="{{ asset('front/') }}/img/Cicon3.webp"
                       alt="Conselling Icon"></span>
                   <p>100% Online <br>
                     Process
@@ -550,7 +551,7 @@
               </li>
               <li>
                 <div>
-                  <span class="counselling-right-image"><img data-src="{{ asset('front/') }}/img/Cicon4.png"
+                  <span class="counselling-right-image"><img data-src="{{ asset('front/') }}/img/Cicon4.webp"
                       alt="Conselling Icon"></span>
                   <p>Visa<br />
                     Assistance
@@ -559,7 +560,7 @@
               </li>
               <li>
                 <div>
-                  <span class="counselling-right-image"><img data-src="{{ asset('front/') }}/img/Cicon5.png"
+                  <span class="counselling-right-image"><img data-src="{{ asset('front/') }}/img/Cicon5.webp"
                       alt="Conselling Icon"></span>
                   <p>Forex <br>
                     Assistance
@@ -568,7 +569,7 @@
               </li>
               <li>
                 <div>
-                  <span class="counselling-right-image"><img data-src="{{ asset('front/') }}/img/Cicon6.png"
+                  <span class="counselling-right-image"><img data-src="{{ asset('front/') }}/img/Cicon6.webp"
                       alt="Conselling Icon"></span>
                   <p>Affordable Loan assistance
                   </p>

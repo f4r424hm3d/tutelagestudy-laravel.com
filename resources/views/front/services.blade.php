@@ -13,13 +13,9 @@
     height: 245px;
   }
 
-  .ps-post .ps-post__title {
-    font-size: 18px !important;
-    margin-bottom: 10px !important;
-  }
+ 
 
 
-  @media(max-width:767px) {}
 </style>
 <div class="ps-page--single ps-page--vendor">
   <div class="ps-breadcrumb">
@@ -30,8 +26,10 @@
       </ul>
     </div>
   </div>
-
-  <div class="ps-vendor-banner bg--cover" data-background="https://www.educationmalaysia.in/assets/uploadFiles/study/IMG_20221210_133900.jpg" style="background:url(https://www.educationmalaysia.in/assets/uploadFiles/study/IMG_20221210_133900.jpg)">
+<!-- <div class="ps-vendor-banner bg--cover" data-background="https://www.educationmalaysia.in/assets/uploadFiles/study/IMG_20221210_133900.jpg" style="background:url(https://www.educationmalaysia.in/assets/uploadFiles/study/IMG_20221210_133900.jpg)">
+  </div> -->
+  <div class="ps-vendor-banner py-0">
+    <img class="bannerfullsd" src="{{ asset('front/img/services.webp') }}"alt="destinations mbbs abroad">
   </div>
 
   <section class="ps-store-list">
@@ -49,7 +47,7 @@
                         <img data-src="<?php echo asset($row->imgpath); ?>" alt="<?php echo $row->headline; ?>">
                       </div>
                       <div class="ps-post__content" style="border:0px; padding:20px 25px">
-                        <div class="ps-post__title"><?php echo $row->headline; ?></div>
+                        <div class="ps-post__title mb-3"><?php echo $row->headline; ?></div>
                         <div><button class="ps-btn btn">Read More</button></div>
                       </div>
                 </a>

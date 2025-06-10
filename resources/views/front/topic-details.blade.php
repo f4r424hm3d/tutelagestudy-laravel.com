@@ -488,7 +488,7 @@ $chk = $this->session->flashdata('chk');
               <?php if ($otherpage != false) { ?>
               <div class="ps-section__left" style="position:sticky; top:0;">
                 <aside class="ps-widget--account-dashboard">
-                  <h3 style=" background:#cd2122; color:#fff; font-size:16px; padding:10px 20px; margin:0px">Blog
+                  <h3 class="main-postss">Blog
                     Categories</h3>
                   <div class="ps-widget__content" style="background:#fff">
                     <ul>

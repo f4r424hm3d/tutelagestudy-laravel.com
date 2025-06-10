@@ -92,7 +92,7 @@ $meta_description = str_replace('%site%', $site, $meta_description);
   <link rel="shortcut icon" href="<?php echo base_url('assets/web/'); ?>img/icon.png" type="image/x-icon">
   <link href="<?php echo base_url('assets/web/'); ?>img/icon.png" rel="apple-touch-icon">
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://www.indianuniversities.net/assets/web/img/slider/home-1/germany-banner-4.jpg" />
+  <meta property="og:image" content="https://www.indianuniversities.net/assets/web/img/slider/home-1/germany-banner-4.webp" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:url" content="<?php echo $fullurl; ?>" />
 

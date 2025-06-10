@@ -51,8 +51,8 @@
     </div>
   </div>
   <div class="ps-page--single" id="about-us">
-    <img data-src="https://www.educationmalaysia.in/assets/uploadFiles/study/IMG_20221210_133900.jpg"
-    alt="destinations mbbs abroad">
+    <img class="bannerfullsd" src="{{ asset('front/img/destination.webp') }}"  alt="destinations mbbs abroad" >
+    
     <div class="ps-about-intro">
     <div class="container">
       <div class="row align-items-center">
@@ -86,8 +86,7 @@
         </div>   
       </div>
       </div>
-    </div>
-    <div class="row">
+        <div class="row">
       <?php foreach ($destinations as $row) { ?>
       <div class="col-md-3 mt-3 mb30">
       <div class="img-content content-destination">
@@ -105,6 +104,8 @@
       </div>
       <?php } ?>
     </div>
+    </div>
+  
     </div>
   </div>
   </div>
