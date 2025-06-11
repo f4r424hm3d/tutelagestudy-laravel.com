@@ -16,8 +16,8 @@ class StudentC extends Controller
   public function index(Request $request)
   {
     $limit_per_page = $request->limit_per_page ?? 10;
-    $order_by = $request->order_by ?? 'name';
-    $order_in = $request->order_in ?? 'ASC';
+    $order_by = $request->order_by ?? 'created_at';
+    $order_in = $request->order_in ?? 'DESC';
     $rows = Student::orderBy($order_by, $order_in);
     $filterApplied = false;
     if ($request->has('search') && $request->search != '') {
