@@ -38,6 +38,7 @@ class ServiceC extends Controller
     $request->validate(
       [
         'headline' => 'required|unique:services,headline',
+        'slug' => 'required|unique:services,slug',
         'thumbnail' => 'required|max:5000|mimes:jpg,jpeg,png,gif',
       ]
     );
@@ -57,7 +58,7 @@ class ServiceC extends Controller
       }
     }
     $field->headline = $request['headline'];
-    $field->slug = slugify($request['headline']);
+    $field->slug = slugify($request['slug']);
     $field->description = $request['description'];
     $field->meta_title = $request['meta_title'];
     $field->meta_keyword = $request['meta_keyword'];
@@ -79,6 +80,7 @@ class ServiceC extends Controller
     $request->validate(
       [
         'headline' => 'required|unique:services,headline,' . $id,
+        'slug' => 'required|unique:services,slug,' . $id,
         'thumbnail' => 'nullable|max:5000|mimes:jpg,jpeg,png,gif',
       ]
     );
@@ -98,7 +100,7 @@ class ServiceC extends Controller
       }
     }
     $field->headline = $request['headline'];
-    $field->slug = slugify($request['headline']);
+    $field->slug = slugify($request['slug']);
     $field->description = $request['description'];
     $field->meta_title = $request['meta_title'];
     $field->meta_keyword = $request['meta_keyword'];

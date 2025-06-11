@@ -44,8 +44,12 @@
                 novalidate>
                 @csrf
                 <div class="row">
-                  <div class="col-md-8 col-sm-12 mb-3">
+                  <div class="col-md-6 col-sm-12 mb-3">
                     <x-InputField type="text" label="Enter Service Title" name="headline" id="headline"
+                      :ft="$ft" :sd="$sd"></x-InputField>
+                  </div>
+                  <div class="col-md-6 col-sm-12 mb-3">
+                    <x-InputField type="text" label="Enter Service Slug" name="slug" id="slug"
                       :ft="$ft" :sd="$sd"></x-InputField>
                   </div>
                   <div class="col-md-4 col-sm-12 mb-3">
@@ -78,7 +82,7 @@
         <div class="col-12">
           <div class="card">
             <div class="card-body">
-              <table id="datatable" class="table table-bordered dt-responsive nowrap w-100">
+              <table id="datatable" class="table table-bordered dt-responsiv nowra w-100">
                 <thead>
                   <tr>
                     <th>Sr. No.</th>
@@ -100,7 +104,9 @@
                     @endphp
                     <tr id="row{{ $row->id }}">
                       <td>{{ $i }}</td>
-                      <td>{{ $row->headline }}</td>
+                      <td>
+                        <a href="{{ url('services/' . $row->slug) }}" target="_blank">{{ $row->headline }}</a>
+                      </td>
                       <td>
                         @if ($row->description != null)
                           <button type="button" class="btn btn-xs btn-outline-info waves-effect waves-light"
