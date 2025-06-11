@@ -9,7 +9,8 @@
   <div id="homepage-1">
     <div class="ps-home-banner ps-home-banner--1 mt-5">
       <div class="ps-container" style="padding:0px!important">
-        <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12">
+        <div class="row">
+          <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12">
           <h1 class="widget-title text-center td-uppercase">Most Trusted Study MBBS Abroad Consultants in India</h1>
           <!--div class="ps-section__left"-->
           <div class="ps-carousel--nav-inside owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000"
@@ -20,8 +21,8 @@
                   src="{{ asset('front/') }}/img/slider/home-1/germany-banner-3.webp" alt="study mbbs abroad"></a></div>
             <div class="ps-banner"><a href="https://www.tutelagestudy.com/medical-universities/"><img
                   src="{{ asset('front/') }}/img/slider/home-1/germany-banner-2.webp" alt="study mbbs abroad"></a></div>
-            <div class="ps-banner"><a href="/destinations/"><img
-                  src="{{ asset('front/') }}/img/slider/home-1/germany-banner-4.webp" alt="study mbbs abroad"></a></div>
+            <!-- <div class="ps-banner"><a href="/destinations/"><img
+                  src="{{ asset('front/') }}/img/slider/home-1/germany-banner-4.webp" alt="study mbbs abroad"></a></div> -->
           </div>
         </div>
         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
@@ -67,6 +68,7 @@
               </div>
             </div>
           </aside>
+        </div>
         </div>
       </div>
     </div>
@@ -379,7 +381,7 @@
             <a href="https://www.tutelagestudy.com/mbbs-abroad-counselling/" class="button home-btn">Enquire Now</a>
           </div>
         </div>
-        <div class="col-md-6">
+        {{-- <div class="col-md-6">
           <div class="cur-conver">
             <h2>Real-Time Currency Converter for Study Abroad Aspirants</h2>
             <p class="jsfy">
@@ -419,7 +421,6 @@
                         =</p>
                       <p class="price-numbers" id="convertedAmount"> <span class="title-bolds" id="toResult"></span>
                       </p>
-                      {{-- <p class="usd-texts">1 JPY = 0.00667183 USD</p> --}}
                     </div>
                     <button type="submit" class="ps-btn w-25">Convert</button>
                   </div>
@@ -428,7 +429,7 @@
             </form>
 
           </div>
-        </div>
+        </div> --}}
       </div>
   </section>
   <div class="ps-page--product  pb-40" style="background:#e5e6eb;">

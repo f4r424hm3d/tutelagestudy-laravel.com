@@ -123,11 +123,11 @@ Route::get('/contact-us/', [ContactFc::class, 'index']);
 Route::get('/term-and-condition/', [HomeFc::class, 'termsConditions']);
 Route::get('/privacy-policy/', [HomeFc::class, 'privacyPolicy']);
 
-Route::get('/currency-converter/', [TestFc::class, 'index']);
-Route::get('/convert-currency', [CurrencyConverterController::class, 'convert']);
-Route::get('/currency', function () {
-  return view('currency'); // Ensure the Blade file exists
-});
+// Route::get('/currency-converter/', [TestFc::class, 'index']);
+// Route::get('/convert-currency', [CurrencyConverterController::class, 'convert']);
+// Route::get('/currency', function () {
+//   return view('currency'); // Ensure the Blade file exists
+// });
 Route::get('/currencies', [CurrencyConverterController::class, 'getCurrencies']);
 
 $blogs = Blog::all();
