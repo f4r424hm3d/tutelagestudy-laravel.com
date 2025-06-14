@@ -227,6 +227,7 @@ class StudentC extends Controller
         'source' => $row['source'],
         'neet_qualified' => $row['neet_qualified'],
         'question' => $row['question'],
+        'created_at' => $row['created_at'],
       ];
 
       $response = Http::asForm()
