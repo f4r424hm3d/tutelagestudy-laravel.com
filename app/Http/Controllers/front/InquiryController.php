@@ -588,7 +588,7 @@ class InquiryController extends Controller
     $otp = rand(1000, 9999);
     $otp_expire_at = date("YmdHis", strtotime("+15 minutes"));
     // Validate and store data
-    $data = $request->validate([
+    $request->validate([
       'name' => 'required|regex:/^[a-zA-Z ]*$/',
       'email' => 'required|email:rfc,dns|unique:students,email',
       'c_code' => 'required|numeric|digits_between:1,5',
@@ -618,34 +618,32 @@ class InquiryController extends Controller
     session()->flash('smsg', 'An OTP has been send to your registered email address.');
     $request->session()->put('last_id', $field->id);
 
-    try {
-      $form_data = [
-        'name' => $request['name'],
-        'email' => $request['email'],
-        'c_code' => $request['c_code'],
-        'mobile' => $request['mobile'],
-        'nationality' => $request['nationality'] ?? null,
-        'destination' => $request['destination'],
-        'source' => $request['source'] ?? 'Website',
-        'source_url' => $request['source_path'] ?? null,
-      ];
 
-      $response = Http::asForm()
-        ->withHeaders([
-          'API-KEY' => env('CRM_API_KEY'),
-        ])
-        ->timeout(10)
-        ->post('https://www.crm.tutelagestudy.com/Api/signup', $form_data);
+    $form_data = [
+      'name' => $request['name'],
+      'email' => $request['email'],
+      'c_code' => $request['c_code'],
+      'mobile' => $request['mobile'],
+      'nationality' => $request['nationality'] ?? null,
+      'destination' => $request['destination'],
+      'source' => $request['source'] ?? 'Website',
+      'source_url' => $request['source_path'] ?? null,
+    ];
 
-      if (!$response->successful()) {
-        Log::warning('CRM API failed', [
-          'status' => $response->status(),
-          'body' => $response->body(),
-        ]);
-      }
-    } catch (\Exception $e) {
-      Log::error('CRM API Exception: ' . $e->getMessage());
+    $response = Http::asForm()
+      ->withHeaders([
+        'API-KEY' => env('CRM_API_KEY'),
+      ])
+      ->timeout(10)
+      ->post('https://www.crm.tutelagestudy.com/Api/signup', $form_data);
+
+    if (!$response->successful()) {
+      Log::error('CRM API submission failed!', [
+        'status' => $response->status(),
+        'body' => $response->body()
+      ]);
     }
+
 
     $emaildata = ['name' => $request['name'], 'otp' => $otp];
     $dd = ['to' => $request['email'], 'to_name' => $request['name'], 'subject' => 'OTP'];
