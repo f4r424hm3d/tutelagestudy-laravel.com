@@ -11,64 +11,64 @@
       <div class="ps-container" style="padding:0px!important">
         <div class="row">
           <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12">
-          <h1 class="widget-title text-center td-uppercase">Most Trusted Study MBBS Abroad Consultants in India</h1>
-          <!--div class="ps-section__left"-->
-          <div class="ps-carousel--nav-inside owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000"
-            data-owl-gap="0" data-owl-nav="true" data-owl-dots="true" data-owl-item="1" data-owl-item-xs="1"
-            data-owl-item-sm="1" data-owl-item-md="1" data-owl-item-lg="1" data-owl-duration="1000"
-            data-owl-mousedrag="on">
-            <div class="ps-banner"><a href="https://www.tutelagestudy.com/mbbs-in-abroad/"><img
-                  src="{{ asset('front/') }}/img/slider/home-1/germany-banner-3.webp" alt="study mbbs abroad"></a></div>
-            <div class="ps-banner"><a href="https://www.tutelagestudy.com/medical-universities/"><img
-                  src="{{ asset('front/') }}/img/slider/home-1/germany-banner-2.webp" alt="study mbbs abroad"></a></div>
-            <!-- <div class="ps-banner"><a href="/destinations/"><img
-                  src="{{ asset('front/') }}/img/slider/home-1/germany-banner-4.webp" alt="study mbbs abroad"></a></div> -->
+            <h1 class="widget-title text-center td-uppercase">Most Trusted Study MBBS Abroad Consultants in India</h1>
+            <!--div class="ps-section__left"-->
+            <div class="ps-carousel--nav-inside owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000"
+              data-owl-gap="0" data-owl-nav="true" data-owl-dots="true" data-owl-item="1" data-owl-item-xs="1"
+              data-owl-item-sm="1" data-owl-item-md="1" data-owl-item-lg="1" data-owl-duration="1000"
+              data-owl-mousedrag="on">
+              <div class="ps-banner"><a href="https://www.tutelagestudy.com/mbbs-in-abroad/"><img
+                    src="{{ asset('front/') }}/img/slider/home-1/germany-banner-3.webp" alt="study mbbs abroad"></a></div>
+              <div class="ps-banner"><a href="https://www.tutelagestudy.com/medical-universities/"><img
+                    src="{{ asset('front/') }}/img/slider/home-1/germany-banner-2.webp" alt="study mbbs abroad"></a></div>
+              <!-- <div class="ps-banner"><a href="/destinations/"><img
+                    src="{{ asset('front/') }}/img/slider/home-1/germany-banner-4.webp" alt="study mbbs abroad"></a></div> -->
+            </div>
           </div>
-        </div>
-        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
-          <aside class="widget widget_best-sale" data-mh="dealhot">
-            <h2 class="widget-title">Medical Colleges</h2>
-            <div class="widget__content">
-              <div class="owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="0"
-                data-owl-nav="false" data-owl-dots="false" data-owl-item="1" data-owl-item-xs="1" data-owl-item-sm="1"
-                data-owl-item-md="1" data-owl-item-lg="1" data-owl-duration="1000" data-owl-mousedrag="on">
-                <div class="ps-product-group">
-                  @foreach ($universities1 as $tu)
-                    <div class="ps-product--horizontal">
-                      <div class="ps-product__thumbnail"> <a href="<?php echo url('medical-universities/' . $tu->uname); ?>/"> <img src="<?php echo url($tu->imgpath); ?>"
-                            alt="<?php echo $tu->name; ?>"> </a> </div>
-                      <div class="ps-product__content"> <a class="ps-product__title" href="<?php echo url('medical-universities/' . $tu->uname); ?>/">
-                          <?php echo $tu->name; ?>
-                        </a> </div>
-                    </div>
-                  @endforeach
-                </div>
-                <div class="ps-product-group">
-                  @foreach ($universities2 as $tu)
-                    <div class="ps-product--horizontal">
-                      <div class="ps-product__thumbnail"> <a href="<?php echo url('medical-universities/' . $tu->uname); ?>/"> <img src="<?php echo url($tu->imgpath); ?>"
-                            alt="<?php echo $tu->name; ?>"> </a> </div>
-                      <div class="ps-product__content"> <a class="ps-product__title" href="<?php echo url('medical-universities/' . $tu->uname); ?>/">
-                          <?php echo $tu->name; ?>
-                        </a> </div>
-                    </div>
-                  @endforeach
-                </div>
-                <div class="ps-product-group">
-                  @foreach ($universities3 as $tu)
-                    <div class="ps-product--horizontal">
-                      <div class="ps-product__thumbnail"> <a href="<?php echo url('medical-universities/' . $tu->uname); ?>/"> <img src="<?php echo url($tu->imgpath); ?>"
-                            alt="<?php echo $tu->name; ?>"> </a> </div>
-                      <div class="ps-product__content"> <a class="ps-product__title" href="<?php echo url('medical-universities/' . $tu->uname); ?>/">
-                          <?php echo $tu->name; ?>
-                        </a> </div>
-                    </div>
-                  @endforeach
+          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+            <aside class="widget widget_best-sale" data-mh="dealhot">
+              <h2 class="widget-title">Medical Colleges</h2>
+              <div class="widget__content">
+                <div class="owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="0"
+                  data-owl-nav="false" data-owl-dots="false" data-owl-item="1" data-owl-item-xs="1" data-owl-item-sm="1"
+                  data-owl-item-md="1" data-owl-item-lg="1" data-owl-duration="1000" data-owl-mousedrag="on">
+                  <div class="ps-product-group">
+                    @foreach ($universities1 as $tu)
+                      <div class="ps-product--horizontal">
+                        <div class="ps-product__thumbnail"> <a href="<?php echo url('medical-universities/' . $tu->uname); ?>/"> <img src="<?php echo url($tu->imgpath); ?>"
+                              alt="<?php echo $tu->name; ?>"> </a> </div>
+                        <div class="ps-product__content"> <a class="ps-product__title" href="<?php echo url('medical-universities/' . $tu->uname); ?>/">
+                            <?php echo $tu->name; ?>
+                          </a> </div>
+                      </div>
+                    @endforeach
+                  </div>
+                  <div class="ps-product-group">
+                    @foreach ($universities2 as $tu)
+                      <div class="ps-product--horizontal">
+                        <div class="ps-product__thumbnail"> <a href="<?php echo url('medical-universities/' . $tu->uname); ?>/"> <img src="<?php echo url($tu->imgpath); ?>"
+                              alt="<?php echo $tu->name; ?>"> </a> </div>
+                        <div class="ps-product__content"> <a class="ps-product__title" href="<?php echo url('medical-universities/' . $tu->uname); ?>/">
+                            <?php echo $tu->name; ?>
+                          </a> </div>
+                      </div>
+                    @endforeach
+                  </div>
+                  <div class="ps-product-group">
+                    @foreach ($universities3 as $tu)
+                      <div class="ps-product--horizontal">
+                        <div class="ps-product__thumbnail"> <a href="<?php echo url('medical-universities/' . $tu->uname); ?>/"> <img
+                              src="<?php echo url($tu->imgpath); ?>" alt="<?php echo $tu->name; ?>"> </a> </div>
+                        <div class="ps-product__content"> <a class="ps-product__title" href="<?php echo url('medical-universities/' . $tu->uname); ?>/">
+                            <?php echo $tu->name; ?>
+                          </a> </div>
+                      </div>
+                    @endforeach
+                  </div>
                 </div>
               </div>
-            </div>
-          </aside>
-        </div>
+            </aside>
+          </div>
         </div>
       </div>
     </div>
@@ -639,53 +639,5 @@
         $('#submitBtnCC').val('Convert');
       });
     }
-  </script>
-  <script>
-    $(document).ready(function() {
-      // Fetch Google-supported currencies dynamically
-      $.ajax({
-        url: "{{ url('currencies') }}",
-        type: "GET",
-        success: function(response) {
-          let options = '<option value="">Select Currency</option>';
-          response.forEach(currency => {
-            options += `<option value="${currency.code}">${currency.name} (${currency.code})</option>`;
-          });
-
-          $("#from, #to").html(options);
-        },
-        error: function() {
-          alert("Failed to load currency list.");
-        }
-      });
-
-      // Handle conversion form submission
-      $("#currencyForm").submit(function(event) {
-        event.preventDefault();
-        var fromCurrency = $("#from").val(); // Assuming 'from' has an ID 'from'
-        var amount = $("#amount").val(); // Assuming 'amount' has an ID 'amount'
-        var toCurrency = $("#to").val();
-        $.ajax({
-          url: "{{ url('convert-currency') }}",
-          type: "GET",
-          data: $(this).serialize(),
-          success: function(response) {
-            if (response.success) {
-              // console.log(response); // Logs the full response in the browser console
-              // alert(JSON.stringify(response, null, 2));
-              $("#convertedAmount").text(response.converted_amount + " " + $("#to").val().toUpperCase());
-              $("#fromResult").text(fromCurrency);
-              $("#toResult").text(toCurrency);
-              $("#amountResult").text(amount);
-            } else {
-              // alert(response.message);
-            }
-          },
-          error: function() {
-            alert("Conversion failed. Please check your input.");
-          }
-        });
-      });
-    });
   </script>
 @endsection
