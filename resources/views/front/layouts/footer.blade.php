@@ -75,12 +75,13 @@
             <div class="col-12 col-sm-12 col-md-8">
               <p class="whitec text-right">
                 <!-- {{ url('/') }}/services/mbbs-abroad-consultant-in-gurgaon/ -->
-                  <!-- {{ url('/') }}/services/mbbs-abroad-consultant-in-delhi/ -->
+                <!-- {{ url('/') }}/services/mbbs-abroad-consultant-in-delhi/ -->
                 <span class="b1" style="color:#fff"><a
                     href="https://www.tutelagestudy.com/services/best-mbbs-abroad-consultant-in-gurgaon/"
                     target="_blank">Gurugram</a> |</span>
                 <span class="b1" style="color:#fff"><a
-                    href="https://www.tutelagestudy.com/services/best-study-abroad-consultants-delhi-for-mbbs-tutelage-study/" target="_blank">Delhi</a> |
+                    href="https://www.tutelagestudy.com/services/best-study-abroad-consultants-delhi-for-mbbs-tutelage-study/"
+                    target="_blank">Delhi</a> |
                 </span>
                 <span class="b1" style="color:#fff"><a
                     href="{{ url('/') }}/services/mbbs-abroad-consultant-in-nuh-haryana/" target="_blank">Nuh</a>
@@ -292,7 +293,8 @@
 </style>
 
 <div class="whats-float">
-  <a href="https://wa.me/+919667667331" class="open-button" onClick="openForm()">
+  <a href="https://api.whatsapp.com/send?phone=919667667331&amp;text=Hello there!! I want to get counseling by experts. Want to know more information about Study MBBS Abroad | www.tutelagestudy.com"
+    class="open-button" onClick="openForm()">
     <span>Need any help<br><small>Chat with us</small></span>
     <img data-src="{{ asset('/front/') }}/img/wa.png" width="30" alt="whatsapp image"></a>
 </div>
