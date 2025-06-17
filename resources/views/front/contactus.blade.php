@@ -117,12 +117,12 @@
     }
 
     .city-location {
-      position: relative;
-      font-size: 13px;
-      color: #696969;
-      line-height: 20px;
-      padding: 0 0 0 25px;
-      margin: 0 0 20px 0;
+    position: relative;
+    font-size: 14px;
+    color: #000000;
+    line-height: 20px;
+    padding: 0 0 0 25px;
+    margin: 0 0 10px 0;
     }
 
     .city-location i {
@@ -224,7 +224,7 @@
                 $addrs = Address::where(['country'=>$row->country])->get();
                 foreach ($addrs as $ro) {
               ?>
-                <div class="col-md-3">
+                <div class="col-md-3 mb-3">
                   <div class="city-box">
                     <div class="city-name">
                       <?php echo $ro->city; ?>

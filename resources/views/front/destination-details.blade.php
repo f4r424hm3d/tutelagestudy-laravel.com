@@ -251,7 +251,7 @@
                   <div class="ps-section__left" style="top:60px; background:#fff">
                     <aside class="ps-widget--account-dashboard">
                       <div class="ps-widget__content">
-                        <div style="font-size:18px; color:#fff; background:#9D0E0E; padding:10px; text-align:center">
+                        <div class="main-postss">
                           Medical Colleges in <?php echo $c_destination->country; ?></div>
                         <ul style="max-height:480px; overflow:auto">
                           @foreach ($tu as $tu)
@@ -346,7 +346,7 @@
     });
 
     function toggleFaq(id) {
-      $('#a' + id).toggle(500);
+      $('#a' + id).toggle();
     }
   </script>
   <style>

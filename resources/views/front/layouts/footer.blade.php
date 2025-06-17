@@ -74,11 +74,13 @@
             </div>
             <div class="col-12 col-sm-12 col-md-8">
               <p class="whitec text-right">
+                <!-- {{ url('/') }}/services/mbbs-abroad-consultant-in-gurgaon/ -->
+                  <!-- {{ url('/') }}/services/mbbs-abroad-consultant-in-delhi/ -->
                 <span class="b1" style="color:#fff"><a
-                    href="{{ url('/') }}/services/mbbs-abroad-consultant-in-gurgaon/"
+                    href="https://www.tutelagestudy.com/services/best-mbbs-abroad-consultant-in-gurgaon/"
                     target="_blank">Gurugram</a> |</span>
                 <span class="b1" style="color:#fff"><a
-                    href="{{ url('/') }}/services/mbbs-abroad-consultant-in-delhi/" target="_blank">Delhi</a> |
+                    href="https://www.tutelagestudy.com/services/best-study-abroad-consultants-delhi-for-mbbs-tutelage-study/" target="_blank">Delhi</a> |
                 </span>
                 <span class="b1" style="color:#fff"><a
                     href="{{ url('/') }}/services/mbbs-abroad-consultant-in-nuh-haryana/" target="_blank">Nuh</a>
@@ -290,12 +292,12 @@
 </style>
 
 <div class="whats-float">
-  <a href="javascript:void()" class="open-button" onClick="openForm()">
+  <a href="https://wa.me/+919667667331" class="open-button" onClick="openForm()">
     <span>Need any help<br><small>Chat with us</small></span>
     <img data-src="{{ asset('/front/') }}/img/wa.png" width="30" alt="whatsapp image"></a>
 </div>
 
-<div class="chat-popup" id="myForm">
+<!-- <div class="chat-popup" id="myForm">
   <div class="wa-container"> <button type="button" class="cancel" onClick="closeForm()"><i
         class="fa fa-close"></i></button>
     <div class="header">
@@ -321,7 +323,7 @@
       </a>
     </div>
   </div>
-</div>
+</div> -->
 
 <script>
   function openForm() {
