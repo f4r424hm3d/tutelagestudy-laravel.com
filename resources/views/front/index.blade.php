@@ -21,8 +21,6 @@
                     src="{{ asset('front/') }}/img/slider/home-1/germany-banner-3.webp" alt="study mbbs abroad"></a></div>
               <div class="ps-banner"><a href="https://www.tutelagestudy.com/medical-universities/"><img
                     src="{{ asset('front/') }}/img/slider/home-1/germany-banner-2.webp" alt="study mbbs abroad"></a></div>
-              <!-- <div class="ps-banner"><a href="/destinations/"><img
-                    src="{{ asset('front/') }}/img/slider/home-1/germany-banner-4.webp" alt="study mbbs abroad"></a></div> -->
             </div>
           </div>
           <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
@@ -35,10 +33,11 @@
                   <div class="ps-product-group">
                     @foreach ($universities1 as $tu)
                       <div class="ps-product--horizontal">
-                        <div class="ps-product__thumbnail"> <a href="<?php echo url('medical-universities/' . $tu->uname); ?>/"> <img src="<?php echo url($tu->imgpath); ?>"
-                              alt="<?php echo $tu->name; ?>"> </a> </div>
-                        <div class="ps-product__content"> <a class="ps-product__title" href="<?php echo url('medical-universities/' . $tu->uname); ?>/">
-                            <?php echo $tu->name; ?>
+                        <div class="ps-product__thumbnail"> <a href="{{ url('medical-universities/' . $tu->uname) }}/">
+                            <img src="{{ url($tu->imgpath) }}" alt="{{ $tu->name }}"> </a> </div>
+                        <div class="ps-product__content"> <a class="ps-product__title"
+                            href="{{ url('medical-universities/' . $tu->uname) }}/">
+                            {{ $tu->name }}
                           </a> </div>
                       </div>
                     @endforeach
@@ -46,10 +45,11 @@
                   <div class="ps-product-group">
                     @foreach ($universities2 as $tu)
                       <div class="ps-product--horizontal">
-                        <div class="ps-product__thumbnail"> <a href="<?php echo url('medical-universities/' . $tu->uname); ?>/"> <img src="<?php echo url($tu->imgpath); ?>"
-                              alt="<?php echo $tu->name; ?>"> </a> </div>
-                        <div class="ps-product__content"> <a class="ps-product__title" href="<?php echo url('medical-universities/' . $tu->uname); ?>/">
-                            <?php echo $tu->name; ?>
+                        <div class="ps-product__thumbnail"> <a href="{{ url('medical-universities/' . $tu->uname) }}/">
+                            <img src="{{ url($tu->imgpath) }}" alt="{{ $tu->name }}"> </a> </div>
+                        <div class="ps-product__content"> <a class="ps-product__title"
+                            href="{{ url('medical-universities/' . $tu->uname) }}//">
+                            {{ $tu->name }}
                           </a> </div>
                       </div>
                     @endforeach
@@ -57,10 +57,11 @@
                   <div class="ps-product-group">
                     @foreach ($universities3 as $tu)
                       <div class="ps-product--horizontal">
-                        <div class="ps-product__thumbnail"> <a href="<?php echo url('medical-universities/' . $tu->uname); ?>/"> <img
-                              src="<?php echo url($tu->imgpath); ?>" alt="<?php echo $tu->name; ?>"> </a> </div>
-                        <div class="ps-product__content"> <a class="ps-product__title" href="<?php echo url('medical-universities/' . $tu->uname); ?>/">
-                            <?php echo $tu->name; ?>
+                        <div class="ps-product__thumbnail"> <a href="{{ url('medical-universities/' . $tu->uname) }}/">
+                            <img src="{{ url($tu->imgpath) }}" alt="{{ $tu->name }}"> </a> </div>
+                        <div class="ps-product__content"> <a class="ps-product__title"
+                            href="{{ url('medical-universities/' . $tu->uname) }}/">
+                            {{ $tu->name }}
                           </a> </div>
                       </div>
                     @endforeach
@@ -76,7 +77,8 @@
   <section class="onlineCoaching">
     <div class="container">
       <div class="row">
-        <div class="col-xl-5 col-lg-5 col-md-5 col-sm-6 col-12"><img data-src="{{ asset('/front/') }}/img/who-we-are.webp"
+        <div class="col-xl-5 col-lg-5 col-md-5 col-sm-6 col-12"><img
+            data-src="{{ asset('/front/') }}/img/who-we-are.webp"
             alt="Best MBBS Abroad Consultants – Secure Your Medical Seat Today!" border="0" width="w-100"></div>
         <div class="col-xl-7 col-lg-7 col-md-7 col-sm-6 col-12">
           <h2 class="main-h1">Best MBBS Abroad Consultants – Secure Your Medical Seat Today!</h2>
@@ -109,10 +111,10 @@
         medical degree. Get accurate, up-to-date information to book your MBBS seat in Abroad.</p>
       <div class="row pt-10">
         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
-          <a href="<?php echo url('medical-universities'); ?>/">
+          <a href="{{ url('medical-universities') }}/">
             <div class="ps-block--category">
 
-              <img data-src="<?php echo url('front'); ?>/img/find-university.webp" alt="All Universities"
+              <img data-src="{{ url('front') }}/img/find-university.webp" alt="All Universities"
                 style="width:100%!important">
 
               <h4 class="pt-10 mb-0 button cur-conver-btn">Find All Universities</h4>
@@ -121,19 +123,19 @@
 
         </div>
         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 ">
-          <a href="<?php echo url('services'); ?>/">
+          <a href="{{ url('services') }}/">
             <div class="ps-block--category">
 
-              <img data-src="<?php echo url('front'); ?>/img/top-courses.webp" alt="Services" style="width:100%!important">
+              <img data-src="{{ url('front') }}/img/top-courses.webp" alt="Services" style="width:100%!important">
               <h4 class="pt-10 mb-0 button cur-conver-btn">Our Services</h4>
             </div>
           </a>
         </div>
         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 ">
-          <a href="<?php echo url('destinations'); ?>/">
+          <a href="{{ url('destinations') }}/">
             <div class="ps-block--category">
 
-              <img data-src="<?php echo url('front'); ?>/img/exams.webp" alt="All Destinations" style="width:100%!important">
+              <img data-src="{{ url('front') }}/img/exams.webp" alt="All Destinations" style="width:100%!important">
               <h4 class="pt-10 mb-0 button cur-conver-btn">All Destinations</h4>
             </div>
           </a>
@@ -141,7 +143,7 @@
         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 ">
           <a href="{{ url('blog') }}/">
             <div class="ps-block--category">
-              <img data-src="<?php echo url('front'); ?>/img/news.webp" alt="latest news" style="width:100%!important">
+              <img data-src="{{ url('front') }}/img/news.webp" alt="latest news" style="width:100%!important">
               <h4 class="pt-10 mb-0 button cur-conver-btn">Blog & Article</h4>
             </div>
           </a>
@@ -332,7 +334,8 @@
               <div class="ps-post__thumbnail"><img data-src="{{ asset($row->destination_image ?? $row->thumbnail) }}"
                   alt="MBBS in Malaysia"></div>
               <div class="ps-post__content" style="border:0px; padding:12px 0px; background:#fff">
-                <a class="ps-post__title text-center" href="{{ url($row->slug) }}">
+                <a class="ps-post__title text-center"
+                  href="{{ route('destination.detail', ['destination_slug' => $row->slug]) }}">
                   {{ $row->page_name }}
                 </a>
               </div>
@@ -445,33 +448,48 @@
               <div class="ps-product-group">
                 @foreach ($universities1 as $tu)
                   <div class="ps-product--horizontal">
-                    <div class="ps-product__thumbnail"> <a href="<?php echo url($tu->country_slug . '/' . $tu->uname); ?>/"> <img
-                          src="<?php echo url($tu->imgpath); ?>" alt="<?php echo $tu->name; ?>"> </a> </div>
-                    <div class="ps-product__content"> <a class="ps-product__title" href="<?php echo url($tu->country_slug . '/' . $tu->uname); ?>/">
-                        <?php echo $tu->name; ?>
-                      </a> </div>
+                    <div class="ps-product__thumbnail">
+                      <a href="{{ url('medical-universities/' . $tu->uname) }}/">
+                        <img src="{{ url($tu->imgpath) }}" alt="{{ $tu->name }}">
+                      </a>
+                    </div>
+                    <div class="ps-product__content">
+                      <a class="ps-product__title" href="{{ url('medical-universities/' . $tu->uname) }}/">
+                        {{ $tu->name }}
+                      </a>
+                    </div>
                   </div>
                 @endforeach
               </div>
               <div class="ps-product-group">
                 @foreach ($universities2 as $tu)
                   <div class="ps-product--horizontal">
-                    <div class="ps-product__thumbnail"> <a href="<?php echo url($tu->country_slug . '/' . $tu->uname); ?>/"> <img
-                          src="<?php echo url($tu->imgpath); ?>" alt="<?php echo $tu->name; ?>"> </a> </div>
-                    <div class="ps-product__content"> <a class="ps-product__title" href="<?php echo url($tu->country_slug . '/' . $tu->uname); ?>/">
-                        <?php echo $tu->name; ?>
-                      </a> </div>
+                    <div class="ps-product__thumbnail">
+                      <a href="{{ url($tu->country_slug . '/' . $tu->uname) }}/">
+                        <img src="{{ url($tu->imgpath) }}" alt="{{ $tu->name }}">
+                      </a>
+                    </div>
+                    <div class="ps-product__content">
+                      <a class="ps-product__title" href="{{ url($tu->country_slug . '/' . $tu->uname) }}/">
+                        {{ $tu->name }}
+                      </a>
+                    </div>
                   </div>
                 @endforeach
               </div>
               <div class="ps-product-group">
                 @foreach ($universities3 as $tu)
                   <div class="ps-product--horizontal">
-                    <div class="ps-product__thumbnail"> <a href="<?php echo url($tu->country_slug . '/' . $tu->uname); ?>/"> <img
-                          src="<?php echo url($tu->imgpath); ?>" alt="<?php echo $tu->name; ?>"> </a> </div>
-                    <div class="ps-product__content"> <a class="ps-product__title" href="<?php echo url($tu->country_slug . '/' . $tu->uname); ?>/">
-                        <?php echo $tu->name; ?>
-                      </a> </div>
+                    <div class="ps-product__thumbnail">
+                      <a href="{{ url($tu->country_slug . '/' . $tu->uname) }}/">
+                        <img src="{{ url($tu->imgpath) }}" alt="{{ $tu->name }}">
+                      </a>
+                    </div>
+                    <div class="ps-product__content">
+                      <a class="ps-product__title" href="{{ url($tu->country_slug . '/' . $tu->uname) }}/">
+                        {{ $tu->name }}
+                      </a>
+                    </div>
                   </div>
                 @endforeach
               </div>
@@ -596,7 +614,7 @@
             @foreach ($news as $row)
               <div class="ps-post ps-product">
                 <div class="ps-post__thumbnail ">
-                  <img data-src="{{ asset($row->imgpath) }}" alt="<?php echo $row->headline; ?>"
+                  <img data-src="{{ asset($row->imgpath) }}" alt="{{ $row->headline }}"
                     style="width:100%; height: 150px;!important">
                 </div>
                 <div class="ps-post__content">
@@ -607,11 +625,11 @@
                   </div>
                   <a class="ps-post__title"
                     href="{{ route('blog.detail', ['category_slug' => $row->getCategory->slug, 'slug' => $row->slug]) }}/"
-                    title="<?php echo $row->headline; ?>" data-toggle="tooltip">
-                    <?php echo strlen($row->headline) > 44 ? substr($row->headline, 0, 44) . '...' : $row->headline; ?>
+                    title="{{ $row->headline }}" data-toggle="tooltip">
+                    {{ strlen($row->headline) > 44 ? substr($row->headline, 0, 44) . '...' : $row->headline }}
                   </a>
                   <p style="margin-bottom:0px; font-size:11px">
-                    <?php echo getFormattedDate($row->created_at, 'd M, Y'); ?> by<span> admin</span>
+                    {{ getFormattedDate($row->created_at, 'd M, Y') }} by<span> admin</span>
                   </p>
                 </div>
               </div>

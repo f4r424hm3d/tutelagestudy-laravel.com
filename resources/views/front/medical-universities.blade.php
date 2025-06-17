@@ -150,61 +150,61 @@
       </ul>
     </div>
   </div>
-  <?php if (session('unifilter_destination')) { ?>
-  <!-- top filter start -->
-  <div class="ps-section--default ps-home-blog">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12">
-          <div class="ps-block--recent-viewed">
-            <div class="ps-block__header">
-              <h4>TOP Medical UNIVERSITIES/COLLEGES IN Abroad</h4>
-            </div>
-            <style>
-              .ps-section--default {
-                margin-bottom: 30px !important
-              }
+  @if (session('unifilter_destination'))
+    <!-- top filter start -->
+    <div class="ps-section--default ps-home-blog">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="ps-block--recent-viewed">
+              <div class="ps-block__header">
+                <h4>TOP Medical UNIVERSITIES/COLLEGES IN Abroad</h4>
+              </div>
+              <style>
+                .ps-section--default {
+                  margin-bottom: 30px !important
+                }
 
-              .filter-hdr {
-                border: 1px solid #edeff0;
-                box-shadow: 0 0 5px 0 rgb(207 207 207 / 50%);
-                background: #fff;
-                padding: 10px 10px 5px 10px;
-              }
+                .filter-hdr {
+                  border: 1px solid #edeff0;
+                  box-shadow: 0 0 5px 0 rgb(207 207 207 / 50%);
+                  background: #fff;
+                  padding: 10px 10px 5px 10px;
+                }
 
-              .filter-hdr a {
-                display: inline-block;
-                color: #756d6d;
-                border-radius: 100px;
-                padding: 5px 10px 5px 10px;
-                font-size: 11px;
-                border: 1px solid;
-                background-color: #eee;
-                text-decoration: none;
-                text-transform: uppercase;
-                margin-right: 5px;
-                margin-bottom: 5px
-              }
+                .filter-hdr a {
+                  display: inline-block;
+                  color: #756d6d;
+                  border-radius: 100px;
+                  padding: 5px 10px 5px 10px;
+                  font-size: 11px;
+                  border: 1px solid;
+                  background-color: #eee;
+                  text-decoration: none;
+                  text-transform: uppercase;
+                  margin-right: 5px;
+                  margin-bottom: 5px
+                }
 
-              .filter-hdr a:hover {
-                background: #0047ab;
-                color: #fff;
-                cursor: pointer;
-              }
-            </style>
-            <div class="row filter-hdr">
-              @if (session('unifilter_destination'))
-                <a href="javascript:void(0)" onclick="removeAppliedFilter('unifilter_destination')">
-                  {{ $currentDestinationdet->page_name }} <span>×</span>
-                </a>
-              @endif
+                .filter-hdr a:hover {
+                  background: #0047ab;
+                  color: #fff;
+                  cursor: pointer;
+                }
+              </style>
+              <div class="row filter-hdr">
+                @if (session('unifilter_destination'))
+                  <a href="javascript:void(0)" onclick="removeAppliedFilter('unifilter_destination')">
+                    {{ $currentDestinationdet->page_name }} <span>×</span>
+                  </a>
+                @endif
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <?php } ?>
+  @endif
   <style>
     .alert {
       padding: 20px;
