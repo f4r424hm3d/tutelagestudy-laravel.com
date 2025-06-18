@@ -465,12 +465,12 @@
                 @foreach ($universities2 as $tu)
                   <div class="ps-product--horizontal">
                     <div class="ps-product__thumbnail">
-                      <a href="{{ url($tu->country_slug . '/' . $tu->uname) }}/">
+                      <a href="{{ url('medical-universities/' . $tu->uname) }}/">
                         <img src="{{ url($tu->imgpath) }}" alt="{{ $tu->name }}">
                       </a>
                     </div>
                     <div class="ps-product__content">
-                      <a class="ps-product__title" href="{{ url($tu->country_slug . '/' . $tu->uname) }}/">
+                      <a class="ps-product__title" href="{{ url('medical-universities/' . $tu->uname) }}/">
                         {{ $tu->name }}
                       </a>
                     </div>
@@ -481,12 +481,12 @@
                 @foreach ($universities3 as $tu)
                   <div class="ps-product--horizontal">
                     <div class="ps-product__thumbnail">
-                      <a href="{{ url($tu->country_slug . '/' . $tu->uname) }}/">
+                      <a href="{{ url('medical-universities/' . $tu->uname) }}/">
                         <img src="{{ url($tu->imgpath) }}" alt="{{ $tu->name }}">
                       </a>
                     </div>
                     <div class="ps-product__content">
-                      <a class="ps-product__title" href="{{ url($tu->country_slug . '/' . $tu->uname) }}/">
+                      <a class="ps-product__title" href="{{ url('medical-universities/' . $tu->uname) }}/">
                         {{ $tu->name }}
                       </a>
                     </div>
