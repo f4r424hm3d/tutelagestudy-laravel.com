@@ -216,7 +216,8 @@
                                   <img data-src="<?php echo asset($oe->thumbnail); ?>" alt="<?php echo $oe->page_name; ?>" loading="lazy">
                                 </div>
                                 <div class="ps-product__content">
-                                  <a class="ps-product__title" href="<?php echo url($oe->slug); ?>/">
+                                  <a class="ps-product__title"
+                                    href="{{ route('destination.detail', ['destination_slug' => $oe->slug]) }}/">
                                     <?php echo $oe->page_name; ?>
                                   </a>
                                 </div>
@@ -371,7 +372,7 @@
                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                   <!-- Sidebar ads -->
                   <aside class="ps-widget--account-dashboard">
-                    <h3 class="main-postss" >Blog</h3>
+                    <h3 class="main-postss">Blog</h3>
                     <div class="ps-widget__content" style="background:#fff">
                       <ul>
                         @foreach ($categories as $cat)
@@ -445,8 +446,6 @@
       position: relative
     }
 
-  
-
     .info-box {
       padding: 20px 5px;
       border: 1px solid #f2f2f2;
@@ -493,8 +492,6 @@
     .info-box:hover .text span {
       color: #fff
     }
-
-   
 
     .get-detail {
       display: flex;
