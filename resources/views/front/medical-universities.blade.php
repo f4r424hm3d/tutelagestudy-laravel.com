@@ -304,8 +304,10 @@
                       @else
                         <div class="ps-shopping__header">
                           <div class="row">
-                            <div class="header">
+                            <div class="col-12">
+                              <div class="header">
                               <span>No data found</span>
+                            </div>
                             </div>
                           </div>
                         </div>

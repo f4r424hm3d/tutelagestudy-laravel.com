@@ -41,12 +41,17 @@
                     </div>
                   </div>
 
-                  <div class="form-group ">
+                    <div class="form-group ">
                     <div class="input-group main-rel">
                       <div class="input-icon">
-                        <i id="password_icon_hide" class="fa-solid fa-lock-open hide-this "
+                        <i  class="fa-solid fa-lock " ></i>
+                        
+                      </div>
+
+                        <div class="input-mains">
+                        <i id="password_icon_hide" class="fa fa-eye-slash hide-this "
                           onclick="hidePassword('password')"></i>
-                        <i id="password_icon_show" class="fa-solid fa-lock  " onclick="showPassword('password')"></i>
+                        <i id="password_icon_show" class="fa-solid fa-eye  " onclick="showPassword('password')"></i>
                         <!-- <span id="password_icon_show" class="ti-eye" onclick="showPassword('password')"></span> -->
                         <!-- <span id="password_icon_hide" class="ti-eye hide-this"
                                     onclick="hidePassword('password')"></span> -->

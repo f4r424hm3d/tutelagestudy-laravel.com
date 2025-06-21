@@ -8,7 +8,7 @@
 </script>
   <div id="homepage-1">
     <div class="ps-home-banner ps-home-banner--1 mt-5">
-      <div class="ps-container" style="padding:0px!important">
+      <div class="container" style="padding:0px!important">
         <div class="row">
           <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12">
             <h1 class="widget-title text-center td-uppercase">Most Trusted Study MBBS Abroad Consultants in India</h1>
@@ -201,7 +201,6 @@
       position: relative;
       text-align: center;
       text-transform: uppercase;
-      width: 300px;
     }
 
     .servicebox .title:before,
@@ -384,8 +383,8 @@
             <a href="https://www.tutelagestudy.com/mbbs-abroad-counselling/" class="button home-btn">Enquire Now</a>
           </div>
         </div>
-        {{-- <div class="col-md-6">
-          <div class="cur-conver">
+         <div class="col-md-6">
+          <!-- <div class="cur-conver">
             <h2>Real-Time Currency Converter for Study Abroad Aspirants</h2>
             <p class="jsfy">
               A simple currency converter to help aspiring students calculate their study abroad budget. Check real-time
@@ -431,8 +430,10 @@
               </div>
             </form>
 
-          </div>
-        </div> --}}
+          </div> -->
+    
+
+        </div> 
       </div>
   </section>
   <div class="ps-page--product  pb-40" style="background:#e5e6eb;">

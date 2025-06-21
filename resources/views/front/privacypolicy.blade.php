@@ -3,61 +3,16 @@
 @include('front.layouts.static_page_meta_tag')
 @endpush
 @section('main-section')
-<style type="text/css">
-  .static ul,
-  .static ol {
 
-    padding-left: 30px !important;
 
-  }
+<section class="main-privacy">
 
-  .static ul,
-  .static li {
-
-    list-style-type: disc !important;
-
-    font-size: 15px;
-
-  }
-
-  .static p {
-
-    font-size: 16px;
-
-    line-height: 1.6;
-
-    margin-bottom: 15px;
-
-   
-
-  }
-
-  .p {
-
-    display: block;
-
-    margin-block-start: 1em;
-
-    margin-block-end: 1em;
-
-    margin-inline-start: 0px;
-
-    margin-inline-end: 0px;
-
-  }
-</style>
-
-<section class="mar10">
-
-  <div class="container ed-res-bg com-sp static pad-bot-70 pg-inn">
+  <div class="container ">
 
     <div class="row">
-
-      <div class="cor">
-
         <div class="col-md-12">
 
-          <div class="cor-con-mid pt-20">
+          <div class="privacy-users">
 
             <h1>Privacy Policy</h1>
 
@@ -175,8 +130,6 @@
           </div>
 
         </div>
-
-      </div>
 
     </div>
 

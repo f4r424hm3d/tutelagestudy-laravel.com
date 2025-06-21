@@ -4,61 +4,17 @@
 @endpush
 @section('main-section')
 
-  <style type="text/css">
 
-    .static ul, .static ol {
 
-    padding-left: 30px!important;
-
-    }
-
-    .static ul, .static li {
-
-    list-style-type: disc!important;
-
-    font-size: 15px;
-
-    }
-
-    .static p {
-
-    font-size: 16px;
-
-    line-height: 1.6;
-
-    margin-bottom: 15px;
-
- 
-
-    }
-
-    .p {
-
-    display: block;
-
-    margin-block-start: 1em;
-
-    margin-block-end: 1em;
-
-    margin-inline-start: 0px;
-
-    margin-inline-end: 0px;
-
-    }
-
-  </style>
-
-  <section>
+<section class="main-privacy">
 
     <div class="container">
 
       <div class="row">
 
-        <div class="cor">
-
           <div class="col-md-12">
 
-            <div class="cor-con-mid mt-5">
+           <div class="privacy-users"> 
 
               <h1>Terms & Conditions</h1>
 
@@ -188,7 +144,6 @@
 
           </div>
 
-        </div>
 
       </div>
 

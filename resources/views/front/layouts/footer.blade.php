@@ -73,7 +73,7 @@
               </p>
             </div>
             <div class="col-12 col-sm-12 col-md-8">
-              <p class="whitec text-right">
+              <p class="whitec text-center text-md-right">
                 <!-- {{ url('/') }}/services/mbbs-abroad-consultant-in-gurgaon/ -->
                 <!-- {{ url('/') }}/services/mbbs-abroad-consultant-in-delhi/ -->
                 <span class="b1" style="color:#fff"><a

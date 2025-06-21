@@ -117,20 +117,22 @@
     }
 
     .city-location {
-    position: relative;
+      /* position: relative; */
     font-size: 14px;
     color: #000000;
-    line-height: 20px;
-    padding: 0 0 0 25px;
-    margin: 0 0 10px 0;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    gap: 12px;
+    margin-bottom: 7px;
     }
 
     .city-location i {
-      position: absolute;
-      top: 3px;
-      left: 0;
-      font-size: 16px;
-      color: #0047ab
+         /* position: absolute; */
+    top: 3px;
+    left: 0;
+    font-size: 16px;
+    color: #0047ab;
     }
   </style>
 
@@ -315,7 +317,8 @@
                   </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                  <select class="form-control" name="c_code" id="c_code" required>
+                <div class="form-group">
+                    <select class="form-control" name="c_code" id="c_code" required>
                     <option value="">Select Code</option>
                     <?php
                   foreach ($phonecodes as $row) {
@@ -326,6 +329,7 @@
                     </option>
                     <?php } ?>
                   </select>
+                </div>
                   @error('c_code')
                     {{ '<span class="err-clr">' . $message . '</span>' }}
                   @enderror
@@ -341,7 +345,8 @@
                   </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                  <select class="form-control" name="nationality" id="nationality" required>
+               <div class="form-group">
+                   <select class="form-control" name="nationality" id="nationality" required>
                     <option value="">Select Your Country</option>
                     <?php
                   foreach ($countries as $row) {
@@ -352,12 +357,14 @@
                     </option>
                     <?php } ?>
                   </select>
+               </div>
                   @error('nationality')
                     {{ '<span class="err-clr">' . $message . '</span>' }}
                   @enderror
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                  <select class="form-control" name="destination" id="destination" required>
+                 <div class="form-group">
+                   <select class="form-control" name="destination" id="destination" required>
                     <option value="">Select Destination</option>
                     <?php
                   foreach ($destinations as $row) {
@@ -367,6 +374,7 @@
                     </option>
                     <?php } ?>
                   </select>
+                 </div>
                   @error('destination')
                     {{ '<span class="err-clr">' . $message . '</span>' }}
                   @enderror
@@ -380,9 +388,11 @@
                 </div>
               </div>
             </div> --}}
-              <div class="form-group submit">
+               <div class="col-12 text-right">
+            <div class="form-group submit">
                 <button class="ps-btn" type="submit">Send message</button>
               </div>
+        </div>
             </form>
           </div>
         </div>
