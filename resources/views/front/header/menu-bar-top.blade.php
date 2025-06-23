@@ -1,17 +1,3 @@
-@php
-  use App\Models\Destination;
-  use App\Models\Country;
-  use App\Models\ExamType;
-
-  $destinationsSF = Destination::where(['status' => 1])->get();
-  $phonecodesSF = Country::select('phonecode', 'name')
-      ->where('phonecode', '!=', '0')
-      ->orderBy('phonecode', 'asc')
-      ->get();
-  $countriesSF = Country::orderBy('name', 'asc')->get();
-  $examTypes = ExamType::all();
-
-@endphp
 <style>
   .hide-this {
     display: none;
@@ -25,11 +11,6 @@
       style="display:none;visibility:hidden"></iframe>
   </noscript>
   <!-- End Google Tag Manager (noscript) -->
-
-  <!-- Button trigger modal -->
-  {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-    free Counselling
-  </button> --}}
 
   <!-- Modal -->
   <div class="modal counselling-main fade" id="exampleModalCenter" tabindex="-1" role="dialog"
@@ -101,10 +82,7 @@
               <div class="form-group">
                 <select class="form-control" name="destination">
                   <option value="">Preferred MBBS Country</option>
-                  @php
-                    $destinations = Destination::where(['status' => 1])->get();
-                  @endphp
-                  @foreach ($destinations as $row)
+                  @foreach ($preferredMbbsCountries as $row)
                     <option value="{{ $row->page_name }}" {{ old('destination') == $row->page_name ? 'Selected' : '' }}>
                       {{ $row->page_name }}
                     </option>
@@ -198,13 +176,7 @@
               <div class="mega-menu">
                 <div class="mega-menu__column p-0">
                   <ul class="mega-menu__list">
-                    @php
-                      $destinations = Destination::where(['status' => 1])
-                          ->inRandomOrder()
-                          ->limit(10)
-                          ->get();
-                    @endphp
-                    @foreach ($destinations as $row)
+                    @foreach ($destinationsInLimit as $row)
                       <li class="current-menu-item"><a
                           href="{{ route('destination.detail', ['destination_slug' => $row->slug]) }}/">
                           {{ ucwords($row->page_name) }}
@@ -240,11 +212,12 @@
                       </div>
                       <div class="col-12 col-sm-6 col-md-3 col-lg-4 col-xl-4 mb-3">
                         <ul class="meet-us">
-                          <p>NEET PG</p>
-                          <li><a href="#">NEET PG Question Paper</a></li>
-                          <li><a href="#">NEET PG Exam</a></li>
-                          <li><a href="#">NEET PG 2025 Exam Date</a></li>
-                          <li><a href="#">NEET PG Result</a></li>
+                          <a class="ug-link" href=" https://www.tutelagestudy.com/neet-pg/">NEET PG</a>
+                          @foreach ($examTypesPg as $row)
+                            <li><a
+                                href="{{ route('paper1', ['exam_type_slug' => $row->exam_type_slug, 'exam_type_title_slug' => $row->slug]) }}/">{{ $row->title }}</a>
+                            </li>
+                          @endforeach
                         </ul>
 
                       </div>
@@ -418,12 +391,7 @@
           <div class="mega-menu">
             <div class="mega-menu__column">
               <ul class="mega-menu__list" style="display:block">
-                @php
-                  $destinations = Destination::where(['status' => 1])
-                      ->inRandomOrder()
-                      ->get();
-                @endphp
-                @foreach ($destinations as $row)
+                @foreach ($preferredMbbsCountries as $row)
                   <li class="current-menu-item"><a
                       href="{{ route('destination.detail', ['destination_slug' => $row->slug]) }}/">
                       {{ ucwords($row->page_name) }}
@@ -455,19 +423,17 @@
                             href="{{ route('paper1', ['exam_type_slug' => $row->exam_type_slug, 'exam_type_title_slug' => $row->slug]) }}/">{{ $row->title }}</a>
                         </li>
                       @endforeach
-                      <li><a href="#">NEET 2025 Exam Date</a></li>
-                      <li><a href="#">NEET Admit Card</a></li>
-                      <li><a href="#">NEET Result</a></li>
                     </ul>
 
                   </div>
                   <div class="col-12 col-sm-6 col-md-3 col-lg-4 col-xl-4 mb-3">
                     <ul class="meet-us">
-                      <p>NEET PG</p>
-                      <li><a href="#">NEET PG Question Paper</a></li>
-                      <li><a href="#">NEET PG Exam</a></li>
-                      <li><a href="#">NEET PG 2025 Exam Date</a></li>
-                      <li><a href="#">NEET PG Result</a></li>
+                      <a class="ug-link  " href=" https://www.tutelagestudy.com/neet-pg/">NEET PG</a>
+                      @foreach ($examTypesPg as $row)
+                        <li><a
+                            href="{{ route('paper1', ['exam_type_slug' => $row->exam_type_slug, 'exam_type_title_slug' => $row->slug]) }}/">{{ $row->title }}</a>
+                        </li>
+                      @endforeach
                     </ul>
 
                   </div>
