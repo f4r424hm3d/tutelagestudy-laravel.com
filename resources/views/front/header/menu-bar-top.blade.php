@@ -388,7 +388,7 @@
       <a class="navigation__item" href="https://www.tutelagestudy.com/mbbs-abroad-counselling/">
         <i class="icon-pencil-line" aria-hidden="true"></i><span> Enquire Now</span>
       </a>
-    </div> 
+    </div>
   </div>
   <div class="ps-panel--sidebar" id="search-sidebar">
     <div class="ps-panel__header">
@@ -424,7 +424,8 @@
                       ->get();
                 @endphp
                 @foreach ($destinations as $row)
-                  <li class="current-menu-item"><a href="{{ url($row->slug) }}/">
+                  <li class="current-menu-item"><a
+                      href="{{ route('destination.detail', ['destination_slug' => $row->slug]) }}/">
                       {{ ucwords($row->page_name) }}
                     </a> </li>
                 @endforeach

@@ -299,34 +299,6 @@
     <img data-src="{{ asset('/front/') }}/img/wa.png" width="30" alt="whatsapp image"></a>
 </div>
 
-<!-- <div class="chat-popup" id="myForm">
-  <div class="wa-container"> <button type="button" class="cancel" onClick="closeForm()"><i
-        class="fa fa-close"></i></button>
-    <div class="header">
-      <div class="row">
-        <div class="col-2 pr0"><img data-src="{{ asset('/front/') }}/img/wa.png" alt="whatsapp image"
-            class="img-fluid"> </div>
-        <div class="col-10">
-          <div class="title">Talk to Our Expert Counsellors</div>
-          <div class="text">Hi! Click one of our Counsellors below to chat on <strong>WhatsApp</strong></div>
-        </div>
-      </div>
-    </div>
-    <div class="content">
-      <a class="country-box gurgaon-wapp" target="_blank"
-        href="https://api.whatsapp.com/send?phone=919667667331&amp;text=Hello there!! I want to get counseling by experts. Want to know more information about Study MBBS Abroad | www.tutelagestudy.com">
-        <div class="row align-items-center">
-          <div class="col-2 pr0"><img data-src="{{ asset('/front/') }}/img/flag-india.png" alt="whatsapp now"
-              class="img-fluid"></div>
-          <div class="col-8 pr0"> Chat on whatsapp </div>
-          <div class="col-2 pl0 text-right"><img data-src="{{ asset('/front/') }}/img/wad.png" alt="whatsapp now"
-              width="20"> </div>
-        </div>
-      </a>
-    </div>
-  </div>
-</div> -->
-
 <script>
   function openForm() {
     document.getElementById("myForm").style.display = "block";
