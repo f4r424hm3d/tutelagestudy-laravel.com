@@ -8,7 +8,7 @@
 </script>
   <div id="homepage-1">
     <div class="ps-home-banner ps-home-banner--1 mt-5">
-      <div class="container" style="padding:0px!important">
+      <div class="container">
         <div class="row">
           <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12">
             <h1 class="widget-title text-center td-uppercase">Most Trusted Study MBBS Abroad Consultants in India</h1>
@@ -431,7 +431,7 @@
             </form>
 
           </div> -->
-    
+
 
         </div> 
       </div>
