@@ -255,7 +255,8 @@
   </header>
   <div class="ps-panel--sidebar" id="navigation-mobile">
     <div class="ps-panel__header">
-      <h3>Download Brochure</h3>
+      <h3>Download Brochure</h3>  <a href="#navigation-mobile" class="ps-toggle--sidebar mainclose" id="navigation-mobile"><i class="fa fa-times  " aria-hidden="true"></i></a> 
+
     </div>
     <div class="ps-panel__content">
 
@@ -313,15 +314,15 @@
                       @enderror
                     </div>
                   </div>
-                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl7">
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-5 pl7">
                     <div class="form-group">
-                      <label for="captcha">Enter the CAPTCHA:</label><br>
+                      <!-- <label for="captcha">Enter the CAPTCHA:</label><br> -->
                       <img src="{{ Captcha::src('math') }}" alt="CAPTCHA">
                     </div>
                   </div>
-                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl7">
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-7 pl7">
                     <div class="form-group">
-                      <input type="text" id="captcha" name="text_captcha" class="form-control">
+                      <input type="text" id="captcha" placeholder="Enter the CAPTCHA" name="text_captcha" class="form-control">
                     </div>
                     @error('text_captcha')
                       {!! '<span class="text-danger">' . $message . '</span>' !!}
@@ -359,7 +360,7 @@
       </a>
       <!--<a class="navigation__item ps-toggle--sidebar" href="#search-sidebar" aria-label="Left Align">-->
       <a class="navigation__item" href="https://www.tutelagestudy.com/mbbs-abroad-counselling/">
-        <i class="icon-pencil-line" aria-hidden="true"></i><span> Enquire Now</span>
+        <i class="icon-pencil-line" aria-hidden="true"></i><span> Enquire</span>
       </a>
     </div>
   </div>

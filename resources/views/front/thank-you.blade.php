@@ -5,8 +5,9 @@
 @section('main-section')
 <style>
   .mbbs-abroad-counselling {
-    background: #eee;
-    padding: 60px 15px
+       background: #eee;
+    padding: 100px 15px 60px;
+    text-align: center;
   }
 
   .mbbs-abroad-counselling img {
@@ -15,13 +16,17 @@
     box-shadow: 0px 0px 30px 0px rgb(0 0 0 / 20%);
     margin-bottom: 15px
   }
+  .main-content__checkmark {
+    font-size: 46px;
+    color: green;
+}
 
   .mbbs-abroad-counselling h1 {
-    padding: 0px 0px 10px 0px;
+       padding: 0px 0px 10px 0px;
     margin-top: 0px;
-    margin-bottom: 15px;
-    border-bottom: 1px dashed #cd2122;
-    font-weight: 600
+    margin-bottom: 0px;
+    border-bottom: 0px dashed #cd2122;
+    font-weight: 600;
   }
 
   .mbbs-abroad-counselling select {
