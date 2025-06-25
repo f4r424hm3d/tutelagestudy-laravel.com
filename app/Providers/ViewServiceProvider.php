@@ -12,7 +12,6 @@ class ViewServiceProvider extends ServiceProvider
 {
   public function boot()
   {
-    // This composer will run for the menu-bar-top view (or any view that includes it)
     View::composer('*', function ($view) {
       $preferredMbbsCountries = Destination::where(['status' => 1])->get();
       $destinationsInLimit = Destination::where(['status' => 1])->inRandomOrder()->limit(10)->get();

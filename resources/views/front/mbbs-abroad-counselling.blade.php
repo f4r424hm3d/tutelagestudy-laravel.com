@@ -37,11 +37,11 @@
     }
 
     /* .form-control {
-          background: #fff;
-          padding: 5px 15px;
-          height: 45px;
-          border-radius: 4px
-        } */
+                    background: #fff;
+                    padding: 5px 15px;
+                    height: 45px;
+                    border-radius: 4px
+                  } */
     .pr7 {
       padding-right: 7px
     }
@@ -86,24 +86,24 @@
   <div class="mbbs-abroad-counselling mt-5">
     <div class="row justify-content-center align-items-center">
       <div class="col-12 col-sm-12  col-md-10 col-lg-8 mx-auto">
-        <?php if (session()->has('smsg')) { ?>
-        <div class="alert alert-success alert-outline-coloured alert-dismissible" role="alert">
-          <div class="alert-message">
-            <strong>
-              <?php echo session()->get('smsg'); ?>
-            </strong>
+        @if (session()->has('smsg'))
+          <div class="alert alert-success alert-outline-coloured alert-dismissible" role="alert">
+            <div class="alert-message">
+              <strong>
+                {{ session()->get('smsg') }}
+              </strong>
+            </div>
           </div>
-        </div>
-        <?php } ?>
-        <?php if (session()->has('emsg')) { ?>
-        <div class="alert alert-danger alert-outline-coloured alert-dismissible" role="alert">
-          <div class="alert-message">
-            <strong>
-              <?php echo session()->get('emsg'); ?>
-            </strong>
+        @endif
+        @if (session()->has('emsg'))
+          <div class="alert alert-danger alert-outline-coloured alert-dismissible" role="alert">
+            <div class="alert-message">
+              <strong>
+                {{ session()->get('emsg') }}
+              </strong>
+            </div>
           </div>
-        </div>
-        <?php } ?>
+        @endif
         @error('g-recaptcha-response')
           <span class="text-danger">{{ $message }}</span>
         @enderror
@@ -149,7 +149,7 @@
                 <div class="form-group">
                   <input type="text" class="form-control u-ltr" placeholder="Enter Mobile Number"
                     data-error="Please enter a valid phone number" name="mobile" id="mobile"
-                    value="<?php echo old('mobile'); ?>" required>
+                    value="{{ old('mobile') }}" required>
                   @error('mobile')
                     {!! '<span class="text-danger">' . $message . '</span>' !!}
                   @enderror
@@ -170,8 +170,9 @@
                     <option value="">Preferred MBBS Country</option>
 
                     @foreach ($destinations as $row)
-                      <option value="<?php echo $row->page_name; ?>" <?php echo old('destination') == $row->page_name ? 'Selected' : ''; ?>>
-                        <?php echo $row->page_name; ?>
+                      <option value="{{ $row->page_name }}"
+                        {{ old('destination') == $row->page_name ? 'Selected' : '' }}>
+                        {{ $row->page_name }}
                       </option>
                     @endforeach
                   </select>
@@ -199,7 +200,7 @@
                 <div class="form-group">
                   <div class="ps-checkbox">
                     <input class="form-control " type="checkbox" name="terms" id="terms" required>
-                    <label for="terms">I agree to the <a href="https://www.tutelagestudy.com/term-and-condition/"
+                    <label for="terms">I agree to the <a href="{{ url('/') }}/term-and-condition/"
                         style="color: blue;" target="_blank" rel="noopener noreferrer">terms & conditions</a>
                       .*</label>
                     @error('terms')
@@ -244,7 +245,7 @@
       </div>
       <div class="row">
         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
-          <a href="https://www.tutelagestudy.com/mbbs-in-malaysia/">
+          <a href="{{ url('/') }}/destinations/mbbs-in-malaysia/">
             <div class="ps-post ps-product shadow">
               <div class="ps-post__thumbnail"><img data-src="{{ asset('/front/') }}/img/mbbs-malaysia.jpg"
                   alt=""></div>
@@ -255,7 +256,7 @@
           </a>
         </div>
         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
-          <a href="https://www.tutelagestudy.com/mbbs-in-russia/">
+          <a href="{{ url('/') }}/destinations/mbbs-in-russia/">
             <div class="ps-post ps-product shadow">
               <div class="ps-post__thumbnail"><img data-src="{{ asset('/front/') }}/img/mbbs-russia.jpg"
                   alt=""></div>
@@ -266,7 +267,7 @@
           </a>
         </div>
         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
-          <a href="https://www.tutelagestudy.com/mbbs-in-mauritius/">
+          <a href="{{ url('/') }}/destinations/mbbs-in-mauritius/">
             <div class="ps-post ps-product shadow">
               <div class="ps-post__thumbnail"><img data-src="{{ asset('/front/') }}/img/mbbs-mauritius.jpg"
                   alt=""></div>
@@ -277,7 +278,7 @@
           </a>
         </div>
         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
-          <a href="https://www.tutelagestudy.com/mbbs-in-iran/">
+          <a href="{{ url('/') }}/destinations/mbbs-in-iran/">
             <div class="ps-post ps-product shadow">
               <div class="ps-post__thumbnail"><img data-src="{{ asset('/front/') }}/img/mbbs-iran.jpg" alt="">
               </div>
@@ -288,8 +289,8 @@
           </a>
         </div>
       </div>
-      <div class="pt-20" align="center"><a href="/destinations/" target="_blank" rel="noopener noreferrer"
-          class="button home-btn">Browse All Destinations</a></div>
+      <div class="pt-20" align="center"><a href="{{ url('/destinations/') }}" target="_blank"
+          rel="noopener noreferrer" class="button home-btn">Browse All Destinations</a></div>
     </div>
   </div></br>
   <div class="container">
@@ -300,20 +301,21 @@
           <div class="owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="0"
             data-owl-nav="false" data-owl-dots="false" data-owl-item="4" data-owl-item-xs="2" data-owl-item-sm="2"
             data-owl-item-md="4" data-owl-item-lg="4" data-owl-duration="1000" data-owl-mousedrag="on">
-            <?php foreach ($destinations as $oe) { ?>
-            <div class="ps-product-group">
-              <div class="ps-product--horizontal">
-                <div class="ps-product__thumbnail ml-10" style="background:#fff">
-                  <img data-src="<?php echo asset($oe->thumbnail); ?>" alt="<?php echo $oe->page_name; ?>" loading="lazy">
-                </div>
-                <div class="ps-product__content">
-                  <a class="ps-product__title" href="<?php echo url($oe->slug); ?>/">
-                    <?php echo $oe->page_name; ?>
-                  </a>
+            @foreach ($destinations as $oe)
+              <div class="ps-product-group">
+                <div class="ps-product--horizontal">
+                  <div class="ps-product__thumbnail ml-10" style="background:#fff">
+                    <img data-src="{{ asset($oe->thumbnail) }}" alt="{{ $oe->page_name }}" loading="lazy">
+                  </div>
+                  <div class="ps-product__content">
+                    <a class="ps-product__title"
+                      href="{{ route('destination.detail', ['destination_slug' => $oe->slug]) }}/">
+                      {{ $oe->page_name }}
+                    </a>
+                  </div>
                 </div>
               </div>
-            </div>
-            <?php } ?>
+            @endforeach
           </div>
         </div>
       </aside>
