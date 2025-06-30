@@ -3,45 +3,6 @@
 		@include('front.layouts.static_page_meta_tag')
 @endpush
 @section('main-section')
-		<style>
-				.mb30 {
-						margin-bottom: 30px
-				}
-
-				.img-content {
-						background: #0047ab;
-						text-align: center
-				}
-
-				.img-content .img-responsive {
-						opacity: 1;
-				}
-
-				.img-content:hover .img-responsive {
-						opacity: 0.2;
-				}
-
-				.img-content:hover i {
-						padding-left: 5px;
-						transition: all 0.5s
-				}
-
-				.detail-link {
-						font-size: 18px;
-						color: #fff;
-						line-height: 45px;
-						-webkit-transition: all .3s ease;
-						transition: all .3s ease;
-						text-shadow: 1px 2px 3px #212121;
-				}
-
-				.detail-link i {
-						font-size: 20px;
-						bottom: -2px !important;
-						position: relative;
-						transition: all 0.5s
-				}
-		</style>
 
 		<div class="ps-breadcrumb">
 				<div class="ps-container">
@@ -114,10 +75,10 @@
 				</div>
 
 
-				<div class="ps-about-intro" style="background:#f9f9f9">
+				<div class="ps-about-intro pt-0" style="background:#f9f9f9">
 						<div class="container">
 								<div class="row align-items-center">
-										<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+										<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 mb-4">
 												<div class="ps-section__header" style="max-width:100%; margin:0px">
 														<p>Tutelage Study in Abroad</p>
 														<h2>What do we Stand for?</h2>
@@ -135,11 +96,11 @@
 																support and integrity.</p>
 												</div>
 										</div>
-										<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+										<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 mb-4">
 												<img data-src="{{ asset('/front/') }}/img/what-do-we-stand.jpg" alt="About tutelage study" class="img-fluid">
 										</div>
 
-										<div class="col-lg-12 mb30">
+										<div class="col-lg-12">
 												<div class="ps-section__header" style="max-width:100%; margin:0px">
 														<p class="jsfy">Tutelage Study Vision to engender awareness about quality education across the world,
 																career prospectus of students; deliver exceptional support to our associates.</p>

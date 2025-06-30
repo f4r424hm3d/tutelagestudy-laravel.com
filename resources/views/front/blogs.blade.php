@@ -60,7 +60,7 @@
         </ul>
       </div>
     </div>
-    <section class="ps-store-list" style="background:#eeeeee">
+    <section class="ps-store-list pb-5" style="background:#eeeeee">
       <div class="container">
         <div class="ps-section__wrapper blog-section">
           <section class="ps-store-box">

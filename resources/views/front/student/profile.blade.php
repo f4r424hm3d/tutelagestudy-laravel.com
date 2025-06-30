@@ -7,7 +7,7 @@
 @endpush
 @section('main-section')
   <!-- Content -->
-  <section class="gray py-5 mt-5">
+  <section class="gray py-5 mt-0 mt-md-5">
     <div class="container">
 
       <div class="alltabs">

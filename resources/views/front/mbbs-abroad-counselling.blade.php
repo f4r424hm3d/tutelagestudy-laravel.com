@@ -181,13 +181,13 @@
                   @enderror
                 </div>
               </div>
-              <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+              <div class="col-lg-6 col-md-6 col-sm-6 col-5">
                 <div class="d-flex align-items-center full-captcha  form-group">
-                  <label class="mr-2 mb-0" for="captcha">CAPTCHA:</label>
+                  <!-- <label class="mr-2 mb-0" for="captcha">CAPTCHA:</label> -->
                   <img class="mb-0" src="{{ Captcha::src('math/') }}" alt="CAPTCHA">
                 </div>
               </div>
-              <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+              <div class="col-lg-6 col-md-6 col-sm-6 col-7">
                 <div class="form-group">
                   <input type="text" id="captcha" placeholder="Enter the captcha" name="captcha"
                     class="form-control">

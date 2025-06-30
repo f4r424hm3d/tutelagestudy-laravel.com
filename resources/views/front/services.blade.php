@@ -32,7 +32,7 @@
     <img class="bannerfullsd" src="{{ asset('front/img/services.webp') }}"alt="destinations mbbs abroad">
   </div>
 
-  <section class="ps-store-list">
+  <section class="ps-store-list pt-5">
     <div class="container">
       <div class="ps-section__wrapper">
         <div class="">
