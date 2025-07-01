@@ -3,45 +3,7 @@
   @include('front.layouts.static_page_meta_tag')
 @endpush
 @section('main-section')
-  <style>
-    .mb30 {
-    margin-bottom: 30px
-    }
 
-    .img-content {
-    background: #0047ab;
-    text-align: center
-    }
-
-    .img-content .img-responsive {
-    opacity: 1;
-    }
-
-    .img-content:hover .img-responsive {
-    opacity: 0.2;
-    }
-
-    .img-content:hover i {
-    padding-left: 5px;
-    transition: all 0.5s
-    }
-
-    .detail-link {
-    font-size: 18px;
-    color: #fff;
-    line-height: 45px;
-    -webkit-transition: all .3s ease;
-    transition: all .3s ease;
-    text-shadow: 1px 2px 3px #212121;
-    }
-
-    .detail-link i {
-    font-size: 20px;
-    bottom: -2px !important;
-    position: relative;
-    transition: all 0.5s
-    }
-  </style>
   <div class="ps-breadcrumb">
     <div class="ps-container">
     <ul class="breadcrumb bread-scrollbar">
@@ -88,14 +50,14 @@
       </div>
         <div class="row">
       <?php foreach ($destinations as $row) { ?>
-      <div class="col-md-3 mt-3 mb30">
-      <div class="img-content content-destination">
+      <div class="col-md-3 mb-4">
+      <div class="img-content-one content-destination">
         <a href="{{ url('destinations/' . $row->slug) }}/">
         <div class="image-shows">
           <img data-src="{{ asset($row->thumbnail) }}" alt="{{ $row->page_name }}" style="width:100%">
         </div>
-        <div class="full-links">
-          <span class="detail-link">
+        <div class="full-links-one">
+          <span class="detail-link-one">
           {{ $row->page_name }} <i class="icon-arrow-right"></i>
           </span>
         </div>

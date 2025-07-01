@@ -3,173 +3,7 @@
   @include('front.layouts.author_page_meta_tag')
 @endpush
 @section('main-section')
-  <style>
-    .mb30 {
-      margin-bottom: 30px
-    }
 
-    .img-content {
-      background: #0047ab;
-      text-align: center
-    }
-
-    .img-content .img-responsive {
-      opacity: 1;
-    }
-
-    .img-content:hover .img-responsive {
-      opacity: 0.2;
-    }
-
-    .img-content:hover i {
-      padding-left: 5px;
-      transition: all 0.5s
-    }
-
-    .detail-link {
-      font-size: 18px;
-      color: #fff;
-      line-height: 45px;
-      -webkit-transition: all .3s ease;
-      transition: all .3s ease;
-      text-shadow: 1px 2px 3px #212121;
-    }
-
-    .detail-link i {
-      font-size: 20px;
-      bottom: -2px !important;
-      position: relative;
-      transition: all 0.5s
-    }
-  </style>
-  <style>
-    .nav-tabs>li {
-      z-index: 9 !important;
-      display: inline-block
-    }
-
-    .nav-tabs>li>a {
-      padding: 12px 15px 15px 15px;
-      color: #000000;
-      font-size: 16px;
-      text-transform: uppercase;
-      text-shadow: none;
-      font-weight: normal;
-      position: relative;
-      display: block;
-      border: 1px solid #fff;
-    }
-
-    .nav-tabs>li>a:hover {
-      padding: 12px 15px 12px 15px;
-      border: 1px solid rgb(215, 224, 241);
-      border-bottom: 3px solid #0047ab;
-      background-color: rgb(255, 255, 255);
-      box-shadow: 2px 0px 10px 0px rgb(228 235 242 / 40%);
-      font-size: 16px;
-      border-radius: 4px 4px 0 0;
-    }
-
-    .nav-tabs>li>a.active,
-    .nav-tabs>li>a.active:focus,
-    .nav-tabs>li>a.active:hover {
-      padding: 12px 15px;
-      border: 1px solid rgb(215, 224, 241);
-      border-bottom: 3px solid #0047ab;
-      background-color: rgb(255, 255, 255);
-      box-shadow: 2px 0px 10px 0px rgb(228 235 242 / 40%);
-      font-size: 16px;
-      border-radius: 4px 4px 0 0;
-    }
-
-    .tabs-left>.nav-tabs {
-      width: 100% !important;
-      font-size: 15px;
-      font-weight: 500;
-      margin-bottom: 25px;
-      display: block !important
-    }
-
-    .tab-content>.tab-pane,
-    .pill-content>.pill-pane {
-      display: none;
-    }
-
-    .tab-content>.active,
-    .pill-content>.active {
-      display: flow-root;
-      background: #f5f6fa !important;
-      padding: 25px;
-      border-top: 3px solid #d7e0f1 !important;
-    }
-
-    .tab-content p {
-      font-size: 13px;
-      line-height: 18px;
-      padding: 0px 0px 15px 0p;
-      
-      margin: 0;
-      color: #5c5c5c;
-      font-weight: 400;
-      margin-top: 10px
-    }
-
-    .vertically-scrollbar {
-      overflow-x: auto;
-      overflow-y: none;
-      width: 100%;
-      display: -webkit-box;
-      /* word height: 60px */
-    }
-
-    .vertically-scrollbar::-webkit-scrollbar {
-      height: 5px;
-      background-color: #eee;
-      /* or add it to the track */
-    }
-
-    .vertically-scrollbar::-webkit-scrollbar-thumb {
-      background-color: #0047ab;
-      border-radius: 5px
-    }
-
-    .city-box {
-      background: #fff;
-      width: 100%;
-      height: 100%;
-      border-style: solid;
-      border-width: 1px;
-      border-color: rgb(215, 224, 241);
-      border-radius: 6px;
-      background-color: rgb(255, 255, 255);
-      box-shadow: 2px 0px 10px 0px rgb(228 235 242 / 40%);
-      padding: 15px;
-    }
-
-    .city-name {
-      text-transform: uppercase;
-      font-weight: 500;
-      font-size: 15px;
-      margin-bottom: 10px
-    }
-
-    .city-location {
-      position: relative;
-      font-size: 13px;
-      color: #696969;
-      line-height: 20px;
-      padding: 0 0 0 25px;
-      margin: 0 0 20px 0;
-    }
-
-    .city-location i {
-      position: absolute;
-      top: 3px;
-      left: 0;
-      font-size: 16px;
-      color: #0047ab
-    }
-  </style>
   <div class="ps-breadcrumb">
     <div class="ps-container">
       <ul class="breadcrumb bread-scrollbar">
@@ -209,7 +43,7 @@
         </div>
       </div>
       <div class="container">
-        <ul class="nav nav-tabs vertically-scrollbar" role="tablist">
+        <ul class="nav nav-tabs-mains vertically-scrollbar" role="tablist">
 
           <li role="presentation"><a class="active" href="#blogs" aria-controls="blogs" role="tab" data-toggle="tab"
               aria-expanded="false">Blogs</a></li>
@@ -223,7 +57,7 @@
         </ul>
 
         <!-- Tab panes -->
-        <div class="tab-content latest-info bg-white" style="margin-top:0px">
+        <div class="tab-contentmains latest-info bg-white" style="margin-top:0px">
 
           <div role="tabpanel" class="tab-pane active" id="blogs">
             <div class="row">
