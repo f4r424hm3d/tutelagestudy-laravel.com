@@ -255,7 +255,8 @@
   </header>
   <div class="ps-panel--sidebar" id="navigation-mobile">
     <div class="ps-panel__header">
-      <h3>Download Brochure</h3>  <a href="#navigation-mobile" class="ps-toggle--sidebar mainclose" id="navigation-mobile"><i class="fa fa-times  " aria-hidden="true"></i></a> 
+      <h3>Download Brochure</h3> <a href="#navigation-mobile" class="ps-toggle--sidebar mainclose"
+        id="navigation-mobile"><i class="fa fa-times  " aria-hidden="true"></i></a>
 
     </div>
     <div class="ps-panel__content">
@@ -322,7 +323,8 @@
                   </div>
                   <div class="col-lg-6 col-md-6 col-sm-6 col-7 pl7">
                     <div class="form-group">
-                      <input type="text" id="captcha" placeholder="Enter the CAPTCHA" name="text_captcha" class="form-control">
+                      <input type="text" id="captcha" placeholder="Enter the CAPTCHA" name="text_captcha"
+                        class="form-control">
                     </div>
                     @error('text_captcha')
                       {!! '<span class="text-danger">' . $message . '</span>' !!}
@@ -450,19 +452,6 @@
                   </div>
 
                 </div>
-              </ul>
-            </div>
-          </div>
-        </li>
-        <li class="menu-item-has-children has-mega-menu">
-          <a href="javascript:void()">Downloads</a>
-          <span class="sub-toggle"></span>
-          <div class="mega-menu">
-            <div class="mega-menu__column p-0">
-              <ul class="mega-menu__list">
-                @foreach ($examTypes as $row)
-                  <li class="current-menu-item"><a href="{{ url($row->slug) }}/">{{ $row->title }}</a></li>
-                @endforeach
               </ul>
             </div>
           </div>
