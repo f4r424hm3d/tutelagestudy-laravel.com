@@ -35,11 +35,11 @@
     "@context": "https://schema.org/",
     "@type": "webpage",
     "url": "{{ $page_url }}/",
-    "name": "<?php echo $university->name; ?>",
-    "description": "<?php echo $meta_description; ?>",
+    "name": "{{ $university->name }}",
+    "description": "{{ $meta_description }}",
     "inLanguage": "en-US",
     "keywords": [
-    "<?php echo $meta_keyword; ?>"
+    "{{ $meta_keyword }}"
     ]
   }
 </script>
@@ -209,27 +209,27 @@
                             data-owl-gap="0" data-owl-nav="false" data-owl-dots="false" data-owl-item="4"
                             data-owl-item-xs="2" data-owl-item-sm="2" data-owl-item-md="4" data-owl-item-lg="4"
                             data-owl-duration="1000" data-owl-mousedrag="on">
-                            <?php foreach ($destinations as $oe) { ?>
-                            <div class="ps-product-group">
-                              <div class="ps-product--horizontal">
-                                <div class="ps-product__thumbnail ml-10" style="background:#fff">
-                                  <img data-src="<?php echo asset($oe->thumbnail); ?>" alt="<?php echo $oe->page_name; ?>" loading="lazy">
-                                </div>
-                                <div class="ps-product__content products">
-                                  <a class="ps-product__title" href="<?php echo url($oe->slug); ?>/">
-                                    <?php echo $oe->page_name; ?>
-                                  </a>
+                            @foreach ($destinations as $oe)
+                              <div class="ps-product-group">
+                                <div class="ps-product--horizontal">
+                                  <div class="ps-product__thumbnail ml-10" style="background:#fff">
+                                    <img data-src="{{ asset($oe->thumbnail) }}" alt="{{ $oe->page_name }}"
+                                      loading="lazy">
+                                  </div>
+                                  <div class="ps-product__content products">
+                                    <a class="ps-product__title" href="{{ url('destinations/' . $oe->slug) }}">
+                                      {{ $oe->page_name }}
+                                    </a>
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                            <?php } ?>
+                            @endforeach
                           </div>
                         </div>
                       </aside>
                     </div>
                   @endif
 
-                 
                   @if ($university->author_id != null)
                     <div class="ps-page--product mb-3" style="background-color:white;">
                       <div class="ps-container pt-10" id="topuniversities">
@@ -268,7 +268,7 @@
                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                   <!-- Sidebar ads -->
                   <aside class="ps-widget--account-dashboard">
-                    <h3 class="main-postss" >Blog</h3>
+                    <h3 class="main-postss">Blog</h3>
                     <div class="ps-widget__content" style="background:#fff">
                       <ul>
                         @foreach ($categories as $cat)
