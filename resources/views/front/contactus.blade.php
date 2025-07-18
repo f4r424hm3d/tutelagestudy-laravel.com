@@ -6,39 +6,7 @@
   @include('front.layouts.static_page_meta_tag')
 @endpush
 @section('main-section')
-  <style>
-   
-    .tabs-left>.nav-tabs-one {
-      width: 100% !important;
-      font-size: 15px;
-      font-weight: 500;
-      margin-bottom: 25px;
-      display: block !important
-    }
 
-    .tab-content>.tab-pane,
-    .pill-content>.pill-pane {
-      display: none;
-    }
-
-    .tab-content>.active,
-    .pill-content>.active {
-      display: flow-root;
-      background: #f5f6fa !important;
-      padding: 25px;
-      border-top: 3px solid #d7e0f1 !important;
-    }
-
-    .tab-content p {
-      font-size: 13px;
-      line-height: 18px;
-      padding: 0px 0px 15px 0px;
-      margin: 0;
-      color: #5c5c5c;
-      font-weight: 400;
-      margin-top: 10px
-    }
-  </style>
 
   <div class="ps-breadcrumb">
     <div class="ps-container">
@@ -118,7 +86,7 @@
           </ul>
 
           <!-- Tab panes -->
-          <div class="tab-content latest-info bg-white" style="margin-top:0px">
+          <div class="tab-content more-info latest-info bg-white" style="margin-top:0px">
 
             <?php
           $i = 1;

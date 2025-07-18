@@ -79,232 +79,7 @@
   </script>
 @endpush
 @section('main-section')
-  <style type="text/css">
-    .header-bg1 .col-box {
-      width: 100%;
-      display: block;
-      padding: 10px 0 15px;
-      color: white !important;
-    }
 
-    .header-bg1 .col-box .media-left {
-      padding: 0 10px 0 0;
-      min-width: 145px;
-    }
-
-    .err-clr {
-      color: red !important;
-    }
-
-    .fcolor {
-      color: white !important;
-      margin-bottom: 0px !important
-    }
-
-    .media-body,
-    .media-left,
-    .media-right {
-      display: table-cell;
-      vertical-align: top;
-    }
-
-    .media-left,
-    .media>.pull-left {
-      padding-right: 10px;
-    }
-
-    .get-detail {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-transform: uppercase
-    }
-
-    .get-detail a {
-      margin-left: 10px
-    }
-
-    .modal-content {
-      margin: 18% auto
-    }
-
-    .modal {
-      padding-right: 0px !important;
-      z-index: 13
-    }
-
-    .modal-text-p {
-      padding-top: 20px
-    }
-
-    .modal-backdrop.show {
-      z-index: 12
-    }
-
-    .collegeTabs {
-      z-index: 11
-    }
-
-    .ps-block--categories-tabs .ps-tab-list a span {
-      background: none;
-      -webkit-text-fill-color: #000 !important;
-    }
-
-    .ps-block--categories-tabs .ps-tab-list a:hover {
-      box-shadow: none !important
-    }
-
-    .tbl-cntnt ul {
-      list-style: inside !important;
-      display: flow-root !important;
-      padding-left: 5px !important
-    }
-
-    .tbl-cntnt ul li {
-      width: 50%;
-      float: left;
-      line-height: 24px
-    }
-
-    .tbl-cntnt ul li:before {
-      display: none !important;
-    }
-
-    .tbl-cntnt ul li a {
-      color: #cd2122;
-      margin-left: -7px
-    }
-
-    .tbl-cntnt ul li a:hover {
-      text-decoration: underline;
-      color: #348fd6;
-    }
-
-    .widget_best-sale .widget-title {
-      background: #f8f8f8;
-      padding: 10px;
-      border-bottom: 0px;
-      font-weight: 400;
-      margin-top: 0px;
-    }
-
-    .ps-document h2,
-    h3 {
-      background: #ebeded;
-      padding: 8px;
-      font-size: 20px;
-      font-weight: 400
-    }
-
-    .ps-product__content h3 {
-      background: #f8f8f8;
-      padding: 10px;
-      font-size: 20px;
-      font-weight: 400
-    }
-
-    .ps-section--default h3 {
-      background: #f8f8f8;
-      padding: 10px;
-      font-size: 20px;
-      font-weight: 400
-    }
-
-    .ps-product__box h3 {
-      margin: 12px 0px 0px 0px;
-      font-size: 18px;
-    }
-
-    .ps-product__box ul {
-      padding-left: 20px;
-      list-style: none;
-    }
-
-    .ps-product__box ul li:before {
-      content: "\f046";
-      /* FontAwesome Unicode */
-      font-family: FontAwesome;
-      color: #0047ab;
-      display: inline-block;
-      margin-left: -1.3em;
-      width: 1.3em;
-    }
-
-    .ps-product__box p:last-child {
-      margin-bottom: 0px;
-    }
-
-    .ps-product__box table {
-      margin: 5px 0px;
-    }
-
-    .ps-block--categories-tabs .ps-block__header {
-      padding: 0 30px;
-      overflow-y: hidden;
-    }
-
-    .ps-block--categories-tabs .ps-tab-list a:hover {
-      background: #fff
-    }
-
-    @media screen and (max-width:767px) {
-      .get-detail {
-        display: block;
-        text-align: center !important
-      }
-
-      .get-detail p {
-        margin-bottom: 10px !important
-      }
-
-      .get-detail a {
-        margin-left: 0px
-      }
-
-      .ps-block--store .ps-block__content {
-        padding: 0px 10px 10px 10px
-      }
-
-      .ps-carousel--nav {
-        margin: 0px;
-        padding-bottom: 10px
-      }
-
-      .modal-content {
-        margin: 16% auto
-      }
-
-      .modal-text-p {
-        padding-top: 10px
-      }
-
-      .ps-carousel--nav .owl-nav>* i {
-        font-size: 22px !important
-      }
-
-      .ps-carousel--nav .owl-nav {
-        display: block !important;
-      }
-
-      .tbl-cntnt ul li {
-        width: 100% !important;
-        float: none !important
-      }
-
-      .ps-block--categories-tabs .ps-block__header {
-        padding: 0 30px;
-      }
-
-      .ps-block--categories-tabs .ps-block__header .ps-tab-list a.active {
-        -webkit-text-fill-color: #c01874 !important;
-        border-bottom: 2px solid #c01874 !important;
-      }
-
-      .ps-block--categories-tabs .ps-block__header .ps-tab-list a:hover {
-        border-bottom: 2px solid #c01874 !important;
-      }
-    }
-  </style>
   <div class="ps-breadcrumb">
     <div class="ps-container">
       <ul class="breadcrumb bread-scrollbar">
@@ -322,8 +97,8 @@
           <div class="row">
             <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12 mb-20">
               @if ($exam_page->image_path != null)
-                <div class="ps-product__box">
-                  <div class="ps-document">
+                <div class="ps-product__box _boxs">
+                  <div class="ps-document doc-ps">
                     <center>
                       <img data-src="{{ url($exam_page->image_path) }}" alt="{{ $exam_page->page_name }}"
                         class="img-responsive">
@@ -332,15 +107,15 @@
                 </div>
               @endif
               <br>
-              <div class="pt-0 pb-20 get-detail">
-                <span style="font-size:18px; color:#cd2122;">Get Free NEET Counselling from Experts</span>
+              <div class="pt-0 pb-20 get-detail free-details">
+                <span style="font-size:16px; color:#cd2122;">Get Free NEET Counselling from Experts</span>
                 <a class="ps-btn" onclick="window.location.href='{{ url('neet-counselling') }}/'" href="javascript:void()"
                   rel="nofollow">Enquire Now</a>
               </div>
 
               @if ($exam_page_contents->count() > 1)
-                <div class="ps-product__box mb-20">
-                  <aside class="widget widget_best-sale">
+                <div class="ps-product__box _boxs mb-20">
+                  <aside class="widget widget_best-sale sales">
                     <h3 class="widget-title">
                       Table of Contents
                       <span style="float:right;">
@@ -348,7 +123,7 @@
                         <button class="btn btn-outline-info tglBtn"><i class="fa-solid fa-minus"></i></button>
                       </span>
                     </h3>
-                    <div class="widget__content tbl-cntnt" id="tblCDiv">
+                    <div class="widget__content tbl-cntnt main-cntent" id="tblCDiv">
                       <ol style="list-style:circle;">
                         @foreach ($exam_page_contents as $t)
                           <li><a href="#{{ slugify($t->title) }}">{{ $t->title }}</a></li>
@@ -360,10 +135,10 @@
               @endif
 
               @foreach ($exam_page_contents as $c)
-                <div class="ps-product__box mb-20" id="{{ slugify($c->title) }}">
+                <div class="ps-product__box _boxs mb-20" id="{{ slugify($c->title) }}">
                   <div class="ps-tabs">
                     <div class="ps-tab active">
-                      <div class="ps-document">
+                      <div class="ps-document doc-ps">
                         {!! $c->tab_content !!}
                       </div>
                     </div>
@@ -372,7 +147,7 @@
               @endforeach
 
               @if ($faqs->count() > 0)
-                <div class="ps-product__box mb-20">
+                <div class="ps-product__box _boxs mb-20">
                   <div class="ps-section--default">
                     <div class="ps-section__header" style="margin-bottom:0px; padding-bottom:10px; border:0px">
                       <h3>Faqs</h3>
@@ -415,22 +190,12 @@
                 </script>
               @endif
 
-              <style>
-                /* Styles for the author section */
-                .author {
-                  align-items: center;
-                  margin-bottom: 15px;
-                }
-
-                /* Add remaining styles here */
-              </style>
-
               @if ($exam_page->author_id != null)
                 <div class="ps-page--product" style="background-color:white;">
                   <div class="ps-container pt-10" id="topuniversities">
                     <div class="ps-section--default pb-2" style="margin-bottom:0px">
                       <div class="ps-section__header" style="margin-bottom:0px; padding-bottom:0px; border:0px">
-                        <div class="row author">
+                        <div class="row author check-auth">
                           <div class="col-md-2">
                             <div class="img-div">
                               <img data-src="{{ asset($exam_page->getAuthor->profile_pic_path) }}"
@@ -484,7 +249,7 @@
                 <div class="ps-section__left" style="position:sticky; top:60px; background:#fff">
                   <aside class="ps-widget--account-dashboard">
                     <div class="ps-widget__content">
-                      <div style="font-size:18px; color:#fff; background:#045dab; padding:10px; text-align:center">Other
+                      <div class="main-postss">Other
                         Exam</div>
                       <ul style="max-height:480px; overflow:auto">
                         @foreach ($exams as $row)

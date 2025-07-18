@@ -72,71 +72,14 @@
       color: #fff;
     }
   </style>
-  <style type="text/css">
-    .m-left1 {
-      float: center;
-      width: 100%;
-      margin-right: 25%;
-    }
 
-    .common1 {
-      float: left;
-      margin-right: 5%;
-    }
-
-    .modal-content {
-      margin: 22% auto
-    }
-
-    .modal {
-      padding-right: 0px !important;
-      z-index: 9
-    }
-
-    .modal-text-p {
-      padding-top: 20px
-    }
-
-    .modal-header {
-      padding: 2rem 1rem;
-    }
-
-    @media screen and (max-width:767px) {
-      .modal-content {
-        margin: 20% auto
-      }
-
-      .modal-text-p {
-        padding-top: 10px
-      }
-
-      .mplr0 {
-        padding-left: 0px !important;
-        padding-right: 0px !important;
-      }
-    }
-
-    .ps-form--quick-search a {
-      background-color: #000000;
-      color: #fff;
-      border: none;
-      font-weight: 700;
-      padding: 12px 24px;
-      border-radius: 4px;
-      margin-left: 10px;
-    }
-
-    .ps-form--quick-search a:hover {
-      background-color: #117888;
-    }
-  </style>
   <header class="header header--mobile header--mobile-categories" data-sticky="true">
     <div class="header__filter">
       <button class="ps-shop__filter-mb" id="filter-sidebar"><i class="icon-equalizer"></i><span>Filter</span></button>
     </div>
   </header>
   <div class="ps-breadcrumb">
-    <div class="container-fluid mplr0">
+    <div class="container-fluid ">
       <ul class="breadcrumb bread-scrollbar">
         <li><a href="{{ url('/') }}">Home</a></li>
         @if (session('unifilter_destination'))
@@ -152,7 +95,7 @@
   </div>
   @if (session('unifilter_destination'))
     <!-- top filter start -->
-    <div class="ps-section--default ps-home-blog">
+    <div class="ps-section--defaultd ps-home-blog">
       <div class="container-fluid">
         <div class="row">
           <div class="col-lg-12 col-md-12 col-sm-12">
@@ -160,39 +103,7 @@
               <div class="ps-block__header">
                 <h4>TOP Medical UNIVERSITIES/COLLEGES IN Abroad</h4>
               </div>
-              <style>
-                .ps-section--default {
-                  margin-bottom: 30px !important
-                }
-
-                .filter-hdr {
-                  border: 1px solid #edeff0;
-                  box-shadow: 0 0 5px 0 rgb(207 207 207 / 50%);
-                  background: #fff;
-                  padding: 10px 10px 5px 10px;
-                }
-
-                .filter-hdr a {
-                  display: inline-block;
-                  color: #756d6d;
-                  border-radius: 100px;
-                  padding: 5px 10px 5px 10px;
-                  font-size: 11px;
-                  border: 1px solid;
-                  background-color: #eee;
-                  text-decoration: none;
-                  text-transform: uppercase;
-                  margin-right: 5px;
-                  margin-bottom: 5px
-                }
-
-                .filter-hdr a:hover {
-                  background: #0047ab;
-                  color: #fff;
-                  cursor: pointer;
-                }
-              </style>
-              <div class="row filter-hdr">
+              <div class="row filter-hdrd">
                 @if (session('unifilter_destination'))
                   <a href="javascript:void(0)" onclick="removeAppliedFilter('unifilter_destination')">
                     {{ $currentDestinationdet->page_name }} <span>×</span>
@@ -205,30 +116,8 @@
       </div>
     </div>
   @endif
-  <style>
-    .alert {
-      padding: 20px;
-      background-color: #4CAF50;
-      color: white;
-    }
-
-    .closebtn {
-      margin-left: 15px;
-      color: white;
-      font-weight: bold;
-      float: right;
-      font-size: 22px;
-      line-height: 20px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .closebtn:hover {
-      color: black;
-    }
-  </style>
   <div class="ps-page--product ps-page--product-box pt-0">
-    <div class="container-fluid mplr0">
+    <div class="container-fluid ">
       <div class="row">
         <div class="col-lg-12">
           <div class="ps-page--shop">
@@ -238,7 +127,7 @@
                 <div class="ps-layout__right">
                   <div class="ps-shopping ps-tab-root">
                     <?php if (session()->has('smsg')) { ?>
-                    <div class="alert"> <span class="closebtn"
+                    <div class="alertd"> <span class="closebtnd"
                         onclick="this.parentElement.style.display='none';">&times;</span> <strong>
                         <?php echo session()->get('smsg'); ?>
                       </strong> </div>
@@ -252,7 +141,7 @@
                     <div class="row">
                       <div class="col-md-12">
                         <div class="header__center">
-                          <form class="ps-form--quick-search" method="get">
+                          <form class="ps-form--quick-search search" method="get">
                             <input class="form-control" name="search" type="text" placeholder="Search Universities"
                               value="{{ request('search', '') }}" id="input-search"
                               style="background:#fff; height: 45px;">

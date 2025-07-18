@@ -3,46 +3,8 @@
   @include('front.layouts.static_page_meta_tag')
 @endpush
 @section('main-section')
-  <style>
-    .mb30 {
-      margin-bottom: 30px
-    }
 
-    .img-content {
-      background: #0047ab;
-      text-align: center
-    }
-
-    .img-content .img-responsive {
-      opacity: 1;
-    }
-
-    .img-content:hover .img-responsive {
-      opacity: 0.2;
-    }
-
-    .img-content:hover i {
-      padding-left: 5px;
-      transition: all 0.5s
-    }
-
-    .detail-link {
-      font-size: 18px;
-      color: #fff;
-      line-height: 45px;
-      -webkit-transition: all .3s ease;
-      transition: all .3s ease;
-      text-shadow: 1px 2px 3px #212121;
-    }
-
-    .detail-link i {
-      font-size: 20px;
-      bottom: -2px !important;
-      position: relative;
-      transition: all 0.5s
-    }
-  </style>
-  <div class="ps-breadcrumb">
+  <div class="ps-breadcrumb ">
     <div class="ps-container">
       <ul class="breadcrumb bread-scrollbar">
         <li><a href="{{ url('/') }}/">Home</a></li>
@@ -193,14 +155,14 @@
   <div class="ps-about-intro">
     <div class="container">
       <div class="row text-center">
-        <div class="col-lg-12 col-md-6 col-sm-12 col-xs-12">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <div class="ps-section__header" style="max-width:100%; margin:0px">
             <h2 class="global-size" >Choice of Countries to Study MBBS in Abroad</h2>
             <p class="text-center">Nowadays, Indian students have many options to take and pursue MBBS admission in abroad at a
               very low cost. Following are the few countries where students can study MBBS in abroad:</p>
           </div>
         </div>
-        <div class="col-lg-12 col-md-6 col-sm-12 col-xs-12">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <table class="table table-bordered table-striped">
             <tbody>
               <tr>

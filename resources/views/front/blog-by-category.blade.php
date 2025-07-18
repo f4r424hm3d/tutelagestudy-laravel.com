@@ -4,56 +4,11 @@
 @endpush
 @section('main-section')
   <style>
-  
-
-    .blog-tabs .btn-lg {
-      font-size: 16px;
-      color: #fff;
-      border: 1px solid #fff;
-    }
-
-    .blog-tabs .btn-lg:hover {
-      background-color: #fff;
-      color: #0058ab;
-    }
-
-    .blog-tabs .btn-info {
-      background-color: #fff;
-      color: #0058ab;
-    }
-
-    .ps-blog__content {
-      border: 1px solid #fff;
-      padding: 12px;
-      background-color: #fff;
-      padding-top: 0px;
-      margin-top: 15px;
-      border-radius: 4px;
-    }
-
-    .btn-info-show {
-      border: 2px solid #0058ab;
-      padding: 15px;
-      border-radius: 3px;
-      margin-top: -2px;
-      z-index: 1;
-      position: relative;
-    }
-
-    .btn-info-hide {
-      /* border: 2px solid #ffffff; */
-      padding: 15px;
-      border-radius: 3px;
-      margin-top: -2px;
-      z-index: 1;
-      position: relative;
-    }
-
     .pagination {
       margin-top: 16px;
     }
   </style>
-  <div class="ps-page--single ps-page--vendor">
+  <div class="ps-page--single ps-page--vendor ">
     <div class="ps-breadcrumb">
       <div class="container">
         <ul class="breadcrumb bread-scrollbar">
@@ -68,9 +23,9 @@
         <div class="ps-section__wrapper blog-section">
           <div class="">
             <section class="ps-store-box">
-              <div class="ps-blog__content">
+              <div class="ps-blog__content box-content">
                 <div class="main-blog-ul">
-                <div class="blog-tabs">
+                <div class="blog-tabs click-tabs">
                   <a href="{{ route('blog') }}" class="btn btn-lg btn-outline-info">All Blog
                     <span>({{ $total }})</span></a>
                   @foreach ($categories as $row)
@@ -80,7 +35,7 @@
                   @endforeach
                 </div>
                 </div>
-                <div class="btn-info-show btn-info-hide">
+                <div class="btn-info-show fixshow btn-info-hide hideshow">
                   <h1 class="text-center">Our Latest Blog for MBBS {{ $category->cate_name }}</h1>
                   <div class="row">
                     @foreach ($blogs as $row)

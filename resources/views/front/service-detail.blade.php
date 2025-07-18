@@ -1,4 +1,4 @@
-@extends('front.layouts.main')
+  @extends('front.layouts.main')
 @push('seo_meta_tag')
   @include('front.layouts.dynamic_page_meta_tag')
 @endpush
@@ -31,44 +31,6 @@
   <!-- breadcrumb schema Code End -->
 @endpush
 @section('main-section')
-  <style>
-    .ps-product__box h2 {
-      background: #ebeded;
-      padding: 10px;
-      font-size: 20px;
-      font-weight: 400
-    }
-
-    .ps-product__box h3 {
-      margin: 15px 0px 0px 0px;
-      font-size: 18px;
-    }
-
-    .ps-product__box ul {
-      padding-left: 25px;
-      list-style: none;
-    }
-
-    .ps-product__box ul li:before {
-      content: "\f046";
-      /* FontAwesome Unicode */
-      font-family: FontAwesome;
-      color: #0047ab;
-      display: inline-block;
-      margin-left: -1.3em;
-      /* same as padding-left set on li */
-      width: 1.3em;
-      /* same as padding-left set on li */
-    }
-
-    .ps-product__box p:last-child {
-      margin-bottom: 0px;
-    }
-
-    .ps-product__box table {
-      margin: 5px 0px 10px 0px;
-    }
-  </style>
 
   <div class="ps-breadcrumb">
     <div class="ps-container">
@@ -208,7 +170,7 @@
           </div>
           <hr>
           @if (count($destinations) > 0)
-            <div class="ps-product__box mb-20" id="2">
+            <div class="ps-product__box max-bxx mb-20 " id="2">
               <aside class="widget widget_best-sale" data-mh="dealhot">
                 <h3 class="widget-title">You might be interested in related destination</h3>
                 <div class="widget__content">

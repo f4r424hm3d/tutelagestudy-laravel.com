@@ -3,20 +3,7 @@
 @include('front.layouts.static_page_meta_tag')
 @endpush
 @section('main-section')
-<style>
-  .ps-vendor-banner h2 {
-    font-weight: 300;
-    text-shadow: 0 4px 0 rgb(0 0 0 / 24%)
-  }
 
-  .ps-post__thumbnail img {
-    height: 245px;
-  }
-
- 
-
-
-</style>
 <div class="ps-page--single ps-page--vendor">
   <div class="ps-breadcrumb">
     <div class="ps-container">
@@ -26,9 +13,8 @@
       </ul>
     </div>
   </div>
-<!-- <div class="ps-vendor-banner bg--cover" data-background="https://www.educationmalaysia.in/assets/uploadFiles/study/IMG_20221210_133900.jpg" style="background:url(https://www.educationmalaysia.in/assets/uploadFiles/study/IMG_20221210_133900.jpg)">
-  </div> -->
-  <div class="ps-vendor-banner py-0">
+
+  <div class="ps-vendor-banner ban py-0">
     <img class="bannerfullsd" src="{{ asset('front/img/services.webp') }}"alt="destinations mbbs abroad">
   </div>
 
@@ -43,7 +29,7 @@
                 <?php foreach ($services as $row) { ?>
                   <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 mb-4">
                     <a href="<?php echo url('services/' . $row->slug); ?>/"  class="ps-post ps-product shadow mb-0 h-100 ">
-                      <div class="ps-post__thumbnail">
+                      <div class="ps-post__thumbnail img-nail">
                         <img data-src="<?php echo asset($row->imgpath); ?>" alt="<?php echo $row->headline; ?>">
                       </div>
                       <div class="ps-post__content" style="border:0px; padding:20px 25px">

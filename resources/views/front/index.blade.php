@@ -7,7 +7,7 @@
     {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why do Indian students opt for MBBS abroad?","acceptedAnswer":{"@type":"Answer","text":"There are a limited number of seats available for medical students in India. In addition, the fees charged by private medical colleges in India are much higher than that of many medical institutes in other countries."}},{"@type":"Question","name":"What are the basic eligibility criteria for MBBS abroad?","acceptedAnswer":{"@type":"Answer","text":"Candidates must achieve a minimum of 50% in Class 12 examinations with Physics, Chemistry, and Biology as the main subjects. SC/ST/OBC candidates need to have a minimum of 45%. Candidates must also clear NEET."}},{"@type":"Question","name":"Is NEET required for studying MBBS abroad?","acceptedAnswer":{"@type":"Answer","text":"Yes, all medical universities around the world need applicants from India to clear the National Eligibility cum Entrance Test (NEET) and present the eligibility certificate. Some universities also have their own entrance exams in addition to NEET."}},{"@type":"Question","name":"What is the duration of MBBS abroad?","acceptedAnswer":{"@type":"Answer","text":"Most MBBS courses around the world typically last for 5 years. However, some medical institutions and universities also expect their medical students to spend an additional year as an intern in their internship programs."}},{"@type":"Question","name":"What is the standard fee structure for MBBS courses abroad?","acceptedAnswer":{"@type":"Answer","text":"While the tuition fees for different medical institutes vary, most medical universities charge tuition fees between $20,000 and $50,000 for a 5+1 year course. Hostel accommodation and food expenses account for separate expenses."}}]}
   </script>
   <div id="homepage-1">
-    <div class="ps-home-banner ps-home-banner--1 mt-5">
+    <div class="ps-home-banner ps-home-banner--1 mt-0 mt-md-5">
     <div class="container">
       <div class="row">
       <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12">
@@ -74,7 +74,7 @@
     </div>
     </div>
   </div>
-  <section class="onlineCoaching pb-0">
+  <section class="onlineCoaching ">
     <div class="container">
     <div class="row">
       <div class="col-xl-5 col-lg-5 col-md-5 col-sm-6 col-12"><img data-src="{{ asset('/front/') }}/img/who-we-are.webp"
@@ -168,79 +168,9 @@
     </div>
     </div>
   </section>
-  <style>
-    .servicebox {
-    text-align: center;
-    }
 
-    .servicebox .service-icon {
-    display: inline-block;
-    width: 90px;
-    height: 90px;
-    background-color: #1d4d7a;
-    margin-bottom: 20px;
-    }
 
-    .servicebox .service-icon i.fa {
-    line-height: 90px;
-    color: #ffffff;
-    font-size: 35px;
-    transition: all 0.3s ease 0s;
-    }
-
-    .servicebox:hover .service-icon i.fa {
-    transform: rotateY(180deg);
-    }
-
-    .servicebox .title {
-    color: #333;
-    border-bottom: 1px solid #1d4d7a;
-    display: block;
-    line-height: 30px;
-    margin: 0 auto 20px;
-    padding-bottom: 20px;
-    position: relative;
-    text-align: center;
-    text-transform: uppercase;
-    }
-
-    .servicebox .title:before,
-    .servicebox .title:after {
-    background: #1d4d7a;
-    border-radius: 100%;
-    bottom: -5px;
-    content: "";
-    height: 10px;
-    margin: 0 -5px 0 0;
-    position: absolute;
-    right: 50%;
-    transition: all 0.4s ease 0s;
-    width: 10px;
-    }
-
-    .servicebox .title:before {
-    left: 50%;
-    margin: 0 0 0 -5px;
-    }
-
-    .servicebox:hover .title:before {
-    left: 100%;
-    }
-
-    .servicebox:hover .title:after {
-    right: 100%;
-    }
-
-    .servicebox .description {
-    color: grey;
-    padding: 0 15px;
-    font: 14px;
-    line-height: 27px;
-    transition: all 300ms ease 0s;
-    }
-  </style>
-
-  <section class="onlineCoaching py-0" style="background-color:#e5e6eb">
+  <section class="onlineCoaching main-ser py-0" style="background-color:#e5e6eb">
     <div class="container" style="padding:30px 15px">
     <h1 class="main-h1 text-center mb-2 global-size">Why Study MBBS Abroad?</h1>
     <p class="text-center">MBBS abroad offers access to top-ranked Medical Universities, affordable tuition fee,
@@ -346,7 +276,7 @@
   <section class="onlineCoaching" style="background:#e5e6eb">
     <div class="container">
     <div class="row">
-      <div class="col-12 col-sm-12 col-md-12 col-lg-6 mb-4">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-5 mb-4">
       <div class="all-uss">
         <h2 class="main-h1">Why Contact Us?</h2>
         <p class="jsfy">
@@ -381,7 +311,77 @@
         </div>
       </div>
       </div>
-    
+      <div class="col-12 col-sm-12 col-md-12 col-lg-7 mb-4">
+      <div class="all-success">
+        <h2 class="title-mbbs mb-4">TutelageStudy's Proud MBBS Achievers</h2>
+        <div class="row">
+        <div class="col-12 col-sm-6 col-lg-6 mb-4 ">
+          <div class="card more-students">
+          <!-- <div class="main-ims">
+            <img src="/img/main-title.webp" class="card-img-top" alt="...">
+          </div> -->
+          <div class="card-body">
+            <h5 class="card-title main-flex"> <i class="fa fa-user" aria-hidden="true"></i>
+ Dr. Ananya Sharma</h5>
+            <p class="card-text ads mb-0 main-flex"><i class="fa fa-graduation-cap" aria-hidden="true"></i>
+ Kazakh Russian Medical University</p>
+            <p class="card-text ads main-flex "> <i class="fa fa-check-square" aria-hidden="true"></i>
+ NEET Qualified | 2024 Intake</p>
+<p class="card-text">Tutelage Study helped me choose the right university within budget. The admission process was seamless.
+ </p>
+          </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-6 mb-4 ">
+          <div class="card more-students">
+          <!-- <div class="main-ims">
+            <img src="/img/main-title.webp" class="card-img-top" alt="...">
+          </div> -->
+          <div class="card-body">
+            <h5 class="card-title main-flex"><i class="fa fa-user" aria-hidden="true"></i>Dr Riyaz Siddaki</h5>
+            <p class="card-text main-flex ads"><i class="fa fa-graduation-cap" aria-hidden="true"></i>Eurasian Medical University, Kazakhstan </p>
+            <p class="card-text ">Choosing Eurasian Medical University through Tutelage Study was the best decision of my life. From university selection to visa and academic support, the team guided me like family. Today, I proudly wear the white coat as Dr. Riyaz, all thanks to their dedication and expert counselling.
+ </p>
+            
+
+          </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-6 mb-4 ">
+          <div class="card more-students">
+          <!-- <div class="main-ims">
+            <img src="/img/main-title.webp" class="card-img-top" alt="...">
+          </div> -->
+          <div class="card-body">
+            <h5 class="card-title main-flex"><i class="fa fa-user" aria-hidden="true"></i> Dr. Rohit Verma</h5>
+            <p class="card-text ads mb-0 main-flex"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Karshi State Medical University, Uzbekistan</p>
+            <p class="card-text ads main-flex"><i class="fa fa-check-square" aria-hidden="true"></i>  NEET 2023 | 100% Documentation Support</p>
+<p class="card-text">Thanks to the Tutelage counsellors for the timely visa support and expert university comparison.
+ </p>
+          </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-6 mb-4 ">
+          <div class="card more-students">
+          <!-- <div class="main-ims">
+            <img src="/img/main-title.webp" class="card-img-top" alt="...">
+          </div> -->
+          <div class="card-body">
+            <h5 class="card-title main-flex"><i class="fa fa-user" aria-hidden="true"></i> Dr. Mehak Singh</h5>
+            <p class="card-text ads mb-0 main-flex "><i class="fa fa-graduation-cap" aria-hidden="true"></i> Zermed University, Uzbekistan</p>
+            <p class="card-text ads  main-flex"><i class="fa fa-check-square" aria-hidden="true"></i>
+ Low Budget | English Medium Program</p>
+<p class="card-text">Working with Tutelage Study has been seamless; their dedication and accuracy help students confidently begin their journey at SEGi University.
+ </p>
+          </div>
+          </div>
+        </div>
+       
+     
+        </div>
+      </div>
+
+      </div>
     </div>
   </section>
   <div class="ps-page--product  pb-40" style="background:#e5e6eb;">

@@ -27,7 +27,7 @@
         </div>
         <div class="modal-header">
           <h5 class="modal-title">Study MBBS Abroad Most Affordable MBBS Package
-            <p class="goldden"> ( UpTo 100% Scholarship by Gyandeep NGO )
+            <p class="goldden"> (Gyandeep NGO-Endorsed MBBS Scholarships Available)
             </p>
             <div class="bouncediv"><i class="fa fa-phone mr-2" aria-hidden="true"></i>
               Free Counselling
