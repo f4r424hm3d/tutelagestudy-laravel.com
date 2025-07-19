@@ -37,7 +37,15 @@
   </script>
 @endpush
 @section('main-section')
+  <style>
+    .content-div {
+      scroll-margin-top: 100px !important;
+    }
 
+    .content-div-child {
+      scroll-margin-top: 100px !important;
+    }
+  </style>
   <div class="ps-breadcrumb">
     <div class="ps-container">
       <ul class="breadcrumb bread-scrollbar">
@@ -126,7 +134,7 @@
                     <div class="ps-product__box main-bx mb-20">
                       <div class="ps-tabs">
                         <div class="ps-tab active">
-                          <div class="ps-document ps-check" id="{{ slugify($row->title) }}">
+                          <div class="ps-document ps-check content-div" id="{{ slugify($row->title) }}">
                             {!! $row->tab_content !!}
                           </div>
                           @if ($row->childContents->count() > 0)
@@ -135,7 +143,7 @@
                             @endphp
                             @foreach ($row->childContents as $child)
                               {{-- CHILD CONTENT START HERE --}}
-                              <div class="ps-document ps-check" id="{{ slugify($child->title) }}">
+                              <div class="ps-document ps-check content-div-child" id="{{ slugify($child->title) }}">
                                 {!! $child->tab_content !!}
                               </div>
                               {{-- CHILD CONTENT END HERE --}}
