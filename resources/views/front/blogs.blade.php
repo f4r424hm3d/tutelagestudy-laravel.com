@@ -42,8 +42,7 @@
                         <div class="ps-post__thumbnail">
                           <a class="ps-post__overlay"
                             href="{{ route('blog.detail', ['category_slug' => $row->getCategory->slug, 'slug' => $row->slug]) }}/"></a><img
-                            data-src="{{ asset($row->imgpath) }}" alt="{{ $row->headline }}"
-                            style="height: 150px;!important">
+                            src="{{ cdn($row->imgpath) }}" alt="{{ $row->headline }}" style="height: 150px;!important">
                         </div>
                         <div class="ps-post__content">
                           <div class="ps-post__meta"><a

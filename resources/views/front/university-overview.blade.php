@@ -138,8 +138,8 @@
                               <h2 id="{{ $row->slug }}">{{ $row->title }}</h2>
                               @if ($row->imgpath != null)
                                 <center>
-                                  <img data-src="{{ asset($row->image_path) }}" alt="<?php echo $row->h; ?>"
-                                    class="img-responsive" loading="lazy" style="padding: 10px">
+                                  <img src="{{ cdn($row->image_path) }}" alt="<?php echo $row->h; ?>" class="img-responsive"
+                                    loading="lazy" style="padding: 10px">
                                 </center>
                               @endif
                               <p>{!! $row->description !!}</p>
@@ -213,8 +213,7 @@
                               <div class="ps-product-group">
                                 <div class="ps-product--horizontal">
                                   <div class="ps-product__thumbnail ml-10" style="background:#fff">
-                                    <img data-src="{{ asset($oe->thumbnail) }}" alt="{{ $oe->page_name }}"
-                                      loading="lazy">
+                                    <img src="{{ cdn($oe->thumbnail) }}" alt="{{ $oe->page_name }}" loading="lazy">
                                   </div>
                                   <div class="ps-product__content products">
                                     <a class="ps-product__title" href="{{ url('destinations/' . $oe->slug) }}">
@@ -237,7 +236,7 @@
                           <div class="ps-section__header" style="margin-bottom:0px; padding-bottom:0px; border:0px">
                             <div class="row author new-author">
                               <div class="col-md-2">
-                                <div class="img-div"> <img data-src="<?php echo asset($university->getAuthor->profile_pic_path); ?>" alt="<?php echo $university->getAuthor->name; ?>"><i
+                                <div class="img-div"> <img src="<?php echo cdn($university->getAuthor->profile_pic_path); ?>" alt="<?php echo $university->getAuthor->name; ?>"><i
                                     class="fa fa-check-circle"></i>
                                 </div>
                               </div>

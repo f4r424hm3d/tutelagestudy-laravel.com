@@ -3,7 +3,6 @@
   @include('front.layouts.author_page_meta_tag')
 @endpush
 @section('main-section')
-
   <div class="ps-breadcrumb">
     <div class="ps-container">
       <ul class="breadcrumb bread-scrollbar">
@@ -19,8 +18,7 @@
         <div class="row">
           <div class="col-md-3">
             <div class="ufull-div">
-            <img data-src="{{ asset($author->profile_pic_path) }}" alt="{{ $author->name }}"
-            class="rounded img-fluid">
+              <img src="{{ cdn($author->profile_pic_path) }}" alt="{{ $author->name }}" class="rounded img-fluid">
             </div>
           </div>
           <div class="col-md-9">
@@ -65,8 +63,8 @@
                 <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-12 ">
                   <div class="ps-post ps-product">
                     <div class="ps-post__thumbnail">
-                      <a class="ps-post__overlay" href="{{ url($row->slug) }}/"></a><img
-                        data-src="{{ asset($row->imgpath) }}" alt="{{ $row->headline }}" style="height: 150px;!important">
+                      <a class="ps-post__overlay" href="{{ url($row->slug) }}/"></a><img src="{{ cdn($row->imgpath) }}"
+                        alt="{{ $row->headline }}" style="height: 150px;!important">
                     </div>
                     <div class="ps-post__content">
                       <div class="ps-post__meta"><a
@@ -92,7 +90,7 @@
                 <div class="ps-post ps-product">
                   <div class="ps-post__thumbnail">
                     <a class="ps-post__overlay" href="<?php echo url($row->slug); ?>/"></a>
-                    <img data-src="<?php echo asset($row->thumbnail); ?>" alt="<?php echo $row->page_name; ?>" style="height: 150px;!important">
+                    <img src="<?php echo cdn($row->thumbnail); ?>" alt="<?php echo $row->page_name; ?>" style="height: 150px;!important">
                   </div>
                   <div class="ps-post__content">
                     <a class="ps-post__title" href="<?php echo url($row->slug); ?>/" title="<?php echo $row->page_name; ?>"
@@ -112,7 +110,7 @@
                 <div class="ps-post ps-product">
                   <div class="ps-post__thumbnail">
                     <a class="ps-post__overlay" href="<?php echo url($row->getExam->exam_slug . '/' . $row->slug); ?>/"></a>
-                    <img data-src="<?php echo asset($row->image_path); ?>" alt="<?php echo $row->page_name; ?>" style="height: 150px;!important">
+                    <img src="<?php echo cdn($row->image_path); ?>" alt="<?php echo $row->page_name; ?>" style="height: 150px;!important">
                   </div>
                   <div class="ps-post__content">
                     <div class="ps-post__meta">

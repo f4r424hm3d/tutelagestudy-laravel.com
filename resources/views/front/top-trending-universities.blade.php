@@ -14,7 +14,7 @@
                 <div class="ps-block__content">
                   <div class="ps-block__author">
 
-                    <img data-src="{{ url($row->imgpath) }}" alt="{{ $row->name }}"
+                    <img src="{{ url($row->imgpath) }}" alt="{{ $row->name }}"
                       style="height:100px!important;border:1px solid #0047ab;" loading="lazy">
 
                   </div>

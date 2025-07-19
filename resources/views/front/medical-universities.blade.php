@@ -161,8 +161,7 @@
                               <div class="ps-product ps-product--wide">
                                 <div
                                   class="ps-product__thumbnail universitylogo text-center col-md-2 col-sm-12 col-xs-12">
-                                  <img data-src="{{ asset($key->imgpath) }}" alt="{{ $key->name }} Logo"
-                                    loading="lazy">
+                                  <img src="{{ cdn($key->imgpath) }}" alt="{{ $key->name }} Logo" loading="lazy">
                                 </div>
                                 <div class="ps-product__container col-md-7 col-sm-12 col-xs-12">
                                   <div class="ps-product__content">
@@ -195,8 +194,8 @@
                           <div class="row">
                             <div class="col-12">
                               <div class="header">
-                              <span>No data found</span>
-                            </div>
+                                <span>No data found</span>
+                              </div>
                             </div>
                           </div>
                         </div>

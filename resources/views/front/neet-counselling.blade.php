@@ -3,7 +3,6 @@
   @include('front.layouts.form_page_meta_tag')
 @endpush
 @section('main-section')
-
   <div class="neet-counselling neet mt-md-5">
     <div class="row justify-content-center ">
       <div class="col-md-6 mx-auto">
@@ -111,7 +110,8 @@
               </div>
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl7">
                 <div class="form-group">
-                  <input type="text" id="captcha" name="captcha" placeholder="Enter the CAPTCHA" class="form-control">
+                  <input type="text" id="captcha" name="captcha" placeholder="Enter the CAPTCHA"
+                    class="form-control">
                 </div>
                 @error('captcha')
                   {!! '<span class="text-danger">' . $message . '</span>' !!}
@@ -160,7 +160,7 @@
         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
           <a href="https://www.tutelagestudy.com/mbbs-in-malaysia/">
             <div class="ps-post ps-product shadow">
-              <div class="ps-post__thumbnail"><img src="{{ asset('/front/') }}/img/mbbs-malaysia.jpg" alt="">
+              <div class="ps-post__thumbnail"><img src="{{ cdn('/front/') }}/img/mbbs-malaysia.jpg" alt="">
               </div>
               <div class="ps-post__content" style="border:0px; padding:12px 0px; background:#fff">
                 <div class="ps-post__title text-center">MBBS IN MALAYSIA</div>
@@ -171,7 +171,7 @@
         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
           <a href="https://www.tutelagestudy.com/mbbs-in-russia/">
             <div class="ps-post ps-product shadow">
-              <div class="ps-post__thumbnail"><img src="{{ asset('/front/') }}/img/mbbs-russia.jpg" alt="">
+              <div class="ps-post__thumbnail"><img src="{{ cdn('/front/') }}/img/mbbs-russia.jpg" alt="">
               </div>
               <div class="ps-post__content" style="border:0px; padding:12px 0px; background:#fff">
                 <div class="ps-post__title text-center">MBBA IN RUSSIA</div>
@@ -182,7 +182,7 @@
         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
           <a href="https://www.tutelagestudy.com/mbbs-in-mauritius/">
             <div class="ps-post ps-product shadow">
-              <div class="ps-post__thumbnail"><img src="{{ asset('/front/') }}/img/mbbs-mauritius.jpg" alt="">
+              <div class="ps-post__thumbnail"><img src="{{ cdn('/front/') }}/img/mbbs-mauritius.jpg" alt="">
               </div>
               <div class="ps-post__content" style="border:0px; padding:12px 0px; background:#fff">
                 <div class="ps-post__title text-center">MBBS IN MAURITUS</div>
@@ -193,7 +193,7 @@
         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
           <a href="https://www.tutelagestudy.com/mbbs-in-iran/">
             <div class="ps-post ps-product shadow">
-              <div class="ps-post__thumbnail"><img src="{{ asset('/front/') }}/img/mbbs-iran.jpg" alt="">
+              <div class="ps-post__thumbnail"><img src="{{ cdn('/front/') }}/img/mbbs-iran.jpg" alt="">
               </div>
               <div class="ps-post__content" style="border:0px; padding:12px 0px; background:#fff">
                 <div class="ps-post__title text-center">MBBS IN IRAN</div>

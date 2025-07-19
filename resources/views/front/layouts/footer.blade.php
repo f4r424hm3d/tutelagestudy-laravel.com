@@ -153,7 +153,7 @@
   <a href="https://api.whatsapp.com/send?phone=919667667331&amp;text=Hello there!! I want to get counseling by experts. Want to know more information about Study MBBS Abroad | www.tutelagestudy.com"
     class="open-button" onClick="openForm()">
     <span>Need any help<br><small>Chat with us</small></span>
-    <img data-src="{{ asset('/front/') }}/img/wa.png" width="30" alt="whatsapp image"></a>
+    <img src="{{ cdn('/front/') }}/img/wa.png" width="30" alt="whatsapp image"></a>
 </div>
 <script>
   function openForm() {
@@ -182,19 +182,19 @@
   <ul>
     <li>
       <a href="tel:+919818560331" title="Call Us" class="call-us-click">
-        <div><img data-src="{{ asset('/front/') }}/img/icons/phone.png" alt="call image icon"></div> Call Us
+        <div><img src="{{ cdn('/front/') }}/img/icons/phone.png" alt="call image icon"></div> Call Us
       </a>
     </li>
     <li>
       <a onclick="window.location.href='<?php echo $finalUrl; ?>/'" href="javascript:void()" title="Free Counselling"
         class="free-counselling-click">
-        <div> <img data-src="{{ asset('/front/') }}/img/icons/counselling.png" alt="Counselling image icon"> </div>
+        <div> <img src="{{ cdn('/front/') }}/img/icons/counselling.png" alt="Counselling image icon"> </div>
         <span>Free</span> Counselling
       </a>
     </li>
     <li>
       <a href="mailto:studytutelage@gmail.com" title="Email Us"class="email-us-click">
-        <div><img data-src="{{ asset('/front/') }}/img/icons/email.png" alt="email image icon"></div> Email Us
+        <div><img src="{{ cdn('/front/') }}/img/icons/email.png" alt="email image icon"></div> Email Us
       </a>
     </li>
   </ul>
@@ -211,7 +211,7 @@
 </script>
 <!-- table javscript added in all pages end -->
 
-<script>
+{{-- <script>
   document.addEventListener("DOMContentLoaded", function() {
     var lazyImages = document.querySelectorAll('[data-src]');
 
@@ -229,7 +229,7 @@
       observer.observe(lazyImage);
     });
   });
-</script>
+</script> --}}
 
 </body>
 

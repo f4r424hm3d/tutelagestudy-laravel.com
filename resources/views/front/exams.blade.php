@@ -89,7 +89,7 @@
                     <div class="ps-post ps-product">
                       <div class="ps-post__thumbnail">
                         <a class="ps-post__overlay" href="<?php echo url($exam->exam_slug . '/' . $row->slug); ?>/"></a>
-                        <img data-src="<?php echo asset($row->image_path); ?>" alt="<?php echo $row->page_name; ?>" style="height: 150px;!important">
+                        <img src="<?php echo cdn($row->image_path); ?>" alt="<?php echo $row->page_name; ?>" style="height: 150px;!important">
                       </div>
                       <div class="ps-post__content">
                         <div class="ps-post__meta">

@@ -3,7 +3,6 @@
   @include('front.layouts.static_page_meta_tag')
 @endpush
 @section('main-section')
-
   <div class="ps-breadcrumb ">
     <div class="ps-container">
       <ul class="breadcrumb bread-scrollbar">
@@ -35,8 +34,8 @@
         </div>
         <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
           <div class="profilesabout">
-          <img data-src="{{ asset('/front/') }}/img/mbbs-in-abroad.webp"
-          alt="MBBS Abroad for indian students" class="img-fluid">
+            <img src="{{ cdn('/front/') }}/img/mbbs-in-abroad.webp" alt="MBBS Abroad for indian students"
+              class="img-fluid">
           </div>
         </div>
         <!--<div class="col-lg-12">-->
@@ -66,11 +65,10 @@
           </div>
         </div>
         <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
-        <div class="profilesabout">
-        <img
-            data-src="{{ asset('/front/') }}/img/choose-best-country.jpg" class="img-fluid"
-            alt="mbbs in abroad for indian students">
-        </div>  
+          <div class="profilesabout">
+            <img src="{{ cdn('/front/') }}/img/choose-best-country.jpg" class="img-fluid"
+              alt="mbbs in abroad for indian students">
+          </div>
         </div>
       </div>
     </div>
@@ -101,7 +99,7 @@
         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
           <a href="{{ url('/') }}/destinations/mbbs-in-malaysia/">
             <div class="ps-post ps-product shadow">
-              <div class="ps-post__thumbnail"><img data-src="{{ asset('/front/') }}/img/mbbs-malaysia.jpg"
+              <div class="ps-post__thumbnail"><img src="{{ cdn('/front/') }}/img/mbbs-malaysia.jpg"
                   alt="MBBS in Malaysia"></div>
               <div class="ps-post__content" style="border:0px; padding:12px 0px; background:#fff">
                 <div class="ps-post__title text-center">MBBS IN MALAYSIA</div>
@@ -112,8 +110,7 @@
         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
           <a href="{{ url('/') }}/destinations/mbbs-in-russia/">
             <div class="ps-post ps-product shadow">
-              <div class="ps-post__thumbnail"><img data-src="{{ asset('/front/') }}/img/mbbs-russia.jpg"
-                  alt="MBBS in Russia">
+              <div class="ps-post__thumbnail"><img src="{{ cdn('/front/') }}/img/mbbs-russia.jpg" alt="MBBS in Russia">
               </div>
               <div class="ps-post__content" style="border:0px; padding:12px 0px; background:#fff">
                 <div class="ps-post__title text-center">MBBS IN RUSSIA</div>
@@ -124,7 +121,7 @@
         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
           <a href="{{ url('/') }}/destinations/mbbs-in-mauritius/">
             <div class="ps-post ps-product shadow">
-              <div class="ps-post__thumbnail"><img data-src="{{ asset('/front/') }}/img/mbbs-mauritius.jpg"
+              <div class="ps-post__thumbnail"><img src="{{ cdn('/front/') }}/img/mbbs-mauritius.jpg"
                   alt="MBBS in Mauritius"></div>
               <div class="ps-post__content" style="border:0px; padding:12px 0px; background:#fff">
                 <div class="ps-post__title text-center">MBBS IN MAURITUS</div>
@@ -136,7 +133,7 @@
           <a href="{{ url('/') }}/destinations/mbbs-in-iran/">
             <div class="ps-post ps-product shadow">
               <div class="ps-post__thumbnail">
-                <img data-src="{{ asset('/front/') }}/img/mbbs-iran.jpg" alt="MBBS in Iran">
+                <img src="{{ cdn('/front/') }}/img/mbbs-iran.jpg" alt="MBBS in Iran">
               </div>
               <div class="ps-post__content" style="border:0px; padding:12px 0px; background:#fff">
                 <div class="ps-post__title text-center">MBBS IN IRAN</div>
@@ -157,8 +154,9 @@
       <div class="row text-center">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <div class="ps-section__header" style="max-width:100%; margin:0px">
-            <h2 class="global-size" >Choice of Countries to Study MBBS in Abroad</h2>
-            <p class="text-center">Nowadays, Indian students have many options to take and pursue MBBS admission in abroad at a
+            <h2 class="global-size">Choice of Countries to Study MBBS in Abroad</h2>
+            <p class="text-center">Nowadays, Indian students have many options to take and pursue MBBS admission in
+              abroad at a
               very low cost. Following are the few countries where students can study MBBS in abroad:</p>
           </div>
         </div>
@@ -206,7 +204,7 @@
       <div class="row text-center">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <div class="ps-section__header" style="max-width:100%; margin:0px">
-            <h2 class="global-size"  >Country List of Top Medical Universities for MBBS Abroad</h2>
+            <h2 class="global-size">Country List of Top Medical Universities for MBBS Abroad</h2>
             <p class="jsfy">There are a number of best quality education universities in foreign countries. The MCI
               approved medical universities have their ranks. Here are some of the universities from different countries:
             </p>

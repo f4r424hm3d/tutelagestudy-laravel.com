@@ -59,7 +59,7 @@
                   <!-- header background section ends -->
                   <div class="ps-product__box main-bx mb-20">
                     <div class="ps-document ps-check pt-10">
-                      <img data-src="<?php echo url($c_destination->image_path); ?>" alt="<?php echo $c_destination->page_name; ?>" class="img-responsive">
+                      <img src="<?php echo url($c_destination->image_path); ?>" alt="<?php echo $c_destination->page_name; ?>" class="img-responsive">
                     </div>
                     <div class="ps-tabs">
                       <div class="ps-tab active">
@@ -212,7 +212,7 @@
                           <div class="row author main-auther">
                             <div class="col-md-2">
                               <div class="img-div">
-                                <img data-src="<?php echo url($author->profile_pic_path); ?>" alt="<?php echo $author->name; ?>"><i
+                                <img src="<?php echo url($author->profile_pic_path); ?>" alt="<?php echo $author->name; ?>"><i
                                   class="fa fa-check-circle"></i>
                               </div>
                             </div>
@@ -277,7 +277,7 @@
                       data-owl-item-lg="3" data-owl-duration="1000" data-owl-mousedrag="on">
                       <?php foreach ($testimonials as $test) { ?>
                       <div class="ps-block--testimonial pt-3 pb-3 pl-5 pr-5">
-                        <div class="ps-block__header"><img data-src="<?php echo $test->image != null ? asset($test->image) : asset('front/user-tesimonial-photo.jpg'); ?>"
+                        <div class="ps-block__header"><img src="<?php echo $test->image != null ? asset($test->image) : asset('front/user-tesimonial-photo.jpg'); ?>"
                             alt="Study <?php echo $c_destination->page_name; ?> Testimonial man icon"></div>
                         <div class="ps-block__content pt-5 pb-3">
                           <i class="icon-quote-close"></i>
@@ -300,18 +300,18 @@
               <div class="ps-section--vendor  pt-0">
                 <div class="container-fluid">
                   <div class="ps-section__header pb-0">
-                    <div class="gallery-title" >Photo Gallery</div>
+                    <div class="gallery-title">Photo Gallery</div>
                     <div class=" gallery-detials">
                       <?php echo $c_destination->page_name; ?> Practical Training, Classrooms, Indian Food, Hostel, Indian
                       Students
-                      </div>
+                    </div>
                   </div>
                   <div class="row">
                     @foreach ($photos as $row)
                       <div class="col-md-3 col-sm-6 col-6 mb-4">
                         <div class="main-gallery-shows">
-                          <img data-src="{{ asset($row->image_path) }}" alt="<?php echo $row->title; ?>"
-                          class="img-fluid rounded-lg" style="height: 100%;">
+                          <img src="{{ cdn($row->image_path) }}" alt="<?php echo $row->title; ?>"
+                            class="img-fluid rounded-lg" style="height: 100%;">
                         </div>
                       </div>
                     @endforeach

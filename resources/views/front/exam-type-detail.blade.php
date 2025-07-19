@@ -112,7 +112,7 @@
                 <h2 class="title-neet">{{ ucfirst($examType->title) }}</h2>
 
                 {{-- <div>
-                  <img data-src="{{ asset($examType->imgpath) }}" alt="{{ ucfirst($examType->headline) }}" class="mb-20"
+                  <img src="{{ cdn($examType->imgpath) }}" alt="{{ ucfirst($examType->headline) }}" class="mb-20"
                     width="1000">
                 </div> --}}
                 {{-- <br>

@@ -25,15 +25,15 @@
             <section class="ps-store-box">
               <div class="ps-blog__content box-content">
                 <div class="main-blog-ul">
-                <div class="blog-tabs click-tabs">
-                  <a href="{{ route('blog') }}" class="btn btn-lg btn-outline-info">All Blog
-                    <span>({{ $total }})</span></a>
-                  @foreach ($categories as $row)
-                    <a href="{{ route('blog.category', ['category_slug' => $row->slug]) }}"
-                      class="btn btn-lg {{ $row->id == $category->id ? 'btn-info' : 'btn-outline-info' }}">{{ $row->cate_name }}
-                      <span>{{ $row->blogs->count() }}</span></a>
-                  @endforeach
-                </div>
+                  <div class="blog-tabs click-tabs">
+                    <a href="{{ route('blog') }}" class="btn btn-lg btn-outline-info">All Blog
+                      <span>({{ $total }})</span></a>
+                    @foreach ($categories as $row)
+                      <a href="{{ route('blog.category', ['category_slug' => $row->slug]) }}"
+                        class="btn btn-lg {{ $row->id == $category->id ? 'btn-info' : 'btn-outline-info' }}">{{ $row->cate_name }}
+                        <span>{{ $row->blogs->count() }}</span></a>
+                    @endforeach
+                  </div>
                 </div>
                 <div class="btn-info-show fixshow btn-info-hide hideshow">
                   <h1 class="text-center">Our Latest Blog for MBBS {{ $category->cate_name }}</h1>
@@ -44,8 +44,7 @@
                           <div class="ps-post__thumbnail">
                             <a class="ps-post__overlay"
                               href="{{ route('blog.detail', ['category_slug' => $row->getCategory->slug, 'slug' => $row->slug]) }}/"></a><img
-                              data-src="{{ asset($row->imgpath) }}" alt="{{ $row->headline }}"
-                              style="height: 150px;!important">
+                              src="{{ cdn($row->imgpath) }}" alt="{{ $row->headline }}" style="height: 150px;!important">
                           </div>
                           <div class="ps-post__content">
                             <div class="ps-post__meta"><a

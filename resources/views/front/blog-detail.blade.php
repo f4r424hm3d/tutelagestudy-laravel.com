@@ -117,7 +117,7 @@
                   </p>
                 </div>
                 <div>
-                  <img data-src="{{ asset($blog->imgpath) }}" alt="{{ ucfirst($blog->headline) }}" class="mb-20"
+                  <img src="{{ cdn($blog->imgpath) }}" alt="{{ ucfirst($blog->headline) }}" class="mb-20"
                     width="1000">
                 </div>
                 <br>
@@ -210,7 +210,6 @@
                               type="button" data-toggle="collapse" data-target="#collapseTwo{{ $row->id }}"
                               aria-expanded="false" aria-controls="collapseTwo{{ $row->id }}">
                               {{ $row->question }}
-                              {{-- <img src="/front/img/down.png" class="img-down" alt=""> --}}
                               <i style="font-size:24px" class="fa">&#xf107;</i>
                             </button>
                           </h5>
@@ -239,8 +238,7 @@
                       <div class="row author">
                         <div class="col-md-2">
                           <div class="img-div">
-                            <img data-src="{{ asset($blog->getAuthor->profile_pic_path) }}"
-                              alt="{{ $blog->getAuthor->name }}">
+                            <img src="{{ cdn($blog->getAuthor->profile_pic_path) }}" alt="{{ $blog->getAuthor->name }}">
                             <i class="fa fa-check-circle"></i>
                           </div>
                         </div>

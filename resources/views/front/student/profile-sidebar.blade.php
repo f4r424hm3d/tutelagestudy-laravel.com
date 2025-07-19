@@ -1,7 +1,7 @@
 <div class="col-lg-3 col-md-3">
   <div class="dashboard-navbar">
     <div class="d-user-avater">
-      <img data-src="{{ url('front/') }}/assets/img/user.jpg" class="img-fluid avater" alt="">
+      <img src="{{ url('front/') }}/assets/img/user.jpg" class="img-fluid avater" alt="">
       <a href="javascript:void(0)" id="upload">
         <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect x="1" y="1" width="28" height="28" rx="14" fill="#FFE9D3"></rect>

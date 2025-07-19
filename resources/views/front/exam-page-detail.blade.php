@@ -100,7 +100,7 @@
                 <div class="ps-product__box _boxs">
                   <div class="ps-document doc-ps">
                     <center>
-                      <img data-src="{{ url($exam_page->image_path) }}" alt="{{ $exam_page->page_name }}"
+                      <img src="{{ url($exam_page->image_path) }}" alt="{{ $exam_page->page_name }}"
                         class="img-responsive">
                     </center>
                   </div>
@@ -198,7 +198,7 @@
                         <div class="row author check-auth">
                           <div class="col-md-2">
                             <div class="img-div">
-                              <img data-src="{{ asset($exam_page->getAuthor->profile_pic_path) }}"
+                              <img src="{{ cdn($exam_page->getAuthor->profile_pic_path) }}"
                                 alt="{{ $exam_page->getAuthor->name }}">
                               <i class="fa fa-check-circle"></i>
                             </div>

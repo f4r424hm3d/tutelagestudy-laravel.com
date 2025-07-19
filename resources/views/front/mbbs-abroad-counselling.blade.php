@@ -3,7 +3,6 @@
   @include('front.layouts.form_page_meta_tag')
 @endpush
 @section('main-section')
-
   <div class="mbbs-abroad-counselling counsel mt-5">
     <div class="row justify-content-center align-items-center">
       <div class="col-12 col-sm-12  col-md-10 col-lg-8 mx-auto">
@@ -168,8 +167,8 @@
         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
           <a href="{{ url('/') }}/destinations/mbbs-in-malaysia/">
             <div class="ps-post ps-product shadow">
-              <div class="ps-post__thumbnail"><img data-src="{{ asset('/front/') }}/img/mbbs-malaysia.jpg"
-                  alt=""></div>
+              <div class="ps-post__thumbnail"><img src="{{ cdn('/front/') }}/img/mbbs-malaysia.jpg" alt="">
+              </div>
               <div class="ps-post__content" style="border:0px; padding:12px 0px; background:#fff">
                 <div class="ps-post__title text-center">MBBS IN MALAYSIA</div>
               </div>
@@ -179,8 +178,8 @@
         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
           <a href="{{ url('/') }}/destinations/mbbs-in-russia/">
             <div class="ps-post ps-product shadow">
-              <div class="ps-post__thumbnail"><img data-src="{{ asset('/front/') }}/img/mbbs-russia.jpg"
-                  alt=""></div>
+              <div class="ps-post__thumbnail"><img src="{{ cdn('/front/') }}/img/mbbs-russia.jpg" alt="">
+              </div>
               <div class="ps-post__content" style="border:0px; padding:12px 0px; background:#fff">
                 <div class="ps-post__title text-center">MBBS IN RUSSIA</div>
               </div>
@@ -190,8 +189,8 @@
         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
           <a href="{{ url('/') }}/destinations/mbbs-in-mauritius/">
             <div class="ps-post ps-product shadow">
-              <div class="ps-post__thumbnail"><img data-src="{{ asset('/front/') }}/img/mbbs-mauritius.jpg"
-                  alt=""></div>
+              <div class="ps-post__thumbnail"><img src="{{ cdn('/front/') }}/img/mbbs-mauritius.jpg" alt="">
+              </div>
               <div class="ps-post__content" style="border:0px; padding:12px 0px; background:#fff">
                 <div class="ps-post__title text-center">MBBS IN MAURITUS</div>
               </div>
@@ -201,7 +200,7 @@
         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
           <a href="{{ url('/') }}/destinations/mbbs-in-iran/">
             <div class="ps-post ps-product shadow">
-              <div class="ps-post__thumbnail"><img data-src="{{ asset('/front/') }}/img/mbbs-iran.jpg" alt="">
+              <div class="ps-post__thumbnail"><img src="{{ cdn('/front/') }}/img/mbbs-iran.jpg" alt="">
               </div>
               <div class="ps-post__content" style="border:0px; padding:12px 0px; background:#fff">
                 <div class="ps-post__title text-center">MBBS IN IRAN</div>
@@ -226,7 +225,7 @@
               <div class="ps-product-group">
                 <div class="ps-product--horizontal">
                   <div class="ps-product__thumbnail ml-10" style="background:#fff">
-                    <img data-src="{{ asset($oe->thumbnail) }}" alt="{{ $oe->page_name }}" loading="lazy">
+                    <img src="{{ cdn($oe->thumbnail) }}" alt="{{ $oe->page_name }}" loading="lazy">
                   </div>
                   <div class="ps-product__content">
                     <a class="ps-product__title"
