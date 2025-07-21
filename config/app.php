@@ -222,7 +222,7 @@ return [
 
 
   'cdn' => array(
-    "tutelagestudypratik7july.b-cdn.net" => ""
+    "tutelage21july.b-cdn.net" => ""
   ),
 
 ];
