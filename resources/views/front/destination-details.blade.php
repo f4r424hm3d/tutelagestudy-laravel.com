@@ -310,7 +310,7 @@
                   <div class="ps-section__header pb-0">
                     <div class="gallery-title">Photo Gallery</div>
                     <div class=" gallery-detials">
-                      {{ $c_destination->page_name }} Practical Training, Classrooms, Indian Food, Hostel, Indian
+                      <?php echo $c_destination->page_name; ?> Practical Training, Classrooms, Indian Food, Hostel, Indian
                       Students
                     </div>
                   </div>
