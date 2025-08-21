@@ -221,8 +221,8 @@ return [
   ])->toArray(),
 
 
-  // 'cdn' => array(
-  //   "tutelagestudyashish08.b-cdn.net" => ""
-  // ),
+  'cdn' => array(
+    "tutelage21auggarvit.b-cdn.net" => ""
+  ),
 
 ];
