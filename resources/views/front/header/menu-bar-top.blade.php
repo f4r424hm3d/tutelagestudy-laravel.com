@@ -93,6 +93,7 @@
             </div>
             <div class="col-12 text-center">
               <button type="submit" class="btn btn-primary  popup-submit" id="submitBtn">Submit</button>
+               <p class="submit-more text-center mt-2 mb-0">( Submit once – no more popups after that! )</p>
             </div>
           </form>
 

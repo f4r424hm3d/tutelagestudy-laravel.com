@@ -151,7 +151,7 @@
 
 <div class="whats-float">
   <a href="https://api.whatsapp.com/send?phone=919667667331&amp;text=Hello there!! I want to get counseling by experts. Want to know more information about Study MBBS Abroad | www.tutelagestudy.com"
-    class="open-button" onClick="openForm()">
+    class="whatsapp_click_tute" onClick="openForm()">
     <span>Need any help<br><small>Chat with us</small></span>
     <img src="{{ cdn('/front/') }}/img/wa.png" width="30" alt="whatsapp image"></a>
 </div>
