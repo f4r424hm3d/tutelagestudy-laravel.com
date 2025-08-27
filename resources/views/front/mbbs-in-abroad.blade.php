@@ -166,7 +166,7 @@
               <tr>
                 <td><a href="{{ url('/') }}/destinations/mbbs-in-malaysia/">MBBS in Malaysia</a></td>
                 <td><a href="{{ url('/') }}/destinations/mbbs-in-kazakhstan/">MBBS in Kyrgyzstan</a></td>
-                <td><a href="{{ url('/') }}/destinations/study-mbbs-in-philippines/">MBBS in Philippines</a></td>
+                <td><a href="{{ url('/') }}/destinations/mbbs-in-philippines/">MBBS in Philippines</a></td>
               </tr>
               <tr>
                 <td><a href="{{ url('/') }}/destinations/mbbs-in-bangladesh/">MBBS in Bangladesh</a></td>
