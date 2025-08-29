@@ -93,7 +93,7 @@
             </div>
             <div class="col-12 text-center">
               <button type="submit" class="btn btn-primary  popup-submit" id="submitBtn">Submit</button>
-               <p class="submit-more text-center mt-2 mb-0">( Submit once – no more popups after that! )</p>
+              <p class="submit-more text-center mt-2 mb-0">( Submit once – no more popups after that! )</p>
             </div>
           </form>
 
@@ -504,6 +504,7 @@
       });
     });
   </script>
+
   <script>
     const studentLoggedIn = {{ session()->has('studentLoggedIn') ? 'true' : 'false' }};
     const excludedPaths = [
@@ -512,9 +513,13 @@
       '/mbbs-abroad-counselling/',
       '/neet-counselling/'
     ];
+
     $(document).ready(function() {
       const modalKey = 'counselling_modal_status';
+      const closeCountKey = 'counselling_modal_close_count';
+      const neverShowKey = 'counselling_modal_never_show';
       const currentPath = window.location.pathname;
+
       // Do not show modal on excluded pages
       if (excludedPaths.includes(currentPath)) {
         return;
@@ -525,41 +530,49 @@
       }
 
       let modalStatus = localStorage.getItem(modalKey);
+      let neverShow = localStorage.getItem(neverShowKey) === 'true';
+      let closeCount = parseInt(localStorage.getItem(closeCountKey) || '0');
 
-      if (!studentLoggedIn && modalStatus !== 'submitted') {
+      // Show modal only if user is NOT logged in, NOT marked "never show", NOT submitted, and closed less than 3 times
+      if (!studentLoggedIn && !neverShow && modalStatus !== 'submitted' && closeCount < 3) {
         if (modalStatus !== 'closed') {
-          openModal();
+          // Show modal after 10 seconds delay
+          setTimeout(openModal, 10000);
         } else {
           const lastClosed = localStorage.getItem('counselling_modal_closed_time');
           if (lastClosed) {
             const diff = Date.now() - parseInt(lastClosed);
-            // if (diff > 5 * 60 * 1000) {
-            //   openModal();
-            // }
-            if (diff > 1 * 1000) {
-              openModal();
+            if (diff > 10000) {
+              setTimeout(openModal, 10000);
             }
           }
         }
       }
 
+      // When modal is closed, track close count
       $('#exampleModalCenter').on('hidden.bs.modal', function() {
         if (localStorage.getItem(modalKey) !== 'submitted') {
           localStorage.setItem(modalKey, 'closed');
           localStorage.setItem('counselling_modal_closed_time', Date.now().toString());
+
+          let closeCount = parseInt(localStorage.getItem(closeCountKey) || '0') + 1;
+          localStorage.setItem(closeCountKey, closeCount.toString());
+
+          // After 3 closes, never show modal again
+          if (closeCount >= 3) {
+            localStorage.setItem(neverShowKey, 'true');
+          }
         }
       });
 
-
-
+      // Form submission via AJAX
       $('#counsellingForm').on('submit', function(e) {
         e.preventDefault();
 
         // Disable the button and show loading
         let submitBtn = $('#submitBtn');
         submitBtn.prop('disabled', true).html('Submitting...');
-
-        $('.text-danger').text(''); // Clear previous errors
+        $('.text-danger').text('');
 
         $.ajax({
           url: "{{ route('counselling.submit') }}/",
@@ -571,12 +584,10 @@
           success: function(res) {
             if (res.success) {
               localStorage.setItem(modalKey, 'submitted');
-              // window.location.href = "{{ url('thank-you') }}";
               window.location.href = "{{ url('confirmed-email') }}" + "?" + res.seg;
             }
           },
           error: function(xhr) {
-            // Re-enable the button
             submitBtn.prop('disabled', false).html('Submit');
 
             if (xhr.status === 422) {
@@ -590,6 +601,5 @@
           }
         });
       });
-
     });
   </script>
